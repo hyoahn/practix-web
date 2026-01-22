@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practix - The Flight Simulator for SAT Math</title>
+    <meta name="description" content="Stop studying. Start training. Practix is the interactive SAT Math simulator designed for elite students aiming for 800.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background gradient -->
+    <div class="page-bg"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <img src="logo.png" alt="Practix">
+        </div>
+        <a href="#waitlist" class="btn-primary">Join Beta</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-badge">
+            <span class="dot"></span>
+            <span>Now accepting Class of 2026</span>
+        </div>
+        <h1>The Flight Simulator<br>for <span class="gradient-text">SAT Math</span></h1>
+        <p>Stop studying static PDFs. Train with interactive simulations designed for elite students aiming for 800.</p>
+        <div class="hero-buttons">
+            <a href="#demo" class="btn-primary">Try Demo</a>
+            <a href="#features" class="btn-secondary">Learn More</a>
+        </div>
+    </section>
+
+    <!-- VRE Demo Section -->
+    <section id="demo" class="vre-showcase">
+        <div class="vre-window">
+            <div class="vre-header">
+                <div class="window-controls">
+                    <span class="control-close"></span>
+                    <span class="control-min"></span>
+                    <span class="control-max"></span>
+                </div>
+                <span class="vre-title">problem_21.js</span>
+                <div style="width: 52px;"></div>
+            </div>
+            <div class="vre-canvas-container" id="vre-container">
+                <div id="vre-placeholder" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Click "Run" to start the simulation</p>
+                    <div style="width: 32px; height: 32px; border: 3px solid var(--border); border-top-color: var(--accent-primary); border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                </div>
+            </div>
+            <div class="vre-footer">
+                <button class="btn-primary" onclick="runDemo()">Run Simulation</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="bento-section">
+        <div class="section-header">
+            <h2>Why students choose Practix</h2>
+            <p>Built for the top 1% who want more than just practice problems.</p>
+        </div>
+        <div class="bento-grid">
+            <div class="bento-card featured">
+                <div class="bento-icon">🎮</div>
+                <h3>Weekly Boss Levels</h3>
+                <p>New challenge every week. Compete globally. Track your streak and climb the leaderboard.</p>
+            </div>
+            <div class="bento-card">
+                <div class="bento-icon">⚡</div>
+                <h3>Real-Time VRE</h3>
+                <p>Interactive graphs you can manipulate. See math, don't just read it.</p>
+            </div>
+            <div class="bento-card">
+                <div class="bento-icon">🎯</div>
+                <h3>Precision Training</h3>
+                <p>Focus on the hardest problems. No fluff, just what you need for 800.</p>
+            </div>
+            <div class="bento-card">
+                <div class="bento-icon">🌍</div>
+                <h3>Global Rankings</h3>
+                <p>See how you stack up against 2M+ students worldwide.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Practix. Train different.</p>
+    </footer>
+
+    <!-- Tally.so Script -->
+    <script src="https://tally.so/widgets/embed.js"></script>
+
+    <script src="vre.js"></script>
+    <script>
+        // Connect waitlist buttons to Tally popup
+        // REPLACE 'YOUR_FORM_ID' with your actual Tally form ID
+        const TALLY_FORM_ID = '68KX6k';
+
+        document.querySelectorAll('a[href="#waitlist"]').forEach(btn => {
+            btn.onclick = (e) => {
+                e.preventDefault();
+                Tally.openPopup(TALLY_FORM_ID, {
+                    width: 400,
+                    emoji: {
+                        text: '👋',
+                        animation: 'wave'
+                    }
+                });
+            }
+        });
+    </script>
+    <style>
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</body>
+</html>

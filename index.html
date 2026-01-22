@@ -22,121 +22,209 @@
         <a href="#waitlist" class="btn-primary">Join Beta</a>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-badge">
-            <span class="dot"></span>
-            <span>Now accepting Class of 2026</span>
-        </div>
-        <h1>The Flight Simulator<br>for <span class="gradient-text">SAT Math</span></h1>
-        <p>Stop studying static PDFs. Train with interactive simulations designed for elite students aiming for 800.</p>
-        <div class="hero-buttons">
-            <a href="#demo" class="btn-primary">Try Demo</a>
-            <a href="#features" class="btn-secondary">Learn More</a>
-        </div>
-    </section>
-
-    <!-- VRE Demo Section -->
-    <section id="demo" class="vre-showcase">
-        <div class="vre-window">
-            <div class="vre-header">
-                <div class="window-controls">
-                    <span class="control-close"></span>
-                    <span class="control-min"></span>
-                    <span class="control-max"></span>
+    <!-- Compact Hero Section -->
+    <section class="hero-compact">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    <span>Now accepting Class of 2026</span>
                 </div>
-                <span class="vre-title">problem_21.js</span>
-                <div style="width: 52px;"></div>
-            </div>
-            <div class="vre-canvas-container" id="vre-container">
-                <div id="vre-placeholder" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Click "Run" to start the simulation</p>
-                    <div style="width: 32px; height: 32px; border: 3px solid var(--border); border-top-color: var(--accent-primary); border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                <h1>The Flight Simulator for <span class="gradient-text">SAT Math</span></h1>
+                <p>Train with interactive simulations designed for elite students aiming for 800.</p>
+                <div class="hero-buttons">
+                    <a href="#waitlist" class="btn-primary">Join Beta</a>
+                    <a href="#demo" class="btn-secondary" onclick="switchTab('demo')">Try Demo</a>
                 </div>
             </div>
-            <div class="vre-footer">
-                <button class="btn-primary" onclick="runDemo()">Run Simulation</button>
-            </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="bento-section">
-        <div class="section-header">
-            <h2>Why students choose Practix</h2>
-            <p>Built for the top 1% who want more than just practice problems.</p>
-        </div>
-        <div class="bento-grid">
-            <div class="bento-card featured">
-                <div class="bento-icon">🎮</div>
-                <h3>Weekly Boss Levels</h3>
-                <p>New challenge every week. Compete globally. Track your streak and climb the leaderboard.</p>
+    <!-- Tabbed Content Section -->
+    <section class="tabs-section">
+        <div class="tabs-container">
+            <!-- Tab Navigation -->
+            <div class="tab-nav">
+                <button class="tab-btn active" data-tab="resources">Official Resources</button>
+                <button class="tab-btn" data-tab="strategy">Study Strategy</button>
+                <button class="tab-btn" data-tab="faq">FAQ</button>
+                <button class="tab-btn" data-tab="demo">Try Demo</button>
             </div>
-            <div class="bento-card">
-                <div class="bento-icon">⚡</div>
-                <h3>Real-Time VRE</h3>
-                <p>Interactive graphs you can manipulate. See math, don't just read it.</p>
-            </div>
-            <div class="bento-card">
-                <div class="bento-icon">🎯</div>
-                <h3>Precision Training</h3>
-                <p>Focus on the hardest problems. No fluff, just what you need for 800.</p>
-            </div>
-            <div class="bento-card">
-                <div class="bento-icon">🌍</div>
-                <h3>Global Rankings</h3>
-                <p>See how you stack up against 2M+ students worldwide.</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- Resource Guide Section -->
-    <section id="resources" class="resources-section">
-        <div class="section-header">
-            <h2>Official SAT Math Practice Tests</h2>
-            <p>Every free official resource you need — no paid prep required.</p>
-        </div>
-        <div class="resources-grid">
-            <div class="resource-card primary">
-                <div class="resource-icon">📱</div>
-                <h3>Bluebook App</h3>
-                <p class="resource-count">6 Full Practice Tests</p>
-                <ul class="resource-list">
-                    <li>Official College Board app</li>
-                    <li>Exact digital SAT format</li>
-                    <li>Adaptive difficulty like real test</li>
-                    <li>Instant score reports</li>
-                </ul>
-                <a href="https://bluebook.collegeboard.org/" target="_blank" class="resource-link">Download Free →</a>
+            <!-- Tab Content -->
+            <div class="tab-content-wrapper">
+                <!-- Resources Tab -->
+                <div class="tab-content active" id="resources">
+                    <div class="resources-grid">
+                        <div class="resource-card primary">
+                            <div class="resource-icon">📱</div>
+                            <h3>Bluebook App</h3>
+                            <p class="resource-count">6 Full Practice Tests</p>
+                            <ul class="resource-list">
+                                <li>Official College Board app</li>
+                                <li>Exact digital SAT format</li>
+                                <li>Adaptive difficulty like real test</li>
+                                <li>Instant score reports</li>
+                            </ul>
+                            <a href="https://bluebook.collegeboard.org/" target="_blank" class="resource-link">Download Free →</a>
+                        </div>
+                        <div class="resource-card">
+                            <div class="resource-icon">🎓</div>
+                            <h3>Khan Academy</h3>
+                            <p class="resource-count">Unlimited Practice</p>
+                            <ul class="resource-list">
+                                <li>Personalized practice</li>
+                                <li>Video explanations</li>
+                                <li>Syncs with College Board</li>
+                                <li>Track your progress</li>
+                            </ul>
+                            <a href="https://www.khanacademy.org/digital-sat" target="_blank" class="resource-link">Start Practicing →</a>
+                        </div>
+                        <div class="resource-card">
+                            <div class="resource-icon">📄</div>
+                            <h3>College Board PDFs</h3>
+                            <p class="resource-count">4 Linear Practice Forms</p>
+                            <ul class="resource-list">
+                                <li>Non-adaptive format</li>
+                                <li>Good for targeted review</li>
+                                <li>Printable worksheets</li>
+                                <li>Answer explanations</li>
+                            </ul>
+                            <a href="https://satsuite.collegeboard.org/digital/digital-practice-preparation" target="_blank" class="resource-link">Download PDFs →</a>
+                        </div>
+                    </div>
+                    <div class="resource-tip">
+                        <span class="tip-icon">💡</span>
+                        <p><strong>Pro tip:</strong> Start with 1 Bluebook test as diagnostic. Save the last 2 tests for the final 2 weeks before your exam.</p>
+                    </div>
+                </div>
+
+                <!-- Strategy Tab -->
+                <div class="tab-content" id="strategy">
+                    <div class="strategy-grid">
+                        <div class="strategy-card">
+                            <div class="strategy-number">1</div>
+                            <h3>Take a Diagnostic Test</h3>
+                            <p>Use 1 Bluebook test to find your baseline score. Don't study beforehand - this shows your true starting point.</p>
+                            <span class="strategy-time">Week 1</span>
+                        </div>
+                        <div class="strategy-card">
+                            <div class="strategy-number">2</div>
+                            <h3>Analyze Your Mistakes</h3>
+                            <p>Review EVERY wrong answer. Categorize by topic: Algebra, Geometry, Advanced Math. Find your weak areas.</p>
+                            <span class="strategy-time">Week 1-2</span>
+                        </div>
+                        <div class="strategy-card">
+                            <div class="strategy-number">3</div>
+                            <h3>Targeted Practice</h3>
+                            <p>Focus 80% of study time on weak topics. Use Khan Academy for specific skills. Quality over quantity.</p>
+                            <span class="strategy-time">Week 2-6</span>
+                        </div>
+                        <div class="strategy-card">
+                            <div class="strategy-number">4</div>
+                            <h3>Take Practice Tests</h3>
+                            <p>One full test every 1-2 weeks. Always under real conditions: timed, no breaks, no phone.</p>
+                            <span class="strategy-time">Week 3-7</span>
+                        </div>
+                        <div class="strategy-card">
+                            <div class="strategy-number">5</div>
+                            <h3>Review & Adjust</h3>
+                            <p>After each test, analyze mistakes again. Are the same errors repeating? Adjust your focus areas.</p>
+                            <span class="strategy-time">Ongoing</span>
+                        </div>
+                        <div class="strategy-card">
+                            <div class="strategy-number">6</div>
+                            <h3>Final Week</h3>
+                            <p>Light review only. Take 1 final practice test 5-7 days before. Rest before exam day. Trust your prep.</p>
+                            <span class="strategy-time">Week 8</span>
+                        </div>
+                    </div>
+                    <div class="resource-tip">
+                        <span class="tip-icon">⏰</span>
+                        <p><strong>Recommended timeline:</strong> 8 weeks of prep for 100+ point improvement. 4 weeks minimum for meaningful gains.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Tab -->
+                <div class="tab-content" id="faq">
+                    <div class="faq-grid">
+                        <div class="faq-card">
+                            <h3>How many practice tests should I take?</h3>
+                            <p><strong>4-6 full tests</strong> is ideal. More isn't always better - quality review matters more than quantity. Each test takes 2+ hours, so budget 4+ hours including review.</p>
+                        </div>
+                        <div class="faq-card">
+                            <h3>Are unofficial practice tests worth it?</h3>
+                            <p><strong>Mostly no.</strong> Official College Board tests match the real exam. Unofficial tests often have different difficulty, timing, or question styles that can build bad habits.</p>
+                        </div>
+                        <div class="faq-card">
+                            <h3>What's the difference between Bluebook and Khan?</h3>
+                            <p><strong>Bluebook</strong> = Full practice tests (exam simulation). <strong>Khan Academy</strong> = Individual skill practice (targeted learning). Use both: Khan for learning, Bluebook for testing.</p>
+                        </div>
+                        <div class="faq-card">
+                            <h3>How does Digital SAT scoring work?</h3>
+                            <p>The test is <strong>adaptive</strong>: Module 2 difficulty depends on Module 1 performance. You need harder Module 2 questions to reach 750+. Each section (Reading/Math) is 200-800.</p>
+                        </div>
+                        <div class="faq-card">
+                            <h3>Can I improve 100+ points?</h3>
+                            <p><strong>Yes</strong>, with proper strategy. Most students score below their potential due to unfamiliarity, not ability. 8 weeks of focused prep typically yields 100-150 point gains.</p>
+                        </div>
+                        <div class="faq-card">
+                            <h3>When should I take the SAT?</h3>
+                            <p><strong>Junior year spring</strong> (March/May) is ideal - gives time to retake senior fall if needed. Take it when you have 6-8 weeks of dedicated prep time available.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Demo Tab -->
+                <div class="tab-content" id="demo">
+                    <div class="demo-container">
+                        <div class="vre-window">
+                            <div class="vre-header">
+                                <div class="window-controls">
+                                    <span class="control-close"></span>
+                                    <span class="control-min"></span>
+                                    <span class="control-max"></span>
+                                </div>
+                                <span class="vre-title">problem_21.js</span>
+                                <div style="width: 52px;"></div>
+                            </div>
+                            <div class="vre-canvas-container" id="vre-container">
+                                <div id="vre-placeholder" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
+                                    <p style="color: var(--text-muted); font-size: 0.95rem;">Click "Run" to start the simulation</p>
+                                    <div class="loader"></div>
+                                </div>
+                            </div>
+                            <div class="vre-footer">
+                                <button class="btn-primary" onclick="runDemo()">Run Simulation</button>
+                            </div>
+                        </div>
+                        <div class="demo-features">
+                            <h3>Why Practix?</h3>
+                            <div class="demo-feature">
+                                <span class="feature-icon">🎮</span>
+                                <div>
+                                    <strong>Interactive Simulations</strong>
+                                    <p>Manipulate graphs in real-time. See math, don't just read it.</p>
+                                </div>
+                            </div>
+                            <div class="demo-feature">
+                                <span class="feature-icon">🎯</span>
+                                <div>
+                                    <strong>Hard Problems Only</strong>
+                                    <p>Focus on questions 18-22. The ones that separate 750 from 800.</p>
+                                </div>
+                            </div>
+                            <div class="demo-feature">
+                                <span class="feature-icon">⚡</span>
+                                <div>
+                                    <strong>Weekly Challenges</strong>
+                                    <p>New boss-level problems every week. Compete globally.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="resource-card">
-                <div class="resource-icon">🎓</div>
-                <h3>Khan Academy</h3>
-                <p class="resource-count">Unlimited Practice</p>
-                <ul class="resource-list">
-                    <li>Personalized practice</li>
-                    <li>Video explanations</li>
-                    <li>Syncs with College Board</li>
-                    <li>Track your progress</li>
-                </ul>
-                <a href="https://www.khanacademy.org/digital-sat" target="_blank" class="resource-link">Start Practicing →</a>
-            </div>
-            <div class="resource-card">
-                <div class="resource-icon">📄</div>
-                <h3>College Board PDFs</h3>
-                <p class="resource-count">4 Linear Practice Forms</p>
-                <ul class="resource-list">
-                    <li>Non-adaptive format</li>
-                    <li>Good for targeted review</li>
-                    <li>Printable worksheets</li>
-                    <li>Answer explanations included</li>
-                </ul>
-                <a href="https://satsuite.collegeboard.org/digital/digital-practice-preparation" target="_blank" class="resource-link">Download PDFs →</a>
-            </div>
-        </div>
-        <div class="resource-tip">
-            <span class="tip-icon">💡</span>
-            <p><strong>Pro tip:</strong> Start with 1 Bluebook test as a diagnostic. Save the last 2 tests for the final 2 weeks before your exam.</p>
         </div>
     </section>
 
@@ -150,10 +238,26 @@
 
     <script src="vre.js"></script>
     <script>
-        // Connect waitlist buttons to Tally popup
-        // REPLACE 'YOUR_FORM_ID' with your actual Tally form ID
-        const TALLY_FORM_ID = '68KX6k';
+        // Tab switching
+        function switchTab(tabId) {
+            // Remove active from all tabs and content
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
 
+            // Add active to selected tab and content
+            document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Tab click handlers
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchTab(btn.dataset.tab);
+            });
+        });
+
+        // Waitlist popup
+        const TALLY_FORM_ID = '68KX6k';
         document.querySelectorAll('a[href="#waitlist"]').forEach(btn => {
             btn.onclick = (e) => {
                 e.preventDefault();
@@ -170,6 +274,14 @@
     <style>
         @keyframes spin {
             to { transform: rotate(360deg); }
+        }
+        .loader {
+            width: 32px;
+            height: 32px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
     </style>
 </body>

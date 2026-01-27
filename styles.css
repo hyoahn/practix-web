@@ -68,12 +68,14 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 5%;
+    padding: 0.75rem 5%;
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--glass-border);
     flex-shrink: 0;
+    z-index: 100;
+    position: relative;
 }
 
 .logo img {
@@ -83,6 +85,39 @@ nav {
 
 .logo img:hover {
     transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.5);
+    padding: 0.25rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.nav-btn {
+    border: none;
+    background: transparent;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255,255,255,0.8);
+}
+
+.nav-btn.active {
+    background: white;
+    color: var(--accent-primary);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 h1, h2, h3 {
@@ -131,43 +166,89 @@ h1, h2, h3 {
     border-color: var(--accent-primary);
 }
 
-/* Compact Hero Section */
-.hero-compact {
-    padding: 1.5rem 5% 1rem;
-    flex-shrink: 0;
+/* Fullscreen Split Hero Section */
+.hero-text-content {
+    max-width: 550px; 
+    width: 100%;
+    margin-right: -8rem; /* Aggressive overlap: text hugs the image tightly */
+    position: relative;
+    z-index: 12;
+}
+.hero-split-fullscreen {
+    display: flex;
+    min-height: 85vh; /* Takes up most of the viewport height */
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
 }
 
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+/* Left side: Text Content */
+.hero-text-container {
+    flex: 0.6; /* Significantly reduced to push content left */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Push text towards the image */
+    padding: 2rem 0 2rem 5%; /* Shift text block physically right */
+    justify-content: flex-end; /* Ensure it hugs the right side (image side) */
+    z-index: 10;
+}
+/* ... */
+/* Right side: Full Image */
+.hero-image-container {
+    flex: 1.8; /* Occupies ~75% of the width */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    background: var(--bg-main);
+    mask-image: linear-gradient(to right, transparent, black 15%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%);
 }
 
-.hero-compact h1 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
+.hero-split-fullscreen h1 {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
     color: var(--text-primary);
+    letter-spacing: -0.03em;
 }
 
-.hero-compact h1 .gradient-text {
+.hero-split-fullscreen h1 .gradient-text {
     background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 50%, var(--accent-cyan) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-.hero-compact p {
-    font-size: 0.95rem;
+.hero-split-fullscreen p {
+    font-size: 1.2rem;
     color: var(--text-secondary);
-    margin-bottom: 1rem;
-    line-height: 1.5;
+    margin-bottom: 2rem;
+    line-height: 1.6;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 0.75rem;
-    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    justify-content: flex-start;
+}
+
+.hero-social-proof {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hero-social-proof .avatars {
+    display: flex;
+    font-size: 1.5rem;
+    letter-spacing: -0.5rem;
+}
+
+.hero-social-proof p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--text-secondary);
 }
 
 .hero-badge {
@@ -197,6 +278,105 @@ h1, h2, h3 {
     50% { opacity: 0.5; }
 }
 
+/* Right side: Full Image */
+.hero-image-container {
+    flex: 1.4; /* Give image significantly more space */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    background: var(--bg-main); /* Fallback */
+    mask-image: linear-gradient(to right, transparent, black 15%); /* Soft fade edge on left */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%);
+}
+
+.hero-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom; /* Center horizontally to show both student and iPad */
+    min-width: 600px; /* Force image to not shrink below this width, causing scroll/cutoff handle */
+    transform: scale(1.02);
+    transition: transform 0.5s ease-out;
+}
+
+.hero-image-container:hover img {
+    transform: scale(1.0); /* Gentle zoom out on hover */
+}
+
+/* Overlay gradient on image to ensure text readaiblity if overlapping (safety) */
+.image-overlay-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(250,250,250,1) 0%, rgba(250,250,250,0) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Floating Cards - positioned relative to image container */
+.floating-card {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 0.85rem 1.25rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    animation: float 6s ease-in-out infinite;
+    z-index: 5;
+    min-width: 180px;
+}
+
+.score-card {
+    top: 20%;
+    left: 10%; /* Inside the image area */
+    animation-delay: 0s;
+}
+
+.streak-card {
+    bottom: 20%;
+    right: 15%; /* Inside the image area */
+    animation-delay: 1.5s;
+}
+
+.floating-card .icon {
+    font-size: 1.5rem;
+    background: var(--bg-main);
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.floating-card .text {
+    display: flex;
+    flex-direction: column;
+}
+
+.floating-card strong {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.floating-card span {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
 /* Tabs Section */
 .tabs-section {
     flex: 1;
@@ -218,42 +398,9 @@ h1, h2, h3 {
     overflow: hidden;
 }
 
-/* Tab Navigation */
-.tab-nav {
-    display: flex;
-    gap: 0.5rem;
-    background: var(--bg-card);
-    padding: 0.4rem;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    margin-bottom: 1rem;
-    flex-shrink: 0;
-}
-
-.tab-btn {
-    flex: 1;
-    padding: 0.6rem 1rem;
-    border: none;
-    background: transparent;
-    border-radius: 8px;
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.tab-btn:hover {
-    color: var(--text-primary);
-    background: var(--bg-gradient-subtle);
-}
-
-.tab-btn.active {
-    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-    color: white;
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-}
+/* Tab Navigation (Moved to Top) 
+   Keeping .tabs-container for layout but removing .tab-nav specific styling 
+*/
 
 /* Tab Content */
 .tab-content-wrapper {
@@ -598,7 +745,45 @@ footer p {
 }
 
 /* Responsive */
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
+    .hero-split-fullscreen {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .hero-image-container {
+        width: 100%;
+        min-height: 50vh;
+        flex: none; /* Disable flex scaling */
+    }
+
+    .hero-image-container img {
+        min-width: 0; /* consistent with container */
+        object-position: center 20%; /* Focus on top part of image in vertical mode */
+    }
+
+    .hero-text-container {
+        padding: 3rem 5% 2rem;
+        text-align: center;
+        justify-content: center; /* Reset from flex-end */
+    }
+
+    .hero-text-content {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 0; /* Remove negative overlap */
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image-container {
+        min-height: 400px;
+    }
+
     .resources-grid,
     .strategy-grid {
         grid-template-columns: repeat(2, 1fr);

@@ -19,22 +19,57 @@
         <div class="logo">
             <img src="logo.png" alt="Practix">
         </div>
+        <div class="nav-links">
+            <button class="nav-btn active" onclick="switchTab('resources')">Resources</button>
+            <button class="nav-btn" onclick="switchTab('strategy')">Strategy</button>
+            <button class="nav-btn" onclick="switchTab('faq')">FAQ</button>
+            <button class="nav-btn" onclick="switchTab('demo')">Demo</button>
+        </div>
         <a href="#waitlist" class="btn-primary">Join Beta</a>
     </nav>
 
-    <!-- Compact Hero Section -->
-    <section class="hero-compact">
-        <div class="hero-content">
-            <div class="hero-text">
+    <!-- 50/50 Split Hero Section -->
+    <section class="hero-split-fullscreen">
+        <!-- Left Content -->
+        <div class="hero-text-container">
+            <div class="hero-text-content">
                 <div class="hero-badge">
                     <span class="dot"></span>
                     <span>Now accepting Class of 2026</span>
                 </div>
-                <h1>The Flight Simulator for <span class="gradient-text">SAT Math</span></h1>
-                <p>Train with interactive simulations designed for elite students aiming for 800.</p>
+                <h1><span class="gradient-text">Stop Studying.</span><br>Start Training.</h1>
+                <p>Build the weekly routine that turns test anxiety into 800-level mastery. The flight simulator for SAT Math.</p>
                 <div class="hero-buttons">
                     <a href="#waitlist" class="btn-primary">Join Beta</a>
                     <a href="#demo" class="btn-secondary" onclick="switchTab('demo')">Try Demo</a>
+                </div>
+                <div class="hero-social-proof">
+                    <div class="avatars">
+                        <span>👩‍🎓</span><span>👨‍🎓</span><span>👩‍🏫</span>
+                    </div>
+                    <p>Joined by <strong>1,200+</strong> students this week</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Image (Full Half Screen) -->
+        <div class="hero-image-container">
+            <div class="image-overlay-gradient"></div>
+            <img src="_images/hero_girl.png" alt="Student focused on Practix SAT Math simulation">
+            
+            <!-- Floating Cards within the image area -->
+            <div class="floating-card score-card">
+                <span class="icon">📈</span>
+                <div class="text">
+                    <strong>+150 Points</strong>
+                    <span>Average Improvement</span>
+                </div>
+            </div>
+            <div class="floating-card streak-card">
+                <span class="icon">🔥</span>
+                <div class="text">
+                    <strong>4 Week Streak</strong>
+                    <span>The Power of Routine</span>
                 </div>
             </div>
         </div>
@@ -43,13 +78,7 @@
     <!-- Tabbed Content Section -->
     <section class="tabs-section">
         <div class="tabs-container">
-            <!-- Tab Navigation -->
-            <div class="tab-nav">
-                <button class="tab-btn active" data-tab="resources">Official Resources</button>
-                <button class="tab-btn" data-tab="strategy">Study Strategy</button>
-                <button class="tab-btn" data-tab="faq">FAQ</button>
-                <button class="tab-btn" data-tab="demo">Try Demo</button>
-            </div>
+            <!-- Tab Navigation Removed (Moved to Top Nav) -->
 
             <!-- Tab Content -->
             <div class="tab-content-wrapper">
@@ -239,22 +268,22 @@
     <script src="vre.js"></script>
     <script>
         // Tab switching
+        // Tab switching
         function switchTab(tabId) {
             // Remove active from all tabs and content
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
 
             // Add active to selected tab and content
-            document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+            // Find button by onclick attribute to simpler logic than adding IDs
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => {
+                if(btn.getAttribute('onclick').includes(tabId)) {
+                    btn.classList.add('active');
+                }
+            });
             document.getElementById(tabId).classList.add('active');
         }
-
-        // Tab click handlers
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                switchTab(btn.dataset.tab);
-            });
-        });
 
         // Waitlist popup
         const TALLY_FORM_ID = '68KX6k';

@@ -40,6 +40,12 @@ html, body {
     overflow-y: auto;
 }
 
+/* Homepage requires strict full height for split screen */
+html:has(.homepage), body.homepage {
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
     margin: 0;
     background: var(--bg-main);

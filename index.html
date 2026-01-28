@@ -209,6 +209,48 @@
         </div>
     </section>
 
+    <!-- Score Predictor Section -->
+    <section class="predictor-section-wrapper" id="score-predictor">
+        <div class="predictor-container">
+            <div class="predictor-header">
+                <h2>SAT Score Predictor 🔮</h2>
+                <p>The Digital SAT is adaptive. See how mistakes heavily impact your score.</p>
+            </div>
+
+            <div class="predictor-grid">
+                <!-- Controls -->
+                <div class="predictor-controls">
+                    <div class="control-group">
+                        <label>
+                            <span>Module 1 Mistakes</span>
+                            <span class="range-value" id="m1-value">0</span>
+                        </label>
+                        <input type="range" id="m1-mistakes" min="0" max="22" value="0">
+                        <span class="control-help">Out of 22 Questions</span>
+                    </div>
+
+                    <div class="control-group">
+                        <label>
+                            <span>Module 2 Mistakes</span>
+                            <span class="range-value" id="m2-value">0</span>
+                        </label>
+                        <input type="range" id="m2-mistakes" min="0" max="22" value="0">
+                        <span class="control-help">Out of 22 Questions</span>
+                    </div>
+                </div>
+
+                <!-- Result -->
+                <div class="predictor-result">
+                    <div class="score-box">
+                        <span class="score-label">Estimated Score</span>
+                        <div class="score-number" id="predicted-score">800</div>
+                    </div>
+                    <p id="predictor-message" class="predictor-message safe">Select your mistakes to see the prediction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 Practix. Train different.</p>
@@ -218,6 +260,7 @@
     <script src="https://tally.so/widgets/embed.js"></script>
 
 
+    <script src="score_predictor.js"></script>
     <script>
         // Tab switching
         // Tab switching

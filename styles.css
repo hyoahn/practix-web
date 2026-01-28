@@ -35,16 +35,15 @@
 }
 
 html, body {
-    height: 100%;
-    overflow: hidden;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-/* Allow scrolling on long content pages */
-html.content-page, body.content-page {
-    height: auto;
-    min-height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
+/* Homepage requires strict full height for split screen */
+html:has(.homepage), body.homepage {
+    height: 100%;
+    overflow: hidden;
 }
 
 body {

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAT Circle Equations: Find Center & Radius in 10 Seconds | Practix</title>
+    <meta name="description" content="Master SAT circle equations instantly. Learn the completing-the-square shortcut to find center and radius without memorizing formulas.">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="topics.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script src="../nav.js"></script>
+</head>
+<body>
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> / <a href="../index.html#resources">Topics</a> / <span>Circle Equations</span>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="topic-hero">
+        <h1>SAT Circle Equations: The 10-Second Trick</h1>
+        <p class="hook">Stop trying to memorize the standard form. Just complete the square—it's faster.</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="topic-section">
+        <h2>The Problem</h2>
+        <p>You see this on the SAT:</p>
+        
+        <div class="formula-display">
+            x² + y² + 6x - 4y + 9 = 0
+        </div>
+        
+        <p><strong>Question: What is the center and radius of this circle?</strong></p>
+        
+        <div class="common-mistake">
+            <h3>🚫 The Trap (What Most Students Do)</h3>
+            <p>Students try to remember the "standard form" of a circle:</p>
+            <div class="formula-display" style="font-size:1.2rem;">
+                (x - h)² + (y - k)² = r²
+            </div>
+            <p>They panic because the equation doesn't look like this. They waste time trying to "convert" it, make sign errors, and run out of time.</p>
+            <p><strong>Time wasted:</strong> 2+ minutes (if they even finish).</p>
+        </div>
+        
+        <div class="shortcut">
+            <h3>✅ The Practix Method (10 Seconds)</h3>
+            <p><strong>Just complete the square. That's it.</strong></p>
+            <p>For <code>x² + y² + 6x - 4y + 9 = 0</code>:</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <p>Group x terms: <code>x² + 6x</code> → Complete the square: <code>(x + 3)² - 9</code></p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <p>Group y terms: <code>y² - 4y</code> → Complete the square: <code>(y - 2)² - 4</code></p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <p>Rewrite: <code>(x + 3)² - 9 + (y - 2)² - 4 + 9 = 0</code></p>
+                        <p>Simplify: <code>(x + 3)² + (y - 2)² = 4</code></p>
+                    </div>
+                </div>
+            </div>
+            <p><strong>Answer:</strong></p>
+            <ul>
+                <li><strong>Center:</strong> (-3, 2) [flip the signs inside the parentheses]</li>
+                <li><strong>Radius:</strong> 2 [square root of 4]</li>
+            </ul>
+        </div>
+        
+        <h2>The Pattern to Remember</h2>
+        <p>For <code>x² + Bx</code>, complete the square:</p>
+        <div class="formula-display">
+            (x + B/2)² - (B/2)²
+        </div>
+        <p><strong>Example:</strong> <code>x² + 6x</code> → B = 6 → B/2 = 3 → <code>(x + 3)² - 9</code></p>
+        <p>Same logic for y terms!</p>
+    </div>
+
+    <!-- Interactive Widget -->
+    <section class="topic-section">
+        <div class="interactive-widget">
+            <div class="widget-header">
+                <h3>Circle Calculator</h3>
+                <p>Enter the general form and get center/radius instantly.</p>
+            </div>
+            
+            <p style="text-align: center; margin-bottom: 1rem;">
+                <strong>General Form:</strong> x² + y² + Dx + Ey + F = 0
+            </p>
+            
+            <div class="widget-input-group">
+                <label>D (coefficient of x):</label>
+                <input type="number" id="coeff-d" value="6" placeholder="e.g., 6">
+            </div>
+            
+            <div class="widget-input-group">
+                <label>E (coefficient of y):</label>
+                <input type="number" id="coeff-e" value="-4" placeholder="e.g., -4">
+            </div>
+            
+            <div class="widget-input-group">
+                <label>F (constant term):</label>
+                <input type="number" id="coeff-f" value="9" placeholder="e.g., 9">
+            </div>
+            
+            <div class="widget-output">
+                <div class="result-label">Center (h, k)</div>
+                <div class="result-value" id="center-result">(-3, 2)</div>
+                
+                <div class="result-label" style="margin-top: 1rem;">Radius</div>
+                <div class="result-value" id="radius-result" style="font-size: 1.8rem;">2</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="topic-cta">
+        <h2>Master All Circle Problems in 1 Week</h2>
+        <p>Get interactive simulations that teach you completing the square visually.</p>
+        <!-- <button class="btn-primary" onclick="window.location.href='../index.html#waitlist'">Join the Waitlist</button> -->
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Practix. Train different.</p>
+    </footer>
+
+    <!-- Widget Script -->
+    <script>
+        const dInput = document.getElementById('coeff-d');
+        const eInput = document.getElementById('coeff-e');
+        const fInput = document.getElementById('coeff-f');
+        const centerResult = document.getElementById('center-result');
+        const radiusResult = document.getElementById('radius-result');
+
+        function calculateCircle() {
+            const D = parseFloat(dInput.value) || 0;
+            const E = parseFloat(eInput.value) || 0;
+            const F = parseFloat(fInput.value) || 0;
+
+            // Center: h = -D/2, k = -E/2
+            const h = -D / 2;
+            const k = -E / 2;
+
+            // Radius: r = sqrt(h^2 + k^2 - F)
+            const rSquared = h*h + k*k - F;
+            
+            if (rSquared < 0) {
+                centerResult.textContent = 'No circle';
+                radiusResult.textContent = 'N/A';
+                return;
+            }
+            
+            const r = Math.sqrt(rSquared);
+
+            centerResult.textContent = `(${h.toFixed(1)}, ${k.toFixed(1)})`;
+            radiusResult.textContent = r.toFixed(2);
+        }
+
+        dInput.addEventListener('input', calculateCircle);
+        eInput.addEventListener('input', calculateCircle);
+        fInput.addEventListener('input', calculateCircle);
+
+        // Initial calculation
+        calculateCircle();
+    </script>
+</body>
+</html>

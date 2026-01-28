@@ -9,24 +9,49 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Practix",
+      "url": "https://practix.org",
+      "logo": "https://practix.org/logo.png",
+      "sameAs": [
+        "https://www.tiktok.com/@practix_sat",
+        "https://www.youtube.com/@practix_sat"
+      ],
+      "description": "The Digital SAT math training platform for students aiming for elite scores."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Practix",
+      "url": "https://practix.org",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://practix.org/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <script src="nav.js"></script>
 </head>
 <body class="homepage">
     <!-- Background gradient -->
     <div class="page-bg"></div>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">
-            <img src="logo.png" alt="Practix">
-        </div>
-        <div class="nav-links">
-            <a href="/" class="nav-btn">Home</a>
-            <a href="desmos.html" class="nav-btn">Desmos</a>
-            <a href="formulas.html" class="nav-btn">Formulas</a>
-            <a href="strategy.html" class="nav-btn">Strategy</a>
-        </div>
-        <!-- <a href="#waitlist" class="btn-primary">Join Beta</a> -->
-    </nav>
+    <!-- Navigation managed by nav.js -->
 
     <!-- 50/50 Split Hero Section -->
     <section class="hero-split-fullscreen">

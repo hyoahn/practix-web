@@ -908,7 +908,10 @@ footer p {
 @media (max-width: 1100px) {
     .hero-split-fullscreen {
         flex-direction: column;
-        min-height: auto;
+        min-height: unset; /* Remove viewport height constraint */
+        height: auto; /* Let content determine height */
+        flex: none; /* Don't participate in parent flex */
+        overflow: visible; /* Allow content to show */
     }
 
     .hero-image-container {

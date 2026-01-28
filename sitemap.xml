@@ -49,6 +49,24 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://practix.org/topics/discriminant-trick</loc>
+    <lastmod>2026-01-28</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://practix.org/topics/exponential-growth</loc>
+    <lastmod>2026-01-28</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://practix.org/topics/unit-circle</loc>
+    <lastmod>2026-01-28</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://practix.org/hardest-questions</loc>
     <lastmod>2026-01-28</lastmod>
     <priority>0.9</priority>

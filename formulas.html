@@ -6,313 +6,155 @@
     
     <!-- SEO Meta Tags -->
     <title>12 SAT Math Formulas Not on the Reference Sheet (2026) | Practix</title>
-    <meta name="description" content="The Digital SAT reference sheet is missing 12 crucial formulas. Get the complete list with examples: vertex formula, sum of roots, discriminant, circle equations, and more.">
-    <meta name="keywords" content="SAT math formulas, SAT reference sheet, SAT cheat sheet, vertex formula, sum of roots, discriminant, Digital SAT formulas">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="12 SAT Math Formulas They Don't Give You">
-    <meta property="og:description" content="Memorize these 12 formulas to save 10+ minutes on SAT Math Module 2.">
-    <meta property="og:image" content="https://practix.org/images/formulas-og.png">
-    <meta property="og:url" content="https://practix.org/formulas">
-    
-    <!-- Schema.org -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "EducationalOccupationalCredential",
-      "name": "SAT Math Essential Formulas",
-      "description": "12 critical formulas for SAT Math success",
-      "educationalLevel": "High School"
-    }
-    </script>
+    <meta name="description" content="The Digital SAT reference sheet is missing 12 crucial formulas. Get the complete interactive list and Desmos shortcuts you need for an 800.">
     
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
-    <!-- MathJax for proper formula rendering -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="nav.js"></script>
+    
+    <style>
+        .formula-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s;
+        }
+        .formula-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .copy-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #f3f4f6;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: 1px solid #d1d5db;
+        }
+        .copy-badge:hover {
+            background: #e5e7eb;
+        }
+        .pdf-gate {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 16px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+    </style>
 </head>
 <body class="content-page">
     <div class="page-bg"></div>
     
-    <!-- Navigation managed by nav.js -->
-
     <!-- Hero -->
-    <section style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%); padding: 3rem 5%; text-align: center; border-bottom: 1px solid #e5e5e5;">
-        <div style="max-width: 900px; margin: 0 auto;">
-            <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 1rem; color: #1a1a2e;">
-                The 12 Formulas They Don't Give You on the SAT
-            </h1>
-            <p style="font-size: 1.2rem; color: #4a4a68; margin-bottom: 2rem;">
-                The College Board provides a basic reference sheet (area, volume, triangles). 
-                But they leave out the shortcuts you actually need for an 800. Here's the complete list.
-            </p>
-        </div>
+    <section style="padding: 4rem 5%; text-align: center;">
+        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3rem; margin-bottom: 1rem;">The Practix Field Manual</h1>
+        <p style="font-size: 1.2rem; color: #4b5563; max-width: 700px; margin: 0 auto;">
+            12 formulas the SAT hides from you + the Desmos codes that solve them instantly.
+        </p>
     </section>
 
-    <!-- Main Content -->
-    <article style="max-width: 900px; margin: 0 auto; padding: 3rem 5%;">
+    <!-- Formula Hub -->
+    <main style="max-width: 1000px; margin: 0 auto; padding: 0 5% 5rem;">
         
-        <!-- What's on the Official Sheet -->
-        <section style="margin-bottom: 3rem; background: #f9fafb; padding: 2rem; border-radius: 12px; border: 1px solid #e5e7eb;">
-            <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #1a1a2e;">What IS on the Official Reference Sheet?</h2>
-            <p style="margin-bottom: 1rem; color: #4a4a68; line-height: 1.8;">
-                The Digital SAT gives you these formulas:
-            </p>
-            <ul style="color: #4a4a68; line-height: 2; margin-left: 1.5rem;">
-                <li>Area formulas (circle, rectangle, triangle)</li>
-                <li>Volume formulas (cylinder, sphere, cone, pyramid)</li>
-                <li>Special right triangles (30-60-90, 45-45-90)</li>
-                <li>Pythagorean theorem: \(a^2 + b^2 = c^2\)</li>
-            </ul>
-            <p style="margin-top: 1.5rem; color: #4a4a68; font-weight: 600;">
-                That's it. No algebra. No coordinate geometry. No shortcuts.
-            </p>
-        </section>
-
-        <!-- The 12 Missing Formulas -->
-        <h2 style="font-size: 2rem; margin-bottom: 2rem; color: #1a1a2e; text-align: center;">The 12 Missing Formulas You Must Memorize</h2>
-
-        <!-- Category 1: Quadratic Shortcuts -->
-        <section style="margin-bottom: 3rem;">
-            <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: #6366f1; border-bottom: 3px solid #6366f1; padding-bottom: 0.5rem;">
-                📐 Category 1: Quadratic Shortcuts (The Biggest Time Savers)
-            </h3>
-
-            <div style="background: #f0fdf4; border-left: 4px solid #10b981; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                <h4 style="color: #065f46; margin-bottom: 0.5rem;">1. Vertex Formula (x-coordinate)</h4>
-                <p style="font-size: 1.3rem; font-family: serif; margin: 1rem 0; text-align: center;">
-                    \[ x = -\frac{b}{2a} \]
-                </p>
-                <p style="color: #1a1a2e; margin-bottom: 0.5rem;"><strong>When to use:</strong> "What is the maximum height?" or "At what value of x does the minimum occur?"</p>
-                <p style="color: #4a4a68;"><strong>Example:</strong> For \(f(x) = 3x^2 - 18x + 7\), the vertex x-coordinate is \(-(-18)/(2·3) = 3\)</p>
-            </div>
-
-            <div style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                <h4 style="color: #991b1b; margin-bottom: 0.5rem;">2. Sum of Solutions (Roots)</h4>
-                <p style="font-size: 1.3rem; font-family: serif; margin: 1rem 0; text-align: center;">
-                    \[ \text{Sum} = -\frac{b}{a} \]
-                </p>
-                <p style="color: #1a1a2e; margin-bottom: 0.5rem;"><strong>When to use:</strong> "What is the sum of the solutions to \(ax^2 + bx + c = 0\)?"</p>
-                <p style="color: #4a4a68;"><strong>Example:</strong> For \(3x^2 - 18x + 7 = 0\), sum = \(-(-18)/3 = 6\)</p>
-                <p style="color: #4a4a68; margin-top: 0.5rem;"><em>Never use the quadratic formula for this question type. This is instant.</em></p>
-            </div>
-
-            <div style="background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                <h4 style="color: #1e40af; margin-bottom: 0.5rem;">3. Product of Solutions</h4>
-                <p style="font-size: 1.3rem; font-family: serif; margin: 1rem 0; text-align: center;">
-                    \[ \text{Product} = \frac{c}{a} \]
-                </p>
-                <p style="color: #1a1a2e; margin-bottom: 0.5rem;"><strong>When to use:</strong> "What is the product of the roots?"</p>
-                <p style="color: #4a4a68;"><strong>Example:</strong> For \(3x^2 - 18x + 7 = 0\), product = \(7/3\)</p>
-            </div>
-
-            <div style="background: #fefce8; border-left: 4px solid #eab308; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                <h4 style="color: #854d0e; margin-bottom: 0.5rem;">4. The Discriminant (Number of Solutions)</h4>
-                <p style="font-size: 1.3rem; font-family: serif; margin: 1rem 0; text-align: center;">
-                    \[ \Delta = b^2 - 4ac \]
-                </p>
-                <p style="color: #1a1a2e; margin-bottom: 0.5rem;"><strong>When to use:</strong> "How many real solutions does this quadratic have?"</p>
-                <ul style="color: #4a4a68; line-height: 1.8; margin-left: 1.5rem;">
-                    <li>If \(\Delta > 0\): 2 real solutions</li>
-                    <li>If \(\Delta = 0\): 1 real solution (repeated root)</li>
-                    <li>If \(\Delta < 0\): No real solutions</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Category 2: Coordinate Geometry -->
-        <section style="margin-bottom: 3rem;">
-            <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: #8b5cf6; border-bottom: 3px solid #8b5cf6; padding-bottom: 0.5rem;">
-                📍 Category 2: Coordinate Geometry Essentials
-            </h3>
-
-            <div style="background: #faf5ff; border-left: 4px solid #a855f7; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                <h4 style="color: #6b21a8; margin-bottom: 0.5rem;">5. Circle Equation (Standard Form)</h4>
-                <p style="font-size: 1.3rem; font-family: serif; margin: 1rem 0; text-align: center;">
-                    \[ (x - h)^2 + (y - k)^2 = r^2 \]
-                </p>
-                <p style="color: #1a1a2e; margin-bottom: 0.5rem;"><strong>What it means:</strong> Center at \((h, k)\), radius = \(r\)</p>
-                <p style="color: #4a4a68;"><strong>Example:</strong> \((x - 3)^2 + (y + 2)^2 = 25\) → Center: \((3, -2)\), Radius: \(5\)</p>
-            </div>
-
-            <div style="background: #f0fdfa; border-left: 4px solid #14b8a6; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                <h4 style="color: #115e59; margin-bottom: 0.5rem;">6. Distance Formula</h4>
-                <p style="font-size: 1.3rem; font-family: serif; margin: 1rem 0; text-align: center;">
-                    \[ d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \]
-                </p>
-                <p style="color: #1a1a2e; margin-bottom: 0.5rem;"><strong>When to use:</strong> "What is the distance between points A and B?"</p>
-                <p style="color: #4a4a68;"><strong>Example:</strong> Distance between \((2, 3)\) and \((5, 7)\) = \(\sqrt{(5-2)^2 + (7-3)^2} = \sqrt{9+16} = 5\)</p>
-            </div>
-
-            <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                <h4 style="color: #92400e; margin-bottom: 0.5rem;">7. Midpoint Formula</h4>
-                <p style="font-size: 1.3rem; font-family: serif; margin: 1rem 0; text-align: center;">
-                    \[ M = \left( \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2} \right) \]
-                </p>
-                <p style="color: #1a1a2e; margin-bottom: 0.5rem;"><strong>When to use:</strong> "What is the midpoint of segment AB?"</p>
-                <p style="color: #4a4a68;"><strong>Shortcut:</strong> Just average the x's, average the y's.</p>
-            </div>
-        </section>
-
-        <!-- Category 3: Growth & Change -->
-        <section style="margin-bottom: 3rem;">
-            <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: #10b981; border-bottom: 3px solid #10b981; padding-bottom: 0.5rem;">
-                📈 Category 3: Growth, Decay & Percent Change
-            </h3>
-
-            <div style="background: #ecfdf5; border-left: 4px solid #059669; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                <h4 style="color: #064e3b; margin-bottom: 0.5rem;">8. Exponential Growth/Decay</h4>
-                <p style="font-size: 1.3rem; font-family: serif; margin: 1rem 0; text-align: center;">
-                    \[ y = a(1 \pm r)^t \]
-                </p>
-                <p style="color: #1a1a2e; margin-bottom: 0.5rem;"><strong>Variables:</strong> \(a\) = initial amount, \(r\) = rate (as decimal), \(t\) = time</p>
-                <p style="color: #4a4a68;"><strong>Example:</strong> $1000 invested at 5% annual growth for 3 years: \(1000(1.05)^3 = \$1157.63\)</p>
-            </div>
-
-            <div style="background: #fef9e7; border-left: 4px solid #d97706; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                <h4 style="color: #78350f; margin-bottom: 0.5rem;">9. Percent Change</h4>
-                <p style="font-size: 1.3rem; font-family: serif; margin: 1rem 0; text-align: center;">
-                    \[ \text{Percent Change} = \frac{\text{New} - \text{Old}}{\text{Old}} \times 100 \]
-                </p>
-                <p style="color: #1a1a2e; margin-bottom: 0.5rem;"><strong>When to use:</strong> "By what percent did the price increase?"</p>
-                <p style="color: #4a4a68;"><strong>Example:</strong> Price went from $50 to $65: \((65-50)/50 × 100 = 30\%\) increase</p>
-            </div>
-        </section>
-
-        <!-- Category 4: Trigonometry -->
-        <section style="margin-bottom: 3rem;">
-            <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: #ef4444; border-bottom: 3px solid #ef4444; padding-bottom: 0.5rem;">
-                🔺 Category 4: Trigonometry (SOH CAH TOA)
-            </h3>
-
-            <div style="background: #fee2e2; border-left: 4px solid #dc2626; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                <h4 style="color: #7f1d1d; margin-bottom: 0.5rem;">10. Sine</h4>
-                <p style="font-size: 1.3rem; font-family: serif; margin: 1rem 0; text-align: center;">
-                    \[ \sin(\theta) = \frac{\text{Opposite}}{\text{Hypotenuse}} \]
-                </p>
-            </div>
-
-            <div style="background: #fef2f2; border-left: 4px solid #f87171; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                <h4 style="color: #991b1b; margin-bottom: 0.5rem;">11. Cosine</h4>
-                <p style="font-size: 1.3rem; font-family: serif; margin: 1rem 0; text-align: center;">
-                    \[ \cos(\theta) = \frac{\text{Adjacent}}{\text{Hypotenuse}} \]
-                </p>
-            </div>
-
-            <div style="background: #fff1f2; border-left: 4px solid #fca5a5; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                <h4 style="color: #7f1d1d; margin-bottom: 0.5rem;">12. Tangent</h4>
-                <p style="font-size: 1.3rem; font-family: serif; margin: 1rem 0; text-align: center;">
-                    \[ \tan(\theta) = \frac{\text{Opposite}}{\text{Adjacent}} \]
-                </p>
-                <p style="color: #4a4a68; text-align: center; margin-top: 1rem;">
-                    <strong>Memory trick:</strong> <span style="background: white; padding: 0.5rem; border-radius: 4px; display: inline-block;">SOH CAH TOA</span>
-                </p>
-            </div>
-        </section>
-
-        <!-- Comparison Table -->
-        <section style="margin-bottom: 3rem;">
-            <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #1a1a2e;">What You Get vs. What You Need</h2>
-            <table style="width: 100%; border-collapse: collapse; background: white; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
-                <thead>
-                    <tr style="background: #6366f1; color: white;">
-                        <th style="padding: 1rem; text-align: left; border-bottom: 2px solid #4f46e5;">On Reference Sheet ✅</th>
-                        <th style="padding: 1rem; text-align: left; border-bottom: 2px solid #4f46e5;">NOT on Reference Sheet ❌</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="padding: 1rem; border-bottom: 1px solid #e5e7eb;">Circle Area: πr²</td>
-                        <td style="padding: 1rem; border-bottom: 1px solid #e5e7eb; font-weight: 600;">Circle Equation: (x-h)²+(y-k)²=r²</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 1rem; border-bottom: 1px solid #e5e7eb;">Pythagorean Theorem</td>
-                        <td style="padding: 1rem; border-bottom: 1px solid #e5e7eb; font-weight: 600;">Distance Formula</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 1rem; border-bottom: 1px solid #e5e7eb;">Volume formulas</td>
-                        <td style="padding: 1rem; border-bottom: 1px solid #e5e7eb; font-weight: 600;">Vertex Formula: x = -b/(2a)</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 1rem; border-bottom: 1px solid #e5e7eb;">Special right triangles</td>
-                        <td style="padding: 1rem; border-bottom: 1px solid #e5e7eb; font-weight: 600;">Sum of Roots: -b/a</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 1rem;">Nothing about algebra!</td>
-                        <td style="padding: 1rem; font-weight: 600;">Discriminant: b²-4ac</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- How to Memorize -->
-        <section style="background: #f9fafb; padding: 2rem; border-radius: 12px; border: 1px solid #e5e7eb; margin-bottom: 3rem;">
-            <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #1a1a2e;">How to Actually Memorize These</h2>
-            <p style="margin-bottom: 1rem; color: #4a4a68; line-height: 1.8;">
-                Don't just read this list once. Use these strategies:
-            </p>
-            <ol style="color: #4a4a68; line-height: 2; margin-left: 1.5rem;">
-                <li><strong>Make a physical cheat sheet:</strong> Write all 12 on one index card. Carry it everywhere for 1 week.</li>
-                <li><strong>Flashcard drill:</strong> Use Anki or Quizlet. Quiz yourself daily until you can recite them instantly.</li>
-                <li><strong>Practice problems:</strong> Don't just memorize formulas. Use them on real SAT questions so you recognize when to apply each one.</li>
-                <li><strong>Teach someone else:</strong> Explain these formulas to a friend or study group. Teaching = deep learning.</li>
-            </ol>
-        </section>
-
-        <!-- FAQ -->
-        <section style="margin-bottom: 3rem;">
-            <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #1a1a2e;">Frequently Asked Questions</h2>
+        <!-- Search/Filter (Future) -->
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
             
-            <div style="margin-bottom: 1.5rem;">
-                <h4 style="font-size: 1.2rem; color: #6366f1; margin-bottom: 0.5rem;">Can I bring my own formula sheet to the SAT?</h4>
-                <p style="color: #4a4a68; line-height: 1.8;">
-                    No. You must memorize these formulas. The only reference sheet allowed is the one provided digitally on-screen during the test.
-                </p>
+            <!-- Vertex -->
+            <div class="formula-card">
+                <span style="background: #dcfce7; color: #166534; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">QUADRATIC</span>
+                <h3 style="margin: 0.75rem 0;">Vertex of Parabola</h3>
+                <div style="font-size: 1.2rem; margin-bottom: 1rem;">\[ x = -\frac{b}{2a} \]</div>
+                <div class="copy-badge" onclick="copyText('y1 ~ ax1^2 + bx1 + c')">
+                    <span>📋 Desmos Code</span>
+                </div>
             </div>
 
-            <div style="margin-bottom: 1.5rem;">
-                <h4 style="font-size: 1.2rem; color: #6366f1; margin-bottom: 0.5rem;">Will I actually need all 12 of these?</h4>
-                <p style="color: #4a4a68; line-height: 1.8;">
-                    On any given SAT, you'll probably see 8-10 of these. But you don't know which 8-10, so memorize all 12. 
-                    The quadratic shortcuts (#1-4) appear on nearly every test.
-                </p>
+            <!-- Sum of Roots -->
+            <div class="formula-card">
+                <span style="background: #dcfce7; color: #166534; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">QUADRATIC</span>
+                <h3 style="margin: 0.75rem 0;">Sum of Solutions</h3>
+                <div style="font-size: 1.2rem; margin-bottom: 1rem;">\[ \text{Sum} = -\frac{b}{a} \]</div>
+                <div style="font-size: 0.9rem; color: #6b7280;">Saves 2 minutes on elimination questions.</div>
             </div>
 
-            <div style="margin-bottom: 1.5rem;">
-                <h4 style="font-size: 1.2rem; color: #6366f1; margin-bottom: 0.5rem;">What if I forget one during the test?</h4>
-                <p style="color: #4a4a68; line-height: 1.8;">
-                    Some of these can be derived. For example, the distance formula is just the Pythagorean theorem in disguise. 
-                    But deriving formulas wastes time. Better to memorize them cold.
-                </p>
+            <!-- Discriminant -->
+            <div class="formula-card">
+                <span style="background: #dcfce7; color: #166534; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">QUADRATIC</span>
+                <h3 style="margin: 0.75rem 0;">The Discriminant</h3>
+                <div style="font-size: 1.2rem; margin-bottom: 1rem;">\[ D = b^2 - 4ac \]</div>
+                <div style="font-size: 0.9rem; color: #6b7280;">D > 0: 2, D = 0: 1, D < 0: 0 solutions.</div>
             </div>
-        </section>
 
-        <!-- Related Links -->
-        <section>
-            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #1a1a2e;">Related Guides</h3>
-            <div style="display: grid; gap: 1rem;">
-                <a href="/desmos" style="display: block; padding: 1rem; background: #f9fafb; border-radius: 8px; text-decoration: none; border: 1px solid #e5e7eb;">
-                    <strong style="color: #6366f1;">→ Desmos Calculator Tricks for SAT</strong>
-                    <p style="margin: 0.5rem 0 0 0; color: #6b7280; font-size: 0.9rem;">Learn the 3 magic codes for regression</p>
-                </a>
-                <a href="/strategy" style="display: block; padding: 1rem; background: #f9fafb; border-radius: 8px; text-decoration: none; border: 1px solid #e5e7eb;">
-                    <strong style="color: #6366f1;">→ How to Score 800 on SAT Math</strong>
-                    <p style="margin: 0.5rem 0 0 0; color: #6b7280; font-size: 0.9rem;">The complete training strategy</p>
-                </a>
+            <!-- Circle -->
+            <div class="formula-card">
+                <span style="background: #fef9c3; color: #854d0e; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">GEOMETRY</span>
+                <h3 style="margin: 0.75rem 0;">Circle Equation</h3>
+                <div style="font-size: 1.2rem; margin-bottom: 1rem;">\[ (x-h)^2 + (y-k)^2 = r^2 \]</div>
+                <div class="copy-badge" onclick="copyText('(x-h)^2 + (y-k)^2 = r^2')">
+                    <span>📋 Copy for Desmos</span>
+                </div>
             </div>
-        </section>
 
-    </article>
+            <!-- Exponential -->
+            <div class="formula-card">
+                <span style="background: #e0e7ff; color: #3730a3; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">ALGEBRA</span>
+                <h3 style="margin: 0.75rem 0;">Growth & Decay</h3>
+                <div style="font-size: 1.2rem; margin-bottom: 1rem;">\[ y = a(1 \pm r)^t \]</div>
+                <div class="copy-badge" onclick="copyText('y1 ~ a(b)^{x1}')">
+                    <span>📋 Desmos Code</span>
+                </div>
+            </div>
+
+            <!-- Distance -->
+            <div class="formula-card">
+                <span style="background: #fef9c3; color: #854d0e; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">GEOMETRY</span>
+                <h3 style="margin: 0.75rem 0;">Distance Formula</h3>
+                <div style="font-size: 1.2rem; margin-bottom: 1rem;">\[ d = \sqrt{\Delta x^2 + \Delta y^2} \]</div>
+                <div style="font-size: 0.9rem; color: #6b7280;">Pythagorean theorem in disguise.</div>
+            </div>
+
+        </div>
+
+        <!-- PDF Lead Magnet Gate -->
+        <div class="pdf-gate">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem;">Want the Printable PDF?</h2>
+            <p style="margin-bottom: 2rem; opacity: 0.9;">
+                The "12 Formulas They Don't Give You" field manual. <br>
+                High-resolution, one-page, perfect for last-minute review.
+            </p>
+            <div style="display: flex; gap: 0.5rem; justify-content: center; max-width: 500px; margin: 0 auto;">
+                <input type="email" placeholder="student@example.com" style="flex: 1; padding: 0.75rem; border-radius: 8px; border: none; font-size: 1rem;">
+                <button onclick="window.location.href='#waitlist'" style="background: white; color: #6366f1; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">Send it! →</button>
+            </div>
+        </div>
+
+    </main>
 
     <!-- Footer -->
-    <footer style="background: #1a1a2e; color: white; padding: 2rem 5%; text-align: center; margin-top: 4rem;">
-        <p>&copy; 2026 Practix. Train different.</p>
+    <footer style="background: #1a1a2e; color: white; padding: 3rem 5%; text-align: center;">
+        <p>&copy; 2026 Practix. Train Different.</p>
     </footer>
 
+    <script>
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied to clipboard: ' + text);
+            });
+        }
+    </script>
 </body>
 </html>

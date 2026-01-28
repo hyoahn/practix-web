@@ -25,7 +25,25 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://practix.org/topics/quadratic</loc>
+    <loc>https://practix.org/topics/quadratic-equations</loc>
+    <lastmod>2026-01-28</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://practix.org/topics/circle-equations</loc>
+    <lastmod>2026-01-28</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://practix.org/topics/systems-of-equations</loc>
+    <lastmod>2026-01-28</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://practix.org/topics/polynomial-division</loc>
     <lastmod>2026-01-28</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>

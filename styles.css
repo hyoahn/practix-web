@@ -917,10 +917,11 @@ footer p {
         height: auto;
         flex: none;
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse; /* Stack: Image at bottom, Cards at top */
         mask-image: none;
         -webkit-mask-image: none;
         padding-bottom: 2rem;
+        gap: 1rem;
     }
 
     .hero-image-container img {
@@ -930,22 +931,22 @@ footer p {
         object-position: center;
         min-width: 0;
         transform: none;
-        order: 2; /* Image goes below cards */
+        /* No order property needed */
     }
 
-    /* Convert floating cards to static blocks above image */
+    /* Floating cards become static blocks */
     .floating-card {
         position: relative;
         top: auto;
         left: auto;
         right: auto;
         bottom: auto;
-        order: 1; /* Cards go above image */
         margin: 0.5rem auto;
-        transform: none !important; /* Disable float animation on mobile */
+        transform: none !important;
         animation: none;
         max-width: 300px;
         width: 90%;
+        /* No order property needed */
     }
 
     .hero-text-container {

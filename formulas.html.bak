@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>12 SAT Math Formulas Not on the Reference Sheet (2026) | Practix</title>
+    <meta name="description" content="The Digital SAT reference sheet is missing 12 crucial formulas. Get the complete interactive list and Desmos shortcuts you need for an 800.">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="nav.js"></script>
+    
+    <style>
+        .formula-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s;
+        }
+        .formula-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .copy-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #f3f4f6;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: 1px solid #d1d5db;
+        }
+        .copy-badge:hover {
+            background: #e5e7eb;
+        }
+        .pdf-gate {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 16px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+    </style>
+</head>
+<body class="content-page">
+    <div class="page-bg"></div>
+    
+    <!-- Hero -->
+    <section style="padding: 4rem 5%; text-align: center;">
+        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3rem; margin-bottom: 1rem;">The Practix Field Manual</h1>
+        <p style="font-size: 1.2rem; color: #4b5563; max-width: 700px; margin: 0 auto;">
+            12 formulas the SAT hides from you + the Desmos codes that solve them instantly.
+        </p>
+    </section>
+
+    <!-- Formula Hub -->
+    <main style="max-width: 1000px; margin: 0 auto; padding: 0 5% 5rem;">
+        
+        <!-- Search/Filter (Future) -->
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+            
+            <!-- Vertex -->
+            <div class="formula-card">
+                <span style="background: #dcfce7; color: #166534; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">QUADRATIC</span>
+                <h3 style="margin: 0.75rem 0;">Vertex of Parabola</h3>
+                <div style="font-size: 1.2rem; margin-bottom: 1rem;">\[ x = -\frac{b}{2a} \]</div>
+                <div class="copy-badge" onclick="copyText('y1 ~ ax1^2 + bx1 + c')">
+                    <span>📋 Desmos Code</span>
+                </div>
+            </div>
+
+            <!-- Sum of Roots -->
+            <div class="formula-card">
+                <span style="background: #dcfce7; color: #166534; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">QUADRATIC</span>
+                <h3 style="margin: 0.75rem 0;">Sum of Solutions</h3>
+                <div style="font-size: 1.2rem; margin-bottom: 1rem;">\[ \text{Sum} = -\frac{b}{a} \]</div>
+                <div style="font-size: 0.9rem; color: #6b7280;">Saves 2 minutes on elimination questions.</div>
+            </div>
+
+            <!-- Discriminant -->
+            <div class="formula-card">
+                <span style="background: #dcfce7; color: #166534; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">QUADRATIC</span>
+                <h3 style="margin: 0.75rem 0;">The Discriminant</h3>
+                <div style="font-size: 1.2rem; margin-bottom: 1rem;">\[ D = b^2 - 4ac \]</div>
+                <div style="font-size: 0.9rem; color: #6b7280;">D > 0: 2, D = 0: 1, D < 0: 0 solutions.</div>
+            </div>
+
+            <!-- Circle -->
+            <div class="formula-card">
+                <span style="background: #fef9c3; color: #854d0e; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">GEOMETRY</span>
+                <h3 style="margin: 0.75rem 0;">Circle Equation</h3>
+                <div style="font-size: 1.2rem; margin-bottom: 1rem;">\[ (x-h)^2 + (y-k)^2 = r^2 \]</div>
+                <div class="copy-badge" onclick="copyText('(x-h)^2 + (y-k)^2 = r^2')">
+                    <span>📋 Copy for Desmos</span>
+                </div>
+            </div>
+
+            <!-- Exponential -->
+            <div class="formula-card">
+                <span style="background: #e0e7ff; color: #3730a3; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">ALGEBRA</span>
+                <h3 style="margin: 0.75rem 0;">Growth & Decay</h3>
+                <div style="font-size: 1.2rem; margin-bottom: 1rem;">\[ y = a(1 \pm r)^t \]</div>
+                <div class="copy-badge" onclick="copyText('y1 ~ a(b)^{x1}')">
+                    <span>📋 Desmos Code</span>
+                </div>
+            </div>
+
+            <!-- Distance -->
+            <div class="formula-card">
+                <span style="background: #fef9c3; color: #854d0e; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">GEOMETRY</span>
+                <h3 style="margin: 0.75rem 0;">Distance Formula</h3>
+                <div style="font-size: 1.2rem; margin-bottom: 1rem;">\[ d = \sqrt{\Delta x^2 + \Delta y^2} \]</div>
+                <div style="font-size: 0.9rem; color: #6b7280;">Pythagorean theorem in disguise.</div>
+            </div>
+
+        </div>
+
+        <!-- PDF Lead Magnet Gate -->
+        <div class="pdf-gate">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem;">Want the Printable PDF?</h2>
+            <p style="margin-bottom: 2rem; opacity: 0.9;">
+                The "12 Formulas They Don't Give You" field manual. <br>
+                High-resolution, one-page, perfect for last-minute review.
+            </p>
+            <div style="display: flex; gap: 0.5rem; justify-content: center; max-width: 500px; margin: 0 auto;">
+                <input type="email" placeholder="student@example.com" style="flex: 1; padding: 0.75rem; border-radius: 8px; border: none; font-size: 1rem;">
+                <button onclick="window.location.href='#waitlist'" style="background: white; color: #6366f1; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">Send it! →</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: #1a1a2e; color: white; padding: 3rem 5%; text-align: center;">
+        <p>&copy; 2026 Practix. Train Different.</p>
+    </footer>
+
+    <script>
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied to clipboard: ' + text);
+            });
+        }
+    </script>
+</body>
+</html>

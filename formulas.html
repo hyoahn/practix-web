@@ -6,7 +6,7 @@
     
     <!-- SEO Meta Tags -->
     <title>12 SAT Math Formulas Not on the Reference Sheet (2026) | Practix</title>
-    <meta name="description" content="The Digital SAT reference sheet is missing 12 crucial formulas. Get the complete interactive list and Desmos shortcuts you need for an 800.">
+    <meta name="description" content="Master the Digital SAT with the 12 formulas they don't give you. Detailed explanations, example problems, and Desmos shortcuts for an 800-level score.">
     
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,143 +16,338 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="nav.js"></script>
+    <script src="footer.js"></script>
     
     <style>
-        .formula-card {
-            background: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            transition: transform 0.2s;
+        :root {
+            --formula-card-bg: var(--bg-primary);
+            --formula-card-border: var(--border);
+            --formula-accent-quad: #10b981;
+            --formula-accent-geo: #3b82f6;
+            --formula-accent-alg: #6366f1;
+            --formula-badge-radius: 4px;
+            --example-bg: rgba(99, 102, 241, 0.03);
+            --trap-color: #ef4444;
+            --shortcut-color: #10b981;
         }
-        .formula-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        .copy-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #f3f4f6;
-            padding: 0.5rem 0.75rem;
-            border-radius: 6px;
-            font-family: monospace;
-            font-size: 0.9rem;
-            cursor: pointer;
-            border: 1px solid #d1d5db;
-        }
-        .copy-badge:hover {
-            background: #e5e7eb;
-        }
-        .pdf-gate {
-            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-            color: white;
-            padding: 3rem;
-            border-radius: 16px;
+
+        .hero-section {
+            padding: 4rem 5%;
             text-align: center;
-            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .formula-hub-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .formula-card {
+            background: var(--formula-card-bg);
+            border: 1px solid var(--formula-card-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            transition: border-color 0.2s;
+        }
+
+        .formula-card:hover {
+            border-color: var(--accent-primary);
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--formula-badge-radius);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .cat-quad { background: rgba(16, 185, 129, 0.1); color: var(--formula-accent-quad); }
+        .cat-geo { background: rgba(59, 130, 246, 0.1); color: var(--formula-accent-geo); }
+        .cat-alg { background: rgba(99, 102, 241, 0.1); color: var(--formula-accent-alg); }
+
+        .formula-display {
+            font-size: 1.8rem;
+            margin: 2rem 0;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        .formula-explanation {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        /* Example Section */
+        .example-toggle {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: all 0.2s;
+        }
+
+        .example-toggle:hover {
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .example-content {
+            display: none;
+            padding: 2rem;
+            background: var(--example-bg);
+            border-radius: 0 0 12px 12px;
+            border: 1px solid var(--border);
+            border-top: none;
+            margin-top: -1px;
+        }
+
+        .example-problem {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .comparison-box h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .trap-box h4 { color: var(--trap-color); }
+        .shortcut-box h4 { color: var(--shortcut-color); }
+
+        .comparison-box p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .copy-button {
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--bg-dark);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            width: fit-content;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body class="content-page">
     <div class="page-bg"></div>
     
-    <!-- Hero -->
-    <section style="padding: 4rem 5%; text-align: center;">
-        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3rem; margin-bottom: 1rem;">The Practix Field Manual</h1>
-        <p style="font-size: 1.2rem; color: #4b5563; max-width: 700px; margin: 0 auto;">
-            12 formulas the SAT hides from you + the Desmos codes that solve them instantly.
+    <header class="hero-section">
+        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin-bottom: 1rem;">The Field Manual</h1>
+        <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto;">
+            The 12 formulas you actually need to memorize. Detailed explanations and example problems included.
         </p>
-    </section>
+    </header>
 
-    <!-- Formula Hub -->
-    <main style="max-width: 1000px; margin: 0 auto; padding: 0 5% 5rem;">
+    <main class="formula-hub-container">
         
-        <!-- Search/Filter (Future) -->
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
-            
-            <!-- Vertex -->
-            <div class="formula-card">
-                <span style="background: #dcfce7; color: #166534; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">QUADRATIC</span>
-                <h3 style="margin: 0.75rem 0;">Vertex of Parabola</h3>
-                <div style="font-size: 1.2rem; margin-bottom: 1rem;">\[ x = -\frac{b}{2a} \]</div>
-                <div class="copy-badge" onclick="copyText('y1 ~ ax1^2 + bx1 + c')">
-                    <span>📋 Desmos Code</span>
-                </div>
-            </div>
-
-            <!-- Sum of Roots -->
-            <div class="formula-card">
-                <span style="background: #dcfce7; color: #166534; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">QUADRATIC</span>
-                <h3 style="margin: 0.75rem 0;">Sum of Solutions</h3>
-                <div style="font-size: 1.2rem; margin-bottom: 1rem;">\[ \text{Sum} = -\frac{b}{a} \]</div>
-                <div style="font-size: 0.9rem; color: #6b7280;">Saves 2 minutes on elimination questions.</div>
-            </div>
-
-            <!-- Discriminant -->
-            <div class="formula-card">
-                <span style="background: #dcfce7; color: #166534; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">QUADRATIC</span>
-                <h3 style="margin: 0.75rem 0;">The Discriminant</h3>
-                <div style="font-size: 1.2rem; margin-bottom: 1rem;">\[ D = b^2 - 4ac \]</div>
-                <div style="font-size: 0.9rem; color: #6b7280;">D > 0: 2, D = 0: 1, D < 0: 0 solutions.</div>
-            </div>
-
-            <!-- Circle -->
-            <div class="formula-card">
-                <span style="background: #fef9c3; color: #854d0e; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">GEOMETRY</span>
-                <h3 style="margin: 0.75rem 0;">Circle Equation</h3>
-                <div style="font-size: 1.2rem; margin-bottom: 1rem;">\[ (x-h)^2 + (y-k)^2 = r^2 \]</div>
-                <div class="copy-badge" onclick="copyText('(x-h)^2 + (y-k)^2 = r^2')">
-                    <span>📋 Copy for Desmos</span>
-                </div>
-            </div>
-
-            <!-- Exponential -->
-            <div class="formula-card">
-                <span style="background: #e0e7ff; color: #3730a3; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">ALGEBRA</span>
-                <h3 style="margin: 0.75rem 0;">Growth & Decay</h3>
-                <div style="font-size: 1.2rem; margin-bottom: 1rem;">\[ y = a(1 \pm r)^t \]</div>
-                <div class="copy-badge" onclick="copyText('y1 ~ a(b)^{x1}')">
-                    <span>📋 Desmos Code</span>
-                </div>
-            </div>
-
-            <!-- Distance -->
-            <div class="formula-card">
-                <span style="background: #fef9c3; color: #854d0e; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700;">GEOMETRY</span>
-                <h3 style="margin: 0.75rem 0;">Distance Formula</h3>
-                <div style="font-size: 1.2rem; margin-bottom: 1rem;">\[ d = \sqrt{\Delta x^2 + \Delta y^2} \]</div>
-                <div style="font-size: 0.9rem; color: #6b7280;">Pythagorean theorem in disguise.</div>
-            </div>
-
-        </div>
-
-        <!-- PDF Lead Magnet Gate -->
-        <div class="pdf-gate">
-            <h2 style="font-size: 2rem; margin-bottom: 1rem;">Want the Printable PDF?</h2>
-            <p style="margin-bottom: 2rem; opacity: 0.9;">
-                The "12 Formulas They Don't Give You" field manual. <br>
-                High-resolution, one-page, perfect for last-minute review.
+        <!-- Formula 1: Vertex -->
+        <article class="formula-card">
+            <span class="category-badge cat-quad">Quadratics</span>
+            <h3>1. The Vertex Shortcut</h3>
+            <div class="formula-display">\[ x = -\frac{b}{2a} \]</div>
+            <p class="formula-explanation">
+                On the SAT, you'll constantly see parabolas. Instead of spending 2 minutes "completing the square" to find the peak (maximum) or valley (minimum), use this ratio to find the center line instantly.
             </p>
-            <div style="display: flex; gap: 0.5rem; justify-content: center; max-width: 500px; margin: 0 auto;">
-                <input type="email" placeholder="student@example.com" style="flex: 1; padding: 0.75rem; border-radius: 8px; border: none; font-size: 1rem;">
-                <button onclick="window.location.href='#waitlist'" style="background: white; color: #6366f1; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">Send it! →</button>
+            
+            <button class="example-toggle" onclick="toggleExample(this)">
+                <span>View Example Problem</span>
+                <span class="plus">+</span>
+            </button>
+            <div class="example-content">
+                <p class="example-problem">"A ball is thrown in the air. Its height h after t seconds is modeled by \(h(t) = -5t^2 + 20t + 5\). At what time does the ball reach its maximum height?"</p>
+                <div class="comparison-grid">
+                    <div class="comparison-box trap-box">
+                        <h4>🚫 The School Way</h4>
+                        <p>Complete the square:<br>\(h(t) = -5(t^2 - 4t) + 5\)<br>\(h(t) = -5(t-2)^2 + 25\)<br>Answer: t = 2.<br><strong>Time: 45s</strong></p>
+                    </div>
+                    <div class="comparison-box shortcut-box">
+                        <h4>✅ The Practix Way</h4>
+                        <p>Use \(-\frac{b}{2a}\):<br>\(t = -\frac{20}{2(-5)}\)<br>\(t = 2\)<br>Done.<br><strong>Time: 5s</strong></p>
+                    </div>
+                </div>
             </div>
-        </div>
+            <button class="copy-button" onclick="copyText('y1 ~ ax1^2 + bx1 + c')">📋 Copy Desmos Shortcut</button>
+        </article>
+
+        <!-- Formula 2: Sum of Solutions -->
+        <article class="formula-card">
+            <span class="category-badge cat-quad">Quadratics</span>
+            <h3>2. Sum of Solutions</h3>
+            <div class="formula-display">\[ \text{Sum} = -\frac{b}{a} \]</div>
+            <p class="formula-explanation">
+                The SAT loves to ask for the "sum of all values of x" for a quadratic equation. Most students solve the whole equation first. Don't be that student.
+            </p>
+            
+            <button class="example-toggle" onclick="toggleExample(this)">
+                <span>View Example Problem</span>
+                <span class="plus">+</span>
+            </button>
+            <div class="example-content">
+                <p class="example-problem">"What is the sum of the solutions to the equation \(3x^2 + 18x - 21 = 0\)?"</p>
+                <div class="comparison-grid">
+                    <div class="comparison-box trap-box">
+                        <h4>🚫 The School Way</h4>
+                        <p>Factor or use Quadratic Formula:<br>\(3(x^2 + 6x - 7) = 0\)<br>\((x+7)(x-1) = 0\)<br>Roots: -7, 1<br>Sum: -7 + 1 = -6.<br><strong>Time: 40s</strong></p>
+                    </div>
+                    <div class="comparison-box shortcut-box">
+                        <h4>✅ The Practix Way</h4>
+                        <p>Use \(-\frac{b}{a}\):<br>\(Sum = -\frac{18}{3}\)<br>\(Sum = -6\)<br>Answered in one second.<br><strong>Time: 1s</strong></p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Formula 3: Discriminant -->
+        <article class="formula-card">
+            <span class="category-badge cat-quad">Quadratics</span>
+            <h3>3. The Discriminant</h3>
+            <div class="formula-display">\[ D = b^2 - 4ac \]</div>
+            <p class="formula-explanation">
+                When the question mentions "number of solutions," "no real solutions," or "exactly one solution," ignore the rest of the quadratic formula and just calculate this part.
+            </p>
+            
+            <button class="example-toggle" onclick="toggleExample(this)">
+                <span>View Example Problem</span>
+                <span class="plus">+</span>
+            </button>
+            <div class="example-content">
+                <p class="example-problem">"In the equation \(x^2 + kx + 9 = 0\), for what value of \(k\) does the equation have exactly one real solution?"</p>
+                <div class="comparison-grid">
+                    <div class="comparison-box trap-box">
+                        <h4>🚫 The Panic Mode</h4>
+                        <p>Trying to plug in random values for k until the equation looks "factorable."<br><strong>Time: Infinite (maybe 2 mins)</strong></p>
+                    </div>
+                    <div class="comparison-box shortcut-box">
+                        <h4>✅ The Practix Way</h4>
+                        <p>One solution means \(D = 0\):<br>\(k^2 - 4(1)(9) = 0\)<br>\(k^2 = 36 \rightarrow k=6\).<br><strong>Time: 10s</strong></p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Formula 4: Exponential -->
+        <article class="formula-card">
+            <span class="category-badge cat-alg">Algebra</span>
+            <h3>4. Growth & Decay</h3>
+            <div class="formula-display">\[ y = a(1 \pm r)^t \]</div>
+            <p class="formula-explanation">
+                The foundation of percent word problems. "Initial value" is \(a\), the percent change is \(r\), and duration is \(t\). 
+            </p>
+            
+            <button class="example-toggle" onclick="toggleExample(this)">
+                <span>View Example Problem</span>
+                <span class="plus">+</span>
+            </button>
+            <div class="example-content">
+                <p class="example-problem">"A town's population of 5,000 increases by 3% every year. What will the population be after 6 years?"</p>
+                <div class="comparison-grid">
+                    <div class="comparison-box trap-box">
+                        <h4>🚫 The Math Student</h4>
+                        <p>Calculating year 1, then adding to 5000, then calculating year 2...<br><strong>Time: 3 minutes+</strong></p>
+                    </div>
+                    <div class="comparison-box shortcut-box">
+                        <h4>✅ The Trainer</h4>
+                        <p>Plug into formula:<br>\(y = 5000(1.03)^6\)<br>Enter into Desmos.<br><strong>Time: 5s</strong></p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Continue for all 12... (Trig, Distance, Circle, etc.) -->
+        <article class="formula-card">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>5. Circle Equation</h3>
+            <div class="formula-display">\[ (x-h)^2 + (y-k)^2 = r^2 \]</div>
+            <p class="formula-explanation">Identify circle center \((h, k)\) and radius \(r\) instantly. Don't forget that \(r^2\) on the right means you MUST take the square root to find the actual radius.</p>
+            
+            <button class="example-toggle" onclick="toggleExample(this)">
+                <span>View Example Problem</span>
+                <span class="plus">+</span>
+            </button>
+            <div class="example-content">
+                <p class="example-problem">"What is the radius of the circle defined by \((x-3)^2 + (y+5)^2 = 49\)?"</p>
+                <div class="comparison-grid">
+                    <div class="comparison-box trap-box">
+                        <h4>🚫 The Careless Error</h4>
+                        <p>Looking at the 49 and saying "Radius is 49." Or getting the center signs wrong.<br><strong>Time: Lost Points</strong></p>
+                    </div>
+                    <div class="comparison-box shortcut-box">
+                        <h4>✅ The Practix Way</h4>
+                        <p>Radius is \(\sqrt{49} = 7\).<br>Center is (3, -5).<br><strong>Time: 2s</strong></p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article class="formula-card">
+            <span class="category-badge cat-alg">Algebra</span>
+            <h3>6. Complementary Trig</h3>
+            <div class="formula-display">\[ \sin(x) = \cos(90 - x) \]</div>
+            <p class="formula-explanation">If you see sine and cosine in the same question on a right triangle problem, they are almost certainly testing this identity. The sine of one acute angle is always equal to the cosine of the other.</p>
+        </article>
 
     </main>
 
-    <!-- Footer -->
-    <footer style="background: #1a1a2e; color: white; padding: 3rem 5%; text-align: center;">
-        <p>&copy; 2026 Practix. Train Different.</p>
-    </footer>
+    <section class="lead-magnet-gate" style="background: var(--bg-dark); color: white; padding: 4rem 5%; text-align: center; border-radius: 24px; margin: 4rem 5%;">
+        <h2>The Complete Field Manual PDF</h2>
+        <p style="margin: 1.5rem 0 2.5rem; opacity: 0.8;">Get example problems and Desmos hacks for all 12 formulas in one printable sheet.</p>
+        <a href="index.html#waitlist" class="btn-primary" style="padding: 1.2rem 3rem; background: white; color: var(--accent-primary);">Download for Free →</a>
+    </section>
 
     <script>
+        function toggleExample(btn) {
+            const content = btn.nextElementSibling;
+            const plus = btn.querySelector('.plus');
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                plus.textContent = '+';
+                btn.style.borderRadius = '12px';
+            } else {
+                content.style.display = 'block';
+                plus.textContent = '-';
+                btn.style.borderRadius = '12px 12px 0 0';
+            }
+        }
+
         function copyText(text) {
             navigator.clipboard.writeText(text).then(() => {
-                alert('Copied to clipboard: ' + text);
+                alert('Copied to clipboard!');
             });
         }
     </script>

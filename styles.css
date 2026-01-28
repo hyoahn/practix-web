@@ -763,7 +763,7 @@ footer p {
     }
 
     .hero-text-container {
-        padding: 3rem 5% 2rem;
+        padding: 1.5rem 5% 2rem;
         text-align: center;
         justify-content: center; /* Reset from flex-end */
     }
@@ -829,14 +829,27 @@ footer p {
 
     .hero-image-container {
         min-height: auto;
-        height: 350px;
+        height: auto;
+        display: block;
+        mask-image: none;
+        -webkit-mask-image: none;
     }
 
     .hero-image-container img {
-        object-position: center 15%;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+        transform: none;
     }
 
     .floating-card {
         transform: scale(0.8);
+    }
+    
+    .score-card {
+        top: auto;
+        bottom: 15%;
+        left: 5%;
     }
 }

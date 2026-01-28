@@ -145,7 +145,7 @@
     <header class="hero-section">
         <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin-bottom: 1rem;">The Field Manual</h1>
         <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto;">
-            The 12 formulas they don't give you. Detailed evidence of why traditional methods are too slow.
+            The 20+ formulas they don't give you. Detailed evidence of why traditional methods are too slow.
         </p>
     </header>
 
@@ -415,6 +415,151 @@
             <div class="formula-display">\[ (\frac{x_1+x_2}{2}, \frac{y_1+y_2}{2}) \]</div>
             <p class="formula-explanation">Average the x's and y's.</p>
         </article>
+
+        <!-- 13 -->
+        <article class="formula-card">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>13. 30-60-90 Triangle</h3>
+            <div class="formula-display">\[ \text{Sides} = x : x\sqrt{3} : 2x \]</div>
+            <p class="formula-explanation">Instant side ratios. No Pythagorean Theorem needed.</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span class="plus">+</span></button>
+            <div class="example-content">
+                <p style="font-weight: 700; margin-bottom: 1.5rem;">"In a 30-60-90 triangle, the short leg is 5. Find the hypotenuse."</p>
+                <div class="comparison-grid">
+                    <div>
+                        <div class="school-header">🚫 The School Way (55+ Seconds)</div>
+                        <ul class="step-list">
+                            <li>Step 1: Draw the triangle and label the 30°, 60°, 90° angles.</li>
+                            <li>Step 2: Identify short leg (opposite 30°) = 5.</li>
+                            <li>Step 3: Need hypotenuse. Use Pythagorean or trig...</li>
+                            <li>Step 4: Try \(\sin(30°) = \frac{\text{opposite}}{\text{hypotenuse}}\).</li>
+                            <li>Step 5: Realize \(\sin(30°) = 0.5\).</li>
+                            <li>Step 6: Set up equation: \(0.5 = \frac{5}{h}\).</li>
+                            <li>Step 7: Cross multiply: \(0.5h = 5\).</li>
+                            <li>Step 8: Solve: \(h = \frac{5}{0.5} = 10\).</li>
+                            <li><em>Multiple formulas, lots of algebra!</em></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="practix-header">✅ The Practix Way (3s)</div>
+                        <ul class="step-list">
+                            <li>Step 1: Short leg = \(x = 5\).</li>
+                            <li>Step 2: Hypotenuse = \(2x = 2(5) = 10\).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 14 -->
+        <article class="formula-card">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>14. 45-45-90 Triangle</h3>
+            <div class="formula-display">\[ \text{Sides} = x : x : x\sqrt{2} \]</div>
+            <p class="formula-explanation">Perfect for isosceles right triangles.</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span class="plus">+</span></button>
+            <div class="example-content">
+                <p style="font-weight: 700; margin-bottom: 1.5rem;">"In a 45-45-90 triangle, each leg is 7. Find the hypotenuse."</p>
+                <div class="comparison-grid">
+                    <div>
+                        <div class="school-header">🚫 The School Way (50+ Seconds)</div>
+                        <ul class="step-list">
+                            <li>Step 1: Recognize it's isosceles (two 45° angles).</li>
+                            <li>Step 2: Both legs = 7.</li>
+                            <li>Step 3: Use Pythagorean Theorem: \(a^2 + b^2 = c^2\).</li>
+                            <li>Step 4: Plug in: \(7^2 + 7^2 = c^2\).</li>
+                            <li>Step 5: Calculate: \(49 + 49 = c^2\).</li>
+                            <li>Step 6: Simplify: \(98 = c^2\).</li>
+                            <li>Step 7: Take square root: \(c = \sqrt{98}\).</li>
+                            <li>Step 8: Simplify radical: \(c = \sqrt{49 \times 2} = 7\sqrt{2}\).</li>
+                            <li><em>Pythagorean Theorem every single time!</em></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="practix-header">✅ The Practix Way (2s)</div>
+                        <ul class="step-list">
+                            <li>Step 1: Leg = \(x = 7\).</li>
+                            <li>Step 2: Hypotenuse = \(x\sqrt{2} = 7\sqrt{2}\).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 15 -->
+        <article class="formula-card">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>15. Triangle Angle Sum</h3>
+            <div class="formula-display">\[ A + B + C = 180° \]</div>
+            <p class="formula-explanation">Find any missing angle instantly.</p>
+        </article>
+
+        <!-- 16 -->
+        <article class="formula-card">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>16. Exterior Angle Theorem</h3>
+            <div class="formula-display">\[ \text{Exterior} = A + B \]</div>
+            <p class="formula-explanation">The exterior angle equals the sum of the two remote interior angles.</p>
+        </article>
+
+        <!-- 17 -->
+        <article class="formula-card">
+            <span class="category-badge cat-alg">Algebra</span>
+            <h3>17. Difference of Squares</h3>
+            <div class="formula-display">\[ a^2 - b^2 = (a+b)(a-b) \]</div>
+            <p class="formula-explanation">Universal factoring pattern. Instant recognition = instant solution.</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span class="plus">+</span></button>
+            <div class="example-content">
+                <p style="font-weight: 700; margin-bottom: 1.5rem;">"Factor \(x^2 - 49\)."</p>
+                <div class="comparison-grid">
+                    <div>
+                        <div class="school-header">🚫 The School Way (40+ Seconds)</div>
+                        <ul class="step-list">
+                            <li>Step 1: Look for two terms that multiply to -49, add to 0.</li>
+                            <li>Step 2: Try pairs: (1,-49)? No. (7,-7)? They don't add to 0...</li>
+                            <li>Step 3: Realize there's no middle term!</li>
+                            <li>Step 4: Remember "difference of squares" exists.</li>
+                            <li>Step 5: Identify \(a^2 = x^2\), so \(a = x\).</li>
+                            <li>Step 6: Identify \(b^2 = 49\), so \(b = 7\).</li>
+                            <li>Step 7: Write formula: \((a+b)(a-b)\).</li>
+                            <li>Step 8: Substitute: \((x+7)(x-7)\).</li>
+                            <li><em>Easy to forget the pattern exists!</em></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="practix-header">✅ The Practix Way (2s)</div>
+                        <ul class="step-list">
+                            <li>Step 1: \(x^2 - 49 = (x+7)(x-7)\).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 18 -->
+        <article class="formula-card">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>18. Slope Formula</h3>
+            <div class="formula-display">\[ m = \frac{y_2 - y_1}{x_2 - x_1} \]</div>
+            <p class="formula-explanation">Find the steepness of any line through two points.</p>
+        </article>
+
+        <!-- 19 -->
+        <article class="formula-card">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>19. Parallel Lines</h3>
+            <div class="formula-display">\[ m_1 = m_2 \]</div>
+            <p class="formula-explanation">Parallel lines have identical slopes.</p>
+        </article>
+
+        <!-- 20 -->
+        <article class="formula-card">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>20. Perpendicular Lines</h3>
+            <div class="formula-display">\[ m_1 \cdot m_2 = -1 \]</div>
+            <p class="formula-explanation">Perpendicular slopes are negative reciprocals.</p>
+        </article>
+
     </main>
 
     <script>

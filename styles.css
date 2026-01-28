@@ -916,9 +916,11 @@ footer p {
         min-height: auto;
         height: auto;
         flex: none;
-        display: block;
+        display: flex;
+        flex-direction: column;
         mask-image: none;
         -webkit-mask-image: none;
+        padding-bottom: 2rem;
     }
 
     .hero-image-container img {
@@ -928,6 +930,22 @@ footer p {
         object-position: center;
         min-width: 0;
         transform: none;
+        order: 2; /* Image goes below cards */
+    }
+
+    /* Convert floating cards to static blocks above image */
+    .floating-card {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        order: 1; /* Cards go above image */
+        margin: 0.5rem auto;
+        transform: none !important; /* Disable float animation on mobile */
+        animation: none;
+        max-width: 300px;
+        width: 90%;
     }
 
     .hero-text-container {
@@ -995,29 +1013,5 @@ footer p {
         height: auto;
     }
 
-    .hero-image-container {
-        min-height: auto;
-        height: auto;
-        display: block;
-        mask-image: none;
-        -webkit-mask-image: none;
-    }
 
-    .hero-image-container img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-        object-position: center;
-        transform: none;
-    }
-
-    .floating-card {
-        transform: scale(0.8);
-    }
-    
-    .score-card {
-        top: auto;
-        bottom: 15%;
-        left: 5%;
-    }
 }

@@ -935,24 +935,46 @@ footer p {
     }
 
     /* Floating cards become static blocks */
+    .hero-text-container {
+        padding: 1rem 5% 1.5rem; /* Further reduced padding */
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-split-fullscreen h1 {
+        font-size: 2.2rem; /* Much smaller mobile title */
+        margin-bottom: 1rem;
+    }
+    
+    .hero-split-fullscreen p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Tiny cards that zoom on click */
     .floating-card {
         position: relative;
         top: auto;
         left: auto;
         right: auto;
         bottom: auto;
-        margin: 0.5rem auto;
-        transform: none !important;
+        margin: 0.25rem auto; /* Tight spacing */
+        transform: scale(0.6); /* Tiny by default */
+        transform-origin: center;
+        width: auto;
+        max-width: 280px;
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+        z-index: 10;
+        /* No animation/float on mobile to save UI distraction */
         animation: none;
-        max-width: 300px;
-        width: 90%;
-        /* No order property needed */
     }
-
-    .hero-text-container {
-        padding: 1.5rem 5% 2rem;
-        text-align: center;
-        justify-content: center; /* Reset from flex-end */
+    
+    /* State for zooming in */
+    .floating-card.expanded {
+        transform: scale(1.0);
+        z-index: 20;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.2);
     }
 
     .hero-text-content {
@@ -967,9 +989,7 @@ footer p {
         justify-content: center;
     }
 
-    .hero-image-container {
-        min-height: 400px;
-    }
+
 
     .resources-grid,
     .strategy-grid {

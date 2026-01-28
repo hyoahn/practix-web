@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <li><a href="${basePath}formulas.html" style="color: white; opacity: 0.7; text-decoration: none;">Formula Hub</a></li>
                         <li><a href="${basePath}desmos.html" style="color: white; opacity: 0.7; text-decoration: none;">Desmos Tricks</a></li>
                         <li><a href="${basePath}strategy.html" style="color: white; opacity: 0.7; text-decoration: none;">800 Strategy</a></li>
+                        <li><a href="${basePath}contact.html" style="color: white; opacity: 0.7; text-decoration: none;">Contact Us</a></li>
                     </ul>
                 </div>
             </div>

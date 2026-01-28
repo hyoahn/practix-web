@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <a href="${basePath}formulas.html" class="nav-btn ${currentPath.includes('formulas.html') ? 'active' : ''}">Formulas</a>
             <a href="${basePath}strategy.html" class="nav-btn ${currentPath.includes('strategy.html') ? 'active' : ''}">Strategy</a>
             <a href="${basePath}hardest-questions.html" class="nav-btn ${currentPath.includes('hardest-questions.html') ? 'active' : ''}">Hard Questions</a>
-            <a href="${basePath}contact.html" class="nav-btn ${currentPath.includes('contact.html') ? 'active' : ''}">Contact</a>
         </div>
     `;
 

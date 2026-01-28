@@ -12,142 +12,241 @@
     <!-- Open Graph -->
     <meta property="og:title" content="The 800-Point Strategy: Stop Studying, Start Training">
     <meta property="og:description" content="Why traditional studying fails on the Digital SAT, and what to do instead.">
-    <meta property="og:image" content="https://practix.org/images/strategy-og.png">
-    <meta property="og:url" content="https://practix.org/strategy">
-    
-    <!-- Schema.org -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "How to Score 800 on SAT Math: The Training Method",
-      "author": {
-        "@type": "Organization",
-        "name": "Practix"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Practix"
-      }
-    }
-    </script>
     
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
     <script src="nav.js"></script>
     <script src="footer.js"></script>
+
+    <style>
+        :root {
+            --strategy-hero-bg: var(--bg-secondary);
+            --pillar-icon-width: 40px;
+            --manifesto-max-width: 800px;
+        }
+
+        .strategy-hero {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            padding: 4rem 5%;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-badge {
+            background: var(--bg-dark);
+            color: white;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .manifesto-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+
+        .accent {
+            color: var(--accent-primary);
+        }
+
+        .manifesto-article {
+            max-width: var(--manifesto-max-width);
+            margin: 0 auto;
+            padding: 3rem 5%;
+        }
+
+        .pillar-card {
+            margin-bottom: 3rem;
+        }
+
+        .pillar-header {
+            font-size: 1.8rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .pillar-number {
+            width: var(--pillar-icon-width);
+            height: var(--pillar-icon-width);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .pillar-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .simulator-box {
+            background: var(--bg-dark);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 4rem;
+        }
+
+        .guide-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .guide-card {
+            display: block;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: transform 0.2s;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+        }
+
+        /* Conversion CTA */
+        .article-cta {
+            background: rgba(99, 102, 241, 0.05);
+            border: 2px dashed var(--accent-primary);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+    </style>
 </head>
 <body class="content-page">
     <div class="page-bg"></div>
     
-    <!-- Navigation managed by nav.js -->
-
     <!-- Hero -->
-    <section style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%); padding: 4rem 5%; text-align: center; border-bottom: 1px solid #e5e5e5;">
+    <header class="strategy-hero">
         <div style="max-width: 900px; margin: 0 auto;">
-            <div style="background: #1a1a2e; color: white; display: inline-block; padding: 0.5rem 1rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; margin-bottom: 1rem;">
-                THE MANIFESTO
-            </div>
-            <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3rem; margin-bottom: 1.5rem; color: #1a1a2e; line-height: 1.2;">
+            <div class="hero-badge">THE MANIFESTO</div>
+            <h1 class="manifesto-title">
                 Stop Studying.<br>
-                <span style="color: #6366f1;">Start Training.</span>
+                <span class="accent">Start Training.</span>
             </h1>
-            <p style="font-size: 1.3rem; color: #4a4a68; margin-bottom: 0;">
+            <p style="font-size: 1.3rem; color: var(--text-secondary);">
                 Why the smartest students get stuck at 700, and how to break through to 800 on the Digital SAT.
             </p>
         </div>
-    </section>
+    </header>
 
     <!-- Main Content -->
-    <article style="max-width: 800px; margin: 0 auto; padding: 3rem 5%;">
+    <article class="manifesto-article">
         
-        <!-- The Problem -->
         <section style="margin-bottom: 4rem;">
-            <p style="font-size: 1.2rem; line-height: 1.8; color: #1a1a2e; margin-bottom: 1.5rem;">
+            <p class="pillar-content">
                 If you're reading this, you probably know the formulas. You get A's in math class. You've done the Khan Academy exercises.
             </p>
-            <p style="font-size: 1.2rem; line-height: 1.8; color: #1a1a2e; margin-bottom: 1.5rem;">
+            <p class="pillar-content">
                 But on the SAT, you run out of time. You make "silly mistakes." You get stuck at 720.
             </p>
-            <p style="font-size: 1.2rem; line-height: 1.8; color: #1a1a2e; margin-bottom: 0;">
+            <p class="pillar-content" style="color: var(--text-primary);">
                 The problem isn't your math knowledge. <strong>The problem is that you are studying for a test, but the SAT is a sport.</strong>
             </p>
         </section>
 
-        <!-- The 3 Pillars -->
+        <!-- Mid-Article CTA -->
+        <div class="article-cta">
+            <h4 style="margin-bottom: 0.5rem; color: var(--accent-primary);">Before you continue...</h4>
+            <p style="font-size: 1rem; margin-bottom: 1.5rem;">Download the "12 Formulas They Don't Give You" PDF to save 10+ minutes on Module 2.</p>
+            <a href="#waitlist" class="btn-primary" style="padding: 0.8rem 1.5rem;">Get the PDF →</a>
+        </div>
+
         <section style="margin-bottom: 4rem;">
-            <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; margin-bottom: 2rem; color: #1a1a2e;">The 3 Pillars of an 800</h2>
+            <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; margin-bottom: 2rem;">The 3 Pillars of an 800</h2>
             
             <!-- Pillar 1 -->
-            <div style="margin-bottom: 3rem;">
-                <h3 style="font-size: 1.8rem; color: #6366f1; margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
-                    <span style="background: #f0fdf4; color: #10b981; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-right: 1rem;">1</span>
+            <div class="pillar-card">
+                <h3 class="pillar-header">
+                    <span class="pillar-number" style="background: #f0fdf4; color: #10b981;">1</span>
                     Speed (Reflexes > Thought)
                 </h3>
-                <p style="font-size: 1.1rem; line-height: 1.8; color: #4a4a68; margin-bottom: 1rem;">
+                <p class="pillar-content">
                     In school, you get credit for "showing your work." On the SAT, showing your work is a liability. It's slow.
-                </p>
-                <p style="font-size: 1.1rem; line-height: 1.8; color: #4a4a68;">
+                    <br><br>
                     <strong>The Practix Method:</strong> We train you to solve questions without algebra.
                     <br>• Need the vertex? Don't complete the square. Use <code>-b/2a</code>.
                     <br>• Need a line equation? Don't calculate slope. Use Desmos regression.
-                    <br>• System of equations? Don't substitute. Graph it.
                 </p>
-                <a href="/desmos" style="display: inline-block; margin-top: 1rem; color: #6366f1; font-weight: 600; text-decoration: none;">→ Learn the Desmos shortcuts</a>
             </div>
 
             <!-- Pillar 2 -->
-            <div style="margin-bottom: 3rem;">
-                <h3 style="font-size: 1.8rem; color: #6366f1; margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
-                    <span style="background: #eff6ff; color: #3b82f6; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-right: 1rem;">2</span>
+            <div class="pillar-card">
+                <h3 class="pillar-header">
+                    <span class="pillar-number" style="background: #eff6ff; color: #3b82f6;">2</span>
                     Pattern Recognition
                 </h3>
-                <p style="font-size: 1.1rem; line-height: 1.8; color: #4a4a68; margin-bottom: 1rem;">
+                <p class="pillar-content">
                     The SAT has a limited number of standard "traps." Once you see the matrix, you can't unsee it.
-                </p>
-                <p style="font-size: 1.1rem; line-height: 1.8; color: #4a4a68;">
-                    <strong>The Practix Method:</strong> We don't organize questions by topic (e.g., "Geometry"). We organize them by trap (e.g., "The Unit Conversion Trap," "The Not-Drawn-To-Scale Trap"). You learn to spot the trick before you even read the full question.
+                    <br><br>
+                    <strong>The Practix Method:</strong> We don't organize questions by topic. We organize them by trap. You learn to spot the trick before you even read the full question.
                 </p>
             </div>
 
             <!-- Pillar 3 -->
-            <div style="margin-bottom: 2rem;">
-                <h3 style="font-size: 1.8rem; color: #6366f1; margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
-                    <span style="background: #fef2f2; color: #ef4444; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-right: 1rem;">3</span>
+            <div class="pillar-card">
+                <h3 class="pillar-header">
+                    <span class="pillar-number" style="background: #fef2f2; color: #ef4444;">3</span>
                     Mental Endurance
                 </h3>
-                <p style="font-size: 1.1rem; line-height: 1.8; color: #4a4a68;">
-                    The Digital SAT is adaptive. Module 2 is brutal. It's designed to exhaust you.
-                    Most students lose focus at question 18 and make a careless error.
+                <p class="pillar-content">
+                    The Digital SAT is adaptive. Module 2 is brutal. Most students lose focus at question 18.
                     Practix builds your stamina through timed "sprints" that mimic the pressure of the real test.
                 </p>
             </div>
         </section>
 
-        <!-- Simulator Analogy -->
-        <section style="background: #1a1a2e; color: white; padding: 2.5rem; border-radius: 16px; margin-bottom: 4rem;">
+        <section class="simulator-box">
             <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Why A "Simulator"?</h3>
-            <p style="font-size: 1.1rem; line-height: 1.8; opacity: 0.9; margin-bottom: 1.5rem;">
-                Pilots don't learn to fly by reading manuals. They spend hundreds of hours in a simulator that throws every possible emergency at them.
-            </p>
             <p style="font-size: 1.1rem; line-height: 1.8; opacity: 0.9;">
-                Practix is the <strong>Flight Simulator for SAT Math</strong>.
-                We don't just give you a practice test. We give you an infinite stream of adaptive problems that react to your weaknesses in real-time.
+                Pilots don't learn to fly by reading manuals. They spend hundreds of hours in a simulator that throws every possible emergency at them.
+                <br><br>
+                Practix is the <strong>Flight Simulator for SAT Math</strong>. We give you an infinite stream of adaptive problems that react to your weaknesses in real-time.
             </p>
         </section>
 
+        <!-- Final "800 Clause" -->
+        <section style="text-align: center; padding: 4rem 0;">
+            <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 1.5rem;">The Decision</h2>
+            <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2.5rem; line-height: 1.6;">
+                You can keep studying the old way—buying another book, doing another generic practice test, and hoping for the best. 
+                <br><br>
+                Or you can start <strong>training</strong> for the score you deserve.
+            </p>
+            <a href="index.html#waitlist" class="btn-primary" style="padding: 1.2rem 3rem; font-size: 1.2rem; border-radius: 50px;">Join 1,200+ Students in Beta →</a>
+        </section>
+
         <!-- Related Guides -->
-        <section>
-            <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: #1a1a2e;">Start Your Training</h3>
-            <div style="display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-                <a href="/formulas" style="display: block; padding: 1.5rem; background: #f9fafb; border-radius: 8px; text-decoration: none; border: 1px solid #e5e7eb; transition: transform 0.2s;">
-                    <strong style="color: #6366f1; font-size: 1.1rem;">→ The Missing Formulas</strong>
+        <section style="border-top: 1px solid var(--border); padding-top: 3rem;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Related Resources</h3>
+            <div class="guide-grid">
+                <a href="formulas.html" class="guide-card">
+                    <strong class="accent">→ The Missing Formulas</strong>
                     <p style="margin: 0.5rem 0 0 0; color: #6b7280;">Download the 12 formulas you need to memorize.</p>
                 </a>
-                <a href="/desmos" style="display: block; padding: 1.5rem; background: #f9fafb; border-radius: 8px; text-decoration: none; border: 1px solid #e5e7eb; transition: transform 0.2s;">
-                    <strong style="color: #6366f1; font-size: 1.1rem;">→ Desmos Setup Guide</strong>
+                <a href="desmos.html" class="guide-card">
+                    <strong class="accent">→ Desmos Setup Guide</strong>
                     <p style="margin: 0.5rem 0 0 0; color: #6b7280;">Configure your calculator for speed.</p>
                 </a>
             </div>
@@ -155,10 +254,6 @@
 
     </article>
 
-    <!-- Footer -->
-    <footer style="background: #1a1a2e; color: white; padding: 2rem 5%; text-align: center; margin-top: 4rem;">
-        <p>&copy; 2026 Practix. Train different.</p>
-    </footer>
-
+    <!-- Footer managed by footer.js -->
 </body>
 </html>

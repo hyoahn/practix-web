@@ -7,7 +7,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Determine the path depth (if we are in a subfolder like /topics/)
     const currentPath = window.location.pathname;
-    const isInSubfolder = currentPath.includes('/topics/') || currentPath.split('/').length > 3; // Simple heuristic
+    // Handle both local file system paths and server paths
+    const isInSubfolder = currentPath.includes('/topics/') || 
+                         (currentPath.includes('topics/') && !currentPath.includes('../topics/'));
     const basePath = isInSubfolder ? '../' : '';
 
     // 2. Create the nav element
@@ -29,11 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
-    // 4. Inject into the page (either replace existing nav or prepend to body)
+    // 4. Inject into the page
+    // Look for various insertion points
     const existingNav = document.querySelector('nav:not(.breadcrumb)');
+    const navPlaceholder = document.body.querySelector('body > :first-child');
+
     if (existingNav) {
         existingNav.replaceWith(nav);
     } else {
-        document.body.prepend(nav);
+        // Prepend to body, ensuring it's before any specific content containers
+        document.body.insertBefore(nav, document.body.firstChild);
     }
 });

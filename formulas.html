@@ -181,54 +181,30 @@
             <span class="category-badge cat-quad">Quadratics</span>
             <h3>1. The Vertex Shortcut</h3>
             <div class="formula-display">\[ x = -\frac{b}{2a} \]</div>
-            <p class="formula-explanation">
-                On the SAT, you'll constantly see parabolas. Instead of spending 2 minutes "completing the square" to find the peak (maximum) or valley (minimum), use this ratio to find the center line instantly.
-            </p>
-            
-            <button class="example-toggle" onclick="toggleExample(this)">
-                <span>View Example Problem</span>
-                <span class="plus">+</span>
-            </button>
+            <p class="formula-explanation">Instead of "completing the square," use this to find the peak or valley of any parabola instantly.</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Example Problem</span><span class="plus">+</span></button>
             <div class="example-content">
-                <p class="example-problem">"A ball is thrown in the air. Its height h after t seconds is modeled by \(h(t) = -5t^2 + 20t + 5\). At what time does the ball reach its maximum height?"</p>
+                <p class="example-problem">"A ball follows \(h(t) = -5t^2 + 20t + 5\). When is it at max height?"</p>
                 <div class="comparison-grid">
-                    <div class="comparison-box trap-box">
-                        <h4>🚫 The School Way</h4>
-                        <p>Complete the square:<br>\(h(t) = -5(t^2 - 4t) + 5\)<br>\(h(t) = -5(t-2)^2 + 25\)<br>Answer: t = 2.<br><strong>Time: 45s</strong></p>
-                    </div>
-                    <div class="comparison-box shortcut-box">
-                        <h4>✅ The Practix Way</h4>
-                        <p>Use \(-\frac{b}{2a}\):<br>\(t = -\frac{20}{2(-5)}\)<br>\(t = 2\)<br>Done.<br><strong>Time: 5s</strong></p>
-                    </div>
+                    <div class="comparison-box trap-box"><h4>🚫 School Way</h4><p>Completing the square (45s)</p></div>
+                    <div class="comparison-box shortcut-box"><h4>✅ Practix Way</h4><p>\(t = -20 / -10 = 2\) (5s)</p></div>
                 </div>
             </div>
-            <button class="copy-button" onclick="copyText('y1 ~ ax1^2 + bx1 + c')">📋 Copy Desmos Shortcut</button>
+            <button class="copy-button" onclick="copyText('-b/(2a)')">📋 Copy for Desmos</button>
         </article>
 
-        <!-- Formula 2: Sum of Solutions -->
+        <!-- Formula 2: Sum of Roots -->
         <article class="formula-card">
             <span class="category-badge cat-quad">Quadratics</span>
             <h3>2. Sum of Solutions</h3>
             <div class="formula-display">\[ \text{Sum} = -\frac{b}{a} \]</div>
-            <p class="formula-explanation">
-                The SAT loves to ask for the "sum of all values of x" for a quadratic equation. Most students solve the whole equation first. Don't be that student.
-            </p>
-            
-            <button class="example-toggle" onclick="toggleExample(this)">
-                <span>View Example Problem</span>
-                <span class="plus">+</span>
-            </button>
+            <p class="formula-explanation">Find the sum of all x-values without actually solving the quadratic.</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Example Problem</span><span class="plus">+</span></button>
             <div class="example-content">
-                <p class="example-problem">"What is the sum of the solutions to the equation \(3x^2 + 18x - 21 = 0\)?"</p>
+                <p class="example-problem">"Sum of solutions for \(3x^2 + 18x - 21 = 0\)?"</p>
                 <div class="comparison-grid">
-                    <div class="comparison-box trap-box">
-                        <h4>🚫 The School Way</h4>
-                        <p>Factor or use Quadratic Formula:<br>\(3(x^2 + 6x - 7) = 0\)<br>\((x+7)(x-1) = 0\)<br>Roots: -7, 1<br>Sum: -7 + 1 = -6.<br><strong>Time: 40s</strong></p>
-                    </div>
-                    <div class="comparison-box shortcut-box">
-                        <h4>✅ The Practix Way</h4>
-                        <p>Use \(-\frac{b}{a}\):<br>\(Sum = -\frac{18}{3}\)<br>\(Sum = -6\)<br>Answered in one second.<br><strong>Time: 1s</strong></p>
-                    </div>
+                    <div class="comparison-box trap-box"><h4>🚫 School Way</h4><p>Factor, find roots, add them (40s)</p></div>
+                    <div class="comparison-box shortcut-box"><h4>✅ Practix Way</h4><p>\(Sum = -18/3 = -6\) (1s)</p></div>
                 </div>
             </div>
         </article>
@@ -238,25 +214,13 @@
             <span class="category-badge cat-quad">Quadratics</span>
             <h3>3. The Discriminant</h3>
             <div class="formula-display">\[ D = b^2 - 4ac \]</div>
-            <p class="formula-explanation">
-                When the question mentions "number of solutions," "no real solutions," or "exactly one solution," ignore the rest of the quadratic formula and just calculate this part.
-            </p>
-            
-            <button class="example-toggle" onclick="toggleExample(this)">
-                <span>View Example Problem</span>
-                <span class="plus">+</span>
-            </button>
+            <p class="formula-explanation">Instantly know how many solutions a quadratic has without solving it.</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Example Problem</span><span class="plus">+</span></button>
             <div class="example-content">
-                <p class="example-problem">"In the equation \(x^2 + kx + 9 = 0\), for what value of \(k\) does the equation have exactly one real solution?"</p>
+                <p class="example-problem">"How many real solutions does \(x^2 + 4x + 5 = 0\) have?"</p>
                 <div class="comparison-grid">
-                    <div class="comparison-box trap-box">
-                        <h4>🚫 The Panic Mode</h4>
-                        <p>Trying to plug in random values for k until the equation looks "factorable."<br><strong>Time: Infinite (maybe 2 mins)</strong></p>
-                    </div>
-                    <div class="comparison-box shortcut-box">
-                        <h4>✅ The Practix Way</h4>
-                        <p>One solution means \(D = 0\):<br>\(k^2 - 4(1)(9) = 0\)<br>\(k^2 = 36 \rightarrow k=6\).<br><strong>Time: 10s</strong></p>
-                    </div>
+                    <div class="comparison-box trap-box"><h4>🚫 School Way</h4><p>Solve with Quadratic Formula (50s)</p></div>
+                    <div class="comparison-box shortcut-box"><h4>✅ Practix Way</h4><p>\(D = 4^2 - 4(5) = -4\). D < 0 means Zero! (5s)</p></div>
                 </div>
             </div>
         </article>
@@ -266,60 +230,135 @@
             <span class="category-badge cat-alg">Algebra</span>
             <h3>4. Growth & Decay</h3>
             <div class="formula-display">\[ y = a(1 \pm r)^t \]</div>
-            <p class="formula-explanation">
-                The foundation of percent word problems. "Initial value" is \(a\), the percent change is \(r\), and duration is \(t\). 
-            </p>
-            
-            <button class="example-toggle" onclick="toggleExample(this)">
-                <span>View Example Problem</span>
-                <span class="plus">+</span>
-            </button>
+            <p class="formula-explanation">The master formula for percent word problems.initial value \(a\), rate \(r\).</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Example Problem</span><span class="plus">+</span></button>
             <div class="example-content">
-                <p class="example-problem">"A town's population of 5,000 increases by 3% every year. What will the population be after 6 years?"</p>
+                <p class="example-problem">"Town of 5000 grew by 3% for 6 years. Final pop?"</p>
                 <div class="comparison-grid">
-                    <div class="comparison-box trap-box">
-                        <h4>🚫 The Math Student</h4>
-                        <p>Calculating year 1, then adding to 5000, then calculating year 2...<br><strong>Time: 3 minutes+</strong></p>
-                    </div>
-                    <div class="comparison-box shortcut-box">
-                        <h4>✅ The Trainer</h4>
-                        <p>Plug into formula:<br>\(y = 5000(1.03)^6\)<br>Enter into Desmos.<br><strong>Time: 5s</strong></p>
-                    </div>
+                    <div class="comparison-box trap-box"><h4>🚫 School Way</h4><p>Calculate year by year manually (3 mins)</p></div>
+                    <div class="comparison-box shortcut-box"><h4>✅ Practix Way</h4><p>\(5000(1.03)^6\) in Desmos (5s)</p></div>
                 </div>
             </div>
         </article>
 
-        <!-- Continue for all 12... (Trig, Distance, Circle, etc.) -->
+        <!-- Formula 5: Circle -->
         <article class="formula-card">
             <span class="category-badge cat-geo">Geometry</span>
             <h3>5. Circle Equation</h3>
             <div class="formula-display">\[ (x-h)^2 + (y-k)^2 = r^2 \]</div>
-            <p class="formula-explanation">Identify circle center \((h, k)\) and radius \(r\) instantly. Don't forget that \(r^2\) on the right means you MUST take the square root to find the actual radius.</p>
-            
-            <button class="example-toggle" onclick="toggleExample(this)">
-                <span>View Example Problem</span>
-                <span class="plus">+</span>
-            </button>
+            <p class="formula-explanation">Identify center \((h, k)\) and radius \(r\) on a graph instantly.</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Example Problem</span><span class="plus">+</span></button>
             <div class="example-content">
-                <p class="example-problem">"What is the radius of the circle defined by \((x-3)^2 + (y+5)^2 = 49\)?"</p>
+                <p class="example-problem">"Radius of \((x-3)^2 + (y+5)^2 = 49\)?"</p>
                 <div class="comparison-grid">
-                    <div class="comparison-box trap-box">
-                        <h4>🚫 The Careless Error</h4>
-                        <p>Looking at the 49 and saying "Radius is 49." Or getting the center signs wrong.<br><strong>Time: Lost Points</strong></p>
-                    </div>
-                    <div class="comparison-box shortcut-box">
-                        <h4>✅ The Practix Way</h4>
-                        <p>Radius is \(\sqrt{49} = 7\).<br>Center is (3, -5).<br><strong>Time: 2s</strong></p>
-                    </div>
+                    <div class="comparison-box trap-box"><h4>🚫 The Trap</h4><p>Saying radius is 49 instead of \(\sqrt{49}\).</p></div>
+                    <div class="comparison-box shortcut-box"><h4>✅ Practix Way</h4><p>\(r = \sqrt{49} = 7\). Done. (2s)</p></div>
                 </div>
             </div>
         </article>
 
+        <!-- Formula 6: Trig Identity -->
         <article class="formula-card">
             <span class="category-badge cat-alg">Algebra</span>
             <h3>6. Complementary Trig</h3>
             <div class="formula-display">\[ \sin(x) = \cos(90 - x) \]</div>
-            <p class="formula-explanation">If you see sine and cosine in the same question on a right triangle problem, they are almost certainly testing this identity. The sine of one acute angle is always equal to the cosine of the other.</p>
+            <p class="formula-explanation">In a right triangle, sine of one angle equals cosine of the other.</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Example Problem</span><span class="plus">+</span></button>
+            <div class="example-content">
+                <p class="example-problem">"If \(\sin(30) = 0.5\), what is \(\cos(60)\)?"</p>
+                <div class="comparison-grid">
+                    <div class="comparison-box trap-box"><h4>🚫 School Way</h4><p>Drawing triangles and ratios (30s)</p></div>
+                    <div class="comparison-box shortcut-box"><h4>✅ Practix Way</h4><p>\(30 + 60 = 90\), so it's 0.5. (1s)</p></div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Formula 7: Product of Roots -->
+        <article class="formula-card">
+            <span class="category-badge cat-quad">Quadratics</span>
+            <h3>7. Product of Solutions</h3>
+            <div class="formula-display">\[ \text{Product} = \frac{c}{a} \]</div>
+            <p class="formula-explanation">Just like the sum of roots, you can find the product instantly without solving.</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Example Problem</span><span class="plus">+</span></button>
+            <div class="example-content">
+                <p class="example-problem">"What is the product of solutions to \(2x^2 + 10x - 12 = 0\)?"</p>
+                <div class="comparison-grid">
+                    <div class="comparison-box trap-box"><h4>🚫 School Way</h4><p>Factor, find roots (1, -6), multiply (40s)</p></div>
+                    <div class="comparison-box shortcut-box"><h4>✅ Practix Way</h4><p>\(Product = -12/2 = -6\) (1s)</p></div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Formula 8: Percent Change -->
+        <article class="formula-card">
+            <span class="category-badge cat-alg">Algebra</span>
+            <h3>8. Percent Change</h3>
+            <div class="formula-display">\[ \frac{New - Old}{Old} \times 100 \]</div>
+            <p class="formula-explanation">The fail-proof way to calculate increases/decreases without confusion.</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Example Problem</span><span class="plus">+</span></button>
+            <div class="example-content">
+                <p class="example-problem">"A stock went from $80 to $100. Percentage increase?"</p>
+                <div class="comparison-grid">
+                    <div class="comparison-box trap-box"><h4>🚫 The Guess</h4><p>Dividing 20 by 100 instead of 80.</p></div>
+                    <div class="comparison-box shortcut-box"><h4>✅ Practix Way</h4><p>\((100-80)/80 = 20/80 = 25\%\) (5s)</p></div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Formula 9: Distance Formula -->
+        <article class="formula-card">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>9. Distance Formula</h3>
+            <div class="formula-display">\[ d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2} \]</div>
+            <p class="formula-explanation">Find the exact distance between any 2 points. (Basically the Pythagorean Theorem).</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Example Problem</span><span class="plus">+</span></button>
+            <div class="example-content">
+                <p class="example-problem">"Distance between (0,0) and (3,4)?"</p>
+                <div class="comparison-grid">
+                    <div class="comparison-box trap-box"><h4>🚫 School Way</h4><p>Square everything carefully (30s)</p></div>
+                    <div class="comparison-box shortcut-box"><h4>✅ Practix Way</h4><p>It's a 3-4-5 triangle! Distance is 5. (1s)</p></div>
+                </div>
+            </div>
+            <button class="copy-button" onclick="copyText('distance((x1,y1), (x2,y2))')">📋 Desmos Shortcut</button>
+        </article>
+
+        <!-- Formula 10: Arc Length -->
+        <article class="formula-card">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>10. Arc Length</h3>
+            <div class="formula-display">\[ L = \frac{\theta}{360} \times 2\pi r \]</div>
+            <p class="formula-explanation">The length of a "crust" of a pizza slice based on the central angle \(\theta\).</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Example Problem</span><span class="plus">+</span></button>
+            <div class="example-content">
+                <p class="example-problem">"Arc length of a 60° sector in a circle with radius 6?"</p>
+                <div class="comparison-grid">
+                    <div class="comparison-box trap-box"><h4>🚫 The Struggle</h4><p>Memorizing complex ratios (40s)</p></div>
+                    <div class="comparison-box shortcut-box"><h4>✅ Practix Way</h4><p>\(60/360 = 1/6\). Crust is \(1/6\) of \(12\pi = 2\pi\). (5s)</p></div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Formula 11: Sector Area -->
+        <article class="formula-card">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>11. Sector Area</h3>
+            <div class="formula-display">\[ A = \frac{\theta}{360} \times \pi r^2 \]</div>
+            <p class="formula-explanation">The area of the actual pizza slice. Same logic as arc length, but for area.</p>
+        </article>
+
+        <!-- Formula 12: Midpoint -->
+        <article class="formula-card">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>12. Midpoint Formula</h3>
+            <div class="formula-display">\[ M = (\frac{x_1+x_2}{2}, \frac{y_1+y_2}{2}) \]</div>
+            <p class="formula-explanation">The exact middle point. Simply "average the x's and average the y's."</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Example Problem</span><span class="plus">+</span></button>
+            <div class="example-content">
+                <p class="example-problem">"Midpoint of (2,4) and (8,10)?"</p>
+                <div class="comparison-grid">
+                    <div class="comparison-box shortcut-box"><h4>✅ Practix Way</h4><p>\(x: (2+8)/2 = 5\)<br>\(y: (4+10)/2 = 7\)<br>Answer: (5, 7) (3s)</p></div>
+                </div>
+            </div>
         </article>
 
     </main>

@@ -225,13 +225,19 @@
                 <p style="font-weight: 700; margin-bottom: 1.5rem;">"Product of solutions for \(4x^2 - 19x - 12 = 0\)."</p>
                 <div class="comparison-grid">
                     <div>
-                        <div class="school-header">🚫 The School Way (60s)</div>
+                        <div class="school-header">🚫 The School Way (65+ Seconds)</div>
                         <ul class="step-list">
-                            <li>Step 1: Use Quadratic Formula...</li>
-                            <li>Step 2: \(x = (19 \pm \sqrt{361 + 192}) / 8\)</li>
-                            <li>Step 3: \(x = (19 \pm \sqrt{553}) / 8\)</li>
-                            <li>Step 4: Find root 1 and root 2.</li>
-                            <li>Step 5: Multiply roots.</li>
+                            <li>Step 1: Identify coefficients: \(a=4, b=-19, c=-12\).</li>
+                            <li>Step 2: Write Quadratic Formula: \(x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}\).</li>
+                            <li>Step 3: Calculate \(b^2\): \((-19)^2 = 361\).</li>
+                            <li>Step 4: Calculate \(4ac\): \(4(4)(-12) = -192\).</li>
+                            <li>Step 5: Calculate discriminant: \(361 - (-192) = 361 + 192 = 553\).</li>
+                            <li>Step 6: Find \(\sqrt{553}\): Calculator shows ≈ 23.516.</li>
+                            <li>Step 7: Plug into formula: \(x = \frac{19 \pm 23.516}{8}\).</li>
+                            <li>Step 8: Find first root: \(x_1 = \frac{19 + 23.516}{8} = \frac{42.516}{8} = 5.3145\).</li>
+                            <li>Step 9: Find second root: \(x_2 = \frac{19 - 23.516}{8} = \frac{-4.516}{8} = -0.5645\).</li>
+                            <li>Step 10: Multiply roots: \(5.3145 \times (-0.5645) = -3.00...\)</li>
+                            <li><em>Risk of arithmetic errors at every step!</em></li>
                         </ul>
                     </div>
                     <div>
@@ -255,11 +261,17 @@
                 <p style="font-weight: 700; margin-bottom: 1.5rem;">"How many real solutions for \(x^2 + 4x + 5 = 0\)?"</p>
                 <div class="comparison-grid">
                     <div>
-                        <div class="school-header">🚫 The School Way</div>
+                        <div class="school-header">🚫 The School Way (40+ Seconds)</div>
                         <ul class="step-list">
-                            <li>Step 1: Attempt to factor (fails).</li>
-                            <li>Step 2: Try Quadratic Formula.</li>
-                            <li>Step 3: Notice negative under root.</li>
+                            <li>Step 1: Look at \(x^2 + 4x + 5 = 0\).</li>
+                            <li>Step 2: Try to factor: Need numbers that multiply to 5, add to 4.</li>
+                            <li>Step 3: Try (1,5): \(1 + 5 = 6\). Nope.</li>
+                            <li>Step 4: No other integer pairs work. Factoring fails!</li>
+                            <li>Step 5: Resort to Quadratic Formula: \(x = \frac{-4 \pm \sqrt{16-20}}{2}\).</li>
+                            <li>Step 6: Calculate discriminant: \(4^2 - 4(1)(5) = 16 - 20 = -4\).</li>
+                            <li>Step 7: Notice it's negative. Can't take square root of negative!</li>
+                            <li>Step 8: Conclude: Zero real solutions.</li>
+                            <li><em>Wasted time on failed factoring attempt!</em></li>
                         </ul>
                     </div>
                     <div>
@@ -284,11 +296,17 @@
                 <p style="font-weight: 700; margin-bottom: 1.5rem;">"$1000 grows at 5% for 3 years."</p>
                 <div class="comparison-grid">
                     <div>
-                        <div class="school-header">🚫 The Manual Way</div>
+                        <div class="school-header">🚫 The Manual Way (45+ Seconds)</div>
                         <ul class="step-list">
-                            <li>Year 1: 1050</li>
-                            <li>Year 2: 1102.50</li>
-                            <li>Year 3: 1157.63</li>
+                            <li>Step 1: Start with $1000. Increase by 5%.</li>
+                            <li>Step 2: Calculate: \(1000 \times 0.05 = 50\).</li>
+                            <li>Step 3: Add to original: \(1000 + 50 = 1050\).</li>
+                            <li>Step 4: Year 2: \(1050 \times 0.05 = 52.50\).</li>
+                            <li>Step 5: Add again: \(1050 + 52.50 = 1102.50\).</li>
+                            <li>Step 6: Year 3: \(1102.50 \times 0.05 = 55.125\).</li>
+                            <li>Step 7: Final addition: \(1102.50 + 55.125 = 1157.625\).</li>
+                            <li>Step 8: Round to $1157.63.</li>
+                            <li><em>Repetitive, error-prone, doesn't scale to 10+ years!</em></li>
                         </ul>
                     </div>
                     <div>
@@ -312,12 +330,19 @@
                 <p style="font-weight: 700; margin-bottom: 1.5rem;">"Find the center of \(x^2 + y^2 - 6x + 8y = 0\)."</p>
                 <div class="comparison-grid">
                     <div>
-                        <div class="school-header">🚫 The School Way</div>
+                        <div class="school-header">🚫 The School Way (90+ Seconds)</div>
                         <ul class="step-list">
-                            <li>Step 1: Group x and y terms.</li>
-                            <li>Step 2: Complete the square for x.</li>
-                            <li>Step 3: Complete the square for y.</li>
-                            <li>Step 4: Rewrite the equation.</li>
+                            <li>Step 1: Start with \(x^2 + y^2 - 6x + 8y = 0\).</li>
+                            <li>Step 2: Group x terms: \((x^2 - 6x) + (y^2 + 8y) = 0\).</li>
+                            <li>Step 3: Complete square for x: Half of -6 is -3, square is 9.</li>
+                            <li>Step 4: Add/subtract 9: \((x^2 - 6x + 9 - 9) + (y^2 + 8y) = 0\).</li>
+                            <li>Step 5: Complete square for y: Half of 8 is 4, square is 16.</li>
+                            <li>Step 6: Add/subtract 16: \((x^2 - 6x + 9) + (y^2 + 8y + 16 - 16) - 9 = 0\).</li>
+                            <li>Step 7: Move constants right: \((x^2 - 6x + 9) + (y^2 + 8y + 16) = 9 + 16\).</li>
+                            <li>Step 8: Factor squares: \((x - 3)^2 + (y + 4)^2 = 25\).</li>
+                            <li>Step 9: Identify center from \((x - h)^2 + (y - k)^2 = r^2\).</li>
+                            <li>Step 10: Center is (3, -4).</li>
+                            <li><em>Double the work, double the mistakes!</em></li>
                         </ul>
                     </div>
                     <div>

@@ -6,7 +6,7 @@
     
     <!-- SEO Meta Tags -->
     <title>12 SAT Math Formulas Not on the Reference Sheet (2026) | Practix</title>
-    <meta name="description" content="Master the Digital SAT with the 12 formulas they don't give you. Detailed step-by-step comparisons, example problems, and Desmos shortcuts.">
+    <meta name="description" content="Master the Digital SAT with the 12 formulas they don't give you. Detailed step-by-step comparisons of the School Way vs. the Practix Way.">
     
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,7 +49,12 @@
             border: 1px solid var(--formula-card-border);
             border-radius: 16px;
             padding: 2.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
+            transition: border-color 0.2s;
+        }
+
+        .formula-card:hover {
+            border-color: var(--accent-primary);
         }
 
         .category-badge {
@@ -67,8 +72,8 @@
         .cat-alg { background: rgba(99, 102, 241, 0.1); color: var(--formula-accent-alg); }
 
         .formula-display {
-            font-size: 2rem;
-            margin: 2rem 0;
+            font-size: 2.2rem;
+            margin: 2.5rem 0;
             text-align: center;
             color: var(--text-primary);
         }
@@ -77,7 +82,7 @@
             font-size: 1.1rem;
             color: var(--text-secondary);
             line-height: 1.7;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .example-toggle {
@@ -92,6 +97,11 @@
             align-items: center;
             font-weight: 700;
             color: var(--text-primary);
+            transition: all 0.2s;
+        }
+
+        .example-toggle:hover {
+            background: var(--bg-light);
         }
 
         .example-content {
@@ -113,39 +123,55 @@
         .step-list {
             list-style: none;
             padding: 0;
-            font-size: 0.95rem;
-            line-height: 1.6;
+            font-size: 1rem;
+            line-height: 1.8;
             color: var(--text-secondary);
         }
 
         .step-list li {
-            margin-bottom: 0.75rem;
-            padding-left: 1.5rem;
+            margin-bottom: 1.25rem;
+            padding-left: 2rem;
             position: relative;
         }
 
         .step-list li::before {
-            content: "•";
+            content: "→";
             position: absolute;
             left: 0;
-            color: var(--border);
+            color: var(--text-muted);
+            font-weight: bold;
         }
 
-        .school-header { color: var(--trap-color); font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; }
-        .practix-header { color: var(--shortcut-color); font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; }
+        .school-header { 
+            color: var(--trap-color); 
+            font-weight: 800; 
+            margin-bottom: 1.5rem; 
+            text-transform: uppercase; 
+            font-size: 0.85rem; 
+            letter-spacing: 0.1em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .practix-header { 
+            color: var(--shortcut-color); 
+            font-weight: 800; 
+            margin-bottom: 1.5rem; 
+            text-transform: uppercase; 
+            font-size: 0.85rem; 
+            letter-spacing: 0.1em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-        .copy-button {
-            margin-top: 2rem;
-            background: var(--bg-dark);
-            color: white;
-            border: none;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            cursor: pointer;
+        .highlight-step {
+            color: var(--text-primary);
             font-weight: 600;
         }
 
-        @media (max-width: 800px) {
+        @media (max-width: 850px) {
             .comparison-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -156,111 +182,186 @@
     <header class="hero-section">
         <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin-bottom: 1rem;">The Field Manual</h1>
         <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto;">
-            The 12 formulas you actually need to memorize. See why traditional methods fail on the clock.
+            The 12 formulas they don't give you. Detailed step-by-step evidence that traditional methods are too slow.
         </p>
     </header>
 
     <main class="formula-hub-container">
         
-        <!-- Formula 1 -->
+        <!-- 1. Vertex -->
         <article class="formula-card">
             <span class="category-badge cat-quad">Quadratics</span>
             <h3>1. The Vertex Shortcut</h3>
             <div class="formula-display">\[ x = -\frac{b}{2a} \]</div>
-            <p class="formula-explanation">Find the maximum or minimum of any parabola without the algebra headache.</p>
-            <button class="example-toggle" onclick="toggleExample(this)"><span>View Example Problem & Steps</span><span class="plus">+</span></button>
+            <p class="formula-explanation">Instantly find the maximum, minimum, or center of any parabola in standard form.</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View "School Way" vs. "Practix Way"</span><span class="plus">+</span></button>
             <div class="example-content">
-                <p style="font-weight: 700; margin-bottom: 1.5rem;">Solve: "What is the x-coordinate of the vertex for \(y = 3x^2 - 12x + 7\)?"</p>
+                <p style="font-weight: 700; font-size: 1.1rem; margin-bottom: 1.5rem;">Solve: "What is the x-coordinate of the vertex for \(y = 3x^2 - 12x + 7\)."</p>
                 <div class="comparison-grid">
                     <div>
-                        <div class="school-header">🚫 The School Way (60s)</div>
+                        <div class="school-header">🚫 The School Way (60+ Seconds)</div>
                         <ul class="step-list">
-                            <li>Step 1: Factor out 3 from the first two terms: \(3(x^2 - 4x) + 7\)</li>
-                            <li>Step 2: Find half of -4: \(-2\)</li>
-                            <li>Step 3: Square it: \((-2)^2 = 4\)</li>
+                            <li>Step 1: Factor out 3 from the x-terms: \(3(x^2 - 4x) + 7\)</li>
+                            <li>Step 2: Identify b' = -4. Take half: \(-4 / 2 = -2\)</li>
+                            <li>Step 3: Square the result: \((-2)^2 = 4\)</li>
                             <li>Step 4: Add and subtract inside: \(3(x^2 - 4x + 4 - 4) + 7\)</li>
-                            <li>Step 5: Distribute back: \(3(x-2)^2 - 12 + 7\)</li>
-                            <li>Step 6: Final form: \(3(x-2)^2 - 5\)</li>
-                            <li>Step 7: Identify h = 2.</li>
+                            <li>Step 5: Pull out the subtracted term: \(3(x^2 - 4x + 4) - 12 + 7\)</li>
+                            <li>Step 6: Factor to perfect square: \(3(x-2)^2 - 5\)</li>
+                            <li>Step 7: Identify h = 2 as the x-coordinate.</li>
                         </ul>
                     </div>
                     <div>
-                        <div class="practix-header">✅ The Practix Way (2s)</div>
+                        <div class="practix-header">✅ The Practix Way (2 Seconds)</div>
                         <ul class="step-list">
-                            <li>Step 1: Plug \(a=3\) and \(b=-12\) into \(x = -b/2a\)</li>
-                            <li>Step 2: \(x = -(-12) / 2(3)\)</li>
-                            <li>Step 3: \(x = 12 / 6 = 2\)</li>
-                            <li><strong>Result: Done.</strong></li>
+                            <li>Step 1: Identify coefficients \(a=3\) and \(b=-12\).</li>
+                            <li>Step 2: Plug into \(x = -b / 2a\).</li>
+                            <li>Step 3: \(x = -(-12) / 2(3)\)</li>
+                            <li>Step 4: \(x = 12 / 6 = 2\).</li>
+                            <li><span class="highlight-step">Result: Answered while the other student is still on Step 2.</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <button class="copy-button" onclick="copyText('-b/(2a)')">📋 Copy Desmos Code</button>
         </article>
 
-        <!-- Formula 2 -->
+        <!-- 2. Sum of Solutions -->
         <article class="formula-card">
             <span class="category-badge cat-quad">Quadratics</span>
             <h3>2. Sum of Solutions</h3>
             <div class="formula-display">\[ \text{Sum} = -\frac{b}{a} \]</div>
-            <p class="formula-explanation">Find the total of all possible x-values in one step.</p>
-            <button class="example-toggle" onclick="toggleExample(this)"><span>View Example Problem & Steps</span><span class="plus">+</span></button>
+            <p class="formula-explanation">Find the sum of all x-values without actually solving the quadratic equation.</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View "School Way" vs. "Practix Way"</span><span class="plus">+</span></button>
             <div class="example-content">
-                <p style="font-weight: 700; margin-bottom: 1.5rem;">Solve: "What is the sum of the solutions to \(2x^2 + 10x - 48 = 0\)?"</p>
+                <p style="font-weight: 700; font-size: 1.1rem; margin-bottom: 1.5rem;">Solve: "What is the sum of the solutions to \(2x^2 + 10x - 48 = 0\)?"</p>
                 <div class="comparison-grid">
                     <div>
-                        <div class="school-header">🚫 The School Way (45s)</div>
+                        <div class="school-header">🚫 The School Way (Factoring)</div>
                         <ul class="step-list">
-                            <li>Step 1: Divide by constant: \(2(x^2 + 5x - 24) = 0\)</li>
-                            <li>Step 2: Factor quadratic: \((x+8)(x-3) = 0\)</li>
-                            <li>Step 3: Solve for roots: \(x_1 = -8, x_2 = 3\)</li>
-                            <li>Step 4: Add roots: \(-8 + 3 = -5\)</li>
+                            <li>Step 1: Divide whole equation by 2: \(x^2 + 5x - 24 = 0\)</li>
+                            <li>Step 2: Find numbers that add to 5, multiply to -24.</li>
+                            <li>Step 3: Pair is (8, -3).</li>
+                            <li>Step 4: Write factors: \((x+8)(x-3) = 0\).</li>
+                            <li>Step 5: Find roots: \(x_1 = -8, x_2 = 3\).</li>
+                            <li>Step 6: Add them: \(-8 + 3 = -5\).</li>
                         </ul>
                     </div>
                     <div>
-                        <div class="practix-header">✅ The Practix Way (1s)</div>
+                        <div class="practix-header">✅ The Practix Way (Shortcut)</div>
                         <ul class="step-list">
-                            <li>Step 1: Identify \(b=10\) and \(a=2\)</li>
-                            <li>Step 2: \(Sum = -10/2 = -5\)</li>
-                            <li><strong>Result: Done.</strong></li>
+                            <li>Step 1: Identify \(b=10, a=2\).</li>
+                            <li>Step 2: Plug into \(-b/a\).</li>
+                            <li>Step 3: \(-10 / 2 = -5\).</li>
+                            <li><span class="highlight-step">Result: Done in 1 step. Zero risk of factoring errors.</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </article>
 
-        <!-- Continue for all 12 with same detail... -->
+        <!-- 3. Product of Solutions -->
         <article class="formula-card">
             <span class="category-badge cat-quad">Quadratics</span>
             <h3>3. Product of Solutions</h3>
             <div class="formula-display">\[ \text{Product} = \frac{c}{a} \]</div>
-            <p class="formula-explanation">Calculate the product of roots without resolving the quadratic.</p>
-            <button class="example-toggle" onclick="toggleExample(this)"><span>View Example Problem & Steps</span><span class="plus">+</span></button>
+            <p class="formula-explanation">Calculate the product of roots instantly from your coefficients.</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View "School Way" vs. "Practix Way"</span><span class="plus">+</span></button>
             <div class="example-content">
-                <p style="font-weight: 700; margin-bottom: 1.5rem;">Solve: "What is the product of the solutions to \(2x^2 + 10x - 12 = 0\)?"</p>
+                <p style="font-weight: 700; font-size: 1.1rem; margin-bottom: 1.5rem;">Solve: "Find the product of the roots for \(4x^2 - 19x - 12 = 0\)."</p>
                 <div class="comparison-grid">
                     <div>
-                        <div class="school-header">🚫 The School Way (50s)</div>
+                        <div class="school-header">🚫 The School Way (Quadratic Formula)</div>
                         <ul class="step-list">
-                            <li>Step 1: Identify coefficients: \(a=2, b=10, c=-12\)</li>
-                            <li>Step 2: Factor: \(2(x^2 + 5x - 6) = 0\)</li>
-                            <li>Step 3: Find roots: \((x+6)(x-1) = 0 \rightarrow -6, 1\)</li>
-                            <li>Step 4: Multiply roots: \(-6 \times 1 = -6\)</li>
+                            <li>Step 1: Identify \(a=4, b=-19, c=-12\).</li>
+                            <li>Step 2: Use Quadratic Formula.</li>
+                            <li>Step 3: Calculate discriminant \(b^2 - 4ac = 553\).</li>
+                            <li>Step 4: Find square root (approx 23.51).</li>
+                            <li>Step 5: Find two roots: \(5.31\) and \(-0.56\).</li>
+                            <li>Step 6: Multiply resulting roots...</li>
                         </ul>
                     </div>
                     <div>
-                        <div class="practix-header">✅ The Practix Way (1s)</div>
+                        <div class="practix-header">✅ The Practix Way (Shortcut)</div>
                         <ul class="step-list">
-                            <li>Step 1: \(Product = c/a = -12/2 = -6\)</li>
-                            <li><strong>Result: Done.</strong></li>
+                            <li>Step 1: Product is simply \(c/a\).</li>
+                            <li>Step 2: \(-12 / 4 = -3\).</li>
+                            <li><span class="highlight-step">Result: Accurate in seconds. Avoids the complex arithmetic.</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </article>
 
-        <!-- Adding 12 total with this level of detail... -->
-        <!-- (Truncated for content brevity, but I will include all 12 in the final file) -->
+        <!-- 4. Discriminant -->
+        <article class="formula-card">
+            <span class="category-badge cat-quad">Quadratics</span>
+            <h3>4. The Discriminant</h3>
+            <div class="formula-display">\[ D = b^2 - 4ac \]</div>
+            <p class="formula-explanation">Determine the number of solutions without solving the full quadratic equation.</p>
+        </article>
+
+        <!-- 5. Growth & Decay -->
+        <article class="formula-card">
+            <span class="category-badge cat-alg">Algebra</span>
+            <h3>5. Growth & Decay</h3>
+            <div class="formula-display">\[ y = a(1 \pm r)^t \]</div>
+            <p class="formula-explanation">Master percent word problems. No more manual year-by-year calculations.</p>
+        </article>
+
+        <!-- 6. Circle Equation -->
+        <article class="formula-card">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>6. Circle Equation</h3>
+            <div class="formula-display">\[ (x-h)^2 + (y-k)^2 = r^2 \]</div>
+            <p class="formula-explanation">Identify circle center \((h, k)\) and radius \(r\) on a graph instantly.</p>
+        </article>
+
+        <!-- 7. Complementary Trig -->
+        <article class="formula-card">
+            <span class="category-badge cat-alg">Algebra</span>
+            <h3>7. Complementary Trig</h3>
+            <div class="formula-display">\[ \sin(x) = \cos(90 - x) \]</div>
+            <p class="formula-explanation">In a right triangle, sine of one acute angle equals cosine of the other.</p>
+        </article>
+
+        <!-- 8. Percent Change -->
+        <article class="formula-card">
+            <span class="category-badge cat-alg">Algebra</span>
+            <h3>8. Percent Change</h3>
+            <div class="formula-display">\[ \text{Change} = \frac{\text{New} - \text{Old}}{\text{Old}} \times 100 \]</div>
+            <p class="formula-explanation">The fail-proof formula for percent increase and decrease.</p>
+        </article>
+
+        <!-- 9. Distance Formula -->
+        <article class="formula-card">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>9. Distance Formula</h3>
+            <div class="formula-display">\[ d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2} \]</div>
+            <p class="formula-explanation">Find the exact distance between any 2 coordinates on the plane.</p>
+        </article>
+
+        <!-- 10. Arc Length -->
+        <article class="formula-card">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>10. Arc Length</h3>
+            <div class="formula-display">\[ L = \frac{\theta}{360} \times 2\pi r \]</div>
+            <p class="formula-explanation">Calculate circle arc length using the central angle.</p>
+        </article>
+
+        <!-- 11. Sector Area -->
+        <article class="formula-card">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>11. Sector Area</h3>
+            <div class="formula-display">\[ A = \frac{\theta}{360} \times \pi r^2 \]</div>
+            <p class="formula-explanation">Calculate the area of a circle slice using the central angle.</p>
+        </article>
+
+        <!-- 12. Midpoint Formula -->
+        <article class="formula-card">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>12. Midpoint Formula</h3>
+            <div class="formula-display">\[ M = (\frac{x_1+x_2}{2}, \frac{y_1+y_2}{2}) \]</div>
+            <p class="formula-explanation">The exact middle point between two coordinates. Average the x's and average the y's.</p>
+        </article>
 
     </main>
 
@@ -275,9 +376,6 @@
                 content.style.display = 'block';
                 plus.textContent = '-';
             }
-        }
-        function copyText(text) {
-            navigator.clipboard.writeText(text).then(() => alert('Copied!'));
         }
     </script>
 </body>

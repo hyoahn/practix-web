@@ -913,13 +913,21 @@ footer p {
 
     .hero-image-container {
         width: 100%;
-        min-height: 50vh;
-        flex: none; /* Disable flex scaling */
+        min-height: auto;
+        height: auto;
+        flex: none;
+        display: block;
+        mask-image: none;
+        -webkit-mask-image: none;
     }
 
     .hero-image-container img {
-        min-width: 0; /* consistent with container */
-        object-position: center 20%; /* Focus on top part of image in vertical mode */
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+        min-width: 0;
+        transform: none;
     }
 
     .hero-text-container {

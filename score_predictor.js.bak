@@ -33,12 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Update section border/glow based on status
         predictorSection.className = 'predictor-section ' + result.status;
-
-        // Reveal CTA
-        const cta = document.getElementById('predictor-cta');
-        if (cta && (m1 > 0 || m2 > 0)) {
-            cta.style.display = 'block';
-        }
     }
 
     // Attach listeners

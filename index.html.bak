@@ -284,49 +284,6 @@
                         <div class="score-number" id="predicted-score">800</div>
                     </div>
                     <p id="predictor-message" class="predictor-message safe">Select your mistakes to see the prediction.</p>
-                    
-                    <!-- Conversion CTA -->
-                    <div id="predictor-cta" class="predictor-cta" style="display: none; margin-top: 1.5rem; padding: 1rem; background: rgba(99, 102, 241, 0.1); border: 1px dashed var(--accent-primary); border-radius: 8px; text-align: center;">
-                        <h4 style="color: var(--accent-primary); margin-bottom: 0.5rem;">Want to fix these errors?</h4>
-                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">Get the exact Desmos hacks for Module 2 hard questions.</p>
-                        <a href="#waitlist" class="btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">Join the Waitlist →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Field Manual Lead Magnet -->
-    <section class="lead-magnet-section" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%); padding: 5rem 5%; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5;">
-        <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-            <div class="lead-magnet-content">
-                <span style="background: var(--accent-primary); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;">Free Resource</span>
-                <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.8rem; margin: 1.5rem 0 1rem; line-height: 1.1;">The Field Manual: 12 Missing Formulas</h2>
-                <p style="font-size: 1.2rem; color: #4a4a68; margin-bottom: 2rem; line-height: 1.6;">
-                    The Digital SAT reference sheet leaves out the shortcuts you actually need. Download our one-page PDF guide to the formulas that save 10+ minutes on Module 2.
-                </p>
-                <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 2rem;">
-                    <ul style="list-style: none; padding: 0; color: #4a4a68; font-size: 1rem; line-height: 2;">
-                        <li>✅ Vertex & Discriminant Tricks</li>
-                        <li>✅ Circle Equation Shortcuts</li>
-                        <li>✅ Exponential Growth Secrets</li>
-                    </ul>
-                </div>
-                <a href="#waitlist" class="btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem; border-radius: 12px;">Get the PDF →</a>
-            </div>
-            <div class="lead-magnet-image" style="position: relative;">
-                <div style="background: white; padding: 1.5rem; border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1); transform: rotate(2deg); border: 1px solid #e5e5e5;">
-                    <div style="background: #f3f4f6; height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 3rem;">📄</div>
-                    <div style="margin-top: 1.5rem;">
-                        <div style="height: 10px; background: #e5e7eb; width: 60%; border-radius: 5px; margin-bottom: 10px;"></div>
-                        <div style="height: 10px; background: #e5e7eb; width: 90%; border-radius: 5px; margin-bottom: 10px;"></div>
-                        <div style="height: 10px; background: #e5e7eb; width: 40%; border-radius: 5px;"></div>
-                    </div>
-                </div>
-                <!-- Floating badge -->
-                <div style="position: absolute; bottom: -20px; right: -20px; background: #10b981; color: white; padding: 1rem; border-radius: 50%; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; flex-direction: column; font-weight: 700; transform: rotate(-10deg); box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.4);">
-                    <span style="font-size: 0.7rem; opacity: 0.9;">FREE</span>
-                    <span style="font-size: 1.2rem;">PDF</span>
                 </div>
             </div>
         </div>

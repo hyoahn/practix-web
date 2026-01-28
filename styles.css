@@ -959,7 +959,7 @@ footer p {
         right: auto;
         bottom: auto;
         margin: 0.25rem auto; /* Tight spacing */
-        transform: scale(0.6); /* Tiny by default */
+        transform: scale(0.4); /* Extra tiny to avoid obstruction */
         transform-origin: center;
         width: auto;
         max-width: 280px;
@@ -968,6 +968,19 @@ footer p {
         z-index: 10;
         /* No animation/float on mobile to save UI distraction */
         animation: none;
+    }
+    
+    /* Additional size reduction for text inside cards */
+    .floating-card .text strong {
+        font-size: 0.85rem;
+    }
+    
+    .floating-card .text span {
+        font-size: 0.7rem;
+    }
+    
+    .floating-card .icon {
+        font-size: 1.2rem;
     }
     
     /* State for zooming in */

@@ -826,4 +826,17 @@ footer p {
         overflow: visible;
         height: auto;
     }
+
+    .hero-image-container {
+        min-height: auto;
+        height: 350px;
+    }
+
+    .hero-image-container img {
+        object-position: center 15%;
+    }
+
+    .floating-card {
+        transform: scale(0.8);
+    }
 }

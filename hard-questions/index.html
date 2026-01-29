@@ -84,6 +84,7 @@
                     \[ f(1) = 2 - 5 + 4 = 1 \]
                 </div>
                 <p><strong>Answer: 1</strong>. Time saved: 4 minutes.</p>
+                <button class="btn-viral" onclick="challengeFriend('q1')">🚀 Challenge a Friend</button>
             </div>
         </article>
 
@@ -406,6 +407,31 @@
                     checkbox.checked = true;
                 }
             });
+        }
+
+        function challengeFriend(qId) {
+            const url = window.location.href;
+            const text = `I just mastered the "Impossible" SAT trap on Practix! Can you solve this? 🚀`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Practix Challenge',
+                    text: text,
+                    url: url
+                }).then(() => {
+                    if (window.practixLog) window.practixLog('viral_share_success', { q_id: qId });
+                });
+            } else {
+                // Fallback: Copy link
+                const dummy = document.createElement('input');
+                document.body.appendChild(dummy);
+                dummy.value = `${text} ${url}`;
+                dummy.select();
+                document.execCommand('copy');
+                document.body.removeChild(dummy);
+                alert('Challenge link copied to clipboard! Send it to a friend.');
+                if (window.practixLog) window.practixLog('viral_share_copy', { q_id: qId });
+            }
         }
 
         document.addEventListener('DOMContentLoaded', loadQuestionMastery);

@@ -135,7 +135,12 @@
                     Row 1: $x_1 = 2, y_1 = 5$<br>
                     Row 2: $x_2 = 6, y_2 = 13$
                 </li>
-                <li>Type this magic code: <code style="background: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-family: monospace;">y₁ ~ m·x₁ + b</code></li>
+                <li>Type this magic code: 
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
+                        <code style="background: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-family: monospace; border: 1px solid #d1d5db;">y₁ ~ m·x₁ + b</code>
+                        <button onclick="copyCode('y₁ ~ m·x₁ + b', this)" style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.25rem; cursor: pointer; font-size: 0.8rem;">📋</button>
+                    </div>
+                </li>
                 <li>Look at the parameters below: <strong>$m = 2$</strong> (that's your slope!)</li>
             </ol>
             <p style="background: white; padding: 1rem; border-radius: 8px; border: 2px solid #10b981;">
@@ -164,12 +169,22 @@
             </p>
             <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #1a1a2e; line-height: 1.8;">
                 <li>Add a <strong>Table</strong> and enter all 3 points</li>
-                <li>Type this code: <code style="background: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-family: monospace;">y₁ ~ a·x₁² + b·x₁ + c</code></li>
+                <li>Type this code: 
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
+                        <code style="background: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-family: monospace; border: 1px solid #d1d5db;">y₁ ~ a·x₁² + b·x₁ + c</code>
+                        <button onclick="copyCode('y₁ ~ a·x₁² + b·x₁ + c', this)" style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.25rem; cursor: pointer; font-size: 0.8rem;">📋</button>
+                    </div>
+                </li>
                 <li>Desmos shows you: $a = 1, b = 2, c = 3$</li>
                 <li>The equation is $y = x^2 + 2x + 3$. Done.</li>
             </ol>
             <p style="background: white; padding: 1rem; border-radius: 8px; border: 2px solid #ef4444;">
-                <strong>Pro Tip:</strong> This works for exponential functions too! Use <code>y₁ ~ a·b^x₁</code> for growth/decay problems.
+                <strong>Pro Tip:</strong> This works for exponential functions too! Use 
+                <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <code>y₁ ~ a·b^x₁</code>
+                    <button onclick="copyCode('y₁ ~ a·b^x₁', this)" style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.1rem 0.3rem; cursor: pointer; font-size: 0.7rem;">📋</button>
+                </div>
+                for growth/decay problems.
             </p>
         </section>
 
@@ -247,8 +262,26 @@
             </p>
             <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #1a1a2e; line-height: 1.8;">
                 <li>Create a list by typing <code>L = [1, 2, 5, 8, 12]</code></li>
-                <li>Type <code>median(L)</code> or <code>mean(L)</code> or <code>stats(L)</code></li>
-                <li>Desmos instantly does the work for you. Need a boxplot? Type <code>boxplot(L)</code></li>
+                <li>Type 
+                    <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <code>median(L)</code>
+                        <button onclick="copyCode('median(L)', this)" style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.1rem 0.3rem; cursor: pointer; font-size: 0.7rem;">📋</button>
+                    </div> or 
+                    <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <code>mean(L)</code>
+                        <button onclick="copyCode('mean(L)', this)" style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.1rem 0.3rem; cursor: pointer; font-size: 0.7rem;">📋</button>
+                    </div> or 
+                    <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <code>stats(L)</code>
+                        <button onclick="copyCode('stats(L)', this)" style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.1rem 0.3rem; cursor: pointer; font-size: 0.7rem;">📋</button>
+                    </div>
+                </li>
+                <li>Desmos instantly does the work for you. Need a boxplot? 
+                    <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <code>boxplot(L)</code>
+                        <button onclick="copyCode('boxplot(L)', this)" style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.1rem 0.3rem; cursor: pointer; font-size: 0.7rem;">📋</button>
+                    </div>
+                </li>
             </ol>
             <div style="background: white; padding: 1rem; border-radius: 8px; font-family: monospace; color: #b91c1c; border: 1px dashed #fecaca;">
                 Secret Move: Use <code>dotplot(L)</code> to visualize frequency distributions instantly.
@@ -271,8 +304,18 @@
             </p>
             <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #1a1a2e; line-height: 1.8;">
                 <li>Define your list: <code>L = [1, 5, 12, 18, 22, 9, 31]</code></li>
-                <li>Type <code>L[L > 10]</code> to see the filtered list.</li>
-                <li>Type <code>length(L[L > 10])</code> to get the count of items!</li>
+                <li>Type 
+                    <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <code>L[L > 10]</code>
+                        <button onclick="copyCode('L[L > 10]', this)" style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.1rem 0.3rem; cursor: pointer; font-size: 0.7rem;">📋</button>
+                    </div> to see the filtered list.
+                </li>
+                <li>Type 
+                    <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <code>length(L[L > 10])</code>
+                        <button onclick="copyCode('length(L[L > 10])', this)" style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.1rem 0.3rem; cursor: pointer; font-size: 0.7rem;">📋</button>
+                    </div> to get the count of items!
+                </li>
             </ol>
         </section>
 
@@ -377,6 +420,16 @@
                 const id = checkbox.getAttribute('data-id');
                 if (mastery[id]) {
                     checkbox.checked = true;
+                }
+            });
+        }
+        function copyCode(text, btn) {
+            navigator.clipboard.writeText(text).then(() => {
+                const original = btn.innerText;
+                btn.innerText = '✅';
+                setTimeout(() => btn.innerText = original, 2000);
+                if (window.practixLog) {
+                    window.practixLog('desmos_code_copied', { code: text });
                 }
             });
         }

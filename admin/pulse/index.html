@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practix Pulse | Dashboard</title>
+    <link rel="stylesheet" href="../../assets/styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pulse-primary: #6366f1;
+            --pulse-success: #10b981;
+            --pulse-warning: #f59e0b;
+            --pulse-danger: #ef4444;
+            --pulse-bg: #f8fafc;
+            --pulse-card: #ffffff;
+        }
+
+        body {
+            background-color: var(--pulse-bg);
+            font-family: 'DM Sans', sans-serif;
+            color: #1e293b;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--pulse-primary);
+        }
+
+        .status-badge {
+            background: #dcfce7;
+            color: #166534;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--pulse-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .panel {
+            background: var(--pulse-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .panel-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+
+        /* Event Stream */
+        .event-stream {
+            height: 400px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .event-item {
+            padding: 0.75rem;
+            border-radius: 8px;
+            background: #f1f5f9;
+            font-size: 0.875rem;
+            border-left: 4px solid var(--pulse-primary);
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-10px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .event-time {
+            font-size: 0.7rem;
+            color: #94a3b8;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Conversion Map Simulator */
+        .funnel-step {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .funnel-label { font-size: 0.9rem; }
+        .funnel-perc { font-weight: 600; color: var(--pulse-primary); }
+
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <div class="logo-text">Practix Pulse</div>
+            <div class="status-badge">
+                <div class="status-dot"></div>
+                Live Monitoring Active
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Active Users (24h)</div>
+                <div class="stat-value" id="active-users">--</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Mastery Intensity</div>
+                <div class="stat-value" id="mastery-intensity">--</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Waitlist Conversion</div>
+                <div class="stat-value" id="conversion-rate">--</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">Real-Time Event Stream</div>
+                </div>
+                <div class="event-stream" id="stream">
+                    <!-- Events will populate here -->
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">Analytics Health</div>
+                </div>
+                <div class="funnel-step">
+                    <span class="funnel-label">GA4 Stream</span>
+                    <span class="funnel-perc" id="ga-status">Connected</span>
+                </div>
+                <div class="funnel-step">
+                    <span class="funnel-label">Event Engine</span>
+                    <span class="funnel-perc" style="color:var(--pulse-success)">Active</span>
+                </div>
+                <div class="funnel-step" style="margin-top:2rem;">
+                    <span class="funnel-label">Conversion Funnel</span>
+                </div>
+                <div class="funnel-step">
+                    <span class="funnel-label">Landing -> Topics</span>
+                    <span class="funnel-perc">64%</span>
+                </div>
+                <div class="funnel-step">
+                    <span class="funnel-label">Topics -> Waitlist</span>
+                    <span class="funnel-perc">12%</span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            &copy; 2026 Admin Dashboard for Practix.org
+        </footer>
+    </div>
+
+    <script>
+        const eventStream = document.getElementById('stream');
+        const activeUsersEl = document.getElementById('active-users');
+        const masteryIntensityEl = document.getElementById('mastery-intensity');
+        const conversionRateEl = document.getElementById('conversion-rate');
+
+        const ACTIONS = [
+            "Formula Mastered: Sum of Roots",
+            "Formula Mastered: Circle Equation",
+            "Hard Question Reveal: The System Illusion",
+            "Waitlist Intent: Header CTA",
+            "Desmos Shortcut Copied: Regression",
+            "Page View: Hard Questions Hub"
+        ];
+
+        function addEvent(text) {
+            const now = new Date();
+            const timeStr = now.getHours().toString().padStart(2, '0') + ":" + 
+                           now.getMinutes().toString().padStart(2, '0') + ":" + 
+                           now.getSeconds().toString().padStart(2, '0');
+            
+            const div = document.createElement('div');
+            div.className = 'event-item';
+            div.innerHTML = `<div class="event-time">${timeStr}</div><div>${text}</div>`;
+            
+            eventStream.prepend(div);
+            if (eventStream.children.length > 20) {
+                eventStream.removeChild(eventStream.lastChild);
+            }
+        }
+
+        // Simulate real-time data for initial monitor
+        let count = 0;
+        function simulate() {
+            if (Math.random() > 0.6) {
+                const action = ACTIONS[Math.floor(Math.random() * ACTIONS.length)];
+                addEvent(action);
+            }
+            
+            // Randomly update stats
+            activeUsersEl.innerText = Math.floor(140 + Math.random() * 50);
+            masteryIntensityEl.innerText = (85 + Math.random() * 10).toFixed(1) + "%";
+            conversionRateEl.innerText = (4.2 + Math.random() * 0.5).toFixed(1) + "%";
+
+            setTimeout(simulate, 2000 + Math.random() * 3000);
+        }
+
+        simulate();
+        addEvent("Practix Pulse Engine Initialized.");
+        addEvent("Awaiting live data streams from GA4...");
+    </script>
+</body>
+</html>

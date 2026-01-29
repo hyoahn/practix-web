@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Advanced Desmos Hacks for SAT Math (Power Moves) | Practix</title>
-    <meta name="description" content="Unfairly fast? Maybe. These 10 Desmos power moves will save you minutes on the SAT Math section. Learn regression, lists, and sliders.">
+    <title>10+ Advanced Desmos Hacks for SAT Math (Power Moves) | Practix</title>
+    <meta name="description" content="Unfairly fast? Maybe. These 10+ Desmos power moves will save you minutes on the SAT Math section. Learn regression, lists, sliders, inequalities, and more.">
     <meta name="keywords" content="Desmos SAT, SAT calculator tricks, Desmos regression, Digital SAT calculator, SAT math shortcuts, Desmos power moves">
     
     <!-- Open Graph for Social Sharing -->
@@ -106,7 +106,7 @@
                 But if you know the "magic codes," Desmos can solve entire problems in seconds.
             </p>
             <p style="font-size: 1.1rem; line-height: 1.8; color: #4a4a68;">
-                In this guide, you'll learn the <strong>3 most powerful Desmos techniques</strong> that save 5+ minutes on Module 2.
+                In this guide, you'll learn the <strong>8 most powerful Desmos techniques</strong> that save 10+ minutes on Module 2.
             </p>
         </section>
 
@@ -289,7 +289,11 @@
         </section>
 
         <!-- Trick #5: The List Filter (Advanced) -->
-        <section style="background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+        <section style="background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; position: relative;">
+            <div style="position: absolute; top: 1rem; right: 1rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #5b21b6; font-weight: 600;">
+                <input type="checkbox" class="mastery-m-check" data-id="m5" onchange="saveMoveMastery('m5', this.checked)">
+                <span>I've Mastered This Move</span>
+            </div>
             <h3 style="color: #5b21b6; font-size: 1.5rem; margin-bottom: 1rem;">
                 🧬 Trick #5: The List Filter (Master Class)
             </h3>
@@ -317,6 +321,97 @@
                     </div> to get the count of items!
                 </li>
             </ol>
+        </section>
+
+        <!-- Trick #6: Inequality Overlap Mapping -->
+        <section style="background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; position: relative;">
+            <div style="position: absolute; top: 1rem; right: 1rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #0369a1; font-weight: 600;">
+                <input type="checkbox" class="mastery-m-check" data-id="m6" onchange="saveMoveMastery('m6', this.checked)">
+                <span>I've Mastered This Move</span>
+            </div>
+            <div class="uvp-badge">Visual Victory</div>
+            <h3 style="color: #0369a1; font-size: 1.5rem; margin-bottom: 1rem;">
+                🗺️ Trick #6: Inequality Overlap Mapping
+            </h3>
+            <p style="margin-bottom: 1rem; color: #1a1a2e;">
+                <strong>The Problem Type:</strong> "Which point $(x, y)$ is a solution to the system $y > 2x + 1$ and $y < -x + 5$?"
+            </p>
+            <p style="margin-bottom: 1rem; color: #1a1a2e;">
+                <strong>The Old Way:</strong> Manually checking each coordinate pair by plugging them into both inequalities. 
+            </p>
+            <p style="margin-bottom: 1.5rem; color: #1a1a2e;">
+                <strong>The Desmos Way (5 seconds):</strong>
+            </p>
+            <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #1a1a2e; line-height: 1.8;">
+                <li>Type Inequality 1: <code>y > 2x + 1</code></li>
+                <li>Type Inequality 2: <code>y < -x + 5</code></li>
+                <li>Desmos shades both regions. The <strong>darkest overlap</strong> is your answer zone.</li>
+                <li>Plot the answer choices as points: <code>(2, 4), (1, 1), (0, 0)</code></li>
+                <li>Instantly see which point lands in the dark zone.</li>
+            </ol>
+        </section>
+
+        <!-- Trick #7: The Circle-Line Tangency Solver -->
+        <section style="background: #fff7ed; border-left: 4px solid #f97316; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; position: relative;">
+            <div style="position: absolute; top: 1rem; right: 1rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #9a3412; font-weight: 600;">
+                <input type="checkbox" class="mastery-m-check" data-id="m7" onchange="saveMoveMastery('m7', this.checked)">
+                <span>I've Mastered This Move</span>
+            </div>
+            <div class="uvp-badge">Geometry Hack</div>
+            <h3 style="color: #9a3412; font-size: 1.5rem; margin-bottom: 1rem;">
+                ⭕ Trick #7: The Circle-Line Tangency Solver
+            </h3>
+            <p style="margin-bottom: 1rem; color: #1a1a2e;">
+                <strong>The Problem Type:</strong> "For what value of $c$ does the line $y = 3x + c$ intersect the circle $(x-2)^2 + (y-1)^2 = 25$ at exactly one point?"
+            </p>
+            <p style="margin-bottom: 1rem; color: #1a1a2e;">
+                <strong>The Old Way:</strong> Substituting the line into the circle, expanding, and setting the discriminant to zero. 5+ minutes of algebra hell.
+            </p>
+            <p style="margin-bottom: 1.5rem; color: #1a1a2e;">
+                <strong>The Desmos Way (15 seconds):</strong>
+            </p>
+            <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #1a1a2e; line-height: 1.8;">
+                <li>Type the circle equation as is: <code>(x-2)² + (y-1)² = 25</code></li>
+                <li>Type the line with a slider: <code>y = 3x + c</code></li>
+                <li>Drag the <strong>$c$ slider</strong> until the line just barely touches the edge of the circle.</li>
+                <li>Read the value of $c$. (Optional: Click the point of tangency to see exact coordinates).</li>
+                <li><em>Tip: Drag the slider until you have 1 intersection point instead of 0 or 2.</em></li>
+            </ol>
+        </section>
+
+        <!-- Trick #8: The "Calculus" Slope Hack -->
+        <section style="background: #fff1f2; border-left: 4px solid #f43f5e; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; position: relative;">
+            <div style="position: absolute; top: 1rem; right: 1rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #9f1239; font-weight: 600;">
+                <input type="checkbox" class="mastery-m-check" data-id="m8" onchange="saveMoveMastery('m8', this.checked)">
+                <span>I've Mastered This Move</span>
+            </div>
+            <div class="uvp-badge">Elite Maneuver</div>
+            <h3 style="color: #9f1239; font-size: 1.5rem; margin-bottom: 1rem;">
+                ⚡ Trick #8: The instantaneous "Calculus" Slope Hack
+            </h3>
+            <p style="margin-bottom: 1rem; color: #1a1a2e;">
+                <strong>The Problem Type:</strong> "A function $f(x) = 2x^3 - 5x + 3$ is defined. What is the slope of the tangent line at $x = 2$?"
+            </p>
+            <p style="margin-bottom: 1rem; color: #1a1a2e;">
+                <strong>The Old Way:</strong> Trying to estimate the slope using two nearby points or getting lucky with a sketch.
+            </p>
+            <p style="margin-bottom: 1.5rem; color: #1a1a2e;">
+                <strong>The Desmos Way (Perfect Precision):</strong>
+            </p>
+            <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #1a1a2e; line-height: 1.8;">
+                <li>Define the function: <code>f(x) = 2x³ - 5x + 3</code></li>
+                <li>Type the "Slope Code": 
+                    <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <code>d/dx f(2)</code>
+                        <button onclick="copyCode('d/dx f(2)', this)" style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.1rem 0.3rem; cursor: pointer; font-size: 0.7rem;">📋</button>
+                    </div>
+                </li>
+                <li>Desmos instantly differentiates and evaluates the slope for you.</li>
+                <li>Output: <strong>19</strong>. No calculus required from your side.</li>
+            </ol>
+            <p style="background: white; padding: 1rem; border-radius: 8px; border: 2px solid #f43f5e; font-size: 0.9rem;">
+                <strong>The "Dirty" Secret:</strong> The Digital SAT doesn't care how you get the slope. This command works on quadratic, cubic, and even exponential functions.
+            </p>
         </section>
 
         <!-- Interactive Embed -->

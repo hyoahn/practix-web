@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO Meta Tags -->
-    <title>30 Essential SAT Math Formulas (Missing from Textbooks) | Practix</title>
-    <meta name="description" content="Master the 30 'missing' SAT Math formulas used by high scorers. Learn the Vertex Shortcut, Discriminant hack, and more with Practix training.">
+    <title>35 Essential SAT Math Formulas (Missing from Textbooks) | Practix</title>
+    <meta name="description" content="Master the 35 'missing' SAT Math formulas used by high scorers. Learn the Vertex Shortcut, Discriminant hack, and more with Practix training.">
     
     <!-- OpenGraph / Social -->
-    <meta property="og:title" content="30 Essential SAT Math Formulas (Missing from Textbooks) | Practix">
-    <meta property="og:description" content="Your one-page cheat sheet for the SAT Math Section. 30 formulas that will save you minutes of work.">
+    <meta property="og:title" content="35 Essential SAT Math Formulas (Missing from Textbooks) | Practix">
+    <meta property="og:description" content="Your one-page cheat sheet for the SAT Math Section. 35 formulas that will save you minutes of work.">
     <meta property="og:image" content="https://practix.org/assets/images/logo.png">
     <meta property="og:url" content="https://practix.org/formulas/">
     
@@ -233,7 +233,7 @@
     <header class="hero-section">
         <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin-bottom: 1rem;">The Field Manual</h1>
         <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto;">
-            The 20+ formulas they don't give you. Detailed evidence of why traditional methods are too slow.
+            The 35+ formulas they don't give you. Detailed evidence of why traditional methods are too slow.
         </p>
     </header>
 
@@ -256,6 +256,185 @@
             </table>
         </section>
         
+        <!-- 31 -->
+        <article class="formula-card" id="f31">
+            <div class="uvp-badge">Mastery Level</div>
+            <span class="category-badge cat-quad">Quadratics</span>
+            <h3>31. Vertex-Line Intersection</h3>
+            <div class="formula-display">\[ k = c - \frac{b^2}{4a} \]</div>
+            <p class="formula-explanation">Instantly find the y-value where a horizontal line is tangent to a parabola.</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span class="plus">+</span></button>
+            <div class="example-content">
+                <p style="font-weight: 700; margin-bottom: 1.5rem;">"For what value of \(k\) does the line \(y = k\) intersect \(y = x^2 - 8x + 20\) at exactly one point?"</p>
+                <div class="comparison-grid">
+                    <div>
+                        <div class="school-header">🚫 The School Way (80+ Seconds)</div>
+                        <ul class="step-list">
+                            <li>Step 1: Set equations equal: \(k = x^2 - 8x + 20\).</li>
+                            <li>Step 2: Rewrite in standard form: \(x^2 - 8x + (20 - k) = 0\).</li>
+                            <li>Step 3: One intersection means Discriminant \(D = 0\).</li>
+                            <li>Step 4: Identify \(a=1, b=-8, c=(20-k)\).</li>
+                            <li>Step 5: Apply \(D = b^2 - 4ac = 0\).</li>
+                            <li>Step 6: \((-8)^2 - 4(1)(20-k) = 0\).</li>
+                            <li>Step 7: \(64 - 80 + 4k = 0\).</li>
+                            <li>Step 8: \(-16 + 4k = 0 \Rightarrow 4k = 16 \Rightarrow k = 4\).</li>
+                            <li><em>Heavy algebra under pressure!</em></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="practix-header">✅ The Practix Way (3s)</div>
+                        <ul class="step-list">
+                            <li>Step 1: Use \(k = c - b^2/4a\).</li>
+                            <li>Step 2: \(k = 20 - (-8)^2/4(1)\).</li>
+                            <li>Step 3: \(k = 20 - 64/4 = 20 - 16 = 4\).</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Theoretical Proof -->
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px dashed var(--border);">
+                    <div class="uvp-badge" style="background: var(--text-primary);">Elite Proof Only</div>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-top: 0.5rem;">
+                        <strong>Why this works?</strong> A horizontal line is tangent to a parabola <em>only</em> at its vertex. This formula is simply the \(y\)-coordinate of the vertex (\(y = f(-b/2a)\)) simplified into one step.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- 32 -->
+        <article class="formula-card" id="f32">
+            <div class="uvp-badge">Geometry Hack</div>
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>32. Similar Area Ratio</h3>
+            <div class="formula-display">\[ \text{Area Ratio} = (\text{Side Ratio})^2 \]</div>
+            <p class="formula-explanation">Compare areas of similar shapes without knowing their actual dimensions.</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span class="plus">+</span></button>
+            <div class="example-content">
+                <p style="font-weight: 700; margin-bottom: 1.5rem;">"Triangle A is similar to Triangle B. The sides of B are 3 times longer than A. If Area of A is 5, find Area of B."</p>
+                <div class="comparison-grid">
+                    <div>
+                        <div class="school-header">🚫 The School Way (60+ Seconds)</div>
+                        <ul class="step-list">
+                            <li>Step 1: Try to invent fake dimensions for Triangle A that give area 5.</li>
+                            <li>Step 2: Maybe base=2, height=5? Area = 0.5 * 2 * 5 = 5.</li>
+                            <li>Step 3: Triple the dimensions for Triangle B: base=6, height=15.</li>
+                            <li>Step 4: Calculate Area of B: 0.5 * 6 * 15 = 45.</li>
+                            <li><em>Risk of choosing complex numbers that don't multiply easily!</em></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="practix-header">✅ The Practix Way (2s)</div>
+                        <ul class="step-list">
+                            <li>Step 1: Side Ratio is 3.</li>
+                            <li>Step 2: Area Ratio is \(3^2 = 9\).</li>
+                            <li>Step 3: New Area = \(5 \times 9 = 45\).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 33 -->
+        <article class="formula-card" id="f33">
+            <div class="uvp-badge">Shortcut Specialist</div>
+            <span class="category-badge cat-alg">Algebra</span>
+            <h3>33. The Constant Trick (Systems)</h3>
+            <div class="formula-display">\[ \frac{a_1}{a_2} = \frac{b_1}{b_2} \neq \frac{c_1}{c_2} \]</div>
+            <p class="formula-explanation">Find the value of $k$ that makes a system have NO solutions instantly.</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span class="plus">+</span></button>
+            <div class="example-content">
+                <p style="font-weight: 700; margin-bottom: 1.5rem;">"For what value of \(k\) does the system \(3x + 4y = 10\) and \(kx + 8y = 20\) have no solution?"</p>
+                <div class="comparison-grid">
+                    <div>
+                        <div class="school-header">🚫 The School Way (55+ Seconds)</div>
+                        <ul class="step-list">
+                            <li>Step 1: Solve both for y to find slopes.</li>
+                            <li>Step 2: Line 1: \(4y = -3x + 10 \Rightarrow y = -0.75x + 2.5\).</li>
+                            <li>Step 3: Line 2: \(8y = -kx + 20 \Rightarrow y = (-k/8)x + 2.5\).</li>
+                            <li>Step 4: Set slopes equal: \(-0.75 = -k/8\).</li>
+                            <li>Step 5: Solve: \(k = 0.75 \times 8 = 6\).</li>
+                            <li>Step 6: Check y-intercepts: Both are 2.5.</li>
+                            <li>Step 7: Realize if y-intercepts are same, it has INFINITE solutions, not NO solution.</li>
+                            <li><em>Wait, the question asks for NO solution... but the intercepts match!</em></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="practix-header">✅ The Practix Way (3s)</div>
+                        <ul class="step-list">
+                            <li>Step 1: Set up proportion: \(3/k = 4/8\).</li>
+                            <li>Step 2: \(3/k = 0.5 \Rightarrow k = 6\).</li>
+                            <li>Step 3: Note: If \(10/20\) also equals \(0.5\) (it does), then it's infinite solutions.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 34 -->
+        <article class="formula-card" id="f34">
+            <div class="uvp-badge">Time Buster</div>
+            <span class="category-badge cat-alg">Algebra</span>
+            <h3>34. Net Percent Change</h3>
+            <div class="formula-display">\[ (1 \pm r_1)(1 \pm r_2) - 1 \]</div>
+            <p class="formula-explanation">Calculate the single percentage change for multi-step increases/decreases.</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span class="plus">+</span></button>
+            <div class="example-content">
+                <p style="font-weight: 700; margin-bottom: 1.5rem;">"A price increases by 20%, then decreases by 10%. What is the net percentage change?"</p>
+                <div class="comparison-grid">
+                    <div>
+                        <div class="school-header">🚫 The School Way (45+ Seconds)</div>
+                        <ul class="step-list">
+                            <li>Step 1: Pick a fake number like 100.</li>
+                            <li>Step 2: Increase by 20%: \(100 + 20 = 120\).</li>
+                            <li>Step 3: Decrease 120 by 10%: \(120 - 12 = 108\).</li>
+                            <li>Step 4: Calculate change: \(108 - 100 = 8\).</li>
+                            <li>Step 5: Conclude: 8% increase.</li>
+                            <li><em>Pick the wrong number and the math gets messy!</em></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="practix-header">✅ The Practix Way (2s)</div>
+                        <ul class="step-list">
+                            <li>Step 1: \((1.20)(0.90) = 1.08\).</li>
+                            <li>Step 2: \(1.08 - 1 = 0.08\).</li>
+                            <li>Step 3: Answer = 8% Increase.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 35 -->
+        <article class="formula-card" id="f35">
+            <div class="uvp-badge">Geometry Mastery</div>
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>35. Radian-Arc Conversion</h3>
+            <div class="formula-display">\[ s = r\theta \]</div>
+            <p class="formula-explanation">Find arc length instantly when the angle is in radians. No proportions required.</p>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span class="plus">+</span></button>
+            <div class="example-content">
+                <p style="font-weight: 700; margin-bottom: 1.5rem;">"In a circle with radius 6, what is the arc length of a sector with central angle \(\pi/3\) radians?"</p>
+                <div class="comparison-grid">
+                    <div>
+                        <div class="school-header">🚫 The School Way (50+ Seconds)</div>
+                        <ul class="step-list">
+                            <li>Step 1: Convert \(\pi/3\) to degrees: \(\pi/3 \times 180/\pi = 60^\circ\).</li>
+                            <li>Step 2: Set up degree proportion: \(L = (60/360) \times 2\pi(6)\).</li>
+                            <li>Step 3: Simplify fraction: \(1/6 \times 12\pi\).</li>
+                            <li>Step 4: Calculate: \(2\pi\).</li>
+                            <li><em>Converting to degrees is a waste of time!</em></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="practix-header">✅ The Practix Way (1s)</div>
+                        <ul class="step-list">
+                            <li>Step 1: \(s = 6 \times (\pi/3)\).</li>
+                            <li>Step 2: \(s = 2\pi\).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </article>
+
         <!-- 1 -->
         <article class="formula-card" id="f1">
             <div class="uvp-badge">Practix Secret</div>
@@ -789,6 +968,7 @@
             <div class="formula-display">3 : 4 : 5 Patterns</div>
             <p class="formula-explanation">Spot these Pythagoras patterns to avoid doing math entirely.</p>
         </article>
+
     </main>
 
     <!-- Request a Shortcut CTA -->
@@ -802,6 +982,11 @@
 
     <script>
         const formulas = [
+            { id: 31, name: "Vertex Intersect Hack", math: "k = c - b²/4a", gift: "No Discriminant", link: "#f31" },
+            { id: 32, name: "Similar Area Ratio", math: "A₁/A₂ = (s₁/s₂)²", gift: "No dimensions", link: "#f32" },
+            { id: 33, name: "The Constant Trick", math: "a₁/a₂ = b₁/b₂", gift: "No Solution", link: "#f33" },
+            { id: 34, name: "Net Percent Change", math: "(1+r₁)(1+r₂)-1", gift: "Multi-step hack", link: "#f34" },
+            { id: 35, name: "Radian-Arc Conversion", math: "s = rθ", gift: "Radian mastery", link: "#f35" },
             { id: 1, name: "Vertex Shortcut", math: "x = -b/2a", gift: "Save 70s", link: "#f1" },
             { id: 2, name: "Sum of Solutions", math: "-b/a", gift: "Save 50s", link: "#f2" },
             { id: 3, name: "Product of Solutions", math: "c/a", gift: "Save 65s", link: "#f3" },

@@ -749,6 +749,15 @@
         </article>
     </main>
 
+    <!-- Request a Shortcut CTA -->
+    <section style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); color: white; padding: 4rem 5%; border-radius: 24px; text-align: center; margin: 4rem 5% 0; clear: both;">
+        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 1.5rem; color: white;">Don't see a formula?</h3>
+        <p style="font-size: 1.25rem; opacity: 0.9; margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+            We are building the world's largest library of SAT shortcuts. If there's a hard question you can't solve, tell us. We'll add the Practix Shortcut within 24 hours.
+        </p>
+        <a href="https://forms.gle/your-form-link" target="_blank" class="btn-primary" style="background: white; color: #1e1b4b; display: inline-block; padding: 1.25rem 3rem; border-radius: 12px; font-weight: 800; text-decoration: none; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(0,0,0,0.2);">Request a Shortcut</a>
+    </section>
+
     <script>
         const formulas = [
             { id: 1, name: "Vertex Shortcut", math: "x = -b/2a", gift: "Save 70s", link: "#f1" },
@@ -774,6 +783,28 @@
             { id: 30, name: "The 'Golden' Ratio Pattern", math: "1 : √3 : 2", gift: "Triangle Hack", link: "#f13" }
         ];
 
+        function saveMastery(id, isChecked) {
+            const mastery = JSON.parse(localStorage.getItem('practix_mastery') || '{}');
+            mastery[id] = isChecked;
+            localStorage.setItem('practix_mastery', JSON.stringify(mastery));
+            
+            // Log to Pulse Analytics
+            if (window.practixLog) {
+                window.practixLog('formula_mastery_toggle', { formula_id: id, status: isChecked ? 'mastered' : 'unmastered' });
+            }
+        }
+
+        function loadMastery() {
+            const mastery = JSON.parse(localStorage.getItem('practix_mastery') || '{}');
+            document.querySelectorAll('.mastery-check').forEach(checkbox => {
+                const row = checkbox.closest('tr');
+                const id = row.querySelector('.scan-num').innerText;
+                if (mastery[id]) {
+                    checkbox.checked = true;
+                }
+            });
+        }
+
         function populateTable() {
             const body = document.getElementById('scan-table-body');
             body.innerHTML = formulas.map(f => `
@@ -782,9 +813,10 @@
                     <td class="scan-name">${f.name}</td>
                     <td class="scan-math">${f.math}</td>
                     <td><span class="scan-gift">${f.gift}</span></td>
-                    <td><input type="checkbox" class="mastery-check" onclick="event.stopPropagation()"></td>
+                    <td><input type="checkbox" class="mastery-check" onclick="event.stopPropagation(); saveMastery('${f.id}', this.checked)"></td>
                 </tr>
             `).join('');
+            loadMastery();
         }
 
         function toggleExample(btn) {

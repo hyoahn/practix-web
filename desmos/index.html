@@ -86,11 +86,10 @@
     <section style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%); padding: 3rem 5%; text-align: center; border-bottom: 1px solid #e5e5e5;">
         <div style="max-width: 900px; margin: 0 auto;">
             <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 1rem; color: #1a1a2e;">
-                Desmos Calculator Tricks for the Digital SAT (2026)
+                Desmos "Power Moves" for Elite Students
             </h1>
             <p style="font-size: 1.2rem; color: #4a4a68; margin-bottom: 2rem;">
-                The built-in Desmos calculator is the biggest unfair advantage on the new SAT. 
-                Here's how to use it like a genius, not a basic calculator.
+                Join 100+ students training with the built-in Desmos calculator. These aren't "tricks"—they are the high-speed maneuvers used by top-tier test takers to gain an unfair advantage.
             </p>
         </div>
     </section>
@@ -112,7 +111,11 @@
         </section>
 
         <!-- Technique 1: Linear Regression -->
-        <section style="background: #f0fdf4; border-left: 4px solid #10b981; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+        <section style="background: #f0fdf4; border-left: 4px solid #10b981; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; position: relative;">
+            <div style="position: absolute; top: 1rem; right: 1rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #065f46; font-weight: 600;">
+                <input type="checkbox" class="mastery-m-check" data-id="m1" onchange="saveMoveMastery('m1', this.checked)">
+                <span>I've Mastered This Move</span>
+            </div>
             <div class="uvp-badge">Magic Code</div>
             <h3 style="color: #065f46; font-size: 1.5rem; margin-bottom: 1rem;">
                 🪄 Trick #1: The Linear Regression Code
@@ -142,7 +145,11 @@
         </section>
 
         <!-- Technique 2: Quadratic Regression -->
-        <section style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+        <section style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; position: relative;">
+            <div style="position: absolute; top: 1rem; right: 1rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #991b1b; font-weight: 600;">
+                <input type="checkbox" class="mastery-m-check" data-id="m2" onchange="saveMoveMastery('m2', this.checked)">
+                <span>I've Mastered This Move</span>
+            </div>
             <h3 style="color: #991b1b; font-size: 1.5rem; margin-bottom: 1rem;">
                 📈 Trick #2: The Quadratic Regression Code
             </h3>
@@ -167,7 +174,11 @@
         </section>
 
         <!-- Technique 3: Sliders -->
-        <section style="background: #eff6ff; border-left: 4px solid #3b82f6; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+        <section style="background: #eff6ff; border-left: 4px solid #3b82f6; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; position: relative;">
+            <div style="position: absolute; top: 1rem; right: 1rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #1e40af; font-weight: 600;">
+                <input type="checkbox" class="mastery-m-check" data-id="m3" onchange="saveMoveMastery('m3', this.checked)">
+                <span>I've Mastered This Move</span>
+            </div>
             <h3 style="color: #1e40af; font-size: 1.5rem; margin-bottom: 1rem;">
                 🎚️ Trick #3: The Slider Trick (for Transformations)
             </h3>
@@ -216,7 +227,11 @@
         </section>
 
         <!-- Trick #4: The Statistics Power Move -->
-        <section style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+        <section style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; position: relative;">
+            <div style="position: absolute; top: 1rem; right: 1rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #991b1b; font-weight: 600;">
+                <input type="checkbox" class="mastery-m-check" data-id="m4" onchange="saveMoveMastery('m4', this.checked)">
+                <span>I've Mastered This Move</span>
+            </div>
             <div class="uvp-badge">Power Move</div>
             <h3 style="color: #991b1b; font-size: 1.5rem; margin-bottom: 1rem;">
                 📊 Trick #4: Statistical Visualization
@@ -345,5 +360,28 @@
         <p>&copy; 2026 Practix. Train different.</p>
     </footer>
 
+    <script>
+        function saveMoveMastery(id, isChecked) {
+            const mastery = JSON.parse(localStorage.getItem('practix_desmos_mastery') || '{}');
+            mastery[id] = isChecked;
+            localStorage.setItem('practix_desmos_mastery', JSON.stringify(mastery));
+            
+            if (window.practixLog) {
+                window.practixLog('desmos_mastery_toggle', { move_id: id, status: isChecked ? 'mastered' : 'unmastered' });
+            }
+        }
+
+        function loadMoveMastery() {
+            const mastery = JSON.parse(localStorage.getItem('practix_desmos_mastery') || '{}');
+            document.querySelectorAll('.mastery-m-check').forEach(checkbox => {
+                const id = checkbox.getAttribute('data-id');
+                if (mastery[id]) {
+                    checkbox.checked = true;
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', loadMoveMastery);
+    </script>
 </body>
 </html>

@@ -74,7 +74,7 @@
                     <div class="avatars">
                         <span>👩‍🎓</span><span>👨‍🎓</span><span>👩‍🏫</span>
                     </div>
-                    <p>Joined by <strong>1,200+</strong> students this week</p>
+                    <p>Training with <strong>100+</strong> elite students aiming for 800</p>
                 </div>
             </div>
         </div>
@@ -362,19 +362,28 @@
             document.getElementById(tabId).classList.add('active');
         }
 
-        // Waitlist popup
+        // Waitlist popup using Tally
         const TALLY_FORM_ID = '68KX6k';
         document.querySelectorAll('a[href="#waitlist"]').forEach(btn => {
-            btn.onclick = (e) => {
+            btn.addEventListener('click', (e) => {
                 e.preventDefault();
+                
+                // Track lead generation intent
+                if (window.practixLog) {
+                    window.practixLog('conversion_intent', {
+                        target: 'waitlist_popup',
+                        location: window.location.pathname
+                    });
+                }
+
                 Tally.openPopup(TALLY_FORM_ID, {
                     width: 400,
                     emoji: {
-                        text: '👋',
+                        text: '🚀',
                         animation: 'wave'
                     }
                 });
-            }
+            });
         });
     </script>
     <style>

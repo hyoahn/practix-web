@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { once: true });
     });
 
-    // Track Waitlist Clicks
+    // Track Waitlist Clicks (Intent)
     document.querySelectorAll('a[href*="#waitlist"]').forEach(link => {
         link.addEventListener('click', () => {
             window.practixLog('conversion_intent', {
@@ -78,5 +78,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 location: window.location.pathname
             });
         });
+    });
+
+    // Track Actual Tally Submissions (Real Leads)
+    window.addEventListener('message', (e) => {
+        // Tally sends data objects, check if it exists and has the correct event
+        if (e.data && e.data.includes && e.data.includes('Tally.FormSubmitted')) {
+            window.practixLog('lead_captured', {
+                source: 'tally_popup',
+                location: window.location.pathname
+            });
+        }
+        // Fallback for object-based messages (newer Tally API)
+        if (e.data && e.data.event === 'Tally.FormSubmitted') {
+             window.practixLog('lead_captured', {
+                source: 'tally_popup',
+                location: window.location.pathname,
+                form_id: e.data.payload?.formId
+            });
+        }
     });
 });

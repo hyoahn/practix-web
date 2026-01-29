@@ -135,8 +135,51 @@
         .school-header { color: var(--trap-color); font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em; }
         .practix-header { color: var(--shortcut-color); font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em; }
 
-        @media (max-width: 850px) {
-            .comparison-grid { grid-template-columns: 1fr; }
+        /* Quick-Scan Table */
+        .scan-table-container {
+            background: white;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            margin-bottom: 4rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .scan-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .scan-table th {
+            background: #f8fafc;
+            padding: 1.25rem 1.5rem;
+            text-align: left;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border);
+        }
+
+        .scan-table td {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            vertical-align: middle;
+        }
+
+        .scan-table tr:hover { background: #fdfdfd; }
+        .scan-table tr:last-child td { border-bottom: none; }
+
+        .scan-num { color: var(--text-muted); font-weight: 700; width: 40px; }
+        .scan-name { font-weight: 600; color: var(--accent-primary); }
+        .scan-math { font-family: serif; font-size: 1.1rem; }
+        .scan-gift { background: #f0fdf4; color: #166534; padding: 0.25rem 0.6rem; border-radius: 4px; font-weight: 700; font-size: 0.8rem; }
+        
+        .mastery-check {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--accent-primary);
         }
     </style>
 </head>
@@ -151,8 +194,25 @@
 
     <main class="formula-hub-container">
         
+        <section class="scan-table-container">
+            <table class="scan-table">
+                <thead>
+                    <tr>
+                        <th class="scan-num">#</th>
+                        <th>Concept</th>
+                        <th>Formula</th>
+                        <th>Mastery Bonus</th>
+                        <th>Done</th>
+                    </tr>
+                </thead>
+                <tbody id="scan-table-body">
+                    <!-- Javascript will populate this to keep file DRY and easily expandable -->
+                </tbody>
+            </table>
+        </section>
+        
         <!-- 1 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f1">
             <span class="category-badge cat-quad">Quadratics</span>
             <h3>1. The Vertex Shortcut</h3>
             <div class="formula-display">\[ x = -\frac{b}{2a} \]</div>
@@ -190,7 +250,7 @@
         </article>
 
         <!-- 2 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f2">
             <span class="category-badge cat-quad">Quadratics</span>
             <h3>2. Sum of Solutions</h3>
             <div class="formula-display">\[ \text{Sum} = -\frac{b}{a} \]</div>
@@ -226,7 +286,7 @@
         </article>
 
         <!-- 3 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f3">
             <span class="category-badge cat-quad">Quadratics</span>
             <h3>3. Product of Solutions</h3>
             <div class="formula-display">\[ \text{Product} = \frac{c}{a} \]</div>
@@ -262,7 +322,7 @@
         </article>
 
         <!-- 4 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f4">
             <span class="category-badge cat-quad">Quadratics</span>
             <h3>4. The Discriminant</h3>
             <div class="formula-display">\[ D = b^2 - 4ac \]</div>
@@ -297,7 +357,7 @@
         </article>
 
         <!-- 5 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f5">
             <span class="category-badge cat-alg">Algebra</span>
             <h3>5. Growth & Decay</h3>
             <div class="formula-display">\[ y = a(1 \pm r)^t \]</div>
@@ -331,7 +391,7 @@
         </article>
 
         <!-- 6 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f6">
             <span class="category-badge cat-geo">Geometry</span>
             <h3>6. Circle Equation</h3>
             <div class="formula-display">\[ (x-h)^2 + (y-k)^2 = r^2 \]</div>
@@ -369,7 +429,7 @@
         </article>
 
         <!-- 7 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f7">
             <span class="category-badge cat-alg">Algebra</span>
             <h3>7. Complementary Trig</h3>
             <div class="formula-display">\[ \sin(x) = \cos(90 - x) \]</div>
@@ -377,7 +437,7 @@
         </article>
 
         <!-- 8 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f8">
             <span class="category-badge cat-alg">Algebra</span>
             <h3>8. Percent Change</h3>
             <div class="formula-display">\[ \frac{\text{New} - \text{Old}}{\text{Old}} \times 100 \]</div>
@@ -385,7 +445,7 @@
         </article>
 
         <!-- 9 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f9">
             <span class="category-badge cat-geo">Geometry</span>
             <h3>9. Distance Formula</h3>
             <div class="formula-display">\[ d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2} \]</div>
@@ -393,7 +453,7 @@
         </article>
 
         <!-- 10 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f10">
             <span class="category-badge cat-geo">Geometry</span>
             <h3>10. Arc Length</h3>
             <div class="formula-display">\[ L = \frac{\theta}{360} \times 2\pi r \]</div>
@@ -401,7 +461,7 @@
         </article>
 
         <!-- 11 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f11">
             <span class="category-badge cat-geo">Geometry</span>
             <h3>11. Sector Area</h3>
             <div class="formula-display">\[ A = \frac{\theta}{360} \times \pi r^2 \]</div>
@@ -409,7 +469,7 @@
         </article>
 
         <!-- 12 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f12">
             <span class="category-badge cat-geo">Geometry</span>
             <h3>12. Midpoint Formula</h3>
             <div class="formula-display">\[ (\frac{x_1+x_2}{2}, \frac{y_1+y_2}{2}) \]</div>
@@ -417,7 +477,7 @@
         </article>
 
         <!-- 13 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f13">
             <span class="category-badge cat-geo">Geometry</span>
             <h3>13. 30-60-90 Triangle</h3>
             <div class="formula-display">\[ \text{Sides} = x : x\sqrt{3} : 2x \]</div>
@@ -452,7 +512,7 @@
         </article>
 
         <!-- 14 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f14">
             <span class="category-badge cat-geo">Geometry</span>
             <h3>14. 45-45-90 Triangle</h3>
             <div class="formula-display">\[ \text{Sides} = x : x : x\sqrt{2} \]</div>
@@ -487,7 +547,7 @@
         </article>
 
         <!-- 15 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f15">
             <span class="category-badge cat-geo">Geometry</span>
             <h3>15. Triangle Angle Sum</h3>
             <div class="formula-display">\[ A + B + C = 180° \]</div>
@@ -495,7 +555,7 @@
         </article>
 
         <!-- 16 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f16">
             <span class="category-badge cat-geo">Geometry</span>
             <h3>16. Exterior Angle Theorem</h3>
             <div class="formula-display">\[ \text{Exterior} = A + B \]</div>
@@ -503,7 +563,7 @@
         </article>
 
         <!-- 17 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f17">
             <span class="category-badge cat-alg">Algebra</span>
             <h3>17. Difference of Squares</h3>
             <div class="formula-display">\[ a^2 - b^2 = (a+b)(a-b) \]</div>
@@ -537,7 +597,7 @@
         </article>
 
         <!-- 18 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f18">
             <span class="category-badge cat-geo">Geometry</span>
             <h3>18. Slope Formula</h3>
             <div class="formula-display">\[ m = \frac{y_2 - y_1}{x_2 - x_1} \]</div>
@@ -545,7 +605,7 @@
         </article>
 
         <!-- 19 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f19">
             <span class="category-badge cat-geo">Geometry</span>
             <h3>19. Parallel Lines</h3>
             <div class="formula-display">\[ m_1 = m_2 \]</div>
@@ -553,16 +613,133 @@
         </article>
 
         <!-- 20 -->
-        <article class="formula-card">
+        <article class="formula-card" id="f20">
             <span class="category-badge cat-geo">Geometry</span>
             <h3>20. Perpendicular Lines</h3>
             <div class="formula-display">\[ m_1 \cdot m_2 = -1 \]</div>
             <p class="formula-explanation">Perpendicular slopes are negative reciprocals.</p>
         </article>
 
+
+        <!-- 21 -->
+        <article class="formula-card" id="f21">
+            <span class="category-badge cat-alg">Statistics</span>
+            <h3>21. Standard Deviation Logic</h3>
+            <div class="formula-display">Spread = Gap</div>
+            <p class="formula-explanation">Don't calculate it. Understand it. More "spread out" data = Higher Standard Deviation.</p>
+        </article>
+
+        <!-- 22 -->
+        <article class="formula-card" id="f22">
+            <span class="category-badge cat-alg">Statistics</span>
+            <h3>22. Margin of Error</h3>
+            <div class="formula-display">Sample Size ↑ = MoE ↓</div>
+            <p class="formula-explanation">The more people you ask, the smaller the error. Guaranteed point if you remember this inverse relationship.</p>
+        </article>
+
+        <!-- 23 -->
+        <article class="formula-card" id="f23">
+            <span class="category-badge cat-alg">Algebra</span>
+            <h3>23. Weighted Average</h3>
+            <div class="formula-display">\[ \text{Avg} = \frac{\sum w \cdot x}{\sum w} \]</div>
+            <p class="formula-explanation">Essential for mixture problems and grouped data.</p>
+        </article>
+
+        <!-- 24 -->
+        <article class="formula-card" id="f24">
+            <span class="category-badge cat-alg">Algebra</span>
+            <h3>24. Harmonic Mean (Avg Speed)</h3>
+            <div class="formula-display">\[ \text{Speed} = \frac{2ab}{a+b} \]</div>
+            <p class="formula-explanation">When distances are equal, your average speed is NOT the simple average.</p>
+        </article>
+
+        <!-- 25 -->
+        <article class="formula-card" id="f25">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>25. Sum of Interior Angles</h3>
+            <div class="formula-display">\[ \text{Sum} = (n-2) \cdot 180^\circ \]</div>
+            <p class="formula-explanation">Find the total degrees inside any polygon with \(n\) sides.</p>
+        </article>
+
+        <!-- 26 -->
+        <article class="formula-card" id="f26">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>26. Exterior Angle Sum</h3>
+            <div class="formula-display">Always \(360^\circ\)</div>
+            <p class="formula-explanation">The exterior angles of ANY polygon always sum to 360. Instant time saver.</p>
+        </article>
+
+        <!-- 27 -->
+        <article class="formula-card" id="f27">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>27. Equation of Circle (General Form)</h3>
+            <div class="formula-display">\( x^2 + y^2 + Dx + Ey + F = 0 \)</div>
+            <p class="formula-explanation">Use "Halve and Square" to jump straight to the center and radius.</p>
+        </article>
+
+        <!-- 28 -->
+        <article class="formula-card" id="f28">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>28. Arc/Sector Proportions</h3>
+            <div class="formula-display">\[ \frac{\text{Arc}}{\text{Circum}} = \frac{\text{Sector}}{\text{Area}} = \frac{\theta}{360} \]</div>
+            <p class="formula-explanation">The universal proportion for all circle slice problems.</p>
+        </article>
+
+        <!-- 29 -->
+        <article class="formula-card" id="f29">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>29. Distance from Origin</h3>
+            <div class="formula-display">\[ d = \sqrt{x^2 + y^2} \]</div>
+            <p class="formula-explanation">A specialized version of the distance formula for points at \((0,0)\).</p>
+        </article>
+
+        <!-- 30 -->
+        <article class="formula-card" id="f30">
+            <span class="category-badge cat-geo">Geometry</span>
+            <h3>30. Mastery: The 3-4-5 & 5-12-13 Triangles</h3>
+            <div class="formula-display">3 : 4 : 5 Patterns</div>
+            <p class="formula-explanation">Spot these Pythagoras patterns to avoid doing math entirely.</p>
+        </article>
     </main>
 
     <script>
+        const formulas = [
+            { id: 1, name: "Vertex Shortcut", math: "x = -b/2a", gift: "Save 70s", link: "#f1" },
+            { id: 2, name: "Sum of Solutions", math: "-b/a", gift: "Save 50s", link: "#f2" },
+            { id: 3, name: "Product of Solutions", math: "c/a", gift: "Save 65s", link: "#f3" },
+            { id: 4, name: "The Discriminant", math: "b²-4ac", gift: "Fast logic", link: "#f4" },
+            { id: 5, name: "Growth & Decay", math: "a(1±r)^t", gift: "No manual %", link: "#f5" },
+            { id: 6, name: "Circle Equation", math: "(x-h)²+(y-k)²=r²", gift: "Save 90s", link: "#f6" },
+            { id: 7, name: "Complementary Trig", math: "sin(x)=cos(90-x)", gift: "Instant pts", link: "#f7" },
+            { id: 8, name: "Percent Change", math: "(N-O)/O * 100", gift: "No confusion", link: "#f8" },
+            { id: 18, name: "Slope Formula", math: "(y₂-y₁)/(x₂-x₁)", gift: "Basic", link: "#f18" },
+            { id: 19, name: "Parallel Slopes", math: "m₁ = m₂", gift: "Basic", link: "#f19" },
+            { id: 20, name: "Perpendicular Slopes", math: "m₁ · m₂ = -1", gift: "Basic", link: "#f20" },
+            { id: 21, name: "Standard Deviation Logic", math: "Spread = Gap", gift: "Stat Mastery", link: "#f21" },
+            { id: 22, name: "Margin of Error", math: "Sample Size ↑ = MoE ↓", gift: "Stat Mastery", link: "#f22" },
+            { id: 23, name: "Weighted Average", math: "Σ(w·x) / Σw", gift: "Speed mixtures", link: "#f23" },
+            { id: 24, name: "Harmonic Mean", math: "2ab/(a+b)", gift: "Avg Speed hack", link: "#f24" },
+            { id: 25, name: "Sum of Interior Angles", math: "(n-2)·180", gift: "Polygons", link: "#f25" },
+            { id: 26, name: "Exterior Angle Sum", math: "Always 360°", gift: "Instant pts", link: "#f26" },
+            { id: 27, name: "Equation of Circle (General)", math: "x² + y² + Dx + Ey + F = 0", gift: "Mental Math", link: "#f27" },
+            { id: 28, name: "Arc Area (Proportion)", math: "Area / πr² = θ / 360", gift: "No formulas", link: "#f28" },
+            { id: 29, name: "Distance from Origin", math: "√x² + y²", gift: "Speed Pythag", link: "#f29" },
+            { id: 30, name: "The 'Golden' Ratio Pattern", math: "1 : √3 : 2", gift: "Triangle Hack", link: "#f13" }
+        ];
+
+        function populateTable() {
+            const body = document.getElementById('scan-table-body');
+            body.innerHTML = formulas.map(f => `
+                <tr onclick="location.href='${f.link}'" style="cursor: pointer;">
+                    <td class="scan-num">${f.id}</td>
+                    <td class="scan-name">${f.name}</td>
+                    <td class="scan-math">${f.math}</td>
+                    <td><span class="scan-gift">${f.gift}</span></td>
+                    <td><input type="checkbox" class="mastery-check" onclick="event.stopPropagation()"></td>
+                </tr>
+            `).join('');
+        }
+
         function toggleExample(btn) {
             const content = btn.nextElementSibling;
             const plus = btn.querySelector('.plus');
@@ -574,6 +751,8 @@
                 plus.textContent = '-';
             }
         }
+
+        document.addEventListener('DOMContentLoaded', populateTable);
     </script>
 </body>
 </html>

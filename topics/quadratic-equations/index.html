@@ -126,6 +126,41 @@
         </div>
     </section>
 
+    <!-- Theoretical Proof Deep-Dive -->
+    <section class="topic-section" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2.5rem;">
+        <h2 style="color: #0f172a; margin-top: 0;">🎓 The Proof: Why $Sum = -b/a$</h2>
+        <p style="color: #475569; margin-bottom: 2rem;">For students aiming for an 800, knowing the "trick" isn't enough. You need to understand the underlying logic. Here is the rigorous derivation:</p>
+        
+        <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #cbd5e1; font-family: serif; font-size: 1.1rem; line-height: 2;">
+            <p>1. Start with the generic quadratic equation: $ax^2 + bx + c = 0$</p>
+            <p>2. According to the <strong>Quadratic Formula</strong>, the two solutions ($x_1$ and $x_2$) are:</p>
+            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
+                $x_1 = \frac{-b + \sqrt{b^2 - 4ac}}{2a}$ &nbsp; and &nbsp; $x_2 = \frac{-b - \sqrt{b^2 - 4ac}}{2a}$
+            </div>
+            <p>3. Let $D$ represent the discriminant ($b^2 - 4ac$):</p>
+            <div style="text-align: center; margin: 1.5rem 0;">
+                $x_1 = \frac{-b + \sqrt{D}}{2a}, \quad x_2 = \frac{-b - \sqrt{D}}{2a}$
+            </div>
+            <p>4. Add the two roots together to find the <strong>Sum</strong>:</p>
+            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem; color: #1e40af;">
+                $Sum = \frac{-b + \sqrt{D}}{2a} + \frac{-b - \sqrt{D}}{2a}$
+            </div>
+            <p>5. Combine the fractions over the common denominator $2a$:</p>
+            <div style="text-align: center; margin: 1.5rem 0;">
+                $Sum = \frac{-b + \sqrt{D} - b - \sqrt{D}}{2a}$
+            </div>
+            <p>6. Notice that $+\sqrt{D}$ and $-\sqrt{D}$ cancel out perfectly:</p>
+            <div style="text-align: center; margin: 1.5rem 0; font-weight: bold;">
+                $Sum = \frac{-2b}{2a}$
+            </div>
+            <p>7. Simplify the fraction:</p>
+            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.5rem; color: #10b981;">
+                $Sum = -\frac{b}{a}$
+            </div>
+            <p style="text-align: right; font-style: italic; color: #64748b; margin-top: 1rem;">Q.E.D. — This is why the shortcut works for EVERY quadratic equation.</p>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="topic-cta">
         <h2>Master All 22 Hard SAT Topics</h2>

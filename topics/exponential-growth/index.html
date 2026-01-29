@@ -104,6 +104,37 @@
         </div>
     </section>
 
+    <!-- Theoretical Proof Deep-Dive -->
+    <section class="topic-section" style="background: #fffbeb; border: 1px solid #fef3c7; border-radius: 12px; padding: 2.5rem;">
+        <h2 style="color: #92400e; margin-top: 0;">🎓 The Proof: Why $y = a(1 \pm r)^t$?</h2>
+        <p style="color: #92400e; margin-bottom: 2rem;">Why do we add 1 to the rate? The derivation reveals that exponential growth is actually just repetitive factoring.</p>
+        
+        <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #fde68a; font-family: serif; font-size: 1.1rem; line-height: 2;">
+            <p>1. Start with an initial amount $a$ and a growth rate $r$. After the first time period, the new amount is the original plus the increase:</p>
+            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
+                $Amount_1 = a + (r \cdot a)$
+            </div>
+            
+            <p>2. Factor out the $a$ to see the <strong>Multiplier</strong>:</p>
+            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem; color: #b45309;">
+                $Amount_1 = a(1 + r)$
+            </div>
+            
+            <p>3. To find the amount after the second period, apply the same multiplier to the <em>new</em> amount:</p>
+            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
+                $Amount_2 = [a(1 + r)] \cdot (1 + r) = a(1 + r)^2$
+            </div>
+            
+            <p>4. <strong>The Pattern:</strong> Each time period $t$ simply adds another power to the multiplier:</p>
+            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.6rem; color: #d97706; font-weight: bold;">
+                $y = a(1 + r)^t$
+            </div>
+            
+            <p>This explains why the base is $1.12$ for a $12\%$ increase. The "1" represents the 100% you already had, and the "0.12" represents the new growth.</p>
+            <p style="text-align: right; font-style: italic; color: #b45309; margin-top: 1rem;">Compounding is the 8th wonder of the world. — Practix Team</p>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="topic-cta">
         <h2>Stop Solving. Start Training.</h2>

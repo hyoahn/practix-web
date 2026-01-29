@@ -109,6 +109,35 @@
         </div>
     </section>
 
+    <!-- Theoretical Proof Deep-Dive -->
+    <section class="topic-section" style="background: #ecfdf5; border: 1px solid #d1fae5; border-radius: 12px; padding: 2.5rem;">
+        <h2 style="color: #065f46; margin-top: 0;">🎓 The Proof: Why $f(c)$ is the Remainder</h2>
+        <p style="color: #065f46; margin-bottom: 2rem;">The Remainder Theorem isn't a "glitch" in the matrix—it's a fundamental consequence of polynomial algebra. Here is the 3-step proof:</p>
+        
+        <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #a7f3d0; font-family: serif; font-size: 1.1rem; line-height: 2;">
+            <p>1. Any polynomial division can be expressed by the <strong>Division Algorithm</strong>:</p>
+            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
+                $f(x) = (x - c) \cdot q(x) + r$
+            </div>
+            <p>Where $q(x)$ is the quotient (the result) and $r$ is the remainder.</p>
+            
+            <p>2. Now, evaluate the function at the specific value $x = c$:</p>
+            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
+                $f(c) = (c - c) \cdot q(c) + r$
+            </div>
+            
+            <p>3. Simplify the equation:</p>
+            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.5rem; color: #059669; font-weight: bold;">
+                $f(c) = 0 \cdot q(c) + r$
+                <br>
+                $f(c) = r$
+            </div>
+            
+            <p style="margin-top: 1rem;">This proves that as soon as you plug $c$ into the function, everything but the remainder disappears. Mathematically, it <em>must</em> work every time.</p>
+            <p style="text-align: right; font-style: italic; color: #059669; margin-top: 1rem;">Logic > Memorization. — Practix Team</p>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="topic-cta">
         <h2>Train for an 800 Score</h2>

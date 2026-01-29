@@ -58,6 +58,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { once: true }); // Only log the first time they see the solution in a session
     });
 
+    // Track All Content Clicks (Popularity Engine)
+    document.querySelectorAll('[id^="f"], [id^="q"], [id^="m"]').forEach(item => {
+        item.addEventListener('click', () => {
+            const type = item.tagName === 'ARTICLE' || item.tagName === 'SECTION' ? 'content_block' : 'mini_block';
+            window.practixLog('content_popularity_click', {
+                content_id: item.id,
+                content_type: item.closest('main')?.parentElement?.className || 'unknown',
+                location: window.location.pathname
+            });
+        }, { once: true });
+    });
+
     // Track Waitlist Clicks
     document.querySelectorAll('a[href*="#waitlist"]').forEach(link => {
         link.addEventListener('click', () => {

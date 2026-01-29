@@ -165,6 +165,26 @@
         .funnel-label { font-size: 0.9rem; }
         .funnel-perc { font-weight: 600; color: var(--pulse-primary); }
 
+        .leaderboard-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.4rem 0.75rem;
+            background: #f8fafc;
+            border-radius: 6px;
+            margin-bottom: 0.25rem;
+            font-size: 0.85rem;
+        }
+
+        .leaderboard-item .count {
+            font-weight: 700;
+            color: var(--pulse-primary);
+            background: #eff6ff;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
         footer {
             margin-top: 4rem;
             text-align: center;
@@ -210,7 +230,39 @@
 
             <div class="panel">
                 <div class="panel-header">
-                    <div class="panel-title">Analytics Health</div>
+                    <div class="panel-title">Popularity Leaderboard</div>
+                    <select id="timeframe-selector" style="font-size: 0.75rem; border: 1px solid #e2e8f0; border-radius: 4px; padding: 0.2rem;">
+                        <option value="daily">Daily</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="yearly">Yearly</option>
+                    </select>
+                </div>
+                
+                <div id="leaderboard-content">
+                    <div style="margin-bottom: 1.5rem;">
+                        <div class="funnel-step" style="border-bottom: none; margin-bottom: 0.5rem;"><span class="funnel-label" style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; color: #64748b;">Top Formulas</span></div>
+                        <div class="leaderboard-item"><span>1. Vertex & Discriminant</span><span class="count">1,240</span></div>
+                        <div class="leaderboard-item"><span>2. Circle Equations</span><span class="count">980</span></div>
+                        <div class="leaderboard-item"><span>3. Sum/Product of Roots</span><span class="count">850</span></div>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <div class="funnel-step" style="border-bottom: none; margin-bottom: 0.5rem;"><span class="funnel-label" style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; color: #64748b;">Hard Questions</span></div>
+                        <div class="leaderboard-item"><span>1. The "Impossible" Division</span><span class="count">1,420</span></div>
+                        <div class="leaderboard-item"><span>2. The Hidden Circle</span><span class="count">1,110</span></div>
+                        <div class="leaderboard-item"><span>3. The System Illusion</span><span class="count">1,020</span></div>
+                    </div>
+
+                    <div>
+                        <div class="funnel-step" style="border-bottom: none; margin-bottom: 0.5rem;"><span class="funnel-label" style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; color: #64748b;">Desmos Moves</span></div>
+                        <div class="leaderboard-item"><span>1. Regression Magic Code</span><span class="count">2,100</span></div>
+                        <div class="leaderboard-item"><span>2. The Slider Hack</span><span class="count">1,850</span></div>
+                        <div class="leaderboard-item"><span>3. Statistics Visualization</span><span class="count">1,340</span></div>
+                    </div>
+                </div>
+
+                <div class="funnel-step" style="margin-top:2rem; border-top: 1px solid #f1f5f9; padding-top: 1rem;">
+                    <span class="funnel-label">Analytics Health</span>
                 </div>
                 <div class="funnel-step">
                     <span class="funnel-label">GA4 Stream</span>
@@ -219,17 +271,6 @@
                 <div class="funnel-step">
                     <span class="funnel-label">Event Engine</span>
                     <span class="funnel-perc" style="color:var(--pulse-success)">Active</span>
-                </div>
-                <div class="funnel-step" style="margin-top:2rem;">
-                    <span class="funnel-label">Conversion Funnel</span>
-                </div>
-                <div class="funnel-step">
-                    <span class="funnel-label">Landing -> Topics</span>
-                    <span class="funnel-perc">64%</span>
-                </div>
-                <div class="funnel-step">
-                    <span class="funnel-label">Topics -> Waitlist</span>
-                    <span class="funnel-perc">12%</span>
                 </div>
             </div>
         </div>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAT Systems of Equations: The "Lazy" Addition Trick | Practix</title>
+    <meta name="description" content="Master SAT systems of equations without solving for x and y separately. Learn the combination shortcut that saves 90 seconds per question.">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="topics.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script src="../footer.js"></script>
+</head>
+<body>
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> / <a href="../index.html#resources">Topics</a> / <span>Systems of Equations</span>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="topic-hero">
+        <h1>SAT Systems of Equations: The Laziest Trick</h1>
+        <p class="hook">When they ask for 11x, don't solve for x. Just add the equations.</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="topic-section">
+        <h2>The Problem</h2>
+        <p>You see this on the SAT:</p>
+        
+        <div class="formula-display" style="font-size: 1.3rem;">
+            5x - 3y = 10<br>
+            6x + 3y = 23
+        </div>
+        
+        <p><strong>Question: What is the value of 11x?</strong></p>
+        
+        <div class="common-mistake">
+            <h3>🚫 The Hard Way (90 Seconds)</h3>
+            <p>Most students try to solve for x step-by-step:</p>
+            <ol>
+                <li>Use elimination to solve for x</li>
+                <li>Plug x back in to find y</li>
+                <li>Finally, multiply x by 11</li>
+            </ol>
+            <p>This takes <strong>90+ seconds</strong> and involves 3 separate steps. But the question didn't ask for x OR y—it asked for <strong>11x</strong>.</p>
+        </div>
+        
+        <div class="shortcut">
+            <h3>✅ The Practix Shortcut (5 Seconds)</h3>
+            <p><strong>Don't solve. Just combine.</strong></p>
+            <p>Look at what happens when you <strong>add the two equations together</strong>:</p>
+            
+            <div style="font-family: 'Courier New', monospace; background: white; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                <pre style="margin: 0; font-size: 1.1rem;">
+   5x - 3y = 10
++  6x + 3y = 23
+_______________
+  11x +  0  = 33
+                </pre>
+            </div>
+            
+            <p>Notice:</p>
+            <ul>
+                <li>5x + 6x = <strong>11x</strong> (exactly what the question asks for!)</li>
+                <li>-3y + 3y = <strong>0</strong> (the y terms cancel)</li>
+                <li>10 + 23 = <strong>33</strong></li>
+            </ul>
+            <p><strong>Answer: 11x = 33</strong></p>
+            <p>You're done. You never solved for x. You never solved for y. You just added two lines of algebra.</p>
+        </div>
+        
+        <h2>When to Use This Trick</h2>
+        <p>This works ANYTIME the question asks for a <strong>combination</strong> of variables instead of individual values. Examples:</p>
+        <ul>
+            <li>"What is 2x + y?"</li>
+            <li>"What is x - 3y?"</li>
+            <li>"What is 4x?"</li>
+        </ul>
+        <p><strong>Strategy:</strong> Look for ways to <em>combine</em> the equations (add, subtract, multiply) to create the exact expression they're asking for.</p>
+    </div>
+
+    <!-- Interactive Widget -->
+    <section class="topic-section">
+        <div class="interactive-widget">
+            <div class="widget-header">
+                <h3>Systems Solver</h3>
+                <p>Enter your system and see what you get by adding/subtracting.</p>
+            </div>
+            
+            <p style="text-align: center; margin-bottom: 1rem;">
+                <strong>Equation 1:</strong> <span id="eq1-display">5x - 3y = 10</span><br>
+                <strong>Equation 2:</strong> <span id="eq2-display">6x + 3y = 23</span>
+            </p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div>
+                    <label style="font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Eq1: Coefficient of x</label>
+                    <input type="number" id="eq1-x" value="5" style="padding: 0.5rem; width: 100%;">
+                </div>
+                <div>
+                    <label style="font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Eq1: Coefficient of y</label>
+                    <input type="number" id="eq1-y" value="-3" style="padding: 0.5rem; width: 100%;">
+                </div>
+                <div>
+                    <label style="font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Eq1: Constant</label>
+                    <input type="number" id="eq1-c" value="10" style="padding: 0.5rem; width: 100%;">
+                </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                <div>
+                    <label style="font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Eq2: Coefficient of x</label>
+                    <input type="number" id="eq2-x" value="6" style="padding: 0.5rem; width: 100%;">
+                </div>
+                <div>
+                    <label style="font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Eq2: Coefficient of y</label>
+                    <input type="number" id="eq2-y" value="3" style="padding: 0.5rem; width: 100%;">
+                </div>
+                <div>
+                    <label style="font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Eq2: Constant</label>
+                    <input type="number" id="eq2-c" value="23" style="padding: 0.5rem; width: 100%;">
+                </div>
+            </div>
+            
+            <div class="widget-output">
+                <div class="result-label">Result of Adding Equations</div>
+                <div class="result-value" id="result-equation" style="font-size: 1.5rem;">11x = 33</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="topic-cta">
+        <h2>Work Smarter, Not Harder</h2>
+        <p>Get access to 50+ problem-solving shortcuts and interactive practice.</p>
+        <button class="btn-primary" onclick="window.location.href='../index.html#waitlist'">Join the Waitlist</button>
+    </section>
+
+    <!-- Footer managed by footer.js -->
+
+    <!-- Widget Script -->
+    <script>
+        const inputs = {
+            eq1x: document.getElementById('eq1-x'),
+            eq1y: document.getElementById('eq1-y'),
+            eq1c: document.getElementById('eq1-c'),
+            eq2x: document.getElementById('eq2-x'),
+            eq2y: document.getElementById('eq2-y'),
+            eq2c: document.getElementById('eq2-c')
+        };
+        const eq1Display = document.getElementById('eq1-display');
+        const eq2Display = document.getElementById('eq2-display');
+        const resultEquation = document.getElementById('result-equation');
+
+        function updateSystem() {
+            const a1 = parseFloat(inputs.eq1x.value) || 0;
+            const b1 = parseFloat(inputs.eq1y.value) || 0;
+            const c1 = parseFloat(inputs.eq1c.value) || 0;
+            const a2 = parseFloat(inputs.eq2x.value) || 0;
+            const b2 = parseFloat(inputs.eq2y.value) || 0;
+            const c2 = parseFloat(inputs.eq2c.value) || 0;
+
+            // Format equation displays
+            eq1Display.textContent = formatEquation(a1, b1, c1);
+            eq2Display.textContent = formatEquation(a2, b2, c2);
+
+            // Add equations
+            const sumX = a1 + a2;
+            const sumY = b1 + b2;
+            const sumC = c1 + c2;
+
+            resultEquation.textContent = formatEquation(sumX, sumY, sumC);
+        }
+
+        function formatEquation(a, b, c) {
+            let eq = '';
+            if (a !== 0) eq += `${a}x`;
+            if (b !== 0) {
+                if (b > 0 && eq !== '') eq += ' + ';
+                if (b < 0) eq += ' - ';
+                eq += b > 0 ? `${b}y` : `${Math.abs(b)}y`;
+            }
+            eq += ` = ${c}`;
+            return eq;
+        }
+
+        Object.values(inputs).forEach(input => {
+            input.addEventListener('input', updateSystem);
+        });
+
+        updateSystem();
+    </script>
+</body>
+</html>

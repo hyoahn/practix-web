@@ -1,0 +1,5 @@
+_Archive/
+_Server_backup/
+.DS_Store
+*.bak*
+**/ .DS_Store

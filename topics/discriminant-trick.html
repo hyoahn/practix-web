@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>SAT Discriminant Trick: How Many Solutions? | Practix</title>
+    <meta name="description" content="Stop solving quadratic equations. Learn the SAT discriminant trick to find the number of solutions in 5 seconds. Perfect for Module 2 hard questions.">
+    <meta name="keywords" content="SAT discriminant, number of solutions quadratic SAT, b2-4ac trick, Digital SAT math shortcuts">
+    
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="topics.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Shared Navigation -->
+    <script src="../nav.js"></script>
+    <script src="../footer.js"></script>
+</head>
+<body class="content-page">
+    <div class="page-bg"></div>
+    
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a> / <a href="../index.html#resources">Topics</a> / <span>The Discriminant Trick</span>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="topic-hero">
+        <h1>SAT Discriminant: "How Many Solutions?"</h1>
+        <p class="hook">If the question asks "how many," don't solve for X. Use the discriminant and finish in 5 seconds.</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="topic-section">
+        <h2>The Problem</h2>
+        <p>You see this on the Digital SAT:</p>
+        
+        <div class="formula-display">
+            \(3x^2 - 5x + p = 0\)
+            <br>
+            For what value of \(p\) does the equation have <strong>exactly one</strong> real solution?
+        </div>
+        
+        <p><strong>The Trap:</strong> Trying to use the full quadratic formula or factoring. If the question mentions the <em>number</em> of solutions, you only need one piece of the formula.</p>
+
+        <div class="shortcut">
+            <h3>✅ The Discriminant Hack (\(b^2 - 4ac\))</h3>
+            <p>The part under the square root in the quadratic formula tells you everything:</p>
+            <ul>
+                <li><strong>\(D > 0\)</strong>: 2 Real Solutions (Graph hits x-axis twice)</li>
+                <li><strong>\(D = 0\)</strong>: 1 Real Solution (Graph touches x-axis once)</li>
+                <li><strong>\(D < 0\)</strong>: 0 Real Solutions (Graph never hits x-axis)</li>
+            </ul>
+            <p>For the problem above: Set \(b^2 - 4ac = 0\)</p>
+            <div class="formula-display">
+                \((-5)^2 - 4(3)(p) = 0\)
+                <br>
+                \(25 - 12p = 0 \Rightarrow p = 25/12\)
+            </div>
+        </div>
+
+        <h2>Visual Cheat Sheet</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Identify coefficients</h4>
+                    <p>Get into \(ax^2 + bx + c = 0\) form and find your a, b, and c.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Calculate \(b^2 - 4ac\)</h4>
+                    <p>Watch your signs! A negative \(b\) squared is ALWAYS positive.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Check the sign</h4>
+                    <p>Positive = 2, Zero = 1, Negative = 0.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Widget -->
+    <section class="topic-section">
+        <div class="interactive-widget">
+            <div class="widget-header">
+                <h3>Solution Counter</h3>
+                <p>Change the values of a, b, and c to see how the number of solutions changes.</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                <div class="widget-input-group">
+                    <label>a</label>
+                    <input type="number" id="input-a" value="1">
+                </div>
+                <div class="widget-input-group">
+                    <label>b</label>
+                    <input type="number" id="input-b" value="-4">
+                </div>
+                <div class="widget-input-group">
+                    <label>c</label>
+                    <input type="number" id="input-c" value="4">
+                </div>
+            </div>
+            
+            <div class="widget-output">
+                <div class="result-label" id="discriminant-calc">Discriminant: (-4)² - 4(1)(4) = 0</div>
+                <div class="result-value" id="solution-count">1 Solution</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="topic-cta">
+        <h2>Don't Just Study. Train.</h2>
+        <p>Get 50+ interactive shortcuts like this in the Practix App.</p>
+        <button class="btn-primary" onclick="window.location.href='../index.html#waitlist'">Join the Waitlist</button>
+    </section>
+
+    <!-- Footer managed by footer.js -->
+
+    <!-- Widget Script -->
+    <script>
+        const inputs = {
+            a: document.getElementById('input-a'),
+            b: document.getElementById('input-b'),
+            c: document.getElementById('input-c')
+        };
+        const calcDisplay = document.getElementById('discriminant-calc');
+        const countDisplay = document.getElementById('solution-count');
+
+        function update() {
+            const a = parseFloat(inputs.a.value) || 0;
+            const b = parseFloat(inputs.b.value) || 0;
+            const c = parseFloat(inputs.c.value) || 0;
+            
+            const disc = (b * b) - (4 * a * c);
+            
+            calcDisplay.textContent = `Discriminant: (${b})² - 4(${a})(${c}) = ${disc}`;
+            
+            if (disc > 0) {
+                countDisplay.textContent = "2 Solutions";
+                countDisplay.style.color = "#10b981";
+            } else if (disc === 0) {
+                countDisplay.textContent = "1 Solution";
+                countDisplay.style.color = "#6366f1";
+            } else {
+                countDisplay.textContent = "0 Solutions";
+                countDisplay.style.color = "#ef4444";
+            }
+        }
+
+        Object.values(inputs).forEach(input => input.addEventListener('input', update));
+        update();
+    </script>
+</body>
+</html>

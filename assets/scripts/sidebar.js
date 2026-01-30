@@ -118,30 +118,63 @@ document.addEventListener('DOMContentLoaded', () => {
         const activePillar = PILLARS.find(p => p.id === activePillarId);
         if (!activePillar) return;
 
-        let filteredCategories = activePillar.categories.map(cat => ({
-            ...cat,
-            topics: cat.topics.filter(t =>
-                t.name.toLowerCase().includes(searchQuery.toLowerCase())
-            )
-        })).filter(cat => cat.topics.length > 0);
+        let html = '';
 
-        // If searching, maybe search across ALL pillars?
-        // Let's stick to current pillar for now to avoid confusion.
+        if (searchQuery) {
+            // GLOBAL SEARCH ACROSS ALL PILLARS
+            PILLARS.forEach(pillar => {
+                let matches = pillar.categories.map(cat => ({
+                    ...cat,
+                    topics: cat.topics.filter(t =>
+                        t.name.toLowerCase().includes(searchQuery.toLowerCase())
+                    )
+                })).filter(cat => cat.topics.length > 0);
 
-        sidebarTree.innerHTML = filteredCategories.map(cat => `
-            <div class="side-tree-group active">
-                <h4>${cat.name}</h4>
-                <ul class="side-tree-topic">
-                    ${cat.topics.map(topic => `
-                        <li>
-                            <a href="${basePath}${topic.path}" class="side-link ${currentPath.includes(topic.path) ? 'active' : ''}">
-                                ${topic.name}
-                            </a>
-                        </li>
-                    `).join('')}
-                </ul>
-            </div>
-        `).join('');
+                if (matches.length > 0) {
+                    html += `<div class="pillar-search-header" style="font-size: 0.7rem; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 1.5rem; margin-bottom: 0.5rem; padding: 0 1rem;">${pillar.name}</div>`;
+                    matches.forEach(cat => {
+                        html += `
+                            <div class="side-tree-group active">
+                                <h4>${cat.name}</h4>
+                                <ul class="side-tree-topic">
+                                    ${cat.topics.map(topic => `
+                                        <li>
+                                            <a href="${basePath}${topic.path}" class="side-link ${currentPath.includes(topic.path) ? 'active' : ''}">
+                                                ${topic.name}
+                                            </a>
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        `;
+                    });
+                }
+            });
+
+            if (!html) {
+                html = `<div style="padding: 2rem; text-align: center; color: var(--text-secondary); font-size: 0.9rem;">No shortcuts found for "${searchQuery}"</div>`;
+            }
+        } else {
+            // STANDARD PILLAR VIEW
+            let filteredCategories = activePillar.categories;
+
+            html = filteredCategories.map(cat => `
+                <div class="side-tree-group active">
+                    <h4>${cat.name}</h4>
+                    <ul class="side-tree-topic">
+                        ${cat.topics.map(topic => `
+                            <li>
+                                <a href="${basePath}${topic.path}" class="side-link ${currentPath.includes(topic.path) ? 'active' : ''}">
+                                    ${topic.name}
+                                </a>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `).join('');
+        }
+
+        sidebarTree.innerHTML = html;
     }
 
     // 6. Event Handlers

@@ -23,53 +23,71 @@
     <script src="../../../assets/scripts/analytics.js"></script>
 </head>
 
-<body class="content-page">
+<body>
     <div class="page-bg"></div>
 
     <div class="page-container">
-        <aside class="sidebar-nav" id="sidebar-tree">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
             <!-- JS will populate -->
         </aside>
 
-        <button class="mobile-tree-toggle" id="mobile-tree-btn">Menu</button>
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search formulas... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
 
-        <main class="main-content">
-            <header class="hero-section">
-                <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 1rem;">Quadratic
-                    Solutions</h1>
-                <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 800px;">
-                    Find sums, products, and the number of solutions without solving the equation.
-                </p>
-            </header>
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Stop Studying. Start Formal Training.
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Quadratic Solutions</h1>
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 800px;">
+                        Find sums, products, and the number of solutions without solving the equation.
+                    </p>
+                </header>
 
-            <article class="formula-card" id="f8">
-                <span class="category-badge cat-quad"
-                    style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Advanced Math</span>
-                <h3>Product of Solutions</h3>
-                <div class="formula-display">\[ \text{Product} = \frac{c}{a} \]</div>
-                <p class="formula-explanation">INSTANTLY find what the solutions multiply to. Essential when the SAT
-                    asks for the product of roots.</p>
-            </article>
+                <article class="formula-card" id="f8">
+                    <span class="category-badge cat-quad"
+                        style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Advanced Math</span>
+                    <h3>Product of Solutions</h3>
+                    <div class="formula-display">\[ \text{Product} = \frac{c}{a} \]</div>
+                    <p class="formula-explanation">INSTANTLY find what the solutions multiply to. Essential when the SAT
+                        asks for the product of roots.</p>
+                </article>
 
-            <article class="formula-card" id="f9">
-                <span class="category-badge cat-quad"
-                    style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Advanced Math</span>
-                <h3>Sum of Solutions</h3>
-                <div class="formula-display">\[ \text{Sum} = -\frac{b}{a} \]</div>
-                <p class="formula-explanation">Instantly find what the solutions add up to. Don't waste time solving for
-                    individual roots.</p>
-            </article>
+                <article class="formula-card" id="f9">
+                    <span class="category-badge cat-quad"
+                        style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Advanced Math</span>
+                    <h3>Sum of Solutions</h3>
+                    <div class="formula-display">\[ \text{Sum} = -\frac{b}{a} \]</div>
+                    <p class="formula-explanation">Instantly find what the solutions add up to. Don't waste time solving
+                        for
+                        individual roots.</p>
+                </article>
 
-            <article class="formula-card" id="f10">
-                <span class="category-badge cat-quad"
-                    style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Advanced Math</span>
-                <h3>The Discriminant</h3>
-                <div class="formula-display">\[ D = b^2 - 4ac \]</div>
-                <p class="formula-explanation">
-                    \(D > 0\): 2 Real Solutions<br>
-                    \(D = 0\): 1 Real Solution<br>
-                    \(D < 0\): No Real Solutions </p>
-            </article>
+                <article class="formula-card" id="f10">
+                    <span class="category-badge cat-quad"
+                        style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Advanced Math</span>
+                    <h3>The Discriminant</h3>
+                    <div class="formula-display">\[ D = b^2 - 4ac \]</div>
+                    <p class="formula-explanation">
+                        \(D > 0\): 2 Real Solutions<br>
+                        \(D = 0\): 1 Real Solution<br>
+                        \(D < 0\): No Real Solutions </p>
+                </article>
+            </div>
         </main>
     </div>
 </body>

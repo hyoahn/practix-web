@@ -84,6 +84,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     ]
                 }
             ]
+        },
+        {
+            id: 'wallpapers',
+            name: 'Viral Assets',
+            icon: '📱',
+            path: 'wallpapers/',
+            categories: [
+                {
+                    name: "Cheat Sheets",
+                    path: "wallpapers/",
+                    topics: [
+                        { name: "Lockscreen Walls", path: "wallpapers/" },
+                        { name: "Desmos Hacks", path: "wallpapers/" }
+                    ]
+                }
+            ]
         }
     ];
 

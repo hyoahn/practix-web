@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viral SAT Lockscreen Wallpapers & Cheat Sheets | Practix</title>
+    <meta name="description"
+        content="Master the SAT by looking at your phone. Download high-design lockscreen cheat sheets with the most critical math hacks.">
+
+    <link rel="stylesheet" href="../assets/styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="../assets/scripts/nav.js"></script>
+    <script src="../assets/scripts/sidebar.js"></script>
+    <script src="../assets/scripts/footer.js"></script>
+    <script src="../assets/scripts/analytics.js"></script>
+    <style>
+        .wall-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .wall-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .wall-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .wall-preview {
+            aspect-ratio: 9/16;
+            background: var(--bg-secondary);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .wall-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .wall-info {
+            padding: 1.5rem;
+        }
+
+        .wall-tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .download-stack {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .btn-mini {
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            font-weight: 600;
+        }
+
+        .btn-mini.primary {
+            background: var(--text-primary);
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-bg"></div>
+
+    <div class="page-container">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
+            <!-- JS will populate -->
+        </aside>
+
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search hacks... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
+
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        The Aesthetic 800 Pack
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Viral Wallpapers</h1>
+                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px;">
+                        Passive mastery. High-design lockscreen cheat sheets for the elite student.
+                    </p>
+                </header>
+
+                <div class="wall-grid">
+                    <!-- Wall 1 -->
+                    <div class="wall-card">
+                        <div class="wall-preview">
+                            <img src="../assets/images/wallpapers/wall_boss_mode.png" alt="Boss Mode Lockscreen">
+                        </div>
+                        <div class="wall-info">
+                            <span class="wall-tag">Mobile / Lockscreen</span>
+                            <h3>The Boss Mode Wall</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary);">Top 5 traps found in Module 2.
+                                Spot the Illusion instantly.</p>
+                            <div class="download-stack">
+                                <a href="../assets/images/wallpapers/wall_boss_mode.png" download
+                                    class="btn-mini primary">Download HD</a>
+                                <a href="#" class="btn-mini">View Grid</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wall 2 -->
+                    <div class="wall-card">
+                        <div class="wall-preview">
+                            <img src="../assets/images/wallpapers/wall_desmos_magic.png" alt="Desmos Magic Lockscreen">
+                        </div>
+                        <div class="wall-info">
+                            <span class="wall-tag">Mobile / Lockscreen</span>
+                            <h3>Desmos Magic Codes</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary);">The magic regression codes for
+                                linear and quadratic systems.</p>
+                            <div class="download-stack">
+                                <a href="../assets/images/wallpapers/wall_desmos_magic.png" download
+                                    class="btn-mini primary">Download HD</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wall 3 -->
+                    <div class="wall-card">
+                        <div class="wall-preview">
+                            <img src="../assets/images/wallpapers/wall_algebra_elite.png"
+                                alt="Algebra Elite Lockscreen">
+                        </div>
+                        <div class="wall-info">
+                            <span class="wall-tag">Mobile / Lockscreen</span>
+                            <h3>Algebra Elite</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary);">Slope hacks, circle shortcuts,
+                                and sum of solutions.</p>
+                            <div class="download-stack">
+                                <a href="../assets/images/wallpapers/wall_algebra_elite.png" download
+                                    class="btn-mini primary">Download HD</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

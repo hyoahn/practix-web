@@ -46,51 +46,69 @@
     </style>
 </head>
 
-<body class="content-page">
+<body>
     <div class="page-bg"></div>
-    <header class="hero-section">
-        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3rem; margin-bottom: 1rem;">Regression Secrets
-        </h1>
-        <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto;">
-            The "magic codes" that make Desmos solve SAT algebra problems instantly.
-        </p>
-    </header>
 
     <div class="page-container">
-        <aside class="sidebar-nav" id="sidebar-tree">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
             <!-- JS will populate -->
         </aside>
 
-        <button class="mobile-tree-toggle" id="mobile-tree-btn">Menu</button>
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search hacks... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
 
-        <main class="main-content">
-            <section class="technique-section" id="linear">
-                <h2 style="color: #065f46; margin-bottom: 1.5rem;">🪄 Linear Regression Code</h2>
-                <p><strong>Problem:</strong> Line through $(2, 5)$ and $(6, 13)$. Find slope.</p>
-                <div class="magic-code">y₁ ~ m·x₁ + b</div>
-                <p>Add a table, enter points, type the code. Desmos gives you \(m\) (slope) and \(b\) (intercept)
-                    instantly.</p>
-            </section>
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Stop Studying. Start Formal Training.
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Regression Secrets</h1>
+                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px;">
+                        The "magic codes" that make Desmos solve SAT algebra problems instantly.
+                    </p>
+                </header>
 
-            <section class="technique-section" id="quadratic" style="background: #fef2f2; border-left-color: #ef4444;">
-                <h2 style="color: #991b1b; margin-bottom: 1.5rem;">📈 Quadratic Regression Code</h2>
-                <p><strong>Problem:</strong> Parabola through $(0, 3)$, $(1, 6)$, and $(2, 11)$.</p>
-                <div class="magic-code" style="border-color: #fecaca;">y₁ ~ a·x₁² + b·x₁ + c</div>
-                <p>Desmos will calculate the coefficients \(a\), \(b\), and \(c\) for the standard form of the parabola.
-                </p>
-            </section>
+                <section class="technique-section" id="linear">
+                    <h2 style="color: #065f46; margin-bottom: 1.5rem;">🪄 Linear Regression Code</h2>
+                    <p><strong>Problem:</strong> Line through $(2, 5)$ and $(6, 13)$. Find slope.</p>
+                    <div class="magic-code">y₁ ~ m·x₁ + b</div>
+                    <p>Add a table, enter points, type the code. Desmos gives you \(m\) (slope) and \(b\) (intercept)
+                        instantly.</p>
+                </section>
 
-            <section class="technique-section" id="exponential"
-                style="background: #eff6ff; border-left-color: #3b82f6;">
-                <h2 style="color: #1e40af; margin-bottom: 1.5rem;">📊 Exponential Regression</h2>
-                <p><strong>Problem:</strong> Population doubles every year. Starts at 100.</p>
-                <div class="magic-code" style="border-color: #bfdbfe;">y₁ ~ a·b^{x₁}</div>
-                <p>Perfect for compound interest or biological growth problems.</p>
-            </section>
+                <section class="technique-section" id="quadratic"
+                    style="background: #fef2f2; border-left-color: #ef4444;">
+                    <h2 style="color: #991b1b; margin-bottom: 1.5rem;">📈 Quadratic Regression Code</h2>
+                    <p><strong>Problem:</strong> Parabola through $(0, 3)$, $(1, 6)$, and $(2, 11)$.</p>
+                    <div class="magic-code" style="border-color: #fecaca;">y₁ ~ a·x₁² + b·x₁ + c</div>
+                    <p>Desmos will calculate the coefficients \(a\), \(b\), and \(c\) for the standard form of the
+                        parabola.
+                    </p>
+                </section>
+
+                <section class="technique-section" id="exponential"
+                    style="background: #eff6ff; border-left-color: #3b82f6;">
+                    <h2 style="color: #1e40af; margin-bottom: 1.5rem;">📊 Exponential Regression</h2>
+                    <p><strong>Problem:</strong> Population doubles every year. Starts at 100.</p>
+                    <div class="magic-code" style="border-color: #bfdbfe;">y₁ ~ a·b^{x₁}</div>
+                    <p>Perfect for compound interest or biological growth problems.</p>
+                </section>
+            </div>
         </main>
     </div>
-
-    <!-- Content handled by sidebar.js -->
 </body>
 
 </html>

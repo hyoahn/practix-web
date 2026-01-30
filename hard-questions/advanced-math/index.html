@@ -69,85 +69,104 @@
     </style>
 </head>
 
-<body class="content-page">
+<body>
     <div class="page-bg"></div>
-    <header class="hero-section">
-        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3rem; margin-bottom: 1rem;">Advanced Math</h1>
-        <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto;">
-            Quadratics, polynomials, and complex logic. The final barrier to an 800.
-        </p>
-    </header>
 
     <div class="page-container">
-        <aside class="sidebar-nav" id="sidebar-tree">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
             <!-- JS will populate -->
         </aside>
 
-        <button class="mobile-tree-toggle" id="mobile-tree-btn">Menu</button>
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search traps... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
 
-        <main class="main-content">
-            <!-- Question 1: Remainder Theorem -->
-            <article class="question-card" id="q1">
-                <div class="difficulty-rating">Difficulty: ★★★★★</div>
-                <h2>The "Impossible" Division</h2>
-                <div class="problem-box">
-                    <p>What is the remainder when \(f(x) = 2x^{20} - 5x^3 + 4\) is divided by \(x - 1\)?</p>
-                </div>
-                <div class="trap-box">
-                    <h4>🚩 The Trap</h4>
-                    <p>Trying to perform long division. An \(x^{20}\) term will steal 5 minutes and grant you 0 points.
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Stop Studying. Start Formal Training.
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Advanced Math Traps</h1>
+                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px;">
+                        Quadratics, polynomials, and complex logic. The final barrier to an 800.
                     </p>
-                </div>
-                <div class="solution-box">
-                    <h4>✅ The Practix Shortcut</h4>
-                    <p>Use the <strong>Remainder Theorem</strong>. The remainder is simply \(f(1)\).</p>
-                    <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">2(1) - 5(1) + 4 = 1</p>
-                    <p><strong>Answer: 1</strong>. Instant victory.</p>
-                </div>
-            </article>
+                </header>
 
-            <!-- Question 5: Parameter Puzzle -->
-            <article class="question-card" id="q5">
-                <div class="difficulty-rating">Difficulty: ★★★★★</div>
-                <h2>The Parameter Puzzle</h2>
-                <div class="problem-box">
-                    <p>\(x^2 + kx + 9 = 0\) has exactly one real solution. If \(k > 0\), find \(k\).</p>
-                </div>
-                <div class="trap-box">
-                    <h4>🚩 The Trap</h4>
-                    <p>Guessing for x or k. This is a purely conceptual "discriminant" check.</p>
-                </div>
-                <div class="solution-box">
-                    <h4>✅ The Practix Shortcut</h4>
-                    <p>One solution means \(b^2 - 4ac = 0\).</p>
-                    <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">k² - 36 = 0 \(\rightarrow\) k = 6
-                    </p>
-                    <p><strong>Answer: 6</strong>.</p>
-                </div>
-            </article>
+                <!-- Question 1: Remainder Theorem -->
+                <article class="question-card" id="q1">
+                    <div class="difficulty-rating">Difficulty: ★★★★★</div>
+                    <h2>The "Impossible" Division</h2>
+                    <div class="problem-box">
+                        <p>What is the remainder when \(f(x) = 2x^{20} - 5x^3 + 4\) is divided by \(x - 1\)?</p>
+                    </div>
+                    <div class="trap-box">
+                        <h4>🚩 The Trap</h4>
+                        <p>Trying to perform long division. An \(x^{20}\) term will steal 5 minutes and grant you 0
+                            points.
+                        </p>
+                    </div>
+                    <div class="solution-box">
+                        <h4>✅ The Practix Shortcut</h4>
+                        <p>Use the <strong>Remainder Theorem</strong>. The remainder is simply \(f(1)\).</p>
+                        <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">2(1) - 5(1) + 4 = 1</p>
+                        <p><strong>Answer: 1</strong>. Instant victory.</p>
+                    </div>
+                </article>
 
-            <!-- Question 8: Complex Numbers -->
-            <article class="question-card" id="q8">
-                <div class="difficulty-rating">Difficulty: ★★★★☆</div>
-                <h2>The Imaginary Illusion</h2>
-                <div class="problem-box">
-                    <p>Equivalent form of \(\frac{3 + i}{2 - i}\)?</p>
-                </div>
-                <div class="trap-box">
-                    <h4>🚩 The Trap</h4>
-                    <p>Treating it like a simple fraction. You must eliminate the complex denominator.</p>
-                </div>
-                <div class="solution-box">
-                    <h4>✅ The Practix Shortcut</h4>
-                    <p>Multiply by the conjugate \((2 + i)\).</p>
-                    <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">\(\frac{5+5i}{5} = 1 + i\)</p>
-                    <p><strong>Answer: 1 + i</strong>.</p>
-                </div>
-            </article>
+                <!-- Question 5: Parameter Puzzle -->
+                <article class="question-card" id="q5">
+                    <div class="difficulty-rating">Difficulty: ★★★★★</div>
+                    <h2>The Parameter Puzzle</h2>
+                    <div class="problem-box">
+                        <p>\(x^2 + kx + 9 = 0\) has exactly one real solution. If \(k > 0\), find \(k\).</p>
+                    </div>
+                    <div class="trap-box">
+                        <h4>🚩 The Trap</h4>
+                        <p>Guessing for x or k. This is a purely conceptual "discriminant" check.</p>
+                    </div>
+                    <div class="solution-box">
+                        <h4>✅ The Practix Shortcut</h4>
+                        <p>One solution means \(b^2 - 4ac = 0\).</p>
+                        <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">k² - 36 = 0 \(\rightarrow\) k
+                            = 6
+                        </p>
+                        <p><strong>Answer: 6</strong>.</p>
+                    </div>
+                </article>
+
+                <!-- Question 8: Complex Numbers -->
+                <article class="question-card" id="q8">
+                    <div class="difficulty-rating">Difficulty: ★★★★☆</div>
+                    <h2>The Imaginary Illusion</h2>
+                    <div class="problem-box">
+                        <p>Equivalent form of \(\frac{3 + i}{2 - i}\)?</p>
+                    </div>
+                    <div class="trap-box">
+                        <h4>🚩 The Trap</h4>
+                        <p>Treating it like a simple fraction. You must eliminate the complex denominator.</p>
+                    </div>
+                    <div class="solution-box">
+                        <h4>✅ The Practix Shortcut</h4>
+                        <p>Multiply by the conjugate \((2 + i)\).</p>
+                        <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">\(\frac{5+5i}{5} = 1 + i\)</p>
+                        <p><strong>Answer: 1 + i</strong>.</p>
+                    </div>
+                </article>
+            </div>
         </main>
     </div>
-
-    <!-- Content handled by sidebar.js -->
 </body>
 
 </html>

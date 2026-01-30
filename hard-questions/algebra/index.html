@@ -69,64 +69,83 @@
     </style>
 </head>
 
-<body class="content-page">
+<body>
     <div class="page-bg"></div>
-    <header class="hero-section">
-        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3rem; margin-bottom: 1rem;">Algebra Traps</h1>
-        <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto;">
-            Linear systems and nonlinear intersections. Spot the patterns others miss.
-        </p>
-    </header>
 
     <div class="page-container">
-        <aside class="sidebar-nav" id="sidebar-tree">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
             <!-- JS will populate -->
         </aside>
 
-        <button class="mobile-tree-toggle" id="mobile-tree-btn">Menu</button>
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search traps... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
 
-        <main class="main-content">
-            <!-- Question 4: Systems of Equations -->
-            <article class="question-card" id="q4">
-                <div class="difficulty-rating">Difficulty: ★★★★★</div>
-                <h2>The System Illusion</h2>
-                <div class="problem-box">
-                    <p>If \(5x - 3y = 10\) and \(6x + 3y = 23\), what is the value of \(11x\)?</p>
-                </div>
-                <div class="trap-box">
-                    <h4>🚩 The Trap</h4>
-                    <p>Solving for \(x\), then \(y\), then 11x. It wastes 40 precious seconds.</p>
-                </div>
-                <div class="solution-box">
-                    <h4>✅ The Practix Shortcut</h4>
-                    <p>Add the equations vertically. The structure is a "gift".</p>
-                    <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">11x = 33</p>
-                    <p>Done. <strong>Answer: 33</strong>.</p>
-                </div>
-            </article>
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Stop Studying. Start Formal Training.
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Algebra Traps</h1>
+                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px;">
+                        Linear systems and nonlinear intersections. Spot the patterns others miss.
+                    </p>
+                </header>
 
-            <!-- Question 9: Nonlinear Systems -->
-            <article class="question-card" id="q9">
-                <div class="difficulty-rating">Difficulty: ★★★★★</div>
-                <h2>The Intersection Interruption</h2>
-                <div class="problem-box">
-                    <p>A circle with radius 5 is centered at \((0,0)\). A line passes through \((0, -5)\) and \((5,
-                        0)\). How many intersections?</p>
-                </div>
-                <div class="trap-box">
-                    <h4>🚩 The Trap</h4>
-                    <p>Writing circle and line equations and solving algebraically. It's a landmine of square roots.</p>
-                </div>
-                <div class="solution-box">
-                    <h4>✅ The Practix Shortcut</h4>
-                    <p>Visualize the critical points: (5,0) and (0,-5) are ON the circle. The line connects them.</p>
-                    <p><strong>Answer: 2</strong>. Logic beats algebra.</p>
-                </div>
-            </article>
+                <!-- Question 4: Systems of Equations -->
+                <article class="question-card" id="q4">
+                    <div class="difficulty-rating">Difficulty: ★★★★★</div>
+                    <h2>The System Illusion</h2>
+                    <div class="problem-box">
+                        <p>If \(5x - 3y = 10\) and \(6x + 3y = 23\), what is the value of \(11x\)?</p>
+                    </div>
+                    <div class="trap-box">
+                        <h4>🚩 The Trap</h4>
+                        <p>Solving for \(x\), then \(y\), then 11x. It wastes 40 precious seconds.</p>
+                    </div>
+                    <div class="solution-box">
+                        <h4>✅ The Practix Shortcut</h4>
+                        <p>Add the equations vertically. The structure is a "gift".</p>
+                        <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">11x = 33</p>
+                        <p>Done. <strong>Answer: 33</strong>.</p>
+                    </div>
+                </article>
+
+                <!-- Question 9: Nonlinear Systems -->
+                <article class="question-card" id="q9">
+                    <div class="difficulty-rating">Difficulty: ★★★★★</div>
+                    <h2>The Intersection Interruption</h2>
+                    <div class="problem-box">
+                        <p>A circle with radius 5 is centered at \((0,0)\). A line passes through \((0, -5)\) and \((5,
+                            0)\). How many intersections?</p>
+                    </div>
+                    <div class="trap-box">
+                        <h4>🚩 The Trap</h4>
+                        <p>Writing circle and line equations and solving algebraically. It's a landmine of square roots.
+                        </p>
+                    </div>
+                    <div class="solution-box">
+                        <h4>✅ The Practix Shortcut</h4>
+                        <p>Visualize the critical points: (5,0) and (0,-5) are ON the circle. The line connects them.
+                        </p>
+                        <p><strong>Answer: 2</strong>. Logic beats algebra.</p>
+                    </div>
+                </article>
+            </div>
         </main>
     </div>
-
-    <!-- Content handled by sidebar.js -->
 </body>
 
 </html>

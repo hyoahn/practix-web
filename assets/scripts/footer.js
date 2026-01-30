@@ -6,8 +6,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Determine path depth
     const currentPath = window.location.pathname;
-    const isInSubfolder = currentPath.includes('/topics/') || 
-                         (currentPath.includes('topics/') && !currentPath.includes('../topics/'));
+    const isInSubfolder = currentPath.includes('/topics/') ||
+        (currentPath.includes('topics/') && !currentPath.includes('../topics/'));
     const basePath = isInSubfolder ? '../' : '';
 
     // 2. Create footer element
@@ -90,10 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
 
     // 4. Inject
+    const targetContainer = document.querySelector('.main-content') || document.body;
     const existingFooter = document.querySelector('footer');
+
     if (existingFooter) {
         existingFooter.replaceWith(footer);
     } else {
-        document.body.appendChild(footer);
+        targetContainer.appendChild(footer);
     }
 });

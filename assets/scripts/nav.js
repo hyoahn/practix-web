@@ -5,15 +5,16 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Determine the path depth (if we are in a subfolder like /topics/)
+    // 1. Determine the path depth
     const currentPath = window.location.pathname;
-    // Modular check: Are we in a subfolder? (e.g., /strategy/, /topics/, etc.)
-    // If pathname ends with / or has more than one segment, we are likely in a subfolder.
     const pathSegments = currentPath.split('/').filter(s => s.length > 0);
-    const isInSubfolder = pathSegments.length > 0 && !currentPath.endsWith('index.html') && pathSegments[0] !== 'index.html';
-    // However, since we use folder/index.html, depth 1 subfolders need ../
-    // We'll check if we are NOT at the root index.
-    const basePath = (currentPath === '/' || currentPath.endsWith('index.html') && pathSegments.length <= 1) ? '' : '../';
+
+    // If the last segment is a file (like index.html), don't count it for depth
+    const hasFile = pathSegments.length > 0 && pathSegments[pathSegments.length - 1].includes('.');
+    const depth = hasFile ? pathSegments.length - 1 : pathSegments.length;
+
+    // Build relative basePath (e.g., "", "../", "../../")
+    const basePath = depth === 0 ? '' : '../'.repeat(depth);
 
     // 2. Create the nav element
     const nav = document.createElement('nav');

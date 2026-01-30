@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>Hardest SAT Problem Solving & Data Analysis Questions | Practix</title>
+    <meta name="description"
+        content="Master the hardest SAT Data Analysis questions. Standard Deviation shortcuts and Box Plot interpretation hacks to help you ace the Problem Solving section.">
+
+    <link rel="stylesheet" href="../../assets/styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../assets/scripts/nav.js"></script>
+    <script src="../../assets/scripts/sidebar.js"></script>
+    <script src="../../assets/scripts/footer.js"></script>
+    <script src="../../assets/scripts/analytics.js"></script>
+
+    <style>
+        .question-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .difficulty-rating {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            color: #ef4444;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .problem-box {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--text-primary);
+        }
+
+        .trap-box h4 {
+            color: #ef4444;
+            margin-bottom: 0.5rem;
+        }
+
+        .solution-box {
+            background: #f0fdf4;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid #dcfce7;
+        }
+
+        .solution-box h4 {
+            color: #065f46;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body class="content-page">
+    <div class="page-bg"></div>
+    <header class="hero-section">
+        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3rem; margin-bottom: 1rem;">Problem Solving</h1>
+        <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto;">
+            Statistics, data interpretation, and logic. Conquer the most confusing section.
+        </p>
+    </header>
+
+    <div class="page-container">
+        <aside class="sidebar-nav" id="sidebar-tree">
+            <!-- JS will populate -->
+        </aside>
+
+        <button class="mobile-tree-toggle" id="mobile-tree-btn">Menu</button>
+
+        <main class="main-content">
+            <!-- Question 6: Standard Deviation -->
+            <article class="question-card" id="q6">
+                <div class="difficulty-rating">Difficulty: ★★★★★</div>
+                <h2>The Standard Deviation Deception</h2>
+                <div class="problem-box">
+                    <p>Set A: {10, 20, 30, 40, 50}<br>Set B: {10, 11, 30, 49, 50}<br>Which set has a higher SD?</p>
+                </div>
+                <div class="trap-box">
+                    <h4>🚩 The Trap</h4>
+                    <p>Trying to calculate standard deviation using the real formula. You’ll run out of time.</p>
+                </div>
+                <div class="solution-box">
+                    <h4>✅ The Practix Shortcut</h4>
+                    <p>SD = Spread. Set B's numbers are further from the mean (30). More spread = Higher SD.</p>
+                    <p><strong>Answer: Set B</strong>.</p>
+                </div>
+            </article>
+
+            <!-- Question 7: Box Plot -->
+            <article class="question-card" id="q7">
+                <div class="difficulty-rating">Difficulty: ★★★★☆</div>
+                <h2>The Range Ruse</h2>
+                <div class="problem-box">
+                    <p>If the maximum value of a box plot increases by 100, which value MUST change?</p>
+                </div>
+                <div class="trap-box">
+                    <h4>🚩 The Trap</h4>
+                    <p>Thinking the median or IQR shifts. The box is shielded from outliers.</p>
+                </div>
+                <div class="solution-box">
+                    <h4>✅ The Practix Shortcut</h4>
+                    <p>Only the <strong>Range</strong> is guaranteed to change because it is (Max - Min).</p>
+                    <p><strong>Answer: Range</strong>.</p>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <!-- Content handled by sidebar.js -->
+</body>
+
+</html>

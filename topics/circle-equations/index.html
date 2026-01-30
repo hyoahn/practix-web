@@ -1,163 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAT Circle Equations: Find Center & Radius in 10 Seconds | Practix</title>
-    <meta name="description" content="Master SAT circle equations instantly. Learn the completing-the-square shortcut to find center and radius without memorizing formulas.">
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="topics.css">
+    <meta name="description"
+        content="Master SAT circle equations instantly. Learn the completing-the-square shortcut to find center and radius without memorizing formulas.">
+    <link rel="stylesheet" href="../../assets/styles/styles.css">
+    <link rel="stylesheet" href="../topics.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <script src="../nav.js"></script>
-    <script src="../footer.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <script src="../../assets/scripts/nav.js"></script>
+    <script src="../../assets/scripts/sidebar.js"></script>
+    <script src="../../assets/scripts/footer.js"></script>
+    <script src="../../assets/scripts/analytics.js"></script>
 </head>
-<body>
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb">
-        <a href="../index.html">Home</a> / <a href="../index.html#resources">Topics</a> / <span>Circle Equations</span>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="topic-hero">
-        <h1>SAT Circle Equations: The 10-Second Trick</h1>
-        <p class="hook">Stop trying to memorize the standard form. Just complete the square—it's faster.</p>
-    </section>
+<body class="content-page">
+    <div class="page-bg"></div>
 
-    <!-- Main Content -->
-    <div class="topic-section">
-        <h2>The Problem</h2>
-        <p>You see this on the SAT:</p>
-        
-        <div class="formula-display">
-            x² + y² + 6x - 4y + 9 = 0
-        </div>
-        
-        <p><strong>Question: What is the center and radius of this circle?</strong></p>
-        
-        <div class="common-mistake">
-            <h3>🚫 The Trap (What Most Students Do)</h3>
-            <p>Students try to remember the "standard form" of a circle:</p>
-            <div class="formula-display" style="font-size:1.2rem;">
-                (x - h)² + (y - k)² = r²
+    <div class="page-container">
+        <aside class="sidebar-nav" id="sidebar-tree">
+            <!-- JS will populate -->
+        </aside>
+
+        <button class="mobile-tree-toggle" id="mobile-tree-btn">Menu</button>
+
+        <main class="main-content">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="../../index.html">Home</a> / <a href="../../index.html#resources">Topics</a> / <span>Circle
+                    Equations</span>
+            </nav>
+
+            <!-- Hero Section -->
+            <section class="topic-hero">
+                <h1>SAT Circle Equations: The 10-Second Trick</h1>
+                <p class="hook">Stop trying to memorize the standard form. Just complete the square—it's faster.</p>
+            </section>
+
+            <!-- Main Content -->
+            <div class="topic-section">
+                <h2>The Problem</h2>
+                <p>You see this on the SAT:</p>
+
+                <div class="formula-display">
+                    x² + y² + 6x - 4y + 9 = 0
+                </div>
+
+                <p><strong>Question: What is the center and radius of this circle?</strong></p>
+
+                <div class="common-mistake">
+                    <h3>🚫 The Trap (What Most Students Do)</h3>
+                    <p>Students try to remember the "standard form" of a circle:</p>
+                    <div class="formula-display" style="font-size:1.2rem;">
+                        (x - h)² + (y - k)² = r²
+                    </div>
+                    <p>They panic because the equation doesn't look like this. They waste time trying to "convert" it,
+                        make sign errors, and run out of time.</p>
+                    <p><strong>Time wasted:</strong> 2+ minutes (if they even finish).</p>
+                </div>
+
+                <div class="shortcut">
+                    <h3>✅ The Practix Method (10 Seconds)</h3>
+                    <p><strong>Just complete the square. That's it.</strong></p>
+                    <p>For <code>x² + y² + 6x - 4y + 9 = 0</code>:</p>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <p>Group x terms: <code>x² + 6x</code> → Complete the square: <code>(x + 3)² - 9</code>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <p>Group y terms: <code>y² - 4y</code> → Complete the square: <code>(y - 2)² - 4</code>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <p>Rewrite: <code>(x + 3)² - 9 + (y - 2)² - 4 + 9 = 0</code></p>
+                                <p>Simplify: <code>(x + 3)² + (y - 2)² = 4</code></p>
+                            </div>
+                        </div>
+                    </div>
+                    <p><strong>Answer:</strong></p>
+                    <ul>
+                        <li><strong>Center:</strong> (-3, 2) [flip the signs inside the parentheses]</li>
+                        <li><strong>Radius:</strong> 2 [square root of 4]</li>
+                    </ul>
+                </div>
+
+                <h2>The Pattern to Remember</h2>
+                <p>For <code>x² + Bx</code>, complete the square:</p>
+                <div class="formula-display">
+                    (x + B/2)² - (B/2)²
+                </div>
+                <p><strong>Example:</strong> <code>x² + 6x</code> → B = 6 → B/2 = 3 → <code>(x + 3)² - 9</code></p>
+                <p>Same logic for y terms!</p>
             </div>
-            <p>They panic because the equation doesn't look like this. They waste time trying to "convert" it, make sign errors, and run out of time.</p>
-            <p><strong>Time wasted:</strong> 2+ minutes (if they even finish).</p>
-        </div>
-        
-        <div class="shortcut">
-            <h3>✅ The Practix Method (10 Seconds)</h3>
-            <p><strong>Just complete the square. That's it.</strong></p>
-            <p>For <code>x² + y² + 6x - 4y + 9 = 0</code>:</p>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <p>Group x terms: <code>x² + 6x</code> → Complete the square: <code>(x + 3)² - 9</code></p>
+
+            <!-- Interactive Widget -->
+            <section class="topic-section">
+                <div class="interactive-widget">
+                    <div class="widget-header">
+                        <h3>Circle Calculator</h3>
+                        <p>Enter the general form and get center/radius instantly.</p>
+                    </div>
+
+                    <p style="text-align: center; margin-bottom: 1rem;">
+                        <strong>General Form:</strong> x² + y² + Dx + Ey + F = 0
+                    </p>
+
+                    <div class="widget-input-group">
+                        <label>D (coefficient of x):</label>
+                        <input type="number" id="coeff-d" value="6" placeholder="e.g., 6">
+                    </div>
+
+                    <div class="widget-input-group">
+                        <label>E (coefficient of y):</label>
+                        <input type="number" id="coeff-e" value="-4" placeholder="e.g., -4">
+                    </div>
+
+                    <div class="widget-input-group">
+                        <label>F (constant term):</label>
+                        <input type="number" id="coeff-f" value="9" placeholder="e.g., 9">
+                    </div>
+
+                    <div class="widget-output">
+                        <div class="result-label">Center (h, k)</div>
+                        <div class="result-value" id="center-result">(-3, 2)</div>
+
+                        <div class="result-label" style="margin-top: 1rem;">Radius</div>
+                        <div class="result-value" id="radius-result" style="font-size: 1.8rem;">2</div>
                     </div>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <p>Group y terms: <code>y² - 4y</code> → Complete the square: <code>(y - 2)² - 4</code></p>
+            </section>
+
+            <!-- Theoretical Proof Deep-Dive -->
+            <section class="topic-section"
+                style="background: #fdf2f8; border: 1px solid #fce7f3; border-radius: 12px; padding: 2.5rem;">
+                <h2 style="color: #831843; margin-top: 0;">🎓 The Proof: Why $(x-h)^2 + (y-k)^2 = r^2$</h2>
+                <p style="color: #9d174d; margin-bottom: 2rem;">For elite students, shortcuts are only useful if they
+                    are mathematically sound. Here is how the circle equation is actually derived from basic geometry:
+                </p>
+
+                <div
+                    style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #fbcfe8; font-family: serif; font-size: 1.1rem; line-height: 2;">
+                    <p>1. Define a circle: A set of all points $(x, y)$ that are exactly a distance $r$ away from a
+                        fixed center $(h, k)$.</p>
+                    <p>2. Use the <strong>Distance Formula</strong> between any point $(x, y)$ on the circle and the
+                        center $(h, k)$:</p>
+                    <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
+                        $r = \sqrt{(x - h)^2 + (y - k)^2}$
                     </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <p>Rewrite: <code>(x + 3)² - 9 + (y - 2)² - 4 + 9 = 0</code></p>
-                        <p>Simplify: <code>(x + 3)² + (y - 2)² = 4</code></p>
+                    <p>3. Square both sides to remove the radical:</p>
+                    <div style="text-align: center; margin: 1.5rem 0; font-size: 1.5rem; color: #be185d;">
+                        $r^2 = (x - h)^2 + (y - k)^2$
                     </div>
+                    <p>4. <strong>The Pythagorean Connection:</strong> Notice that this is actually just $a^2 + b^2 =
+                        c^2$ in disguise!</p>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>$a = (x - h)$ is the horizontal distance.</li>
+                        <li>$b = (y - k)$ is the vertical distance.</li>
+                        <li>$c = r$ is the hypotenuse (radius).</li>
+                    </ul>
+                    <p>5. <strong>General Form to Standard Form:</strong> When we "complete the square" on $x^2 + y^2 +
+                        Dx + Ey + F = 0$, we are simply rearranging the algebra back into this distance-based standard
+                        form so we can easily see $(h, k)$ and $r$.</p>
+                    <p style="text-align: right; font-style: italic; color: #9d174d; margin-top: 1rem;">Geometry and
+                        Algebra are two languages for the same truth. — Practix Team</p>
                 </div>
-            </div>
-            <p><strong>Answer:</strong></p>
-            <ul>
-                <li><strong>Center:</strong> (-3, 2) [flip the signs inside the parentheses]</li>
-                <li><strong>Radius:</strong> 2 [square root of 4]</li>
-            </ul>
-        </div>
-        
-        <h2>The Pattern to Remember</h2>
-        <p>For <code>x² + Bx</code>, complete the square:</p>
-        <div class="formula-display">
-            (x + B/2)² - (B/2)²
-        </div>
-        <p><strong>Example:</strong> <code>x² + 6x</code> → B = 6 → B/2 = 3 → <code>(x + 3)² - 9</code></p>
-        <p>Same logic for y terms!</p>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="topic-cta">
+                <h2>Master All Circle Problems in 1 Week</h2>
+                <p>Get interactive simulations that teach you completing the square visually.</p>
+                <!-- <button class="btn-primary" onclick="window.location.href='../../index.html#waitlist'">Join the Waitlist</button> -->
+            </section>
+
+            <footer></footer>
+        </main>
     </div>
-
-    <!-- Interactive Widget -->
-    <section class="topic-section">
-        <div class="interactive-widget">
-            <div class="widget-header">
-                <h3>Circle Calculator</h3>
-                <p>Enter the general form and get center/radius instantly.</p>
-            </div>
-            
-            <p style="text-align: center; margin-bottom: 1rem;">
-                <strong>General Form:</strong> x² + y² + Dx + Ey + F = 0
-            </p>
-            
-            <div class="widget-input-group">
-                <label>D (coefficient of x):</label>
-                <input type="number" id="coeff-d" value="6" placeholder="e.g., 6">
-            </div>
-            
-            <div class="widget-input-group">
-                <label>E (coefficient of y):</label>
-                <input type="number" id="coeff-e" value="-4" placeholder="e.g., -4">
-            </div>
-            
-            <div class="widget-input-group">
-                <label>F (constant term):</label>
-                <input type="number" id="coeff-f" value="9" placeholder="e.g., 9">
-            </div>
-            
-            <div class="widget-output">
-                <div class="result-label">Center (h, k)</div>
-                <div class="result-value" id="center-result">(-3, 2)</div>
-                
-                <div class="result-label" style="margin-top: 1rem;">Radius</div>
-                <div class="result-value" id="radius-result" style="font-size: 1.8rem;">2</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Theoretical Proof Deep-Dive -->
-    <section class="topic-section" style="background: #fdf2f8; border: 1px solid #fce7f3; border-radius: 12px; padding: 2.5rem;">
-        <h2 style="color: #831843; margin-top: 0;">🎓 The Proof: Why $(x-h)^2 + (y-k)^2 = r^2$</h2>
-        <p style="color: #9d174d; margin-bottom: 2rem;">For elite students, shortcuts are only useful if they are mathematically sound. Here is how the circle equation is actually derived from basic geometry:</p>
-        
-        <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #fbcfe8; font-family: serif; font-size: 1.1rem; line-height: 2;">
-            <p>1. Define a circle: A set of all points $(x, y)$ that are exactly a distance $r$ away from a fixed center $(h, k)$.</p>
-            <p>2. Use the <strong>Distance Formula</strong> between any point $(x, y)$ on the circle and the center $(h, k)$:</p>
-            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
-                $r = \sqrt{(x - h)^2 + (y - k)^2}$
-            </div>
-            <p>3. Square both sides to remove the radical:</p>
-            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.5rem; color: #be185d;">
-                $r^2 = (x - h)^2 + (y - k)^2$
-            </div>
-            <p>4. <strong>The Pythagorean Connection:</strong> Notice that this is actually just $a^2 + b^2 = c^2$ in disguise!</p>
-            <ul style="margin-left: 1.5rem;">
-                <li>$a = (x - h)$ is the horizontal distance.</li>
-                <li>$b = (y - k)$ is the vertical distance.</li>
-                <li>$c = r$ is the hypotenuse (radius).</li>
-            </ul>
-            <p>5. <strong>General Form to Standard Form:</strong> When we "complete the square" on $x^2 + y^2 + Dx + Ey + F = 0$, we are simply rearranging the algebra back into this distance-based standard form so we can easily see $(h, k)$ and $r$.</p>
-            <p style="text-align: right; font-style: italic; color: #9d174d; margin-top: 1rem;">Geometry and Algebra are two languages for the same truth. — Practix Team</p>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="topic-cta">
-        <h2>Master All Circle Problems in 1 Week</h2>
-        <p>Get interactive simulations that teach you completing the square visually.</p>
-        <!-- <button class="btn-primary" onclick="window.location.href='../index.html#waitlist'">Join the Waitlist</button> -->
-    </section>
-
-    <!-- Footer managed by footer.js -->
 
     <!-- Widget Script -->
     <script>
@@ -177,14 +210,14 @@
             const k = -E / 2;
 
             // Radius: r = sqrt(h^2 + k^2 - F)
-            const rSquared = h*h + k*k - F;
-            
+            const rSquared = h * h + k * k - F;
+
             if (rSquared < 0) {
                 centerResult.textContent = 'No circle';
                 radiusResult.textContent = 'N/A';
                 return;
             }
-            
+
             const r = Math.sqrt(rSquared);
 
             centerResult.textContent = `(${h.toFixed(1)}, ${k.toFixed(1)})`;
@@ -199,4 +232,5 @@
         calculateCircle();
     </script>
 </body>
+
 </html>

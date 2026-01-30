@@ -4,942 +4,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- SEO Meta Tags -->
-    <title>Calculator Hacks & Regression Secrets | Practix Desmos</title>
+    <title>Desmos Power Moves for the Digital SAT: High-Speed Hacks | Practix</title>
     <meta name="description"
-        content="Unfairly fast? Maybe. These 10+ Desmos power moves will save you minutes on the SAT Math section. Learn regression, lists, sliders, inequalities, and more.">
-    <meta name="keywords"
-        content="Desmos SAT, SAT calculator tricks, Desmos regression, Digital SAT calculator, SAT math shortcuts, Desmos power moves">
-
-    <!-- Open Graph for Social Sharing -->
-    <meta property="og:title" content="Advanced Desmos Hacks for SAT Math (Power Moves)">
-    <meta property="og:description"
-        content="The magic codes and power moves that make Desmos solve SAT problems instantly.">
-    <meta property="og:image" content="https://practix.org/assets/images/logo.png">
-    <meta property="og:url" content="https://practix.org/desmos/">
-    <meta property="og:type" content="article">
-
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Use Desmos Calculator on the SAT",
-      "description": "Learn advanced Desmos calculator techniques for the Digital SAT Math section",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Linear Regression",
-          "text": "Type y1 ~ mx1 + b to find slope and intercept automatically"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Quadratic Regression",
-          "text": "Type y1 ~ ax1^2 + bx1 + c to find parabola equation"
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Use Sliders",
-          "text": "Type g(x) = f(x) + k and drag the slider to visualize transformations"
-        }
-      ]
-    }
-    </script>
+        content="Master the Digital SAT with Desmos Power Moves. Our organized silos cover Regression, Lists, and Visualization hacks used by the top 1% of scorers.">
 
     <link rel="stylesheet" href="../assets/styles/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
         rel="stylesheet">
 
-    <!-- MathJax for proper formula rendering -->
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
-            }
-        };
-    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../assets/scripts/nav.js"></script>
+    <script src="../assets/scripts/sidebar.js"></script>
     <script src="../assets/scripts/footer.js"></script>
     <script src="../assets/scripts/analytics.js"></script>
-    <style>
-        /* UVP Badges */
-        .uvp-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 800;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-            box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2);
-        }
-
-        section {
-            scroll-margin-top: 100px;
-        }
-
-        /* Sidebar Tree Navigation */
-        .page-container {
-            display: flex;
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            gap: 2rem;
-            padding: 0 5%;
-        }
-
-        .sidebar-nav {
-            width: 280px;
-            position: sticky;
-            top: 100px;
-            height: calc(100vh - 120px);
-            overflow-y: auto;
-            border-right: 1px solid #e5e5e5;
-            padding-right: 1.5rem;
-            display: none;
-            padding-top: 2rem;
-        }
-
-        @media (min-width: 1024px) {
-            .sidebar-nav {
-                display: block;
-            }
-        }
-
-        .side-tree-group {
-            margin-bottom: 2rem;
-        }
-
-        .side-tree-group h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #64748b;
-            margin-bottom: 1rem;
-        }
-
-        .side-tree-topic {
-            list-style: none;
-            padding: 0;
-        }
-
-        .side-tree-topic li {
-            margin-bottom: 0.5rem;
-        }
-
-        .side-tree-topic a {
-            color: #1a1a2e;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            display: block;
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-        }
-
-        .side-tree-topic a:hover {
-            background: rgba(99, 102, 241, 0.05);
-            color: #6366f1;
-        }
-
-        .main-content {
-            flex: 1;
-            min-width: 0;
-        }
-    </style>
 </head>
 
-<body class="content-page">
+<body>
     <div class="page-bg"></div>
 
-    <!-- Navigation managed by nav.js -->
+    <!-- Top Nav will be injected here by nav.js -->
 
     <div class="page-container">
-        <aside class="sidebar-nav" id="sidebar-tree">
-            <!-- JS will populate this -->
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
+            <!-- JS will populate -->
         </aside>
 
-        <button class="mobile-tree-toggle" id="mobile-tree-btn">
-            Menu
-        </button>
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search desmos hacks... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
 
-        <main class="main-content">
-            <!-- Hero Section moved inside main for better flow -->
-            <section
-                style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%); padding: 3rem 5%; text-align: center; border-bottom: 1px solid #e5e5e5; border-radius: 20px; margin-bottom: 2rem;">
-                <div style="max-width: 900px; margin: 0 auto;">
-                    <h1
-                        style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 1rem; color: #1a1a2e;">
-                        Desmos "Power Moves"
-                    </h1>
-                    <p style="font-size: 1.2rem; color: #4a4a68; margin-bottom: 2rem;">
-                        The high-speed maneuvers used by top-tier test takers.
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section" style="margin-bottom: 3rem;">
+                    <div class="hero-badge" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">
+                        <span class="dot" style="background: #8b5cf6;"></span>
+                        1% Maneuvers
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Desmos <span class="gradient-text">Power
+                            Moves</span></h1>
+                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px;">
+                        The Digital SAT is won or lost in the calculator. Master the shortcuts that turn hard math into
+                        button-clicking reflexes.
                     </p>
+                </header>
+
+                <div class="hub-grid">
+                    <a href="regression-secrets/" class="category-card">
+                        <div class="category-icon">🪄</div>
+                        <h3>Regression Secrets</h3>
+                        <p>The "magic codes" for linear, quadratic, and exponential problems. Solve complex modeling in
+                            10 seconds.</p>
+                        <span class="explore-link">Master Regressions →</span>
+                    </a>
+
+                    <a href="lists-and-tables/" class="category-card">
+                        <div class="category-icon">📊</div>
+                        <h3>Lists & Tables</h3>
+                        <p>Advanced statistical visualization and iterative dataset filtering. Handle 20+ numbers
+                            without breaking a sweat.</p>
+                        <span class="explore-link">See Data Hacks →</span>
+                    </a>
+
+                    <a href="visualization-hacks/" class="category-card">
+                        <div class="category-icon">🗺️</div>
+                        <h3>Visualization Hacks</h3>
+                        <p>Sliders for transformations, inequality overlap mapping, and geometric tangency solvers.</p>
+                        <span class="explore-link">Explore Visualization →</span>
+                    </a>
                 </div>
-            </section>
 
-            <article style="max-width: 900px; margin: 0 auto;">
-
-                <!-- Introduction -->
-                <section style="margin-bottom: 3rem;">
-                    <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #1a1a2e;">Why Desmos Changes Everything</h2>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: #4a4a68; margin-bottom: 1rem;">
-                        The Digital SAT gives you a <strong>free Desmos graphing calculator</strong> built into the
-                        test.
-                        Most students use it like a basic calculator ($2+2$).
-                        But if you know the "magic codes," Desmos can solve entire problems in seconds.
-                    </p>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: #4a4a68;">
-                        In this guide, you'll learn the <strong>8 most powerful Desmos techniques</strong> that save 10+
-                        minutes
-                        on Module 2.
-                    </p>
-                </section>
-
-                <!-- Technique 1: Linear Regression -->
-                <section
-                    style="background: #f0fdf4; border-left: 4px solid #10b981; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; position: relative;">
-                    <div
-                        style="position: absolute; top: 1rem; right: 1rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #065f46; font-weight: 600;">
-                        <input type="checkbox" class="mastery-m-check" data-id="m1"
-                            onchange="saveMoveMastery('m1', this.checked)">
-                        <span>I've Mastered This Move</span>
-                    </div>
-                    <div id="m1"></div>
-                    <div class="uvp-badge">Magic Code</div>
-                    <h3 style="color: #065f46; font-size: 1.5rem; margin-bottom: 1rem;">
-                        🪄 Trick #1: The Linear Regression Code
-                    </h3>
-                    <p style="margin-bottom: 1rem; color: #1a1a2e;">
-                        <strong>The Problem Type:</strong> "A line passes through the points $(2, 5)$ and $(6, 13)$.
-                        What is the
-                        slope?"
-                    </p>
-                    <p style="margin-bottom: 1rem; color: #1a1a2e;">
-                        <strong>The Old Way:</strong> Manually calculate $(y_2 - y_1) / (x_2 - x_1)$. Make a sign error.
-                        Waste
-                        90 seconds.
-                    </p>
-                    <p style="margin-bottom: 1.5rem; color: #1a1a2e;">
-                        <strong>The Desmos Way (10 seconds):</strong>
-                    </p>
-                    <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #1a1a2e; line-height: 1.8;">
-                        <li>Click the <strong>+ button</strong> and select <strong>Table</strong></li>
-                        <li>Enter the points:<br>
-                            Row 1: $x_1 = 2, y_1 = 5$<br>
-                            Row 2: $x_2 = 6, y_2 = 13$
-                        </li>
-                        <li>Type this magic code:
-                            <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
-                                <code
-                                    style="background: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-family: monospace; border: 1px solid #d1d5db;">y₁ ~ m·x₁ + b</code>
-                                <button onclick="copyCode('y₁ ~ m·x₁ + b', this)"
-                                    style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.25rem; cursor: pointer; font-size: 0.8rem;">📋</button>
-                            </div>
-                        </li>
-                        <li>Look at the parameters below: <strong>$m = 2$</strong> (that's your slope!)</li>
-                    </ol>
-                    <p style="background: white; padding: 1rem; border-radius: 8px; border: 2px solid #10b981;">
-                        <strong>The Magic:</strong> The tilde <code>~</code> (not equals) tells Desmos to find the
-                        best-fit
-                        line.
-                        It calculates both the slope ($m$) and y-intercept ($b$) automatically.
-                    </p>
-                </section>
-
-                <!-- Technique 2: Quadratic Regression -->
-                <section
-                    style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; position: relative;">
-                    <div
-                        style="position: absolute; top: 1rem; right: 1rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #991b1b; font-weight: 600;">
-                        <input type="checkbox" class="mastery-m-check" data-id="m2"
-                            onchange="saveMoveMastery('m2', this.checked)">
-                        <span>I've Mastered This Move</span>
-                    </div>
-                    <div id="m2"></div>
-                    <h3 style="color: #991b1b; font-size: 1.5rem; margin-bottom: 1rem;">
-                        📈 Trick #2: The Quadratic Regression Code
-                    </h3>
-                    <p style="margin-bottom: 1rem; color: #1a1a2e;">
-                        <strong>The Problem Type:</strong> "Which equation represents a parabola passing through $(0,
-                        3)$, $(1,
-                        6)$, and $(2, 11)$?"
-                    </p>
-                    <p style="margin-bottom: 1rem; color: #1a1a2e;">
-                        <strong>The Old Way:</strong> Try to guess and check each answer choice by plugging in all 3
-                        points.
-                        Takes 3+ minutes.
-                    </p>
-                    <p style="margin-bottom: 1.5rem; color: #1a1a2e;">
-                        <strong>The Desmos Way (15 seconds):</strong>
-                    </p>
-                    <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #1a1a2e; line-height: 1.8;">
-                        <li>Add a <strong>Table</strong> and enter all 3 points</li>
-                        <li>Type this code:
-                            <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
-                                <code
-                                    style="background: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-family: monospace; border: 1px solid #d1d5db;">y₁ ~ a·x₁² + b·x₁ + c</code>
-                                <button onclick="copyCode('y₁ ~ a·x₁² + b·x₁ + c', this)"
-                                    style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.25rem; cursor: pointer; font-size: 0.8rem;">📋</button>
-                            </div>
-                        </li>
-                        <li>Desmos shows you: $a = 1, b = 2, c = 3$</li>
-                        <li>The equation is $y = x^2 + 2x + 3$. Done.</li>
-                    </ol>
-                    <p style="background: white; padding: 1rem; border-radius: 8px; border: 2px solid #ef4444;">
-                        <strong>Pro Tip:</strong> This works for exponential functions too! Use
-                    <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
-                        <code>y₁ ~ a·b^x₁</code>
-                        <button onclick="copyCode('y₁ ~ a·b^x₁', this)"
-                            style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.1rem 0.3rem; cursor: pointer; font-size: 0.7rem;">📋</button>
-                    </div>
-                    for growth/decay problems.
-                    </p>
-                </section>
-
-                <!-- Technique 3: Sliders -->
-                <section
-                    style="background: #eff6ff; border-left: 4px solid #3b82f6; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; position: relative;">
-                    <div
-                        style="position: absolute; top: 1rem; right: 1rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #1e40af; font-weight: 600;">
-                        <input type="checkbox" class="mastery-m-check" data-id="m3"
-                            onchange="saveMoveMastery('m3', this.checked)">
-                        <span>I've Mastered This Move</span>
-                    </div>
-                    <div id="m3"></div>
-                    <h3 style="color: #1e40af; font-size: 1.5rem; margin-bottom: 1rem;">
-                        🎚️ Trick #3: The Slider Trick (for Transformations)
-                    </h3>
-                    <p style="margin-bottom: 1rem; color: #1a1a2e;">
-                        <strong>The Problem Type:</strong> "The function $g(x) = f(x) + k$ passes through the point $(0,
-                        5)$.
-                        What is $k$?"
-                    </p>
-                    <p style="margin-bottom: 1rem; color: #1a1a2e;">
-                        <strong>The Old Way:</strong> Try to algebraically solve for $k$ using abstract notation. Get
-                        confused.
-                        Give up.
-                    </p>
-                    <p style="margin-bottom: 1.5rem; color: #1a1a2e;">
-                        <strong>The Desmos Way (10 seconds):</strong>
-                    </p>
-                    <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #1a1a2e; line-height: 1.8;">
-                        <li>Type the original function: <code>f(x) = x²</code></li>
-                        <li>Type the transformed function: <code>g(x) = f(x) + k</code></li>
-                        <li>Desmos asks: "Add slider for k?" → Click <strong>Yes</strong></li>
-                        <li>Drag the slider until the graph passes through $(0, 5)$</li>
-                        <li>Read the value: <strong>$k = 5$</strong></li>
-                    </ol>
-                    <p style="background: white; padding: 1rem; border-radius: 8px; border: 2px solid #3b82f6;">
-                        <strong>Why This Works:</strong> Desmos makes abstract algebra <em>visual</em>. You don't need
-                        to solve
-                        anything—you just see it.
-                    </p>
-                </section>
-
-                <!-- Bonus: Intersection Method -->
-                <section style="margin-bottom: 3rem;">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #1a1a2e;">
-                        💥 Bonus: The Intersection Method (for Systems of Equations)
-                    </h3>
-                    <p style="margin-bottom: 1rem; color: #4a4a68;">
-                        <strong>The Problem:</strong> Solve a messy system like:
-                    </p>
-                    <p
-                        style="font-family: monospace; background: #f5f5f5; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                        0.24x + 5.1y = 12<br>
-                        3.7x - 2.8y = 15
-                    </p>
-                    <p style="margin-bottom: 1rem; color: #4a4a68;">
-                        <strong>The Desmos Way:</strong>
-                    </p>
-                    <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #4a4a68; line-height: 1.8;">
-                        <li>Type both equations exactly as shown (one per line)</li>
-                        <li>Desmos graphs them and shows the intersection point</li>
-                        <li>Hover over the dot to see $(x, y)$</li>
-                        <li>If the question asks for $5x + y$, just type that in the next line</li>
-                    </ol>
-                </section>
-
-                <!-- Trick #4: The Statistics Power Move -->
-                <section
-                    style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; position: relative;">
-                    <div
-                        style="position: absolute; top: 1rem; right: 1rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #991b1b; font-weight: 600;">
-                        <input type="checkbox" class="mastery-m-check" data-id="m4"
-                            onchange="saveMoveMastery('m4', this.checked)">
-                        <span>I've Mastered This Move</span>
-                    </div>
-                    <div id="m4"></div>
-                    <div class="uvp-badge">Power Move</div>
-                    <h3 style="color: #991b1b; font-size: 1.5rem; margin-bottom: 1rem;">
-                        📊 Trick #4: Statistical Visualization
-                    </h3>
-                    <p style="margin-bottom: 1rem; color: #1a1a2e;">
-                        <strong>The Problem Type:</strong> Questions asking for Median, Mean, or Range from a list.
-                    </p>
-                    <p style="margin-bottom: 1rem; color: #1a1a2e;">
-                        <strong>The Old Way:</strong> Writing the list by hand and crossing off numbers to find the
-                        middle.
-                    </p>
-                    <p style="margin-bottom: 1.5rem; color: #1a1a2e;">
-                        <strong>The Desmos Way (One Command):</strong>
-                    </p>
-                    <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #1a1a2e; line-height: 1.8;">
-                        <li>Create a list by typing <code>L = [1, 2, 5, 8, 12]</code></li>
-                        <li>Type
-                            <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
-                                <code>median(L)</code>
-                                <button onclick="copyCode('median(L)', this)"
-                                    style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.1rem 0.3rem; cursor: pointer; font-size: 0.7rem;">📋</button>
-                            </div> or
-                            <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
-                                <code>mean(L)</code>
-                                <button onclick="copyCode('mean(L)', this)"
-                                    style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.1rem 0.3rem; cursor: pointer; font-size: 0.7rem;">📋</button>
-                            </div> or
-                            <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
-                                <code>stats(L)</code>
-                                <button onclick="copyCode('stats(L)', this)"
-                                    style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.1rem 0.3rem; cursor: pointer; font-size: 0.7rem;">📋</button>
-                            </div>
-                        </li>
-                        <li>Desmos instantly does the work for you. Need a boxplot?
-                            <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
-                                <code>boxplot(L)</code>
-                                <button onclick="copyCode('boxplot(L)', this)"
-                                    style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.1rem 0.3rem; cursor: pointer; font-size: 0.7rem;">📋</button>
-                            </div>
-                        </li>
-                    </ol>
-                    <div
-                        style="background: white; padding: 1rem; border-radius: 8px; font-family: monospace; color: #b91c1c; border: 1px dashed #fecaca;">
-                        Secret Move: Use <code>dotplot(L)</code> to visualize frequency distributions instantly.
-                    </div>
-                </section>
-
-                <!-- New Section: Regression Master Class -->
-                <section id="masterclass"
-                    style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 2px solid #0ea5e9; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
-                    <div class="uvp-badge">The Ultimate Cheat Sheet</div>
-                    <h3 style="color: #0369a1; font-size: 1.5rem; margin-bottom: 1rem;">
-                        🚀 Regression Master Class
-                    </h3>
-                    <p style="margin-bottom: 1.5rem; color: #1e293b;">
-                        Memorize this table. It covers 90% of "hard" modeling problems.
-                    </p>
-                    <table
-                        style="width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; font-size: 0.95rem;">
-                        <thead style="background: #0ea5e9; color: white;">
-                            <tr>
-                                <th style="padding: 0.75rem 1rem; text-align: left;">Problem Type</th>
-                                <th style="padding: 0.75rem 1rem; text-align: left;">Keyword to Spot</th>
-                                <th style="padding: 0.75rem 1rem; text-align: left;">The Magic Code</th>
-                                <th style="padding: 0.75rem 1rem; text-align: center;">Copy</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-bottom: 1px solid #e2e8f0;">
-                                <td style="padding: 0.75rem 1rem; font-weight: 600; color: #334155;">Linear</td>
-                                <td style="padding: 0.75rem 1rem; color: #64748b;">"Constant rate", "Slope"</td>
-                                <td style="padding: 0.75rem 1rem; font-family: monospace;">y1 ~ mx1 + b</td>
-                                <td style="padding: 0.75rem 1rem; text-align: center;">
-                                    <button onclick="copyCode('y1 ~ mx1 + b', this)"
-                                        style="border: 1px solid #cbd5e1; background: none; border-radius: 4px; cursor: pointer;">📋</button>
-                                </td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #e2e8f0;">
-                                <td style="padding: 0.75rem 1rem; font-weight: 600; color: #334155;">Quadratic</td>
-                                <td style="padding: 0.75rem 1rem; color: #64748b;">"Parabola", "Max/Min height"</td>
-                                <td style="padding: 0.75rem 1rem; font-family: monospace;">y1 ~ ax1^2 + bx1 + c</td>
-                                <td style="padding: 0.75rem 1rem; text-align: center;">
-                                    <button onclick="copyCode('y1 ~ ax1^2 + bx1 + c', this)"
-                                        style="border: 1px solid #cbd5e1; background: none; border-radius: 4px; cursor: pointer;">📋</button>
-                                </td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #e2e8f0;">
-                                <td style="padding: 0.75rem 1rem; font-weight: 600; color: #334155;">Exponential</td>
-                                <td style="padding: 0.75rem 1rem; color: #64748b;">"Compounded", "Doubles/Halves"</td>
-                                <td style="padding: 0.75rem 1rem; font-family: monospace;">y1 ~ a(b)^x1</td>
-                                <td style="padding: 0.75rem 1rem; text-align: center;">
-                                    <button onclick="copyCode('y1 ~ a(b)^x1', this)"
-                                        style="border: 1px solid #cbd5e1; background: none; border-radius: 4px; cursor: pointer;">📋</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-
-                <!-- Trick #5: The List Filter (Advanced) -->
-                <section
-                    style="background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; position: relative;">
-                    <div
-                        style="position: absolute; top: 1rem; right: 1rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #5b21b6; font-weight: 600;">
-                        <input type="checkbox" class="mastery-m-check" data-id="m5"
-                            onchange="saveMoveMastery('m5', this.checked)">
-                        <span>I've Mastered This Move</span>
-                    </div>
-                    <div id="m5"></div>
-                    <h3 style="color: #5b21b6; font-size: 1.5rem; margin-bottom: 1rem;">
-                        🧬 Trick #5: The List Filter (Master Class)
-                    </h3>
-                    <p style="margin-bottom: 1rem; color: #1a1a2e;">
-                        <strong>The Problem Type:</strong> "How many integers in the list satisfy x > 10?"
-                    </p>
-                    <p style="margin-bottom: 1rem; color: #1a1a2e;">
-                        <strong>The Old Way:</strong> Counting each one by hand and potentially missing some.
-                    </p>
-                    <p style="margin-bottom: 1.5rem; color: #1a1a2e;">
-                        <strong>The Desmos Way:</strong>
-                    </p>
-                    <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #1a1a2e; line-height: 1.8;">
-                        <li>Define your list: <code>L = [1, 5, 12, 18, 22, 9, 31]</code></li>
-                        <li>Type
-                            <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
-                                <code>L[L > 10]</code>
-                                <button onclick="copyCode('L[L > 10]', this)"
-                                    style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.1rem 0.3rem; cursor: pointer; font-size: 0.7rem;">📋</button>
-                            </div> to see the filtered list.
-                        </li>
-                        <li>Type
-                            <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
-                                <code>length(L[L > 10])</code>
-                                <button onclick="copyCode('length(L[L > 10])', this)"
-                                    style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.1rem 0.3rem; cursor: pointer; font-size: 0.7rem;">📋</button>
-                            </div> to get the count of items!
-                        </li>
-                    </ol>
-                </section>
-
-                <!-- Trick #6: Inequality Overlap Mapping -->
-                <section
-                    style="background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; position: relative;">
-                    <div
-                        style="position: absolute; top: 1rem; right: 1rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #0369a1; font-weight: 600;">
-                        <input type="checkbox" class="mastery-m-check" data-id="m6"
-                            onchange="saveMoveMastery('m6', this.checked)">
-                        <span>I've Mastered This Move</span>
-                    </div>
-                    <div id="m6"></div>
-                    <div class="uvp-badge">Visual Victory</div>
-                    <h3 style="color: #0369a1; font-size: 1.5rem; margin-bottom: 1rem;">
-                        🗺️ Trick #6: Inequality Overlap Mapping
-                    </h3>
-                    <p style="margin-bottom: 1rem; color: #1a1a2e;">
-                        <strong>The Problem Type:</strong> "Which point $(x, y)$ is a solution to the system $y > 2x +
-                        1$ and $y
-                        < -x + 5$?" </p>
-                            <p style="margin-bottom: 1rem; color: #1a1a2e;">
-                                <strong>The Old Way:</strong> Manually checking each coordinate pair by plugging them
-                                into both
-                                inequalities.
-                            </p>
-                            <p style="margin-bottom: 1.5rem; color: #1a1a2e;">
-                                <strong>The Desmos Way (5 seconds):</strong>
-                            </p>
-                            <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #1a1a2e; line-height: 1.8;">
-                                <li>Type Inequality 1: <code>y > 2x + 1</code></li>
-                                <li>Type Inequality 2: <code>y < -x + 5</code></li>
-                                <li>Desmos shades both regions. The <strong>darkest overlap</strong> is your answer
-                                    zone.</li>
-                                <li>Plot the answer choices as points: <code>(2, 4), (1, 1), (0, 0)</code></li>
-                                <li>Instantly see which point lands in the dark zone.</li>
-                            </ol>
-                </section>
-
-                <!-- Trick #7: The Circle-Line Tangency Solver -->
-                <section
-                    style="background: #fff7ed; border-left: 4px solid #f97316; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; position: relative;">
-                    <div
-                        style="position: absolute; top: 1rem; right: 1rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #9a3412; font-weight: 600;">
-                        <input type="checkbox" class="mastery-m-check" data-id="m7"
-                            onchange="saveMoveMastery('m7', this.checked)">
-                        <span>I've Mastered This Move</span>
-                    </div>
-                    <div id="m7"></div>
-                    <div class="uvp-badge">Geometry Hack</div>
-                    <h3 style="color: #9a3412; font-size: 1.5rem; margin-bottom: 1rem;">
-                        ⭕ Trick #7: The Circle-Line Tangency Solver
-                    </h3>
-                    <p style="margin-bottom: 1rem; color: #1a1a2e;">
-                        <strong>The Problem Type:</strong> "For what value of $c$ does the line $y = 3x + c$ intersect
-                        the
-                        circle $(x-2)^2 + (y-1)^2 = 25$ at exactly one point?"
-                    </p>
-                    <p style="margin-bottom: 1rem; color: #1a1a2e;">
-                        <strong>The Old Way:</strong> Substituting the line into the circle, expanding, and setting the
-                        discriminant to zero. 5+ minutes of algebra hell.
-                    </p>
-                    <p style="margin-bottom: 1.5rem; color: #1a1a2e;">
-                        <strong>The Desmos Way (15 seconds):</strong>
-                    </p>
-                    <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #1a1a2e; line-height: 1.8;">
-                        <li>Type the circle equation as is: <code>(x-2)² + (y-1)² = 25</code></li>
-                        <li>Type the line with a slider: <code>y = 3x + c</code></li>
-                        <li>Drag the <strong>$c$ slider</strong> until the line just barely touches the edge of the
-                            circle.</li>
-                        <li>Read the value of $c$. (Optional: Click the point of tangency to see exact coordinates).
-                        </li>
-                        <li><em>Tip: Drag the slider until you have 1 intersection point instead of 0 or 2.</em></li>
-                    </ol>
-                </section>
-
-                <!-- Trick #8: The "Calculus" Slope Hack -->
-                <section
-                    style="background: #fff1f2; border-left: 4px solid #f43f5e; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; position: relative;">
-                    <div
-                        style="position: absolute; top: 1rem; right: 1rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #9f1239; font-weight: 600;">
-                        <input type="checkbox" class="mastery-m-check" data-id="m8"
-                            onchange="saveMoveMastery('m8', this.checked)">
-                        <span>I've Mastered This Move</span>
-                    </div>
-                    <div id="m8"></div>
-                    <div class="uvp-badge">Elite Maneuver</div>
-                    <h3 style="color: #9f1239; font-size: 1.5rem; margin-bottom: 1rem;">
-                        ⚡ Trick #8: The instantaneous "Calculus" Slope Hack
-                    </h3>
-                    <p style="margin-bottom: 1rem; color: #1a1a2e;">
-                        <strong>The Problem Type:</strong> "A function $f(x) = 2x^3 - 5x + 3$ is defined. What is the
-                        slope of
-                        the tangent line at $x = 2$?"
-                    </p>
-                    <p style="margin-bottom: 1rem; color: #1a1a2e;">
-                        <strong>The Old Way:</strong> Trying to estimate the slope using two nearby points or getting
-                        lucky with
-                        a sketch.
-                    </p>
-                    <p style="margin-bottom: 1.5rem; color: #1a1a2e;">
-                        <strong>The Desmos Way (Perfect Precision):</strong>
-                    </p>
-                    <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #1a1a2e; line-height: 1.8;">
-                        <li>Define the function: <code>f(x) = 2x³ - 5x + 3</code></li>
-                        <li>Type the "Slope Code":
-                            <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
-                                <code>d/dx f(2)</code>
-                                <button onclick="copyCode('d/dx f(2)', this)"
-                                    style="background: none; border: 1px solid #d1d5db; border-radius: 4px; padding: 0.1rem 0.3rem; cursor: pointer; font-size: 0.7rem;">📋</button>
-                            </div>
-                        </li>
-                        <li>Desmos instantly differentiates and evaluates the slope for you.</li>
-                        <li>Output: <strong>19</strong>. No calculus required from your side.</li>
-                    </ol>
-                    <p
-                        style="background: white; padding: 1rem; border-radius: 8px; border: 2px solid #f43f5e; font-size: 0.9rem;">
-                        <strong>The "Dirty" Secret:</strong> The Digital SAT doesn't care how you get the slope. This
-                        command
-                        works on quadratic, cubic, and even exponential functions.
-                    </p>
-                </section>
-
-                <!-- New Section: Keyboard Speed Hacks -->
-                <section
-                    style="background: #1a1a2e; color: white; padding: 2rem; border-radius: 12px; margin-bottom: 3rem; border: 1px solid #2d2d42;">
-                    <div
-                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-                        <h3 style="font-size: 1.5rem; margin: 0; color: #8b5cf6;">
-                            ⌨️ Speed Hacks (Keyboard Shortcuts)
-                        </h3>
-                        <span
-                            style="background: #8b5cf6; color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 700; font-size: 0.8rem;">PRO
-                            ONLY</span>
-                    </div>
-                    <div
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
-                        <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px;">
-                            <strong style="display: block; color: #a5b4fc; margin-bottom: 0.5rem;">Shortcuts</strong>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                <code
-                                    style="background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px;">sqrt</code>
-                                <span>√ symbol</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                <code
-                                    style="background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px;">pi</code>
-                                <span>π symbol</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                <code
-                                    style="background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px;">theta</code>
-                                <span>θ symbol</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between;">
-                                <code
-                                    style="background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px;">shift + 8</code>
-                                <span>× symbol</span>
-                            </div>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px;">
-                            <strong style="display: block; color: #a5b4fc; margin-bottom: 0.5rem;">Functions</strong>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                <code
-                                    style="background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px;">mean()</code>
-                                <span>Average</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                <code
-                                    style="background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px;">median()</code>
-                                <span>Middle #</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                <code
-                                    style="background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px;">stdev()</code>
-                                <span>Std Dev</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between;">
-                                <code
-                                    style="background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 4px;">nCr</code>
-                                <span>Combinations</span>
-                            </div>
+                <section class="calculator-demo" style="margin-top: 4rem;">
+                    <div class="resource-tip" style="margin-bottom: 2rem; border-color: #8b5cf6;">
+                        <div class="tip-icon">💻</div>
+                        <div>
+                            <p><strong>Sandbox Training:</strong> Try any hack here before you use it on the test. The
+                                Desmos calculator is the ultimate weapon for the Digital SAT.</p>
                         </div>
                     </div>
-                    <p style="margin-top: 1rem; color: #94a3b8; font-size: 0.9rem; text-align: center;">
-                        <em>Start typing these letters and Desmos will automatically convert them into math
-                            symbols.</em>
-                    </p>
+                    <iframe src="https://www.desmos.com/calculator" width="100%" height="600"
+                        style="border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);"></iframe>
                 </section>
-
-                <!-- Interactive Embed -->
-                <section
-                    style="margin-bottom: 3rem; background: #f9fafb; padding: 2rem; border-radius: 12px; border: 1px solid #e5e7eb;">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #1a1a2e;">Try It Yourself</h3>
-                    <p style="margin-bottom: 1.5rem; color: #4a4a68;">
-                        Here's a live Desmos calculator. Try typing the linear regression code from Trick #1:
-                    </p>
-                    <iframe src="https://www.desmos.com/calculator" width="100%" height="500"
-                        style="border: 1px solid #d1d5db; border-radius: 8px;"></iframe>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #6b7280;">
-                        💡 <strong>Quick Test:</strong> Add a table with points (2,5) and (6,13), then type
-                        <code>y1 ~ mx1 + b</code>
-                    </p>
-                </section>
-
-                <!-- FAQ Section (for Featured Snippets) -->
-                <section style="margin-bottom: 3rem;">
-                    <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #1a1a2e;">Frequently Asked Questions</h2>
-
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="font-size: 1.2rem; color: #6366f1; margin-bottom: 0.5rem;">Is Desmos allowed on the
-                            SAT?</h4>
-                        <p style="color: #4a4a68; line-height: 1.8;">
-                            Yes! The Desmos graphing calculator is built directly into the Digital SAT.
-                            You don't need to bring your own calculator—it's provided on-screen for all students taking
-                            the
-                            digital version of the test.
-                        </p>
-                    </div>
-
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="font-size: 1.2rem; color: #6366f1; margin-bottom: 0.5rem;">What does the tilde (~)
-                            mean in
-                            Desmos?</h4>
-                        <p style="color: #4a4a68; line-height: 1.8;">
-                            The tilde (~) is used for regression analysis. When you type <code>y₁ ~ m·x₁ + b</code>,
-                            Desmos
-                            finds the values of m and b that best fit your data points.
-                            It's different from the equals sign (=) which just plots a specific equation.
-                        </p>
-                    </div>
-
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="font-size: 1.2rem; color: #6366f1; margin-bottom: 0.5rem;">Can I use Desmos on the
-                            paper SAT?
-                        </h4>
-                        <p style="color: #4a4a68; line-height: 1.8;">
-                            No. Desmos is only available on the Digital SAT. If you're taking the paper version (still
-                            offered
-                            at some international locations), you'll need a traditional graphing calculator like the
-                            TI-84.
-                        </p>
-                    </div>
-
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="font-size: 1.2rem; color: #6366f1; margin-bottom: 0.5rem;">How do I type subscripts
-                            in
-                            Desmos?</h4>
-                        <p style="color: #4a4a68; line-height: 1.8;">
-                            Just type the number after the variable. Desmos automatically formats <code>x1</code> as x₁
-                            and
-                            <code>y1</code> as y₁.
-                            For the tilde, it's usually above the Tab key on most keyboards (Shift + `).
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Call to Action (Hidden until launch) -->
-                <!--
-        <section style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 3rem 2rem; border-radius: 16px; text-align: center; margin-bottom: 3rem;">
-            <h2 style="font-size: 2rem; margin-bottom: 1rem;">Master All 50+ Calculator Tricks</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.95;">
-                These 3 tricks are just the beginning. The Practix app has interactive simulations 
-                that teach you every Desmos technique through deliberate practice.
-            </p>
-            <a href="/#waitlist" style="display: inline-block; background: white; color: #6366f1; padding: 1rem 2.5rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem;">
-                Join 10,000+ Students Training for 800
-            </a>
-        </section>
-        -->
-
-                <!-- Related Articles (Internal Links) -->
-                <section>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #1a1a2e;">Related Guides</h3>
-                    <div style="display: grid; gap: 1rem;">
-                        <a href="/formulas"
-                            style="display: block; padding: 1rem; background: #f9fafb; border-radius: 8px; text-decoration: none; border: 1px solid #e5e7eb;">
-                            <strong style="color: #6366f1;">→ The 12 Formulas They Don't Give You</strong>
-                            <p style="margin: 0.5rem 0 0 0; color: #6b7280; font-size: 0.9rem;">Your one-page cheat
-                                sheet for
-                                SAT Math</p>
-                        </a>
-                        <a href="/strategy"
-                            style="display: block; padding: 1rem; background: #f9fafb; border-radius: 8px; text-decoration: none; border: 1px solid #e5e7eb;">
-                            <strong style="color: #6366f1;">→ How to Score 800 on SAT Math</strong>
-                            <p style="margin: 0.5rem 0 0 0; color: #6b7280; font-size: 0.9rem;">The complete training
-                                strategy
-                            </p>
-                        </a>
-                    </div>
-                </section>
-
-            </article>
+            </div>
         </main>
     </div>
 
-    <!-- Footer -->
-    <footer style="background: #1a1a2e; color: white; padding: 2rem 5%; text-align: center; margin-top: 4rem;">
-        <p>&copy; 2026 Practix. Train different.</p>
-    </footer>
-
-    <script>
-        function saveMoveMastery(id, isChecked) {
-            const mastery = JSON.parse(localStorage.getItem('practix_desmos_mastery') || '{}');
-            mastery[id] = isChecked;
-            localStorage.setItem('practix_desmos_mastery', JSON.stringify(mastery));
-
-            if (window.practixLog) {
-                window.practixLog('desmos_mastery_toggle', { move_id: id, status: isChecked ? 'mastered' : 'unmastered' });
-            }
-        }
-
-        function loadMoveMastery() {
-            const mastery = JSON.parse(localStorage.getItem('practix_desmos_mastery') || '{}');
-            document.querySelectorAll('.mastery-m-check').forEach(checkbox => {
-                const id = checkbox.getAttribute('data-id');
-                if (mastery[id]) {
-                    checkbox.checked = true;
-                }
-            });
-        }
-        function copyCode(text, btn) {
-            navigator.clipboard.writeText(text).then(() => {
-                const original = btn.innerText;
-                btn.innerText = '✅';
-
-                // Viral Toast
-                const toast = document.createElement('div');
-                toast.innerHTML = `
-                    <div style="background: rgba(16, 185, 129, 0.95); color: white; padding: 1rem 2rem; border-radius: 50px; position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 1000; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; animation: slideUp 0.3s ease-out;">
-                        <span>🔒</span> 
-                        <span>Code Copied! Share with 1 friend to lock it in your memory.</span>
-                    </div>
-                    <style>
-                        @keyframes slideUp { from { transform: translate(-50%, 20px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
-                    </style>
-                `;
-                document.body.appendChild(toast);
-                setTimeout(() => toast.remove(), 4000);
-
-                setTimeout(() => btn.innerText = original, 2000);
-                if (window.practixLog) {
-                    window.practixLog('desmos_code_copied', { code: text });
-                }
-            });
-        }
-
-        const treeData = [
-            {
-                group: "Regressions",
-                topics: [
-                    { name: "Linear Regression", id: "m1" },
-                    { name: "Quadratic & Exp", id: "m2" },
-                    { name: "Master Class", id: "masterclass" }
-                ]
-            },
-            {
-                group: "Visual Logic",
-                topics: [
-                    { name: "Sliders & Transformations", id: "m3" },
-                    { name: "Inequality Mapping", id: "m6" },
-                    { name: "Tangency Solver", id: "m7" }
-                ]
-            },
-            {
-                group: "Data & Lists",
-                topics: [
-                    { name: "Statistics Power Move", id: "m4" },
-                    { name: "List Filter (Advanced)", id: "m5" }
-                ]
-            },
-            {
-                group: "Advanced Speed",
-                topics: [
-                    { name: "Calculus Slope Hack", id: "m8" },
-                    { name: "Keyboard Shortcuts", id: "keyboard" }
-                ]
-            }
-        ];
-
-        function populateSidebarTree() {
-            const sidebar = document.getElementById('sidebar-tree');
-            sidebar.innerHTML = treeData.map(group => `
-                <div class="side-tree-group">
-                    <h4>${group.group}</h4>
-                    <ul class="side-tree-topic">
-                        ${group.topics.map(topic => `
-                            <li><a href="#${topic.id}" class="side-link">${topic.name}</a></li>
-                        `).join('')}
-                    </ul>
-                </div>
-            `).join('');
-
-            // Mobile Toggle Logic
-            const mobileBtn = document.getElementById('mobile-tree-btn');
-            if (mobileBtn) {
-                mobileBtn.addEventListener('click', () => {
-                    sidebar.classList.toggle('mobile-active');
-                    mobileBtn.innerText = sidebar.classList.contains('mobile-active') ? 'Close' : 'Menu';
-                });
-            }
-
-            // Click handling for active state and mobile close
-            sidebar.addEventListener('click', (e) => {
-                if (e.target.classList.contains('side-link')) {
-                    document.querySelectorAll('.side-link').forEach(l => l.classList.remove('active'));
-                    e.target.classList.add('active');
-                    if (window.innerWidth <= 1024) {
-                        sidebar.classList.remove('mobile-active');
-                        mobileBtn.innerText = 'Menu';
-                    }
-                }
-            });
-        }
-
-        function init() {
-            loadMoveMastery();
-            populateSidebarTree();
-        }
-
-        document.addEventListener('DOMContentLoaded', init);
-    </script>
+    <!-- Hidden Footer -->
+    <footer style="display: none;"></footer>
 </body>
 
 </html>

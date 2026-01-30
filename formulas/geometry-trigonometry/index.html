@@ -69,46 +69,63 @@
     </style>
 </head>
 
-<body class="content-page">
+<body>
     <div class="page-bg"></div>
 
     <div class="page-container">
-        <aside class="sidebar-nav" id="sidebar-tree">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
             <!-- JS will populate -->
         </aside>
 
-        <button class="mobile-tree-toggle" id="mobile-tree-btn">Menu</button>
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search formulas... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
 
-        <main class="main-content">
-            <header class="hero-section">
-                <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3rem; margin-bottom: 1rem;">Geometry &
-                    Trig</h1>
-                <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 800px;">
-                    From arc ratios to complementary trig. Master the visual side of the SAT.
-                </p>
-            </header>
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Stop Studying. Start Formal Training.
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Geometry & Trig</h1>
+                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px;">
+                        From arc ratios to complementary trig. Master the visual side of the SAT.
+                    </p>
+                </header>
 
-            <div class="silo-grid">
-                <a href="circle-equations/" class="silo-card">
-                    <div class="silo-icon">⭕</div>
-                    <h3>Circle Equations</h3>
-                    <p>Complete the square instantly and identify centers/radii from general form.</p>
-                </a>
-                <a href="arcs-and-sectors/" class="silo-card">
-                    <div class="silo-icon">🍰</div>
-                    <h3>Arcs & Sectors</h3>
-                    <p>Convert radians without pi and find sector areas using simple ratios.</p>
-                </a>
-                <a href="polygons-and-ratio/" class="silo-card">
-                    <div class="silo-icon">🔷</div>
-                    <h3>Polygons & Ratios</h3>
-                    <p>Similar Area Ratio hacks and polygon interior/exterior angle rules.</p>
-                </a>
-                <a href="trigonometry-hacks/" class="silo-card">
-                    <div class="silo-icon">📐</div>
-                    <h3>Trigonometry Hacks</h3>
-                    <p>The Complementary Angle Theorem. Sine equals Cosine when angles sum to 90.</p>
-                </a>
+                <div class="silo-grid">
+                    <a href="circle-equations/" class="silo-card">
+                        <div class="silo-icon">⭕</div>
+                        <h3>Circle Equations</h3>
+                        <p>Complete the square instantly and identify centers/radii from general form.</p>
+                    </a>
+                    <a href="arcs-and-sectors/" class="silo-card">
+                        <div class="silo-icon">🍰</div>
+                        <h3>Arcs & Sectors</h3>
+                        <p>Convert radians without pi and find sector areas using simple ratios.</p>
+                    </a>
+                    <a href="polygons-and-ratio/" class="silo-card">
+                        <div class="silo-icon">🔷</div>
+                        <h3>Polygons & Ratios</h3>
+                        <p>Similar Area Ratio hacks and polygon interior/exterior angle rules.</p>
+                    </a>
+                    <a href="trigonometry-hacks/" class="silo-card">
+                        <div class="silo-icon">📐</div>
+                        <h3>Trigonometry Hacks</h3>
+                        <p>The Complementary Angle Theorem. Sine equals Cosine when angles sum to 90.</p>
+                    </a>
+                </div>
             </div>
         </main>
     </div>

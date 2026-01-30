@@ -69,48 +69,67 @@
     </style>
 </head>
 
-<body class="content-page">
+<body>
     <div class="page-bg"></div>
 
     <div class="page-container">
-        <aside class="sidebar-nav" id="sidebar-tree">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
             <!-- JS will populate -->
         </aside>
 
-        <button class="mobile-tree-toggle" id="mobile-tree-btn">Menu</button>
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search formulas... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
 
-        <main class="main-content">
-            <header class="hero-section">
-                <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3rem; margin-bottom: 1rem;">Passport to
-                    Advanced Math</h1>
-                <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 800px;">
-                    Quadratic equations, higher-order functions, and exponential modeling. This is where 700+ scorers
-                    distance themselves from the pack.
-                </p>
-            </header>
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Stop Studying. Start Formal Training.
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Passport to Advanced Math</h1>
+                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px;">
+                        Quadratic equations, higher-order functions, and exponential modeling. This is where 700+
+                        scorers distance themselves from the pack.
+                    </p>
+                </header>
 
-            <div class="silo-grid">
-                <a href="parabola-mastery/" class="silo-card">
-                    <div class="silo-icon">📉</div>
-                    <h3>Parabola Mastery</h3>
-                    <p>Vertex shortcuts, tangent line intersections, and shift-mastery. Save 80s on vertex problems.</p>
-                </a>
-                <a href="quadratic-solutions/" class="silo-card">
-                    <div class="silo-icon">➗</div>
-                    <h3>Quadratic Solutions</h3>
-                    <p>Master the Discriminant, Sum of Solutions, and Product of Solutions hacks.</p>
-                </a>
-                <a href="exponential-growth/" class="silo-card">
-                    <div class="silo-icon">📈</div>
-                    <h3>Exponential Growth</h3>
-                    <p>Master growth and decay models with our universal multiplier logic. No complex percentages
-                        needed.</p>
-                </a>
-                <a href="factoring-patterns/" class="silo-card">
-                    <div class="silo-icon">🧩</div>
-                    <h3>Factoring Patterns</h3>
-                    <p>Difference of squares and higher-order factoring. Recognize patterns instead of doing math.</p>
-                </a>
+                <div class="silo-grid">
+                    <a href="parabola-mastery/" class="silo-card">
+                        <div class="silo-icon">📉</div>
+                        <h3>Parabola Mastery</h3>
+                        <p>Vertex shortcuts, tangent line intersections, and shift-mastery. Save 80s on vertex problems.
+                        </p>
+                    </a>
+                    <a href="quadratic-solutions/" class="silo-card">
+                        <div class="silo-icon">➗</div>
+                        <h3>Quadratic Solutions</h3>
+                        <p>Master the Discriminant, Sum of Solutions, and Product of Solutions hacks.</p>
+                    </a>
+                    <a href="exponential-growth/" class="silo-card">
+                        <div class="silo-icon">📈</div>
+                        <h3>Exponential Growth</h3>
+                        <p>Master growth and decay models with our universal multiplier logic. No complex percentages
+                            needed.</p>
+                    </a>
+                    <a href="factoring-patterns/" class="silo-card">
+                        <div class="silo-icon">🧩</div>
+                        <h3>Factoring Patterns</h3>
+                        <p>Difference of squares and higher-order factoring. Recognize patterns instead of doing math.
+                        </p>
+                    </a>
+                </div>
             </div>
         </main>
     </div>

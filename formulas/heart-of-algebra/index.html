@@ -70,46 +70,63 @@
     </style>
 </head>
 
-<body class="content-page">
+<body>
     <div class="page-bg"></div>
 
     <div class="page-container">
-        <aside class="sidebar-nav" id="sidebar-tree">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
             <!-- JS will populate -->
         </aside>
 
-        <button class="mobile-tree-toggle" id="mobile-tree-btn">Menu</button>
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search formulas... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
 
-        <main class="main-content">
-            <header class="hero-section">
-                <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3rem; margin-bottom: 1rem;">Heart of
-                    Algebra</h1>
-                <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 800px;">
-                    From linear modeling to algebraic manipulation. This pillar accounts for 33% of your Math score.
-                </p>
-            </header>
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Stop Studying. Start Formal Training.
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Heart of Algebra</h1>
+                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px;">
+                        From linear modeling to algebraic manipulation. This pillar accounts for 33% of your Math score.
+                    </p>
+                </header>
 
-            <div class="silo-grid">
-                <a href="linear-equations/" class="silo-card">
-                    <div class="silo-icon">📈</div>
-                    <h3>Linear Equations</h3>
-                    <p>Master slope-intercept form, linear modeling, and the famous Constant Trick.</p>
-                </a>
-                <a href="percent-change-shortcuts/" class="silo-card">
-                    <div class="silo-icon">📊</div>
-                    <h3>Percent Changes</h3>
-                    <p>Learn the multiplier method for multi-step increases and decreases. Save 60s per problem.</p>
-                </a>
-                <a href="slope-and-lines/" class="silo-card">
-                    <div class="silo-icon">📏</div>
-                    <h3>Slope & Lines</h3>
-                    <p>The mechanics of coordinate geometry: parallel and perpendicular line mastery.</p>
-                </a>
-                <a href="averages-and-mixtures/" class="silo-card">
-                    <div class="silo-icon">⚖️</div>
-                    <h3>Averages & Mixtures</h3>
-                    <p>Weighted averages and average speed traps (Harmonic Mean).</p>
-                </a>
+                <div class="silo-grid">
+                    <a href="linear-equations/" class="silo-card">
+                        <div class="silo-icon">📈</div>
+                        <h3>Linear Equations</h3>
+                        <p>Master slope-intercept form, linear modeling, and the famous Constant Trick.</p>
+                    </a>
+                    <a href="percent-change-shortcuts/" class="silo-card">
+                        <div class="silo-icon">📊</div>
+                        <h3>Percent Changes</h3>
+                        <p>Learn the multiplier method for multi-step increases and decreases. Save 60s per problem.</p>
+                    </a>
+                    <a href="slope-and-lines/" class="silo-card">
+                        <div class="silo-icon">📏</div>
+                        <h3>Slope & Lines</h3>
+                        <p>The mechanics of coordinate geometry: parallel and perpendicular line mastery.</p>
+                    </a>
+                    <a href="averages-and-mixtures/" class="silo-card">
+                        <div class="silo-icon">⚖️</div>
+                        <h3>Averages & Mixtures</h3>
+                        <p>Weighted averages and average speed traps (Harmonic Mean).</p>
+                    </a>
+                </div>
             </div>
         </main>
     </div>

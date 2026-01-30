@@ -23,51 +23,70 @@
     <script src="../../../assets/scripts/analytics.js"></script>
 </head>
 
-<body class="content-page">
+<body>
     <div class="page-bg"></div>
 
     <div class="page-container">
-        <aside class="sidebar-nav" id="sidebar-tree">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
             <!-- JS will populate -->
         </aside>
 
-        <button class="mobile-tree-toggle" id="mobile-tree-btn">Menu</button>
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search formulas... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
 
-        <main class="main-content">
-            <header class="hero-section">
-                <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 1rem;">Polygons &
-                    Ratios</h1>
-                <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 800px;">
-                    Scale factors and angle sums. The rules of shape manipulation.
-                </p>
-            </header>
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Stop Studying. Start Formal Training.
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Polygons & Ratios</h1>
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 800px;">
+                        Scale factors and angle sums. The rules of shape manipulation.
+                    </p>
+                </header>
 
-            <article class="formula-card" id="f2">
-                <div class="uvp-badge" style="background: #3b82f6; color: white;">Best Geometry Hack</div>
-                <span class="category-badge cat-geo"
-                    style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
-                <h3>Similar Area Ratio</h3>
-                <div class="formula-display">\[ \text{Area Ratio} = (\text{Side Ratio})^2 \]</div>
-                <p class="formula-explanation">If Side A is 3x bigger than Side B, Area A is \(3^2 = 9x\) bigger. Don't
-                    fall for the linear trap.</p>
-            </article>
+                <article class="formula-card" id="f2">
+                    <div class="uvp-badge" style="background: #3b82f6; color: white;">Best Geometry Hack</div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Similar Area Ratio</h3>
+                    <div class="formula-display">\[ \text{Area Ratio} = (\text{Side Ratio})^2 \]</div>
+                    <p class="formula-explanation">If Side A is 3x bigger than Side B, Area A is \(3^2 = 9x\) bigger.
+                        Don't
+                        fall for the linear trap.</p>
+                </article>
 
-            <article class="formula-card" id="f30">
-                <span class="category-badge cat-geo"
-                    style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
-                <h3>Sum of Interior Angles</h3>
-                <div class="formula-display">\[ \text{Sum} = (n-2) \cdot 180^\circ \]</div>
-                <p class="formula-explanation">For any polygon with \(n\) sides.</p>
-            </article>
+                <article class="formula-card" id="f30">
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Sum of Interior Angles</h3>
+                    <div class="formula-display">\[ \text{Sum} = (n-2) \cdot 180^\circ \]</div>
+                    <p class="formula-explanation">For any polygon with \(n\) sides.</p>
+                </article>
 
-            <article class="formula-card" id="f31">
-                <span class="category-badge cat-geo"
-                    style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
-                <h3>Exterior Angle Sum</h3>
-                <div class="formula-display">Always \(360^\circ\)</div>
-                <p class="formula-explanation">No matter how many sides a convex polygon has, the exterior angles sum to
-                    360.</p>
-            </article>
+                <article class="formula-card" id="f31">
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Exterior Angle Sum</h3>
+                    <div class="formula-display">Always \(360^\circ\)</div>
+                    <p class="formula-explanation">No matter how many sides a convex polygon has, the exterior angles
+                        sum to
+                        360.</p>
+                </article>
+            </div>
         </main>
     </div>
 </body>

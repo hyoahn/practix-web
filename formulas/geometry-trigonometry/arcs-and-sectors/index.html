@@ -23,51 +23,70 @@
     <script src="../../../assets/scripts/analytics.js"></script>
 </head>
 
-<body class="content-page">
+<body>
     <div class="page-bg"></div>
 
     <div class="page-container">
-        <aside class="sidebar-nav" id="sidebar-tree">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
             <!-- JS will populate -->
         </aside>
 
-        <button class="mobile-tree-toggle" id="mobile-tree-btn">Menu</button>
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search formulas... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
 
-        <main class="main-content">
-            <header class="hero-section">
-                <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 1rem;">Arcs &
-                    Sectors</h1>
-                <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 800px;">
-                    It's all about ratios. Part over Whole.
-                </p>
-            </header>
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Stop Studying. Start Formal Training.
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Arcs & Sectors</h1>
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 800px;">
+                        It's all about ratios. Part over Whole.
+                    </p>
+                </header>
 
-            <article class="formula-card" id="f5">
-                <div class="uvp-badge" style="background: #10b981; color: white;">Save 45s</div>
-                <span class="category-badge cat-geo"
-                    style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
-                <h3>Radian-Arc Conversion</h3>
-                <div class="formula-display">\[ s = r\theta \]</div>
-                <p class="formula-explanation">If the angle \(\theta\) is in radians, Arc Length \(s\) is just radius
-                    times angle. Easier than degrees.</p>
-            </article>
+                <article class="formula-card" id="f5">
+                    <div class="uvp-badge" style="background: #10b981; color: white;">Save 45s</div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Radian-Arc Conversion</h3>
+                    <div class="formula-display">\[ s = r\theta \]</div>
+                    <p class="formula-explanation">If the angle \(\theta\) is in radians, Arc Length \(s\) is just
+                        radius
+                        times angle. Easier than degrees.</p>
+                </article>
 
-            <article class="formula-card" id="f15">
-                <span class="category-badge cat-geo"
-                    style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
-                <h3>Arc Length Formula</h3>
-                <div class="formula-display">\[ L = \frac{\theta}{360} \times 2\pi r \]</div>
-                <p class="formula-explanation">Think: "Fraction of the Circumference".</p>
-            </article>
+                <article class="formula-card" id="f15">
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Arc Length Formula</h3>
+                    <div class="formula-display">\[ L = \frac{\theta}{360} \times 2\pi r \]</div>
+                    <p class="formula-explanation">Think: "Fraction of the Circumference".</p>
+                </article>
 
-            <article class="formula-card" id="f16">
-                <span class="category-badge cat-geo"
-                    style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
-                <h3>Sector Area Formula</h3>
-                <div class="formula-display">\[ A = \frac{\theta}{360} \times \pi r^2 \]</div>
-                <p class="formula-explanation">Think: "Fraction of the Area".</p>
-            </article>
-        </main>
+                <article class="formula-card" id="f16">
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Sector Area Formula</h3>
+                    <div class="formula-display">\[ A = \frac{\theta}{360} \times \pi r^2 \]</div>
+                    <p class="formula-explanation">Think: "Fraction of the Area".</p>
+                </article>
+            </div>
+    </div>
+    </main>
     </div>
 </body>
 

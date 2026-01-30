@@ -23,51 +23,69 @@
     <script src="../../../assets/scripts/analytics.js"></script>
 </head>
 
-<body class="content-page">
+<body>
     <div class="page-bg"></div>
 
     <div class="page-container">
-        <aside class="sidebar-nav" id="sidebar-tree">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
             <!-- JS will populate -->
         </aside>
 
-        <button class="mobile-tree-toggle" id="mobile-tree-btn">Menu</button>
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search formulas... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
 
-        <main class="main-content">
-            <header class="hero-section">
-                <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 1rem;">Circle
-                    Equations</h1>
-                <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 800px;">
-                    Find center and radius instantly. Don't let factoring slow you down.
-                </p>
-            </header>
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Stop Studying. Start Formal Training.
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Circle Equations</h1>
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 800px;">
+                        Find center and radius instantly. Don't let factoring slow you down.
+                    </p>
+                </header>
 
-            <article class="formula-card" id="f6">
-                <div class="uvp-badge" style="background: #10b981; color: white;">Save 90s</div>
-                <span class="category-badge cat-geo"
-                    style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
-                <h3>Standard Circle Form</h3>
-                <div class="formula-display">\[ (x-h)^2 + (y-k)^2 = r^2 \]</div>
-                <p class="formula-explanation">Center is \((h, k)\). Radius is \(r\). <br><strong>Trap:</strong>
-                    Remember to switch the signs!</p>
-            </article>
+                <article class="formula-card" id="f6">
+                    <div class="uvp-badge" style="background: #10b981; color: white;">Save 90s</div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Standard Circle Form</h3>
+                    <div class="formula-display">\[ (x-h)^2 + (y-k)^2 = r^2 \]</div>
+                    <p class="formula-explanation">Center is \((h, k)\). Radius is \(r\). <br><strong>Trap:</strong>
+                        Remember to switch the signs!</p>
+                </article>
 
-            <article class="formula-card" id="f32">
-                <div class="uvp-badge" style="background: #ef4444; color: white;">Hardest Version</div>
-                <span class="category-badge cat-geo"
-                    style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
-                <h3>General Form Hack</h3>
-                <div class="formula-display">\[ \text{Center} = (-D/2, -E/2) \]</div>
-                <p class="formula-explanation">When given \(x^2 + y^2 + Dx + Ey + F = 0\), just halve the coefficients
-                    and flip the sign to find the center.</p>
-                <div class="example-content"
-                    style="display: block; background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid var(--border);">
-                    <p>\(x^2 + y^2 - 10x + 6y - 2 = 0\)</p>
-                    <p>Center x: \(-10 \div 2 = -5 \rightarrow +5\)</p>
-                    <p>Center y: \(6 \div 2 = 3 \rightarrow -3\)</p>
-                    <p>Center is \((5, -3)\).</p>
-                </div>
-            </article>
+                <article class="formula-card" id="f32">
+                    <div class="uvp-badge" style="background: #ef4444; color: white;">Hardest Version</div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>General Form Hack</h3>
+                    <div class="formula-display">\[ \text{Center} = (-D/2, -E/2) \]</div>
+                    <p class="formula-explanation">When given \(x^2 + y^2 + Dx + Ey + F = 0\), just halve the
+                        coefficients
+                        and flip the sign to find the center.</p>
+                    <div class="example-content"
+                        style="display: block; background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid var(--border);">
+                        <p>\(x^2 + y^2 - 10x + 6y - 2 = 0\)</p>
+                        <p>Center x: \(-10 \div 2 = -5 \rightarrow +5\)</p>
+                        <p>Center y: \(6 \div 2 = 3 \rightarrow -3\)</p>
+                        <p>Center is \((5, -3)\).</p>
+                    </div>
+                </article>
+            </div>
         </main>
     </div>
 </body>

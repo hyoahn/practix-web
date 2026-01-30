@@ -23,59 +23,78 @@
     <script src="../../../assets/scripts/analytics.js"></script>
 </head>
 
-<body class="content-page">
+<body>
     <div class="page-bg"></div>
 
     <div class="page-container">
-        <aside class="sidebar-nav" id="sidebar-tree">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
             <!-- JS will populate -->
         </aside>
 
-        <button class="mobile-tree-toggle" id="mobile-tree-btn">Menu</button>
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search formulas... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
 
-        <main class="main-content">
-            <header class="hero-section">
-                <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 1rem;">Percent
-                    Change Hacks</h1>
-                <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 800px;">
-                    Don't get trapped by multi-step changes. Master the multiplier method.
-                </p>
-            </header>
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Stop Studying. Start Formal Training.
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Percent Change Hacks</h1>
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 800px;">
+                        Don't get trapped by multi-step changes. Master the multiplier method.
+                    </p>
+                </header>
 
-            <article class="formula-card" id="f4">
-                <div class="uvp-badge" style="background: #8b5cf6; color: white;">Save 60s</div>
-                <span class="category-badge cat-alg">Heart of Algebra</span>
-                <h3>Net Percent Change</h3>
-                <div class="formula-display">\[ (1 \pm r_1)(1 \pm r_2) - 1 \]</div>
-                <p class="formula-explanation">Calculate the single percentage change for multi-step
-                    increases/decreases.</p>
+                <article class="formula-card" id="f4">
+                    <div class="uvp-badge" style="background: #8b5cf6; color: white;">Save 60s</div>
+                    <span class="category-badge cat-alg">Heart of Algebra</span>
+                    <h3>Net Percent Change</h3>
+                    <div class="formula-display">\[ (1 \pm r_1)(1 \pm r_2) - 1 \]</div>
+                    <p class="formula-explanation">Calculate the single percentage change for multi-step
+                        increases/decreases.</p>
 
-                <div class="example-content"
-                    style="display: block; background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid var(--border);">
-                    <p style="font-weight: 700; margin-bottom: 1.5rem;">"A price increases by 20%, then decreases by
-                        10%."</p>
-                    <div class="comparison-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                        <div>
-                            <div class="school-header" style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">🚫
-                                School Way (45s)</div>
-                            <p>Pick 100 → 120 → 108. Change is 8%.</p>
-                        </div>
-                        <div>
-                            <div class="practix-header" style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅
-                                Practix Way (2s)</div>
-                            <p>(1.20)(0.90) = 1.08. Answer = 8% Increase.</p>
+                    <div class="example-content"
+                        style="display: block; background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid var(--border);">
+                        <p style="font-weight: 700; margin-bottom: 1.5rem;">"A price increases by 20%, then decreases by
+                            10%."</p>
+                        <div class="comparison-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                            <div>
+                                <div class="school-header"
+                                    style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">🚫
+                                    School Way (45s)</div>
+                                <p>Pick 100 → 120 → 108. Change is 8%.</p>
+                            </div>
+                            <div>
+                                <div class="practix-header"
+                                    style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅
+                                    Practix Way (2s)</div>
+                                <p>(1.20)(0.90) = 1.08. Answer = 8% Increase.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <article class="formula-card" id="f13">
-                <span class="category-badge cat-alg">Heart of Algebra</span>
-                <h3>Standard Percent Change</h3>
-                <div class="formula-display">\[ \frac{\text{New} - \text{Old}}{\text{Old}} \times 100 \]</div>
-                <p class="formula-explanation">The universal formula for calculating percentage increase or decrease
-                    without confusion.</p>
-            </article>
+                <article class="formula-card" id="f13">
+                    <span class="category-badge cat-alg">Heart of Algebra</span>
+                    <h3>Standard Percent Change</h3>
+                    <div class="formula-display">\[ \frac{\text{New} - \text{Old}}{\text{Old}} \times 100 \]</div>
+                    <p class="formula-explanation">The universal formula for calculating percentage increase or decrease
+                        without confusion.</p>
+                </article>
+            </div>
         </main>
     </div>
 </body>

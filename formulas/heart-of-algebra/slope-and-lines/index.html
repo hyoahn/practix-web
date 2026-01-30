@@ -23,51 +23,69 @@
     <script src="../../../assets/scripts/analytics.js"></script>
 </head>
 
-<body class="content-page">
+<body>
     <div class="page-bg"></div>
 
     <div class="page-container">
-        <aside class="sidebar-nav" id="sidebar-tree">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
             <!-- JS will populate -->
         </aside>
 
-        <button class="mobile-tree-toggle" id="mobile-tree-btn">Menu</button>
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search formulas... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
 
-        <main class="main-content">
-            <header class="hero-section">
-                <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 1rem;">Slope &
-                    Line Mastery</h1>
-                <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 800px;">
-                    From simple gradients to perpendicular intersections. Master the mechanics of lines.
-                </p>
-            </header>
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Stop Studying. Start Formal Training.
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Slope & Line Mastery</h1>
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 800px;">
+                        From simple gradients to perpendicular intersections. Master the mechanics of lines.
+                    </p>
+                </header>
 
-            <article class="formula-card" id="f23">
-                <span class="category-badge cat-alg">Heart of Algebra</span>
-                <h3>Slope Formula</h3>
-                <div class="formula-display">\[ m = \frac{y_2 - y_1}{x_2 - x_1} \]</div>
-                <p class="formula-explanation">The fundamental measure of steepness. Rise over run.</p>
-            </article>
+                <article class="formula-card" id="f23">
+                    <span class="category-badge cat-alg">Heart of Algebra</span>
+                    <h3>Slope Formula</h3>
+                    <div class="formula-display">\[ m = \frac{y_2 - y_1}{x_2 - x_1} \]</div>
+                    <p class="formula-explanation">The fundamental measure of steepness. Rise over run.</p>
+                </article>
 
-            <article class="formula-card" id="f24">
-                <span class="category-badge cat-alg">Heart of Algebra</span>
-                <h3>Parallel Lines</h3>
-                <div class="formula-display">\[ m_1 = m_2 \]</div>
-                <p class="formula-explanation">Parallel lines never meet because they have identical slopes and
-                    different y-intercepts.</p>
-            </article>
+                <article class="formula-card" id="f24">
+                    <span class="category-badge cat-alg">Heart of Algebra</span>
+                    <h3>Parallel Lines</h3>
+                    <div class="formula-display">\[ m_1 = m_2 \]</div>
+                    <p class="formula-explanation">Parallel lines never meet because they have identical slopes and
+                        different y-intercepts.</p>
+                </article>
 
-            <article class="formula-card" id="f25">
-                <span class="category-badge cat-alg">Heart of Algebra</span>
-                <h3>Perpendicular Lines</h3>
-                <div class="formula-display">\[ m_1 = -\frac{1}{m_2} \]</div>
-                <p class="formula-explanation">Perpendicular slopes are negative reciprocals. Their product is always
-                    -1.</p>
-                <div class="example-content"
-                    style="display: block; background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid var(--border);">
-                    <p>If Line A has a slope of \(2/3\), Line B (perpendicular) has a slope of \(-3/2\).</p>
-                </div>
-            </article>
+                <article class="formula-card" id="f25">
+                    <span class="category-badge cat-alg">Heart of Algebra</span>
+                    <h3>Perpendicular Lines</h3>
+                    <div class="formula-display">\[ m_1 = -\frac{1}{m_2} \]</div>
+                    <p class="formula-explanation">Perpendicular slopes are negative reciprocals. Their product is
+                        always
+                        -1.</p>
+                    <div class="example-content"
+                        style="display: block; background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid var(--border);">
+                        <p>If Line A has a slope of \(2/3\), Line B (perpendicular) has a slope of \(-3/2\).</p>
+                    </div>
+                </article>
+            </div>
         </main>
     </div>
 </body>

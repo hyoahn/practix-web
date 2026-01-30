@@ -23,39 +23,58 @@
     <script src="../../../assets/scripts/analytics.js"></script>
 </head>
 
-<body class="content-page">
+<body>
     <div class="page-bg"></div>
 
     <div class="page-container">
-        <aside class="sidebar-nav" id="sidebar-tree">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
             <!-- JS will populate -->
         </aside>
 
-        <button class="mobile-tree-toggle" id="mobile-tree-btn">Menu</button>
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search formulas... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
 
-        <main class="main-content">
-            <header class="hero-section">
-                <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 1rem;">
-                    Exponential Growth</h1>
-                <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 800px;">
-                    Master compound interest, population growth, and radioactive decay models.
-                </p>
-            </header>
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Stop Studying. Start Formal Training.
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Exponential Growth</h1>
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 800px;">
+                        Master compound interest, population growth, and radioactive decay models.
+                    </p>
+                </header>
 
-            <article class="formula-card" id="f11">
-                <div class="uvp-badge" style="background: #6366f1; color: white;">Fast Logic</div>
-                <span class="category-badge cat-quad"
-                    style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Advanced Math</span>
-                <h3>Growth & Decay</h3>
-                <div class="formula-display">\[ y = a(1 \pm r)^t \]</div>
-                <p class="formula-explanation">The standard model for any percentage-based change over time. \(a\) is
-                    initial, \(r\) is rate, \(t\) is time.</p>
-                <div class="example-content"
-                    style="display: block; background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid var(--border);">
-                    <p>"A value increases by 5% every year." → Multiplier is \(1.05\).<br>"A value decreases by 7% every
-                        week." → Multiplier is \(0.93\).</p>
-                </div>
-            </article>
+                <article class="formula-card" id="f11">
+                    <div class="uvp-badge" style="background: #6366f1; color: white;">Fast Logic</div>
+                    <span class="category-badge cat-quad"
+                        style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Advanced Math</span>
+                    <h3>Growth & Decay</h3>
+                    <div class="formula-display">\[ y = a(1 \pm r)^t \]</div>
+                    <p class="formula-explanation">The standard model for any percentage-based change over time. \(a\)
+                        is
+                        initial, \(r\) is rate, \(t\) is time.</p>
+                    <div class="example-content"
+                        style="display: block; background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid var(--border);">
+                        <p>"A value increases by 5% every year." → Multiplier is \(1.05\).<br>"A value decreases by 7%
+                            every
+                            week." → Multiplier is \(0.93\).</p>
+                    </div>
+                </article>
+            </div>
         </main>
     </div>
 </body>

@@ -10,8 +10,10 @@
     --text-muted: #8888a4;
 
     /* Vibrant Accents */
-    --accent-primary: #6366f1;    /* Indigo */
-    --accent-secondary: #8b5cf6;  /* Purple */
+    --accent-primary: #6366f1;
+    /* Indigo */
+    --accent-secondary: #8b5cf6;
+    /* Purple */
     --accent-cyan: #06b6d4;
     --accent-green: #10b981;
     --accent-pink: #ec4899;
@@ -34,14 +36,17 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     min-height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
 /* Homepage requires strict full height for split screen */
-html:has(.homepage), body.homepage {
+html:has(.homepage),
+body.homepage {
     height: 100%;
     overflow: hidden;
 }
@@ -54,7 +59,8 @@ body {
     font-size: 16px;
     display: flex;
     flex-direction: column;
-    padding-top: 80px; /* Space for fixed navbar */
+    padding-top: 80px;
+    /* Space for fixed navbar */
 }
 
 /* Subtle animated background gradient */
@@ -102,7 +108,7 @@ nav {
 .nav-links {
     display: flex;
     gap: 0.5rem;
-    background: rgba(255,255,255,0.5);
+    background: rgba(255, 255, 255, 0.5);
     padding: 0.25rem;
     border-radius: 12px;
     border: 1px solid var(--border);
@@ -123,16 +129,120 @@ nav {
 
 .nav-btn:hover {
     color: var(--text-primary);
-    background: rgba(255,255,255,0.8);
+    background: rgba(255, 255, 255, 0.8);
 }
 
 .nav-btn.active {
     background: white;
     color: var(--accent-primary);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-h1, h2, h3 {
+/* Hamburger Menu styles */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1002;
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        width: 80%;
+        height: calc(100vh - 80px);
+        background: white;
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1rem;
+        transition: 0.3s ease;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+        border-radius: 0;
+        border: none;
+        border-left: 1px solid var(--border);
+        z-index: 1001;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-btn {
+        font-size: 1.1rem;
+        width: 100%;
+        text-align: left;
+    }
+}
+
+.mobile-tree-toggle {
+    display: none;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--accent-primary);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+    z-index: 999;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 1024px) {
+    .mobile-tree-toggle {
+        display: flex;
+    }
+
+    .sidebar-nav.mobile-active {
+        display: block !important;
+        position: fixed !important;
+        top: 80px !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: calc(100vh - 80px) !important;
+        background: white !important;
+        z-index: 1000 !important;
+        padding: 2rem !important;
+        border: none !important;
+    }
+}
+
+.side-tree-topic a.active {
+    background: rgba(99, 102, 241, 0.1) !important;
+    color: var(--accent-primary) !important;
+    font-weight: 700 !important;
+}
+
+h1,
+h2,
+h3 {
     font-family: var(--font-heading);
     font-weight: 700;
     letter-spacing: -0.03em;
@@ -180,15 +290,18 @@ h1, h2, h3 {
 
 /* Fullscreen Split Hero Section */
 .hero-text-content {
-    max-width: 550px; 
+    max-width: 550px;
     width: 100%;
-    margin-right: -8rem; /* Aggressive overlap: text hugs the image tightly */
+    margin-right: -8rem;
+    /* Aggressive overlap: text hugs the image tightly */
     position: relative;
     z-index: 12;
 }
+
 .hero-split-fullscreen {
     display: flex;
-    min-height: 85vh; /* Takes up most of the viewport height */
+    min-height: 85vh;
+    /* Takes up most of the viewport height */
     position: relative;
     overflow: hidden;
     margin-bottom: 2rem;
@@ -196,18 +309,24 @@ h1, h2, h3 {
 
 /* Left side: Text Content */
 .hero-text-container {
-    flex: 0.6; /* Significantly reduced to push content left */
+    flex: 0.6;
+    /* Significantly reduced to push content left */
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* Push text towards the image */
-    padding: 2rem 0 2rem 5%; /* Shift text block physically right */
-    justify-content: flex-end; /* Ensure it hugs the right side (image side) */
+    justify-content: flex-end;
+    /* Push text towards the image */
+    padding: 2rem 0 2rem 5%;
+    /* Shift text block physically right */
+    justify-content: flex-end;
+    /* Ensure it hugs the right side (image side) */
     z-index: 10;
 }
+
 /* ... */
 /* Right side: Full Image */
 .hero-image-container {
-    flex: 1.8; /* Occupies ~75% of the width */
+    flex: 1.8;
+    /* Occupies ~75% of the width */
     position: relative;
     overflow: hidden;
     display: flex;
@@ -286,18 +405,28 @@ h1, h2, h3 {
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
 }
 
 /* Right side: Full Image */
 .hero-image-container {
-    flex: 1.4; /* Give image significantly more space */
+    flex: 1.4;
+    /* Give image significantly more space */
     position: relative;
     overflow: hidden;
     display: flex;
-    background: var(--bg-main); /* Fallback */
-    mask-image: linear-gradient(to right, transparent, black 15%); /* Soft fade edge on left */
+    background: var(--bg-main);
+    /* Fallback */
+    mask-image: linear-gradient(to right, transparent, black 15%);
+    /* Soft fade edge on left */
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%);
 }
 
@@ -305,14 +434,17 @@ h1, h2, h3 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center bottom; /* Center horizontally to show both student and iPad */
-    min-width: 600px; /* Force image to not shrink below this width, causing scroll/cutoff handle */
+    object-position: center bottom;
+    /* Center horizontally to show both student and iPad */
+    min-width: 600px;
+    /* Force image to not shrink below this width, causing scroll/cutoff handle */
     transform: scale(1.02);
     transition: transform 0.5s ease-out;
 }
 
 .hero-image-container:hover img {
-    transform: scale(1.0); /* Gentle zoom out on hover */
+    transform: scale(1.0);
+    /* Gentle zoom out on hover */
 }
 
 /* Overlay gradient on image to ensure text readaiblity if overlapping (safety) */
@@ -322,7 +454,7 @@ h1, h2, h3 {
     left: 0;
     width: 15%;
     height: 100%;
-    background: linear-gradient(to right, rgba(250,250,250,1) 0%, rgba(250,250,250,0) 100%);
+    background: linear-gradient(to right, rgba(250, 250, 250, 1) 0%, rgba(250, 250, 250, 0) 100%);
     z-index: 2;
     pointer-events: none;
 }
@@ -332,13 +464,13 @@ h1, h2, h3 {
     position: absolute;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     padding: 0.85rem 1.25rem;
     border-radius: 12px;
     display: flex;
     align-items: center;
     gap: 1rem;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     animation: float 6s ease-in-out infinite;
     z-index: 5;
     min-width: 180px;
@@ -369,13 +501,15 @@ h1, h2, h3 {
 
 .score-card {
     top: 20%;
-    left: 10%; /* Inside the image area */
+    left: 10%;
+    /* Inside the image area */
     animation-delay: 0s;
 }
 
 .streak-card {
     bottom: 20%;
-    right: 15%; /* Inside the image area */
+    right: 15%;
+    /* Inside the image area */
     animation-delay: 1.5s;
 }
 
@@ -408,8 +542,15 @@ h1, h2, h3 {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 /* Tabs Section */
@@ -693,9 +834,17 @@ h1, h2, h3 {
     border-radius: 50%;
 }
 
-.control-close { background: #ef4444; }
-.control-min { background: #eab308; }
-.control-max { background: #22c55e; }
+.control-close {
+    background: #ef4444;
+}
+
+.control-min {
+    background: #eab308;
+}
+
+.control-max {
+    background: #22c55e;
+}
 
 .vre-title {
     font-family: 'SF Mono', 'Monaco', monospace;
@@ -778,7 +927,7 @@ h1, h2, h3 {
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 2.5rem;
-    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
 }
 
 .predictor-header {
@@ -943,10 +1092,14 @@ footer p {
 @media (max-width: 1100px) {
     .hero-split-fullscreen {
         flex-direction: column;
-        min-height: unset; /* Remove viewport height constraint */
-        height: auto; /* Let content determine height */
-        flex: none; /* Don't participate in parent flex */
-        overflow: visible; /* Allow content to show */
+        min-height: unset;
+        /* Remove viewport height constraint */
+        height: auto;
+        /* Let content determine height */
+        flex: none;
+        /* Don't participate in parent flex */
+        overflow: visible;
+        /* Allow content to show */
     }
 
     .hero-image-container {
@@ -954,8 +1107,10 @@ footer p {
         min-height: unset;
         height: unset;
         flex: none;
-        display: block; /* Simple block, not flex */
-        position: relative; /* For absolute positioning of cards */
+        display: block;
+        /* Simple block, not flex */
+        position: relative;
+        /* For absolute positioning of cards */
         mask-image: none;
         -webkit-mask-image: none;
         padding-bottom: 1rem;
@@ -974,16 +1129,18 @@ footer p {
 
     /* Floating cards become static blocks */
     .hero-text-container {
-        padding: 1rem 5% 1.5rem; /* Further reduced padding */
+        padding: 1rem 5% 1.5rem;
+        /* Further reduced padding */
         text-align: center;
         justify-content: center;
     }
 
     .hero-split-fullscreen h1 {
-        font-size: 2.2rem; /* Much smaller mobile title */
+        font-size: 2.2rem;
+        /* Much smaller mobile title */
         margin-bottom: 1rem;
     }
-    
+
     .hero-split-fullscreen p {
         font-size: 1rem;
         margin-bottom: 1.5rem;
@@ -991,8 +1148,10 @@ footer p {
 
     /* Tiny cards that overlay on image corners */
     .floating-card {
-        position: absolute; /* Overlay on image */
-        transform: scale(0.35); /* Extra tiny */
+        position: absolute;
+        /* Overlay on image */
+        transform: scale(0.35);
+        /* Extra tiny */
         transform-origin: center;
         width: auto;
         max-width: 200px;
@@ -1000,38 +1159,39 @@ footer p {
         cursor: pointer;
         z-index: 10;
         animation: none;
-        opacity: 0.9; /* Slightly transparent to not fully block image */
+        opacity: 0.9;
+        /* Slightly transparent to not fully block image */
     }
-    
+
     /* Position cards in corners */
     .score-card {
         top: 5%;
         left: 5%;
     }
-    
+
     .streak-card {
         top: 5%;
         right: 5%;
     }
-    
+
     /* Additional size reduction for text inside cards */
     .floating-card .text strong {
         font-size: 0.85rem;
     }
-    
+
     .floating-card .text span {
         font-size: 0.7rem;
     }
-    
+
     .floating-card .icon {
         font-size: 1.2rem;
     }
-    
+
     /* State for zooming in */
     .floating-card.expanded {
         transform: scale(1.0);
         z-index: 20;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
         opacity: 1;
     }
 
@@ -1040,7 +1200,8 @@ footer p {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-right: 0; /* Remove negative overlap */
+        margin-right: 0;
+        /* Remove negative overlap */
     }
 
     .hero-buttons {
@@ -1060,6 +1221,7 @@ footer p {
 }
 
 @media (max-width: 600px) {
+
     .resources-grid,
     .strategy-grid,
     .faq-grid {
@@ -1074,7 +1236,8 @@ footer p {
         flex: 1 1 45%;
     }
 
-    html, body {
+    html,
+    body {
         overflow: auto;
         height: auto;
     }

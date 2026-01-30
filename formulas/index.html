@@ -406,6 +406,10 @@
             <!-- JS will populate this -->
         </aside>
 
+        <button class="mobile-tree-toggle" id="mobile-tree-btn">
+            Menu
+        </button>
+
         <main class="main-content">
             <section class="scan-table-container">
                 <table class="scan-table">
@@ -1155,9 +1159,10 @@
         </main>
     </div>
 
-    <!-- Request a Shortcut CTA -->
+    <!-- Request a Shortcut CTA moved inside page-container implicitly by adjusting closing tags if needed, 
+         but here I will just ensure the structure is clean. -->
     <section
-        style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); color: white; padding: 4rem 5%; border-radius: 24px; text-align: center; margin: 4rem 5% 0; clear: both;">
+        style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); color: white; padding: 4rem 5%; border-radius: 24px; text-align: center; margin: 4rem 5% 0; clear: both; position: relative; z-index: 10;">
         <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 1.5rem; color: white;">
             Don't see a formula?</h3>
         <p
@@ -1261,14 +1266,33 @@
                         <ul class="side-tree-topic">
                             ${topics.map(topic => {
                     const firstFormula = groupFormulas.find(f => f.topic === topic);
-                    return `<li><a href="${firstFormula.link}">${topic}</a></li>`;
+                    return `<li><a href="${firstFormula.link}" class="side-link">${topic}</a></li>`;
                 }).join('')}
                         </ul>
                     </div>
                 `;
             }).join('');
 
-            // Add scrollspy or active state logic here if needed
+            // Mobile Toggle Logic
+            const mobileBtn = document.getElementById('mobile-tree-btn');
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', () => {
+                    sidebar.classList.toggle('mobile-active');
+                    mobileBtn.innerText = sidebar.classList.contains('mobile-active') ? 'Close' : 'Menu';
+                });
+            }
+
+            // Click handling for active state and mobile close
+            sidebar.addEventListener('click', (e) => {
+                if (e.target.classList.contains('side-link')) {
+                    document.querySelectorAll('.side-link').forEach(l => l.classList.remove('active'));
+                    e.target.classList.add('active');
+                    if (window.innerWidth <= 1024) {
+                        sidebar.classList.remove('mobile-active');
+                        mobileBtn.innerText = 'Menu';
+                    }
+                }
+            });
         }
 
         function init() {

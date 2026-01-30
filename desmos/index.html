@@ -169,6 +169,10 @@
             <!-- JS will populate this -->
         </aside>
 
+        <button class="mobile-tree-toggle" id="mobile-tree-btn">
+            Menu
+        </button>
+
         <main class="main-content">
             <!-- Hero Section moved inside main for better flow -->
             <section
@@ -901,11 +905,32 @@
                     <h4>${group.group}</h4>
                     <ul class="side-tree-topic">
                         ${group.topics.map(topic => `
-                            <li><a href="#${topic.id}">${topic.name}</a></li>
+                            <li><a href="#${topic.id}" class="side-link">${topic.name}</a></li>
                         `).join('')}
                     </ul>
                 </div>
             `).join('');
+
+            // Mobile Toggle Logic
+            const mobileBtn = document.getElementById('mobile-tree-btn');
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', () => {
+                    sidebar.classList.toggle('mobile-active');
+                    mobileBtn.innerText = sidebar.classList.contains('mobile-active') ? 'Close' : 'Menu';
+                });
+            }
+
+            // Click handling for active state and mobile close
+            sidebar.addEventListener('click', (e) => {
+                if (e.target.classList.contains('side-link')) {
+                    document.querySelectorAll('.side-link').forEach(l => l.classList.remove('active'));
+                    e.target.classList.add('active');
+                    if (window.innerWidth <= 1024) {
+                        sidebar.classList.remove('mobile-active');
+                        mobileBtn.innerText = 'Menu';
+                    }
+                }
+            });
         }
 
         function init() {

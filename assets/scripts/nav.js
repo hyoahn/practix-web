@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Create the nav element
     const nav = document.createElement('nav');
-    
+
     // 3. Build the HTML structure
     nav.innerHTML = `
         <div class="logo">
@@ -25,7 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 <img src="${basePath}assets/images/logo.png" alt="Practix">
             </a>
         </div>
-        <div class="nav-links">
+        <button class="hamburger" id="nav-toggle" aria-label="Toggle Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links" id="nav-menu">
             <a href="${basePath}index.html" class="nav-btn ${currentPath.endsWith('index.html') || currentPath === '/' ? 'active' : ''}">Home</a>
             <a href="${basePath}strategy/" class="nav-btn ${currentPath.includes('/strategy/') ? 'active' : ''}">Strategy</a>
             <a href="${basePath}formulas/" class="nav-btn ${currentPath.includes('/formulas/') ? 'active' : ''}">Formulas</a>
@@ -36,14 +41,30 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
 
     // 4. Inject into the page
-    // Look for various insertion points
-    const existingNav = document.querySelector('nav:not(.breadcrumb)');
-    const navPlaceholder = document.body.querySelector('body > :first-child');
-
+    const existingNav = document.body.querySelector('nav:not(.breadcrumb)');
     if (existingNav) {
         existingNav.replaceWith(nav);
     } else {
-        // Prepend to body, ensuring it's before any specific content containers
         document.body.insertBefore(nav, document.body.firstChild);
+    }
+
+    // 5. Mobile Toggle Logic
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.getElementById('nav-menu');
+
+    if (toggle && menu) {
+        toggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', () => {
+            menu.classList.remove('active');
+        });
+
+        menu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
     }
 });

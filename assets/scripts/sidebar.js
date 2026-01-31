@@ -63,7 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     topics: [
                         { name: "Regression Secrets", path: "desmos/regression-secrets/" },
                         { name: "Lists & Tables", path: "desmos/lists-and-tables/" },
-                        { name: "Visualization Hacks", path: "desmos/visualization-hacks/" }
+                        { name: "Visualization Hacks", path: "desmos/visualization-hacks/" },
+                        { name: "System Solver", path: "desmos/system-solver/" },
+                        { name: "Inequality Shading", path: "desmos/inequality-shading/" },
+                        { name: "Mean vs Median", path: "desmos/mean-vs-median/" }
                     ]
                 }
             ]
@@ -79,8 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     path: "hard-questions/",
                     topics: [
                         { name: "Algebra Traps", path: "hard-questions/algebra/" },
+                        { name: "Problem Solving", path: "hard-questions/problem-solving/" },
                         { name: "Advanced Math", path: "hard-questions/advanced-math/" },
-                        { name: "Geometry & Trig", path: "hard-questions/geometry/" }
+                        { name: "Geometry & Trig", path: "hard-questions/geometry/" },
+                        { name: "Discriminant Dangers", path: "hard-questions/discriminant-dangers/" },
+                        { name: "Unit Conversion", path: "hard-questions/unit-conversion/" },
+                        { name: "System Solutions", path: "hard-questions/system-solutions/" }
                     ]
                 }
             ]

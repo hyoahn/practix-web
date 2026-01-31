@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             <div style="max-width: 1200px; margin: 0 auto;">
                 ${loopHTML}
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; text-align: left;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 2rem; text-align: left;">
                     <div>
                         <h4 style="color: #6366f1; margin-bottom: 1.5rem; font-family: 'Space Grotesk', sans-serif;">Practix</h4>
                         <p style="font-size: 0.9rem; opacity: 0.7; line-height: 1.6;">

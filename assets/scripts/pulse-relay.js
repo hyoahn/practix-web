@@ -4,8 +4,8 @@
  */
 
 const RELAY_CONFIG = {
-    url: 'YOUR_SUPABASE_URL',
-    key: 'YOUR_SUPABASE_ANON_KEY',
+    url: 'https://ojaglhuflcwmooqyenrp.supabase.co',
+    key: 'sb_publishable_WT2uhNDuPL6i39YnfdhMfw_x1nPeNgi',
     table: 'practix_events'
 };
 

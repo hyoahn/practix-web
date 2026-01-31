@@ -37,6 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
             <a href="${basePath}formulas/" class="nav-btn ${currentPath.includes('/formulas/') ? 'active' : ''}">Formulas</a>
             <a href="${basePath}desmos/" class="nav-btn ${currentPath.includes('/desmos/') ? 'active' : ''}">Desmos</a>
             <a href="${basePath}hard-questions/" class="nav-btn ${currentPath.includes('/hard-questions/') ? 'active' : ''}">Hardest Questions</a>
+            <button id="layout-toggle" class="nav-btn icon-btn" title="Toggle Footer Panel" style="display: flex; align-items: center; justify-content: center; padding: 0.5rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="3" y1="15" x2="21" y2="15"></line>
+                </svg>
+            </button>
             <a href="${basePath}contact/" class="nav-btn ${currentPath.includes('/contact/') ? 'active' : ''}">Contact</a>
         </div>
     `;
@@ -52,6 +58,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. Mobile Toggle Logic
     const toggle = document.getElementById('nav-toggle');
     const menu = document.getElementById('nav-menu');
+    const layoutBtn = document.getElementById('layout-toggle');
+
+    if (layoutBtn) {
+        layoutBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const footer = document.querySelector('.practix-footer');
+            if (footer) {
+                footer.classList.toggle('collapsed');
+                const isCollapsed = footer.classList.contains('collapsed');
+                localStorage.setItem('practix_footer_collapsed', isCollapsed);
+
+                // Optional: Update button state visual
+                layoutBtn.style.color = isCollapsed ? 'var(--text-muted)' : 'var(--accent-primary)';
+            }
+        });
+
+        // Init state check
+        const isCollapsedInitial = localStorage.getItem('practix_footer_collapsed') === 'true';
+        layoutBtn.style.color = isCollapsedInitial ? 'var(--text-muted)' : 'var(--accent-primary)';
+    }
 
     if (toggle && menu) {
         toggle.addEventListener('click', (e) => {

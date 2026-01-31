@@ -49,11 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. HTML Structure
     footer.innerHTML = `
-        <div class="footer-handle" id="footer-toggle" title="Toggle Footer">
-            <span class="footer-toggle-text" style="color: inherit;">Quick Resources</span>
-            <div class="footer-handle-icon"></div>
-        </div>
-        
         <div class="footer-content">
 
             <div style="max-width: 1200px; margin: 0 auto;">
@@ -110,13 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
         targetContainer.appendChild(footer);
     }
 
-    // 7. Event Listener
-    const handle = footer.querySelector('#footer-toggle');
-    handle.addEventListener('click', () => {
-        footer.classList.toggle('collapsed');
-        const newState = footer.classList.contains('collapsed');
-        localStorage.setItem('practix_footer_collapsed', newState);
-    });
+    if (existingFooter) {
+        existingFooter.replaceWith(footer);
+    } else {
+        targetContainer.appendChild(footer);
+    }
 });
 
 

@@ -23,6 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const footer = document.createElement('footer');
     footer.className = `practix-footer ${isHidden ? 'collapsed' : ''}`;
 
+    // FORCE HIDE via Inline Style to bypass CSS issues
+    if (isHidden) {
+        footer.style.display = 'none';
+    }
+
     console.log('Practix Footer Init: Hidden =', isHidden);
 
     // 4. Define Topic Loop

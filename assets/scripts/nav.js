@@ -68,8 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const footer = document.querySelector('.practix-footer');
             if (footer) {
+                // Toggle Class
                 footer.classList.toggle('collapsed');
                 const isHidden = footer.classList.contains('collapsed');
+
+                // Toggle Inline Style (Failsafe)
+                footer.style.display = isHidden ? 'none' : 'flex';
+
                 localStorage.setItem('practix_ui_footer_hidden', isHidden);
 
                 // Update visual state
@@ -81,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Initial Button State Sync (Run slightly delayed to ensure nav exists if needed, mostly redundant but safe)
+    // Initial Button State Sync
     const layoutBtn = document.getElementById('layout-toggle');
     if (layoutBtn) {
         const storedState = localStorage.getItem('practix_ui_footer_hidden');

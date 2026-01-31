@@ -237,9 +237,9 @@
                             <h3 class="wallpaper-title">Desmos God Mode</h3>
                             <p class="wallpaper-desc">Regression codes, list syntax, and slider tricks. Don't memorize,
                                 just look.</p>
-                            <a href="javascript:void(0)" id="btn-wall-desmos" class="btn-primary wallpaper-dl-btn"
-                                style="width: 100%; justify-content: center; text-decoration: none; background: #94a3b8; cursor: not-allowed;">Master
-                                5 Formulas</a>
+                            <a href="../formulas/" id="btn-wall-desmos" class="btn-primary wallpaper-dl-btn"
+                                style="width: 100%; justify-content: center; text-decoration: none; background: rgba(99, 102, 241, 0.1); color: var(--accent-primary); border: 1px dashed var(--accent-primary);">Train
+                                to Unlock</a>
                         </div>
                     </article>
 
@@ -258,9 +258,9 @@
                             <h3 class="wallpaper-title">The Trap Radar</h3>
                             <p class="wallpaper-desc">Visual warnings for "Unit Mismatches" and "Zero/Negative"
                                 constraints.</p>
-                            <a href="javascript:void(0)" id="btn-wall-trap" class="btn-primary wallpaper-dl-btn"
-                                style="width: 100%; justify-content: center; text-decoration: none; background: #94a3b8; cursor: not-allowed;">Master
-                                10 Formulas</a>
+                            <a href="../formulas/" id="btn-wall-trap" class="btn-primary wallpaper-dl-btn"
+                                style="width: 100%; justify-content: center; text-decoration: none; background: rgba(99, 102, 241, 0.1); color: var(--accent-primary); border: 1px dashed var(--accent-primary);">Train
+                                to Unlock</a>
                         </div>
                     </article>
                 </div>
@@ -338,6 +338,8 @@
                     const btn = document.getElementById('btn-wall-desmos');
                     btn.innerText = "Download Free";
                     btn.style.background = "var(--accent-primary)";
+                    btn.style.color = "white";
+                    btn.style.border = "none";
                     btn.style.cursor = "pointer";
                     btn.href = "../assets/images/wallpapers/wall_desmos.png";
                     btn.setAttribute("download", "Practix_Desmos_God.png");
@@ -353,6 +355,8 @@
                     const btn = document.getElementById('btn-wall-trap');
                     btn.innerText = "Download Free";
                     btn.style.background = "var(--accent-primary)";
+                    btn.style.color = "white";
+                    btn.style.border = "none";
                     btn.style.cursor = "pointer";
                     btn.href = "../assets/images/wallpapers/wall_trap_radar.png";
                     btn.setAttribute("download", "Practix_Trap_Radar.png");

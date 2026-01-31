@@ -76,6 +76,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         </p>
                     </div>
                     <div>
+                        <h4 style="margin-bottom: 1.5rem;">Resources</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 2;">
+                            <li><a href="${basePath}formulas.html" style="color: white; opacity: 0.7; text-decoration: none;">Formula Hub</a></li>
+                            <li><a href="${basePath}desmos.html" style="color: white; opacity: 0.7; text-decoration: none;">Desmos Tricks</a></li>
+                            <li><a href="${basePath}strategy.html" style="color: white; opacity: 0.7; text-decoration: none;">800 Strategy</a></li>
+                            <li><a href="${basePath}contact.html" style="color: white; opacity: 0.7; text-decoration: none;">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div>
                         <h4 style="margin-bottom: 1.5rem;">Topic Guides</h4>
                         <ul style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 2;">
                             <li><a href="${basePath}topics/quadratic-equations.html" style="color: white; opacity: 0.7; text-decoration: none;">Quadratic Equations</a></li>
@@ -91,15 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             <li><a href="${basePath}topics/exponential-growth.html" style="color: white; opacity: 0.7; text-decoration: none;">Growth & Decay</a></li>
                             <li><a href="${basePath}topics/unit-circle.html" style="color: white; opacity: 0.7; text-decoration: none;">Unit Circle Hack</a></li>
                             <li><a href="${basePath}hardest-questions.html" style="color: white; opacity: 0.7; text-decoration: none;">Hardest Questions</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 style="margin-bottom: 1.5rem;">Resources</h4>
-                        <ul style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 2;">
-                            <li><a href="${basePath}formulas.html" style="color: white; opacity: 0.7; text-decoration: none;">Formula Hub</a></li>
-                            <li><a href="${basePath}desmos.html" style="color: white; opacity: 0.7; text-decoration: none;">Desmos Tricks</a></li>
-                            <li><a href="${basePath}strategy.html" style="color: white; opacity: 0.7; text-decoration: none;">800 Strategy</a></li>
-                            <li><a href="${basePath}contact.html" style="color: white; opacity: 0.7; text-decoration: none;">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>

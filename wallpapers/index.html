@@ -139,8 +139,9 @@
                             <h3 class="wallpaper-title">The Boss Mode</h3>
                             <p class="wallpaper-desc">The 5 hardest formulas (Discriminant, Vertex Form) in a clean,
                                 dark-mode aesthetic.</p>
-                            <button class="btn-primary" style="width: 100%; justify-content: center;">Download
-                                Free</button>
+                            <a href="../assets/images/wallpapers/wall_boss_mode.png" download="Practix_Boss_Mode.png"
+                                class="btn-primary wallpaper-dl-btn"
+                                style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
                         </div>
                     </article>
 
@@ -155,8 +156,9 @@
                             <h3 class="wallpaper-title">Desmos God Mode</h3>
                             <p class="wallpaper-desc">Regression codes, list syntax, and slider tricks. Don't memorize,
                                 just look.</p>
-                            <button class="btn-primary" style="width: 100%; justify-content: center;">Download
-                                Free</button>
+                            <a href="../assets/images/wallpapers/wall_desmos.png" download="Practix_Desmos_God.png"
+                                class="btn-primary wallpaper-dl-btn"
+                                style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
                         </div>
                     </article>
 
@@ -171,8 +173,9 @@
                             <h3 class="wallpaper-title">The Trap Radar</h3>
                             <p class="wallpaper-desc">Visual warnings for "Unit Mismatches" and "Zero/Negative"
                                 constraints.</p>
-                            <button class="btn-primary" style="width: 100%; justify-content: center;">Download
-                                Free</button>
+                            <a href="../assets/images/wallpapers/wall_trap_radar.png" download="Practix_Trap_Radar.png"
+                                class="btn-primary wallpaper-dl-btn"
+                                style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
                         </div>
                     </article>
                 </div>
@@ -189,6 +192,51 @@
             </div>
         </main>
     </div>
+
+    <!-- Viral Toast Container -->
+    <div id="viral-toast"
+        style="position: fixed; bottom: 2rem; right: 2rem; background: #0f172a; color: white; padding: 1.5rem; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid var(--accent-primary); z-index: 1000; display: none; max-width: 320px; animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);">
+        <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">Point Burn Initiated 🔥</div>
+        <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 1rem; line-height: 1.5;">Post your lockscreen on
+            TikTok/IG and tag <strong>@Practix800</strong> for a special Mastery boost.</p>
+        <button onclick="document.getElementById('viral-toast').style.display='none'"
+            style="background: white; color: #0f172a; border: none; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%;">Got
+            it!</button>
+    </div>
+
+    <style>
+        @keyframes slideIn {
+            from {
+                transform: translateX(120%) scale(0.9);
+            }
+
+            to {
+                transform: translateX(0) scale(1);
+            }
+        }
+    </style>
+
+    <script>
+        document.querySelectorAll('.wallpaper-dl-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const wallName = btn.parentElement.querySelector('.wallpaper-title').innerText;
+
+                // 1. Log to Analytics
+                if (window.practixLog) {
+                    window.practixLog('wallpaper_download', {
+                        wallpaper_name: wallName,
+                        location: 'wallpaper_hub'
+                    });
+                }
+
+                // 2. Show Viral Toast (after a slight delay to let download start)
+                setTimeout(() => {
+                    const toast = document.getElementById('viral-toast');
+                    if (toast) toast.style.display = 'block';
+                }, 1000);
+            });
+        });
+    </script>
 
     <!-- Hidden Footer (Reflow system will grab it) -->
     <footer style="display: none;"></footer>

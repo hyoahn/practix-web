@@ -1,144 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- SEO Meta Tags -->
     <title>SAT Unit Circle Trick: Sin and Cos Without Memorizing | Practix</title>
-    <meta name="description" content="Master SAT trigonometry instantly. Learn the unit circle tricks that reveal sin and cos values without heavy memorization. Includes interactive radial visualizer.">
-    <meta name="keywords" content="SAT unit circle, SAT trigonometry hacks, sin cos unit circle SAT, Digital SAT math shortcuts">
-    
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="topics.css">
+    <meta name="description"
+        content="Master SAT trigonometry instantly. Learn the unit circle tricks that reveal sin and cos values without heavy memorization. Includes interactive radial visualizer.">
+    <meta name="keywords"
+        content="SAT unit circle, SAT trigonometry hacks, sin cos unit circle SAT, Digital SAT math shortcuts">
+
+    <link rel="stylesheet" href="../../assets/styles/styles.css?v=23">
+    <link rel="stylesheet" href="../topics.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    
-    <script src="../practix-nav.js?v=23"></script>
-    <script src="../practix-footer.js?v=23"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="../../assets/scripts/practix-nav.js?v=23"></script>
+    <script src="../../assets/scripts/sidebar.js"></script>
+    <script src="../../assets/scripts/practix-footer.js?v=23"></script>
+    <script src="../../assets/scripts/analytics.js"></script>
 </head>
-<body class="content-page">
+
+<body>
     <div class="page-bg"></div>
-    
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb">
-        <a href="../index.html">Home</a> / <a href="../index.html#resources">Topics</a> / <span>Unit Circle</span>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="topic-hero">
-        <h1>SAT Trigonometry: The Unit Circle Hack</h1>
-        <p class="hook">You don't need a table of values. You just need to see the circle.</p>
-    </section>
+    <div class="page-container">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
+            <!-- JS will populate -->
+        </aside>
 
-    <!-- Main Content -->
-    <div class="topic-section">
-        <h2>The Problem</h2>
-        <p>You see this on the SAT:</p>
-        
-        <div class="formula-display">
-            In the unit circle, if the angle \(\theta = 150^\circ\), what is the value of \(\cos(\theta)\)?
-        </div>
-        
-        <p><strong>The Trap:</strong> Trying to draw a right triangle and solve with SOH CAH TOA from scratch. It's too slow. The Unit Circle is the "global" map for trig.</p>
-
-        <div class="shortcut">
-            <h3>✅ The "Coord" Trick: \((x, y) = (\cos, \sin)\)</h3>
-            <p>Every point on the unit circle is just a coordinate. And those coordinates ARE your answers:</p>
-            <ul>
-                <li>The <strong>x-coordinate</strong> is ALWAYS the <strong>Cosine</strong>.</li>
-                <li>The <strong>y-coordinate</strong> is ALWAYS the <strong>Sine</strong>.</li>
-            </ul>
-            <p>For \(150^\circ\): The point is \((-\sqrt{3}/2, 1/2)\).<br>So <strong>\(\cos(150^\circ) = -\sqrt{3}/2\)</strong>.</p>
-        </div>
-
-        <h2>Visual Cheat Sheet</h2>
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">Q1</div>
-                <div class="step-content">
-                    <h4>Quadrant I (0-90°)</h4>
-                    <p>Everything is POSITIVE. \((+, +)\)</p>
-                </div>
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search topics... (Press '/')">
             </div>
-            <div class="step">
-                <div class="step-number">Q2</div>
-                <div class="step-content">
-                    <h4>Quadrant II (90-180°)</h4>
-                    <p>Sine is POSITIVE. Cosine is Negative. \((-, +)\)</p>
-                </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
             </div>
-            <div class="step">
-                <div class="step-number">Q3</div>
-                <div class="step-content">
-                    <h4>Quadrant III (180-270°)</h4>
-                    <p>Everything is NEGATIVE. \((-, -)\)</p>
+        </aside>
+
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <a href="../../index.html">Home</a> / <a href="../../index.html#resources">Topics</a> / <span>Unit
+                        Circle</span>
+                </nav>
+
+                <!-- Hero Section -->
+                <section class="topic-hero">
+                    <h1>SAT Trigonometry: The Unit Circle Hack</h1>
+                    <p class="hook">You don't need a table of values. You just need to see the circle.</p>
+                </section>
+
+                <!-- Main Content -->
+                <div class="topic-section">
+                    <h2>The Problem</h2>
+                    <p>You see this on the SAT:</p>
+
+                    <div class="formula-display">
+                        In the unit circle, if the angle \(\theta = 150^\circ\), what is the value of \(\cos(\theta)\)?
+                    </div>
+
+                    <p><strong>The Trap:</strong> Trying to draw a right triangle and solve with SOH CAH TOA from
+                        scratch. It's too slow. The Unit Circle is the "global" map for trig.</p>
+
+                    <div class="shortcut">
+                        <h3>✅ The "Coord" Trick: \((x, y) = (\cos, \sin)\)</h3>
+                        <p>Every point on the unit circle is just a coordinate. And those coordinates ARE your answers:
+                        </p>
+                        <ul>
+                            <li>The <strong>x-coordinate</strong> is ALWAYS the <strong>Cosine</strong>.</li>
+                            <li>The <strong>y-coordinate</strong> is ALWAYS the <strong>Sine</strong>.</li>
+                        </ul>
+                        <p>For \(150^\circ\): The point is \((-\sqrt{3}/2, 1/2)\).<br>So <strong>\(\cos(150^\circ) =
+                                -\sqrt{3}/2\)</strong>.</p>
+                    </div>
+
+                    <h2>Visual Cheat Sheet</h2>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">Q1</div>
+                            <div class="step-content">
+                                <h4>Quadrant I (0-90°)</h4>
+                                <p>Everything is POSITIVE. \((+, +)\)</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">Q2</div>
+                            <div class="step-content">
+                                <h4>Quadrant II (90-180°)</h4>
+                                <p>Sine is POSITIVE. Cosine is Negative. \((-, +)\)</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">Q3</div>
+                            <div class="step-content">
+                                <h4>Quadrant III (180-270°)</h4>
+                                <p>Everything is NEGATIVE. \((-, -)\)</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Interactive Widget -->
+                <section class="topic-section">
+                    <div class="interactive-widget">
+                        <div class="widget-header">
+                            <h3>Unit Circle Explorer</h3>
+                            <p>Drag the angle to see the coordinates and trig values change.</p>
+                        </div>
+
+                        <div class="widget-input-group">
+                            <label>Angle (Degrees): <span id="angle-label">30°</span></label>
+                            <input type="range" id="angle-slider" min="0" max="360" value="30" step="15"
+                                style="width: 100%;">
+                        </div>
+
+                        <div class="widget-output">
+                            <div class="result-label">Coordinates (cos θ, sin θ):</div>
+                            <div class="result-value" id="coord-result">(0.87, 0.50)</div>
+                            <div
+                                style="margin-top: 1rem; display: flex; justify-content: center; gap: 2rem; font-family: monospace;">
+                                <div>cos: <span id="cos-val">0.866</span></div>
+                                <div>sin: <span id="sin-val">0.500</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Theoretical Proof Deep-Dive -->
+                <section class="topic-section"
+                    style="background: #f0f9ff; border: 1px solid #e0f2fe; border-radius: 12px; padding: 2.5rem;">
+                    <h2 style="color: #0369a1; margin-top: 0;">🎓 The Proof: Why $\sin^2\theta + \cos^2\theta = 1$?</h2>
+                    <p style="color: #0369a1; margin-bottom: 2rem;">This is the "Golden Identity" of trigonometry. It
+                        isn't just a formula to memorize—it's a direct consequence of the Pythagorean Theorem.</p>
+
+                    <div
+                        style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #bae6fd; font-family: serif; font-size: 1.1rem; line-height: 2;">
+                        <p>1. Start with the equation of a <strong>Unit Circle</strong> (a circle with radius $r=1$
+                            centered at the origin):</p>
+                        <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
+                            $x^2 + y^2 = 1^2$
+                        </div>
+
+                        <p>2. Define any point $(x, y)$ on this circle using <strong>Right Triangle
+                                Trigonometry</strong>. For an angle $\theta$, the horizontal leg is $x$ and the vertical
+                            leg is $y$:</p>
+                        <div style="text-align: center; margin: 1.5rem 0;">
+                            $\cos\theta = \frac{x}{1} \Rightarrow x = \cos\theta$
+                            <br>
+                            $\sin\theta = \frac{y}{1} \Rightarrow y = \sin\theta$
+                        </div>
+
+                        <p>3. Substitute these definitions back into the circle equation:</p>
+                        <div
+                            style="text-align: center; margin: 1.5rem 0; font-size: 1.5rem; color: #0284c7; font-weight: bold;">
+                            $(\cos\theta)^2 + (\sin\theta)^2 = 1$
+                        </div>
+
+                        <p>This proof connects Algebra and Trigonometry perfectly. It doesn't matter what the angle
+                            is—because the point is on the circle, the ratio MUST hold true.</p>
+                        <p style="text-align: right; font-style: italic; color: #0369a1; margin-top: 1rem;">Geometry is
+                            the container for all truth. — Practix Team</p>
+                    </div>
+                </section>
+
+                <!-- CTA Section -->
+                <section class="topic-cta">
+                    <h2>Master Every Trick.</h2>
+                    <p>The Practix app turns hours of studying into minutes of training.</p>
+                    <button class="btn-primary" onclick="window.location.href='../../index.html#waitlist'">Join the
+                        Waitlist</button>
+                </section>
+
+                <footer style="display: none;"></footer>
             </div>
-        </div>
+        </main>
     </div>
-
-    <!-- Interactive Widget -->
-    <section class="topic-section">
-        <div class="interactive-widget">
-            <div class="widget-header">
-                <h3>Unit Circle Explorer</h3>
-                <p>Drag the angle to see the coordinates and trig values change.</p>
-            </div>
-            
-            <div class="widget-input-group">
-                <label>Angle (Degrees): <span id="angle-label">30°</span></label>
-                <input type="range" id="angle-slider" min="0" max="360" value="30" step="15" style="width: 100%;">
-            </div>
-            
-            <div class="widget-output">
-                <div class="result-label">Coordinates (cos θ, sin θ):</div>
-                <div class="result-value" id="coord-result">(0.87, 0.50)</div>
-                <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 2rem; font-family: monospace;">
-                    <div>cos: <span id="cos-val">0.866</span></div>
-                    <div>sin: <span id="sin-val">0.500</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Theoretical Proof Deep-Dive -->
-    <section class="topic-section" style="background: #f0f9ff; border: 1px solid #e0f2fe; border-radius: 12px; padding: 2.5rem;">
-        <h2 style="color: #0369a1; margin-top: 0;">🎓 The Proof: Why $\sin^2\theta + \cos^2\theta = 1$?</h2>
-        <p style="color: #0369a1; margin-bottom: 2rem;">This is the "Golden Identity" of trigonometry. It isn't just a formula to memorize—it's a direct consequence of the Pythagorean Theorem.</p>
-        
-        <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #bae6fd; font-family: serif; font-size: 1.1rem; line-height: 2;">
-            <p>1. Start with the equation of a <strong>Unit Circle</strong> (a circle with radius $r=1$ centered at the origin):</p>
-            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
-                $x^2 + y^2 = 1^2$
-            </div>
-            
-            <p>2. Define any point $(x, y)$ on this circle using <strong>Right Triangle Trigonometry</strong>. For an angle $\theta$, the horizontal leg is $x$ and the vertical leg is $y$:</p>
-            <div style="text-align: center; margin: 1.5rem 0;">
-                $\cos\theta = \frac{x}{1} \Rightarrow x = \cos\theta$
-                <br>
-                $\sin\theta = \frac{y}{1} \Rightarrow y = \sin\theta$
-            </div>
-            
-            <p>3. Substitute these definitions back into the circle equation:</p>
-            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.5rem; color: #0284c7; font-weight: bold;">
-                $(\cos\theta)^2 + (\sin\theta)^2 = 1$
-            </div>
-            
-            <p>This proof connects Algebra and Trigonometry perfectly. It doesn't matter what the angle is—because the point is on the circle, the ratio MUST hold true.</p>
-            <p style="text-align: right; font-style: italic; color: #0369a1; margin-top: 1rem;">Geometry is the container for all truth. — Practix Team</p>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="topic-cta">
-        <h2>Master Every Trick.</h2>
-        <p>The Practix app turns hours of studying into minutes of training.</p>
-        <button class="btn-primary" onclick="window.location.href='../index.html#waitlist'">Join the Waitlist</button>
-    </section>
-
-    <!-- Footer managed by practix-footer.js?v=23 -->
 
     <!-- Widget Script -->
     <script>
@@ -151,10 +199,10 @@
         function update() {
             const angle = parseInt(slider.value);
             const rad = angle * (Math.PI / 180);
-            
+
             const cos = Math.cos(rad);
             const sin = Math.sin(rad);
-            
+
             angleLabel.textContent = angle + '°';
             coordResult.textContent = `(${cos.toFixed(2)}, ${sin.toFixed(2)})`;
             cosVal.textContent = cos.toFixed(3);
@@ -165,4 +213,5 @@
         update();
     </script>
 </body>
+
 </html>

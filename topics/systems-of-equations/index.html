@@ -1,170 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAT Systems of Equations: The "Lazy" Addition Trick | Practix</title>
-    <meta name="description" content="Master SAT systems of equations without solving for x and y separately. Learn the combination shortcut that saves 90 seconds per question.">
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="topics.css">
+    <meta name="description"
+        content="Master SAT systems of equations without solving for x and y separately. Learn the combination shortcut that saves 90 seconds per question.">
+    <link rel="stylesheet" href="../../assets/styles/styles.css?v=23">
+    <link rel="stylesheet" href="../topics.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <script src="../practix-footer.js?v=23"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <script src="../../assets/scripts/practix-nav.js?v=23"></script>
+    <script src="../../assets/scripts/sidebar.js"></script>
+    <script src="../../assets/scripts/practix-footer.js?v=23"></script>
+    <script src="../../assets/scripts/analytics.js"></script>
 </head>
+
 <body>
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb">
-        <a href="../index.html">Home</a> / <a href="../index.html#resources">Topics</a> / <span>Systems of Equations</span>
-    </nav>
+    <div class="page-bg"></div>
 
-    <!-- Hero Section -->
-    <section class="topic-hero">
-        <h1>SAT Systems of Equations: The Laziest Trick</h1>
-        <p class="hook">When they ask for 11x, don't solve for x. Just add the equations.</p>
-    </section>
+    <div class="page-container">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
+            <!-- JS will populate -->
+        </aside>
 
-    <!-- Main Content -->
-    <div class="topic-section">
-        <h2>The Problem</h2>
-        <p>You see this on the SAT:</p>
-        
-        <div class="formula-display" style="font-size: 1.3rem;">
-            5x - 3y = 10<br>
-            6x + 3y = 23
-        </div>
-        
-        <p><strong>Question: What is the value of 11x?</strong></p>
-        
-        <div class="common-mistake">
-            <h3>🚫 The Hard Way (90 Seconds)</h3>
-            <p>Most students try to solve for x step-by-step:</p>
-            <ol>
-                <li>Use elimination to solve for x</li>
-                <li>Plug x back in to find y</li>
-                <li>Finally, multiply x by 11</li>
-            </ol>
-            <p>This takes <strong>90+ seconds</strong> and involves 3 separate steps. But the question didn't ask for x OR y—it asked for <strong>11x</strong>.</p>
-        </div>
-        
-        <div class="shortcut">
-            <h3>✅ The Practix Shortcut (5 Seconds)</h3>
-            <p><strong>Don't solve. Just combine.</strong></p>
-            <p>Look at what happens when you <strong>add the two equations together</strong>:</p>
-            
-            <div style="font-family: 'Courier New', monospace; background: white; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
-                <pre style="margin: 0; font-size: 1.1rem;">
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search topics... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
+
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <a href="../../index.html">Home</a> / <a href="../../index.html#resources">Topics</a> /
+                    <span>Systems of Equations</span>
+                </nav>
+
+                <!-- Hero Section -->
+                <section class="topic-hero">
+                    <h1>SAT Systems of Equations: The Laziest Trick</h1>
+                    <p class="hook">When they ask for 11x, don't solve for x. Just add the equations.</p>
+                </section>
+
+                <!-- Main Content -->
+                <div class="topic-section">
+                    <h2>The Problem</h2>
+                    <p>You see this on the SAT:</p>
+
+                    <div class="formula-display" style="font-size: 1.3rem;">
+                        5x - 3y = 10<br>
+                        6x + 3y = 23
+                    </div>
+
+                    <p><strong>Question: What is the value of 11x?</strong></p>
+
+                    <div class="common-mistake">
+                        <h3>🚫 The Hard Way (90 Seconds)</h3>
+                        <p>Most students try to solve for x step-by-step:</p>
+                        <ol>
+                            <li>Use elimination to solve for x</li>
+                            <li>Plug x back in to find y</li>
+                            <li>Finally, multiply x by 11</li>
+                        </ol>
+                        <p>This takes <strong>90+ seconds</strong> and involves 3 separate steps. But the question
+                            didn't ask for x OR y—it asked for <strong>11x</strong>.</p>
+                    </div>
+
+                    <div class="shortcut">
+                        <h3>✅ The Practix Shortcut (5 Seconds)</h3>
+                        <p><strong>Don't solve. Just combine.</strong></p>
+                        <p>Look at what happens when you <strong>add the two equations together</strong>:</p>
+
+                        <div
+                            style="font-family: 'Courier New', monospace; background: white; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                            <pre style="margin: 0; font-size: 1.1rem;">
    5x - 3y = 10
 +  6x + 3y = 23
 _______________
   11x +  0  = 33
-                </pre>
+                            </pre>
+                        </div>
+
+                        <p>Notice:</p>
+                        <ul>
+                            <li>5x + 6x = <strong>11x</strong> (exactly what the question asks for!)</li>
+                            <li>-3y + 3y = <strong>0</strong> (the y terms cancel)</li>
+                            <li>10 + 23 = <strong>33</strong></li>
+                        </ul>
+                        <p><strong>Answer: 11x = 33</strong></p>
+                        <p>You're done. You never solved for x. You never solved for y. You just added two lines of
+                            algebra.</p>
+                    </div>
+
+                    <h2>When to Use This Trick</h2>
+                    <p>This works ANYTIME the question asks for a <strong>combination</strong> of variables instead of
+                        individual values. Examples:</p>
+                    <ul>
+                        <li>"What is 2x + y?"</li>
+                        <li>"What is x - 3y?"</li>
+                        <li>"What is 4x?"</li>
+                    </ul>
+                    <p><strong>Strategy:</strong> Look for ways to <em>combine</em> the equations (add, subtract,
+                        multiply) to create the exact expression they're asking for.</p>
+                </div>
+
+                <!-- Interactive Widget -->
+                <section class="topic-section">
+                    <div class="interactive-widget">
+                        <div class="widget-header">
+                            <h3>Systems Solver</h3>
+                            <p>Enter your system and see what you get by adding/subtracting.</p>
+                        </div>
+
+                        <p style="text-align: center; margin-bottom: 1rem;">
+                            <strong>Equation 1:</strong> <span id="eq1-display">5x - 3y = 10</span><br>
+                            <strong>Equation 2:</strong> <span id="eq2-display">6x + 3y = 23</span>
+                        </p>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                            <div>
+                                <label style="font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Eq1:
+                                    Coefficient of x</label>
+                                <input type="number" id="eq1-x" value="5" style="padding: 0.5rem; width: 100%;">
+                            </div>
+                            <div>
+                                <label style="font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Eq1:
+                                    Coefficient of y</label>
+                                <input type="number" id="eq1-y" value="-3" style="padding: 0.5rem; width: 100%;">
+                            </div>
+                            <div>
+                                <label style="font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Eq1:
+                                    Constant</label>
+                                <input type="number" id="eq1-c" value="10" style="padding: 0.5rem; width: 100%;">
+                            </div>
+                        </div>
+
+                        <div
+                            style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div>
+                                <label style="font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Eq2:
+                                    Coefficient of x</label>
+                                <input type="number" id="eq2-x" value="6" style="padding: 0.5rem; width: 100%;">
+                            </div>
+                            <div>
+                                <label style="font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Eq2:
+                                    Coefficient of y</label>
+                                <input type="number" id="eq2-y" value="3" style="padding: 0.5rem; width: 100%;">
+                            </div>
+                            <div>
+                                <label style="font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Eq2:
+                                    Constant</label>
+                                <input type="number" id="eq2-c" value="23" style="padding: 0.5rem; width: 100%;">
+                            </div>
+                        </div>
+
+                        <div class="widget-output">
+                            <div class="result-label">Result of Adding Equations</div>
+                            <div class="result-value" id="result-equation" style="font-size: 1.5rem;">11x = 33</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Theoretical Proof Deep-Dive -->
+                <section class="topic-section"
+                    style="background: #fff1f2; border: 1px solid #ffe4e6; border-radius: 12px; padding: 2.5rem;">
+                    <h2 style="color: #9f1239; margin-top: 0;">🎓 The Proof: Why can we just add equations?</h2>
+                    <p style="color: #9f1239; margin-bottom: 2rem;">Adding two equations together might feel like
+                        "cheating," but it is actually a rigorous property of equality. Here is the logic:</p>
+
+                    <div
+                        style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #fecdd3; font-family: serif; font-size: 1.1rem; line-height: 2;">
+                        <p>1. Start with two true statements (equations):</p>
+                        <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
+                            $LHS_1 = RHS_1$ &nbsp; and &nbsp; $LHS_2 = RHS_2$
+                        </div>
+
+                        <p>2. According to the <strong>Addition Property of Equality</strong>, you can add the same
+                            value to both sides of an equation without changing its truth. Let's add $LHS_2$ to both
+                            sides of the first equation:</p>
+                        <div style="text-align: center; margin: 1.5rem 0;">
+                            $LHS_1 + LHS_2 = RHS_1 + LHS_2$
+                        </div>
+
+                        <p>3. Since our second equation tells us that $LHS_2 = RHS_2$, we can substitute the right side:
+                        </p>
+                        <div
+                            style="text-align: center; margin: 1.5rem 0; font-size: 1.5rem; color: #e11d48; font-weight: bold;">
+                            $LHS_1 + LHS_2 = RHS_1 + RHS_2$
+                        </div>
+
+                        <p>This proves that if you have two balanced scales, and you put the contents of one onto the
+                            other, the resulting scale <em>must</em> stay balanced. This is why you can instantly
+                            combine variables to find $11x$ or $x+y$ on the SAT.</p>
+                        <p style="text-align: right; font-style: italic; color: #9f1239; margin-top: 1rem;">Algebra is
+                            the art of maintaining balance. — Practix Team</p>
+                    </div>
+                </section>
+
+                <!-- CTA Section -->
+                <section class="topic-cta">
+                    <h2>Work Smarter, Not Harder</h2>
+                    <p>Get access to 50+ problem-solving shortcuts and interactive practice.</p>
+                    <button class="btn-primary" onclick="window.location.href='../../index.html#waitlist'">Join the
+                        Waitlist</button>
+                </section>
+
+                <footer style="display: none;"></footer>
             </div>
-            
-            <p>Notice:</p>
-            <ul>
-                <li>5x + 6x = <strong>11x</strong> (exactly what the question asks for!)</li>
-                <li>-3y + 3y = <strong>0</strong> (the y terms cancel)</li>
-                <li>10 + 23 = <strong>33</strong></li>
-            </ul>
-            <p><strong>Answer: 11x = 33</strong></p>
-            <p>You're done. You never solved for x. You never solved for y. You just added two lines of algebra.</p>
-        </div>
-        
-        <h2>When to Use This Trick</h2>
-        <p>This works ANYTIME the question asks for a <strong>combination</strong> of variables instead of individual values. Examples:</p>
-        <ul>
-            <li>"What is 2x + y?"</li>
-            <li>"What is x - 3y?"</li>
-            <li>"What is 4x?"</li>
-        </ul>
-        <p><strong>Strategy:</strong> Look for ways to <em>combine</em> the equations (add, subtract, multiply) to create the exact expression they're asking for.</p>
+        </main>
     </div>
-
-    <!-- Interactive Widget -->
-    <section class="topic-section">
-        <div class="interactive-widget">
-            <div class="widget-header">
-                <h3>Systems Solver</h3>
-                <p>Enter your system and see what you get by adding/subtracting.</p>
-            </div>
-            
-            <p style="text-align: center; margin-bottom: 1rem;">
-                <strong>Equation 1:</strong> <span id="eq1-display">5x - 3y = 10</span><br>
-                <strong>Equation 2:</strong> <span id="eq2-display">6x + 3y = 23</span>
-            </p>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                <div>
-                    <label style="font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Eq1: Coefficient of x</label>
-                    <input type="number" id="eq1-x" value="5" style="padding: 0.5rem; width: 100%;">
-                </div>
-                <div>
-                    <label style="font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Eq1: Coefficient of y</label>
-                    <input type="number" id="eq1-y" value="-3" style="padding: 0.5rem; width: 100%;">
-                </div>
-                <div>
-                    <label style="font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Eq1: Constant</label>
-                    <input type="number" id="eq1-c" value="10" style="padding: 0.5rem; width: 100%;">
-                </div>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
-                <div>
-                    <label style="font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Eq2: Coefficient of x</label>
-                    <input type="number" id="eq2-x" value="6" style="padding: 0.5rem; width: 100%;">
-                </div>
-                <div>
-                    <label style="font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Eq2: Coefficient of y</label>
-                    <input type="number" id="eq2-y" value="3" style="padding: 0.5rem; width: 100%;">
-                </div>
-                <div>
-                    <label style="font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Eq2: Constant</label>
-                    <input type="number" id="eq2-c" value="23" style="padding: 0.5rem; width: 100%;">
-                </div>
-            </div>
-            
-            <div class="widget-output">
-                <div class="result-label">Result of Adding Equations</div>
-                <div class="result-value" id="result-equation" style="font-size: 1.5rem;">11x = 33</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Theoretical Proof Deep-Dive -->
-    <section class="topic-section" style="background: #fff1f2; border: 1px solid #ffe4e6; border-radius: 12px; padding: 2.5rem;">
-        <h2 style="color: #9f1239; margin-top: 0;">🎓 The Proof: Why can we just add equations?</h2>
-        <p style="color: #9f1239; margin-bottom: 2rem;">Adding two equations together might feel like "cheating," but it is actually a rigorous property of equality. Here is the logic:</p>
-        
-        <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #fecdd3; font-family: serif; font-size: 1.1rem; line-height: 2;">
-            <p>1. Start with two true statements (equations):</p>
-            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
-                $LHS_1 = RHS_1$ &nbsp; and &nbsp; $LHS_2 = RHS_2$
-            </div>
-            
-            <p>2. According to the <strong>Addition Property of Equality</strong>, you can add the same value to both sides of an equation without changing its truth. Let's add $LHS_2$ to both sides of the first equation:</p>
-            <div style="text-align: center; margin: 1.5rem 0;" >
-                $LHS_1 + LHS_2 = RHS_1 + LHS_2$
-            </div>
-            
-            <p>3. Since our second equation tells us that $LHS_2 = RHS_2$, we can substitute the right side:</p>
-            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.5rem; color: #e11d48; font-weight: bold;">
-                $LHS_1 + LHS_2 = RHS_1 + RHS_2$
-            </div>
-            
-            <p>This proves that if you have two balanced scales, and you put the contents of one onto the other, the resulting scale <em>must</em> stay balanced. This is why you can instantly combine variables to find $11x$ or $x+y$ on the SAT.</p>
-            <p style="text-align: right; font-style: italic; color: #9f1239; margin-top: 1rem;">Algebra is the art of maintaining balance. — Practix Team</p>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="topic-cta">
-        <h2>Work Smarter, Not Harder</h2>
-        <p>Get access to 50+ problem-solving shortcuts and interactive practice.</p>
-        <button class="btn-primary" onclick="window.location.href='../index.html#waitlist'">Join the Waitlist</button>
-    </section>
-
-    <!-- Footer managed by practix-footer.js?v=23 -->
 
     <!-- Widget Script -->
     <script>
@@ -219,4 +277,5 @@ _______________
         updateSystem();
     </script>
 </body>
+
 </html>

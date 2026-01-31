@@ -1,186 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAT Quadratic Equations: The Sum of Roots Shortcut | Practix</title>
-    <meta name="description" content="Master SAT quadratic equations in 5 minutes. Learn the sum and product of roots shortcut that saves 2+ minutes per question.">
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="topics.css">
+    <meta name="description"
+        content="Master SAT quadratic equations in 5 minutes. Learn the sum and product of roots shortcut that saves 2+ minutes per question.">
+    <link rel="stylesheet" href="../../assets/styles/styles.css?v=23">
+    <link rel="stylesheet" href="../topics.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <script src="../practix-nav.js?v=23"></script>
-    <script src="../practix-footer.js?v=23"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="../../assets/scripts/practix-nav.js?v=23"></script>
+    <script src="../../assets/scripts/sidebar.js"></script>
+    <script src="../../assets/scripts/practix-footer.js?v=23"></script>
+    <script src="../../assets/scripts/analytics.js"></script>
 </head>
+
 <body>
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb">
-        <a href="../index.html">Home</a> / <a href="../index.html#resources">Topics</a> / <span>Quadratic Equations</span>
-    </nav>
+    <div class="page-bg"></div>
 
-    <!-- Hero Section -->
-    <section class="topic-hero">
-        <h1>SAT Quadratic Equations: The 5-Minute Shortcut</h1>
-        <p class="hook">Stop wasting time on the Quadratic Formula when the question doesn't even ask for X.</p>
-    </section>
+    <div class="page-container">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
+            <!-- JS will populate -->
+        </aside>
 
-    <!-- Main Content -->
-    <div class="topic-section">
-        <h2>The Problem</h2>
-        <p>You see this on the SAT:</p>
-        
-        <div class="formula-display">
-            3x² - 18x + 7 = 0
-        </div>
-        
-        <p><strong>Question: What is the SUM of the solutions?</strong></p>
-        
-        <div class="common-mistake">
-            <h3>🚫 The Trap (What 90% of Students Do)</h3>
-            <p>Most students immediately reach for the Quadratic Formula:</p>
-            <div class="formula-display" style="font-size: 1.2rem;">
-                x = (-b ± √(b² - 4ac)) / 2a
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search topics... (Press '/')">
             </div>
-            <p>They spend 2 minutes calculating both roots, adding them together, and <em>then</em> realize there was a faster way. Time wasted: <strong>90-120 seconds</strong>.</p>
-        </div>
-        
-        <div class="shortcut">
-            <h3>✅ The Practix Shortcut (3 Seconds)</h3>
-            <p>Use <strong>Vieta's Formula</strong> for the sum of roots:</p>
-            <div class="formula-display">
-                Sum of Roots = -b/a
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
             </div>
-            <p>For the equation <code>3x² - 18x + 7 = 0</code>:</p>
-            <ul>
-                <li><strong>b</strong> = -18</li>
-                <li><strong>a</strong> = 3</li>
-                <li><strong>Sum</strong> = -(-18)/3 = <strong>6</strong></li>
-            </ul>
-            <p>That's it. You're done. The answer is <strong>6</strong>.</p>
-        </div>
-        
-        <h2>Step-by-Step Guide</h2>
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                    <h4>Identify a, b, and c</h4>
-                    <p>From <code>ax² + bx + c = 0</code>, note that <strong>a = 3</strong>, <strong>b = -18</strong>, <strong>c = 7</strong>.</p>
+        </aside>
+
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <a href="../../index.html">Home</a> / <a href="../../index.html#resources">Topics</a> /
+                    <span>Quadratic Equations</span>
+                </nav>
+
+                <!-- Hero Section -->
+                <section class="topic-hero">
+                    <h1>SAT Quadratic Equations: The 5-Minute Shortcut</h1>
+                    <p class="hook">Stop wasting time on the Quadratic Formula when the question doesn't even ask for X.
+                    </p>
+                </section>
+
+                <!-- Main Content -->
+                <div class="topic-section">
+                    <h2>The Problem</h2>
+                    <p>You see this on the SAT:</p>
+
+                    <div class="formula-display">
+                        3x² - 18x + 7 = 0
+                    </div>
+
+                    <p><strong>Question: What is the SUM of the solutions?</strong></p>
+
+                    <div class="common-mistake">
+                        <h3>🚫 The Trap (What 90% of Students Do)</h3>
+                        <p>Most students immediately reach for the Quadratic Formula:</p>
+                        <div class="formula-display" style="font-size: 1.2rem;">
+                            x = (-b ± √(b² - 4ac)) / 2a
+                        </div>
+                        <p>They spend 2 minutes calculating both roots, adding them together, and <em>then</em> realize
+                            there was a faster way. Time wasted: <strong>90-120 seconds</strong>.</p>
+                    </div>
+
+                    <div class="shortcut">
+                        <h3>✅ The Practix Shortcut (3 Seconds)</h3>
+                        <p>Use <strong>Vieta's Formula</strong> for the sum of roots:</p>
+                        <div class="formula-display">
+                            Sum of Roots = -b/a
+                        </div>
+                        <p>For the equation <code>3x² - 18x + 7 = 0</code>:</p>
+                        <ul>
+                            <li><strong>b</strong> = -18</li>
+                            <li><strong>a</strong> = 3</li>
+                            <li><strong>Sum</strong> = -(-18)/3 = <strong>6</strong></li>
+                        </ul>
+                        <p>That's it. You're done. The answer is <strong>6</strong>.</p>
+                    </div>
+
+                    <h2>Step-by-Step Guide</h2>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Identify a, b, and c</h4>
+                                <p>From <code>ax² + bx + c = 0</code>, note that <strong>a = 3</strong>, <strong>b =
+                                        -18</strong>, <strong>c = 7</strong>.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Apply Vieta's Formula</h4>
+                                <p>Sum of roots = <code>-b/a = -(-18)/3 = 18/3 = 6</code></p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Done!</h4>
+                                <p>You didn't solve for x₁ or x₂. You went straight to the answer.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>Bonus: Product of Roots</h2>
+                    <p>If the question asks for the <strong>PRODUCT</strong> of the roots instead:</p>
+                    <div class="formula-display">
+                        Product of Roots = c/a
+                    </div>
+                    <p>For our example: <code>7/3</code></p>
                 </div>
+
+                <!-- Interactive Widget -->
+                <section class="topic-section">
+                    <div class="interactive-widget">
+                        <div class="widget-header">
+                            <h3>Try It Yourself</h3>
+                            <p>Enter a quadratic equation and get the sum/product instantly.</p>
+                        </div>
+
+                        <div class="widget-input-group">
+                            <label>Coefficient a (from ax²):</label>
+                            <input type="number" id="coeff-a" value="3" placeholder="e.g., 3">
+                        </div>
+
+                        <div class="widget-input-group">
+                            <label>Coefficient b (from bx):</label>
+                            <input type="number" id="coeff-b" value="-18" placeholder="e.g., -18">
+                        </div>
+
+                        <div class="widget-input-group">
+                            <label>Coefficient c (constant):</label>
+                            <input type="number" id="coeff-c" value="7" placeholder="e.g., 7">
+                        </div>
+
+                        <div class="widget-output">
+                            <div class="result-label">Sum of Roots</div>
+                            <div class="result-value" id="sum-result">6</div>
+
+                            <div class="result-label" style="margin-top: 1rem;">Product of Roots</div>
+                            <div class="result-value" id="product-result" style="font-size: 1.8rem;">2.33</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Theoretical Proof Deep-Dive: Sum of Roots -->
+                <section class="topic-section"
+                    style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2.5rem; margin-bottom: 2rem;">
+                    <h2 style="color: #0f172a; margin-top: 0;">🎓 The Proof: Why $Sum = -b/a$</h2>
+                    <p style="color: #475569; margin-bottom: 2rem;">For students aiming for an 800, knowing the "trick"
+                        isn't enough. Here is the rigorous derivation:</p>
+
+                    <div
+                        style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #cbd5e1; font-family: serif; font-size: 1.1rem; line-height: 2;">
+                        <p>1. Start with the two solutions ($x_1$ and $x_2$) from the <strong>Quadratic
+                                Formula</strong>:</p>
+                        <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
+                            $x_1 = \frac{-b + \sqrt{D}}{2a}, \quad x_2 = \frac{-b - \sqrt{D}}{2a}$
+                        </div>
+                        <p>2. Add them together and combine the fractions:</p>
+                        <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
+                            $Sum = \frac{-b + \sqrt{D} - b - \sqrt{D}}{2a}$
+                        </div>
+                        <p>3. Notice that $\sqrt{D}$ cancels out perfectly:</p>
+                        <div
+                            style="text-align: center; margin: 1.5rem 0; font-size: 1.5rem; color: #10b981; font-weight: bold;">
+                            $Sum = \frac{-2b}{2a} = -\frac{b}{a}$
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Theoretical Proof Deep-Dive: Product of Roots -->
+                <section class="topic-section"
+                    style="background: #f0fdf4; border: 1px solid #dcfce7; border-radius: 12px; padding: 2.5rem;">
+                    <h2 style="color: #166534; margin-top: 0;">🎓 The Proof: Why $Product = c/a$</h2>
+                    <p style="color: #166534; margin-bottom: 2rem;">The Product of Roots follows a similar logic, but
+                        uses the "Difference of Squares" pattern:</p>
+
+                    <div
+                        style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #bbf7d0; font-family: serif; font-size: 1.1rem; line-height: 2;">
+                        <p>1. Multiply the two solutions together:</p>
+                        <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
+                            $Product = \left(\frac{-b + \sqrt{D}}{2a}\right) \cdot \left(\frac{-b -
+                            \sqrt{D}}{2a}\right)$
+                        </div>
+                        <p>2. The numerator is a <strong>Difference of Squares</strong> $(X+Y)(X-Y) = X^2 - Y^2$:</p>
+                        <div style="text-align: center; margin: 1.5rem 0;">
+                            $Product = \frac{(-b)^2 - (\sqrt{D})^2}{(2a)^2} = \frac{b^2 - D}{4a^2}$
+                        </div>
+                        <p>3. Substitute the definition of the discriminant ($D = b^2 - 4ac$):</p>
+                        <div style="text-align: center; margin: 1.5rem 0;">
+                            $Product = \frac{b^2 - (b^2 - 4ac)}{4a^2}$
+                        </div>
+                        <p>4. Simplify the numerator (the $b^2$ terms cancel):</p>
+                        <div
+                            style="text-align: center; margin: 1.5rem 0; font-size: 1.5rem; color: #059669; font-weight: bold;">
+                            $Product = \frac{4ac}{4a^2} = \frac{c}{a}$
+                        </div>
+                        <p style="text-align: right; font-style: italic; color: #166534; margin-top: 1rem;">The beauty
+                            of algebra is that it always simplifies to the truth. — Practix Team</p>
+                    </div>
+                </section>
+
+                <!-- CTA Section -->
+                <section class="topic-cta">
+                    <h2>Master All 22 Hard SAT Topics</h2>
+                    <p>Get access to interactive simulations, weekly challenges, and the full shortcut library.</p>
+                </section>
+
+                <footer style="display: none;"></footer>
             </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                    <h4>Apply Vieta's Formula</h4>
-                    <p>Sum of roots = <code>-b/a = -(-18)/3 = 18/3 = 6</code></p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                    <h4>Done!</h4>
-                    <p>You didn't solve for x₁ or x₂. You went straight to the answer.</p>
-                </div>
-            </div>
-        </div>
-        
-        <h2>Bonus: Product of Roots</h2>
-        <p>If the question asks for the <strong>PRODUCT</strong> of the roots instead:</p>
-        <div class="formula-display">
-            Product of Roots = c/a
-        </div>
-        <p>For our example: <code>7/3</code></p>
+        </main>
     </div>
-
-    <!-- Interactive Widget -->
-    <section class="topic-section">
-        <div class="interactive-widget">
-            <div class="widget-header">
-                <h3>Try It Yourself</h3>
-                <p>Enter a quadratic equation and get the sum/product instantly.</p>
-            </div>
-            
-            <div class="widget-input-group">
-                <label>Coefficient a (from ax²):</label>
-                <input type="number" id="coeff-a" value="3" placeholder="e.g., 3">
-            </div>
-            
-            <div class="widget-input-group">
-                <label>Coefficient b (from bx):</label>
-                <input type="number" id="coeff-b" value="-18" placeholder="e.g., -18">
-            </div>
-            
-            <div class="widget-input-group">
-                <label>Coefficient c (constant):</label>
-                <input type="number" id="coeff-c" value="7" placeholder="e.g., 7">
-            </div>
-            
-            <div class="widget-output">
-                <div class="result-label">Sum of Roots</div>
-                <div class="result-value" id="sum-result">6</div>
-                
-                <div class="result-label" style="margin-top: 1rem;">Product of Roots</div>
-                <div class="result-value" id="product-result" style="font-size: 1.8rem;">2.33</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Theoretical Proof Deep-Dive: Sum of Roots -->
-    <section class="topic-section" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2.5rem; margin-bottom: 2rem;">
-        <h2 style="color: #0f172a; margin-top: 0;">🎓 The Proof: Why $Sum = -b/a$</h2>
-        <p style="color: #475569; margin-bottom: 2rem;">For students aiming for an 800, knowing the "trick" isn't enough. Here is the rigorous derivation:</p>
-        
-        <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #cbd5e1; font-family: serif; font-size: 1.1rem; line-height: 2;">
-            <p>1. Start with the two solutions ($x_1$ and $x_2$) from the <strong>Quadratic Formula</strong>:</p>
-            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
-                $x_1 = \frac{-b + \sqrt{D}}{2a}, \quad x_2 = \frac{-b - \sqrt{D}}{2a}$
-            </div>
-            <p>2. Add them together and combine the fractions:</p>
-            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
-                $Sum = \frac{-b + \sqrt{D} - b - \sqrt{D}}{2a}$
-            </div>
-            <p>3. Notice that $\sqrt{D}$ cancels out perfectly:</p>
-            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.5rem; color: #10b981; font-weight: bold;">
-                $Sum = \frac{-2b}{2a} = -\frac{b}{a}$
-            </div>
-        </div>
-    </section>
-
-    <!-- Theoretical Proof Deep-Dive: Product of Roots -->
-    <section class="topic-section" style="background: #f0fdf4; border: 1px solid #dcfce7; border-radius: 12px; padding: 2.5rem;">
-        <h2 style="color: #166534; margin-top: 0;">🎓 The Proof: Why $Product = c/a$</h2>
-        <p style="color: #166534; margin-bottom: 2rem;">The Product of Roots follows a similar logic, but uses the "Difference of Squares" pattern:</p>
-        
-        <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #bbf7d0; font-family: serif; font-size: 1.1rem; line-height: 2;">
-            <p>1. Multiply the two solutions together:</p>
-            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
-                $Product = \left(\frac{-b + \sqrt{D}}{2a}\right) \cdot \left(\frac{-b - \sqrt{D}}{2a}\right)$
-            </div>
-            <p>2. The numerator is a <strong>Difference of Squares</strong> $(X+Y)(X-Y) = X^2 - Y^2$:</p>
-            <div style="text-align: center; margin: 1.5rem 0;">
-                $Product = \frac{(-b)^2 - (\sqrt{D})^2}{(2a)^2} = \frac{b^2 - D}{4a^2}$
-            </div>
-            <p>3. Substitute the definition of the discriminant ($D = b^2 - 4ac$):</p>
-            <div style="text-align: center; margin: 1.5rem 0;">
-                $Product = \frac{b^2 - (b^2 - 4ac)}{4a^2}$
-            </div>
-            <p>4. Simplify the numerator (the $b^2$ terms cancel):</p>
-            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.5rem; color: #059669; font-weight: bold;">
-                $Product = \frac{4ac}{4a^2} = \frac{c}{a}$
-            </div>
-            <p style="text-align: right; font-style: italic; color: #166534; margin-top: 1rem;">The beauty of algebra is that it always simplifies to the truth. — Practix Team</p>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="topic-cta">
-        <h2>Master All 22 Hard SAT Topics</h2>
-        <p>Get access to interactive simulations, weekly challenges, and the full shortcut library.</p>
-        <!-- <button class="btn-primary" onclick="window.location.href='../index.html#waitlist'">Join the Waitlist</button> -->
-    </section>
-
-    <!-- Footer managed by practix-footer.js?v=23 -->
 
     <!-- Widget Script -->
     <script>
@@ -216,4 +264,5 @@
         calculate();
     </script>
 </body>
+
 </html>

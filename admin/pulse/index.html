@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,10 @@
     <link rel="stylesheet" href="../../assets/styles/styles.css?v=23">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="../../assets/scripts/pulse-relay.js"></script>
     <style>
         :root {
             --pulse-primary: #6366f1;
@@ -67,9 +71,17 @@
         }
 
         @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0.4; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         .stats-grid {
@@ -83,7 +95,7 @@
             background: var(--pulse-card);
             padding: 1.5rem;
             border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             border: 1px solid #e2e8f0;
         }
 
@@ -144,8 +156,15 @@
         }
 
         @keyframes slideIn {
-            from { transform: translateX(-10px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+            from {
+                transform: translateX(-10px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         .event-time {
@@ -162,8 +181,14 @@
             border-bottom: 1px solid #f1f5f9;
         }
 
-        .funnel-label { font-size: 0.9rem; }
-        .funnel-perc { font-weight: 600; color: var(--pulse-primary); }
+        .funnel-label {
+            font-size: 0.9rem;
+        }
+
+        .funnel-perc {
+            font-weight: 600;
+            color: var(--pulse-primary);
+        }
 
         .leaderboard-item {
             display: flex;
@@ -193,10 +218,11 @@
         }
     </style>
 </head>
+
 <body>
     <div class="dashboard-container">
         <header>
-            <div class="logo-text">Practix Pulse</div>
+            <div class="logo-text">Practix Pulse Engine v2</div>
             <div class="status-badge">
                 <div class="status-dot"></div>
                 Live Monitoring Active
@@ -216,6 +242,10 @@
                 <div class="stat-label">Waitlist Conversion</div>
                 <div class="stat-value" id="conversion-rate">--</div>
             </div>
+            <div class="stat-card" style="border-left: 4px solid var(--pulse-primary); background: #f5f7ff;">
+                <div class="stat-label">Wallpaper Downloads (Daily)</div>
+                <div class="stat-value" id="wallpaper-downloads">0</div>
+            </div>
         </div>
 
         <div class="main-content">
@@ -231,105 +261,180 @@
             <div class="panel">
                 <div class="panel-header">
                     <div class="panel-title">Popularity Leaderboard</div>
-                    <select id="timeframe-selector" style="font-size: 0.75rem; border: 1px solid #e2e8f0; border-radius: 4px; padding: 0.2rem;">
+                    <select id="timeframe-selector"
+                        style="font-size: 0.75rem; border: 1px solid #e2e8f0; border-radius: 4px; padding: 0.2rem;">
                         <option value="daily">Daily</option>
                         <option value="monthly">Monthly</option>
                         <option value="yearly">Yearly</option>
                     </select>
                 </div>
-                
+
                 <div id="leaderboard-content">
                     <div style="margin-bottom: 1.5rem;">
-                        <div class="funnel-step" style="border-bottom: none; margin-bottom: 0.5rem;"><span class="funnel-label" style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; color: #64748b;">Top Formulas</span></div>
-                        <div class="leaderboard-item"><span>1. Vertex & Discriminant</span><span class="count">1,240</span></div>
-                        <div class="leaderboard-item"><span>2. Circle Equations</span><span class="count">980</span></div>
-                        <div class="leaderboard-item"><span>3. Sum/Product of Roots</span><span class="count">850</span></div>
+                        <div class="funnel-step" style="border-bottom: none; margin-bottom: 0.5rem;"><span
+                                class="funnel-label"
+                                style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; color: #64748b;">Top
+                                Formulas</span></div>
+                        <div class="leaderboard-item"><span>1. Vertex & Discriminant</span><span
+                                class="count">1,240</span></div>
+                        <div class="leaderboard-item"><span>2. Circle Equations</span><span class="count">980</span>
+                        </div>
+                        <div class="leaderboard-item"><span>3. Sum/Product of Roots</span><span class="count">850</span>
+                        </div>
                     </div>
 
                     <div style="margin-bottom: 1.5rem;">
-                        <div class="funnel-step" style="border-bottom: none; margin-bottom: 0.5rem;"><span class="funnel-label" style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; color: #64748b;">Hard Questions</span></div>
-                        <div class="leaderboard-item"><span>1. The "Impossible" Division</span><span class="count">1,420</span></div>
-                        <div class="leaderboard-item"><span>2. The Hidden Circle</span><span class="count">1,110</span></div>
-                        <div class="leaderboard-item"><span>3. The System Illusion</span><span class="count">1,020</span></div>
+                        <div class="funnel-step" style="border-bottom: none; margin-bottom: 0.5rem;"><span
+                                class="funnel-label"
+                                style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; color: #64748b;">Hard
+                                Questions</span></div>
+                        <div class="leaderboard-item"><span>1. The "Impossible" Division</span><span
+                                class="count">1,420</span></div>
+                        <div class="leaderboard-item"><span>2. The Hidden Circle</span><span class="count">1,110</span>
+                        </div>
+                        <div class="leaderboard-item"><span>3. The System Illusion</span><span
+                                class="count">1,020</span></div>
                     </div>
 
-                    <div>
-                        <div class="funnel-step" style="border-bottom: none; margin-bottom: 0.5rem;"><span class="funnel-label" style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; color: #64748b;">Desmos Moves</span></div>
-                        <div class="leaderboard-item"><span>1. Regression Magic Code</span><span class="count">2,100</span></div>
-                        <div class="leaderboard-item"><span>2. The Slider Hack</span><span class="count">1,850</span></div>
-                        <div class="leaderboard-item"><span>3. Statistics Visualization</span><span class="count">1,340</span></div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <div class="funnel-step" style="border-bottom: none; margin-bottom: 0.5rem;"><span
+                                class="funnel-label"
+                                style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; color: #64748b;">Desmos
+                                Moves</span></div>
+                        <div class="leaderboard-item"><span>1. Regression Magic Code</span><span
+                                class="count">2,100</span></div>
+                        <div class="leaderboard-item"><span>2. The Slider Hack</span><span class="count">1,850</span>
+                        </div>
+                        <div class="leaderboard-item"><span>3. Statistics Visualization</span><span
+                                class="count">1,340</span></div>
                     </div>
-                </div>
 
-                <div class="funnel-step" style="margin-top:2rem; border-top: 1px solid #f1f5f9; padding-top: 1rem;">
-                    <span class="funnel-label">Analytics Health</span>
-                </div>
-                <div class="funnel-step">
-                    <span class="funnel-label">GA4 Stream</span>
-                    <span class="funnel-perc" id="ga-status">Connected</span>
-                </div>
-                <div class="funnel-step">
-                    <span class="funnel-label">Event Engine</span>
-                    <span class="funnel-perc" style="color:var(--pulse-success)">Active</span>
+                    <div style="margin-bottom: 1.5rem;">
+                        <div class="funnel-step" style="border-bottom: none; margin-bottom: 0.5rem;"><span
+                                class="funnel-label"
+                                style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; color: #6366f1;">Top
+                                Wallpapers</span></div>
+                        <div class="leaderboard-item"><span>1. Desmos Magic Code</span><span class="count"
+                                id="wp-1-count">0</span></div>
+                        <div class="leaderboard-item"><span>2. Boss Mode: Traps</span><span class="count"
+                                id="wp-2-count">0</span></div>
+                        <div class="leaderboard-item"><span>3. Lock Screen 800</span><span class="count"
+                                id="wp-3-count">0</span></div>
+                    </div>
+
+                    <div class="funnel-step" style="margin-top:2rem; border-top: 1px solid #f1f5f9; padding-top: 1rem;">
+                        <span class="funnel-label">Analytics Health</span>
+                    </div>
+                    <div class="funnel-step">
+                        <span class="funnel-label">GA4 Stream</span>
+                        <span class="funnel-perc" id="ga-status">Connected</span>
+                    </div>
+                    <div class="funnel-step">
+                        <span class="funnel-label">Event Engine</span>
+                        <span class="funnel-perc" style="color:var(--pulse-success)">Active</span>
+                    </div>
                 </div>
             </div>
+
+            <footer>
+                &copy; 2026 Admin Dashboard for Practix.org
+            </footer>
         </div>
 
-        <footer>
-            &copy; 2026 Admin Dashboard for Practix.org
-        </footer>
-    </div>
+        <script>
+            const eventStream = document.getElementById('stream');
+            const activeUsersEl = document.getElementById('active-users');
+            const masteryIntensityEl = document.getElementById('mastery-intensity');
+            const conversionRateEl = document.getElementById('conversion-rate');
 
-    <script>
-        const eventStream = document.getElementById('stream');
-        const activeUsersEl = document.getElementById('active-users');
-        const masteryIntensityEl = document.getElementById('mastery-intensity');
-        const conversionRateEl = document.getElementById('conversion-rate');
+            const ACTIONS = [
+                "Formula Mastered: Sum of Roots",
+                "Formula Mastered: Circle Equation",
+                "Hard Question Reveal: The System Illusion",
+                "Waitlist Intent: Header CTA",
+                "Desmos Shortcut Copied: Regression",
+                "Page View: Hard Questions Hub",
+                "Wallpaper Download: Desmos Magic",
+                "Wallpaper Download: Boss Mode Traps",
+                "Wallpaper Download: Lock Screen 800"
+            ];
 
-        const ACTIONS = [
-            "Formula Mastered: Sum of Roots",
-            "Formula Mastered: Circle Equation",
-            "Hard Question Reveal: The System Illusion",
-            "Waitlist Intent: Header CTA",
-            "Desmos Shortcut Copied: Regression",
-            "Page View: Hard Questions Hub"
-        ];
+            function addEvent(text) {
+                const now = new Date();
+                const timeStr = now.getHours().toString().padStart(2, '0') + ":" +
+                    now.getMinutes().toString().padStart(2, '0') + ":" +
+                    now.getSeconds().toString().padStart(2, '0');
 
-        function addEvent(text) {
-            const now = new Date();
-            const timeStr = now.getHours().toString().padStart(2, '0') + ":" + 
-                           now.getMinutes().toString().padStart(2, '0') + ":" + 
-                           now.getSeconds().toString().padStart(2, '0');
-            
-            const div = document.createElement('div');
-            div.className = 'event-item';
-            div.innerHTML = `<div class="event-time">${timeStr}</div><div>${text}</div>`;
-            
-            eventStream.prepend(div);
-            if (eventStream.children.length > 20) {
-                eventStream.removeChild(eventStream.lastChild);
+                const div = document.createElement('div');
+                div.className = 'event-item';
+                div.innerHTML = `<div class="event-time">${timeStr}</div><div>${text}</div>`;
+
+                eventStream.prepend(div);
+                if (eventStream.children.length > 20) {
+                    eventStream.removeChild(eventStream.lastChild);
+                }
             }
-        }
 
-        // Simulate real-time data for initial monitor
-        let count = 0;
-        function simulate() {
-            if (Math.random() > 0.6) {
-                const action = ACTIONS[Math.floor(Math.random() * ACTIONS.length)];
-                addEvent(action);
+            // Real-time data counters
+            let totalDownloads = 0;
+            let wpCounts = [0, 0, 0];
+
+            async function initLiveDashboard() {
+                if (!window.PulseRelay) return;
+
+                addEvent("Connecting to Pulse Relay...");
+
+                // 1. Fetch initial snapshots
+                totalDownloads = await PulseRelay.getCounts('wallpaper_download');
+                wpCounts[0] = await PulseRelay.getCounts('wallpaper_download', { wallpaper_name: 'Desmos God Mode' });
+                wpCounts[1] = await PulseRelay.getCounts('wallpaper_download', { wallpaper_name: 'The Trap Radar' });
+                // Note: Logic for third might vary based on your labels
+
+                updateUI();
+
+                // 2. Subscribe to live updates
+                PulseRelay.subscribe((payload) => {
+                    const event = payload.event_name;
+                    const params = payload.params || {};
+
+                    addEvent(`${event.replace(/_/g, ' ')}: ${params.wallpaper_name || params.formula_id || ''}`);
+
+                    if (event === 'wallpaper_download') {
+                        totalDownloads++;
+                        if (params.wallpaper_name?.includes('Desmos')) wpCounts[0]++;
+                        else if (params.wallpaper_name?.includes('Trap')) wpCounts[1]++;
+                        else wpCounts[2]++;
+                    }
+
+                    updateUI();
+                });
+
+                addEvent("Live Relay Active. Tracking globally.");
+                document.getElementById('ga-status').innerText = "Relay Active";
+                document.getElementById('ga-status').style.color = "var(--pulse-success)";
             }
-            
-            // Randomly update stats
-            activeUsersEl.innerText = Math.floor(100 + Math.random() * 25); // Baseline 100+
-            masteryIntensityEl.innerText = (88 + Math.random() * 8).toFixed(1) + "%";
-            conversionRateEl.innerText = (5.1 + Math.random() * 0.7).toFixed(1) + "%";
 
-            setTimeout(simulate, 2000 + Math.random() * 3000);
-        }
+            function updateUI() {
+                try {
+                    const wallDlEl = document.getElementById('wallpaper-downloads');
+                    if (wallDlEl) wallDlEl.innerText = totalDownloads.toLocaleString();
 
-        simulate();
-        addEvent("Practix Pulse Engine Initialized.");
-        addEvent("Awaiting live data streams from GA4...");
-    </script>
+                    const wp1 = document.getElementById('wp-1-count');
+                    const wp2 = document.getElementById('wp-2-count');
+                    const wp3 = document.getElementById('wp-3-count');
+
+                    if (wp1) wp1.innerText = wpCounts[0].toLocaleString();
+                    if (wp2) wp2.innerText = wpCounts[1].toLocaleString();
+                    if (wp3) wp3.innerText = wpCounts[2].toLocaleString();
+
+                } catch (e) {
+                    console.error("Pulse Engine UI Update Error:", e);
+                }
+            }
+
+            // Start live engine
+            initLiveDashboard();
+        </script>
 </body>
+
 </html>

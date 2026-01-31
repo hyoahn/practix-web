@@ -1,164 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- SEO Meta Tags -->
     <title>SAT Discriminant Trick: How Many Solutions? | Practix</title>
-    <meta name="description" content="Stop solving quadratic equations. Learn the SAT discriminant trick to find the number of solutions in 5 seconds. Perfect for Module 2 hard questions.">
-    <meta name="keywords" content="SAT discriminant, number of solutions quadratic SAT, b2-4ac trick, Digital SAT math shortcuts">
-    
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="topics.css">
+    <meta name="description"
+        content="Stop solving quadratic equations. Learn the SAT discriminant trick to find the number of solutions in 5 seconds. Perfect for Module 2 hard questions.">
+    <meta name="keywords"
+        content="SAT discriminant, number of solutions quadratic SAT, b2-4ac trick, Digital SAT math shortcuts">
+
+    <link rel="stylesheet" href="../../assets/styles/styles.css?v=23">
+    <link rel="stylesheet" href="../topics.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
     <!-- Shared Navigation -->
-    <script src="../practix-nav.js?v=23"></script>
-    <script src="../practix-footer.js?v=23"></script>
+    <script src="../../assets/scripts/practix-nav.js?v=23"></script>
+    <script src="../../assets/scripts/sidebar.js"></script>
+    <script src="../../assets/scripts/practix-footer.js?v=23"></script>
+    <script src="../../assets/scripts/analytics.js"></script>
 </head>
-<body class="content-page">
+
+<body>
     <div class="page-bg"></div>
-    
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb">
-        <a href="../index.html">Home</a> / <a href="../index.html#resources">Topics</a> / <span>The Discriminant Trick</span>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="topic-hero">
-        <h1>SAT Discriminant: "How Many Solutions?"</h1>
-        <p class="hook">If the question asks "how many," don't solve for X. Use the discriminant and finish in 5 seconds.</p>
-    </section>
+    <div class="page-container">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
+            <!-- JS will populate -->
+        </aside>
 
-    <!-- Main Content -->
-    <div class="topic-section">
-        <h2>The Problem</h2>
-        <p>You see this on the Digital SAT:</p>
-        
-        <div class="formula-display">
-            \(3x^2 - 5x + p = 0\)
-            <br>
-            For what value of \(p\) does the equation have <strong>exactly one</strong> real solution?
-        </div>
-        
-        <p><strong>The Trap:</strong> Trying to use the full quadratic formula or factoring. If the question mentions the <em>number</em> of solutions, you only need one piece of the formula.</p>
-
-        <div class="shortcut">
-            <h3>✅ The Discriminant Hack (\(b^2 - 4ac\))</h3>
-            <p>The part under the square root in the quadratic formula tells you everything:</p>
-            <ul>
-                <li><strong>\(D > 0\)</strong>: 2 Real Solutions (Graph hits x-axis twice)</li>
-                <li><strong>\(D = 0\)</strong>: 1 Real Solution (Graph touches x-axis once)</li>
-                <li><strong>\(D < 0\)</strong>: 0 Real Solutions (Graph never hits x-axis)</li>
-            </ul>
-            <p>For the problem above: Set \(b^2 - 4ac = 0\)</p>
-            <div class="formula-display">
-                \((-5)^2 - 4(3)(p) = 0\)
-                <br>
-                \(25 - 12p = 0 \Rightarrow p = 25/12\)
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search topics... (Press '/')">
             </div>
-        </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
 
-        <h2>Visual Cheat Sheet</h2>
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                    <h4>Identify coefficients</h4>
-                    <p>Get into \(ax^2 + bx + c = 0\) form and find your a, b, and c.</p>
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <a href="../../index.html">Home</a> / <a href="../../index.html#resources">Topics</a> / <span>The
+                        Discriminant Trick</span>
+                </nav>
+
+                <!-- Hero Section -->
+                <section class="topic-hero">
+                    <h1>SAT Discriminant: "How Many Solutions?"</h1>
+                    <p class="hook">If the question asks "how many," don't solve for X. Use the discriminant and finish
+                        in 5 seconds.</p>
+                </section>
+
+                <!-- Main Content -->
+                <div class="topic-section">
+                    <h2>The Problem</h2>
+                    <p>You see this on the Digital SAT:</p>
+
+                    <div class="formula-display">
+                        \(3x^2 - 5x + p = 0\)
+                        <br>
+                        For what value of \(p\) does the equation have <strong>exactly one</strong> real solution?
+                    </div>
+
+                    <p><strong>The Trap:</strong> Trying to use the full quadratic formula or factoring. If the question
+                        mentions the <em>number</em> of solutions, you only need one piece of the formula.</p>
+
+                    <div class="shortcut">
+                        <h3>✅ The Discriminant Hack (\(b^2 - 4ac\))</h3>
+                        <p>The part under the square root in the quadratic formula tells you everything:</p>
+                        <ul>
+                            <li><strong>\(D > 0\)</strong>: 2 Real Solutions (Graph hits x-axis twice)</li>
+                            <li><strong>\(D = 0\)</strong>: 1 Real Solution (Graph touches x-axis once)</li>
+                            <li><strong>\(D < 0\)</strong>: 0 Real Solutions (Graph never hits x-axis)</li>
+                        </ul>
+                        <p>For the problem above: Set \(b^2 - 4ac = 0\)</p>
+                        <div class="formula-display">
+                            \((-5)^2 - 4(3)(p) = 0\)
+                            <br>
+                            \(25 - 12p = 0 \Rightarrow p = 25/12\)
+                        </div>
+                    </div>
+
+                    <h2>Visual Cheat Sheet</h2>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Identify coefficients</h4>
+                                <p>Get into \(ax^2 + bx + c = 0\) form and find your a, b, and c.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Calculate \(b^2 - 4ac\)</h4>
+                                <p>Watch your signs! A negative \(b\) squared is ALWAYS positive.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Check the sign</h4>
+                                <p>Positive = 2, Zero = 1, Negative = 0.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Interactive Widget -->
+                <section class="topic-section">
+                    <div class="interactive-widget">
+                        <div class="widget-header">
+                            <h3>Solution Counter</h3>
+                            <p>Change the values of a, b, and c to see how the number of solutions changes.</p>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                            <div class="widget-input-group">
+                                <label>a</label>
+                                <input type="number" id="input-a" value="1">
+                            </div>
+                            <div class="widget-input-group">
+                                <label>b</label>
+                                <input type="number" id="input-b" value="-4">
+                            </div>
+                            <div class="widget-input-group">
+                                <label>c</label>
+                                <input type="number" id="input-c" value="4">
+                            </div>
+                        </div>
+
+                        <div class="widget-output">
+                            <div class="result-label" id="discriminant-calc">Discriminant: (-4)² - 4(1)(4) = 0</div>
+                            <div class="result-value" id="solution-count">1 Solution</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Theoretical Proof Deep-Dive -->
+                <section class="topic-section"
+                    style="background: #eef2ff; border: 1px solid #e0e7ff; border-radius: 12px; padding: 2.5rem;">
+                    <h2 style="color: #3730a3; margin-top: 0;">🎓 The Proof: Why $b^2 - 4ac$ Controls Everything</h2>
+                    <p style="color: #3730a3; margin-bottom: 2rem;">The discriminant isn't a random formula. It is the
+                        "Heart" of the Quadratic Formula. To understand why it determines the number of solutions, look
+                        at the radical:</p>
+
+                    <div
+                        style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #c7d2fe; font-family: serif; font-size: 1.1rem; line-height: 2;">
+                        <p>1. Start with the full Quadratic Formula:</p>
+                        <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
+                            $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+                        </div>
+
+                        <p>2. Focus on the square root $\sqrt{D}$, where $D = b^2 - 4ac$. There are exactly three
+                            possibilities for the value of $D$:</p>
+
+                        <ul style="margin-left: 1.5rem; list-style-type: none;">
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong style="color: #059669;">Case 1: $D > 0$ (Positive)</strong><br>
+                                The square root of a positive number is a real number. The $\pm$ creates <strong>two
+                                    distinct solutions</strong> ($+ \sqrt{D}$ and $- \sqrt{D}$).
+                            </li>
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong style="color: #4f46e5;">Case 2: $D = 0$ (Zero)</strong><br>
+                                The square root of zero is zero. The formula becomes $\frac{-b \pm 0}{2a}$, which is
+                                just <strong>one solution</strong>: $\frac{-b}{2a}$.
+                            </li>
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong style="color: #dc2626;">Case 3: $D < 0$ (Negative)</strong><br>
+                                        In the real number system, you cannot take the square root of a negative. Since
+                                        $\sqrt{D}$ is undefined (imaginary), there are <strong>zero real
+                                            solutions</strong>.
+                            </li>
+                        </ul>
+
+                        <p>This is why the SAT asks "how many" solutions there are—they want to see if you understand
+                            the internal logic of the quadratic formula without needing to calculate the actual values.
+                        </p>
+                        <p style="text-align: right; font-style: italic; color: #4338ca; margin-top: 1rem;">The math
+                            never lies. — Practix Team</p>
+                    </div>
+                </section>
+
+                <!-- CTA Section -->
+                <section class="topic-cta">
+                    <h2>Don't Just Study. Train.</h2>
+                    <p>Get 50+ interactive shortcuts like this in the Practix App.</p>
+                    <button class="btn-primary" onclick="window.location.href='../../index.html#waitlist'">Join the
+                        Waitlist</button>
+                </section>
+
+                <footer style="display: none;"></footer>
             </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                    <h4>Calculate \(b^2 - 4ac\)</h4>
-                    <p>Watch your signs! A negative \(b\) squared is ALWAYS positive.</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                    <h4>Check the sign</h4>
-                    <p>Positive = 2, Zero = 1, Negative = 0.</p>
-                </div>
-            </div>
-        </div>
+        </main>
     </div>
-
-    <!-- Interactive Widget -->
-    <section class="topic-section">
-        <div class="interactive-widget">
-            <div class="widget-header">
-                <h3>Solution Counter</h3>
-                <p>Change the values of a, b, and c to see how the number of solutions changes.</p>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
-                <div class="widget-input-group">
-                    <label>a</label>
-                    <input type="number" id="input-a" value="1">
-                </div>
-                <div class="widget-input-group">
-                    <label>b</label>
-                    <input type="number" id="input-b" value="-4">
-                </div>
-                <div class="widget-input-group">
-                    <label>c</label>
-                    <input type="number" id="input-c" value="4">
-                </div>
-            </div>
-            
-            <div class="widget-output">
-                <div class="result-label" id="discriminant-calc">Discriminant: (-4)² - 4(1)(4) = 0</div>
-                <div class="result-value" id="solution-count">1 Solution</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Theoretical Proof Deep-Dive -->
-    <section class="topic-section" style="background: #eef2ff; border: 1px solid #e0e7ff; border-radius: 12px; padding: 2.5rem;">
-        <h2 style="color: #3730a3; margin-top: 0;">🎓 The Proof: Why $b^2 - 4ac$ Controls Everything</h2>
-        <p style="color: #3730a3; margin-bottom: 2rem;">The discriminant isn't a random formula. It is the "Heart" of the Quadratic Formula. To understand why it determines the number of solutions, look at the radical:</p>
-        
-        <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #c7d2fe; font-family: serif; font-size: 1.1rem; line-height: 2;">
-            <p>1. Start with the full Quadratic Formula:</p>
-            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
-                $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
-            </div>
-            
-            <p>2. Focus on the square root $\sqrt{D}$, where $D = b^2 - 4ac$. There are exactly three possibilities for the value of $D$:</p>
-            
-            <ul style="margin-left: 1.5rem; list-style-type: none;">
-                <li style="margin-bottom: 1.5rem;">
-                    <strong style="color: #059669;">Case 1: $D > 0$ (Positive)</strong><br>
-                    The square root of a positive number is a real number. The $\pm$ creates <strong>two distinct solutions</strong> ($+ \sqrt{D}$ and $- \sqrt{D}$).
-                </li>
-                <li style="margin-bottom: 1.5rem;">
-                    <strong style="color: #4f46e5;">Case 2: $D = 0$ (Zero)</strong><br>
-                    The square root of zero is zero. The formula becomes $\frac{-b \pm 0}{2a}$, which is just <strong>one solution</strong>: $\frac{-b}{2a}$.
-                </li>
-                <li style="margin-bottom: 1.5rem;">
-                    <strong style="color: #dc2626;">Case 3: $D < 0$ (Negative)</strong><br>
-                    In the real number system, you cannot take the square root of a negative. Since $\sqrt{D}$ is undefined (imaginary), there are <strong>zero real solutions</strong>.
-                </li>
-            </ul>
-            
-            <p>This is why the SAT asks "how many" solutions there are—they want to see if you understand the internal logic of the quadratic formula without needing to calculate the actual values.</p>
-            <p style="text-align: right; font-style: italic; color: #4338ca; margin-top: 1rem;">The math never lies. — Practix Team</p>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="topic-cta">
-        <h2>Don't Just Study. Train.</h2>
-        <p>Get 50+ interactive shortcuts like this in the Practix App.</p>
-        <button class="btn-primary" onclick="window.location.href='../index.html#waitlist'">Join the Waitlist</button>
-    </section>
-
-    <!-- Footer managed by practix-footer.js?v=23 -->
 
     <!-- Widget Script -->
     <script>
@@ -174,11 +222,11 @@
             const a = parseFloat(inputs.a.value) || 0;
             const b = parseFloat(inputs.b.value) || 0;
             const c = parseFloat(inputs.c.value) || 0;
-            
+
             const disc = (b * b) - (4 * a * c);
-            
+
             calcDisplay.textContent = `Discriminant: (${b})² - 4(${a})(${c}) = ${disc}`;
-            
+
             if (disc > 0) {
                 countDisplay.textContent = "2 Solutions";
                 countDisplay.style.color = "#10b981";
@@ -195,4 +243,5 @@
         update();
     </script>
 </body>
+
 </html>

@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <button id="layout-toggle" 
                     class="nav-btn icon-btn" 
                     title="Toggle Footer Panel" 
-                    onclick="if(window.practixToggleLayout) { const hidden = window.practixToggleLayout(); this.style.color = hidden ? 'var(--text-muted)' : 'var(--accent-primary)'; }"
                     style="display: flex; align-items: center; justify-content: center; padding: 0.5rem; cursor: pointer;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
@@ -59,17 +58,53 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.insertBefore(nav, document.body.firstChild);
     }
 
-    // 5. Initial State Sync
+    // 5. Global Toggle Listener (Bypass function scope issues)
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('#layout-toggle');
+        if (!btn) return;
+
+        e.preventDefault();
+        console.log('Practix: Layout toggle clicked');
+
+        // Find footer on demand
+        const footer = document.querySelector('.practix-footer-panel') || document.querySelector('footer');
+        if (!footer) {
+            console.error('Practix: Footer not found in DOM');
+            return;
+        }
+
+        const isCurrentlyVisible = footer.classList.contains('visible') || footer.style.display === 'flex';
+        const nextTargetVisible = !isCurrentlyVisible;
+
+        // Apply state
+        if (nextTargetVisible) {
+            footer.classList.add('visible');
+            footer.style.display = 'flex';
+            setTimeout(() => {
+                footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 50);
+        } else {
+            footer.classList.remove('visible');
+            footer.style.display = 'none';
+        }
+
+        // Persist
+        localStorage.setItem('practix_ui_footer_hidden', !nextTargetVisible);
+
+        // Update button
+        btn.style.color = nextTargetVisible ? 'var(--accent-primary)' : 'var(--text-muted)';
+        console.log('Practix: Footer visibility set to', nextTargetVisible);
+    });
+
+    // 6. Initial State Sync
     const layoutBtn = document.getElementById('layout-toggle');
     if (layoutBtn) {
         const storedState = localStorage.getItem('practix_ui_footer_hidden');
-        // Default to HIDDEN (true) if never set
         const isHidden = (storedState === null || storedState === 'true');
         layoutBtn.style.color = isHidden ? 'var(--text-muted)' : 'var(--accent-primary)';
-        console.log('Practix Nav: Init toggle color. isHidden =', isHidden);
     }
 
-    // 6. Mobile Toggle Logic
+    // 7. Mobile Toggle Logic
     const toggle = document.getElementById('nav-toggle');
     const menu = document.getElementById('nav-menu');
 

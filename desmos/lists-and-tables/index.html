@@ -48,53 +48,72 @@
 
 <body class="content-page">
     <div class="page-bg"></div>
-    <header class="hero-section">
-        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3rem; margin-bottom: 1rem;">Lists & Tables</h1>
-        <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto;">
-            Mastering data sets and iterative calculations with Desmos power commands.
-        </p>
-    </header>
+
+    <!-- Top Nav will be injected here by practix-nav.js?v=23 -->
 
     <div class="page-container">
-        <aside class="sidebar-nav" id="sidebar-tree">
-            <!-- JS will populate -->
+        <!-- 1. NARROW RAIL (Pillar Switching) -->
+        <aside class="narrow-rail" id="narrow-rail">
+            <!-- JS will populate: Σ, y=, ☠️ -->
         </aside>
 
-        <button class="mobile-tree-toggle" id="mobile-tree-btn">Menu</button>
+        <!-- 2. COMMAND SIDEBAR (Search + Tree) -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input" placeholder="Search shortcuts...">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
 
-        <main class="main-content">
-            <section class="technique-section" id="stats">
-                <h2 style="color: #991b1b; margin-bottom: 1.5rem;">📊 Trick #4: Statistical Visualization</h2>
-                <p><strong>The Move:</strong> Use <code>L = [numbers]</code> to handle large datasets instantly.</p>
-                <div class="magic-code">median(L)</div>
-                <div class="magic-code">mean(L)</div>
-                <div class="magic-code">boxplot(L)</div>
-                <p>Never cross off numbers by hand again. Let Desmos find the center and spread of your data in 2
-                    seconds.</p>
-            </section>
+        <!-- 3. MAIN STAGE (Content Viewport) -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section" style="margin-bottom: 3rem;">
+                    <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3rem; margin-bottom: 1rem;">Lists &
+                        Tables</h1>
+                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px;">
+                        Mastering data sets and iterative calculations with Desmos power commands.
+                    </p>
+                </header>
 
-            <section class="technique-section" id="filter" style="background: #f5f3ff; border-left-color: #8b5cf6;">
-                <h2 style="color: #5b21b6; margin-bottom: 1.5rem;">🧬 Trick #5: The List Filter</h2>
-                <p><strong>Scenario:</strong> "How many integers in the list are greater than 15?"</p>
-                <div class="magic-code" style="border-color: #ddd6fe;">length(L[L > 15])</div>
-                <p>This "Master Class" command filters your list and counts the results in one step. Perfect for hard
-                    Module 2 statistics questions.</p>
-            </section>
+                <section class="technique-section" id="stats">
+                    <h2 style="color: #991b1b; margin-bottom: 1.5rem;">📊 Trick #4: Statistical Visualization</h2>
+                    <p><strong>The Move:</strong> Use <code>L = [numbers]</code> to handle large datasets instantly.</p>
+                    <div class="magic-code">median(L)</div>
+                    <div class="magic-code">mean(L)</div>
+                    <div class="magic-code">boxplot(L)</div>
+                    <p>Never cross off numbers by hand again. Let Desmos find the center and spread of your data in 2
+                        seconds.</p>
+                </section>
 
-            <section class="technique-section" id="tables" style="background: #fffbeb; border-left-color: #f59e0b;">
-                <h2 style="color: #92400e; margin-bottom: 1.5rem;">📅 Using Tables for Coordinates</h2>
-                <p><strong>The Move:</strong> Use tables to plot multiple points and find patterns without manual
-                    sketching.</p>
-                <ol style="margin-left: 1.5rem; line-height: 1.8;">
-                    <li>Click <strong>+</strong> then <strong>Table</strong>.</li>
-                    <li>Enter $(x, y)$ pairs from the problem.</li>
-                    <li>Toggle the <strong>Points</strong> icon to see them on the graph.</li>
-                </ol>
-            </section>
+                <section class="technique-section" id="filter" style="background: #f5f3ff; border-left-color: #8b5cf6;">
+                    <h2 style="color: #5b21b6; margin-bottom: 1.5rem;">🧬 Trick #5: The List Filter</h2>
+                    <p><strong>Scenario:</strong> "How many integers in the list are greater than 15?"</p>
+                    <div class="magic-code" style="border-color: #ddd6fe;">length(L[L > 15])</div>
+                    <p>This "Master Class" command filters your list and counts the results in one step. Perfect for
+                        hard
+                        Module 2 statistics questions.</p>
+                </section>
+
+                <section class="technique-section" id="tables" style="background: #fffbeb; border-left-color: #f59e0b;">
+                    <h2 style="color: #92400e; margin-bottom: 1.5rem;">📅 Using Tables for Coordinates</h2>
+                    <p><strong>The Move:</strong> Use tables to plot multiple points and find patterns without manual
+                        sketching.</p>
+                    <ol style="margin-left: 1.5rem; line-height: 1.8;">
+                        <li>Click <strong>+</strong> then <strong>Table</strong>.</li>
+                        <li>Enter $(x, y)$ pairs from the problem.</li>
+                        <li>Toggle the <strong>Points</strong> icon to see them on the graph.</li>
+                    </ol>
+                </section>
+            </div>
         </main>
     </div>
 
-    <!-- Content handled by sidebar.js -->
+    <!-- Hidden Footer (Reflow system will grab it) -->
+    <footer style="display: none;"></footer>
 </body>
 
 </html>

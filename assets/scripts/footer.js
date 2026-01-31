@@ -21,11 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Create footer element
     const footer = document.createElement('footer');
-    footer.className = `practix-footer ${isHidden ? 'collapsed' : ''}`;
+    // Base class is hidden via CSS. Add 'visible' if NOT hidden.
+    footer.className = `practix-footer ${!isHidden ? 'visible' : ''}`;
 
-    // FORCE HIDE via Inline Style to bypass CSS issues
-    if (isHidden) {
-        footer.style.display = 'none';
+    // Explicitly set flex if visible (override CSS display:none)
+    if (!isHidden) {
+        footer.style.display = 'flex';
     }
 
     console.log('Practix Footer Init: Hidden =', isHidden);

@@ -68,18 +68,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const footer = document.querySelector('.practix-footer');
             if (footer) {
-                // Toggle Class
-                footer.classList.toggle('collapsed');
-                const isHidden = footer.classList.contains('collapsed');
+                // Toggle Class (we toggle 'visible' now, not 'collapsed')
+                footer.classList.toggle('visible');
+                const isVisible = footer.classList.contains('visible');
 
-                // Toggle Inline Style (Failsafe)
-                footer.style.display = isHidden ? 'none' : 'flex';
+                // Toggle Inline Style
+                footer.style.display = isVisible ? 'flex' : 'none';
 
-                localStorage.setItem('practix_ui_footer_hidden', isHidden);
+                // Save state (Hidden = !isVisible)
+                localStorage.setItem('practix_ui_footer_hidden', !isVisible);
 
-                // Update visual state
-                toggleBtn.style.color = isHidden ? 'var(--text-muted)' : 'var(--accent-primary)';
-                console.log('Practix: Footer hidden =', isHidden);
+                // Update visual state (Hidden = Text Muted, Visible = Accent)
+                toggleBtn.style.color = !isVisible ? 'var(--text-muted)' : 'var(--accent-primary)';
+                console.log('Practix: Footer visible =', isVisible);
             } else {
                 console.error('Practix: Footer not found in DOM');
             }
@@ -90,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const layoutBtn = document.getElementById('layout-toggle');
     if (layoutBtn) {
         const storedState = localStorage.getItem('practix_ui_footer_hidden');
+        // If hidden is true, button is muted.
         const isHidden = storedState === null ? true : storedState === 'true';
         layoutBtn.style.color = isHidden ? 'var(--text-muted)' : 'var(--accent-primary)';
     }

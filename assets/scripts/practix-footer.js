@@ -110,13 +110,38 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
-    // 6. Inject (Prioritize scrollable containers inside the App Frame)
-    const target = document.querySelector('.stage-content-scroll') ||
-        document.querySelector('.main-content') ||
-        document.querySelector('.main-stage') ||
-        document.body;
+    // 6. Inject with Reflow Logic (Handle Pillar Constraints)
+    const stageScroll = document.querySelector('.stage-content-scroll');
 
-    target.appendChild(footer);
+    if (stageScroll) {
+        // PILLAR PAGES: Unwrap constraints
+        // Create a wrapper for the existing content to keep it constrained
+        const wrapper = document.createElement('div');
+        wrapper.className = 'practix-content-wrapper';
+
+        // Move all children into the wrapper
+        while (stageScroll.firstChild) {
+            wrapper.appendChild(stageScroll.firstChild);
+        }
+
+        // Append wrapper back to stage
+        stageScroll.appendChild(wrapper);
+
+        // Apply reflow class to remove padding from parent
+        stageScroll.classList.add('practix-reflow');
+
+        // Append footer OUTSIDE wrapper but INSIDE stage (Full Width!)
+        stageScroll.appendChild(footer);
+
+    } else {
+        // HOMEPAGE / FALLBACK: Standard append
+        const target = document.querySelector('.main-content') ||
+            document.querySelector('.main-stage') ||
+            document.body;
+        if (target) {
+            target.appendChild(footer);
+        }
+    }
 
     // 7. Global Interface for Toggle
     window.practixToggleLayout = function () {

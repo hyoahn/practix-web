@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hasFile = pathSegments.length > 0 && pathSegments[pathSegments.length - 1].includes('.');
     const depth = hasFile ? pathSegments.length - 1 : pathSegments.length;
     const basePath = depth === 0 ? '' : '../'.repeat(depth);
+    const isInSubfolder = depth > 0;
 
     // 2. Initial State (Default to HIDDEN)
     const storedState = localStorage.getItem('practix_ui_footer_hidden');
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const allFooters = document.querySelectorAll('footer');
     allFooters.forEach(f => f.remove());
 
-    console.log('Practix Footer Init (v8): Hidden =', isHidden);
+    console.log('Practix Footer Init (v22): Hidden =', isHidden);
 
     // 4. Define Topic Loop
     const topics = [

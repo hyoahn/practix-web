@@ -13,14 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
         (currentPath.includes('topics/') && !currentPath.includes('../topics/'));
     const basePath = isInSubfolder ? '../' : '';
 
-    // 2. Initial State (Default to COLLAPSED)
-    const storedState = localStorage.getItem('practix_footer_collapsed');
-    // If no state stored, default to TRUE (Collapsed/Hidden)
-    const isCollapsed = storedState === null ? true : storedState === 'true';
+    // 2. Initial State (Default to COLLAPSED/HIDDEN)
+    // New key triggers a fresh state for all users
+    const storedState = localStorage.getItem('practix_ui_footer_hidden');
+    // Default to TRUE (Hidden) if null
+    const isHidden = storedState === null ? true : storedState === 'true';
 
     // 3. Create footer element
     const footer = document.createElement('footer');
-    footer.className = `practix-footer ${isCollapsed ? 'collapsed' : ''}`;
+    footer.className = `practix-footer ${isHidden ? 'collapsed' : ''}`;
+
+    console.log('Practix Footer Init: Hidden =', isHidden);
 
     // 4. Define Topic Loop
     const topics = [

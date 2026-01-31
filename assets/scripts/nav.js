@@ -58,34 +58,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. Mobile Toggle Logic & Layout Toggle
     const toggle = document.getElementById('nav-toggle');
     const menu = document.getElementById('nav-menu');
-    const layoutBtn = document.getElementById('layout-toggle');
-
-    if (layoutBtn) {
-        console.log('Practix: Layout toggle initialized');
-
-        // Sync initial visual state (Default is collapsed/true if null)
-        const storedState = localStorage.getItem('practix_footer_collapsed');
-        const isCollapsedInitial = storedState === null ? true : storedState === 'true';
-        layoutBtn.style.color = isCollapsedInitial ? 'var(--text-muted)' : 'var(--accent-primary)';
-
-        layoutBtn.addEventListener('click', (e) => {
-            console.log('Practix: Layout toggle clicked');
-            e.preventDefault(); // Prevent any link behavior
+    // 5. Global Event Delegation for Robustness
+    document.addEventListener('click', (e) => {
+        const toggleBtn = e.target.closest('#layout-toggle');
+        if (toggleBtn) {
+            e.preventDefault();
             e.stopPropagation();
+            console.log('Practix: Global layout toggle clicked');
 
             const footer = document.querySelector('.practix-footer');
             if (footer) {
                 footer.classList.toggle('collapsed');
-                const isNowCollapsed = footer.classList.contains('collapsed');
-                localStorage.setItem('practix_footer_collapsed', isNowCollapsed);
+                const isHidden = footer.classList.contains('collapsed');
+                localStorage.setItem('practix_ui_footer_hidden', isHidden);
 
-                // Visual feedback on button
-                layoutBtn.style.color = isNowCollapsed ? 'var(--text-muted)' : 'var(--accent-primary)';
-                console.log('Practix: Footer state toggled to', isNowCollapsed);
+                // Update visual state
+                toggleBtn.style.color = isHidden ? 'var(--text-muted)' : 'var(--accent-primary)';
+                console.log('Practix: Footer hidden =', isHidden);
             } else {
-                console.warn('Practix: Footer element not found');
+                console.error('Practix: Footer not found in DOM');
             }
-        });
+        }
+    });
+
+    // Initial Button State Sync (Run slightly delayed to ensure nav exists if needed, mostly redundant but safe)
+    const layoutBtn = document.getElementById('layout-toggle');
+    if (layoutBtn) {
+        const storedState = localStorage.getItem('practix_ui_footer_hidden');
+        const isHidden = storedState === null ? true : storedState === 'true';
+        layoutBtn.style.color = isHidden ? 'var(--text-muted)' : 'var(--accent-primary)';
     }
 
     if (toggle && menu) {

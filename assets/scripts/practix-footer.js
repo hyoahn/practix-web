@@ -4,7 +4,7 @@
  * Features: Collapsible Pane (User Preference Persisted)
  */
 
-console.log('Practix Footer v2 Loaded'); // Debug: Ensure script update
+console.log('Practix Footer v23 Loaded'); // Debug: Ensure script update
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Determine Robust Path Depth (Same as nav.js)
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const allFooters = document.querySelectorAll('footer');
     allFooters.forEach(f => f.remove());
 
-    console.log('Practix Footer Init (v22): Hidden =', isHidden);
+    console.log('Practix Footer Init (v23): Hidden =', isHidden);
 
     // 4. Define Topic Loop
     const topics = [

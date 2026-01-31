@@ -1367,3 +1367,38 @@ input[type=range]::-webkit-slider-runnable-track {
     padding: 5rem 10% 2rem;
     overflow-y: auto;
 }
+
+/* ==========================================================================
+   Practix Global Footer (Full Bleed Fix)
+   ========================================================================== */
+.practix-footer-panel {
+    display: none;
+    flex-direction: column;
+    background: #0f172a !important;
+    width: calc(100% + 10vw);
+    /* Offset the 5% padding on each side */
+    margin: 4rem -5% 0 -5% !important;
+    padding: 4rem 5% 2rem 5%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.practix-footer-panel.visible {
+    display: flex !important;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .practix-footer-panel {
+        width: 100%;
+        margin: 4rem 0 0 0 !important;
+        padding: 4rem 1.5rem 2rem 1.5rem;
+    }
+}

@@ -803,6 +803,16 @@ h3 {
 /* =========================================
    COLLAPSIBLE FOOTER
    ========================================= */
+
+/* GLOBAL OVERRIDE: Hide ALL footers by default unless explicitly visible */
+footer:not(.visible) {
+    display: none !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+}
+
 .practix-footer-panel {
     background: #1a1a2e;
     color: white;

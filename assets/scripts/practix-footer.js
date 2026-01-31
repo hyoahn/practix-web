@@ -37,13 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Define Topic Loop
     const topics = [
-        { name: "Quadratic Equations", path: "quadratic-equations.html", icon: "📐" },
-        { name: "Circle Equations", path: "circle-equations.html", icon: "⭕" },
-        { name: "Systems of Equations", path: "systems-of-equations.html", icon: "🤝" },
-        { name: "Polynomial Division", path: "polynomial-division.html", icon: "➗" },
-        { name: "Discriminant Hack", path: "discriminant-trick.html", icon: "⚡" },
-        { name: "Exponential Growth", path: "exponential-growth.html", icon: "📈" },
-        { name: "Unit Circle Hack", path: "unit-circle.html", icon: "🎯" }
+        { name: "Quadratic Equations", path: "topics/quadratic-equations/", icon: "📐" },
+        { name: "Circle Equations", path: "topics/circle-equations/", icon: "⭕" },
+        { name: "Systems of Equations", path: "topics/systems-of-equations/", icon: "🤝" },
+        { name: "Polynomial Division", path: "topics/polynomial-division/", icon: "➗" },
+        { name: "Discriminant Hack", path: "topics/discriminant-trick/", icon: "⚡" },
+        { name: "Exponential Growth", path: "topics/exponential-growth/", icon: "📈" },
+        { name: "Unit Circle Hack", path: "topics/unit-circle/", icon: "🎯" }
     ];
 
     let loopHTML = '';
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div style="max-width: 800px; margin: 0 auto 4rem; background: rgba(99, 102, 241, 0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(99, 102, 241, 0.2); text-align: center;">
                 <p style="color: #6366f1; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.8rem;">Master the Next Trick</p>
                 <h3 style="margin-bottom: 1.5rem; color: white;">${nextTopic.icon} ${nextTopic.name}</h3>
-                <a href="${nextTopic.path}" class="btn-primary" style="display: inline-block; padding: 0.8rem 2rem; text-decoration: none;">Keep Training →</a>
+                <a href="${basePath}${nextTopic.path}" class="btn-primary" style="display: inline-block; padding: 0.8rem 2rem; text-decoration: none;">Keep Training →</a>
             </div>
         `;
     }
@@ -78,28 +78,28 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div>
                         <h4 style="margin-bottom: 1.5rem;">Resources</h4>
                         <ul style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 2;">
-                            <li><a href="${basePath}formulas.html" style="color: white; opacity: 0.7; text-decoration: none;">Formula Hub</a></li>
-                            <li><a href="${basePath}desmos.html" style="color: white; opacity: 0.7; text-decoration: none;">Desmos Tricks</a></li>
-                            <li><a href="${basePath}strategy.html" style="color: white; opacity: 0.7; text-decoration: none;">800 Strategy</a></li>
-                            <li><a href="${basePath}contact.html" style="color: white; opacity: 0.7; text-decoration: none;">Contact Us</a></li>
+                            <li><a href="${basePath}formulas/" style="color: white; opacity: 0.7; text-decoration: none;">Formula Hub</a></li>
+                            <li><a href="${basePath}desmos/" style="color: white; opacity: 0.7; text-decoration: none;">Desmos Tricks</a></li>
+                            <li><a href="${basePath}wallpapers/" style="color: var(--accent-primary); opacity: 1; text-decoration: none; font-weight: 700;">Wallpapers Hub</a></li>
+                            <li><a href="${basePath}contact/" style="color: white; opacity: 0.7; text-decoration: none;">Contact Us</a></li>
                         </ul>
                     </div>
                     <div>
                         <h4 style="margin-bottom: 1.5rem;">Topic Guides</h4>
                         <ul style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 2;">
-                            <li><a href="${basePath}topics/quadratic-equations.html" style="color: white; opacity: 0.7; text-decoration: none;">Quadratic Equations</a></li>
-                            <li><a href="${basePath}topics/circle-equations.html" style="color: white; opacity: 0.7; text-decoration: none;">Circle Equations</a></li>
-                            <li><a href="${basePath}topics/systems-of-equations.html" style="color: white; opacity: 0.7; text-decoration: none;">Systems of Equations</a></li>
-                            <li><a href="${basePath}topics/polynomial-division.html" style="color: white; opacity: 0.7; text-decoration: none;">Polynomial Division</a></li>
+                            <li><a href="${basePath}topics/quadratic-equations/" style="color: white; opacity: 0.7; text-decoration: none;">Quadratic Equations</a></li>
+                            <li><a href="${basePath}topics/circle-equations/" style="color: white; opacity: 0.7; text-decoration: none;">Circle Equations</a></li>
+                            <li><a href="${basePath}topics/systems-of-equations/" style="color: white; opacity: 0.7; text-decoration: none;">Systems of Equations</a></li>
+                            <li><a href="${basePath}topics/polynomial-division/" style="color: white; opacity: 0.7; text-decoration: none;">Polynomial Division</a></li>
                         </ul>
                     </div>
                     <div>
                         <h4 style="margin-bottom: 1.5rem;">Quick Hacks</h4>
                         <ul style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 2;">
-                            <li><a href="${basePath}topics/discriminant-trick.html" style="color: white; opacity: 0.7; text-decoration: none;">Discriminant Hack</a></li>
-                            <li><a href="${basePath}topics/exponential-growth.html" style="color: white; opacity: 0.7; text-decoration: none;">Growth & Decay</a></li>
-                            <li><a href="${basePath}topics/unit-circle.html" style="color: white; opacity: 0.7; text-decoration: none;">Unit Circle Hack</a></li>
-                            <li><a href="${basePath}hardest-questions.html" style="color: white; opacity: 0.7; text-decoration: none;">Hardest Questions</a></li>
+                            <li><a href="${basePath}topics/discriminant-trick/" style="color: white; opacity: 0.7; text-decoration: none;">Discriminant Hack</a></li>
+                            <li><a href="${basePath}topics/exponential-growth/" style="color: white; opacity: 0.7; text-decoration: none;">Growth & Decay</a></li>
+                            <li><a href="${basePath}topics/unit-circle/" style="color: white; opacity: 0.7; text-decoration: none;">Unit Circle Hack</a></li>
+                            <li><a href="${basePath}hard-questions/" style="color: white; opacity: 0.7; text-decoration: none;">Hardest Questions</a></li>
                         </ul>
                     </div>
                 </div>

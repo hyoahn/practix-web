@@ -384,11 +384,18 @@
 
                 addEvent("Connecting to Pulse Relay...");
 
-                // 1. Fetch initial snapshots
-                totalDownloads = await PulseRelay.getCounts('wallpaper_download');
-                wpCounts[0] = await PulseRelay.getCounts('wallpaper_download', { wallpaper_name: 'Desmos God Mode' });
-                wpCounts[1] = await PulseRelay.getCounts('wallpaper_download', { wallpaper_name: 'The Trap Radar' });
-                // Note: Logic for third might vary based on your labels
+                // Define the Growth Epoch (Zero-to-One start)
+                const epoch = '2026-02-01T00:00:00Z';
+
+                // 1. Fetch initial snapshots (Filtered by Epoch)
+                totalDownloads = await PulseRelay.getCounts('wallpaper_download', {}, epoch);
+                wpCounts[0] = await PulseRelay.getCounts('wallpaper_download', { wallpaper_name: 'Desmos God Mode' }, epoch);
+                wpCounts[1] = await PulseRelay.getCounts('wallpaper_download', { wallpaper_name: 'The Trap Radar' }, epoch);
+                wpCounts[2] = await PulseRelay.getCounts('wallpaper_download', { wallpaper_name: 'The Boss Mode' }, epoch);
+
+                // Track Active Users (simplified: unique events since epoch)
+                const activeEvents = await PulseRelay.getCounts('page_view', {}, epoch);
+                if (activeUsersEl) activeUsersEl.innerText = (activeEvents || 0).toLocaleString();
 
                 updateUI();
 
@@ -401,9 +408,9 @@
 
                     if (event === 'wallpaper_download') {
                         totalDownloads++;
-                        if (params.wallpaper_name?.includes('Desmos')) wpCounts[0]++;
-                        else if (params.wallpaper_name?.includes('Trap')) wpCounts[1]++;
-                        else wpCounts[2]++;
+                        if (params.wallpaper_name === 'Desmos God Mode') wpCounts[0]++;
+                        else if (params.wallpaper_name === 'The Trap Radar') wpCounts[1]++;
+                        else if (params.wallpaper_name === 'The Boss Mode') wpCounts[2]++;
                     }
 
                     updateUI();

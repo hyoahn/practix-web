@@ -1,6 +1,5 @@
 #!/bin/bash
-# Practix Deployment Script
-# Ensures GR6/GR7 are met by pushing all local changes to the live site.
+set -e
 
 echo "🚀 Starting Deployment to Practix.org..."
 

@@ -17,11 +17,12 @@
         rel="stylesheet">
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.min.js"></script>
     <script src="../../assets/scripts/practix-nav.js?v=23"></script>
     <script src="../../assets/scripts/sidebar.js"></script>
     <script src="../../assets/scripts/practix-footer.js?v=23"></script>
-    <script src="../../assets/scripts/analytics.js"></script>
+    <script src="../../assets/scripts/analytics.js?v=24"></script>
+    <script src="../../assets/scripts/pulse-relay.js?v=24"></script>
 
     <style>
         .technique-section {
@@ -33,15 +34,42 @@
             position: relative;
         }
 
-        .magic-code {
+        .magic-code-container {
             background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #d1d5db;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 1.4rem;
+            display: block;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .btn-copy {
+            background: white;
+            border: 1px solid #d1d5db;
             padding: 0.5rem 1rem;
             border-radius: 8px;
-            border: 1px solid #d1d5db;
-            font-family: monospace;
-            font-size: 1.1rem;
-            display: inline-block;
-            margin: 1rem 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-copy:hover {
+            background: #f3f4f6;
+            transform: scale(1.02);
+        }
+
+        .mastery-card {
+            background: rgba(99, 102, 241, 0.05);
+            border: 2px solid var(--accent-primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 2rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
         }
     </style>
 </head>
@@ -73,42 +101,126 @@
                 <header class="hero-section">
                     <div
                         style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
-                        Stop Studying. Start Formal Training.
+                        The #1 Desmos Power Move
                     </div>
-                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Regression Secrets</h1>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Regression <span class="gradient-text">Magic
+                            Codes</span></h1>
                     <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px;">
-                        The "magic codes" that make Desmos solve SAT algebra problems instantly.
+                        Stop doing algebra manually. Use these "magic codes" to make Desmos solve Linear, Quadratic, and
+                        Exponential problems in seconds.
                     </p>
                 </header>
 
+                <!-- Mastery Reward Tracker -->
+                <article id="f-desmos-regression" class="mastery-card">
+                    <div>
+                        <h4 style="margin: 0; font-family: 'Space Grotesk', sans-serif;">Mastery Status</h4>
+                        <p style="margin: 0; font-size: 0.85rem; opacity: 0.7;">Complete this to unlock the <b>Desmos
+                                God</b> wallpaper pack.</p>
+                    </div>
+                    <label class="mastery-label"
+                        style="display: flex; align-items: center; gap: 1rem; cursor: pointer; background: white; padding: 0.75rem 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+                        <input type="checkbox" class="mastery-check" style="width: 20px; height: 20px;">
+                        <span style="font-weight: 700;">I've Mastered This</span>
+                    </label>
+                </article>
+
                 <section class="technique-section" id="linear">
-                    <h2 style="color: #065f46; margin-bottom: 1.5rem;">🪄 Linear Regression Code</h2>
-                    <p><strong>Problem:</strong> Line through $(2, 5)$ and $(6, 13)$. Find slope.</p>
-                    <div class="magic-code">y₁ ~ m·x₁ + b</div>
-                    <p>Add a table, enter points, type the code. Desmos gives you \(m\) (slope) and \(b\) (intercept)
-                        instantly.</p>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <h2 style="color: #065f46; margin-bottom: 1rem;">🪄 Linear Regression Code</h2>
+                            <p>For problems asking for a line through $(x_1, y_1)$ and $(x_2, y_2)$.</p>
+                        </div>
+                        <button class="btn-copy" data-code="y1 ~ m*x1 + b">Copy Code</button>
+                    </div>
+                    <div class="magic-code-container">
+                        <code style="color: #065f46; font-weight: 700;">y₁ ~ m·x₁ + b</code>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #065f46; opacity: 0.8;">Enter your points into
+                        a Table, then type this code in the next line.</p>
                 </section>
 
                 <section class="technique-section" id="quadratic"
                     style="background: #fef2f2; border-left-color: #ef4444;">
-                    <h2 style="color: #991b1b; margin-bottom: 1.5rem;">📈 Quadratic Regression Code</h2>
-                    <p><strong>Problem:</strong> Parabola through $(0, 3)$, $(1, 6)$, and $(2, 11)$.</p>
-                    <div class="magic-code" style="border-color: #fecaca;">y₁ ~ a·x₁² + b·x₁ + c</div>
-                    <p>Desmos will calculate the coefficients \(a\), \(b\), and \(c\) for the standard form of the
-                        parabola.
-                    </p>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <h2 style="color: #991b1b; margin-bottom: 1rem;">📈 Quadratic Regression Code</h2>
+                            <p>For parabolas through 3 points or finding a vertex from data.</p>
+                        </div>
+                        <button class="btn-copy" data-code="y1 ~ a*x1^2 + b*x1 + c" style="border-color: #fecaca;">Copy
+                            Code</button>
+                    </div>
+                    <div class="magic-code-container" style="border-color: #fecaca;">
+                        <code style="color: #991b1b; font-weight: 700;">y₁ ~ a·x₁² + b·x₁ + c</code>
+                    </div>
                 </section>
 
                 <section class="technique-section" id="exponential"
                     style="background: #eff6ff; border-left-color: #3b82f6;">
-                    <h2 style="color: #1e40af; margin-bottom: 1.5rem;">📊 Exponential Regression</h2>
-                    <p><strong>Problem:</strong> Population doubles every year. Starts at 100.</p>
-                    <div class="magic-code" style="border-color: #bfdbfe;">y₁ ~ a·b^{x₁}</div>
-                    <p>Perfect for compound interest or biological growth problems.</p>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <h2 style="color: #1e40af; margin-bottom: 1rem;">📊 Exponential Regression</h2>
+                            <p>For interest, population growth, or doubling time problems.</p>
+                        </div>
+                        <button class="btn-copy" data-code="y1 ~ a*b^x1" style="border-color: #bfdbfe;">Copy
+                            Code</button>
+                    </div>
+                    <div class="magic-code-container" style="border-color: #bfdbfe;">
+                        <code style="color: #1e40af; font-weight: 700;">y₁ ~ a·b^{x₁}</code>
+                    </div>
+                </section>
+
+                <!-- Practice Sandbox -->
+                <section
+                    style="margin-top: 4rem; padding: 3rem; background: #0f172a; border-radius: 24px; color: white;">
+                    <h2 style="font-family: 'Space Grotesk', sans-serif; margin-bottom: 1rem;">The Mastery Sandbox</h2>
+                    <p style="opacity: 0.8; margin-bottom: 2rem;">Don't just read it. Try it. Type one of the codes
+                        above into your own Desmos calculator now to see the math happen.</p>
+
+                    <div
+                        style="background: #1e293b; padding: 1.5rem; border-radius: 16px; border: 1px solid #334155; margin-bottom: 2rem;">
+                        <h4 style="color: var(--accent-primary); margin-bottom: 0.5rem;">Example Challenge:</h4>
+                        <p style="font-size: 1.1rem;">"A parabola passes through $(1, 4)$, $(2, 9)$, and $(3, 16)$. Find
+                            its equation."</p>
+                        <ul
+                            style="margin-top: 1rem; opacity: 0.7; font-size: 0.9rem; list-style-type: none; padding: 0;">
+                            <li>Step 1: Click the + icon in Desmos > Table</li>
+                            <li>Step 2: Enter the 3 points</li>
+                            <li>Step 3: Copy the Quadratic Code and paste it in line 2.</li>
+                        </ul>
+                    </div>
+
+                    <a href="https://www.desmos.com/calculator" target="_blank" class="btn-primary"
+                        style="background: #ef4444; border: none; padding: 1rem 2rem; border-radius: 12px; font-weight: 700; text-decoration: none; display: inline-block;">Open
+                        Desmos Calculator ↗</a>
                 </section>
             </div>
         </main>
     </div>
+
+    <script>
+        // Copy to Clipboard logic
+        document.querySelectorAll('.btn-copy').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const code = btn.getAttribute('data-code');
+                navigator.clipboard.writeText(code).then(() => {
+                    const originalText = btn.innerText;
+                    btn.innerText = 'Copied!';
+                    btn.style.background = '#dcfce7';
+                    btn.style.borderColor = '#22c55e';
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.style.background = 'white';
+                        btn.style.borderColor = '#d1d5db';
+                    }, 2000);
+
+                    if (window.practixLog) {
+                        window.practixLog('magic_code_copied', { code: code });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -70,8 +70,7 @@ async function broadcastEvent(eventName, params = {}) {
                 {
                     event_name: eventName,
                     params: params,
-                    location: window.location.pathname,
-                    created_at: new Date().toISOString()
+                    location: window.location.pathname
                 }
             ]);
 
@@ -85,7 +84,8 @@ async function broadcastEvent(eventName, params = {}) {
 /**
  * Subscribe to the live event stream (for Dashboard)
  */
-function subscribeToEvents(onEvent) {
+async function subscribeToEvents(onEvent) {
+    if (relayInitPromise) await relayInitPromise;
     if (!supabaseClient) return;
 
     return supabaseClient
@@ -98,15 +98,20 @@ function subscribeToEvents(onEvent) {
 
 /**
  * Fetch historical counts (for Dashboard load)
- * Supports filtering by params (e.g. { wallpaper_name: 'Desmos God Mode' })
+ * Supports filtering by params and time
  */
-async function getEventCounts(eventName, filters = {}) {
+async function getEventCounts(eventName, filters = {}, since = null) {
+    if (relayInitPromise) await relayInitPromise;
     if (!supabaseClient) return 0;
 
     let query = supabaseClient
         .from(RELAY_CONFIG.table)
         .select('*', { count: 'exact', head: true })
         .eq('event_name', eventName);
+
+    if (since) {
+        query = query.gte('created_at', since);
+    }
 
     // Apply filters to params JSON column
     for (const [key, value] of Object.entries(filters)) {

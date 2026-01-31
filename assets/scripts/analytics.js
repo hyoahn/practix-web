@@ -42,29 +42,48 @@ document.addEventListener('DOMContentLoaded', () => {
     initGA();
 
     // Track Mastery Checkboxes (Formulas)
-    let masteredCount = parseInt(localStorage.getItem('practix_mastery_count') || '0');
+    function updateMasteryCount() {
+        const masteredIds = JSON.parse(localStorage.getItem('practix_mastered_ids') || '[]');
+        document.querySelectorAll('.mastery-check').forEach(checkbox => {
+            const articleId = checkbox.closest('article')?.id;
+            if (articleId) {
+                checkbox.checked = masteredIds.includes(articleId);
+            }
+        });
+        localStorage.setItem('practix_mastery_count', masteredIds.length);
+    }
 
     document.querySelectorAll('.mastery-check').forEach(checkbox => {
         checkbox.addEventListener('change', (e) => {
             const formulaId = e.target.closest('article')?.id || 'unknown';
             const isChecked = e.target.checked;
 
-            window.practixLog('formula_mastery_toggle', {
-                formula_id: formulaId,
-                status: isChecked ? 'mastered' : 'unmastered'
-            });
+            let masteredIds = JSON.parse(localStorage.getItem('practix_mastered_ids') || '[]');
 
             if (isChecked) {
-                masteredCount++;
-                localStorage.setItem('practix_mastery_count', masteredCount);
+                if (!masteredIds.includes(formulaId)) masteredIds.push(formulaId);
+            } else {
+                masteredIds = masteredIds.filter(id => id !== formulaId);
+            }
 
-                // Trigger Wallpaper Reward at 5 Masteries
-                if (masteredCount === 5) {
-                    showMasteryReward();
-                }
+            localStorage.setItem('practix_mastered_ids', JSON.stringify(masteredIds));
+            localStorage.setItem('practix_mastery_count', masteredIds.length);
+
+            window.practixLog('formula_mastery_toggle', {
+                formula_id: formulaId,
+                status: isChecked ? 'mastered' : 'unmastered',
+                total_mastered: masteredIds.length
+            });
+
+            // Trigger Wallpaper Reward milestones
+            if (isChecked && (masteredIds.length === 5 || masteredIds.length === 10)) {
+                showMasteryReward(masteredIds.length);
             }
         });
     });
+
+    // Initial state sync
+    updateMasteryCount();
 
     // Track Question Reveal (Hard Questions)
     // Assuming we might add an "Answer Reveal" button later, for now we track clicks on the solution-box
@@ -117,12 +136,22 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+    // Automated Page View Tracking
+    window.practixLog('page_view', {
+        title: document.title,
+        path: window.location.pathname
+    });
 });
 
 /**
  * SHOW MASTERY REWARD POPUP
  */
-function showMasteryReward() {
+function showMasteryReward(count) {
+    // Remove existing if any
+    const existing = document.getElementById('mastery-reward-popup');
+    if (existing) existing.remove();
+
     const rewardDiv = document.createElement('div');
     rewardDiv.id = 'mastery-reward-popup';
     rewardDiv.style = `
@@ -132,11 +161,15 @@ function showMasteryReward() {
         z-index: 10000; max-width: 400px; text-align: center; font-family: 'Space Grotesk', sans-serif;
     `;
 
+    const milestoneText = count === 10 ?
+        "You've mastered 10 formulas. The <b>Trap Radar</b> is now yours." :
+        "You've mastered 5 formulas. The <b>Desmos God Mode</b> pack is unlocked.";
+
     rewardDiv.innerHTML = `
-        <div style="font-size: 3rem; margin-bottom: 1rem;">🏆</div>
+        <div style="font-size: 3rem; margin-bottom: 1rem;">${count === 10 ? '🔥' : '🏆'}</div>
         <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Intensity Milestone!</h2>
         <p style="font-size: 0.95rem; opacity: 0.8; margin-bottom: 2rem; line-height: 1.5;">
-            You just mastered 5 SAT formulas. You've earned the <strong>Elite Lock Screen</strong> pack to keep these fresh in your brain.
+            ${milestoneText}
         </p>
         <a href="/wallpapers/" class="btn-primary" style="display: block; text-decoration: none; background: #6366f1; padding: 1rem; border-radius: 12px; font-weight: 700; margin-bottom: 1rem;">Claim Reward</a>
         <button onclick="this.parentElement.remove()" style="background: transparent; color: white; opacity: 0.5; border: none; cursor: pointer; font-size: 0.8rem;">Maybe later</button>
@@ -144,5 +177,5 @@ function showMasteryReward() {
 
     document.body.appendChild(rewardDiv);
 
-    window.practixLog('reward_popup_shown', { type: 'wallpaper_pack' });
+    window.practixLog('reward_popup_shown', { type: 'wallpaper_pack', milestone: count });
 }

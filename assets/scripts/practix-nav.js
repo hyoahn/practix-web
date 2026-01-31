@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <a href="${basePath}formulas/" class="nav-btn ${currentPath.includes('/formulas/') ? 'active' : ''}">Formulas</a>
             <a href="${basePath}desmos/" class="nav-btn ${currentPath.includes('/desmos/') ? 'active' : ''}">Desmos</a>
             <a href="${basePath}hard-questions/" class="nav-btn ${currentPath.includes('/hard-questions/') ? 'active' : ''}">Hardest Questions</a>
+            <a href="${basePath}wallpapers/" class="nav-btn ${currentPath.includes('/wallpapers/') ? 'active' : ''}" style="color: var(--accent-primary); font-weight: 700;">Wallpapers</a>
             <button id="layout-toggle" 
                     class="nav-btn icon-btn" 
                     title="Toggle Footer Panel" 

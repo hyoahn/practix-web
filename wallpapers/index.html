@@ -22,6 +22,43 @@
     <script src="../assets/scripts/pulse-relay.js?v=24"></script>
 
     <style>
+        .mastery-progress-tracker {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .progress-circle-container {
+            width: 80px;
+            height: 80px;
+            position: relative;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--accent-primary);
+        }
+
+        .progress-info h4 {
+            margin-bottom: 0.25rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .progress-info p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
         .wallpaper-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -38,7 +75,30 @@
             position: relative;
         }
 
-        .wallpaper-card:hover {
+        .wallpaper-card.locked {
+            opacity: 0.8;
+        }
+
+        .wallpaper-card.locked .wallpaper-preview {
+            filter: grayscale(1) blur(2px);
+        }
+
+        .wallpaper-card.locked .lock-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(15, 23, 42, 0.4);
+            color: white;
+            z-index: 10;
+        }
+
+        .wallpaper-card:hover:not(.locked) {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             border-color: var(--accent-primary);
@@ -124,13 +184,29 @@
                             Screen</span></h1>
                     <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 700px; line-height: 1.6;">
                         You check your phone 100+ times a day. Turn those glances into points.
-                        Download our designer cheat sheets and burn these formulas into your brain without studying.
+                        Master formulas to unlock designer cheat sheets.
                     </p>
                 </header>
 
+                <div class="mastery-progress-tracker" id="mastery-tracker">
+                    <div class="progress-circle-container">
+                        <svg width="80" height="80" viewBox="0 0 80 80">
+                            <circle cx="40" cy="40" r="36" fill="none" stroke="#e2e8f0" stroke-width="8"></circle>
+                            <circle id="progress-bar" cx="40" cy="40" r="36" fill="none" stroke="var(--accent-primary)"
+                                stroke-width="8" stroke-dasharray="226.2" stroke-dashoffset="226.2"
+                                stroke-linecap="round" style="transition: stroke-dashoffset 1s ease;"></circle>
+                        </svg>
+                        <div class="progress-text" id="mastery-pct">0</div>
+                    </div>
+                    <div class="progress-info">
+                        <h4 id="progress-heading">Elite Training Status</h4>
+                        <p id="progress-subtext">Master 5 formulas to unlock the Desmos pack.</p>
+                    </div>
+                </div>
+
                 <div class="wallpaper-grid">
-                    <!-- Card 1: Boss Mode -->
-                    <article class="wallpaper-card">
+                    <!-- Card 1: Boss Mode (ALWAYS FREE) -->
+                    <article class="wallpaper-card" id="wall-boss">
                         <div class="wallpaper-preview">
                             <img src="../assets/images/wallpapers/wall_boss_mode.png" alt="Formulas Lockscreen"
                                 onerror="this.src='https://placehold.co/1080x1920/1e1e2e/6366f1?text=Generating...'">
@@ -141,13 +217,17 @@
                             <p class="wallpaper-desc">The 5 hardest formulas (Discriminant, Vertex Form) in a clean,
                                 dark-mode aesthetic.</p>
                             <a href="../assets/images/wallpapers/wall_boss_mode.png" download="Practix_Boss_Mode.png"
-                                class="btn-primary wallpaper-dl-btn"
+                                id="btn-wall-boss" class="btn-primary wallpaper-dl-btn"
                                 style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
                         </div>
                     </article>
 
-                    <!-- Card 2: Desmos God -->
-                    <article class="wallpaper-card">
+                    <!-- Card 2: Desmos God (GATED - 5) -->
+                    <article class="wallpaper-card locked" id="wall-desmos">
+                        <div class="lock-overlay">
+                            <span style="font-size: 2rem; margin-bottom: 0.5rem;">🔒</span>
+                            <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Locked</span>
+                        </div>
                         <div class="wallpaper-preview">
                             <img src="../assets/images/wallpapers/wall_desmos.png" alt="Desmos Lockscreen"
                                 onerror="this.src='https://placehold.co/1080x1920/1e1e2e/6366f1?text=Generating...'">
@@ -157,14 +237,18 @@
                             <h3 class="wallpaper-title">Desmos God Mode</h3>
                             <p class="wallpaper-desc">Regression codes, list syntax, and slider tricks. Don't memorize,
                                 just look.</p>
-                            <a href="../assets/images/wallpapers/wall_desmos.png" download="Practix_Desmos_God.png"
-                                class="btn-primary wallpaper-dl-btn"
-                                style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
+                            <a href="javascript:void(0)" id="btn-wall-desmos" class="btn-primary wallpaper-dl-btn"
+                                style="width: 100%; justify-content: center; text-decoration: none; background: #94a3b8; cursor: not-allowed;">Master
+                                5 Formulas</a>
                         </div>
                     </article>
 
-                    <!-- Card 3: Trap Radar -->
-                    <article class="wallpaper-card">
+                    <!-- Card 3: Trap Radar (GATED - 10) -->
+                    <article class="wallpaper-card locked" id="wall-trap">
+                        <div class="lock-overlay">
+                            <span style="font-size: 2rem; margin-bottom: 0.5rem;">🔒</span>
+                            <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Locked</span>
+                        </div>
                         <div class="wallpaper-preview">
                             <img src="../assets/images/wallpapers/wall_trap_radar.png" alt="Trap Radar Lockscreen"
                                 onerror="this.src='https://placehold.co/1080x1920/1e1e2e/6366f1?text=Generating...'">
@@ -174,9 +258,9 @@
                             <h3 class="wallpaper-title">The Trap Radar</h3>
                             <p class="wallpaper-desc">Visual warnings for "Unit Mismatches" and "Zero/Negative"
                                 constraints.</p>
-                            <a href="../assets/images/wallpapers/wall_trap_radar.png" download="Practix_Trap_Radar.png"
-                                class="btn-primary wallpaper-dl-btn"
-                                style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
+                            <a href="javascript:void(0)" id="btn-wall-trap" class="btn-primary wallpaper-dl-btn"
+                                style="width: 100%; justify-content: center; text-decoration: none; background: #94a3b8; cursor: not-allowed;">Master
+                                10 Formulas</a>
                         </div>
                     </article>
                 </div>
@@ -218,25 +302,89 @@
     </style>
 
     <script>
+        // Mastery Progression Logic
+        function updateGating() {
+            const count = parseInt(localStorage.getItem('practix_mastery_count') || '0');
+            const bars = document.getElementById('progress-bar');
+            const pctText = document.getElementById('mastery-pct');
+            const heading = document.getElementById('progress-heading');
+            const subtext = document.getElementById('progress-subtext');
+
+            if (!bars || !pctText) return;
+
+            // 1. Update Progress UI
+            const max = 10;
+            const progress = Math.min(count / max, 1);
+            const dash = 226.2;
+            bars.style.strokeDashoffset = dash - (dash * progress);
+            pctText.innerText = count;
+
+            if (count >= 10) {
+                heading.innerText = "Legendary Mastery";
+                subtext.innerText = "All packs unlocked. You have the ultimate toolkit.";
+            } else if (count >= 5) {
+                heading.innerText = "Elite Trainee";
+                subtext.innerText = "Desmos pack unlocked. Master 10 for Trap Radar.";
+            } else {
+                heading.innerText = "Novice Trainee";
+                subtext.innerText = `Master ${5 - count} more formulas to unlock the Desmos pack.`;
+            }
+
+            // 2. Unlock Desmos (5)
+            if (count >= 5) {
+                const card = document.getElementById('wall-desmos');
+                if (card) {
+                    card.classList.remove('locked');
+                    const btn = document.getElementById('btn-wall-desmos');
+                    btn.innerText = "Download Free";
+                    btn.style.background = "var(--accent-primary)";
+                    btn.style.cursor = "pointer";
+                    btn.href = "../assets/images/wallpapers/wall_desmos.png";
+                    btn.setAttribute("download", "Practix_Desmos_God.png");
+                    card.querySelector('.lock-overlay').style.display = 'none';
+                }
+            }
+
+            // 3. Unlock Trap Radar (10)
+            if (count >= 10) {
+                const card = document.getElementById('wall-trap');
+                if (card) {
+                    card.classList.remove('locked');
+                    const btn = document.getElementById('btn-wall-trap');
+                    btn.innerText = "Download Free";
+                    btn.style.background = "var(--accent-primary)";
+                    btn.style.cursor = "pointer";
+                    btn.href = "../assets/images/wallpapers/wall_trap_radar.png";
+                    btn.setAttribute("download", "Practix_Trap_Radar.png");
+                    card.querySelector('.lock-overlay').style.display = 'none';
+                }
+            }
+        }
+
         document.querySelectorAll('.wallpaper-dl-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const wallName = btn.parentElement.querySelector('.wallpaper-title').innerText;
-
-                // 1. Log to Analytics
-                if (window.practixLog) {
-                    window.practixLog('wallpaper_download', {
-                        wallpaper_name: wallName,
-                        location: 'wallpaper_hub'
-                    });
+                if (btn.hasAttribute('download')) {
+                    // Log to Analytics
+                    if (window.practixLog) {
+                        window.practixLog('wallpaper_download', {
+                            wallpaper_name: wallName,
+                            location: 'wallpaper_hub'
+                        });
+                    }
+                    // Show Viral Toast
+                    setTimeout(() => {
+                        const toast = document.getElementById('viral-toast');
+                        if (toast) toast.style.display = 'block';
+                    }, 1000);
                 }
-
-                // 2. Show Viral Toast (after a slight delay to let download start)
-                setTimeout(() => {
-                    const toast = document.getElementById('viral-toast');
-                    if (toast) toast.style.display = 'block';
-                }, 1000);
             });
         });
+
+        // Run on load
+        updateGating();
+        // Check for updates if user switches tabs and comes back
+        window.addEventListener('focus', updateGating);
     </script>
 
     <!-- Hidden Footer (Reflow system will grab it) -->

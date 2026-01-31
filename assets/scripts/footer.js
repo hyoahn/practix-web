@@ -7,21 +7,18 @@
 console.log('Practix Footer v2 Loaded'); // Debug: Ensure script update
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Determine path depth
-    const currentPath = window.location.pathname;
-    const isInSubfolder = currentPath.includes('/topics/') ||
-        (currentPath.includes('topics/') && !currentPath.includes('../topics/'));
-    const basePath = isInSubfolder ? '../' : '';
+    // 1. Determine Robust Path Depth (Same as nav.js)
+    const pathSegments = currentPath.split('/').filter(s => s.length > 0);
+    const hasFile = pathSegments.length > 0 && pathSegments[pathSegments.length - 1].includes('.');
+    const depth = hasFile ? pathSegments.length - 1 : pathSegments.length;
+    const basePath = depth === 0 ? '' : '../'.repeat(depth);
 
-    // 2. Initial State (Default to COLLAPSED/HIDDEN)
-    // New key triggers a fresh state for all users
+    // 2. Initial State (Default to HIDDEN)
     const storedState = localStorage.getItem('practix_ui_footer_hidden');
-    // Default to TRUE (Hidden) if null
     const isHidden = storedState === null ? true : storedState === 'true';
 
     // 3. Create footer element
     const footer = document.createElement('footer');
-    // Use NEW class name
     footer.className = `practix-footer-panel ${!isHidden ? 'visible' : ''}`;
 
     // Explicitly set flex if visible (override CSS display:none)
@@ -110,8 +107,13 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
-    // 6. Inject (ALWAYS append to body to avoid being trapped in scroll containers)
-    document.body.appendChild(footer);
+    // 6. Inject (Prioritize scrollable containers inside the App Frame)
+    const target = document.querySelector('.stage-content-scroll') ||
+        document.querySelector('.main-content') ||
+        document.querySelector('.main-stage') ||
+        document.body;
+
+    target.appendChild(footer);
 
     // 7. Global Interface for Toggle
     window.practixToggleLayout = function () {

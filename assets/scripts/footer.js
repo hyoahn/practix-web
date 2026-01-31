@@ -13,8 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
         (currentPath.includes('topics/') && !currentPath.includes('../topics/'));
     const basePath = isInSubfolder ? '../' : '';
 
-    // 2. Check User Preference
-    const isCollapsed = localStorage.getItem('practix_footer_collapsed') === 'true';
+    // 2. Initial State (Default to COLLAPSED)
+    const storedState = localStorage.getItem('practix_footer_collapsed');
+    // If no state stored, default to TRUE (Collapsed/Hidden)
+    const isCollapsed = storedState === null ? true : storedState === 'true';
 
     // 3. Create footer element
     const footer = document.createElement('footer');

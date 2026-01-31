@@ -63,8 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const layoutBtn = document.getElementById('layout-toggle');
     if (layoutBtn) {
         const storedState = localStorage.getItem('practix_ui_footer_hidden');
-        const isHidden = storedState === null ? true : storedState === 'true';
+        // Default to HIDDEN (true) if never set
+        const isHidden = (storedState === null || storedState === 'true');
         layoutBtn.style.color = isHidden ? 'var(--text-muted)' : 'var(--accent-primary)';
+        console.log('Practix Nav: Init toggle color. isHidden =', isHidden);
     }
 
     // 6. Mobile Toggle Logic

@@ -11,7 +11,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
         rel="stylesheet">
-    <script src="../../assets/scripts/pulse-relay.js?v=24"></script>
+    <script src="../../assets/scripts/pulse-relay.js?v=26"></script>
     <style>
         :root {
             --pulse-primary: #6366f1;
@@ -258,6 +258,18 @@
                 </div>
             </div>
 
+            <!-- DEBUG: Raw Local Storage Viewer -->
+            <div class="panel" style="margin-top: 1.5rem; border-color: rgba(99, 102, 241, 0.3);">
+                <div class="panel-header">
+                    <div class="panel-title" style="font-size: 0.9rem; color: #64748b;">Local Storage Inspector (Debug)
+                    </div>
+                    <button onclick="updateRawLog()" style="font-size: 0.7rem; padding: 0.2rem 0.5rem;">Refresh</button>
+                </div>
+                <div id="raw-local-log"
+                    style="font-family: monospace; font-size: 0.75rem; color: #475569; max-height: 150px; overflow-y: auto; white-space: pre-wrap;">
+                    Log empty...</div>
+            </div>
+
             <div class="panel">
                 <div class="panel-header">
                     <div class="panel-title">Popularity Leaderboard</div>
@@ -451,6 +463,27 @@
 
             // Start live engine
             initLiveDashboard();
+            // Debug Log
+            function updateRawLog() {
+                const logEl = document.getElementById('raw-local-log');
+                if (!logEl) return;
+                try {
+                    const events = JSON.parse(localStorage.getItem('practix_local_events') || '[]');
+                    if (events.length === 0) {
+                        logEl.innerText = "Local Log is empty (No events recorded on this device yet).";
+                        return;
+                    }
+                    // Show last 10 events reversed
+                    logEl.innerText = events.slice().reverse().slice(0, 10)
+                        .map(e => {
+                            const time = e.created_at ? e.created_at.split('T')[1].split('.')[0] : '??:??:??';
+                            return `[${time}] ${e.event_name} -> ${e.params.wallpaper_name || 'N/A'}`;
+                        })
+                        .join('\n');
+                } catch (e) {
+                    logEl.innerText = "Error reading log: " + e.message;
+                }
+            }
         </script>
 </body>
 

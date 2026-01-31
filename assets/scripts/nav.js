@@ -64,12 +64,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!btn) return;
 
         e.preventDefault();
-        console.log('Practix: Layout toggle clicked');
+        console.log('Practix: Layout toggle clicked. Searching for #practix-global-footer-panel');
 
-        // Find footer on demand
-        const footer = document.querySelector('.practix-footer-panel') || document.querySelector('footer');
+        // Find footer by UNIQUE ID
+        const footer = document.getElementById('practix-global-footer-panel');
         if (!footer) {
-            console.error('Practix: Footer not found in DOM');
+            console.warn('Practix: #practix-global-footer-panel not found, falling back to tag search');
+            const fallback = document.querySelector('footer');
+            if (fallback) {
+                fallback.style.display = fallback.style.display === 'none' ? 'flex' : 'none';
+            }
             return;
         }
 
@@ -80,9 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (nextTargetVisible) {
             footer.classList.add('visible');
             footer.style.display = 'flex';
+            // Force browser to realize it's visible
+            footer.style.opacity = '1';
+            footer.style.visibility = 'visible';
+
             setTimeout(() => {
                 footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 50);
+            }, 100);
         } else {
             footer.classList.remove('visible');
             footer.style.display = 'none';

@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Create footer element
     const footer = document.createElement('footer');
+    footer.id = 'practix-global-footer-panel';
     footer.className = `practix-footer-panel ${!isHidden ? 'visible' : ''}`;
 
     // Explicitly set flex if visible (override CSS display:none)

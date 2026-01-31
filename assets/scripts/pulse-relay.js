@@ -70,7 +70,8 @@ async function broadcastEvent(eventName, params = {}) {
                 {
                     event_name: eventName,
                     params: params,
-                    location: window.location.pathname
+                    location: window.location.pathname,
+                    created_at: new Date().toISOString()
                 }
             ]);
 
@@ -102,7 +103,7 @@ async function subscribeToEvents(onEvent) {
  */
 async function getEventCounts(eventName, filters = {}, since = null) {
     if (relayInitPromise) await relayInitPromise;
-    if (!supabaseClient) return 0;
+    if (!supabaseClient) return -1; // Return -1 to indicate connection failure
 
     let query = supabaseClient
         .from(RELAY_CONFIG.table)
@@ -119,7 +120,11 @@ async function getEventCounts(eventName, filters = {}, since = null) {
     }
 
     const { count, error } = await query;
-    return error ? 0 : count;
+    if (error) {
+        console.error("Pulse Relay Count Error:", error);
+        return -1;
+    }
+    return count;
 }
 
 // Auto-init on load

@@ -396,7 +396,16 @@
 
                 // Track Active Users (simplified: unique events since epoch)
                 const activeEvents = await PulseRelay.getCounts('page_view', {}, epoch);
-                if (activeUsersEl) activeUsersEl.innerText = (activeEvents || 0).toLocaleString();
+
+                if (activeUsersEl) {
+                    if (activeEvents === -1) {
+                        activeUsersEl.innerText = "ERR";
+                        activeUsersEl.style.color = "var(--pulse-danger)";
+                    } else {
+                        activeUsersEl.innerText = activeEvents.toLocaleString();
+                        activeUsersEl.style.color = "#0f172a";
+                    }
+                }
 
                 updateUI();
 

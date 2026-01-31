@@ -385,7 +385,8 @@
                 addEvent("Connecting to Pulse Relay...");
 
                 // Define the Growth Epoch (Zero-to-One start)
-                const epoch = '2026-02-01T00:00:00Z';
+                // Using Jan 31 to capture tests from GMT+9 morning.
+                const epoch = '2026-01-31T12:00:00Z';
 
                 // 1. Fetch initial snapshots (Filtered by Epoch)
                 totalDownloads = await PulseRelay.getCounts('wallpaper_download', {}, epoch);

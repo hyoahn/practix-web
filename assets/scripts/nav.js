@@ -66,9 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation();
             console.log('Practix: Global layout toggle clicked');
 
-            const footer = document.querySelector('.practix-footer');
+            const footer = document.querySelector('.practix-footer-panel');
             if (footer) {
-                // Toggle Class (we toggle 'visible' now, not 'collapsed')
+                // Toggle Class
                 footer.classList.toggle('visible');
                 const isVisible = footer.classList.contains('visible');
 
@@ -78,11 +78,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Save state (Hidden = !isVisible)
                 localStorage.setItem('practix_ui_footer_hidden', !isVisible);
 
-                // Update visual state (Hidden = Text Muted, Visible = Accent)
+                // Update visual state
                 toggleBtn.style.color = !isVisible ? 'var(--text-muted)' : 'var(--accent-primary)';
                 console.log('Practix: Footer visible =', isVisible);
             } else {
-                console.error('Practix: Footer not found in DOM');
+                // Try finding ANY footer as backup
+                const anyFooter = document.querySelector('footer');
+                if (anyFooter) {
+                    anyFooter.style.display = anyFooter.style.display === 'none' ? 'flex' : 'none';
+                }
+                console.error('Practix: Specific Footer panel not found, attempted backup toggle');
             }
         }
     });

@@ -803,7 +803,7 @@ h3 {
 /* =========================================
    COLLAPSIBLE FOOTER
    ========================================= */
-.practix-footer {
+.practix-footer-panel {
     background: #1a1a2e;
     color: white;
     padding: 0;
@@ -812,14 +812,14 @@ h3 {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     display: none;
-    /* Changed from flex to none (Default Hidden) */
+    /* DEFAULT HIDDEN */
     flex-direction: column;
     flex-shrink: 0;
     z-index: 2000;
     overflow: hidden;
 }
 
-.practix-footer.visible {
+.practix-footer-panel.visible {
     display: flex !important;
 }
 
@@ -831,7 +831,7 @@ h3 {
 }
 
 /* Collapsed State - Completely Hidden (Zero Height) */
-.practix-footer.collapsed {
+.practix-footer-panel.collapsed {
     height: 0 !important;
     min-height: 0 !important;
     padding: 0 !important;
@@ -842,7 +842,7 @@ h3 {
     overflow: hidden;
 }
 
-.practix-footer.collapsed .footer-content {
+.practix-footer-panel.collapsed .footer-content {
     display: none;
 }
 

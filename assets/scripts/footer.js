@@ -21,15 +21,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Create footer element
     const footer = document.createElement('footer');
-    // Base class is hidden via CSS. Add 'visible' if NOT hidden.
-    footer.className = `practix-footer ${!isHidden ? 'visible' : ''}`;
+    // Use NEW class name
+    footer.className = `practix-footer-panel ${!isHidden ? 'visible' : ''}`;
 
     // Explicitly set flex if visible (override CSS display:none)
     if (!isHidden) {
         footer.style.display = 'flex';
     }
 
-    console.log('Practix Footer Init: Hidden =', isHidden);
+    // AGGRESSIVE PURGE: Remove ALL existing footers to prevent duplicates
+    const allFooters = document.querySelectorAll('footer');
+    allFooters.forEach(f => f.remove());
+
+    console.log('Practix Footer Init (v8): Hidden =', isHidden);
 
     // 4. Define Topic Loop
     const topics = [
@@ -106,21 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
-    // 6. Inject
+    // 6. Inject (Since we purged, we just append to body or main-content)
     const targetContainer = document.querySelector('.main-content') || document.body;
-    const existingFooter = document.querySelector('footer');
-
-    if (existingFooter) {
-        existingFooter.replaceWith(footer);
-    } else {
-        targetContainer.appendChild(footer);
-    }
-
-    if (existingFooter) {
-        existingFooter.replaceWith(footer);
-    } else {
-        targetContainer.appendChild(footer);
-    }
+    targetContainer.appendChild(footer);
 });
 
 

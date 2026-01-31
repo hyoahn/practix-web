@@ -4,6 +4,8 @@
  * Features: Collapsible Pane (User Preference Persisted)
  */
 
+console.log('Practix Footer v2 Loaded'); // Debug: Ensure script update
+
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Determine path depth
     const currentPath = window.location.pathname;

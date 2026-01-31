@@ -818,89 +818,27 @@ h3 {
     overflow: hidden;
 }
 
-/* The drag handle / toggle bar */
-.footer-handle {
-    width: 100%;
-    height: 40px;
-    /* Taller touch target */
-    background: #6366f1;
-    /* PERMANENT VISIBILITY: Brand Indigo */
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: background 0.2s;
-    gap: 0.8rem;
-    position: relative;
-    z-index: 2001;
-    /* Ensure on top */
-}
-
-.footer-handle:hover {
-    background: #4f46e5;
-    /* Darker on hover */
-}
-
-.footer-handle-icon {
-    width: 40px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 2px;
-    transition: transform 0.3s;
-}
-
 /* Inner content wrapper */
 .footer-content {
     padding: 3rem 5% 2rem;
-    transition: opacity 0.3s ease, transform 0.3s;
+    transition: opacity 0.3s ease;
     opacity: 1;
-    transform: translateY(0);
 }
 
-/* Collapsed State */
+/* Collapsed State - Completely Hidden (Zero Height) */
 .practix-footer.collapsed {
-    transform: translateY(calc(100% - 24px));
-    /* We want it legally visible but pushed down? 
-       Actually, standard collapsible behavior is height change or transform. 
-       Let's try max-height animation or transform. 
-       Better yet: transform the whole footer down, but keep it fixed at bottom?
-       The footer is in the flow. If we transform it down, it leaves whitespace.
-       We should probably toggle max-height or display-none the content.
-    */
-    /* Resetting strategy for flow-based footer: */
+    height: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
 }
 
-/* REVISED STRATEGY FOR FLOW FOOTER:
-   We just hide the content container.
-*/
 .practix-footer.collapsed .footer-content {
     display: none;
-    opacity: 0;
-}
-
-.practix-footer.collapsed .footer-copyright {
-    display: none;
-    /* Or keep copyright visible? 
-       User wants more space. Let's hide everything except a "Show Footer" handle.
-    */
-}
-
-.footer-toggle-text {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: rgba(255, 255, 255, 0.4);
-    margin-left: 1rem;
-    display: none;
-}
-
-.practix-footer.collapsed .footer-toggle-text {
-    display: block;
-}
-
-.practix-footer.collapsed .footer-handle-icon {
-    background: var(--accent-primary);
 }
 
 .tip-icon {

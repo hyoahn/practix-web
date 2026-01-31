@@ -110,9 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
-    // 6. Inject (Since we purged, we just append to body or main-content)
-    const targetContainer = document.querySelector('.main-content') || document.body;
-    targetContainer.appendChild(footer);
+    // 6. Inject (ALWAYS append to body to avoid being trapped in scroll containers)
+    document.body.appendChild(footer);
 
     // 7. Global Interface for Toggle
     window.practixToggleLayout = function () {

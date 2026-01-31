@@ -58,8 +58,22 @@ async function broadcastEvent(eventName, params = {}) {
     // Wait for init to finish if it's already started
     if (relayInitPromise) await relayInitPromise;
 
+    // HYBRID: Always save to LocalStorage first (Robustness)
+    try {
+        const localEvents = JSON.parse(localStorage.getItem('practix_local_events') || '[]');
+        localEvents.push({
+            event_name: eventName,
+            params: params,
+            location: window.location.pathname,
+            created_at: new Date().toISOString()
+        });
+        localStorage.setItem('practix_local_events', JSON.stringify(localEvents));
+    } catch (e) {
+        console.error("Local Fallback Save Failed", e);
+    }
+
     if (!supabaseClient) {
-        console.error('📡 Pulse Relay: Cannot broadcast, client not initialized.');
+        console.warn('📡 Pulse Relay: Client offline. Using Local Fallback.');
         return;
     }
 
@@ -103,7 +117,27 @@ async function subscribeToEvents(onEvent) {
  */
 async function getEventCounts(eventName, filters = {}, since = null) {
     if (relayInitPromise) await relayInitPromise;
-    if (!supabaseClient) return -1; // Return -1 to indicate connection failure
+
+    // Helper: Local Count Logic
+    const countLocal = () => {
+        try {
+            const localEvents = JSON.parse(localStorage.getItem('practix_local_events') || '[]');
+            return localEvents.filter(e => {
+                if (e.event_name !== eventName) return false;
+                if (since && new Date(e.created_at) < new Date(since)) return false;
+                // Check params
+                for (const [key, value] of Object.entries(filters)) {
+                    // Check if param exists and contains value (simple string match for now)
+                    if (!e.params || !e.params[key] || !e.params[key].includes(value)) return false;
+                }
+                return true;
+            }).length;
+        } catch (e) {
+            return 0;
+        }
+    };
+
+    if (!supabaseClient) return countLocal();
 
     let query = supabaseClient
         .from(RELAY_CONFIG.table)
@@ -121,8 +155,8 @@ async function getEventCounts(eventName, filters = {}, since = null) {
 
     const { count, error } = await query;
     if (error) {
-        console.error("Pulse Relay Count Error:", error);
-        return -1;
+        console.warn("Pulse Relay Backend Error (Using Local):", error);
+        return countLocal();
     }
     return count;
 }

@@ -231,8 +231,11 @@
 
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-label">Active Users (24h)</div>
+                <div class="stat-label">Page Views (24h)</div>
                 <div class="stat-value" id="active-users">--</div>
+                <div class="stat-subtext" style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.8rem;">
+                    Est. Unique Visitors: <span id="unique-visitors">--</span>
+                </div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Mastery Intensity</div>
@@ -416,6 +419,9 @@
                     } else {
                         activeUsersEl.innerText = activeEvents.toLocaleString();
                         activeUsersEl.style.color = "#0f172a";
+                        // Local Mode Estimate: 1 Unique User
+                        const uniqueEl = document.getElementById('unique-visitors');
+                        if (uniqueEl) uniqueEl.innerText = activeEvents > 0 ? "1" : "0";
                     }
                 }
 

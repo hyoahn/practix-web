@@ -37,7 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
             <a href="${basePath}formulas/" class="nav-btn ${currentPath.includes('/formulas/') ? 'active' : ''}">Formulas</a>
             <a href="${basePath}desmos/" class="nav-btn ${currentPath.includes('/desmos/') ? 'active' : ''}">Desmos</a>
             <a href="${basePath}hard-questions/" class="nav-btn ${currentPath.includes('/hard-questions/') ? 'active' : ''}">Hardest Questions</a>
-            <button id="layout-toggle" class="nav-btn icon-btn" title="Toggle Footer Panel" style="display: flex; align-items: center; justify-content: center; padding: 0.5rem;">
+            <button id="layout-toggle" 
+                    class="nav-btn icon-btn" 
+                    title="Toggle Footer Panel" 
+                    onclick="if(window.practixToggleLayout) { const hidden = window.practixToggleLayout(); this.style.color = hidden ? 'var(--text-muted)' : 'var(--accent-primary)'; }"
+                    style="display: flex; align-items: center; justify-content: center; padding: 0.5rem; cursor: pointer;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                     <line x1="3" y1="15" x2="21" y2="15"></line>
@@ -55,51 +59,17 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.insertBefore(nav, document.body.firstChild);
     }
 
-    // 5. Mobile Toggle Logic & Layout Toggle
-    const toggle = document.getElementById('nav-toggle');
-    const menu = document.getElementById('nav-menu');
-    // 5. Global Event Delegation for Robustness
-    document.addEventListener('click', (e) => {
-        const toggleBtn = e.target.closest('#layout-toggle');
-        if (toggleBtn) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('Practix: Global layout toggle clicked');
-
-            const footer = document.querySelector('.practix-footer-panel');
-            if (footer) {
-                // Toggle Class
-                footer.classList.toggle('visible');
-                const isVisible = footer.classList.contains('visible');
-
-                // Toggle Inline Style
-                footer.style.display = isVisible ? 'flex' : 'none';
-
-                // Save state (Hidden = !isVisible)
-                localStorage.setItem('practix_ui_footer_hidden', !isVisible);
-
-                // Update visual state
-                toggleBtn.style.color = !isVisible ? 'var(--text-muted)' : 'var(--accent-primary)';
-                console.log('Practix: Footer visible =', isVisible);
-            } else {
-                // Try finding ANY footer as backup
-                const anyFooter = document.querySelector('footer');
-                if (anyFooter) {
-                    anyFooter.style.display = anyFooter.style.display === 'none' ? 'flex' : 'none';
-                }
-                console.error('Practix: Specific Footer panel not found, attempted backup toggle');
-            }
-        }
-    });
-
-    // Initial Button State Sync
+    // 5. Initial State Sync
     const layoutBtn = document.getElementById('layout-toggle');
     if (layoutBtn) {
         const storedState = localStorage.getItem('practix_ui_footer_hidden');
-        // If hidden is true, button is muted.
         const isHidden = storedState === null ? true : storedState === 'true';
         layoutBtn.style.color = isHidden ? 'var(--text-muted)' : 'var(--accent-primary)';
     }
+
+    // 6. Mobile Toggle Logic
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.getElementById('nav-menu');
 
     if (toggle && menu) {
         toggle.addEventListener('click', (e) => {

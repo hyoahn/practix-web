@@ -113,4 +113,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // 6. Inject (Since we purged, we just append to body or main-content)
     const targetContainer = document.querySelector('.main-content') || document.body;
     targetContainer.appendChild(footer);
+
+    // 7. Global Interface for Toggle
+    window.practixToggleLayout = function () {
+        footer.classList.toggle('visible');
+        const isVisible = footer.classList.contains('visible');
+        footer.style.display = isVisible ? 'flex' : 'none';
+        localStorage.setItem('practix_ui_footer_hidden', !isVisible);
+
+        // Return state for button sync
+        return !isVisible;
+    };
 });

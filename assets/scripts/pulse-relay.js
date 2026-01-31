@@ -10,41 +10,58 @@ const RELAY_CONFIG = {
 };
 
 let supabaseClient = null;
+let relayInitPromise = null;
 
 /**
  * Initialize the Relay
  */
 async function initRelay() {
-    if (RELAY_CONFIG.url === 'YOUR_SUPABASE_URL') {
-        console.warn('📡 Pulse Relay: Credentials missing. Running in local-only mode.');
-        return;
-    }
+    if (relayInitPromise) return relayInitPromise;
 
-    // Load SDK dynamically if missing
-    if (!window.supabase) {
-        await new Promise((resolve) => {
-            const script = document.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
-            script.onload = resolve;
-            document.head.appendChild(script);
-        });
-    }
+    relayInitPromise = (async () => {
+        if (RELAY_CONFIG.url === 'YOUR_SUPABASE_URL') {
+            console.warn('📡 Pulse Relay: Credentials missing. Running in local-only mode.');
+            return;
+        }
 
-    if (window.supabase) {
-        supabaseClient = window.supabase.createClient(RELAY_CONFIG.url, RELAY_CONFIG.key);
-        console.log('📡 Pulse Relay: Connected to Supabase.');
-    } else {
-        console.error('📡 Pulse Relay: Supabase SDK failed to load.');
-    }
+        // Load SDK dynamically if missing
+        if (!window.supabase) {
+            console.log('📡 Pulse Relay: Loading Supabase SDK...');
+            await new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+                script.onload = resolve;
+                script.onerror = () => reject(new Error('Supabase SDK fail'));
+                document.head.appendChild(script);
+            });
+        }
+
+        if (window.supabase) {
+            supabaseClient = window.supabase.createClient(RELAY_CONFIG.url, RELAY_CONFIG.key);
+            console.log('📡 Pulse Relay: Connected to Supabase.');
+            return true;
+        } else {
+            console.error('📡 Pulse Relay: Supabase SDK failed to load.');
+            return false;
+        }
+    })();
+
+    return relayInitPromise;
 }
 
 /**
  * Broadcast an event to the global relay
  */
 async function broadcastEvent(eventName, params = {}) {
-    console.log(`📡 Relaying: ${eventName}`, params);
+    console.log(`📡 Pulse Relay Attempting: ${eventName}`, params);
 
-    if (!supabaseClient) return;
+    // Wait for init to finish if it's already started
+    if (relayInitPromise) await relayInitPromise;
+
+    if (!supabaseClient) {
+        console.error('📡 Pulse Relay: Cannot broadcast, client not initialized.');
+        return;
+    }
 
     try {
         const { error } = await supabaseClient
@@ -59,8 +76,9 @@ async function broadcastEvent(eventName, params = {}) {
             ]);
 
         if (error) throw error;
+        console.log(`📡 Pulse Relay Success: ${eventName}`);
     } catch (err) {
-        console.error('📡 Relay broadcast failed:', err);
+        console.error('📡 Pulse Relay Error:', err);
     }
 }
 

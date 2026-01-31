@@ -8,6 +8,7 @@ console.log('Practix Footer v2 Loaded'); // Debug: Ensure script update
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Determine Robust Path Depth (Same as nav.js)
+    const currentPath = window.location.pathname;
     const pathSegments = currentPath.split('/').filter(s => s.length > 0);
     const hasFile = pathSegments.length > 0 && pathSegments[pathSegments.length - 1].includes('.');
     const depth = hasFile ? pathSegments.length - 1 : pathSegments.length;

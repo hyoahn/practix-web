@@ -813,13 +813,19 @@ footer:not(.visible) {
     pointer-events: none !important;
 }
 
+#layout-toggle {
+    cursor: pointer !important;
+    z-index: 3001 !important;
+    position: relative;
+}
+
 .practix-footer-panel {
     background: #1a1a2e;
     color: white;
     padding: 0;
     margin-top: auto;
     position: relative;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.3s ease;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     display: none;
     /* DEFAULT HIDDEN */
@@ -829,8 +835,14 @@ footer:not(.visible) {
     overflow: hidden;
 }
 
-.practix-footer-panel.visible {
+.practix-footer-panel.visible,
+footer.visible {
     display: flex !important;
+    opacity: 1 !important;
+    height: auto !important;
+    min-height: 200px;
+    pointer-events: auto !important;
+    visibility: visible !important;
 }
 
 /* Inner content wrapper */

@@ -58,61 +58,49 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.insertBefore(nav, document.body.firstChild);
     }
 
-    // 5. Global Toggle Listener (Bypass function scope issues)
-    document.addEventListener('click', (e) => {
-        const btn = e.target.closest('#layout-toggle');
-        if (!btn) return;
-
-        e.preventDefault();
-        console.log('Practix: Layout toggle clicked. Searching for #practix-global-footer-panel');
-
-        // Find footer by UNIQUE ID
-        const footer = document.getElementById('practix-global-footer-panel');
-        if (!footer) {
-            console.warn('Practix: #practix-global-footer-panel not found, falling back to tag search');
-            const fallback = document.querySelector('footer');
-            if (fallback) {
-                fallback.style.display = fallback.style.display === 'none' ? 'flex' : 'none';
-            }
-            return;
-        }
-
-        const isCurrentlyVisible = footer.classList.contains('visible') || footer.style.display === 'flex';
-        const nextTargetVisible = !isCurrentlyVisible;
-
-        // Apply state
-        if (nextTargetVisible) {
-            footer.classList.add('visible');
-            footer.style.display = 'flex';
-            // Force browser to realize it's visible
-            footer.style.opacity = '1';
-            footer.style.visibility = 'visible';
-
-            setTimeout(() => {
-                footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
-        } else {
-            footer.classList.remove('visible');
-            footer.style.display = 'none';
-        }
-
-        // Persist
-        localStorage.setItem('practix_ui_footer_hidden', !nextTargetVisible);
-
-        // Update button
-        btn.style.color = nextTargetVisible ? 'var(--accent-primary)' : 'var(--text-muted)';
-        console.log('Practix: Footer visibility set to', nextTargetVisible);
-    });
-
-    // 6. Initial State Sync
+    // 5. Layout Toggle Logic (Self-contained)
     const layoutBtn = document.getElementById('layout-toggle');
     if (layoutBtn) {
+        // Sync initial state color
         const storedState = localStorage.getItem('practix_ui_footer_hidden');
         const isHidden = (storedState === null || storedState === 'true');
         layoutBtn.style.color = isHidden ? 'var(--text-muted)' : 'var(--accent-primary)';
+
+        layoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation(); // Keep it here to avoid closing menu if nested, or just for safety
+
+            console.log('Practix: Layout toggle clicked');
+
+            // Find by ID
+            const footer = document.getElementById('practix-global-footer-panel');
+            if (!footer) {
+                console.warn('Practix: #practix-global-footer-panel not found');
+                return;
+            }
+
+            const isCurrentlyVisible = footer.classList.contains('visible') || footer.style.display === 'flex';
+            const nextTargetVisible = !isCurrentlyVisible;
+
+            if (nextTargetVisible) {
+                footer.classList.add('visible');
+                footer.style.display = 'flex';
+                footer.style.opacity = '1';
+                footer.style.visibility = 'visible';
+                setTimeout(() => {
+                    footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            } else {
+                footer.classList.remove('visible');
+                footer.style.display = 'none';
+            }
+
+            localStorage.setItem('practix_ui_footer_hidden', !nextTargetVisible);
+            layoutBtn.style.color = nextTargetVisible ? 'var(--accent-primary)' : 'var(--text-muted)';
+        });
     }
 
-    // 7. Mobile Toggle Logic
+    // 6. Mobile Toggle Logic
     const toggle = document.getElementById('nav-toggle');
     const menu = document.getElementById('nav-menu');
 
@@ -128,7 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         menu.addEventListener('click', (e) => {
-            e.stopPropagation();
+            // Only stop if they didn't click a link
+            if (!e.target.closest('a')) {
+                e.stopPropagation();
+            }
         });
     }
 });

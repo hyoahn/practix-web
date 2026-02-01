@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /assets/
 
 Sitemap: https://practix.org/sitemap.xml

@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const PILLARS = [
         {
             id: 'formulas',
-            name: 'Formula Hub',
+            name: 'SAT Math Formulas',
             icon: 'Σ',
             path: 'formulas/',
             categories: [
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 'desmos',
-            name: 'Desmos Hacks',
+            name: 'Desmos SAT Calculator',
             icon: 'y=',
             path: 'desmos/',
             categories: [
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 'hard-questions',
-            name: 'Boss Mode',
+            name: 'Hardest Questions',
             icon: '☠️',
             path: 'hard-questions/',
             categories: [

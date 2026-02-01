@@ -104,9 +104,9 @@
                                         <strong>2. Simplify:</strong><br>
                                         \(x = \frac{7 \pm \sqrt{49 - 144}}{6} = \frac{7 \pm \sqrt{-95}}{6}\)<br>
                                         <strong>3. Define Complex Roots:</strong><br>
-                                        \(r_1 = \frac{7 + i\sqrt{95}}{6}, r_2 = \frac{7 - i\sqrt{95}}{6}\)<br>
+                                        \(x_1 = \frac{7 + i\sqrt{95}}{6}, x_2 = \frac{7 - i\sqrt{95}}{6}\)<br>
                                         <strong>4. Calculate Product:</strong><br>
-                                        \(r_1 \cdot r_2 = \left(\frac{7 + i\sqrt{95}}{6}\right)\left(\frac{7 -
+                                        \(x_1 \cdot x_2 = \left(\frac{7 + i\sqrt{95}}{6}\right)\left(\frac{7 -
                                         i\sqrt{95}}{6}\right)\)<br>
                                         Numerator: \((7+i\sqrt{95})(7-i\sqrt{95}) = 49 - (i\sqrt{95})^2 = 49 - (-95) =
                                         144\).<br>
@@ -167,9 +167,9 @@
                                         \(x = \frac{-8}{4} \pm \frac{\sqrt{104}}{4} = -2 \pm \frac{2\sqrt{26}}{4} = -2
                                         \pm \frac{\sqrt{26}}{2}\)<br>
                                         <strong>4. Define Roots:</strong><br>
-                                        \(r_1 = -2 + \frac{\sqrt{26}}{2}, r_2 = -2 - \frac{\sqrt{26}}{2}\)<br>
+                                        \(x_1 = -2 + \frac{\sqrt{26}}{2}, x_2 = -2 - \frac{\sqrt{26}}{2}\)<br>
                                         <strong>5. Calculate Sum:</strong><br>
-                                        \(r_1 + r_2 = (-2 + \frac{\sqrt{26}}{2}) + (-2 - \frac{\sqrt{26}}{2})\)<br>
+                                        \(x_1 + x_2 = (-2 + \frac{\sqrt{26}}{2}) + (-2 - \frac{\sqrt{26}}{2})\)<br>
                                         Radicals cancel out: \(-2 - 2 = -4\).<br>
                                         <strong>Result: -4</strong>
                                     </p>
@@ -258,43 +258,55 @@
 
                     <div
                         style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #bbf7d0; font-family: serif; font-size: 1.1rem; line-height: 2;">
-                        <p><strong>Step 1: The Standard Form</strong><br>Every quadratic can be written as:</p>
+                        <p><strong>Step 1: The Standard Form</strong><br>Every quadratic equation of degree 2 can be
+                            expressed as:</p>
                         <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
                             \( ax^2 + bx + c = 0 \)
                         </div>
+                        <p>Assuming \( a \neq 0 \), we divide the entire equation by \( a \):</p>
+                        <div style="text-align: center; margin: 1.5rem 0; font-size: 1.3rem;">
+                            \( x^2 + \frac{b}{a}x + \frac{c}{a} = 0 \)
+                        </div>
 
-                        <p><strong>Step 2: Factored Form with Roots</strong><br>If a quadratic has roots \(r_1\) and
-                            \(r_2\), it MUST factor as:</p>
+                        <p><strong>Step 2: The Linear Factors</strong><br>If \( x_1 \) and \( x_2 \) are the solutions
+                            (roots) of this equation, then by the Factor Theorem, the polynomial must be divisible by \(
+                            (x - x_1) \) and \( (x - x_2) \). Thus:</p>
                         <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
-                            \( a(x - r_1)(x - r_2) = 0 \)
+                            \( (x - x_1)(x - x_2) = 0 \)
                         </div>
 
-                        <p><strong>Step 3: Expansion by FOIL</strong><br>Distribute the terms within the parentheses:
-                        </p>
+                        <p><strong>Step 3: Expansion by FOIL</strong><br>We multiply the linear factors to return to
+                            quadratic form:</p>
                         <div style="text-align: center; margin: 1.5rem 0;">
-                            \( a(x^2 - r_2x - r_1x + r_1r_2) = 0 \)
+                            \( x \cdot x - x \cdot x_2 - x \cdot x_1 + x_1 \cdot x_2 = 0 \)
                             <br>
-                            \( a(x^2 - (r_1 + r_2)x + r_1r_2) = 0 \)
+                            \( x^2 - (x_1 + x_2)x + x_1x_2 = 0 \)
                         </div>
 
-                        <p><strong>Step 4: Distribute the Leading Coefficient 'a'</strong></p>
-                        <div style="text-align: center; margin: 1.5rem 0;">
-                            \( ax^2 - a(r_1 + r_2)x + ar_1r_2 = 0 \)
+                        <p><strong>Step 4: Coefficient Matching</strong><br>We now have two expressions for the same
+                            normalized quadratic. They must be identical term-for-term:</p>
+                        <div style="text-align: center; margin: 1.5rem 0; font-style: italic;">
+                            \( x^2 + \left(\mathbf{\frac{b}{a}}\right)x + \left(\mathbf{\frac{c}{a}}\right) = x^2 -
+                            \left(\mathbf{x_1 + x_2}\right)x + \left(\mathbf{x_1x_2}\right) \)
                         </div>
 
-                        <p><strong>Step 5: Coefficient Comparison</strong><br>Now, we match this term-by-term with the
-                            Standard Form \(ax^2 + bx + c = 0\):</p>
+                        <p><strong>Step 5: Theoretical Conclusion</strong></p>
                         <ul style="margin: 2rem 0; padding-left: 2rem;">
-                            <li>The \(x\)-term coefficients must be equal: <br>
-                                \( b = -a(r_1 + r_2) \implies \mathbf{r_1 + r_2 = -\frac{b}{a}} \)</li>
-                            <li style="margin-top: 1.5rem;">The constant terms must be equal: <br>
-                                \( c = a(r_1r_2) \implies \mathbf{r_1r_2 = \frac{c}{a}} \)</li>
+                            <li style="margin-bottom: 1.5rem;">
+                                <strong>The Sum Rule:</strong> Matching the \( x \)-coefficients:<br>
+                                \( \frac{b}{a} = -(x_1 + x_2) \implies \mathbf{x_1 + x_2 = -\frac{b}{a}} \)
+                            </li>
+                            <li>
+                                <strong>The Product Rule:</strong> Matching the constant terms:<br>
+                                \( \frac{c}{a} = x_1x_2 \implies \mathbf{x_1x_2 = \frac{c}{a}} \)
+                            </li>
                         </ul>
 
-                        <p style="background: #f0fdf4; padding: 1rem; border-radius: 6px; border: 1px solid #dcfce7;">
-                            <strong>Conclusion:</strong> These shortcuts are not "tricks"—they are the algebraic
-                            identities
-                            baked into the very structure of polynomials.
+                        <p
+                            style="background: #f0fdf4; padding: 1.5rem; border-radius: 6px; border: 1px solid #dcfce7; font-style: italic;">
+                            This proof demonstrates that the sum and product of the roots are inherently linked to the
+                            coefficients of the polynomial. This is a foundational principle of algebra known as Vieta's
+                            Formulas.
                         </p>
                     </div>
                 </section>

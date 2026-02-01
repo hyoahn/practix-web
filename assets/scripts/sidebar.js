@@ -217,6 +217,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let html = '';
 
+        // Get current hash for precise matching
+        const currentHash = window.location.hash;
+        const currentFullPath = currentPath + currentHash;
+
         if (searchQuery) {
             // GLOBAL SEARCH ACROSS ALL PILLARS
             PILLARS.forEach(pillar => {
@@ -234,13 +238,15 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="side-tree-group active">
                                 <h4>${cat.name}</h4>
                                 <ul class="side-tree-topic">
-                                    ${cat.topics.map(topic => `
+                                    ${cat.topics.map(topic => {
+                            const isActive = isLinkActive(topic.path, currentPath, currentHash);
+                            return `
                                         <li>
-                                            <a href="${basePath}${topic.path}" class="side-link ${currentPath.includes(topic.path) ? 'active' : ''}">
+                                            <a href="${basePath}${topic.path}" class="side-link ${isActive ? 'active' : ''}">
                                                 ${topic.name}
                                             </a>
                                         </li>
-                                    `).join('')}
+                                    `}).join('')}
                                 </ul>
                             </div>
                         `;
@@ -259,19 +265,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="side-tree-group active">
                     <h4>${cat.name}</h4>
                     <ul class="side-tree-topic">
-                        ${cat.topics.map(topic => `
+                        ${cat.topics.map(topic => {
+                const isActive = isLinkActive(topic.path, currentPath, currentHash);
+                return `
                             <li>
-                                <a href="${basePath}${topic.path}" class="side-link ${currentPath.includes(topic.path) ? 'active' : ''}">
+                                <a href="${basePath}${topic.path}" class="side-link ${isActive ? 'active' : ''}">
                                     ${topic.name}
                                 </a>
                             </li>
-                        `).join('')}
+                        `}).join('')}
                     </ul>
                 </div>
             `).join('');
         }
 
         sidebarTree.innerHTML = html;
+    }
+
+    // Helper function to determine if a link is active
+    function isLinkActive(topicPath, currentPath, currentHash) {
+        // If topic has a hash, match exact hash
+        if (topicPath.includes('#')) {
+            const [topicBase, topicHash] = topicPath.split('#');
+            return currentPath.includes(topicBase) && currentHash === `#${topicHash}`;
+        }
+        // If no hash in topic path, only match if current page also has no hash
+        return currentPath.includes(topicPath) && !currentHash;
     }
 
     // 6. Event Handlers
@@ -300,6 +319,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7. Initialize
     renderRail();
     renderTree();
+
+    // Listen for hash changes to update active highlighting
+    window.addEventListener('hashchange', () => {
+        renderTree();
+        const activeLink = sidebarTree.querySelector('.side-link.active');
+        if (activeLink) {
+            activeLink.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
 
     // Auto-scroll to active link
     const activeLink = sidebarTree.querySelector('.side-link.active');

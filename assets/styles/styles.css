@@ -1425,6 +1425,7 @@ input[type=range]::-webkit-slider-runnable-track {
     /* Ensure hero section negative margins still work relative to this */
     position: relative;
 }
+
 /* --- MASTERY ENGINE UI --- */
 .formula-card {
     position: relative;
@@ -1464,4 +1465,76 @@ input[type=range]::-webkit-slider-runnable-track {
     height: 18px;
     cursor: pointer;
     accent-color: var(--accent-green);
+}
+
+/* --- PRACTIX REVEAL INTERFACE --- */
+.practix-reveal {
+    margin-top: 1.5rem;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    transition: all 0.3s ease;
+}
+
+.practix-reveal[open] {
+    border-color: var(--accent-primary);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
+}
+
+.practix-reveal summary {
+    list-style: none;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    color: var(--accent-primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(99, 102, 241, 0.03);
+    user-select: none;
+}
+
+.practix-reveal summary::-webkit-details-marker {
+    display: none;
+}
+
+.practix-reveal summary::after {
+    content: 'Show Solution →';
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.4rem 0.8rem;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.practix-reveal[open] summary::after {
+    content: 'Hide Solution';
+    background: var(--accent-primary);
+    color: white;
+    border-color: var(--accent-primary);
+}
+
+.solution-content {
+    padding: 2rem;
+    background: #f0fdf4;
+    /* Light green success background */
+    border-top: 1px solid #dcfce7;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

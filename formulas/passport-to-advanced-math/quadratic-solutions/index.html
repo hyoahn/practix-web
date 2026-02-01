@@ -32,7 +32,8 @@
 
 
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Quadratic Solutions & Root Hacks | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
+    <script
+        type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Quadratic Solutions & Root Hacks | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
 </head>
 
 <body>
@@ -81,6 +82,16 @@
                     <div class="formula-display">\[ \text{Product} = \frac{c}{a} \]</div>
                     <p class="formula-explanation">INSTANTLY find what the solutions multiply to. Essential when the SAT
                         asks for the product of roots.</p>
+
+                    <details class="practix-reveal">
+                        <summary>Example Problem</summary>
+                        <div class="solution-content">
+                            <p><strong>Scenario:</strong> What is the product of the solutions to \(3x^2 - 7x + 12 =
+                                0\)?</p>
+                            <p style="margin-top: 1rem;">Here \(a=3, c=12\). <br>Product = \(12/3 = 4\).</p>
+                            <p><strong>Answer: 4</strong>. Don't touch the quadratic formula.</p>
+                        </div>
+                    </details>
                 </article>
 
                 <article class="formula-card" id="sum-solutions">
@@ -93,8 +104,16 @@
                     <h3>Sum of Solutions</h3>
                     <div class="formula-display">\[ \text{Sum} = -\frac{b}{a} \]</div>
                     <p class="formula-explanation">Instantly find what the solutions add up to. Don't waste time solving
-                        for
-                        individual roots.</p>
+                        for individual roots.</p>
+
+                    <details class="practix-reveal">
+                        <summary>Example Problem</summary>
+                        <div class="solution-content">
+                            <p><strong>Scenario:</strong> What is the sum of the solutions to \(2x^2 + 8x - 5 = 0\)?</p>
+                            <p style="margin-top: 1rem;">Here \(a=2, b=8\). <br>Sum = \(-8/2 = -4\).</p>
+                            <p><strong>Answer: -4</strong>. Done in 2 seconds.</p>
+                        </div>
+                    </details>
                 </article>
 
                 <article class="formula-card" id="discriminant">
@@ -110,7 +129,49 @@
                         \(D > 0\): 2 Real Solutions<br>
                         \(D = 0\): 1 Real Solution<br>
                         \(D < 0\): No Real Solutions </p>
+
+                            <details class="practix-reveal">
+                                <summary>Example Problem</summary>
+                                <div class="solution-content">
+                                    <p><strong>Scenario:</strong> How many real solutions does \(x^2 + 4x + 4 = 0\)
+                                        have?</p>
+                                    <p style="margin-top: 1rem;">\(D = 4^2 - 4(1)(4) = 16 - 16 = 0\).</p>
+                                    <p><strong>Answer: 1 Real Solution</strong>. The parabola just touches the x-axis.
+                                    </p>
+                                </div>
+                            </details>
                 </article>
+
+                <!-- Theoretical Proof Section -->
+                <section class="topic-section"
+                    style="background: #f0fdf4; border: 1px solid #dcfce7; border-radius: 12px; padding: 2.5rem; margin-top: 3rem;">
+                    <h2 style="color: #166534; margin-top: 0;">🎓 The Proof: Vieta's Formulas</h2>
+                    <p style="color: #166534; margin-bottom: 2rem;">Why does \(-b/a\) work? It comes from the structure
+                        of a factored quadratic.</p>
+
+                    <div
+                        style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #bbf7d0; font-family: serif; font-size: 1.1rem; line-height: 2;">
+                        <p>1. Any quadratic with roots \(r_1\) and \(r_2\) can be written as:</p>
+                        <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
+                            \( a(x - r_1)(x - r_2) = 0 \)
+                        </div>
+
+                        <p>2. Expanding this gives:</p>
+                        <div style="text-align: center; margin: 1.5rem 0;">
+                            \( a(x^2 - (r_1 + r_2)x + r_1r_2) = 0 \)
+                            <br>
+                            \( ax^2 - a(r_1 + r_2)x + ar_1r_2 = 0 \)
+                        </div>
+
+                        <p>3. Comparing this to the standard form \(ax^2 + bx + c = 0\):</p>
+                        <ul>
+                            <li>\(b = -a(r_1 + r_2) \Rightarrow \mathbf{r_1 + r_2 = -b/a}\)</li>
+                            <li>\(c = ar_1r_2 \Rightarrow \mathbf{r_1r_2 = c/a}\)</li>
+                        </ul>
+                        <p>This is why you don't need to solve for the roots—the sum and product are "baked into" the
+                            coefficients themselves.</p>
+                    </div>
+                </section>
             </div>
         </main>
     </div>

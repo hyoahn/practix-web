@@ -49,7 +49,8 @@
     <script
         type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Desmos Lists & Tables: Statistical Power Moves | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Desmos Lists & Tables: Statistical Power Moves | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
+    <script
+        type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Desmos Lists & Tables: Statistical Power Moves | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
 </head>
 
 <body class="content-page">
@@ -87,21 +88,31 @@
 
                 <section class="technique-section" id="stats">
                     <h2 style="color: #991b1b; margin-bottom: 1.5rem;">📊 Trick #4: Statistical Visualization</h2>
-                    <p><strong>The Move:</strong> Use <code>L = [numbers]</code> to handle large datasets instantly.</p>
+                    <p><strong>The Move:</strong> Use <code>L = [10, 12, 12, 15, 20]</code> to handle large datasets
+                        instantly.</p>
                     <div class="magic-code">median(L)</div>
                     <div class="magic-code">mean(L)</div>
                     <div class="magic-code">boxplot(L)</div>
-                    <p>Never cross off numbers by hand again. Let Desmos find the center and spread of your data in 2
-                        seconds.</p>
+                    <details class="practix-reveal">
+                        <summary>✅ The Desmos Shortcut</summary>
+                        <div class="solution-content">
+                            <p>Never cross off numbers by hand again. For this list, <strong>Mean = 13.8</strong> and
+                                <strong>Median = 12</strong>. Desmos finds the center in 2 seconds.</p>
+                        </div>
+                    </details>
                 </section>
 
                 <section class="technique-section" id="filter" style="background: #f5f3ff; border-left-color: #8b5cf6;">
                     <h2 style="color: #5b21b6; margin-bottom: 1.5rem;">🧬 Trick #5: The List Filter</h2>
-                    <p><strong>Scenario:</strong> "How many integers in the list are greater than 15?"</p>
-                    <div class="magic-code" style="border-color: #ddd6fe;">length(L[L > 15])</div>
-                    <p>This "Master Class" command filters your list and counts the results in one step. Perfect for
-                        hard
-                        Module 2 statistics questions.</p>
+                    <p><strong>Scenario:</strong> "In the list above, how many integers are greater than 12?"</p>
+                    <div class="magic-code" style="border-color: #ddd6fe;">length(L[L > 12])</div>
+                    <details class="practix-reveal">
+                        <summary>✅ The Desmos Shortcut</summary>
+                        <div class="solution-content">
+                            <p>This filters the list to [15, 20] and counts them. <strong>Answer: 2</strong>. Perfect
+                                for hard Module 2 statistics questions.</p>
+                        </div>
+                    </details>
                 </section>
 
                 <section class="technique-section" id="tables" style="background: #fffbeb; border-left-color: #f59e0b;">
@@ -116,9 +127,15 @@
                 </section>
                 <section class="technique-section" id="total-sum">
                     <h2 style="color: #991b1b; margin-bottom: 1.5rem;">∑ Trick #6: The Total Sum</h2>
-                    <p><strong>The Move:</strong> Quickly add up a huge list of frequencies or values.</p>
+                    <p><strong>The Move:</strong> Set <code>L = [5, 5, 5, 10, 10]</code>.</p>
                     <div class="magic-code">total(L)</div>
-                    <p>Instant addition. Essential for "weighted average" manual setups.</p>
+                    <details class="practix-reveal">
+                        <summary>✅ The Desmos Shortcut</summary>
+                        <div class="solution-content">
+                            <p>Instant addition. <strong>Answer: 35</strong>. Essential for "weighted average" manual
+                                setups.</p>
+                        </div>
+                    </details>
                 </section>
 
                 <section class="technique-section" id="min-max"
@@ -126,7 +143,12 @@
                     <h2 style="color: #5b21b6; margin-bottom: 1.5rem;">📏 Trick #7: Range Finder</h2>
                     <p><strong>Scenario:</strong> Find the range of a dataset.</p>
                     <div class="magic-code" style="border-color: #ddd6fe;">max(L) - min(L)</div>
-                    <p>No need to search for the biggest and smallest numbers visually.</p>
+                    <details class="practix-reveal">
+                        <summary>✅ The Desmos Shortcut</summary>
+                        <div class="solution-content">
+                            <p>No need to search for the biggest and smallest numbers visually.</p>
+                        </div>
+                    </details>
                 </section>
 
                 <section class="technique-section" id="sort-list"
@@ -139,8 +161,13 @@
                 <section class="technique-section" id="quantile"
                     style="background: #ecfdf5; border-left-color: #10b981;">
                     <h2 style="color: #047857; margin-bottom: 1.5rem;">🔢 Trick #9: Percentiles</h2>
-                    <div class="magic-code" style="border-color: #6ee7b7;">quantile(L, 0.75)</div>
-                    <p>Finds the 75th percentile (Q3) instantly.</p>
+                    <div class="magic-code" style="border-color: #6ee7b7;">quantile([1, 2, 3, 4, 5], 0.75)</div>
+                    <details class="practix-reveal">
+                        <summary>✅ The Desmos Shortcut</summary>
+                        <div class="solution-content">
+                            <p>Finds the 75th percentile (Q3) instantly. <strong>Answer: 4</strong>.</p>
+                        </div>
+                    </details>
                 </section>
 
                 <section class="technique-section" id="mad-stat"
@@ -153,9 +180,13 @@
                 <section class="technique-section" id="stdev-pop"
                     style="background: #fff1f2; border-left-color: #be123c;">
                     <h2 style="color: #9f1239; margin-bottom: 1.5rem;">📊 Trick #11: Standard Deviation</h2>
-                    <div class="magic-code" style="border-color: #fda4af;">stdevp(L)</div>
-                    <p>Use `stdevp` for population (SAT standard) and `stdev` for sample. Usually Sat asks for
-                        population.</p>
+                    <div class="magic-code" style="border-color: #fda4af;">stdevp([2, 4, 6, 8])</div>
+                    <details class="practix-reveal">
+                        <summary>✅ The Desmos Shortcut</summary>
+                        <div class="solution-content">
+                            <p>Use `stdevp` for population (SAT standard). <strong>Answer: 2.236</strong>.</p>
+                        </div>
+                    </details>
                 </section>
 
                 <section class="technique-section" id="unique-list"

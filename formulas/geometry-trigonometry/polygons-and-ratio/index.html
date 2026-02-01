@@ -25,7 +25,8 @@
 
 
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Polygons & Similarity Ratios | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
+    <script
+        type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Polygons & Similarity Ratios | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
 </head>
 
 <body>
@@ -70,8 +71,18 @@
                     <h3>Similar Area Ratio</h3>
                     <div class="formula-display">\[ \text{Area Ratio} = (\text{Side Ratio})^2 \]</div>
                     <p class="formula-explanation">If Side A is 3x bigger than Side B, Area A is \(3^2 = 9x\) bigger.
-                        Don't
-                        fall for the linear trap.</p>
+                        Don't fall for the linear trap.</p>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Square scaling</summary>
+                        <div class="solution-content">
+                            <p>Triangle A and B are similar. Side ratio is 2:5. Area of A is 20. Area of B?</p>
+                            <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">\(\text{Area Ratio} =
+                                (2/5)^2 = 4/25\)</p>
+                            <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">\(\frac{20}{B} =
+                                \frac{4}{25} \rightarrow 4B = 500 \rightarrow B = 125\)</p>
+                            <p><strong>Result: 125</strong>.</p>
+                        </div>
+                    </details>
                 </article>
 
                 <article class="formula-card" id="f30">
@@ -80,6 +91,14 @@
                     <h3>Sum of Interior Angles</h3>
                     <div class="formula-display">\[ \text{Sum} = (n-2) \cdot 180^\circ \]</div>
                     <p class="formula-explanation">For any polygon with \(n\) sides.</p>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Pentagon Sum</summary>
+                        <div class="solution-content">
+                            <p>Sum of angles in a 5-sided shape (pentagon)?</p>
+                            <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">\((5-2) \cdot 180 = 3
+                                \cdot 180 = 540^\circ\)</p>
+                        </div>
+                    </details>
                 </article>
 
                 <article class="formula-card" id="f31">
@@ -88,8 +107,14 @@
                     <h3>Exterior Angle Sum</h3>
                     <div class="formula-display">Always \(360^\circ\)</div>
                     <p class="formula-explanation">No matter how many sides a convex polygon has, the exterior angles
-                        sum to
-                        360.</p>
+                        sum to 360.</p>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: The 360 Rule</summary>
+                        <div class="solution-content">
+                            <p>Whether it's a triangle or a 100-sided polygon, walking around the exterior always
+                                completes one full revolution (\(360^\circ\)).</p>
+                        </div>
+                    </details>
                 </article>
             </div>
         </main>

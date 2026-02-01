@@ -72,8 +72,10 @@
 
 
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "QAPage", "mainEntity": {"@type": "Question", "name": "The Standard Deviation Deception", "text": "Set A: {10, 20, 30, 40, 50}Set B: {10, 11, 30, 49, 50}Which set has a higher SD?", "answerCount": 1, "acceptedAnswer": {"@type": "Answer", "text": "The answer is Set B.", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}}}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "QAPage", "mainEntity": {"@type": "Question", "name": "The Range Ruse", "text": "If the maximum value of a box plot increases by 100, which value MUST change?", "answerCount": 1, "acceptedAnswer": {"@type": "Answer", "text": "The answer is Range.", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}}}</script>
+    <script
+        type="application/ld+json">{"@context": "https://schema.org", "@type": "QAPage", "mainEntity": {"@type": "Question", "name": "The Standard Deviation Deception", "text": "Set A: {10, 20, 30, 40, 50}Set B: {10, 11, 30, 49, 50}Which set has a higher SD?", "answerCount": 1, "acceptedAnswer": {"@type": "Answer", "text": "The answer is Set B.", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}}}</script>
+    <script
+        type="application/ld+json">{"@context": "https://schema.org", "@type": "QAPage", "mainEntity": {"@type": "Question", "name": "The Range Ruse", "text": "If the maximum value of a box plot increases by 100, which value MUST change?", "answerCount": 1, "acceptedAnswer": {"@type": "Answer", "text": "The answer is Range.", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}}}</script>
 </head>
 
 <body>
@@ -122,11 +124,13 @@
                         <h4>🚩 The Trap</h4>
                         <p>Trying to calculate standard deviation using the real formula. You’ll run out of time.</p>
                     </div>
-                    <div class="solution-box">
-                        <h4>✅ The Practix Shortcut</h4>
-                        <p>SD = Spread. Set B's numbers are further from the mean (30). More spread = Higher SD.</p>
-                        <p><strong>Answer: Set B</strong>.</p>
-                    </div>
+                    <details class="practix-reveal">
+                        <summary>✅ The Practix Shortcut</summary>
+                        <div class="solution-content">
+                            <p>SD = Spread. Set B's numbers are further from the mean (30). More spread = Higher SD.</p>
+                            <p><strong>Answer: Set B</strong>.</p>
+                        </div>
+                    </details>
                 </article>
 
                 <!-- Question 7: Box Plot -->
@@ -140,11 +144,13 @@
                         <h4>🚩 The Trap</h4>
                         <p>Thinking the median or IQR shifts. The box is shielded from outliers.</p>
                     </div>
-                    <div class="solution-box">
-                        <h4>✅ The Practix Shortcut</h4>
-                        <p>Only the <strong>Range</strong> is guaranteed to change because it is (Max - Min).</p>
-                        <p><strong>Answer: Range</strong>.</p>
-                    </div>
+                    <details class="practix-reveal">
+                        <summary>✅ The Practix Shortcut</summary>
+                        <div class="solution-content">
+                            <p>Only the <strong>Range</strong> is guaranteed to change because it is (Max - Min).</p>
+                            <p><strong>Answer: Range</strong>.</p>
+                        </div>
+                    </details>
                 </article>
             </div>
         </main>

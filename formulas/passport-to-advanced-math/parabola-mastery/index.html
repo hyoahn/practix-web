@@ -32,7 +32,8 @@
 
 
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Parabola Mastery & Vertex Hacks | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
+    <script
+        type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Parabola Mastery & Vertex Hacks | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
 </head>
 
 <body>
@@ -84,11 +85,15 @@
                         to
                         a parabola \(y=ax^2+bx+c\).</p>
 
-                    <div class="example-content"
-                        style="display: block; background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid var(--border);">
-                        <p style="font-weight: 700;">Example: \(y = x^2 - 8x + 20\)</p>
-                        <p>Standard way: Discriminant = 0. Practix way: \(k = 20 - 64/4 = 4\). Done.</p>
-                    </div>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Tangent Line</summary>
+                        <div class="solution-content">
+                            <p>For \(y = x^2 - 8x + 20\), find the horizontal line tangent to the vertex.</p>
+                            <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">\(k = 20 -
+                                \frac{(-8)^2}{4(1)} = 20 - \frac{64}{4} = 4\)</p>
+                            <p><strong>Result: y = 4</strong>.</p>
+                        </div>
+                    </details>
                 </article>
 
                 <article class="formula-card" id="vertex-shortcut">
@@ -102,8 +107,17 @@
                     <h3>The Vertex Shortcut</h3>
                     <div class="formula-display">\[ x = -\frac{b}{2a} \]</div>
                     <p class="formula-explanation">The universal shortcut to find the x-coordinate of the vertex
-                        (pivotal
-                        point) of any parabola.</p>
+                        (pivotal point) of any parabola.</p>
+                    <details class="practix-reveal">
+                        <summary>🧪 The Proof: Symmetry</summary>
+                        <div class="solution-content">
+                            <p>The roots of \(ax^2 + bx + c = 0\) are \(\frac{-b \pm \sqrt{b^2-4ac}}{2a}\). The vertex
+                                is exactly in the middle of the roots.</p>
+                            <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">\(x_{vertex} =
+                                \frac{(\frac{-b + \sqrt{D}}{2a}) + (\frac{-b - \sqrt{D}}{2a})}{2} = \frac{-2b/2a}{2} =
+                                -\frac{b}{2a}\)</p>
+                        </div>
+                    </details>
                 </article>
             </div>
         </main>

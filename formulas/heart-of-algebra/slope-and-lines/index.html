@@ -25,7 +25,8 @@
 
 
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Slope & Line Mastery | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
+    <script
+        type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Slope & Line Mastery | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
 </head>
 
 <body>
@@ -68,6 +69,16 @@
                     <h3>Slope Formula</h3>
                     <div class="formula-display">\[ m = \frac{y_2 - y_1}{x_2 - x_1} \]</div>
                     <p class="formula-explanation">The fundamental measure of steepness. Rise over run.</p>
+
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Calculate Slope</summary>
+                        <div class="solution-content">
+                            <p>Find the slope of a line passing through \((2, 3)\) and \((5, 12)\).</p>
+                            <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">\(m = \frac{12 - 3}{5 - 2}
+                                = \frac{9}{3} = 3\)</p>
+                            <p><strong>Result: 3</strong>.</p>
+                        </div>
+                    </details>
                 </article>
 
                 <article class="formula-card" id="f24">
@@ -76,6 +87,14 @@
                     <div class="formula-display">\[ m_1 = m_2 \]</div>
                     <p class="formula-explanation">Parallel lines never meet because they have identical slopes and
                         different y-intercepts.</p>
+
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Parallel check</summary>
+                        <div class="solution-content">
+                            <p>Which line is parallel to \(y = 4x + 7\)?</p>
+                            <p>Look for any line with \(m = 4\). For instance, \(y = 4x - 10\) or \(4x - y = 5\).</p>
+                        </div>
+                    </details>
                 </article>
 
                 <article class="formula-card" id="f25">
@@ -83,12 +102,19 @@
                     <h3>Perpendicular Lines</h3>
                     <div class="formula-display">\[ m_1 = -\frac{1}{m_2} \]</div>
                     <p class="formula-explanation">Perpendicular slopes are negative reciprocals. Their product is
-                        always
-                        -1.</p>
-                    <div class="example-content"
-                        style="display: block; background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid var(--border);">
-                        <p>If Line A has a slope of \(2/3\), Line B (perpendicular) has a slope of \(-3/2\).</p>
-                    </div>
+                        always -1.</p>
+
+                    <details class="practix-reveal">
+                        <summary>🧪 The Proof: Negative Reciprocals</summary>
+                        <div class="solution-content">
+                            <p>Rotation of a line by \(90^\circ\) swaps the horizontal and vertical components while
+                                negating one of them.</p>
+                            <p>If a slope is \(\frac{\Delta y}{\Delta x}\), after \(90^\circ\) rotation, the new "Rise"
+                                becomes the old "Run", and the new "Run" becomes the negative of the old "Rise".</p>
+                            <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">\(m_{new} = \frac{\Delta
+                                x}{-\Delta y} = -\frac{1}{m_{old}}\)</p>
+                        </div>
+                    </details>
                 </article>
             </div>
         </main>

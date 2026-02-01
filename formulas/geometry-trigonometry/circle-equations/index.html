@@ -33,7 +33,8 @@
     <script
         type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Circle Equation Shortcuts | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Circle Equation Shortcuts | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
+    <script
+        type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Circle Equation Shortcuts | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
 </head>
 
 <body>
@@ -83,6 +84,13 @@
                     <div class="formula-display">\[ (x-h)^2 + (y-k)^2 = r^2 \]</div>
                     <p class="formula-explanation">Center is \((h, k)\). Radius is \(r\). <br><strong>Trap:</strong>
                         Remember to switch the signs!</p>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Basic Center</summary>
+                        <div class="solution-content">
+                            <p>Find center and radius of \((x+2)^2 + (y-5)^2 = 49\).</p>
+                            <p><strong>Result: Center (-2, 5), Radius 7</strong>.</p>
+                        </div>
+                    </details>
                 </article>
 
                 <article class="formula-card" id="general-form-hack">
@@ -98,13 +106,15 @@
                     <p class="formula-explanation">When given \(x^2 + y^2 + Dx + Ey + F = 0\), just halve the
                         coefficients
                         and flip the sign to find the center.</p>
-                    <div class="example-content"
-                        style="display: block; background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid var(--border);">
-                        <p>\(x^2 + y^2 - 10x + 6y - 2 = 0\)</p>
-                        <p>Center x: \(-10 \div 2 = -5 \rightarrow +5\)</p>
-                        <p>Center y: \(6 \div 2 = 3 \rightarrow -3\)</p>
-                        <p>Center is \((5, -3)\).</p>
-                    </div>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Center from General Form</summary>
+                        <div class="solution-content">
+                            <p>\(x^2 + y^2 - 10x + 6y - 2 = 0\)</p>
+                            <p>Center x: \(-10 \div 2 = -5 \rightarrow +5\)</p>
+                            <p>Center y: \(6 \div 2 = 3 \rightarrow -3\)</p>
+                            <p><strong>Center is \((5, -3)\)</strong>.</p>
+                        </div>
+                    </details>
                 </article>
                 <article class="formula-card" id="arc-len-deg">
                     <div class="uvp-badge" style="background: #10b981; color: white;">Geometry</div>
@@ -117,6 +127,15 @@
                     <h3>Arc Length (Degrees)</h3>
                     <div class="formula-display">\[ L = 2\pi r (\frac{\theta}{360}) \]</div>
                     <p class="formula-explanation">It's just the circumference times the fraction of the circle.</p>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Basic Arc</summary>
+                        <div class="solution-content">
+                            <p>Radius 6, Angle \(60^\circ\). Find arc length.</p>
+                            <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">\(L = 2\pi(6) \cdot
+                                \frac{60}{360} = 12\pi \cdot \frac{1}{6} = 2\pi\)</p>
+                            <p><strong>Result: 2π</strong>.</p>
+                        </div>
+                    </details>
                 </article>
 
                 <article class="formula-card" id="sector-area-deg">
@@ -143,6 +162,14 @@
                     <h3>Arc Length (Radians)</h3>
                     <div class="formula-display">\[ s = r\theta \]</div>
                     <p class="formula-explanation">The definition of a radian! \(\theta\) must be in radians.</p>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Radian Shortcut</summary>
+                        <div class="solution-content">
+                            <p>Radius 5, Angle \(2\pi/5\). Find arc length.</p>
+                            <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">\(s = 5 \cdot
+                                \frac{2\pi}{5} = 2\pi\)</p>
+                        </div>
+                    </details>
                 </article>
 
                 <article class="formula-card" id="sector-area-rad">
@@ -169,6 +196,12 @@
                     <h3>Inscribed Angle</h3>
                     <div class="formula-display">\[ \text{Angle} = \frac{1}{2} \text{Arc} \]</div>
                     <p class="formula-explanation">An angle on the edge is half the central angle (or half the arc).</p>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Edge Angle</summary>
+                        <div class="solution-content">
+                            <p>If an arc measure is \(100^\circ\), the inscribed angle is \(50^\circ\).</p>
+                        </div>
+                    </details>
                 </article>
 
                 <article class="formula-card" id="central-angle">
@@ -195,6 +228,13 @@
                     <h3>Tangent-Radius</h3>
                     <div class="formula-display">\[ m\angle = 90^\circ \]</div>
                     <p class="formula-explanation">A radius connected to a tangent line always forms a right angle.</p>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Right Triangle setup</summary>
+                        <div class="solution-content">
+                            <p>Used to solve for missing lengths using the Pythagorean Theorem (\(a^2 + b^2 = c^2\)).
+                            </p>
+                        </div>
+                    </details>
                 </article>
 
                 <article class="formula-card" id="diameter-endpoints">
@@ -209,6 +249,15 @@
                     <div class="formula-display">\[ \text{Midpoint} = \text{Center} \]</div>
                     <p class="formula-explanation">Given endpoints: 1. Find Midpoint (Center). 2. Find distance to
                         center (Radius).</p>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Endpoints to Circle</summary>
+                        <div class="solution-content">
+                            <p>Endpoints of a diameter: \((0, 0)\) and \((6, 8)\).</p>
+                            <p>1. Midpoint = \((3, 4)\). This is the center.</p>
+                            <p>2. Radius = distance from \((0, 0)\) to \((3, 4) = \sqrt{3^2 + 4^2} = 5\).</p>
+                            <p><strong>Result: \((x-3)^2 + (y-4)^2 = 25\)</strong>.</p>
+                        </div>
+                    </details>
                 </article>
 
                 <article class="formula-card" id="cyclic-quad">
@@ -223,6 +272,12 @@
                     <div class="formula-display">\[ \text{Opposite Angles Sum} = 180^\circ \]</div>
                     <p class="formula-explanation">If a 4-sided shape is inside a circle, opposite angles add to 180.
                     </p>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Sum check</summary>
+                        <div class="solution-content">
+                            <p>If \(\angle A = 70^\circ\), the opposite angle \(\angle C = 110^\circ\).</p>
+                        </div>
+                    </details>
                 </article>
 
                 <article class="formula-card" id="annulus-area">

@@ -25,7 +25,8 @@
 
 
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Statistics, Standard Deviation & MoE Hacks | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
+    <script
+        type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Statistics, Standard Deviation & MoE Hacks | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
 </head>
 
 <body>
@@ -73,11 +74,13 @@
                         On
                         the SAT, you never calculate it; you only compare it.</p>
 
-                    <div class="example-content"
-                        style="display: block; background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border: 1px solid var(--border);">
-                        <p style="font-weight: 700;">The Golden Rule:</p>
-                        <p>Wider range/frequency at edges = Higher SD.<br>Tight cluster near mean = Lower SD.</p>
-                    </div>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Comparison logic</summary>
+                        <div class="solution-content">
+                            <p style="font-weight: 700;">The Golden Rule:</p>
+                            <p>Wider range/frequency at edges = Higher SD.<br>Tight cluster near mean = Lower SD.</p>
+                        </div>
+                    </details>
                 </article>
 
                 <article class="formula-card" id="f27">
@@ -87,8 +90,14 @@
                     <h3>Margin of Error</h3>
                     <div class="formula-display">Sample Size ↑ = MoE ↓</div>
                     <p class="formula-explanation">The Margin of Error (MoE) is inversely proportional to the sample
-                        size.
-                        Ask more people, get a more precise (smaller error) result.</p>
+                        size. Ask more people, get a more precise (smaller error) result.</p>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: MoE Shift</summary>
+                        <div class="solution-content">
+                            <p>Survey A: 100 people. Survey B: 1000 people. Which has the smaller margin of error?</p>
+                            <p><strong>Answer: Survey B</strong>. Increasing sample size reduces error.</p>
+                        </div>
+                    </details>
                 </article>
             </div>
         </main>

@@ -245,78 +245,64 @@
                                             </p>
                                         </div>
                                     </div>
+                                    <div class="theoretical-proof-section"
+                                        style="margin-top: 2rem; background: #f0fdf4; border: 1px solid #dcfce7; padding: 1.5rem; border-radius: 8px;">
+                                        <h4 style="color: #166534; margin-bottom: 1rem;">🎓 Theoretical Proof: The
+                                            Discriminant</h4>
+                                        <div
+                                            style="background: white; padding: 1.5rem; border-radius: 6px; border: 1px solid #bbf7d0; font-family: serif; font-size: 1rem; line-height: 1.8;">
+                                            <p><strong>Step 1: The Standard Form</strong><br>Every quadratic equation of
+                                                degree 2 can be
+                                                expressed as:</p>
+                                            <div style="text-align: center; margin: 1rem 0; font-size: 1.2rem;">
+                                                \( ax^2 + bx + c = 0 \)
+                                            </div>
+
+                                            <p><strong>Step 2: The Quadratic Formula</strong><br>The solutions (roots)
+                                                of this equation are given by the quadratic formula:</p>
+                                            <div style="text-align: center; margin: 1rem 0; font-size: 1.2rem;">
+                                                \( x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \)
+                                            </div>
+
+                                            <p><strong>Step 3: Define the Discriminant</strong><br>The term under the
+                                                square root, \( b^2 - 4ac \), is called the discriminant, denoted by \(
+                                                D \).</p>
+                                            <div style="text-align: center; margin: 1rem 0; font-size: 1.2rem;">
+                                                \( D = b^2 - 4ac \)
+                                            </div>
+
+                                            <p><strong>Step 4: Interpret the Discriminant</strong><br>The value of \( D
+                                                \) determines the nature and number of real solutions:</p>
+                                            <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                                                <li>
+                                                    <strong>If \( D > 0 \):</strong> The square root \( \sqrt{D} \) is a
+                                                    real, non-zero number. This leads to two distinct real solutions: \(
+                                                    x_1 = \frac{-b + \sqrt{D}}{2a} \) and \( x_2 = \frac{-b -
+                                                    \sqrt{D}}{2a} \).
+                                                </li>
+                                                <li>
+                                                    <strong>If \( D = 0 \):</strong> The square root \( \sqrt{D} \) is
+                                                    zero. This leads to exactly one real solution (a repeated root): \(
+                                                    x = \frac{-b}{2a} \).
+                                                </li>
+                                                <li>
+                                                    <strong>If \( D < 0 \):</strong> The square root \( \sqrt{D} \) is
+                                                            an imaginary number (e.g., \( \sqrt{-4} = 2i \)). This means
+                                                            there are no real solutions, but two complex conjugate
+                                                            solutions.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </details>
                 </article>
 
-                <!-- Theoretical Proof Section -->
-                <article class="formula-card" id="theoretical-proof"
-                    style="margin-top: 3rem; background: #f0fdf4; border: 1px solid #dcfce7;">
-                    <span class="category-badge cat-quad"
-                        style="background: rgba(22, 101, 52, 0.1); color: #166534;">Rigorous Derivation</span>
-                    <h3 style="color: #166534; margin-top: 1rem;">🎓 The Proof: Vieta's Equations</h3>
-                    <p style="color: #166534; margin-bottom: 2rem; font-size: 1rem; opacity: 0.9;">
-                        Let's derive these shortcuts starting from the most fundamental definition of a quadratic
-                        equation.
-                    </p>
 
-                    <div
-                        style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #bbf7d0; font-family: serif; font-size: 1.1rem; line-height: 2;">
-                        <p><strong>Step 1: The Standard Form</strong><br>Every quadratic equation of degree 2 can be
-                            expressed as:</p>
-                        <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
-                            \( ax^2 + bx + c = 0 \)
-                        </div>
-                        <p>Assuming \( a \neq 0 \), we divide the entire equation by \( a \):</p>
-                        <div style="text-align: center; margin: 1.5rem 0; font-size: 1.3rem;">
-                            \( x^2 + \frac{b}{a}x + \frac{c}{a} = 0 \)
-                        </div>
-
-                        <p><strong>Step 2: The Linear Factors</strong><br>If \( x_1 \) and \( x_2 \) are the solutions
-                            (roots) of this equation, then by the Factor Theorem, the polynomial must be divisible by \(
-                            (x - x_1) \) and \( (x - x_2) \). Thus:</p>
-                        <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
-                            \( (x - x_1)(x - x_2) = 0 \)
-                        </div>
-
-                        <p><strong>Step 3: Expansion by FOIL</strong><br>We multiply the linear factors to return to
-                            quadratic form:</p>
-                        <div style="text-align: center; margin: 1.5rem 0;">
-                            \( x \cdot x - x \cdot x_2 - x \cdot x_1 + x_1 \cdot x_2 = 0 \)
-                            <br>
-                            \( x^2 - (x_1 + x_2)x + x_1x_2 = 0 \)
-                        </div>
-
-                        <p><strong>Step 4: Coefficient Matching</strong><br>We now have two expressions for the same
-                            normalized quadratic. They must be identical term-for-term:</p>
-                        <div style="text-align: center; margin: 1.5rem 0; font-style: italic;">
-                            \( x^2 + \left(\mathbf{\frac{b}{a}}\right)x + \left(\mathbf{\frac{c}{a}}\right) = x^2 -
-                            \left(\mathbf{x_1 + x_2}\right)x + \left(\mathbf{x_1x_2}\right) \)
-                        </div>
-
-                        <p><strong>Step 5: Theoretical Conclusion</strong></p>
-                        <ul style="margin: 2rem 0; padding-left: 2rem;">
-                            <li style="margin-bottom: 1.5rem;">
-                                <strong>The Sum Rule:</strong> Matching the \( x \)-coefficients:<br>
-                                \( \frac{b}{a} = -(x_1 + x_2) \implies \mathbf{x_1 + x_2 = -\frac{b}{a}} \)
-                            </li>
-                            <li>
-                                <strong>The Product Rule:</strong> Matching the constant terms:<br>
-                                \( \frac{c}{a} = x_1x_2 \implies \mathbf{x_1x_2 = \frac{c}{a}} \)
-                            </li>
-                        </ul>
-
-                        <p
-                            style="background: #f0fdf4; padding: 1.5rem; border-radius: 6px; border: 1px solid #dcfce7; font-style: italic;">
-                            This proof demonstrates that the sum and product of the roots are inherently linked to the
-                            coefficients of the polynomial. This is a foundational principle of algebra known as Vieta's
-                            Formulas.
-                        </p>
-                    </div>
-                </article>
             </div>
         </main>
     </div>
 </body>
 
 </html>
+```

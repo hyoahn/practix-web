@@ -30,6 +30,9 @@
     <script src="../../../assets/scripts/pulse-relay.js?v=26"></script>
     <script src="../../../assets/scripts/analytics.js"></script>
 
+    <script
+        type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Linear Equations & Shortcuts | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
+
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Linear Equations & Shortcuts | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
 </head>
 
@@ -176,6 +179,128 @@
                     <div class="formula-display">3-4-5, 5-12-13, 8-15-17</div>
                     <p class="formula-explanation">Memorize these integer sets to skip the \(a^2+b^2=c^2\) calculation
                         entirely.</p>
+                </article>
+                <article class="formula-card" id="parallel-slope">
+                    <div class="uvp-badge" style="background: #10b981; color: white;">Concept</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-parallel-slope">
+                    </div>
+                    <span class="category-badge cat-alg">Heart of Algebra</span>
+                    <h3>Parallel Lines</h3>
+                    <div class="formula-display">\[ m_1 = m_2 \]</div>
+                    <p class="formula-explanation">Parallel lines never touch. They must have the exact same slope.</p>
+                </article>
+
+                <article class="formula-card" id="perp-slope">
+                    <div class="uvp-badge" style="background: #8b5cf6; color: white;">Trap</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-perp-slope">
+                    </div>
+                    <span class="category-badge cat-alg">Heart of Algebra</span>
+                    <h3>Perpendicular Lines</h3>
+                    <div class="formula-display">\[ m_1 \cdot m_2 = -1 \]</div>
+                    <p class="formula-explanation">Slopes are negative reciprocals. Flip the fraction and flip the sign.
+                    </p>
+                </article>
+
+                <article class="formula-card" id="horiz-slope">
+                    <div class="uvp-badge" style="background: #f59e0b; color: white;">Zero</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-horiz-slope">
+                    </div>
+                    <span class="category-badge cat-alg">Heart of Algebra</span>
+                    <h3>Horizontal Line</h3>
+                    <div class="formula-display">\[ y = b \quad (\text{Slope } = 0) \]</div>
+                    <p class="formula-explanation">"HOY" - Horizontal, Zero slope, Y-equals.</p>
+                </article>
+
+                <article class="formula-card" id="vert-slope">
+                    <div class="uvp-badge" style="background: #ef4444; color: white;">Undefined</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-vert-slope">
+                    </div>
+                    <span class="category-badge cat-alg">Heart of Algebra</span>
+                    <h3>Vertical Line</h3>
+                    <div class="formula-display">\[ x = a \quad (\text{Slope } = \text{Undefined}) \]</div>
+                    <p class="formula-explanation">"VUX" - Vertical, Undefined slope, X-equals.</p>
+                </article>
+
+                <article class="formula-card" id="x-int-hack">
+                    <div class="uvp-badge" style="background: #10b981; color: white;">Shortcut</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-x-int-hack">
+                    </div>
+                    <span class="category-badge cat-alg">Heart of Algebra</span>
+                    <h3>X-Intercept Hack</h3>
+                    <div class="formula-display">\[ \text{Set } y = 0 \]</div>
+                    <p class="formula-explanation">Don't rearrange. Just cover the y-term and solve for x.</p>
+                </article>
+
+                <article class="formula-card" id="intersect-meaning">
+                    <div class="uvp-badge" style="background: #06b6d4; color: white;">Concept</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-intersect-meaning">
+                    </div>
+                    <span class="category-badge cat-alg">Heart of Algebra</span>
+                    <h3>Intersection Point</h3>
+                    <div class="formula-display">\[ f(x) = g(x) \]</div>
+                    <p class="formula-explanation">The intersection is the ONLY point where x and y work for both
+                        equations. It is the solution.</p>
+                </article>
+
+                <article class="formula-card" id="infinite-sols">
+                    <div class="uvp-badge" style="background: #ef4444; color: white;">Boss Mode</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-infinite-sols">
+                    </div>
+                    <span class="category-badge cat-alg">Heart of Algebra</span>
+                    <h3>Infinitely Many Solutions</h3>
+                    <div class="formula-display">\[ 0 = 0 \]</div>
+                    <p class="formula-explanation">Same Slope, Same Y-Intercept. The lines are identical.</p>
+                </article>
+
+                <article class="formula-card" id="no-sols">
+                    <div class="uvp-badge" style="background: #ef4444; color: white;">Boss Mode</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-no-sols">
+                    </div>
+                    <span class="category-badge cat-alg">Heart of Algebra</span>
+                    <h3>No Solution</h3>
+                    <div class="formula-display">\[ 0 = \text{Number} \]</div>
+                    <p class="formula-explanation">Same Slope, Different Y-Intercept. The lines are parallel.</p>
+                </article>
+
+                <article class="formula-card" id="standard-ints">
+                    <div class="uvp-badge" style="background: #8b5cf6; color: white;">Speed Hack</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-standard-ints">
+                    </div>
+                    <span class="category-badge cat-alg">Heart of Algebra</span>
+                    <h3>Standard Form Intercepts</h3>
+                    <div class="formula-display">\[ x_{int} = C/A, \quad y_{int} = C/B \]</div>
+                    <p class="formula-explanation">For \(Ax + By = C\). Memorize this to graph in 3 seconds.</p>
+                </article>
+
+                <article class="formula-card" id="ineq-shade">
+                    <div class="uvp-badge" style="background: #f59e0b; color: white;">Visual</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-ineq-shade">
+                    </div>
+                    <span class="category-badge cat-alg">Heart of Algebra</span>
+                    <h3>Shading Inequalities</h3>
+                    <div class="formula-display">\[ > \text{ Shade Above}, \quad < \text{ Shade Below} \]</div>
+                            <p class="formula-explanation">Unless you divide by a negative (flip it!). Always isolate y
+                                first.</p>
                 </article>
             </div>
         </main>

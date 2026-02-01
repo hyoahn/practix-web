@@ -73,6 +73,9 @@
         }
     </style>
 
+    <script
+        type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Desmos Regression Secrets: Linear, Quadratic & Exponential | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
+
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Desmos Regression Secrets: Linear, Quadratic & Exponential | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
 </head>
 
@@ -245,6 +248,88 @@
                     </div>
                     <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Type the equation. Then type the known
                         value (x=3) in curly brackets immediately after or on a new line. Desmos solves for k.</p>
+                </section>
+
+                <section class="technique-section" id="log-reg">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <h2 style="color: #065f46; margin-bottom: 1rem;">🪵 Logarithmic Regression</h2>
+                            <p>For data that grows fast then slows down (like learning curves).</p>
+                        </div>
+                        <button class="btn-copy" data-code="y1 ~ a + b*ln(x1)">Copy Code</button>
+                    </div>
+                    <div class="magic-code-container">
+                        <code style="color: #065f46; font-weight: 700;">y₁ ~ a + b·ln(x₁)</code>
+                    </div>
+                </section>
+
+                <section class="technique-section" id="logistic-reg"
+                    style="background: #fef2f2; border-left-color: #ef4444;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <h2 style="color: #991b1b; margin-bottom: 1rem;">🦠 Logistic Growth</h2>
+                            <p>For "S-curve" populations with a carrying capacity.</p>
+                        </div>
+                        <button class="btn-copy" data-code="y1 ~ c / (1 + a*e^(-b*x1))">Copy Code</button>
+                    </div>
+                    <div class="magic-code-container" style="border-color: #fecaca;">
+                        <code style="color: #991b1b; font-weight: 700;">y₁ ~ c / (1 + a·e^{-b·x₁})</code>
+                    </div>
+                </section>
+
+                <section class="technique-section" id="power-reg"
+                    style="background: #eff6ff; border-left-color: #3b82f6;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <h2 style="color: #1e40af; margin-bottom: 1rem;">⚡ Power Regression</h2>
+                            <p>For physics problems or inverse square laws.</p>
+                        </div>
+                        <button class="btn-copy" data-code="y1 ~ a*x1^b">Copy Code</button>
+                    </div>
+                    <div class="magic-code-container" style="border-color: #bfdbfe;">
+                        <code style="color: #1e40af; font-weight: 700;">y₁ ~ a·x₁^b</code>
+                    </div>
+                </section>
+
+                <section class="technique-section" id="r-squared">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <h2 style="color: #4b5563; margin-bottom: 1rem;">🎯 The R² Check</h2>
+                            <p>How good is the model? Closer to 1 = Perfect fit.</p>
+                        </div>
+                    </div>
+                    <div class="magic-code-container" style="border-color: #9ca3af;">
+                        <code style="color: #374151; font-weight: 700;">R² = 0.998</code>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Always check this if deciding between
+                        Linear and Exponential.</p>
+                </section>
+
+                <section class="technique-section" id="residual-plot"
+                    style="background: #fff7ed; border-left-color: #f97316;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <h2 style="color: #c2410c; margin-bottom: 1rem;">📉 Residual Plot</h2>
+                            <p>Click the "plot" button next to residuals (e1) in regression.</p>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Visualizes how far off each point is.
+                        Random scatter is good; a pattern means bad model.</p>
+                </section>
+
+                <section class="technique-section" id="pred-val"
+                    style="background: #fdf2f8; border-left-color: #db2777;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <h2 style="color: #be185d; margin-bottom: 1rem;">🔮 Prediction Value</h2>
+                            <p>Once you have a model f(x), find the value for any x.</p>
+                        </div>
+                    </div>
+                    <div class="magic-code-container" style="border-color: #fce7f3;">
+                        <code style="color: #be185d; font-weight: 700;">f(2025)</code>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Don't type the equation again. Just
+                        use function notation.</p>
                 </section>
 
                 <!-- Practice Sandbox -->

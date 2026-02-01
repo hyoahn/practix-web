@@ -30,6 +30,9 @@
     <script src="../../../assets/scripts/pulse-relay.js?v=26"></script>
     <script src="../../../assets/scripts/analytics.js"></script>
 
+    <script
+        type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Circle Equation Shortcuts | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
+
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Circle Equation Shortcuts | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
 </head>
 
@@ -102,6 +105,137 @@
                         <p>Center y: \(6 \div 2 = 3 \rightarrow -3\)</p>
                         <p>Center is \((5, -3)\).</p>
                     </div>
+                </article>
+                <article class="formula-card" id="arc-len-deg">
+                    <div class="uvp-badge" style="background: #10b981; color: white;">Geometry</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-arc-len-deg">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Arc Length (Degrees)</h3>
+                    <div class="formula-display">\[ L = 2\pi r (\frac{\theta}{360}) \]</div>
+                    <p class="formula-explanation">It's just the circumference times the fraction of the circle.</p>
+                </article>
+
+                <article class="formula-card" id="sector-area-deg">
+                    <div class="uvp-badge" style="background: #10b981; color: white;">Geometry</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-sector-area-deg">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Sector Area (Degrees)</h3>
+                    <div class="formula-display">\[ A = \pi r^2 (\frac{\theta}{360}) \]</div>
+                    <p class="formula-explanation">It's just the total area times the fraction of the circle.</p>
+                </article>
+
+                <article class="formula-card" id="arc-len-rad">
+                    <div class="uvp-badge" style="background: #ef4444; color: white;">Shortcut</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-arc-len-rad">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Arc Length (Radians)</h3>
+                    <div class="formula-display">\[ s = r\theta \]</div>
+                    <p class="formula-explanation">The definition of a radian! \(\theta\) must be in radians.</p>
+                </article>
+
+                <article class="formula-card" id="sector-area-rad">
+                    <div class="uvp-badge" style="background: #ef4444; color: white;">Shortcut</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-sector-area-rad">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Sector Area (Radians)</h3>
+                    <div class="formula-display">\[ A = \frac{1}{2}r^2 \theta \]</div>
+                    <p class="formula-explanation">Much faster than converting to degrees.</p>
+                </article>
+
+                <article class="formula-card" id="inscribed-angle">
+                    <div class="uvp-badge" style="background: #8b5cf6; color: white;">Concept</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-inscribed-angle">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Inscribed Angle</h3>
+                    <div class="formula-display">\[ \text{Angle} = \frac{1}{2} \text{Arc} \]</div>
+                    <p class="formula-explanation">An angle on the edge is half the central angle (or half the arc).</p>
+                </article>
+
+                <article class="formula-card" id="central-angle">
+                    <div class="uvp-badge" style="background: #8b5cf6; color: white;">Concept</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-central-angle">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Central Angle</h3>
+                    <div class="formula-display">\[ \text{Angle} = \text{Arc} \]</div>
+                    <p class="formula-explanation">An angle at the center equals the arc measure.</p>
+                </article>
+
+                <article class="formula-card" id="tangent-rad">
+                    <div class="uvp-badge" style="background: #f59e0b; color: white;">Must Know</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-tangent-rad">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Tangent-Radius</h3>
+                    <div class="formula-display">\[ m\angle = 90^\circ \]</div>
+                    <p class="formula-explanation">A radius connected to a tangent line always forms a right angle.</p>
+                </article>
+
+                <article class="formula-card" id="diameter-endpoints">
+                    <div class="uvp-badge" style="background: #06b6d4; color: white;">Process</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-diameter-endpoints">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Diameter to Equation</h3>
+                    <div class="formula-display">\[ \text{Midpoint} = \text{Center} \]</div>
+                    <p class="formula-explanation">Given endpoints: 1. Find Midpoint (Center). 2. Find distance to
+                        center (Radius).</p>
+                </article>
+
+                <article class="formula-card" id="cyclic-quad">
+                    <div class="uvp-badge" style="background: #ef4444; color: white;">Rare</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-cyclic-quad">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Cyclic Quadrilateral</h3>
+                    <div class="formula-display">\[ \text{Opposite Angles Sum} = 180^\circ \]</div>
+                    <p class="formula-explanation">If a 4-sided shape is inside a circle, opposite angles add to 180.
+                    </p>
+                </article>
+
+                <article class="formula-card" id="annulus-area">
+                    <div class="uvp-badge" style="background: #f59e0b; color: white;">Visual</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-annulus-area">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Area of Ring (Annulus)</h3>
+                    <div class="formula-display">\[ A = \pi R^2 - \pi r^2 \]</div>
+                    <p class="formula-explanation">Big circle minus small circle.</p>
                 </article>
             </div>
         </main>

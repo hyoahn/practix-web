@@ -46,6 +46,9 @@
         }
     </style>
 
+    <script
+        type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Desmos Lists & Tables: Statistical Power Moves | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
+
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Desmos Lists & Tables: Statistical Power Moves | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
 </head>
 
@@ -110,6 +113,56 @@
                         <li>Enter $(x, y)$ pairs from the problem.</li>
                         <li>Toggle the <strong>Points</strong> icon to see them on the graph.</li>
                     </ol>
+                </section>
+                <section class="technique-section" id="total-sum">
+                    <h2 style="color: #991b1b; margin-bottom: 1.5rem;">∑ Trick #6: The Total Sum</h2>
+                    <p><strong>The Move:</strong> Quickly add up a huge list of frequencies or values.</p>
+                    <div class="magic-code">total(L)</div>
+                    <p>Instant addition. Essential for "weighted average" manual setups.</p>
+                </section>
+
+                <section class="technique-section" id="min-max"
+                    style="background: #f5f3ff; border-left-color: #8b5cf6;">
+                    <h2 style="color: #5b21b6; margin-bottom: 1.5rem;">📏 Trick #7: Range Finder</h2>
+                    <p><strong>Scenario:</strong> Find the range of a dataset.</p>
+                    <div class="magic-code" style="border-color: #ddd6fe;">max(L) - min(L)</div>
+                    <p>No need to search for the biggest and smallest numbers visually.</p>
+                </section>
+
+                <section class="technique-section" id="sort-list"
+                    style="background: #fffbeb; border-left-color: #f59e0b;">
+                    <h2 style="color: #92400e; margin-bottom: 1.5rem;">🔃 Trick #8: Sorting</h2>
+                    <div class="magic-code" style="border-color: #fde68a;">sort(L)</div>
+                    <p>Instantly puts the list in ascending order. Helpful for manual median checks.</p>
+                </section>
+
+                <section class="technique-section" id="quantile"
+                    style="background: #ecfdf5; border-left-color: #10b981;">
+                    <h2 style="color: #047857; margin-bottom: 1.5rem;">🔢 Trick #9: Percentiles</h2>
+                    <div class="magic-code" style="border-color: #6ee7b7;">quantile(L, 0.75)</div>
+                    <p>Finds the 75th percentile (Q3) instantly.</p>
+                </section>
+
+                <section class="technique-section" id="mad-stat"
+                    style="background: #eff6ff; border-left-color: #3b82f6;">
+                    <h2 style="color: #1d4ed8; margin-bottom: 1.5rem;">📉 Trick #10: Mean Absolute Deviation</h2>
+                    <div class="magic-code" style="border-color: #93c5fd;">mad(L)</div>
+                    <p>Calculates the average distance from the mean. A rare but painful calculation to do by hand.</p>
+                </section>
+
+                <section class="technique-section" id="stdev-pop"
+                    style="background: #fff1f2; border-left-color: #be123c;">
+                    <h2 style="color: #9f1239; margin-bottom: 1.5rem;">📊 Trick #11: Standard Deviation</h2>
+                    <div class="magic-code" style="border-color: #fda4af;">stdevp(L)</div>
+                    <p>Use `stdevp` for population (SAT standard) and `stdev` for sample. Usually Sat asks for
+                        population.</p>
+                </section>
+
+                <section class="technique-section" id="unique-list"
+                    style="background: #f8fafc; border-left-color: #475569;">
+                    <h2 style="color: #334155; margin-bottom: 1.5rem;">✨ Trick #12: Unique Values</h2>
+                    <div class="magic-code" style="border-color: #cbd5e1;">unique(L)</div>
+                    <p>Removes duplicates. Great for counting how many *distinct* types exist.</p>
                 </section>
             </div>
         </main>

@@ -288,7 +288,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Hotkey: "/" to focus search
         document.addEventListener('keydown', (e) => {
-            if (e.key === '/' && document.activeElement !== searchInput) {
+            const isTyping = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName) || document.activeElement.isContentEditable;
+
+            if (e.key === '/' && !isTyping) {
                 e.preventDefault();
                 searchInput.focus();
             }

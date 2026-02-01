@@ -29,6 +29,7 @@
     <script src="../../../assets/scripts/practix-footer.js?v=23"></script>
     <script src="../../../assets/scripts/pulse-relay.js?v=26"></script>
     <script src="../../../assets/scripts/analytics.js"></script>
+    <script src="../../../assets/scripts/practix-generator.js"></script>
 
     <script
         type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Linear Equations & Shortcuts | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
@@ -84,13 +85,86 @@
                     <p class="formula-explanation">Where \(m\) is the slope (rate of change) and \(b\) is the
                         y-intercept (initial value).</p>
 
+                    <div
+                        style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                Practice: "What is the slope of <span data-eqn-type="linear-base">\(y = 30x +
+                                    50\)</span>?"
+                            </p>
+                            <button class="randomize-btn" data-type="linear-base"
+                                style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                🔄 New Problem
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 0.8rem; align-items: center;">
+                            <input type="text" id="linear-base-answer-input" placeholder="e.g. 30"
+                                style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                            <button class="check-answer-btn" data-type="linear-base"
+                                style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                Check Answer
+                            </button>
+                        </div>
+                        <div id="linear-base-feedback" style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;">
+                        </div>
+                    </div>
+
                     <details class="practix-reveal">
-                        <summary>📝 Example: Plumber Cost</summary>
+                        <summary>Show Solution & Analysis</summary>
                         <div class="solution-content">
-                            <p>"A plumber charges a fix fee of $50 plus $30 per hour. Which equation represents the
-                                total cost \(C\) for \(h\) hours?"</p>
-                            <p style="margin-top: 1rem; color: var(--primary); font-weight: 700;">Solution: \(C = 30h +
-                                50\)</p>
+                            <div class="comparison-grid"
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                <div>
+                                    <div class="school-header"
+                                        style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">🚫 School Way
+                                        (Rigorous)</div>
+                                    <p id="linear-base-school-steps" style="font-size: 0.9rem; line-height: 1.6;">
+                                        <strong>1. Pattern Match:</strong><br>
+                                        Compare to \(y = mx + b\).<br>
+                                        <strong>2. Identify m:</strong><br>
+                                        The value multiplying \(x\) is \(m\).<br>
+                                        <strong>Result: 30</strong>
+                                    </p>
+                                </div>
+                                <div>
+                                    <div class="practix-header"
+                                        style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅ Practix Way
+                                        (Optimal)</div>
+                                    <p id="linear-base-practix-steps" style="font-size: 0.95rem; line-height: 1.6;">
+                                        **Step 1:** Look at the 'm' position.<br>
+                                        \(y = 30x + 50\).<br>
+                                        **Result: 30**<br>
+                                        <span style="color: #10b981; font-weight: 600;">Instant recognition saves
+                                            precious mental energy.</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Theoretical Proof Integrated -->
+                            <div class="theoretical-solution"
+                                style="margin-top: 2rem; padding-top: 2rem; border-top: 1px dashed #cbd5e1;">
+                                <h4 style="color: #166534; margin-bottom: 1rem;">🎓 Theoretical Proof: Slope-Intercept
+                                </h4>
+                                <div
+                                    style="font-family: serif; font-size: 1rem; line-height: 1.8; color: #334155; background: white; padding: 1.5rem; border-radius: 6px; border: 1px solid #bbf7d0;">
+                                    <p>The <strong>Slope-Intercept Form</strong> is the most common way to represent a
+                                        linear function. It relates the output \(y\) to the input \(x\) via two
+                                        parameters:</p>
+                                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                                        <li><strong>\(m\) (Slope)</strong>: The rate of change (\(\Delta y / \Delta
+                                            x\)).
+                                        </li>
+                                        <li><strong>\(b\) (Y-Intercept)</strong>: The initial value (where \(x=0\)).
+                                        </li>
+                                    </ul>
+                                    <div
+                                        style="text-align: center; margin: 1rem 0; font-size: 1.4rem; font-weight: bold; color: #166534;">
+                                        \( y = mx + b \)</div>
+                                    <p>For every 1 unit increase in \(x\), the value of \(y\) changes by exactly \(m\)
+                                        units. This constant rate is what makes the graph a straight line.</p>
+                                </div>
+                            </div>
                         </div>
                     </details>
                 </article>
@@ -107,12 +181,87 @@
                     <p class="formula-explanation">For direct variation/proportionality, the ratio remains constant. Use
                         this instead of full equations.</p>
 
+                    <div
+                        style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                Practice: "<span data-eqn-type="constant-trick">If \(y=4\) when \(x=8\), what is \(y\)
+                                    when \(x=20\)?</span>"
+                            </p>
+                            <button class="randomize-btn" data-type="constant-trick"
+                                style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                🔄 New Problem
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 0.8rem; align-items: center;">
+                            <input type="text" id="constant-trick-answer-input" placeholder="e.g. 10"
+                                style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                            <button class="check-answer-btn" data-type="constant-trick"
+                                style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                Check Answer
+                            </button>
+                        </div>
+                        <div id="constant-trick-feedback"
+                            style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;"></div>
+                    </div>
+
                     <details class="practix-reveal">
-                        <summary>📝 Example: Direct Variation</summary>
+                        <summary>Show Solution & Analysis</summary>
                         <div class="solution-content">
-                            <p>If \(y=4\) when \(x=8\), what is \(y\) when \(x=20\)?</p>
-                            <p style="margin-top: 1rem;">Ratio is \(4/8 = 0.5\). So \(y = 20 \times 0.5 = 10\). Done in
-                                2s.</p>
+                            <div class="comparison-grid"
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                <div>
+                                    <div class="school-header"
+                                        style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">🚫 School Way
+                                        (Rigorous)</div>
+                                    <p id="constant-trick-school-steps" style="font-size: 0.9rem; line-height: 1.6;">
+                                        <strong>1. Find k:</strong><br>
+                                        \(y = kx \implies 4 = k(8)\)<br>
+                                        \(k = 4/8 = 0.5\)<br>
+                                        <strong>2. Use new X:</strong><br>
+                                        \(y = 0.5(20)\)<br>
+                                        <strong>Result: 10</strong>
+                                    </p>
+                                </div>
+                                <div>
+                                    <div class="practix-header"
+                                        style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅ Practix Way
+                                        (Optimal)</div>
+                                    <p id="constant-trick-practix-steps" style="font-size: 0.95rem; line-height: 1.6;">
+                                        **Step 1:** Find Ratio.<br>
+                                        \(k = y/x = 4/8 = 0.5\).<br>
+                                        **Step 2:** Multiply.<br>
+                                        \(20 \times 0.5 = 10\).<br>
+                                        **Result: 10**<br>
+                                        <span style="color: #10b981; font-weight: 600;">Direct variation is just a
+                                            constant ratio. Don't write full equations.</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Theoretical Proof Integrated -->
+                            <div class="theoretical-solution"
+                                style="margin-top: 2rem; padding-top: 2rem; border-top: 1px dashed #cbd5e1;">
+                                <h4 style="color: #166534; margin-bottom: 1rem;">🎓 Theoretical Proof: Direct Variation
+                                </h4>
+                                <div
+                                    style="font-family: serif; font-size: 1rem; line-height: 1.8; color: #334155; background: white; padding: 1.5rem; border-radius: 6px; border: 1px solid #bbf7d0;">
+                                    <p>When two variables \(x\) and \(y\) are in <strong>Direct Variation</strong>,
+                                        their
+                                        relationship is defined by a constant ratio \(k\), known as the constant of
+                                        proportionality:</p>
+                                    <div style="text-align: center; margin: 1rem 0; font-size: 1.3rem;">\( y = kx
+                                        \implies
+                                        k = \frac{y}{x} \)</div>
+                                    <p>Because \(k\) is <strong>constant</strong>, any two points \((x_1, y_1)\) and
+                                        \((x_2, y_2)\) on this line must satisfy:</p>
+                                    <div style="text-align: center; margin: 1rem 0; font-size: 1.4rem;">\(
+                                        \frac{y_1}{x_1} = \frac{y_2}{x_2} \)</div>
+                                    <p>This allows us to solve for any missing variable instantly using the ratio,
+                                        bypassing the need to resolve the full functional form.</p>
+                                </div>
+                            </div>
                         </div>
                     </details>
                 </article>
@@ -127,11 +276,88 @@
                     <h3>Slope from Standard Form</h3>
                     <div class="formula-display">\[ m = -\frac{A}{B} \]</div>
                     <p class="formula-explanation">For \(Ax + By = C\), don't rearrange. Just divide and flip sign.</p>
+                    <div
+                        style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                Practice: "Slope for <span data-eqn-type="standard-slope">\(3x + 4y = 12\)</span>?"
+                            </p>
+                            <button class="randomize-btn" data-type="standard-slope"
+                                style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                🔄 New Problem
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 0.8rem; align-items: center;">
+                            <input type="text" id="standard-slope-answer-input" placeholder="e.g. -3/4 or -0.75"
+                                style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                            <button class="check-answer-btn" data-type="standard-slope"
+                                style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                Check Answer
+                            </button>
+                        </div>
+                        <div id="standard-slope-feedback"
+                            style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;"></div>
+                    </div>
+
                     <details class="practix-reveal">
-                        <summary>📝 Example: Speed Divide</summary>
+                        <summary>Show Solution & Analysis</summary>
                         <div class="solution-content">
-                            <p>For \(3x + 4y = 12\), finding the slope.</p>
-                            <p>Slope is \(-3/4\). Done.</p>
+                            <div class="comparison-grid"
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                <div>
+                                    <div class="school-header"
+                                        style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">🚫 School Way
+                                        (Rigorous)</div>
+                                    <p id="standard-slope-school-steps" style="font-size: 0.9rem; line-height: 1.6;">
+                                        <strong>1. Isolate y:</strong><br>
+                                        Subtract \(3x\) from both sides:<br>
+                                        \(4y = -3x + 12\)<br>
+                                        <strong>2. Divide by 4:</strong><br>
+                                        \(y = \frac{-3}{4}x + \frac{12}{4}\)<br>
+                                        <strong>Result: -3/4</strong>
+                                    </p>
+                                </div>
+                                <div>
+                                    <div class="practix-header"
+                                        style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅ Practix Way
+                                        (Optimal)</div>
+                                    <p id="standard-slope-practix-steps" style="font-size: 0.95rem; line-height: 1.6;">
+                                        **Step 1:** Identify coefficients.<br>
+                                        \(A=3, B=4\).<br>
+                                        **Step 2:** Apply shortcut.<br>
+                                        Slope \(m = -A/B = -3/4\).<br>
+                                        **Result: -3/4**<br>
+                                        <span style="color: #10b981; font-weight: 600;">Constant isolation takes too
+                                            long. Use coefficients.</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Theoretical Proof Integrated -->
+                            <div class="theoretical-solution"
+                                style="margin-top: 2rem; padding-top: 2rem; border-top: 1px dashed #cbd5e1;">
+                                <h4 style="color: #166534; margin-bottom: 1rem;">🎓 Theoretical Proof: Standard to Slope
+                                </h4>
+                                <div
+                                    style="font-family: serif; font-size: 1rem; line-height: 1.8; color: #334155; background: white; padding: 1.5rem; border-radius: 6px; border: 1px solid #bbf7d0;">
+                                    <p>Any linear equation in <strong>Standard Form</strong> is written as:</p>
+                                    <div style="text-align: center; margin: 1rem 0; font-size: 1.3rem;">\( Ax + By = C
+                                        \)
+                                    </div>
+                                    <p>To find the slope, we must convert to <strong>Slope-Intercept Form</strong> (\(y
+                                        = mx + b\)):</p>
+                                    <div style="text-align: center; margin: 1rem 0; font-size: 1.3rem;">\( By = -Ax + C
+                                        \)</div>
+                                    <p>Dividing by \(B\):</p>
+                                    <div style="text-align: center; margin: 1rem 0; font-size: 1.3rem;">\( y =
+                                        \left(\mathbf{-\frac{A}{B}}\right)x + \frac{C}{B} \)</div>
+                                    <p>Therefore, the slope \(m\) is always:</p>
+                                    <div
+                                        style="text-align: center; margin: 1rem 0; font-size: 1.4rem; font-weight: bold; color: #166534;">
+                                        \( m = -\frac{A}{B} \)</div>
+                                </div>
+                            </div>
                         </div>
                     </details>
                 </article>
@@ -147,18 +373,168 @@
                     <div class="formula-display">\[ y - y_1 = m(x - x_1) \]</div>
                     <p class="formula-explanation">The fastest way to write an equation given a point and a slope.</p>
 
-                    <details class="practix-reveal">
-                        <summary>Example Problem</summary>
-                        <div class="solution-content">
-                            <p><strong>Scenario:</strong> Find the equation of a line with slope 2 passing through (3,
-                                5).</p>
-                            <p style="margin-top: 1rem;">\(y - 5 = 2(x - 3)\). <br>Expand: \(y - 5 = 2x - 6\).
-                                <br>Final: \(y = 2x - 1\).
+                    <div
+                        style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                Practice: "Identify point \((x_1, y_1)\) from <span data-eqn-type="point-slope">\(y - 5
+                                    = 2(x - 3)\)</span>"
                             </p>
-                            <p><strong>Answer: \(y = 2x - 1\)</strong>.</p>
+                            <button class="randomize-btn" data-type="point-slope"
+                                style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                🔄 New Problem
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 0.8rem; align-items: center;">
+                            <input type="text" id="point-slope-answer-input" placeholder="e.g. (3, 5)"
+                                style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                            <button class="check-answer-btn" data-type="point-slope"
+                                style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                Check Answer
+                            </button>
+                        </div>
+                        <div id="point-slope-feedback" style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;">
+                        </div>
+                    </div>
+
+                    <details class="practix-reveal">
+                        <summary>Show Solution & Analysis</summary>
+                        <div class="solution-content">
+                            <div class="comparison-grid"
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                <div>
+                                    <div class="school-header"
+                                        style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">🚫 School Way
+                                        (Rigorous)</div>
+                                    <p id="point-slope-school-steps" style="font-size: 0.9rem; line-height: 1.6;">
+                                        <strong>1. Compare to Formula:</strong><br>
+                                        \(y - y_1 = m(x - x_1)\)<br>
+                                        <strong>2. Match terms:</strong><br>
+                                        \(y_1 = 5, x_1 = 3\)<br>
+                                        <strong>Result: (3, 5)</strong>
+                                    </p>
+                                </div>
+                                <div>
+                                    <div class="practix-header"
+                                        style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅ Practix Way
+                                        (Optimal)</div>
+                                    <p id="point-slope-practix-steps" style="font-size: 0.95rem; line-height: 1.6;">
+                                        **Step 1:** Extract Opposite Signs.<br>
+                                        \(-3 \to 3\). \(-5 \to 5\).<br>
+                                        **Result: (3, 5)**<br>
+                                        <span style="color: #10b981; font-weight: 600;">Whatever makes the parenthesis
+                                            zero is the coordinate.</span>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </details>
                 </article>
+
+                <article class="formula-card" id="slope-formula">
+                    <div class="uvp-badge" style="background: #10b981; color: white;">Core Concept</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-slope-formula">
+                    </div>
+                    <span class="category-badge cat-alg">Heart of Algebra</span>
+                    <h3>Slope Formula</h3>
+                    <div class="formula-display">\[ m = \frac{y_2 - y_1}{x_2 - x_1} \]</div>
+                    <p class="formula-explanation">The change in y over the change in x. Rise over Run.</p>
+
+                    <div
+                        style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                Practice: "Slope between <span data-eqn-type="slope-formula">\((2,3)\) and
+                                    \((5,9)\)</span>?"
+                            </p>
+                            <button class="randomize-btn" data-type="slope-formula"
+                                style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                🔄 New Problem
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 0.8rem; align-items: center;">
+                            <input type="text" id="slope-formula-answer-input" placeholder="e.g. 2/3 or 0.66"
+                                style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                            <button class="check-answer-btn" data-type="slope-formula"
+                                style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                Check Answer
+                            </button>
+                        </div>
+                        <div id="slope-formula-feedback"
+                            style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;"></div>
+                    </div>
+
+                    <details class="practix-reveal">
+                        <summary>Show Solution & Analysis</summary>
+                        <div class="solution-content">
+                            <div class="comparison-grid"
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                <div>
+                                    <div class="school-header"
+                                        style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">🚫 School Way
+                                        (Rigorous)</div>
+                                    <p id="slope-formula-school-steps" style="font-size: 0.9rem; line-height: 1.6;">
+                                        <strong>1. Label points:</strong><br>
+                                        \((x_1, y_1) = (2,3)\)<br>
+                                        \((x_2, y_2) = (5,9)\)<br>
+                                        <strong>2. Apply formula:</strong><br>
+                                        \(m = \frac{9-3}{5-2} = \frac{6}{3} = 2\)<br>
+                                        <strong>Result: 2</strong>
+                                    </p>
+                                </div>
+                                <div>
+                                    <div class="practix-header"
+                                        style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅ Practix Way
+                                        (Optimal)</div>
+                                    <p id="slope-formula-practix-steps" style="font-size: 0.95rem; line-height: 1.6;">
+                                        **Step 1:** Calculate change in Y.<br>
+                                        \(9 - 3 = 6\).<br>
+                                        **Step 2:** Calculate change in X.<br>
+                                        \(5 - 2 = 3\).<br>
+                                        **Step 3:** Divide Y by X.<br>
+                                        \(6/3 = 2\).<br>
+                                        **Result: 2**<br>
+                                        <span style="color: #10b981; font-weight: 600;">Focus on the "change" concept,
+                                            not just memorizing the formula.</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Theoretical Proof Integrated -->
+                            <div class="theoretical-solution"
+                                style="margin-top: 2rem; padding-top: 2rem; border-top: 1px dashed #cbd5e1;">
+                                <h4 style="color: #166534; margin-bottom: 1rem;">🎓 Theoretical Proof: Slope as Rate of
+                                    Change
+                                </h4>
+                                <div
+                                    style="font-family: serif; font-size: 1rem; line-height: 1.8; color: #334155; background: white; padding: 1.5rem; border-radius: 6px; border: 1px solid #bbf7d0;">
+                                    <p>The slope of a line represents its <strong>rate of change</strong>. For any two
+                                        distinct points \((x_1, y_1)\) and \((x_2, y_2)\) on a line, the slope \(m\) is
+                                        defined as the ratio of the change in the y-coordinates (vertical change) to the
+                                        change in the x-coordinates (horizontal change).</p>
+                                    <div style="text-align: center; margin: 1rem 0; font-size: 1.3rem;">
+                                        \( \text{Change in y} = \Delta y = y_2 - y_1 \)
+                                    </div>
+                                    <div style="text-align: center; margin: 1rem 0; font-size: 1.3rem;">
+                                        \( \text{Change in x} = \Delta x = x_2 - x_1 \)
+                                    </div>
+                                    <p>Thus, the slope \(m\) is:</p>
+                                    <div
+                                        style="text-align: center; margin: 1rem 0; font-size: 1.4rem; font-weight: bold; color: #166534;">
+                                        \( m = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1} \)
+                                    </div>
+                                    <p>This formula is fundamental because it quantifies how much \(y\) changes for a
+                                        given change in \(x\), which is the essence of linearity.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                </article>
+
 
                 <!-- Theoretical Proof for Standard Form Slope -->
                 <section class="topic-section"
@@ -213,142 +589,620 @@
                     <div class="formula-display">\[ d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2} \]</div>
                     <p class="formula-explanation">Derived from Pythagorean theorem. Calculate horizontal and vertical
                         legs first.</p>
-                </article>
+                    <div
+                        style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                Practice: "Distance between <span data-eqn-type="distance">\((0, 0) \text{ and } (3,
+                                    4)\)</span>?"
+                            </p>
+                            <button class="randomize-btn" data-type="distance"
+                                style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                🔄 New Problem
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 0.8rem; align-items: center;">
+                            <input type="text" id="distance-answer-input" placeholder="e.g. 5"
+                                style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                            <button class="check-answer-btn" data-type="distance"
+                                style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                Check Answer
+                            </button>
+                        </div>
+                        <div id="distance-feedback" style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;">
+                        </div>
+                    </div>
 
-                <article class="formula-card" id="pythag-triples">
-                    <div class="uvp-badge" style="background: #06b6d4; color: white;">Elite Memory</div>
-                    <div class="mastery-check-wrapper">
-                        <span class="mastery-label">Mastery</span>
-                        <input type="checkbox" class="mastery-check" id="check-pythag-triples">
-                    </div>
-                    <span class="category-badge cat-alg">Heart of Algebra</span>
-                    <h3>Pythagorean Triples</h3>
-                    <div class="formula-display">3-4-5, 5-12-13, 8-15-17</div>
-                    <p class="formula-explanation">Memorize these integer sets to skip the \(a^2+b^2=c^2\) calculation
-                        entirely.</p>
-                </article>
-                <article class="formula-card" id="parallel-slope">
-                    <div class="uvp-badge" style="background: #10b981; color: white;">Concept</div>
-                    <div class="mastery-check-wrapper">
-                        <span class="mastery-label">Mastery</span>
-                        <input type="checkbox" class="mastery-check" id="check-parallel-slope">
-                    </div>
-                    <span class="category-badge cat-alg">Heart of Algebra</span>
-                    <h3>Parallel Lines</h3>
-                    <div class="formula-display">\[ m_1 = m_2 \]</div>
-                    <p class="formula-explanation">Parallel lines never touch. They must have the exact same slope.</p>
-                </article>
+                    <details class="practix-reveal">
+                        <summary>Show Solution & Analysis</summary>
+                        <div class="solution-content">
+                            <div class="comparison-grid"
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                <div>
+                                    <div class="school-header"
+                                        style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">🚫 School Way
+                                        (Rigorous)</div>
+                                    <p id="distance-school-steps" style="font-size: 0.9rem; line-height: 1.6;">
+                                        <strong>1. Formula:</strong><br>
+                                        \(\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}\)<br>
+                                        <strong>2. Calculate:</strong><br>
+                                        \(\sqrt{3^2 + 4^2} = \sqrt{25} = 5\)<br>
+                                        <strong>Result: 5</strong>
+                                    </p>
+                                </div>
+                                <div>
+                                    <div class="practix-header"
+                                        style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅ Practix Way
+                                        (Optimal)</div>
+                                    <p id="distance-practix-steps" style="font-size: 0.95rem; line-height: 1.6;">
+                                        **Step 1:** Find Legs.<br>
+                                        Change in X is 3. Change in Y is 4.<br>
+                                        **Step 2:** Recognize Triple.<br>
+                                        It's a 3-4-5 Triangle.<br>
+                                        **Result: 5**<br>
+                                        <span style="color: #10b981; font-weight: 600;">SAT distances are almost ALWAYS
+                                            Pythagorean triples. Watch for them.</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Theoretical Proof Integrated -->
+                            <div class="theoretical-solution"
+                                style="margin-top: 2rem; padding-top: 2rem; border-top: 1px dashed #cbd5e1;">
+                                <h4 style="color: #166534; margin-bottom: 1rem;">🎓 Theoretical Proof: Pythagorean
+                                    Theorem</h4>
+                                <div
+                                    style="font-family: serif; font-size: 1rem; line-height: 1.8; color: #334155; background: white; padding: 1.5rem; border-radius: 6px; border: 1px solid #bbf7d0;">
+                                    <p>The distance formula is just the <strong>Pythagorean Theorem</strong> (\(a^2 +
+                                        b^2 = c^2\)) disguised in coordinate geometry.</p>
+                                    <p>\(a\) is the horizontal distance \((x_2 - x_1)\).</p>
+                                    <p>\(b\) is the vertical distance \((y_2 - y_1)\).</p>
+                                    <p>\(c\) is the straight-line distance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
 
-                <article class="formula-card" id="perp-slope">
-                    <div class="uvp-badge" style="background: #8b5cf6; color: white;">Trap</div>
-                    <div class="mastery-check-wrapper">
-                        <span class="mastery-label">Mastery</span>
-                        <input type="checkbox" class="mastery-check" id="check-perp-slope">
-                    </div>
-                    <span class="category-badge cat-alg">Heart of Algebra</span>
-                    <h3>Perpendicular Lines</h3>
-                    <div class="formula-display">\[ m_1 \cdot m_2 = -1 \]</div>
-                    <p class="formula-explanation">Slopes are negative reciprocals. Flip the fraction and flip the sign.
-                    </p>
-                </article>
+                    <article class="formula-card" id="pythag-triples">
+                        <div class="uvp-badge" style="background: #06b6d4; color: white;">Elite Memory</div>
+                        <div class="mastery-check-wrapper">
+                            <span class="mastery-label">Mastery</span>
+                            <input type="checkbox" class="mastery-check" id="check-pythag-triples">
+                        </div>
+                        <span class="category-badge cat-alg">Heart of Algebra</span>
+                        <h3>Pythagorean Triples</h3>
+                        <div class="formula-display">3-4-5, 5-12-13, 8-15-17</div>
+                        <p class="formula-explanation">Memorize these integer sets to skip the \(a^2+b^2=c^2\)
+                            calculation
+                            entirely.</p>
+                    </article>
+                    <article class="formula-card" id="parallel-slope">
+                        <div class="uvp-badge" style="background: #10b981; color: white;">Concept</div>
+                        <div class="mastery-check-wrapper">
+                            <span class="mastery-label">Mastery</span>
+                            <input type="checkbox" class="mastery-check" id="check-parallel-slope">
+                        </div>
+                        <span class="category-badge cat-alg">Heart of Algebra</span>
+                        <h3>Parallel Lines</h3>
+                        <div class="formula-display">\[ m_1 = m_2 \]</div>
+                        <p class="formula-explanation">Parallel lines never touch. They must have the exact same slope.
+                        </p>
+                        <div
+                            style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                                <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                    Practice: "Slope of <span data-eqn-type="parallel-slope">a line with slope \(m =
+                                        2\)</span>?"
+                                </p>
+                                <button class="randomize-btn" data-type="parallel-slope"
+                                    style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                    🔄 New Problem
+                                </button>
+                            </div>
+                            <div style="display: flex; gap: 0.8rem; align-items: center;">
+                                <input type="text" id="parallel-slope-answer-input" placeholder="e.g. 2"
+                                    style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                                <button class="check-answer-btn" data-type="parallel-slope"
+                                    style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                    Check Answer
+                                </button>
+                            </div>
+                            <div id="parallel-slope-feedback"
+                                style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;"></div>
+                        </div>
 
-                <article class="formula-card" id="horiz-slope">
-                    <div class="uvp-badge" style="background: #f59e0b; color: white;">Zero</div>
-                    <div class="mastery-check-wrapper">
-                        <span class="mastery-label">Mastery</span>
-                        <input type="checkbox" class="mastery-check" id="check-horiz-slope">
-                    </div>
-                    <span class="category-badge cat-alg">Heart of Algebra</span>
-                    <h3>Horizontal Line</h3>
-                    <div class="formula-display">\[ y = b \quad (\text{Slope } = 0) \]</div>
-                    <p class="formula-explanation">"HOY" - Horizontal, Zero slope, Y-equals.</p>
-                </article>
+                        <details class="practix-reveal">
+                            <summary>Show Solution & Analysis</summary>
+                            <div class="solution-content">
+                                <div class="comparison-grid"
+                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                    <div>
+                                        <div class="school-header"
+                                            style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">🚫 School Way
+                                            (Rigorous)</div>
+                                        <p id="parallel-slope-school-steps"
+                                            style="font-size: 0.9rem; line-height: 1.6;">
+                                            <strong>1. Recall Def:</strong><br>
+                                            Parallel lines never intersect.<br>
+                                            <strong>2. Match:</strong><br>
+                                            Slopes must be equal.<br>
+                                            <strong>Result: 2</strong>
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <div class="practix-header"
+                                            style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅ Practix Way
+                                            (Optimal)</div>
+                                        <p id="parallel-slope-practix-steps"
+                                            style="font-size: 0.95rem; line-height: 1.6;">
+                                            **Step 1:** Same Slope.<br>
+                                            Parallel = Equal.<br>
+                                            **Result: 2**<br>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="theoretical-solution"
+                                    style="margin-top: 2rem; padding-top: 2rem; border-top: 1px dashed #cbd5e1;">
+                                    <h4 style="color: #166534; margin-bottom: 1rem;">🎓 Theoretical Proof: Parallelism
+                                    </h4>
+                                    <div
+                                        style="font-family: serif; font-size: 1rem; line-height: 1.8; color: #334155; background: white; padding: 1.5rem; border-radius: 6px; border: 1px solid #bbf7d0;">
+                                        <p>If two lines have different slopes, they aren't rising at the same rate, and
+                                            thus
+                                            MUST intersect eventually. For lines to never touch (be parallel), their
+                                            rate of
+                                            change (slope) must be identical.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
 
-                <article class="formula-card" id="vert-slope">
-                    <div class="uvp-badge" style="background: #ef4444; color: white;">Undefined</div>
-                    <div class="mastery-check-wrapper">
-                        <span class="mastery-label">Mastery</span>
-                        <input type="checkbox" class="mastery-check" id="check-vert-slope">
-                    </div>
-                    <span class="category-badge cat-alg">Heart of Algebra</span>
-                    <h3>Vertical Line</h3>
-                    <div class="formula-display">\[ x = a \quad (\text{Slope } = \text{Undefined}) \]</div>
-                    <p class="formula-explanation">"VUX" - Vertical, Undefined slope, X-equals.</p>
-                </article>
+                        <article class="formula-card" id="perp-slope">
+                            <div class="uvp-badge" style="background: #8b5cf6; color: white;">Trap</div>
+                            <div class="mastery-check-wrapper">
+                                <span class="mastery-label">Mastery</span>
+                                <input type="checkbox" class="mastery-check" id="check-perp-slope">
+                            </div>
+                            <span class="category-badge cat-alg">Heart of Algebra</span>
+                            <h3>Perpendicular Lines</h3>
+                            <div class="formula-display">\[ m_1 \cdot m_2 = -1 \]</div>
+                            <p class="formula-explanation">Slopes are negative reciprocals. Flip the fraction and flip
+                                the sign.
+                            </p>
+                            <div
+                                style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                                    <p
+                                        style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                        Practice: "Perp slope to <span data-eqn-type="perp-slope">\(m = 2/3\)</span>?"
+                                    </p>
+                                    <button class="randomize-btn" data-type="perp-slope"
+                                        style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                        🔄 New Problem
+                                    </button>
+                                </div>
+                                <div style="display: flex; gap: 0.8rem; align-items: center;">
+                                    <input type="text" id="perp-slope-answer-input" placeholder="e.g. -3/2"
+                                        style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                                    <button class="check-answer-btn" data-type="perp-slope"
+                                        style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                        Check Answer
+                                    </button>
+                                </div>
+                                <div id="perp-slope-feedback"
+                                    style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;">
+                                </div>
+                            </div>
 
-                <article class="formula-card" id="x-int-hack">
-                    <div class="uvp-badge" style="background: #10b981; color: white;">Shortcut</div>
-                    <div class="mastery-check-wrapper">
-                        <span class="mastery-label">Mastery</span>
-                        <input type="checkbox" class="mastery-check" id="check-x-int-hack">
-                    </div>
-                    <span class="category-badge cat-alg">Heart of Algebra</span>
-                    <h3>X-Intercept Hack</h3>
-                    <div class="formula-display">\[ \text{Set } y = 0 \]</div>
-                    <p class="formula-explanation">Don't rearrange. Just cover the y-term and solve for x.</p>
-                </article>
+                            <details class="practix-reveal">
+                                <summary>Show Solution & Analysis</summary>
+                                <div class="solution-content">
+                                    <div class="comparison-grid"
+                                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                        <div>
+                                            <div class="school-header"
+                                                style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">🚫 School
+                                                Way
+                                                (Rigorous)</div>
+                                            <p id="perp-slope-school-steps"
+                                                style="font-size: 0.9rem; line-height: 1.6;">
+                                                <strong>1. Formula:</strong><br>
+                                                \(m_1 m_2 = -1\)<br>
+                                                <strong>2. Solve:</strong><br>
+                                                \(m_2 = -1 / (2/3) = -3/2\)<br>
+                                                <strong>Result: -3/2</strong>
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <div class="practix-header"
+                                                style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅ Practix
+                                                Way
+                                                (Optimal)</div>
+                                            <p id="perp-slope-practix-steps"
+                                                style="font-size: 0.95rem; line-height: 1.6;">
+                                                **Step 1:** Flip and Switch.<br>
+                                                Diff signs, reciprocal fraction.<br>
+                                                2/3 becomes -3/2.<br>
+                                                **Result: -3/2**<br>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!-- Theoretical Proof Integrated -->
+                                    <div class="theoretical-solution"
+                                        style="margin-top: 2rem; padding-top: 2rem; border-top: 1px dashed #cbd5e1;">
+                                        <h4 style="color: #166534; margin-bottom: 1rem;">🎓 Theoretical Proof:
+                                            Perpendicularity
+                                        </h4>
+                                        <div
+                                            style="font-family: serif; font-size: 1rem; line-height: 1.8; color: #334155; background: white; padding: 1.5rem; border-radius: 6px; border: 1px solid #bbf7d0;">
+                                            <p>Rotating a line by 90 degrees swaps its run and rise, meaning \(\Delta
+                                                x\)
+                                                becomes \(\Delta y\) and \(\Delta y\) becomes \(-\Delta x\). This causes
+                                                the
+                                                fraction \(y/x\) to become \(-x/y\), which is the negative reciprocal.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
 
-                <article class="formula-card" id="intersect-meaning">
-                    <div class="uvp-badge" style="background: #06b6d4; color: white;">Concept</div>
-                    <div class="mastery-check-wrapper">
-                        <span class="mastery-label">Mastery</span>
-                        <input type="checkbox" class="mastery-check" id="check-intersect-meaning">
-                    </div>
-                    <span class="category-badge cat-alg">Heart of Algebra</span>
-                    <h3>Intersection Point</h3>
-                    <div class="formula-display">\[ f(x) = g(x) \]</div>
-                    <p class="formula-explanation">The intersection is the ONLY point where x and y work for both
-                        equations. It is the solution.</p>
-                </article>
+                            <article class="formula-card" id="horiz-slope">
+                                <div class="uvp-badge" style="background: #f59e0b; color: white;">Zero</div>
+                                <div class="mastery-check-wrapper">
+                                    <span class="mastery-label">Mastery</span>
+                                    <input type="checkbox" class="mastery-check" id="check-horiz-slope">
+                                </div>
+                                <span class="category-badge cat-alg">Heart of Algebra</span>
+                                <h3>Horizontal Line</h3>
+                                <div class="formula-display">\[ y = b \quad (\text{Slope } = 0) \]</div>
+                                <p class="formula-explanation">"HOY" - Horizontal, Zero slope, Y-equals.</p>
+                                <div
+                                    style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                                    <div
+                                        style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                                        <p
+                                            style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                            Practice: "Slope of <span data-eqn-type="horiz-slope">\(y = 5\)</span>?"
+                                        </p>
+                                        <button class="randomize-btn" data-type="horiz-slope"
+                                            style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                            🔄 New Problem
+                                        </button>
+                                    </div>
+                                    <div style="display: flex; gap: 0.8rem; align-items: center;">
+                                        <input type="text" id="horiz-slope-answer-input" placeholder="e.g. 0"
+                                            style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                                        <button class="check-answer-btn" data-type="horiz-slope"
+                                            style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                            Check Answer
+                                        </button>
+                                    </div>
+                                    <div id="horiz-slope-feedback"
+                                        style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;">
+                                    </div>
+                                </div>
 
-                <article class="formula-card" id="infinite-sols">
-                    <div class="uvp-badge" style="background: #ef4444; color: white;">Boss Mode</div>
-                    <div class="mastery-check-wrapper">
-                        <span class="mastery-label">Mastery</span>
-                        <input type="checkbox" class="mastery-check" id="check-infinite-sols">
-                    </div>
-                    <span class="category-badge cat-alg">Heart of Algebra</span>
-                    <h3>Infinitely Many Solutions</h3>
-                    <div class="formula-display">\[ 0 = 0 \]</div>
-                    <p class="formula-explanation">Same Slope, Same Y-Intercept. The lines are identical.</p>
-                </article>
+                                <details class="practix-reveal">
+                                    <summary>Show Solution & Analysis</summary>
+                                    <div class="solution-content">
+                                        <div class="comparison-grid"
+                                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                            <div>
+                                                <div class="school-header"
+                                                    style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">🚫
+                                                    School Way
+                                                    (Rigorous)</div>
+                                                <p id="horiz-slope-school-steps"
+                                                    style="font-size: 0.9rem; line-height: 1.6;">
+                                                    <strong>1. Pattern Match:</strong><br>
+                                                    \(y = 0x + b\).<br>
+                                                    <strong>Result: 0</strong>
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <div class="practix-header"
+                                                    style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅
+                                                    Practix Way
+                                                    (Optimal)</div>
+                                                <p id="horiz-slope-practix-steps"
+                                                    style="font-size: 0.95rem; line-height: 1.6;">
+                                                    **Step 1:** Visualize.<br>
+                                                    It's flat.<br>
+                                                    **Result: 0**<br>
+                                                    <span style="color: #10b981; font-weight: 600;">HOY = Horizontal, 0
+                                                        Slope,
+                                                        Y-equals.</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </details>
 
-                <article class="formula-card" id="no-sols">
-                    <div class="uvp-badge" style="background: #ef4444; color: white;">Boss Mode</div>
-                    <div class="mastery-check-wrapper">
-                        <span class="mastery-label">Mastery</span>
-                        <input type="checkbox" class="mastery-check" id="check-no-sols">
-                    </div>
-                    <span class="category-badge cat-alg">Heart of Algebra</span>
-                    <h3>No Solution</h3>
-                    <div class="formula-display">\[ 0 = \text{Number} \]</div>
-                    <p class="formula-explanation">Same Slope, Different Y-Intercept. The lines are parallel.</p>
-                </article>
+                                <article class="formula-card" id="vert-slope">
+                                    <div class="uvp-badge" style="background: #ef4444; color: white;">Undefined</div>
+                                    <div class="mastery-check-wrapper">
+                                        <span class="mastery-label">Mastery</span>
+                                        <input type="checkbox" class="mastery-check" id="check-vert-slope">
+                                    </div>
+                                    <span class="category-badge cat-alg">Heart of Algebra</span>
+                                    <h3>Vertical Line</h3>
+                                    <div class="formula-display">\[ x = a \quad (\text{Slope } = \text{Undefined}) \]
+                                    </div>
+                                    <p class="formula-explanation">"VUX" - Vertical, Undefined slope, X-equals.</p>
+                                    <div
+                                        style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                                        <div
+                                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                                            <p
+                                                style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                                Practice: "Slope of <span data-eqn-type="vert-slope">\(x = 5\)</span>?"
+                                            </p>
+                                            <button class="randomize-btn" data-type="vert-slope"
+                                                style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                                🔄 New Problem
+                                            </button>
+                                        </div>
+                                        <div style="display: flex; gap: 0.8rem; align-items: center;">
+                                            <input type="text" id="vert-slope-answer-input" placeholder="e.g. undefined"
+                                                style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                                            <button class="check-answer-btn" data-type="vert-slope"
+                                                style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                                Check Answer
+                                            </button>
+                                        </div>
+                                        <div id="vert-slope-feedback"
+                                            style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;">
+                                        </div>
+                                    </div>
 
-                <article class="formula-card" id="standard-ints">
-                    <div class="uvp-badge" style="background: #8b5cf6; color: white;">Speed Hack</div>
-                    <div class="mastery-check-wrapper">
-                        <span class="mastery-label">Mastery</span>
-                        <input type="checkbox" class="mastery-check" id="check-standard-ints">
-                    </div>
-                    <span class="category-badge cat-alg">Heart of Algebra</span>
-                    <h3>Standard Form Intercepts</h3>
-                    <div class="formula-display">\[ x_{int} = C/A, \quad y_{int} = C/B \]</div>
-                    <p class="formula-explanation">For \(Ax + By = C\). Memorize this to graph in 3 seconds.</p>
-                </article>
+                                    <details class="practix-reveal">
+                                        <summary>Show Solution & Analysis</summary>
+                                        <div class="solution-content">
+                                            <div class="comparison-grid"
+                                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                                <div>
+                                                    <div class="school-header"
+                                                        style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">
+                                                        🚫 School Way
+                                                        (Rigorous)</div>
+                                                    <p id="vert-slope-school-steps"
+                                                        style="font-size: 0.9rem; line-height: 1.6;">
+                                                        <strong>1. Pattern Match:</strong><br>
+                                                        Vertical line.<br>
+                                                        <strong>Result: Undefined</strong>
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <div class="practix-header"
+                                                        style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅
+                                                        Practix Way
+                                                        (Optimal)</div>
+                                                    <p id="vert-slope-practix-steps"
+                                                        style="font-size: 0.95rem; line-height: 1.6;">
+                                                        **Step 1:** Visualize.<br>
+                                                        Slope is infinite/undefined.<br>
+                                                        **Result: Undefined**<br>
+                                                        <span style="color: #10b981; font-weight: 600;">VUX = Vertical,
+                                                            Undefined,
+                                                            X-equals.</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </details>
 
-                <article class="formula-card" id="ineq-shade">
-                    <div class="uvp-badge" style="background: #f59e0b; color: white;">Visual</div>
-                    <div class="mastery-check-wrapper">
-                        <span class="mastery-label">Mastery</span>
-                        <input type="checkbox" class="mastery-check" id="check-ineq-shade">
-                    </div>
-                    <span class="category-badge cat-alg">Heart of Algebra</span>
-                    <h3>Shading Inequalities</h3>
-                    <div class="formula-display">\[ > \text{ Shade Above}, \quad < \text{ Shade Below} \]</div>
-                            <p class="formula-explanation">Unless you divide by a negative (flip it!). Always isolate y
-                                first.</p>
-                </article>
+                                    <article class="formula-card" id="x-int-hack">
+                                        <div class="uvp-badge" style="background: #10b981; color: white;">Shortcut</div>
+                                        <div class="mastery-check-wrapper">
+                                            <span class="mastery-label">Mastery</span>
+                                            <input type="checkbox" class="mastery-check" id="check-x-int-hack">
+                                        </div>
+                                        <span class="category-badge cat-alg">Heart of Algebra</span>
+                                        <h3>X-Intercept Hack</h3>
+                                        <div class="formula-display">\[ \text{Set } y = 0 \]</div>
+                                        <div
+                                            style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                                            <div
+                                                style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                                                <p
+                                                    style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                                    Practice: "Find X-Intercept of <span data-eqn-type="x-int-hack">\(2x
+                                                        - 5y = 10\)</span>"
+                                                </p>
+                                                <button class="randomize-btn" data-type="x-int-hack"
+                                                    style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                                    🔄 New Problem
+                                                </button>
+                                            </div>
+                                            <div style="display: flex; gap: 0.8rem; align-items: center;">
+                                                <input type="text" id="x-int-hack-answer-input" placeholder="e.g. 5"
+                                                    style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                                                <button class="check-answer-btn" data-type="x-int-hack"
+                                                    style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                                    Check Answer
+                                                </button>
+                                            </div>
+                                            <div id="x-int-hack-feedback"
+                                                style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;">
+                                            </div>
+                                        </div>
+
+                                        <details class="practix-reveal">
+                                            <summary>Show Solution & Analysis</summary>
+                                            <div class="solution-content">
+                                                <div class="comparison-grid"
+                                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                                    <div>
+                                                        <div class="school-header"
+                                                            style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">
+                                                            🚫 School Way
+                                                            (Rigorous)</div>
+                                                        <p id="x-int-hack-school-steps"
+                                                            style="font-size: 0.9rem; line-height: 1.6;">
+                                                            <strong>1. Algebra:</strong><br>
+                                                            Substitute \(y=0\).<br>
+                                                            \(2x - 5(0) = 10\)<br>
+                                                            <strong>2. Isolate:</strong><br>
+                                                            \(x=5\)<br>
+                                                            <strong>Result: 5</strong>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <div class="practix-header"
+                                                            style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">
+                                                            ✅ Practix Way
+                                                            (Optimal)</div>
+                                                        <p id="x-int-hack-practix-steps"
+                                                            style="font-size: 0.95rem; line-height: 1.6;">
+                                                            **Step 1:** "Hide" the y term.<br>
+                                                            \(2x = 10\).<br>
+                                                            **Step 2:** Divide.<br>
+                                                            \(10/2 = 5\).<br>
+                                                            **Result: 5**<br>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </details>
+                                        <p class="formula-explanation">Don't rearrange. Just cover the y-term and solve
+                                            for x.</p>
+                                    </article>
+
+                                    <article class="formula-card" id="intersect-meaning">
+                                        <div class="uvp-badge" style="background: #06b6d4; color: white;">Concept</div>
+                                        <div class="mastery-check-wrapper">
+                                            <span class="mastery-label">Mastery</span>
+                                            <input type="checkbox" class="mastery-check" id="check-intersect-meaning">
+                                        </div>
+                                        <span class="category-badge cat-alg">Heart of Algebra</span>
+                                        <h3>Intersection Point</h3>
+                                        <div class="formula-display">\[ f(x) = g(x) \]</div>
+                                        <p class="formula-explanation">The intersection is the ONLY point where x and y
+                                            work for both
+                                            equations. It is the solution.</p>
+                                    </article>
+
+                                    <article class="formula-card" id="infinite-sols">
+                                        <div class="uvp-badge" style="background: #ef4444; color: white;">Boss Mode
+                                        </div>
+                                        <div class="mastery-check-wrapper">
+                                            <span class="mastery-label">Mastery</span>
+                                            <input type="checkbox" class="mastery-check" id="check-infinite-sols">
+                                        </div>
+                                        <span class="category-badge cat-alg">Heart of Algebra</span>
+                                        <h3>Infinitely Many Solutions</h3>
+                                        <div class="formula-display">\[ 0 = 0 \]</div>
+                                        <p class="formula-explanation">Same Slope, Same Y-Intercept. The lines are
+                                            identical.</p>
+                                    </article>
+
+                                    <article class="formula-card" id="no-sols">
+                                        <div class="uvp-badge" style="background: #ef4444; color: white;">Boss Mode
+                                        </div>
+                                        <div class="mastery-check-wrapper">
+                                            <span class="mastery-label">Mastery</span>
+                                            <input type="checkbox" class="mastery-check" id="check-no-sols">
+                                        </div>
+                                        <span class="category-badge cat-alg">Heart of Algebra</span>
+                                        <h3>No Solution</h3>
+                                        <div class="formula-display">\[ 0 = \text{Number} \]</div>
+                                        <p class="formula-explanation">Same Slope, Different Y-Intercept. The lines are
+                                            parallel.</p>
+                                    </article>
+
+                                    <article class="formula-card" id="standard-ints">
+                                        <div class="uvp-badge" style="background: #8b5cf6; color: white;">Speed Hack
+                                        </div>
+                                        <div class="mastery-check-wrapper">
+                                            <span class="mastery-label">Mastery</span>
+                                            <input type="checkbox" class="mastery-check" id="check-standard-ints">
+                                        </div>
+                                        <span class="category-badge cat-alg">Heart of Algebra</span>
+                                        <h3>Standard Form Intercepts</h3>
+                                        <div class="formula-display">\[ x_{int} = C/A, \quad y_{int} = C/B \]</div>
+                                        <div
+                                            style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                                            <div
+                                                style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                                                <p
+                                                    style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                                    Practice: "Find X-Intercept of <span
+                                                        data-eqn-type="standard-ints">\(3x + 4y =
+                                                        12\)</span>"
+                                                </p>
+                                                <button class="randomize-btn" data-type="standard-ints"
+                                                    style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                                    🔄 New Problem
+                                                </button>
+                                            </div>
+                                            <div style="display: flex; gap: 0.8rem; align-items: center;">
+                                                <input type="text" id="standard-ints-answer-input" placeholder="e.g. 4"
+                                                    style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                                                <button class="check-answer-btn" data-type="standard-ints"
+                                                    style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                                    Check Answer
+                                                </button>
+                                            </div>
+                                            <div id="standard-ints-feedback"
+                                                style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;"></div>
+                                        </div>
+
+                                        <details class="practix-reveal">
+                                            <summary>Show Solution & Analysis</summary>
+                                            <div class="solution-content">
+                                                <div class="comparison-grid"
+                                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                                    <div>
+                                                        <div class="school-header"
+                                                            style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">
+                                                            🚫 School Way
+                                                            (Rigorous)</div>
+                                                        <p id="standard-ints-school-steps"
+                                                            style="font-size: 0.9rem; line-height: 1.6;">
+                                                            <strong>1. Set y = 0:</strong><br>
+                                                            \(3x + 4(0) = 12\)<br>
+                                                            <strong>2. Solve for x:</strong><br>
+                                                            \(3x = 12 \implies x = 4\)<br>
+                                                            <strong>Result: 4</strong>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <div class="practix-header"
+                                                            style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">
+                                                            ✅ Practix Way
+                                                            (Optimal)</div>
+                                                        <p id="standard-ints-practix-steps"
+                                                            style="font-size: 0.95rem; line-height: 1.6;">
+                                                            **Step 1:** Cover y (set y=0).<br>
+                                                            \(3x = 12\).<br>
+                                                            **Step 2:** Solve.<br>
+                                                            \(x = 12/3 = 4\).<br>
+                                                            **Result: 4**<br>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </details>
+                                        <p class="formula-explanation">For \(Ax + By = C\). Memorize this to graph in 3
+                                            seconds.</p>
+                                    </article>
+
+                                    <article class="formula-card" id="ineq-shade">
+                                        <div class="uvp-badge" style="background: #f59e0b; color: white;">Visual</div>
+                                        <div class="mastery-check-wrapper">
+                                            <span class="mastery-label">Mastery</span>
+                                            <input type="checkbox" class="mastery-check" id="check-ineq-shade">
+                                        </div>
+                                        <span class="category-badge cat-alg">Heart of Algebra</span>
+                                        <h3>Shading Inequalities</h3>
+                                        <div class="formula-display">\[ > \text{ Shade Above}, \quad < \text{ Shade
+                                                Below} \]</div>
+                                                <p class="formula-explanation">Unless you divide by a negative (flip
+                                                    it!). Always isolate y
+                                                    first.</p>
+                                    </article>
             </div>
         </main>
     </div>

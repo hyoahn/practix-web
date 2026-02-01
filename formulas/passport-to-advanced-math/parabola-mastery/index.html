@@ -29,6 +29,7 @@
     <script src="../../../assets/scripts/practix-footer.js?v=23"></script>
     <script src="../../../assets/scripts/pulse-relay.js?v=26"></script>
     <script src="../../../assets/scripts/analytics.js"></script>
+    <script src="../../../assets/scripts/practix-generator.js"></script>
 
 
 
@@ -85,13 +86,62 @@
                         to
                         a parabola \(y=ax^2+bx+c\).</p>
 
+                    <div
+                        style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                Practice: "Find tangent line \(y=k\) for <span data-eqn-type="vertex-line">\(y = x^2 -
+                                    8x + 20\)</span>"
+                            </p>
+                            <button class="randomize-btn" data-type="vertex-line"
+                                style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                🔄 New Problem
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 0.8rem; align-items: center;">
+                            <input type="text" id="vertex-line-answer-input" placeholder="e.g. 4"
+                                style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                            <button class="check-answer-btn" data-type="vertex-line"
+                                style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                Check Answer
+                            </button>
+                        </div>
+                        <div id="vertex-line-feedback" style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;">
+                        </div>
+                    </div>
+
                     <details class="practix-reveal">
-                        <summary>📝 Example: Tangent Line</summary>
+                        <summary>Show Solution & Analysis</summary>
                         <div class="solution-content">
-                            <p>For \(y = x^2 - 8x + 20\), find the horizontal line tangent to the vertex.</p>
-                            <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">\(k = 20 -
-                                \frac{(-8)^2}{4(1)} = 20 - \frac{64}{4} = 4\)</p>
-                            <p><strong>Result: y = 4</strong>.</p>
+                            <div class="comparison-grid"
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                <div>
+                                    <div class="school-header"
+                                        style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">🚫 School Way
+                                        (Rigorous)</div>
+                                    <p id="vertex-line-school-steps" style="font-size: 0.9rem; line-height: 1.6;">
+                                        <strong>1. Find Vertex x:</strong><br>
+                                        \(x = -b/2a = 8/2 = 4\).<br>
+                                        <strong>2. Plug back in:</strong><br>
+                                        \(y = 4^2 - 8(4) + 20 = 4\).<br>
+                                        <strong>Result: 4</strong>
+                                    </p>
+                                </div>
+                                <div>
+                                    <div class="practix-header"
+                                        style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅ Practix Way
+                                        (Optimal)</div>
+                                    <p id="vertex-line-practix-steps" style="font-size: 0.95rem; line-height: 1.6;">
+                                        **Step 1:** Use Formula.<br>
+                                        \( k = c - b^2/4a \).<br>
+                                        \( 20 - 64/4 = 4 \).<br>
+                                        **Result: 4**<br>
+                                        <span style="color: #10b981; font-weight: 600;">Directly targeting 'k' skips
+                                            the intermediate x-step.</span>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </details>
                 </article>
@@ -108,14 +158,90 @@
                     <div class="formula-display">\[ x = -\frac{b}{2a} \]</div>
                     <p class="formula-explanation">The universal shortcut to find the x-coordinate of the vertex
                         (pivotal point) of any parabola.</p>
+                    <div
+                        style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                Practice: "Find the x-coordinate of the vertex for <span
+                                    data-eqn-type="vertex-shortcut">\(y = x^2 - 8x + 20\)</span>"
+                            </p>
+                            <button class="randomize-btn" data-type="vertex-shortcut"
+                                style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                🔄 New Problem
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 0.8rem; align-items: center;">
+                            <input type="text" id="vertex-shortcut-answer-input" placeholder="e.g. 4"
+                                style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                            <button class="check-answer-btn" data-type="vertex-shortcut"
+                                style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                Check Answer
+                            </button>
+                        </div>
+                        <div id="vertex-shortcut-feedback"
+                            style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;"></div>
+                    </div>
+
                     <details class="practix-reveal">
-                        <summary>🧪 The Proof: Symmetry</summary>
+                        <summary>Show Solution & Analysis</summary>
                         <div class="solution-content">
-                            <p>The roots of \(ax^2 + bx + c = 0\) are \(\frac{-b \pm \sqrt{b^2-4ac}}{2a}\). The vertex
-                                is exactly in the middle of the roots.</p>
-                            <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">\(x_{vertex} =
-                                \frac{(\frac{-b + \sqrt{D}}{2a}) + (\frac{-b - \sqrt{D}}{2a})}{2} = \frac{-2b/2a}{2} =
-                                -\frac{b}{2a}\)</p>
+                            <div class="comparison-grid"
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                <div>
+                                    <div class="school-header"
+                                        style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">🚫 School Way
+                                        (Rigorous)</div>
+                                    <p id="vertex-shortcut-school-steps" style="font-size: 0.9rem; line-height: 1.6;">
+                                        <strong>1. Complete the Square:</strong><br>
+                                        \(y = (x^2 - 8x + 16) + 4\)<br>
+                                        \(y = (x - 4)^2 + 4\)<br>
+                                        <strong>2. Identify Vertex:</strong><br>
+                                        The form \((x-h)^2 + k\) gives \(h=4\).<br>
+                                        <strong>Result: 4</strong>
+                                    </p>
+                                </div>
+                                <div>
+                                    <div class="practix-header"
+                                        style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅ Practix Way
+                                        (Optimal)</div>
+                                    <p id="vertex-shortcut-practix-steps" style="font-size: 0.95rem; line-height: 1.6;">
+                                        **Step 1:** Identify coefficients.<br>
+                                        \(a=1, b=-8\).<br>
+                                        **Step 2:** Apply shortcut.<br>
+                                        \(x = -b/2a = -(-8)/2(1) = 4\).<br>
+                                        **Result: 4**<br>
+                                        <span style="color: #10b981; font-weight: 600;">Completing the square is a relic
+                                            of the past. Use the axis of symmetry.</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Theoretical Proof Integrated -->
+                            <div class="theoretical-solution"
+                                style="margin-top: 2rem; padding-top: 2rem; border-top: 1px dashed #cbd5e1;">
+                                <h4 style="color: #166534; margin-bottom: 1rem;">🎓 Theoretical Proof: Symmetry & The
+                                    Vertex</h4>
+                                <div
+                                    style="font-family: serif; font-size: 1rem; line-height: 1.8; color: #334155; background: white; padding: 1.5rem; border-radius: 6px; border: 1px solid #bbf7d0;">
+                                    <p>The vertex of a parabola always lies on its <strong>axis of symmetry</strong>.
+                                        For
+                                        any quadratic equation \(ax^2 + bx + c = 0\), the roots are given by the
+                                        quadratic formula:</p>
+                                    <div style="text-align: center; margin: 1rem 0; font-size: 1.3rem;">\( x = \frac{-b
+                                        \pm \sqrt{D}}{2a} \)</div>
+                                    <p>Because the parabola is perfectly symmetrical, the x-coordinate of the vertex
+                                        must be the <strong>average</strong> of these two roots:</p>
+                                    <div style="text-align: center; margin: 1rem 0; font-size: 1.3rem;">\( x_{vertex} =
+                                        \frac{(\frac{-b + \sqrt{D}}{2a}) + (\frac{-b - \sqrt{D}}{2a})}{2} \)</div>
+                                    <p>Simplifying the numerator (the square roots cancel out):</p>
+                                    <div
+                                        style="text-align: center; margin: 1rem 0; font-size: 1.4rem; font-weight: bold; color: #166534;">
+                                        \( x = -\frac{b}{2a} \)</div>
+                                    <p>This shortcut works for <strong>every</strong> parabola, regardless of whether it
+                                        has real roots or not.</p>
+                                </div>
+                            </div>
                         </div>
                     </details>
                 </article>

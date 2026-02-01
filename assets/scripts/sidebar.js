@@ -24,6 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     path: "formulas/heart-of-algebra/",
                     topics: [
                         { name: "Linear Equations", path: "formulas/heart-of-algebra/linear-equations/" },
+                        { name: "Slope from Standard Form", path: "formulas/heart-of-algebra/linear-equations/#standard-slope" },
+                        { name: "Point-Slope Form", path: "formulas/heart-of-algebra/linear-equations/#point-slope" },
+                        { name: "Midpoint Formula", path: "formulas/heart-of-algebra/linear-equations/#midpoint" },
+                        { name: "Distance Formula", path: "formulas/heart-of-algebra/linear-equations/#distance" },
+                        { name: "Pythagorean Triples", path: "formulas/heart-of-algebra/linear-equations/#pythag-triples" },
                         { name: "Percent Change Hacks", path: "formulas/heart-of-algebra/percent-change-shortcuts/" },
                         { name: "Slope & Line Mastery", path: "formulas/heart-of-algebra/slope-and-lines/" },
                         { name: "Averages & Mixtures", path: "formulas/heart-of-algebra/averages-and-mixtures/" }
@@ -61,10 +66,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     name: "Core Techniques",
                     path: "desmos/",
                     topics: [
+                        { name: "System Solver", path: "desmos/regression-secrets/#system-solver" },
+                        { name: "Absolute Value Solves", path: "desmos/regression-secrets/#absolute-value" },
+                        { name: "Polynomial Roots", path: "desmos/regression-secrets/#poly-roots" },
+                        { name: "Stats Lists", path: "desmos/regression-secrets/#stats-lists" },
+                        { name: "Poly-Solve Variables", path: "desmos/regression-secrets/#poly-solve" },
                         { name: "Regression Secrets", path: "desmos/regression-secrets/" },
                         { name: "Lists & Tables", path: "desmos/lists-and-tables/" },
                         { name: "Visualization Hacks", path: "desmos/visualization-hacks/" },
-                        { name: "System Solver", path: "desmos/system-solver/" },
                         { name: "Inequality Shading", path: "desmos/inequality-shading/" },
                         { name: "Mean vs Median", path: "desmos/mean-vs-median/" }
                     ]
@@ -82,6 +91,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     path: "hard-questions/",
                     topics: [
                         { name: "Algebra Traps", path: "hard-questions/algebra/" },
+                        { name: "Infinite Solutions Trap", path: "hard-questions/algebra/#q10" },
+                        { name: "No Solution Constants", path: "hard-questions/algebra/#q11" },
+                        { name: "Perpendicular Slopes", path: "hard-questions/algebra/#q12" },
+                        { name: "Quadratic Sum Hack", path: "hard-questions/algebra/#q13" },
+                        { name: "Extraneous Roots", path: "hard-questions/algebra/#q14" },
                         { name: "Problem Solving", path: "hard-questions/problem-solving/" },
                         { name: "Advanced Math", path: "hard-questions/advanced-math/" },
                         { name: "Geometry & Trig", path: "hard-questions/geometry/" },

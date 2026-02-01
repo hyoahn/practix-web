@@ -83,34 +83,48 @@
                     <p class="formula-explanation">INSTANTLY find what the solutions multiply to. Essential when the SAT
                         asks for the product of roots.</p>
 
-                    <details class="practix-reveal">
-                        <summary>Example Problem</summary>
-                        <div class="solution-content">
-                            <p style="font-weight: 700; margin-bottom: 1.5rem;">"What is the product of the solutions to
-                                \(3x^2 - 7x + 12 = 0\)?"</p>
+                    <p style="font-weight: 700; margin: 1.5rem 0 1rem; color: var(--text-primary);">
+                        Example: "What is the product of the solutions to \(3x^2 - 7x + 12 = 0\)?"
+                    </p>
 
+                    <details class="practix-reveal">
+                        <summary>Show Solution & Analysis</summary>
+                        <div class="solution-content">
                             <div class="comparison-grid"
                                 style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                                 <div>
                                     <div class="school-header"
                                         style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">🚫 School Way
-                                        (90s)</div>
+                                        (Rigorous)</div>
                                     <p style="font-size: 0.9rem; line-height: 1.6;">
-                                        1. Use Quadratic Formula: \(x = \frac{7 \pm \sqrt{49 - 144}}{6}\)<br>
-                                        2. Get complex roots: \(x = \frac{7 \pm i\sqrt{95}}{6}\)<br>
-                                        3. Multiply roots using \((a+bi)(a-bi)\)...<br>
-                                        4. Eventually find **4**.
+                                        <strong>1. Setup Quadratic Formula:</strong><br>
+                                        \(x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\)<br>
+                                        Identify \(a=3, b=-7, c=12\).<br>
+                                        \(x = \frac{-(-7) \pm \sqrt{(-7)^2 - 4(3)(12)}}{2(3)}\)<br>
+                                        <strong>2. Simplify:</strong><br>
+                                        \(x = \frac{7 \pm \sqrt{49 - 144}}{6} = \frac{7 \pm \sqrt{-95}}{6}\)<br>
+                                        <strong>3. Define Complex Roots:</strong><br>
+                                        \(r_1 = \frac{7 + i\sqrt{95}}{6}, r_2 = \frac{7 - i\sqrt{95}}{6}\)<br>
+                                        <strong>4. Calculate Product:</strong><br>
+                                        \(r_1 \cdot r_2 = \left(\frac{7 + i\sqrt{95}}{6}\right)\left(\frac{7 -
+                                        i\sqrt{95}}{6}\right)\)<br>
+                                        Numerator: \((7+i\sqrt{95})(7-i\sqrt{95}) = 49 - (i\sqrt{95})^2 = 49 - (-95) =
+                                        144\).<br>
+                                        Denominator: \(6 \cdot 6 = 36\).<br>
+                                        <strong>5. Result:</strong> \(144 / 36 = 4\).
                                     </p>
                                 </div>
                                 <div>
                                     <div class="practix-header"
                                         style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅ Practix Way
-                                        (2s)</div>
+                                        (Optimal)</div>
                                     <p style="font-size: 0.95rem; line-height: 1.6;">
-                                        Identify \(a=3, c=12\).<br>
-                                        Product = \(c/a = 12/3\)<br>
+                                        **Step 1:** Identify coefficients.<br>
+                                        \(a=3, c=12\).<br>
+                                        **Step 2:** Apply shortcut.<br>
+                                        Product = \(c/a = 12/3\).<br>
                                         **Result: 4**<br>
-                                        <span style="color: #10b981; font-weight: 600;">No roots needed.</span>
+                                        <span style="color: #10b981; font-weight: 600;">Time saved: 85+ seconds.</span>
                                     </p>
                                 </div>
                             </div>
@@ -130,35 +144,47 @@
                     <p class="formula-explanation">Instantly find what the solutions add up to. Don't waste time solving
                         for individual roots.</p>
 
-                    <details class="practix-reveal">
-                        <summary>Example Problem</summary>
-                        <div class="solution-content">
-                            <p style="font-weight: 700; margin-bottom: 1.5rem;">"What is the sum of the solutions to
-                                \(2x^2 + 8x - 5 = 0\)?"</p>
+                    <p style="font-weight: 700; margin: 1.5rem 0 1rem; color: var(--text-primary);">
+                        Example: "What is the sum of the solutions to \(2x^2 + 8x - 5 = 0\)?"
+                    </p>
 
+                    <details class="practix-reveal">
+                        <summary>Show Solution & Analysis</summary>
+                        <div class="solution-content">
                             <div class="comparison-grid"
                                 style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                                 <div>
                                     <div class="school-header"
                                         style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">🚫 School Way
-                                        (60s)</div>
+                                        (Rigorous)</div>
                                     <p style="font-size: 0.9rem; line-height: 1.6;">
-                                        1. Quadratic Formula: \(x = \frac{-8 \pm \sqrt{64 - (-40)}}{4}\)<br>
-                                        2. Roots: \(\frac{-8 \pm \sqrt{104}}{4}\)<br>
-                                        3. Roots: \(-2 \pm \frac{\sqrt{26}}{2}\)<br>
-                                        4. Add: \((-2 + \frac{\sqrt{26}}{2}) + (-2 - \frac{\sqrt{26}}{2})\)<br>
-                                        5. Find **-4**.
+                                        <strong>1. Setup Quadratic Formula:</strong><br>
+                                        Identify \(a=2, b=8, c=-5\).<br>
+                                        \(x = \frac{-8 \pm \sqrt{8^2 - 4(2)(-5)}}{2(2)}\)<br>
+                                        <strong>2. Simplify Discriminant:</strong><br>
+                                        \(x = \frac{-8 \pm \sqrt{64 + 40}}{4} = \frac{-8 \pm \sqrt{104}}{4}\)<br>
+                                        <strong>3. Simplify Terms:</strong><br>
+                                        \(x = \frac{-8}{4} \pm \frac{\sqrt{104}}{4} = -2 \pm \frac{2\sqrt{26}}{4} = -2
+                                        \pm \frac{\sqrt{26}}{2}\)<br>
+                                        <strong>4. Define Roots:</strong><br>
+                                        \(r_1 = -2 + \frac{\sqrt{26}}{2}, r_2 = -2 - \frac{\sqrt{26}}{2}\)<br>
+                                        <strong>5. Calculate Sum:</strong><br>
+                                        \(r_1 + r_2 = (-2 + \frac{\sqrt{26}}{2}) + (-2 - \frac{\sqrt{26}}{2})\)<br>
+                                        Radicals cancel out: \(-2 - 2 = -4\).<br>
+                                        <strong>Result: -4</strong>
                                     </p>
                                 </div>
                                 <div>
                                     <div class="practix-header"
                                         style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅ Practix Way
-                                        (2s)</div>
+                                        (Optimal)</div>
                                     <p style="font-size: 0.95rem; line-height: 1.6;">
-                                        Identify \(a=2, b=8\).<br>
-                                        Sum = \(-b/a = -8/2\)<br>
+                                        **Step 1:** Identify coefficients.<br>
+                                        \(a=2, b=8\).<br>
+                                        **Step 2:** Apply shortcut.<br>
+                                        Sum = \(-b/a = -8/2\).<br>
                                         **Result: -4**<br>
-                                        <span style="color: #10b981; font-weight: 600;">Immediate points.</span>
+                                        <span style="color: #10b981; font-weight: 600;">Done in seconds.</span>
                                     </p>
                                 </div>
                             </div>
@@ -180,35 +206,42 @@
                         \(D = 0\): 1 Real Solution<br>
                         \(D < 0\): No Real Solutions </p>
 
-                            <details class="practix-reveal">
-                                <summary>Example Problem</summary>
-                                <div class="solution-content">
-                                    <p style="font-weight: 700; margin-bottom: 1.5rem;">"How many real solutions does
-                                        \(x^2 + 4x + 4 = 0\) have?"</p>
+                            <p style="font-weight: 700; margin: 1.5rem 0 1rem; color: var(--text-primary);">
+                                Example: "How many real solutions does \(x^2 + 4x + 4 = 0\) have?"
+                            </p>
 
+                            <details class="practix-reveal">
+                                <summary>Show Solution & Analysis</summary>
+                                <div class="solution-content">
                                     <div class="comparison-grid"
                                         style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                                         <div>
                                             <div class="school-header"
                                                 style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">🚫 School
-                                                Way (30s)</div>
+                                                Way (Rigorous)</div>
                                             <p style="font-size: 0.9rem; line-height: 1.6;">
-                                                1. Try to factor: \((x+2)(x+2) = 0\)<br>
-                                                2. Find root: \(x = -2\)<br>
-                                                3. Identity one unique solution.<br>
-                                                4. Find **1**.
+                                                <strong>1. Attempt Factoring:</strong><br>
+                                                We look for two numbers that multiply to 4 and add to 4.<br>
+                                                \(x^2 + 4x + 4 = (x+2)(x+2) = (x+2)^2\).<br>
+                                                <strong>2. Solve for Roots:</strong><br>
+                                                \(x + 2 = 0 \implies x = -2\).<br>
+                                                <strong>3. Count Solutions:</strong><br>
+                                                There is only one distinct value for \(x\).<br>
+                                                <strong>Result: 1 Real Solution</strong>
                                             </p>
                                         </div>
                                         <div>
                                             <div class="practix-header"
                                                 style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅ Practix
-                                                Way (5s)</div>
+                                                Way (Optimal)</div>
                                             <p style="font-size: 0.95rem; line-height: 1.6;">
-                                                Check \(b^2 - 4ac\):<br>
-                                                \(4^2 - 4(1)(4) = 16 - 16 = 0\)<br>
-                                                **Result: 1 Real Solution**<br>
-                                                <span style="color: #10b981; font-weight: 600;">Faster for hard
-                                                    numbers.</span>
+                                                **Step 1:** Calculate the Discriminant \(D\).<br>
+                                                \(b^2 - 4ac = 4^2 - 4(1)(4) = 16 - 16 = 0\).<br>
+                                                **Step 2:** Interpret result.<br>
+                                                \(D = 0 \implies \text{Exactly 1 real solution}\).<br>
+                                                **Result: 1**<br>
+                                                <span style="color: #10b981; font-weight: 600;">Essential for equations
+                                                    that don't factor easily.</span>
                                             </p>
                                         </div>
                                     </div>
@@ -219,31 +252,50 @@
                 <!-- Theoretical Proof Section -->
                 <section class="topic-section"
                     style="background: #f0fdf4; border: 1px solid #dcfce7; border-radius: 12px; padding: 2.5rem; margin-top: 3rem;">
-                    <h2 style="color: #166534; margin-top: 0;">🎓 The Proof: Vieta's Formulas</h2>
-                    <p style="color: #166534; margin-bottom: 2rem;">Why does \(-b/a\) work? It comes from the structure
-                        of a factored quadratic.</p>
+                    <h2 style="color: #166534; margin-top: 0;">🎓 The Rigorous Proof: Vieta's Derivation</h2>
+                    <p style="color: #166534; margin-bottom: 2rem;">Let's derive these shortcuts starting from the
+                        most fundamental definition of a quadratic equation.</p>
 
                     <div
                         style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #bbf7d0; font-family: serif; font-size: 1.1rem; line-height: 2;">
-                        <p>1. Any quadratic with roots \(r_1\) and \(r_2\) can be written as:</p>
+                        <p><strong>Step 1: The Standard Form</strong><br>Every quadratic can be written as:</p>
+                        <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
+                            \( ax^2 + bx + c = 0 \)
+                        </div>
+
+                        <p><strong>Step 2: Factored Form with Roots</strong><br>If a quadratic has roots \(r_1\) and
+                            \(r_2\), it MUST factor as:</p>
                         <div style="text-align: center; margin: 1.5rem 0; font-size: 1.4rem;">
                             \( a(x - r_1)(x - r_2) = 0 \)
                         </div>
 
-                        <p>2. Expanding this gives:</p>
+                        <p><strong>Step 3: Expansion by FOIL</strong><br>Distribute the terms within the parentheses:
+                        </p>
                         <div style="text-align: center; margin: 1.5rem 0;">
-                            \( a(x^2 - (r_1 + r_2)x + r_1r_2) = 0 \)
+                            \( a(x^2 - r_2x - r_1x + r_1r_2) = 0 \)
                             <br>
+                            \( a(x^2 - (r_1 + r_2)x + r_1r_2) = 0 \)
+                        </div>
+
+                        <p><strong>Step 4: Distribute the Leading Coefficient 'a'</strong></p>
+                        <div style="text-align: center; margin: 1.5rem 0;">
                             \( ax^2 - a(r_1 + r_2)x + ar_1r_2 = 0 \)
                         </div>
 
-                        <p>3. Comparing this to the standard form \(ax^2 + bx + c = 0\):</p>
-                        <ul>
-                            <li>\(b = -a(r_1 + r_2) \Rightarrow \mathbf{r_1 + r_2 = -b/a}\)</li>
-                            <li>\(c = ar_1r_2 \Rightarrow \mathbf{r_1r_2 = c/a}\)</li>
+                        <p><strong>Step 5: Coefficient Comparison</strong><br>Now, we match this term-by-term with the
+                            Standard Form \(ax^2 + bx + c = 0\):</p>
+                        <ul style="margin: 2rem 0; padding-left: 2rem;">
+                            <li>The \(x\)-term coefficients must be equal: <br>
+                                \( b = -a(r_1 + r_2) \implies \mathbf{r_1 + r_2 = -\frac{b}{a}} \)</li>
+                            <li style="margin-top: 1.5rem;">The constant terms must be equal: <br>
+                                \( c = a(r_1r_2) \implies \mathbf{r_1r_2 = \frac{c}{a}} \)</li>
                         </ul>
-                        <p>This is why you don't need to solve for the roots—the sum and product are "baked into" the
-                            coefficients themselves.</p>
+
+                        <p style="background: #f0fdf4; padding: 1rem; border-radius: 6px; border: 1px solid #dcfce7;">
+                            <strong>Conclusion:</strong> These shortcuts are not "tricks"—they are the algebraic
+                            identities
+                            baked into the very structure of polynomials.
+                        </p>
                     </div>
                 </section>
             </div>

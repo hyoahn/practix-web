@@ -1483,40 +1483,44 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 .practix-reveal summary {
-    list-style: none;
-    padding: 1rem 1.5rem;
+    background: #065f46 !important;
+    /* Default Green */
+    color: white !important;
+    padding: 0.75rem 1.5rem !important;
     cursor: pointer;
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
-    color: var(--accent-primary);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(99, 102, 241, 0.03);
+    display: inline-block !important;
+    /* Changed from flex to inline-block for consistency */
+    border-radius: 8px !important;
+    list-style: none;
     user-select: none;
+    transition: background-color 0.2s ease !important;
 }
 
 .practix-reveal summary::-webkit-details-marker {
     display: none;
 }
 
-.practix-reveal summary::after {
-    content: 'Show Solution →';
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.4rem 0.8rem;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    transition: all 0.2s ease;
+/* Default state text via pseudo (if needed) or just hardcode in CSS */
+.practix-reveal summary::before {
+    content: "💡 Click to Reveal Desmos Solve";
+    display: inline-block;
 }
 
-.practix-reveal[open] summary::after {
-    content: 'Hide Solution';
-    background: var(--accent-primary);
-    color: white;
-    border-color: var(--accent-primary);
+/* Expanded State: Red background and Swap Text */
+.practix-reveal[open] summary {
+    background: #ef4444 !important;
+    /* Red */
+}
+
+.practix-reveal[open] summary::before {
+    content: "Click to hide Desmos Solve";
+}
+
+/* Suppression of global summary::after that causes the white box glitch */
+.practix-reveal summary::after {
+    display: none !important;
 }
 
 .solution-content {
@@ -1525,6 +1529,53 @@ input[type=range]::-webkit-slider-runnable-track {
     /* Light green success background */
     border-top: 1px solid #dcfce7;
     animation: slideDown 0.3s ease-out;
+}
+
+/* --- SAT PROBLEM CARD DESIGN --- */
+.sat-problem-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+    border: 1px solid #3b82f6;
+    border-left: 5px solid #1e40af;
+    padding: 2rem;
+    border-radius: 16px;
+    margin: 2rem 0;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.sat-problem-header {
+    color: #1e40af;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.sat-problem-header span {
+    font-size: 1.5rem;
+}
+
+.sat-option-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.sat-option {
+    padding: 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    background: white;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.sat-option:hover {
+    border-color: #3b82f6;
+    background: #f1f5f9;
 }
 
 @keyframes slideDown {

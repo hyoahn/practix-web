@@ -9,7 +9,7 @@
     <meta name="description"
         content="Master Desmos Lists and Tables for the SAT. Learn how to calculate Mean, Median, and Boxplots instantly with simple commands. Filter datasets like a pro.">
 
-    <link rel="stylesheet" href="../../assets/styles/styles.css?v=23">
+    <link rel="stylesheet" href="../../assets/styles/styles.css?v=24">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -22,28 +22,9 @@
     <script src="../../assets/scripts/sidebar.js"></script>
     <script src="../../assets/scripts/practix-footer.js?v=23"></script>
     <script src="../../assets/scripts/pulse-relay.js?v=26"></script>
-    <script src="../../assets/scripts/floating-calculator.js"></script>    <script src="../../assets/scripts/analytics.js"></script>
+    <script src="../../assets/scripts/floating-calculator.js"></script>
+    <script src="../../assets/scripts/analytics.js"></script>
 
-    <style>
-        .technique-section {
-            background: #fef2f2;
-            border-left: 4px solid #ef4444;
-            padding: 2.5rem;
-            border-radius: 16px;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .magic-code {
-            background: white;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            border: 1px solid #fecaca;
-            font-family: monospace;
-            font-size: 1.1rem;
-            display: inline-block;
-            margin: 1rem 0;
-        }
     </style>
 
     <script
@@ -93,11 +74,17 @@
                     <div class="magic-code">median(L)</div>
                     <div class="magic-code">mean(L)</div>
                     <div class="magic-code">boxplot(L)</div>
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header"><span>📝</span> SAT Scenario</h3>
+                        <p>You have a large data set: <strong>L = [10, 12, 12, 15, 20]</strong>. Find the mean and
+                            median instantly.</p>
+                    </div>
                     <details class="practix-reveal">
-                        <summary>✅ The Desmos Shortcut</summary>
+                        <summary></summary>
                         <div class="solution-content">
                             <p>Never cross off numbers by hand again. For this list, <strong>Mean = 13.8</strong> and
-                                <strong>Median = 12</strong>. Desmos finds the center in 2 seconds.</p>
+                                <strong>Median = 12</strong>. Desmos finds the center in 2 seconds.
+                            </p>
                         </div>
                     </details>
                 </section>
@@ -106,8 +93,13 @@
                     <h2 style="color: #5b21b6; margin-bottom: 1.5rem;">🧬 Trick #5: The List Filter</h2>
                     <p><strong>Scenario:</strong> "In the list above, how many integers are greater than 12?"</p>
                     <div class="magic-code" style="border-color: #ddd6fe;">length(L[L > 12])</div>
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header"><span>📝</span> SAT Problem</h3>
+                        <p>"In the list <strong>L = [10, 12, 12, 15, 20]</strong>, how many integers are greater than
+                            12?"</p>
+                    </div>
                     <details class="practix-reveal">
-                        <summary>✅ The Desmos Shortcut</summary>
+                        <summary></summary>
                         <div class="solution-content">
                             <p>This filters the list to [15, 20] and counts them. <strong>Answer: 2</strong>. Perfect
                                 for hard Module 2 statistics questions.</p>
@@ -129,8 +121,12 @@
                     <h2 style="color: #991b1b; margin-bottom: 1.5rem;">∑ Trick #6: The Total Sum</h2>
                     <p><strong>The Move:</strong> Set <code>L = [5, 5, 5, 10, 10]</code>.</p>
                     <div class="magic-code">total(L)</div>
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header"><span>📝</span> SAT Scenario</h3>
+                        <p>Calculate the total sum of the values: <strong>[5, 5, 5, 10, 10]</strong>.</p>
+                    </div>
                     <details class="practix-reveal">
-                        <summary>✅ The Desmos Shortcut</summary>
+                        <summary></summary>
                         <div class="solution-content">
                             <p>Instant addition. <strong>Answer: 35</strong>. Essential for "weighted average" manual
                                 setups.</p>
@@ -143,8 +139,12 @@
                     <h2 style="color: #5b21b6; margin-bottom: 1.5rem;">📏 Trick #7: Range Finder</h2>
                     <p><strong>Scenario:</strong> Find the range of a dataset.</p>
                     <div class="magic-code" style="border-color: #ddd6fe;">max(L) - min(L)</div>
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header"><span>📝</span> SAT Problem</h3>
+                        <p>Find the <strong>range</strong> of the dataset <strong>L</strong>.</p>
+                    </div>
                     <details class="practix-reveal">
-                        <summary>✅ The Desmos Shortcut</summary>
+                        <summary></summary>
                         <div class="solution-content">
                             <p>No need to search for the biggest and smallest numbers visually.</p>
                         </div>
@@ -162,8 +162,12 @@
                     style="background: #ecfdf5; border-left-color: #10b981;">
                     <h2 style="color: #047857; margin-bottom: 1.5rem;">🔢 Trick #9: Percentiles</h2>
                     <div class="magic-code" style="border-color: #6ee7b7;">quantile([1, 2, 3, 4, 5], 0.75)</div>
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header"><span>📝</span> SAT Problem</h3>
+                        <p>Find the <strong>75th percentile (Q3)</strong> of the set [1, 2, 3, 4, 5].</p>
+                    </div>
                     <details class="practix-reveal">
-                        <summary>✅ The Desmos Shortcut</summary>
+                        <summary></summary>
                         <div class="solution-content">
                             <p>Finds the 75th percentile (Q3) instantly. <strong>Answer: 4</strong>.</p>
                         </div>
@@ -181,8 +185,12 @@
                     style="background: #fff1f2; border-left-color: #be123c;">
                     <h2 style="color: #9f1239; margin-bottom: 1.5rem;">📊 Trick #11: Standard Deviation</h2>
                     <div class="magic-code" style="border-color: #fda4af;">stdevp([2, 4, 6, 8])</div>
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header"><span>📝</span> SAT Problem</h3>
+                        <p>What is the <strong>standard deviation</strong> of the set [2, 4, 6, 8]?</p>
+                    </div>
                     <details class="practix-reveal">
-                        <summary>✅ The Desmos Shortcut</summary>
+                        <summary></summary>
                         <div class="solution-content">
                             <p>Use `stdevp` for population (SAT standard). <strong>Answer: 2.236</strong>.</p>
                         </div>

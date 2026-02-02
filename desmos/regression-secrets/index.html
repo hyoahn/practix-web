@@ -9,7 +9,7 @@
     <meta name="description"
         content="Learn the 'magic codes' for Desmos Regression on the SAT. Instant solutions for linear, quadratic, and exponential problems without algebra.">
 
-    <link rel="stylesheet" href="../../assets/styles/styles.css?v=23">
+    <link rel="stylesheet" href="../../assets/styles/styles.css?v=24">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -71,42 +71,6 @@
             padding: 1.5rem 2rem;
             border-radius: 16px;
             margin-bottom: 3rem;
-        }
-
-        /* Fix for SAT Reveal Buttons: Hide redundant global pseudo-elements and handle dynamic toggling */
-        .practix-reveal summary::after {
-            display: none !important;
-        }
-
-        .practix-reveal summary {
-            background: #065f46 !important;
-            color: white !important;
-            padding: 0.75rem 1.5rem !important;
-            border-radius: 8px !important;
-            font-weight: 600 !important;
-            cursor: pointer !important;
-            display: inline-block !important;
-            list-style: none !important;
-            transition: background-color 0.2s ease !important;
-        }
-
-        .practix-reveal summary::-webkit-details-marker {
-            display: none !important;
-        }
-
-        /* Default text via pseudo-element to allow easy swapping (even if we hide the global one) */
-        .practix-reveal summary::before {
-            content: "💡 Click to Reveal Desmos Solve";
-            display: inline-block;
-        }
-
-        /* Expanded State: Red background and Swap Text */
-        .practix-reveal[open] summary {
-            background: #ef4444 !important;
-        }
-
-        .practix-reveal[open] summary::before {
-            content: "Click to hide Desmos Solve";
         }
     </style>
 
@@ -175,26 +139,19 @@
                             or a data table.</p>
                     </div>
 
-                    <div
-                        style="background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%); border: 1px solid #3b82f6; border-left: 5px solid #1e40af; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
-                        <h3
-                            style="color: #1e40af; margin-top: 0; margin-bottom: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
-                            <span style="font-size: 1.5rem;">📝</span> SAT Problem
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
                         </h3>
                         <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1.5rem;">In the xy-plane, a line
                             passes through the points <strong>(4, 5)</strong> and <strong>(7, 9)</strong>. Which of the
                             following is an equation of the line?</p>
 
-                        <div
-                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem;">
-                            <div style="padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 8px;">(A) y = 1.33x
-                                - 0.33</div>
-                            <div style="padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 8px;">(B) y = 0.75x
-                                + 2</div>
-                            <div style="padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 8px;">(C) y = 1.33x
-                                + 0.33</div>
-                            <div style="padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 8px;">(D) y = 0.75x
-                                - 2</div>
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) y = 1.33x - 0.33</div>
+                            <div class="sat-option">(B) y = 0.75x + 2</div>
+                            <div class="sat-option">(C) y = 1.33x + 0.33</div>
+                            <div class="sat-option">(D) y = 0.75x - 2</div>
                         </div>
 
                         <details class="practix-reveal">
@@ -249,27 +206,20 @@
                             paths of projectiles.</p>
                     </div>
 
-                    <div
-                        style="background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%); border: 1px solid #3b82f6; border-left: 5px solid #1e40af; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
-                        <h3
-                            style="color: #1e40af; margin-top: 0; margin-bottom: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
-                            <span style="font-size: 1.5rem;">📝</span> SAT Problem
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
                         </h3>
                         <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1.5rem;">A parabola in the
                             xy-plane passes through the points <strong>(1, 4)</strong>, <strong>(2, 9)</strong>, and
                             <strong>(3, 16)</strong>. Which of the following defines the relationship between x and y?
                         </p>
 
-                        <div
-                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem;">
-                            <div style="padding: 0.75rem; border: 1px solid #fecaca; border-radius: 8px;">(A) y = x² +
-                                2x + 1</div>
-                            <div style="padding: 0.75rem; border: 1px solid #fecaca; border-radius: 8px;">(B) y = 2x² +
-                                x + 1</div>
-                            <div style="padding: 0.75rem; border: 1px solid #fecaca; border-radius: 8px;">(C) y = x² + x
-                                + 2</div>
-                            <div style="padding: 0.75rem; border: 1px solid #fecaca; border-radius: 8px;">(D) y = x² +
-                                2x + 2</div>
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) y = x² + 2x + 1</div>
+                            <div class="sat-option">(B) y = 2x² + x + 1</div>
+                            <div class="sat-option">(C) y = x² + x + 2</div>
+                            <div class="sat-option">(D) y = x² + 2x + 2</div>
                         </div>
                         <details class="practix-reveal">
                             <summary></summary>
@@ -326,26 +276,19 @@
                             percent growth.</p>
                     </div>
 
-                    <div
-                        style="background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%); border: 1px solid #3b82f6; border-left: 5px solid #1e40af; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
-                        <h3
-                            style="color: #1e40af; margin-top: 0; margin-bottom: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
-                            <span style="font-size: 1.5rem;">📝</span> SAT Problem
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
                         </h3>
                         <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1.5rem;">A population of bacteria
                             starts at <strong>100</strong> and doubles every year. If y is the population after x years,
                             which of the following equations models this growth?</p>
 
-                        <div
-                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem;">
-                            <div style="padding: 0.75rem; border: 1px solid #bfdbfe; border-radius: 8px;">(A) y =
-                                100(2)ˣ</div>
-                            <div style="padding: 0.75rem; border: 1px solid #bfdbfe; border-radius: 8px;">(B) y =
-                                2(100)ˣ</div>
-                            <div style="padding: 0.75rem; border: 1px solid #bfdbfe; border-radius: 8px;">(C) y =
-                                100(1.5)ˣ</div>
-                            <div style="padding: 0.75rem; border: 1px solid #bfdbfe; border-radius: 8px;">(D) y = 100 +
-                                2x</div>
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) y = 100(2)ˣ</div>
+                            <div class="sat-option">(B) y = 2(100)ˣ</div>
+                            <div class="sat-option">(C) y = 100(1.5)ˣ</div>
+                            <div class="sat-option">(D) y = 100 + 2x</div>
                         </div>
 
                         <details class="practix-reveal">

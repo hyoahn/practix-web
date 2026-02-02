@@ -9,7 +9,7 @@
     <meta name="description"
         content="Unlock Desmos Visualization hacks for the SAT. Master Sliders, Inequality Mapping, and the Calculus Slope Trick to solve geometry and transformation problems.">
 
-    <link rel="stylesheet" href="../../assets/styles/styles.css?v=23">
+    <link rel="stylesheet" href="../../assets/styles/styles.css?v=24">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -22,28 +22,9 @@
     <script src="../../assets/scripts/sidebar.js"></script>
     <script src="../../assets/scripts/practix-footer.js?v=23"></script>
     <script src="../../assets/scripts/pulse-relay.js?v=26"></script>
-    <script src="../../assets/scripts/floating-calculator.js"></script>    <script src="../../assets/scripts/analytics.js"></script>
+    <script src="../../assets/scripts/floating-calculator.js"></script>
+    <script src="../../assets/scripts/analytics.js"></script>
 
-    <style>
-        .technique-section {
-            background: #eff6ff;
-            border-left: 4px solid #3b82f6;
-            padding: 2.5rem;
-            border-radius: 16px;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .magic-code {
-            background: white;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            border: 1px solid #bfdbfe;
-            font-family: monospace;
-            font-size: 1.1rem;
-            display: inline-block;
-            margin: 1rem 0;
-        }
     </style>
 
     <script
@@ -90,11 +71,17 @@
                     <h2 style="color: #1e40af; margin-bottom: 1.5rem;">🎚️ Trick #3: The Slider Trick</h2>
                     <p><strong>Problem:</strong> Function \(g(x) = (x-2)^2 + k\) passes through (0, 5). Find \(k\).</p>
                     <div class="magic-code">g(x) = (x-2)^2 + k</div>
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header"><span>📝</span> SAT Problem</h3>
+                        <p>Function \(g(x) = (x-2)^2 + k\) passes through the point <strong>(0, 5)</strong>. Find the
+                            value of \(k\).</p>
+                    </div>
                     <details class="practix-reveal">
-                        <summary>✅ The Desmos Shortcut</summary>
+                        <summary></summary>
                         <div class="solution-content">
                             <p>Click "Add Slider" and drag until the graph hits the target (0,5). Value should be
-                                <strong>k = 1</strong> instantly. Perfect for transformations.</p>
+                                <strong>k = 1</strong> instantly. Perfect for transformations.
+                            </p>
                         </div>
                     </details>
                 </section>
@@ -102,26 +89,25 @@
                 <section class="technique-section" id="inequalities"
                     style="background: #f0fdfa; border-left-color: #14b8a6;">
                     <h2 style="color: #0f766e; margin-bottom: 1.5rem;">🗺️ Trick #6: Inequality Mapping</h2>
-                    <div class="magic-code" style="border-color: #99f6e4;">y > 2x + 1</div>
-                    <div class="magic-code" style="border-color: #99f6e4;">y < -x + 5</div>
-                            <p>Type both inequalities. The darkest region is your answer zone. Plot the options as
-                                points to
-                                see which one lands inside.</p>
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header"><span>📝</span> SAT Scenario</h3>
+                        <p>Plot the inequalities <strong>y > 2x + 1</strong> and <strong>y < -x + 5</strong>. The
+                                    darkest region is your solution zone.</p>
+                    </div>
                 </section>
 
-                <section class="technique-section" id="tangency"
-                    style="background: #fff7ed; border-left-color: #f97316;">
-                    <h2 style="color: #9a3412; margin-bottom: 1.5rem;">⭕ Trick #7: Circle-Line Tangency</h2>
-                    <p><strong>Scenario:</strong> Find \(c\) such that \(y = 3\) is tangent to \((x-2)^2 + (y-1)^2 =
-                        4\).</p>
-                    <div class="magic-code" style="border-color: #fed7aa;">y = c</div>
-                    <details class="practix-reveal">
-                        <summary>✅ The Desmos Shortcut</summary>
-                        <div class="solution-content">
-                            <p>Use a slider for \(c\). As you slide, it touches the top of the circle at <strong>c =
-                                    3</strong>. No messy quadratic expansion required.</p>
-                        </div>
-                    </details>
+                <div class="sat-problem-card">
+                    <h3 class="sat-problem-header"><span>📝</span> SAT Scenario</h3>
+                    <p>Find the value of \(c\) such that the line \(y = c\) is tangent to the circle \((x-2)^2 + (y-1)^2
+                        = 4\).</p>
+                </div>
+                <details class="practix-reveal">
+                    <summary></summary>
+                    <div class="solution-content">
+                        <p>Use a slider for \(c\). As you slide, it touches the top of the circle at <strong>c =
+                                3</strong>. No messy quadratic expansion required.</p>
+                    </div>
+                </details>
                 </section>
 
                 <section class="technique-section" id="calculus"
@@ -129,8 +115,12 @@
                     <h2 style="color: #9f1239; margin-bottom: 1.5rem;">⚡ Trick #8: Calculus Slope Hack</h2>
                     <p><strong>Problem:</strong> Find the slope of \(f(x) = x^2\) at \(x = 3\).</p>
                     <div class="magic-code" style="border-color: #fecdd3;">d/dx (3)^2</div>
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header"><span>📝</span> SAT Problem</h3>
+                        <p>Find the slope of the function \(f(x) = x^2\) at the point where \(x = 3\).</p>
+                    </div>
                     <details class="practix-reveal">
-                        <summary>✅ The Desmos Shortcut</summary>
+                        <summary></summary>
                         <div class="solution-content">
                             <p>Desmos evaluates instantly. <strong>Answer: 6</strong>. An "elite move" that bypasses the
                                 need for manual calculus or estimation.</p>

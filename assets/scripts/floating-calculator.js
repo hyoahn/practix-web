@@ -54,7 +54,7 @@
 
                         <div class="help-step">
                             <span class="help-step-num">5</span>
-                            <span class="help-step-text"><strong>Paste Code:</strong> Click <strong>Copy Code</strong> for your technique on this page, then <strong>Paste</strong> it into that new Line 2.</span>
+                            <span class="help-step-text"><strong>Paste Code:</strong> Click <strong>Copy Code</strong> for your technique on this page, then <strong>Paste</strong> it into that new Line 2. (It will look like <strong>y_1 ~ m*x_1 + b</strong>).</span>
                         </div>
 
                         <div style="background: #fef2f2; border: 1px solid #fee2e2; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">

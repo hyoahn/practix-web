@@ -23,11 +23,39 @@
                 <div class="calculator-float-header" id="calcHeader">
                     <h3>🧮 Desmos Calculator</h3>
                     <div class="calculator-controls">
+                        <button class="calculator-btn" id="helpBtn" title="Help / Instructions">?</button>
                         <button class="calculator-btn" id="popoutBtn" title="Pop-out (Open in new window)">🗗</button>
                         <button class="calculator-btn" id="closeBtn" title="Close">✕</button>
                     </div>
                 </div>
                 <div class="calculator-float-body">
+                    <div class="calculator-help-overlay" id="helpOverlay">
+                        <div class="help-title">🚀 Regression Quick Start</div>
+                        
+                        <div class="help-step">
+                            <span class="help-step-num">1</span>
+                            <span class="help-step-text">Click the <strong>+</strong> icon in Desmos and select <strong>Table</strong>.</span>
+                        </div>
+                        
+                        <div class="help-step">
+                            <span class="help-step-num">2</span>
+                            <span class="help-step-text">Type your (x, y) points into the table.</span>
+                        </div>
+                        
+                        <div class="help-step">
+                            <span class="help-step-num">3</span>
+                            <span class="help-step-text">Click <strong>Copy Code</strong> for the technique you want.</span>
+                        </div>
+                        
+                        <div class="help-step">
+                            <span class="help-step-num">4</span>
+                            <span class="help-step-text">Paste the code into <strong>Line 2</strong> of Desmos (below the table).</span>
+                        </div>
+
+                        <div class="help-footer">
+                            <button class="btn-got-it" id="gotItBtn">Got it!</button>
+                        </div>
+                    </div>
                     <iframe class="calculator-iframe" id="calcIframe" src="https://www.desmos.com/calculator"></iframe>
                 </div>
             </div>
@@ -64,8 +92,11 @@
         const calcFloat = document.getElementById('calculatorFloat');
         const calcToggle = document.getElementById('calcToggle');
         const calcHeader = document.getElementById('calcHeader');
+        const helpBtn = document.getElementById('helpBtn');
         const popoutBtn = document.getElementById('popoutBtn');
         const closeBtn = document.getElementById('closeBtn');
+        const helpOverlay = document.getElementById('helpOverlay');
+        const gotItBtn = document.getElementById('gotItBtn');
 
         // Toggle visibility
         window.toggleCalculator = function () {
@@ -74,6 +105,11 @@
                 // Trigger reflow for animation if any
                 setTimeout(() => calcFloat.classList.add('active'), 10);
                 calcToggle.classList.add('hidden');
+
+                // Show help by default on first open of the session
+                if (!sessionStorage.getItem('desmos_help_shown')) {
+                    helpOverlay.classList.add('active');
+                }
             } else {
                 calcFloat.classList.remove('active');
                 setTimeout(() => {
@@ -84,6 +120,16 @@
                 calcToggle.classList.remove('hidden');
             }
         };
+
+        // Help mechanics
+        helpBtn.addEventListener('click', () => {
+            helpOverlay.classList.toggle('active');
+        });
+
+        gotItBtn.addEventListener('click', () => {
+            helpOverlay.classList.remove('active');
+            sessionStorage.setItem('desmos_help_shown', 'true');
+        });
 
         // Explicit close
         closeBtn.addEventListener('click', toggleCalculator);

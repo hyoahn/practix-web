@@ -70,6 +70,85 @@
     background: rgba(255, 255, 255, 0.3);
 }
 
+/* Help Overlay */
+.calculator-help-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 10;
+    display: none;
+    flex-direction: column;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.calculator-help-overlay.active {
+    display: flex;
+}
+
+.help-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.help-step {
+    margin-bottom: 1.25rem;
+}
+
+.help-step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--accent-primary);
+    color: white;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-right: 0.75rem;
+}
+
+.help-step-text {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.help-step-text strong {
+    color: var(--accent-primary);
+}
+
+.help-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.btn-got-it {
+    width: 100%;
+    background: var(--accent-primary);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-got-it:hover {
+    background: var(--accent-secondary);
+}
+
 .calculator-float-body {
     flex: 1;
     position: relative;

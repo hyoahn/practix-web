@@ -62,76 +62,133 @@
     <div class="page-container">
         <main class="main-content" style="padding: 0;">
 
-            <!-- 50/50 Split Hero Section - REFACTORED FOR SEARCH -->
+            <!-- 50/50 Split Hero Section - REFACTORED FOR COMMAND CENTER -->
             <section class="hero-split-fullscreen">
                 <!-- Left Content -->
                 <div class="hero-text-container">
                     <div class="hero-text-content">
-                        <div class="hero-badge">
-                            <span class="dot"></span>
-                            <span>Scale Your Score to 800</span>
+                        <div class="hero-badge"
+                            style="background: rgba(0,0,0,1); color: white; border: 1px solid #333;">
+                            <span class="dot" style="background: #00ff00; box-shadow: 0 0 10px #00ff00;"></span>
+                            <span style="font-family: monospace; letter-spacing: 0.05em;">SYSTEM STATUS: ONLINE</span>
                         </div>
                         <h1 style="margin-bottom: 1rem;"><span class="gradient-text">Stop Studying.</span><br>Start
                             Formal Training.</h1>
                         <h2
                             style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; margin-bottom: 2rem; color: var(--text-primary);">
-                            Master Every SAT Math Trap: <span style="color: var(--accent-primary);">The Practix
-                                Way</span>
+                            The only <span style="background: #000; color: #fff; padding: 0 0.4rem;">C++ Engine</span>
+                            built to train your math reflexes.
                         </h2>
                         <p
                             style="margin-bottom: 2.5rem; color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; line-height: 1.6;">
-                            Build the weekly routine that turns test anxiety into 800-level mastery. The definitive
-                            flight simulator for the Digital SAT.
+                            Practix isn't a quiz app. It's a military-grade flight simulator for the SAT.
+                            We analyzed 10,000 exams to build a training ground that adapts to your panic.
                         </p>
 
-                        <!-- NEW SEARCH-FIRST INPUT -->
+                        <!-- NEW COMMAND LINE SEARCH -->
                         <div class="hero-search-box"
                             style="margin-bottom: 2.5rem; position: relative; max-width: 600px;">
                             <input type="text" id="hero-search"
-                                placeholder="What topic are you struggling with? (e.g. Circle, Quadratic...)"
-                                style="width: 100%; padding: 1.25rem 1.5rem; padding-left: 3rem; border-radius: 16px; border: 2px solid var(--accent-primary); font-size: 1.1rem; box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15); outline: none;">
+                                placeholder="> Enter topic sequence (e.g. Circle, Quadratic)..."
+                                style="width: 100%; padding: 1.25rem 1.5rem; padding-left: 3rem; border-radius: 8px; border: 2px solid #333; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); outline: none; font-family: monospace; background: #fafafa;">
                             <span
-                                style="position: absolute; left: 1rem; top: 1.2rem; font-size: 1.2rem; filter: grayscale(1);">🔍</span>
+                                style="position: absolute; left: 1rem; top: 1.2rem; font-size: 1.2rem; filter: grayscale(1); opacity: 0.5;">_</span>
                         </div>
 
-                        <div class="hero-buttons" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+                        <!-- 5-PILLAR GATEWAY GRID -->
+                        <div class="hero-buttons"
+                            style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; max-width: 650px;">
+                            <!-- Pillar 1: Formulas -->
                             <a href="formulas/" class="btn-primary"
-                                style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 1.5rem 1rem;">
-                                <span style="font-size: 1.5rem; margin-bottom: 0.5rem;">Σ</span>
-                                <span style="font-size: 0.9rem;">SAT Math Formulas</span>
+                                style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 1rem 0.5rem; background: white; border: 1px solid var(--border); color: var(--text-primary); box-shadow: none;">
+                                <span style="font-size: 1.2rem; margin-bottom: 0.3rem;">Σ</span>
+                                <span
+                                    style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Formulas</span>
                             </a>
+                            <!-- Pillar 2: Desmos -->
                             <a href="desmos/" class="btn-primary"
-                                style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 1.5rem 1rem; background: var(--accent-secondary);">
-                                <span style="font-size: 1.5rem; margin-bottom: 0.5rem;">y=</span>
-                                <span style="font-size: 0.9rem;">Desmos SAT Calculator</span>
+                                style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 1rem 0.5rem; background: white; border: 1px solid var(--border); color: var(--text-primary); box-shadow: none;">
+                                <span style="font-size: 1.2rem; margin-bottom: 0.3rem;">y=</span>
+                                <span
+                                    style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Desmos</span>
                             </a>
+                            <!-- Pillar 3: Hard Questions -->
                             <a href="hard-questions/" class="btn-primary"
-                                style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 1.5rem 1rem; background: var(--text-primary);">
-                                <span style="font-size: 1.5rem; margin-bottom: 0.5rem;">☠️</span>
-                                <span style="font-size: 0.9rem;">Hardest Questions</span>
+                                style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 1rem 0.5rem; background: white; border: 1px solid var(--border); color: var(--text-primary); box-shadow: none;">
+                                <span style="font-size: 1.2rem; margin-bottom: 0.3rem;">☠️</span>
+                                <span
+                                    style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Sniper</span>
+                            </a>
+                            <!-- Pillar 4: Strategy (NEW) -->
+                            <a href="strategy/" class="btn-primary"
+                                style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 1rem 0.5rem; background: var(--text-primary); border: 1px solid var(--text-primary); color: white; box-shadow: none;">
+                                <span style="font-size: 1.2rem; margin-bottom: 0.3rem;">🧠</span>
+                                <span
+                                    style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Strategy</span>
+                            </a>
+                            <!-- Pillar 5: App (NEW) -->
+                            <a href="#waitlist" class="btn-primary"
+                                style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 1rem 0.5rem; background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%); color: white; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);">
+                                <span style="font-size: 1.2rem; margin-bottom: 0.3rem;">🚀</span>
+                                <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">The
+                                    App</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Image (Full Half Screen) -->
-                <div class="hero-image-container">
-                    <div class="image-overlay-gradient"></div>
-                    <img src="images/hero_girl.png" alt="Student focused on Practix SAT Math simulation">
+                <!-- Right Image (Tech Visualization) -->
+                <div class="hero-image-container"
+                    style="background: #000; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                    <!-- Code Rain / Tech Background -->
+                    <div
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.2; background-image: radial-gradient(#333 1px, transparent 1px); background-size: 20px 20px;">
+                    </div>
 
-                    <!-- Floating Mastery Cards -->
-                    <div class="floating-card score-card">
-                        <span class="icon">✨</span>
-                        <div class="text">
-                            <strong>Instant Search</strong>
-                            <span>Find any formula</span>
+                    <!-- The Trust Engine Block -->
+                    <div
+                        style="z-index: 10; background: rgba(20, 20, 25, 0.9); border: 1px solid #333; padding: 2rem; border-radius: 16px; width: 80%; max-width: 400px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid #333; padding-bottom: 1rem;">
+                            <span style="font-family: monospace; color: #00ff00; font-size: 0.8rem;">●
+                                SYSTEM_READY</span>
+                            <span style="color: #666; font-size: 0.8rem;">v4.0.2</span>
+                        </div>
+                        <div
+                            style="font-family: monospace; font-size: 0.9rem; color: #ccc; line-height: 1.6; margin-bottom: 1.5rem;">
+                            <span style="color: #c678dd;">const</span> engine = <span style="color: #61afef;">new</span>
+                            PractixCore();<br>
+                            engine.<span style="color: #d19a66;">generate</span>({<br>
+                            &nbsp;&nbsp;topic: <span style="color: #98c379;">"Hard_Circle_Eq"</span>,<br>
+                            &nbsp;&nbsp;difficulty: <span style="color: #d19a66;">800</span>,<br>
+                            &nbsp;&nbsp;latency: <span style="color: #d19a66;">0</span><br>
+                            });
+                        </div>
+                        <div style="display: flex; gap: 1rem;">
+                            <div
+                                style="flex: 1; background: #111; padding: 0.8rem; border-radius: 8px; text-align: center; border: 1px solid #333;">
+                                <div style="color: #fff; font-weight: 700; font-size: 1.2rem;">0ms</div>
+                                <div style="color: #666; font-size: 0.7rem; text-transform: uppercase;">Latency</div>
+                            </div>
+                            <div
+                                style="flex: 1; background: #111; padding: 0.8rem; border-radius: 8px; text-align: center; border: 1px solid #333;">
+                                <div style="color: #fff; font-weight: 700; font-size: 1.2rem;">C++</div>
+                                <div style="color: #666; font-size: 0.7rem; text-transform: uppercase;">Native</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.5rem; text-align: center;">
+                            <span style="color: #666; font-size: 0.8rem;">Powered by <strong
+                                    style="color: #fff;">WebAssembly</strong></span>
                         </div>
                     </div>
-                    <div class="floating-card streak-card">
-                        <span class="icon">🚀</span>
+
+                    <!-- Floating Badge -->
+                    <div class="floating-card score-card"
+                        style="top: 10%; right: 10%; background: #000; border: 1px solid #333; color: white;">
+                        <span class="icon" style="background: #111;">🛡️</span>
                         <div class="text">
-                            <strong>100vh Focus</strong>
-                            <span>The Pro Toolkit</span>
+                            <strong style="color: white;">Trust Engine</strong>
+                            <span style="color: #888;">100% Precision</span>
                         </div>
                     </div>
                 </div>

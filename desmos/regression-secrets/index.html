@@ -36,7 +36,7 @@
             border: 2px solid var(--accent-primary);
             border-radius: 16px;
             box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
-            z-index: 1000;
+            z-index: 10000;
             display: none;
             flex-direction: column;
             resize: both;
@@ -120,7 +120,7 @@
             font-size: 1.8rem;
             cursor: pointer;
             box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
-            z-index: 999;
+            z-index: 9999;
             transition: transform 0.2s, box-shadow 0.2s;
             display: flex;
             align-items: center;
@@ -627,6 +627,17 @@
                     currentX = e.clientX - initialX;
                     currentY = e.clientY - initialY;
                 }
+
+                // Get calculator dimensions
+                const calcWidth = calcFloat.offsetWidth;
+                const calcHeight = calcFloat.offsetHeight;
+
+                // Constrain within viewport
+                const maxX = window.innerWidth - calcWidth;
+                const maxY = window.innerHeight - calcHeight;
+
+                currentX = Math.max(0, Math.min(currentX, maxX));
+                currentY = Math.max(0, Math.min(currentY, maxY));
 
                 calcFloat.style.right = 'auto';
                 calcFloat.style.bottom = 'auto';

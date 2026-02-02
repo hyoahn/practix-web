@@ -39,27 +39,36 @@
                         
                         <div class="help-step">
                             <span class="help-step-num">2</span>
-                            <span class="help-step-text"><strong>Create Table:</strong> Inside Desmos, click the <strong>+</strong> icon (top left) and select <strong>Table</strong>.</span>
+                            <span class="help-step-text"><strong>Create Table:</strong> Click the <strong>+</strong> icon (top left) → <strong>Table</strong>.</span>
                         </div>
                         
                         <div class="help-step">
                             <span class="help-step-num">3</span>
-                            <span class="help-step-text"><strong>Add Data:</strong> Type your numbers into the <strong>x₁</strong> and <strong>y₁</strong> columns.</span>
+                            <span class="help-step-text"><strong>Add Points:</strong> 
+                                <br>• Click cell <strong>(1,1)</strong>, type your X value.
+                                <br>• Press <strong>Tab</strong>, type your Y value.
+                                <br>• Repeat for your second point!
+                            </span>
                         </div>
                         
                         <div class="help-step">
                             <span class="help-step-num">4</span>
-                            <span class="help-step-text"><strong>Click Below:</strong> Click the empty space <strong>BELOW</strong> the table. You should see a new number <strong>"2"</strong> appear on the left.</span>
+                            <span class="help-step-text"><strong>Click Line 2:</strong> Click the empty space <strong>BELOW</strong> your table. You should see a number 2 appear on the left.</span>
                         </div>
 
                         <div class="help-step">
                             <span class="help-step-num">5</span>
-                            <span class="help-step-text"><strong>Paste Code:</strong> Click <strong>Copy Code</strong> for your technique on this page, then <strong>Paste</strong> it into that new Line 2. (It will look like <strong>y_1 ~ m*x_1 + b</strong>).</span>
+                            <span class="help-step-text"><strong>Paste Magic:</strong> Click <strong>Copy Code</strong> (e.g., Linear Regression) and <strong>Paste</strong> it into that new Line 2.</span>
+                        </div>
+
+                        <div class="help-step">
+                            <span class="help-step-num">6</span>
+                            <span class="help-step-text"><strong>Standard Equation:</strong> If you already have an equation like <strong>y = 2x + 3</strong>, just type it into any empty line!</span>
                         </div>
 
                         <div style="background: #fef2f2; border: 1px solid #fee2e2; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
                             <div style="color: #991b1b; font-weight: 700; font-size: 0.85rem; margin-bottom: 0.25rem;">⚠️ High Alert: Don't Paste in Table!</div>
-                            <p style="color: #991b1b; font-size: 0.8rem; margin: 0; line-height: 1.4;">If you paste <strong>inside</strong> the table (Box 1), you'll get a warning triangle. Always click the empty Line 2 first!</p>
+                            <p style="color: #991b1b; font-size: 0.8rem; margin: 0; line-height: 1.4;">If you paste <strong>inside</strong> the table rows, you'll get an error. Always click the empty Line 2 first!</p>
                         </div>
 
                         <div class="help-footer">

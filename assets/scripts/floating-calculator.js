@@ -34,32 +34,32 @@
                         
                         <div class="help-step">
                             <span class="help-step-num">1</span>
-                            <span class="help-step-text"><strong>Open the Tools:</strong> Click the <strong>🧮 Try It</strong> or <strong>🧮</strong> button to open this window.</span>
+                            <span class="help-step-text"><strong>Open:</strong> Click the <strong>🧮 Try It</strong> or <strong>🧮</strong> button.</span>
                         </div>
                         
                         <div class="help-step">
                             <span class="help-step-num">2</span>
-                            <span class="help-step-text"><strong>Start a Table:</strong> Inside the calculator, click the <strong>+</strong> icon (top left) and select <strong>Table</strong>.</span>
+                            <span class="help-step-text"><strong>Create Table:</strong> Inside Desmos, click the <strong>+</strong> icon (top left) and select <strong>Table</strong>.</span>
                         </div>
                         
                         <div class="help-step">
                             <span class="help-step-num">3</span>
-                            <span class="help-step-text"><strong>Input Your Data:</strong> Type your coordinate points into the <strong>x₁</strong> and <strong>y₁</strong> columns.</span>
+                            <span class="help-step-text"><strong>Add Data:</strong> Type your numbers into the <strong>x₁</strong> and <strong>y₁</strong> columns.</span>
                         </div>
                         
                         <div class="help-step">
                             <span class="help-step-num">4</span>
-                            <span class="help-step-text"><strong>Copy the Code:</strong> Find the "Magic Code" you need on our page and click <strong>Copy Code</strong>.</span>
+                            <span class="help-step-text"><strong>Click Below:</strong> Click the empty space <strong>BELOW</strong> the table. You should see a new number <strong>"2"</strong> appear on the left.</span>
                         </div>
 
                         <div class="help-step">
                             <span class="help-step-num">5</span>
-                            <span class="help-step-text"><strong>Get the Answer:</strong> Click on <strong>Line 2</strong> in the calculator and <strong>Paste</strong> the code. Desmos will instantly show the equation!</span>
+                            <span class="help-step-text"><strong>Paste Code:</strong> Click <strong>Copy Code</strong> for your technique on this page, then <strong>Paste</strong> it into that new Line 2.</span>
                         </div>
 
-                        <div style="background: #ecfdf5; border: 1px solid #d1fae5; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                            <div style="color: #065f46; font-weight: 700; font-size: 0.85rem; margin-bottom: 0.25rem;">✅ Why this works:</div>
-                            <p style="color: #065f46; font-size: 0.8rem; margin: 0; line-height: 1.4;">The "Magic Code" looks at your <strong>x₁</strong> and <strong>y₁</strong> data and "fits" the perfect equation to it automatically.</p>
+                        <div style="background: #fef2f2; border: 1px solid #fee2e2; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                            <div style="color: #991b1b; font-weight: 700; font-size: 0.85rem; margin-bottom: 0.25rem;">⚠️ High Alert: Don't Paste in Table!</div>
+                            <p style="color: #991b1b; font-size: 0.8rem; margin: 0; line-height: 1.4;">If you paste <strong>inside</strong> the table (Box 1), you'll get a warning triangle. Always click the empty Line 2 first!</p>
                         </div>
 
                         <div class="help-footer">

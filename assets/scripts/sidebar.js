@@ -4,11 +4,25 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Determine the path depth
+    // 1. Determine the path depth (Robust for file:// and hosted)
     const currentPath = window.location.pathname;
     const pathSegments = currentPath.split('/').filter(s => s.length > 0);
-    const hasFile = pathSegments.length > 0 && pathSegments[pathSegments.length - 1].includes('.');
-    const depth = hasFile ? pathSegments.length - 1 : pathSegments.length;
+
+    // Find the index of the root directory "_Sever"
+    const rootIndex = pathSegments.indexOf('_Sever');
+    let depth = 0;
+
+    if (rootIndex !== -1) {
+        // We are inside _Sever
+        const segmentsAfterRoot = pathSegments.slice(rootIndex + 1);
+        const hasFile = segmentsAfterRoot.length > 0 && segmentsAfterRoot[segmentsAfterRoot.length - 1].includes('.');
+        depth = hasFile ? segmentsAfterRoot.length - 1 : segmentsAfterRoot.length;
+    } else {
+        // Fallback for hosted environments where root is /
+        const hasFile = pathSegments.length > 0 && pathSegments[pathSegments.length - 1].includes('.');
+        depth = hasFile ? pathSegments.length - 1 : pathSegments.length;
+    }
+
     const basePath = depth === 0 ? '' : '../'.repeat(depth);
 
     // 2. Define the Full Site Tree (Categorized by Pillar)
@@ -86,18 +100,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     name: "Core Techniques",
                     path: "desmos/",
                     topics: [
-                        { name: "System Solver", path: "desmos/regression-secrets/#system-solver" },
-                        { name: "Absolute Value Solves", path: "desmos/regression-secrets/#absolute-value" },
-                        { name: "Polynomial Roots", path: "desmos/regression-secrets/#poly-roots" },
-                        { name: "Stats Lists", path: "desmos/regression-secrets/#stats-lists" },
-                        { name: "Poly-Solve Variables", path: "desmos/regression-secrets/#poly-solve" },
+                        { name: "System Solver", path: "desmos/system-solver/" },
+                        { name: "Absolute Value Solves", path: "desmos/absolute-value/" },
+                        { name: "Polynomial Roots", path: "desmos/poly-roots/" },
+                        { name: "Stats Lists", path: "desmos/lists-and-tables/" },
+                        { name: "Poly-Solve Variables", path: "desmos/poly-solve/" },
                         { name: "Regression Secrets", path: "desmos/regression-secrets/" },
-                        { name: "Logarithmic Regression", path: "desmos/regression-secrets/#log-reg" },
-                        { name: "Logistic Growth", path: "desmos/regression-secrets/#logistic-reg" },
-                        { name: "Power Regression", path: "desmos/regression-secrets/#power-reg" },
-                        { name: "R-squared Check", path: "desmos/regression-secrets/#r-squared" },
-                        { name: "Residual Plot", path: "desmos/regression-secrets/#residual-plot" },
-                        { name: "Prediction Value", path: "desmos/regression-secrets/#pred-val" },
+                        { name: "Logarithmic Regression", path: "desmos/log-reg/" },
+                        { name: "Logistic Growth", path: "desmos/logistic-reg/" },
+                        { name: "Power Regression", path: "desmos/power-reg/" },
+                        { name: "R-squared Check", path: "desmos/r-squared/" },
+                        { name: "Residual Plot", path: "desmos/residual-plot/" },
+                        { name: "Prediction Value", path: "desmos/prediction-value/" },
                         { name: "Lists & Tables", path: "desmos/lists-and-tables/" },
                         { name: "Total Sum", path: "desmos/lists-and-tables/#total-sum" },
                         { name: "Min/Max Range", path: "desmos/lists-and-tables/#min-max" },
@@ -267,9 +281,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     <ul class="side-tree-topic">
                         ${cat.topics.map(topic => {
                 const isActive = isLinkActive(topic.path, currentPath, currentHash);
+                // Verify if we are in local file mode and append index.html for smoother navigation
+                let href = basePath + topic.path;
+                if (window.location.protocol === 'file:' && href.endsWith('/')) {
+                    href += 'index.html';
+                }
                 return `
                             <li>
-                                <a href="${basePath}${topic.path}" class="side-link ${isActive ? 'active' : ''}">
+                                <a href="${href}" class="side-link ${isActive ? 'active' : ''}">
                                     ${topic.name}
                                 </a>
                             </li>

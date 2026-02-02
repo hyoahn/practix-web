@@ -4,41 +4,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Topic Coming Soon | Practix</title>
-    <link rel="stylesheet" href="../../assets/styles/styles.css?v=23">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <title>System Solver Desmos Hack | Practix</title>
+    <link rel="stylesheet" href="../../assets/styles/styles.css?v=24">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.min.js"></script>
     <script src="../../assets/scripts/practix-nav.js?v=23"></script>
     <script src="../../assets/scripts/sidebar.js"></script>
     <script src="../../assets/scripts/practix-footer.js?v=23"></script>
+    <script src="../../assets/scripts/analytics.js?v=24"></script>
+    <script src="../../assets/scripts/pulse-relay.js?v=24"></script>
+    <script src="../../assets/scripts/floating-calculator.js"></script>
+
+    <style>
+        .technique-section {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .magic-code-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #d1d5db;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 1.4rem;
+            display: block;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .btn-copy {
+            background: white;
+            border: 1px solid #d1d5db;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-copy:hover {
+            background: #f3f4f6;
+            transform: scale(1.02);
+        }
+    </style>
 </head>
 
-<body class="content-page">
+<body>
     <div class="page-bg"></div>
+
     <div class="page-container">
-        <aside class="narrow-rail" id="narrow-rail"></aside>
+        <aside class="narrow-rail" id="narrow-rail">
+            <!-- JS will populate -->
+        </aside>
+
         <aside class="command-sidebar">
             <div class="sidebar-search-container">
                 <span class="search-icon-fixed">🔍</span>
-                <input type="text" id="sidebar-search" class="sidebar-search-input" placeholder="Search...">
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search hacks... (Press '/')">
             </div>
-            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;"></div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
         </aside>
+
         <main class="main-stage">
             <div class="stage-content-scroll">
-                <div style="text-align: center; padding: 5rem 2rem;">
-                    <div style="font-size: 4rem; opacity: 0.2; margin-bottom: 1rem;">🚧</div>
-                    <h1 style="font-family: 'Space Grotesk', sans-serif; margin-bottom: 1rem;">Content Coming Soon</h1>
-                    <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto;">
-                        This module is currently being authored by our 800-scorers.
-                        Check back shortly for the full breakdown.
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Desmos Tricks
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">System <span class="gradient-text">Solver</span>
+                    </h1>
+                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px;">
+                        Solve systems of linear equations instantly by finding the intersection point.
                     </p>
-                    <a href="../../" class="btn-primary" style="margin-top: 2rem; display: inline-flex;">Back to
-                        Dashboard</a>
-                </div>
+                </header>
+
+                <section class="technique-section" id="system-solver"
+                    style="background: #f3f4f6; border-left-color: #4b5563;">
+                    <div style="margin-bottom: 2rem;">
+                        <h2 style="color: #1f2937; margin-bottom: 0.5rem;">⚔️ System Solver Hack</h2>
+                        <p style="color: #4b5563; font-style: italic;">Best for: Systems of linear equations.</p>
+                    </div>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
+                        </h3>
+                        <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1.5rem;">
+                            What is the solution $(x, y)$ to the system of equations below?
+                            <br><br>
+                            $$2x + 3y = 12$$
+                            $$y = x - 1$$
+                        </p>
+
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) (2, 3)</div>
+                            <div class="sat-option">(B) (3, 2)</div>
+                            <div class="sat-option">(C) (4, 1.33)</div>
+                            <div class="sat-option">(D) (3, -1)</div>
+                        </div>
+
+                        <details class="practix-reveal">
+                            <summary></summary>
+                            <div class="solution-content"
+                                style="margin-top: 1.5rem; border-top: 2px dashed #4b5563; padding-top: 1.5rem;">
+                                <h4 style="color: #1f2937; margin-top: 0;">Step 1: Type the Equations</h4>
+                                <p>Don't use substitution. Just type them into two separate lines.</p>
+
+                                <div class="magic-code-container" style="border-color: #d1d5db; background: #f9fafb;">
+                                    <code style="color: #374151; font-weight: 700;">2x + 3y = 12<br>y = x - 1</code>
+                                </div>
+
+                                <h4 style="color: #1f2937;">Step 2: Find the Intersection</h4>
+                                <p>Hover over the point where the lines cross.</p>
+                                <p>Desmos shows <strong>(3, 2)</strong>.</p>
+
+                                <div
+                                    style="background: #f3f4f6; border: 2px solid #4b5563; border-radius: 8px; padding: 1.25rem; margin-top: 1.5rem;">
+                                    <p style="margin: 0; font-weight: 700; color: #1f2937; font-size: 1.1rem;">✅ Final
+                                        Answer:</p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 1.05rem; color: #374151;">x =
+                                        <strong>3</strong>, y = <strong>2</strong>
+                                    </p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; color: #4b5563;">The solution is
+                                        <strong>(3, 2)</strong> (Answer choice B)
+                                    </p>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <section style="margin-top: 4rem;">
+                    <a href="../regression-secrets/" class="btn-primary"
+                        style="background: white; color: black; border: 1px solid #ddd; padding: 1rem 2rem; border-radius: 8px; text-decoration: none;">&larr;
+                        View All Desmos Secrets</a>
+                </section>
             </div>
         </main>
     </div>
-    <footer style="display: none;"></footer>
+
+    <script>
+        // Copy to Clipboard logic
+        document.querySelectorAll('.btn-copy').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const code = btn.getAttribute('data-code');
+                navigator.clipboard.writeText(code).then(() => {
+                    const originalText = btn.innerText;
+                    btn.innerText = 'Copied!';
+                    btn.style.background = '#dcfce7';
+                    btn.style.borderColor = '#22c55e';
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.style.background = 'white';
+                        btn.style.borderColor = '#d1d5db';
+                    }, 2000);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

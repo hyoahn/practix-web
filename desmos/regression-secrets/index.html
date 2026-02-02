@@ -336,185 +336,617 @@
                     </div>
                 </section>
 
-                <section class="technique-section" id="system-solver">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <div>
-                            <h2 style="color: #4b5563; margin-bottom: 1rem;">⚔️ System Solver Hack</h2>
-                            <p>Don't use substitution. Just type the equations.</p>
-                        </div>
+                <section class="technique-section" id="system-solver"
+                    style="background: #f3f4f6; border-left-color: #4b5563;">
+                    <div style="margin-bottom: 2rem;">
+                        <h2 style="color: #1f2937; margin-bottom: 0.5rem;">⚔️ System Solver Hack</h2>
+                        <p style="color: #4b5563; font-style: italic;">Best for: Systems of linear equations.</p>
                     </div>
-                    <div class="magic-code-container" style="border-color: #9ca3af;">
-                        <code style="color: #374151; font-weight: 700;">2x + 3y = 12<br>y = x - 1</code>
-                    </div>
-                    <details class="practix-reveal">
-                        <summary></summary>
-                        <div class="solution-content">
-                            <p>Type them in two lines. Hover over the intersection point to see <strong>(3, 2)</strong>.
-                                Done.</p>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
+                        </h3>
+                        <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1.5rem;">
+                            What is the solution $(x, y)$ to the system of equations below?
+                            <br><br>
+                            $$2x + 3y = 12$$
+                            $$y = x - 1$$
+                        </p>
+
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) (2, 3)</div>
+                            <div class="sat-option">(B) (3, 2)</div>
+                            <div class="sat-option">(C) (4, 1.33)</div>
+                            <div class="sat-option">(D) (3, -1)</div>
                         </div>
-                    </details>
+
+                        <details class="practix-reveal">
+                            <summary></summary>
+                            <div class="solution-content"
+                                style="margin-top: 1.5rem; border-top: 2px dashed #4b5563; padding-top: 1.5rem;">
+                                <h4 style="color: #1f2937; margin-top: 0;">Step 1: Type the Equations</h4>
+                                <p>Don't use substitution. Just type them into two separate lines.</p>
+
+                                <div class="magic-code-container" style="border-color: #d1d5db; background: #f9fafb;">
+                                    <code style="color: #374151; font-weight: 700;">2x + 3y = 12<br>y = x - 1</code>
+                                </div>
+
+                                <h4 style="color: #1f2937;">Step 2: Find the Intersection</h4>
+                                <p>Hover over the point where the lines cross.</p>
+                                <p>Desmos shows <strong>(3, 2)</strong>.</p>
+
+                                <div
+                                    style="background: #f3f4f6; border: 2px solid #4b5563; border-radius: 8px; padding: 1.25rem; margin-top: 1.5rem;">
+                                    <p style="margin: 0; font-weight: 700; color: #1f2937; font-size: 1.1rem;">✅ Final
+                                        Answer:</p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 1.05rem; color: #374151;">x =
+                                        <strong>3</strong>, y = <strong>2</strong>
+                                    </p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; color: #4b5563;">The solution is
+                                        <strong>(3, 2)</strong> (Answer choice B)
+                                    </p>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
                 </section>
 
-                <section class="technique-section" id="absolute-value">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <div>
-                            <h2 style="color: #7c3aed; margin-bottom: 1rem;">📏 Absolute Value Solves</h2>
-                            <p>Find solutions for $|2x - 5| = 7$ visually.</p>
-                        </div>
+                <section class="technique-section" id="absolute-value"
+                    style="background: #f5f3ff; border-left-color: #7c3aed;">
+                    <div style="margin-bottom: 2rem;">
+                        <h2 style="color: #5b21b6; margin-bottom: 0.5rem;">📏 Absolute Value Solves</h2>
+                        <p style="color: #7c3aed; font-style: italic;">Best for: Solving absolute value equations
+                            visually.</p>
                     </div>
-                    <div class="magic-code-container" style="border-color: #ddd6fe;">
-                        <code style="color: #7c3aed; font-weight: 700;">y = |2x - 5| - 7</code>
-                    </div>
-                    <details class="practix-reveal">
-                        <summary></summary>
-                        <div class="solution-content">
-                            <p>Graph it. Look for the x-intercepts. Those are your solutions <strong>(x = -1, x =
-                                    6)</strong>.</p>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
+                        </h3>
+                        <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1.5rem;">
+                            What is the sum of the solutions to the given equation?
+                            <br><br>
+                            $$|2x - 5| = 7$$
+                        </p>
+
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) -1</div>
+                            <div class="sat-option">(B) 5</div>
+                            <div class="sat-option">(C) 6</div>
+                            <div class="sat-option">(D) 7</div>
                         </div>
-                    </details>
+
+                        <details class="practix-reveal">
+                            <summary></summary>
+                            <div class="solution-content"
+                                style="margin-top: 1.5rem; border-top: 2px dashed #7c3aed; padding-top: 1.5rem;">
+                                <h4 style="color: #5b21b6; margin-top: 0;">Step 1: Graph the Equation</h4>
+                                <p>Move everything to one side so it equals y: $y = |2x - 5| - 7$.</p>
+
+                                <div class="magic-code-container" style="border-color: #ddd6fe; background: #f5f3ff;">
+                                    <code style="color: #7c3aed; font-weight: 700;">y = |2x - 5| - 7</code>
+                                </div>
+
+                                <h4 style="color: #5b21b6;">Step 2: Find the x-intercepts</h4>
+                                <p>Look for where the graph crosses the x-axis.</p>
+                                <p>Desmos shows intercepts at <strong>x = -1</strong> and <strong>x = 6</strong>.</p>
+                                <p>The sum is $-1 + 6 = 5$.</p>
+
+                                <div
+                                    style="background: #f5f3ff; border: 2px solid #7c3aed; border-radius: 8px; padding: 1.25rem; margin-top: 1.5rem;">
+                                    <p style="margin: 0; font-weight: 700; color: #5b21b6; font-size: 1.1rem;">✅ Final
+                                        Answer:</p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 1.05rem; color: #6d28d9;">Solutions:
+                                        <strong>-1, 6</strong>
+                                    </p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; color: #7c3aed;">Sum = 5 (Answer
+                                        choice B)</p>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
                 </section>
 
                 <section class="technique-section" id="poly-roots"
                     style="background: #fff7ed; border-left-color: #f97316;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <div>
-                            <h2 style="color: #c2410c; margin-bottom: 1rem;">🌱 Finding Roots (Polynomials)</h2>
-                            <p>Factor complex polynomials without brain power.</p>
-                        </div>
+                    <div style="margin-bottom: 2rem;">
+                        <h2 style="color: #c2410c; margin-bottom: 0.5rem;">🌱 Finding Roots (Polynomials)</h2>
+                        <p style="color: #ea580c; font-style: italic;">Best for: Factoring cubic or higher-order
+                            polynomials.</p>
                     </div>
-                    <div class="magic-code-container" style="border-color: #ffedd5;">
-                        <code style="color: #c2410c; font-weight: 700;">y = x^3 - 4x^2 + x + 6</code>
-                    </div>
-                    <details class="practix-reveal">
-                        <summary></summary>
-                        <div class="solution-content">
-                            <p>Click the dots on the x-axis. It crosses at <strong>-1, 2, and 3</strong>, so your
-                                factors are (x+1), (x-2), (x-3).</p>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
+                        </h3>
+                        <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1.5rem;">
+                            Which of the following is equivalent to the expression below?
+                            <br><br>
+                            $$x^3 - 4x^2 + x + 6$$
+                        </p>
+
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) (x-1)(x-2)(x-3)</div>
+                            <div class="sat-option">(B) (x+1)(x-2)(x-3)</div>
+                            <div class="sat-option">(C) (x+1)(x+2)(x+3)</div>
+                            <div class="sat-option">(D) (x-1)(x+2)(x-3)</div>
                         </div>
-                    </details>
+
+                        <details class="practix-reveal">
+                            <summary></summary>
+                            <div class="solution-content"
+                                style="margin-top: 1.5rem; border-top: 2px dashed #f97316; padding-top: 1.5rem;">
+                                <h4 style="color: #c2410c; margin-top: 0;">Step 1: Graph the Polynomial</h4>
+                                <p>Type the equation exactly as seen.</p>
+
+                                <div class="magic-code-container" style="border-color: #ffedd5; background: #fff7ed;">
+                                    <code style="color: #c2410c; font-weight: 700;">y = x^3 - 4x^2 + x + 6</code>
+                                </div>
+
+                                <h4 style="color: #c2410c;">Step 2: Find the x-intercepts (Roots)</h4>
+                                <p>Click the dots on the x-axis.</p>
+                                <p>Desmos shows intercepts at <strong>-1, 2, and 3</strong>.</p>
+                                <p>If a root is $c$, the factor is $(x - c)$.</p>
+                                <p>So factors are $(x - (-1))$, $(x - 2)$, $(x - 3) \Rightarrow (x+1)(x-2)(x-3)$.</p>
+
+                                <div
+                                    style="background: #fff7ed; border: 2px solid #f97316; border-radius: 8px; padding: 1.25rem; margin-top: 1.5rem;">
+                                    <p style="margin: 0; font-weight: 700; color: #c2410c; font-size: 1.1rem;">✅ Final
+                                        Answer:</p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 1.05rem; color: #ea580c;">Roots:
+                                        <strong>-1, 2, 3</strong>
+                                    </p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; color: #f97316;">Factors:
+                                        <strong>(x+1)(x-2)(x-3)</strong> (Answer choice B)
+                                    </p>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
                 </section>
 
                 <section class="technique-section" id="stats-lists"
                     style="background: #fdf2f8; border-left-color: #db2777;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <div>
-                            <h2 style="color: #be185d; margin-bottom: 1rem;">📊 Mean & Median Lists</h2>
-                            <p>Handle large data sets quickly.</p>
-                        </div>
-                        <button class="btn-copy" data-code="L = [12, 15, 18, 22, 25]"
-                            style="border-color: #fce7f3;">Copy List</button>
+                    <div style="margin-bottom: 2rem;">
+                        <h2 style="color: #be185d; margin-bottom: 0.5rem;">📊 Mean & Median Lists</h2>
+                        <p style="color: #db2777; font-style: italic;">Best for: Calculating stats for large data sets
+                            instantly.</p>
                     </div>
-                    <div class="magic-code-container" style="border-color: #fce7f3;">
-                        <code style="color: #be185d; font-weight: 700;">mean(L), median(L), stdev(L)</code>
-                    </div>
-                    <details class="practix-reveal">
-                        <summary></summary>
-                        <div class="solution-content">
-                            <p>Define a list like L=[...] then just type the command. (e.g., mean = 18.4)</p>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
+                        </h3>
+                        <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1.5rem;">
+                            What is the mean of the following data set?
+                            <br><br>
+                            $\{12, 15, 18, 22, 25\}$
+                        </p>
+
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) 18.0</div>
+                            <div class="sat-option">(B) 18.4</div>
+                            <div class="sat-option">(C) 19.2</div>
+                            <div class="sat-option">(D) 22.0</div>
                         </div>
-                    </details>
+
+                        <details class="practix-reveal">
+                            <summary></summary>
+                            <div class="solution-content"
+                                style="margin-top: 1.5rem; border-top: 2px dashed #db2777; padding-top: 1.5rem;">
+                                <h4 style="color: #be185d; margin-top: 0;">Step 1: Define the List</h4>
+                                <p>Type the list using square brackets and assign it to a letter like L.</p>
+
+                                <div style="margin: 1.5rem 0; display: flex; align-items: center; gap: 1rem;">
+                                    <div class="magic-code-container"
+                                        style="margin: 0; flex-grow: 1; background: #fdf2f8; border-color: #fce7f3;">
+                                        <code style="color: #be185d; font-weight: 700;">L = [12, 15, 18, 22, 25]</code>
+                                    </div>
+                                    <button class="btn-copy" data-code="L = [12, 15, 18, 22, 25]"
+                                        style="background-color: #fce7f3; color: #be185d; border-color: #f9a8d4;">Copy
+                                        List</button>
+                                </div>
+
+                                <h4 style="color: #be185d;">Step 2: Run the Command</h4>
+                                <p>Type <code>mean(L)</code> to get the answer instantly.</p>
+                                <p>You can also use <code>median(L)</code> or <code>stdev(L)</code>.</p>
+
+                                <div class="magic-code-container" style="background: #fdf2f8; border-color: #fce7f3;">
+                                    <code style="color: #be185d; font-weight: 700;">mean(L)</code>
+                                </div>
+
+                                <div
+                                    style="background: #fdf2f8; border: 2px solid #db2777; border-radius: 8px; padding: 1.25rem; margin-top: 1.5rem;">
+                                    <p style="margin: 0; font-weight: 700; color: #be185d; font-size: 1.1rem;">✅ Final
+                                        Answer:</p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 1.05rem; color: #db2777;">mean =
+                                        <strong>18.4</strong>
+                                    </p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; color: #ec4899;">(Answer choice
+                                        B)</p>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
                 </section>
 
                 <section class="technique-section" id="poly-solve"
                     style="background: #f0f9ff; border-left-color: #0ea5e9;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <div>
-                            <h2 style="color: #0369a1; margin-bottom: 1rem;">⚡ Poly-Solve (Variables)</h2>
-                            <p>Solve for constants without algebra.</p>
-                        </div>
+                    <div style="margin-bottom: 2rem;">
+                        <h2 style="color: #0369a1; margin-bottom: 0.5rem;">⚡ Poly-Solve (Variables)</h2>
+                        <p style="color: #0ea5e9; font-style: italic;">Best for: Solving for constants in an equation.
+                        </p>
                     </div>
-                    <div class="magic-code-container" style="border-color: #e0f2fe;">
-                        <code style="color: #0369a1; font-weight: 700;">4x + 2k = 18 <br> {x=3}</code>
-                    </div>
-                    <details class="practix-reveal">
-                        <summary></summary>
-                        <div class="solution-content">
-                            <p>Type the equation. Then type the known value (x=3) in curly brackets. Desmos solves for k
-                                (<strong>k = 3</strong>).</p>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
+                        </h3>
+                        <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1.5rem;">
+                            If $4x + 2k = 18$ and $x=3$, what is the value of $k$?
+                        </p>
+
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) 2</div>
+                            <div class="sat-option">(B) 3</div>
+                            <div class="sat-option">(C) 4</div>
+                            <div class="sat-option">(D) 6</div>
                         </div>
-                    </details>
+
+                        <details class="practix-reveal">
+                            <summary></summary>
+                            <div class="solution-content"
+                                style="margin-top: 1.5rem; border-top: 2px dashed #0ea5e9; padding-top: 1.5rem;">
+                                <h4 style="color: #0369a1; margin-top: 0;">Step 1: Type Everything You Know</h4>
+                                <p>Type the equation exactly as given.</p>
+                                <p>Then, in the next line (or same line using curly braces), define the known variable.
+                                </p>
+
+                                <div class="magic-code-container" style="border-color: #e0f2fe; background: #f0f9ff;">
+                                    <code style="color: #0369a1; font-weight: 700;">4x + 2k = 18 <br> {x=3}</code>
+                                </div>
+
+                                <h4 style="color: #0369a1;">Step 2: Read the Answer</h4>
+                                <p>Desmos automatically solves for the remaining variable.</p>
+                                <p>It shows <strong>k = 3</strong>.</p>
+
+                                <div
+                                    style="background: #f0f9ff; border: 2px solid #0ea5e9; border-radius: 8px; padding: 1.25rem; margin-top: 1.5rem;">
+                                    <p style="margin: 0; font-weight: 700; color: #0369a1; font-size: 1.1rem;">✅ Final
+                                        Answer:</p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 1.05rem; color: #0284c7;">k =
+                                        <strong>3</strong>
+                                    </p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; color: #0ea5e9;">(Answer choice
+                                        B)</p>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
                 </section>
 
-                <section class="technique-section" id="log-reg">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <div>
-                            <h2 style="color: #065f46; margin-bottom: 1rem;">🪵 Logarithmic Regression</h2>
-                            <p>For data that grows fast then slows down (like learning curves).</p>
-                        </div>
-                        <button class="btn-copy" data-code="y_1 ~ a + b*ln(x_1)">Copy Code</button>
+                <section class="technique-section" id="log-reg"
+                    style="background: #f0fdf4; border-left-color: #16a34a;">
+                    <div style="margin-bottom: 2rem;">
+                        <h2 style="color: #166534; margin-bottom: 0.5rem;">🪵 Logarithmic Regression</h2>
+                        <p style="color: #16a34a; font-style: italic;">Best for: Data that grows effectively but slows
+                            down (learning curves).</p>
                     </div>
-                    <div class="magic-code-container">
-                        <code style="color: #065f46; font-weight: 700;">y_1 ~ a + b*ln(x_1)</code>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
+                        </h3>
+                        <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1.5rem;">
+                            A student's test score $y$ improves with study hours $x$ according to the points $(1, 50)$,
+                            $(10, 80)$, $(50, 95)$. Which equation best models this relationship?
+                        </p>
+
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) y = 5x + 45</div>
+                            <div class="sat-option">(B) y = 50(1.1)^x</div>
+                            <div class="sat-option">(C) y = 50 + 11.5ln(x)</div>
+                            <div class="sat-option">(D) y = x^2</div>
+                        </div>
+
+                        <details class="practix-reveal">
+                            <summary></summary>
+                            <div class="solution-content"
+                                style="margin-top: 1.5rem; border-top: 2px dashed #16a34a; padding-top: 1.5rem;">
+                                <h4 style="color: #166534; margin-top: 0;">Step 1: Enter Points in Table</h4>
+                                <p>Put the points $(1, 50)$, $(10, 80)$, etc. into a Desmos table.</p>
+
+                                <h4 style="color: #166534;">Step 2: Use the Log Reg Code</h4>
+                                <p>Paste the code below.</p>
+
+                                <div style="margin: 1.5rem 0; display: flex; align-items: center; gap: 1rem;">
+                                    <div class="magic-code-container"
+                                        style="flex-grow: 1; margin: 0; border-color: #bbf7d0; background: #f0fdf4; color: #166534;">
+                                        <code style="font-weight: 700;">y_1 ~ a + b*ln(x_1)</code>
+                                    </div>
+                                    <button class="btn-copy" data-code="y_1 ~ a + b*ln(x_1)"
+                                        style="border-color: #86efac; background: #dcfce7; color: #166534;">Copy
+                                        Code</button>
+                                </div>
+
+                                <p>Desmos finds $a \approx 50$ and $b \approx 11.5$.</p>
+
+                                <div
+                                    style="background: #f0fdf4; border: 2px solid #16a34a; border-radius: 8px; padding: 1.25rem; margin-top: 1.5rem;">
+                                    <p style="margin: 0; font-weight: 700; color: #166534; font-size: 1.1rem;">✅ Final
+                                        Answer:</p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 1.05rem; color: #15803d;">y = 50 +
+                                        11.5ln(x)</p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; color: #16a34a;">(Answer choice
+                                        C)</p>
+                                </div>
+                            </div>
+                        </details>
                     </div>
                 </section>
 
                 <section class="technique-section" id="logistic-reg"
                     style="background: #fef2f2; border-left-color: #ef4444;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <div>
-                            <h2 style="color: #991b1b; margin-bottom: 1rem;">🦠 Logistic Growth</h2>
-                            <p>For "S-curve" populations with a carrying capacity.</p>
-                        </div>
-                        <button class="btn-copy" data-code="y_1 ~ c / (1 + a*e^(-b*x_1))">Copy Code</button>
+                    <div style="margin-bottom: 2rem;">
+                        <h2 style="color: #991b1b; margin-bottom: 0.5rem;">🦠 Logistic Growth (S-Curve)</h2>
+                        <p style="color: #ef4444; font-style: italic;">Best for: Populations with a "carrying capacity"
+                            that level off.</p>
                     </div>
-                    <div class="magic-code-container" style="border-color: #fecaca;">
-                        <code style="color: #991b1b; font-weight: 700;">y_1 ~ c / (1 + a*e^(-b*x_1))</code>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
+                        </h3>
+                        <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1.5rem;">
+                            A certain bacteria population grows rapidly at first but stabilizes at a maximum of 500
+                            individuals. Which regression model is appropriate?
+                        </p>
+
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) Linear</div>
+                            <div class="sat-option">(B) Exponential</div>
+                            <div class="sat-option">(C) Logistic</div>
+                            <div class="sat-option">(D) Quadratic</div>
+                        </div>
+
+                        <details class="practix-reveal">
+                            <summary></summary>
+                            <div class="solution-content"
+                                style="margin-top: 1.5rem; border-top: 2px dashed #ef4444; padding-top: 1.5rem;">
+                                <h4 style="color: #991b1b; margin-top: 0;">Step 1: Identify the "S" Shape</h4>
+                                <p>If data starts slow, speeds up, then stops growing (levels off), it's Logistic.</p>
+
+                                <h4 style="color: #991b1b;">Step 2: The Carrying Capacity Code</h4>
+                                <p>Use this complex code to find the exact curve.</p>
+
+                                <div style="margin: 1.5rem 0; display: flex; align-items: center; gap: 1rem;">
+                                    <div class="magic-code-container"
+                                        style="flex-grow: 1; margin: 0; border-color: #fca5a5; background: #fef2f2; color: #991b1b;">
+                                        <code style="font-weight: 700;">y_1 ~ c / (1 + a*e^(-b*x_1))</code>
+                                    </div>
+                                    <button class="btn-copy" data-code="y_1 ~ c / (1 + a*e^(-b*x_1))"
+                                        style="border-color: #f87171; background: #fee2e2; color: #991b1b;">Copy
+                                        Code</button>
+                                </div>
+
+                                <div
+                                    style="background: #fef2f2; border: 2px solid #ef4444; border-radius: 8px; padding: 1.25rem; margin-top: 1.5rem;">
+                                    <p style="margin: 0; font-weight: 700; color: #991b1b; font-size: 1.1rem;">✅ Final
+                                        Answer:</p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 1.05rem; color: #b91c1c;">Use Logistic
+                                        Regression</p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; color: #ef4444;">(Answer choice
+                                        C)</p>
+                                </div>
+                            </div>
+                        </details>
                     </div>
                 </section>
 
                 <section class="technique-section" id="power-reg"
                     style="background: #eff6ff; border-left-color: #3b82f6;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <div>
-                            <h2 style="color: #1e40af; margin-bottom: 1rem;">⚡ Power Regression</h2>
-                            <p>For physics problems or inverse square laws.</p>
-                        </div>
-                        <button class="btn-copy" data-code="y_1 ~ a*x_1^b">Copy Code</button>
+                    <div style="margin-bottom: 2rem;">
+                        <h2 style="color: #1e40af; margin-bottom: 0.5rem;">⚡ Power Regression</h2>
+                        <p style="color: #3b82f6; font-style: italic;">Best for: Physics problems, inverse square laws
+                            ($1/x^2$), or geometric geometry.</p>
                     </div>
-                    <div class="magic-code-container" style="border-color: #bfdbfe;">
-                        <code style="color: #1e40af; font-weight: 700;">y_1 ~ a*x_1^b</code>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
+                        </h3>
+                        <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1.5rem;">
+                            The intensity $I$ of a signal decreases with distance $d$ as follows: $(1, 100)$, $(2, 25)$,
+                            $(4, 6.25)$. Which equation best models this?
+                        </p>
+
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) I = 100 - 37.5d</div>
+                            <div class="sat-option">(B) I = 100(0.25)^d</div>
+                            <div class="sat-option">(C) I = 100 / d^2</div>
+                            <div class="sat-option">(D) I = 100 - d^2</div>
+                        </div>
+
+                        <details class="practix-reveal">
+                            <summary></summary>
+                            <div class="solution-content"
+                                style="margin-top: 1.5rem; border-top: 2px dashed #3b82f6; padding-top: 1.5rem;">
+                                <h4 style="color: #1e40af; margin-top: 0;">Step 1: Use Power Regression</h4>
+                                <p>When you suspect an inverse relationship, use the "Power" hint.</p>
+
+                                <div style="margin: 1.5rem 0; display: flex; align-items: center; gap: 1rem;">
+                                    <div class="magic-code-container"
+                                        style="flex-grow: 1; margin: 0; border-color: #bfdbfe; background: #eff6ff; color: #1e40af;">
+                                        <code style="font-weight: 700;">y_1 ~ a*x_1^b</code>
+                                    </div>
+                                    <button class="btn-copy" data-code="y_1 ~ a*x_1^b"
+                                        style="border-color: #93c5fd; background: #dbeafe; color: #1e40af;">Copy
+                                        Code</button>
+                                </div>
+
+                                <p>Desmos finds $a=100$ and $b=-2$. So $y = 100 x^{-2} = \frac{100}{x^2}$.</p>
+
+                                <div
+                                    style="background: #eff6ff; border: 2px solid #3b82f6; border-radius: 8px; padding: 1.25rem; margin-top: 1.5rem;">
+                                    <p style="margin: 0; font-weight: 700; color: #1e40af; font-size: 1.1rem;">✅ Final
+                                        Answer:</p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 1.05rem; color: #1d4ed8;">y = 100 / d²
+                                    </p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; color: #3b82f6;">(Answer choice
+                                        C)</p>
+                                </div>
+                            </div>
+                        </details>
                     </div>
                 </section>
 
-                <section class="technique-section" id="r-squared">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <div>
-                            <h2 style="color: #4b5563; margin-bottom: 1rem;">🎯 The R² Check</h2>
-                            <p>How good is the model? Closer to 1 = Perfect fit.</p>
+                <section class="technique-section" id="r-squared"
+                    style="background: #fdf4ff; border-left-color: #c026d3;">
+                    <div style="margin-bottom: 2rem;">
+                        <h2 style="color: #c026d3; margin-bottom: 0.5rem;">🎯 The R² Check</h2>
+                        <p style="color: #e879f9; font-style: italic;">Best for: Deciding which regression model fits
+                            the data best.</p>
+                    </div>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
+                        </h3>
+                        <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1.5rem;">
+                            A data set is modeled by both Linear ($R^2 = 0.85$) and Exponential ($R^2 = 0.992$)
+                            regression. Which model is more appropriate?
+                        </p>
+
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) Linear is better</div>
+                            <div class="sat-option">(B) Exponential is better</div>
+                            <div class="sat-option">(C) Both are equal</div>
+                            <div class="sat-option">(D) Neither is good</div>
                         </div>
+
+                        <details class="practix-reveal">
+                            <summary></summary>
+                            <div class="solution-content"
+                                style="margin-top: 1.5rem; border-top: 2px dashed #c026d3; padding-top: 1.5rem;">
+                                <h4 style="color: #a21caf; margin-top: 0;">Step 1: Check R² Value</h4>
+                                <p>When you run regression, Desmos shows $R^2$ (or $r^2$).</p>
+                                <p>Closer to 1 = Better fit.</p>
+
+                                <div class="magic-code-container"
+                                    style="border-color: #f5d0fe; background: #fdf4ff; color: #a21caf;">
+                                    <code style="font-weight: 700;">R² = 0.998</code>
+                                </div>
+
+                                <div
+                                    style="background: #fdf4ff; border: 2px solid #c026d3; border-radius: 8px; padding: 1.25rem; margin-top: 1.5rem;">
+                                    <p style="margin: 0; font-weight: 700; color: #a21caf; font-size: 1.1rem;">✅ Final
+                                        Answer:</p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 1.05rem; color: #d946ef;">0.992 > 0.85
+                                    </p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; color: #c026d3;">Exponential is
+                                        better (Answer choice B)</p>
+                                </div>
+                            </div>
+                        </details>
                     </div>
-                    <div class="magic-code-container" style="border-color: #9ca3af;">
-                        <code style="color: #374151; font-weight: 700;">R² = 0.998</code>
-                    </div>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Always check this if deciding between
-                        Linear and Exponential.</p>
                 </section>
 
                 <section class="technique-section" id="residual-plot"
                     style="background: #fff7ed; border-left-color: #f97316;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <div>
-                            <h2 style="color: #c2410c; margin-bottom: 1rem;">📉 Residual Plot</h2>
-                            <p>Click the "plot" button next to residuals (e1) in regression.</p>
-                        </div>
+                    <div style="margin-bottom: 2rem;">
+                        <h2 style="color: #c2410c; margin-bottom: 0.5rem;">📉 Residual Plot</h2>
+                        <p style="color: #fb923c; font-style: italic;">Best for: Visually checking if a line is a good
+                            fit.</p>
                     </div>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Visualizes how far off each point is.
-                        Random scatter is good; a pattern means bad model.</p>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
+                        </h3>
+                        <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1.5rem;">
+                            Which residual plot indicates a good linear fit?
+                        </p>
+
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) U-shaped pattern</div>
+                            <div class="sat-option">(B) Random scatter</div>
+                            <div class="sat-option">(C) Increasing width</div>
+                            <div class="sat-option">(D) All points on line</div>
+                        </div>
+
+                        <details class="practix-reveal">
+                            <summary></summary>
+                            <div class="solution-content"
+                                style="margin-top: 1.5rem; border-top: 2px dashed #f97316; padding-top: 1.5rem;">
+                                <h4 style="color: #c2410c; margin-top: 0;">Step 1: Click "Plot" on e1</h4>
+                                <p>In Desmos regression, click the button next to residuals ($e_1$).</p>
+                                <p><strong>Random Scatter</strong> = Good Model.</p>
+                                <p><strong>Pattern (U-shape)</strong> = Bad Model (Wrong type).</p>
+
+                                <div
+                                    style="background: #fff7ed; border: 2px solid #f97316; border-radius: 8px; padding: 1.25rem; margin-top: 1.5rem;">
+                                    <p style="margin: 0; font-weight: 700; color: #c2410c; font-size: 1.1rem;">✅ Final
+                                        Answer:</p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 1.05rem; color: #ea580c;">Look for
+                                        randomness</p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; color: #f97316;">(Answer choice
+                                        B)</p>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
                 </section>
 
                 <section class="technique-section" id="pred-val"
                     style="background: #fdf2f8; border-left-color: #db2777;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <div>
-                            <h2 style="color: #be185d; margin-bottom: 1rem;">🔮 Prediction Value</h2>
-                            <p>Once you have a model f(x), find the value for any x.</p>
+                    <div style="margin-bottom: 2rem;">
+                        <h2 style="color: #be185d; margin-bottom: 0.5rem;">🔮 Prediction Value</h2>
+                        <p style="color: #db2777; font-style: italic;">Best for: Finding y-values without retyping the
+                            equation.</p>
+                    </div>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
+                        </h3>
+                        <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1.5rem;">
+                            A model $f(x)$ predicts population growth. If $x$ is years since 2000, what is the
+                            population in 2025?
+                        </p>
+
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) f(25)</div>
+                            <div class="sat-option">(B) f(2025)</div>
+                            <div class="sat-option">(C) f(x)</div>
+                            <div class="sat-option">(D) 2025</div>
                         </div>
+
+                        <details class="practix-reveal">
+                            <summary></summary>
+                            <div class="solution-content"
+                                style="margin-top: 1.5rem; border-top: 2px dashed #db2777; padding-top: 1.5rem;">
+                                <h4 style="color: #be185d; margin-top: 0;">Step 1: Use Function Notation</h4>
+                                <p>Once you have a regression model (e.g., $y_1 \sim mx_1 + b$), Desmos stores it.</p>
+                                <p>If you defined it as function $f(x)$, just type $f(25)$.</p>
+
+                                <div class="magic-code-container"
+                                    style="border-color: #fce7f3; background: #fdf2f8; color: #be185d;">
+                                    <code style="font-weight: 700;">f(25)</code>
+                                </div>
+
+                                <div
+                                    style="background: #fdf2f8; border: 2px solid #db2777; border-radius: 8px; padding: 1.25rem; margin-top: 1.5rem;">
+                                    <p style="margin: 0; font-weight: 700; color: #be185d; font-size: 1.1rem;">✅ Final
+                                        Answer:</p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 1.05rem; color: #be185d;">Evaluate at
+                                        x=25</p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; color: #db2777;">(Answer choice
+                                        A)</p>
+                                </div>
+                            </div>
+                        </details>
                     </div>
-                    <div class="magic-code-container" style="border-color: #fce7f3;">
-                        <code style="color: #be185d; font-weight: 700;">f(2025)</code>
-                    </div>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Don't type the equation again. Just
-                        use function notation.</p>
                 </section>
 
                 <!-- Practice Sandbox -->

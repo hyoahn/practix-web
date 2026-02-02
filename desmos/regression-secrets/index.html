@@ -25,6 +25,98 @@
     <script src="../../assets/scripts/pulse-relay.js?v=24"></script>
 
     <style>
+        /* Calculator Sidebar Styles */
+        .calculator-sidebar {
+            position: fixed;
+            right: 0;
+            top: 60px;
+            width: 40%;
+            height: calc(100vh - 60px);
+            background: white;
+            border-left: 1px solid var(--border);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .calculator-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .calculator-toggle-btn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+            z-index: 101;
+            transition: transform 0.2s;
+        }
+
+        .calculator-toggle-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .calculator-iframe {
+            flex: 1;
+            border: none;
+        }
+
+        .content-with-calculator {
+            width: 60%;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1199px) {
+            .calculator-sidebar {
+                width: 100%;
+                top: 0;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+            }
+
+            .calculator-sidebar.active {
+                transform: translateX(0);
+            }
+
+            .calculator-toggle-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .content-with-calculator {
+                width: 100%;
+            }
+
+            .calculator-close-btn {
+                display: block !important;
+            }
+        }
+
+        .calculator-close-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: var(--text-secondary);
+        }
+
         .technique-section {
             background: #f0fdf4;
             border-left: 4px solid #10b981;
@@ -102,7 +194,7 @@
         </aside>
 
         <!-- 3. MAIN STAGE -->
-        <main class="main-stage">
+        <main class="main-stage content-with-calculator">
             <div class="stage-content-scroll">
                 <header class="hero-section">
                     <div
@@ -394,6 +486,21 @@
                 </section>
             </div>
         </main>
+
+        <!-- 4. CALCULATOR SIDEBAR -->
+        <aside class="calculator-sidebar">
+            <div class="calculator-header">
+                <div>
+                    <h3 style="margin: 0; font-size: 1rem; font-weight: 600;">🧮 Practice Sandbox</h3>
+                    <p style="margin: 0; font-size: 0.8rem; color: var(--text-secondary);">Try the codes here</p>
+                </div>
+                <button class="calculator-close-btn" onclick="toggleCalculator()">✕</button>
+            </div>
+            <iframe class="calculator-iframe" src="https://www.desmos.com/calculator"></iframe>
+        </aside>
+
+        <!-- Calculator Toggle Button (Mobile) -->
+        <button class="calculator-toggle-btn" onclick="toggleCalculator()">🧮</button>
     </div>
 
     <script>
@@ -418,6 +525,14 @@
                 });
             });
         });
+    </script>
+
+    <script>
+        // Calculator Toggle for Mobile
+        function toggleCalculator() {
+            const sidebar = document.querySelector('.calculator-sidebar');
+            sidebar.classList.toggle('active');
+        }
     </script>
 </body>
 

@@ -30,30 +30,40 @@
                 </div>
                 <div class="calculator-float-body">
                     <div class="calculator-help-overlay" id="helpOverlay">
-                        <div class="help-title">🚀 Regression Quick Start</div>
+                        <div class="help-title">🚀 Complete Step-by-Step Guide</div>
                         
                         <div class="help-step">
                             <span class="help-step-num">1</span>
-                            <span class="help-step-text">Click the <strong>+</strong> icon in Desmos and select <strong>Table</strong>.</span>
+                            <span class="help-step-text"><strong>Open the Tools:</strong> Click the <strong>🧮 Try It</strong> or <strong>🧮</strong> button to open this window.</span>
                         </div>
                         
                         <div class="help-step">
                             <span class="help-step-num">2</span>
-                            <span class="help-step-text">Type your (x, y) points into the table.</span>
+                            <span class="help-step-text"><strong>Start a Table:</strong> Inside the calculator, click the <strong>+</strong> icon (top left) and select <strong>Table</strong>.</span>
                         </div>
                         
                         <div class="help-step">
                             <span class="help-step-num">3</span>
-                            <span class="help-step-text">Click <strong>Copy Code</strong> for the technique you want.</span>
+                            <span class="help-step-text"><strong>Input Your Data:</strong> Type your coordinate points into the <strong>x₁</strong> and <strong>y₁</strong> columns.</span>
                         </div>
                         
                         <div class="help-step">
                             <span class="help-step-num">4</span>
-                            <span class="help-step-text">Paste the code into <strong>Line 2</strong> of Desmos (below the table).</span>
+                            <span class="help-step-text"><strong>Copy the Code:</strong> Find the "Magic Code" you need on our page and click <strong>Copy Code</strong>.</span>
+                        </div>
+
+                        <div class="help-step">
+                            <span class="help-step-num">5</span>
+                            <span class="help-step-text"><strong>Get the Answer:</strong> Click on <strong>Line 2</strong> in the calculator and <strong>Paste</strong> the code. Desmos will instantly show the equation!</span>
+                        </div>
+
+                        <div style="background: #ecfdf5; border: 1px solid #d1fae5; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                            <div style="color: #065f46; font-weight: 700; font-size: 0.85rem; margin-bottom: 0.25rem;">✅ Why this works:</div>
+                            <p style="color: #065f46; font-size: 0.8rem; margin: 0; line-height: 1.4;">The "Magic Code" looks at your <strong>x₁</strong> and <strong>y₁</strong> data and "fits" the perfect equation to it automatically.</p>
                         </div>
 
                         <div class="help-footer">
-                            <button class="btn-got-it" id="gotItBtn">Got it!</button>
+                            <button class="btn-got-it" id="gotItBtn">Got it, let's start!</button>
                         </div>
                     </div>
                     <iframe class="calculator-iframe" id="calcIframe" src="https://www.desmos.com/calculator"></iframe>

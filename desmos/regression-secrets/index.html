@@ -72,6 +72,11 @@
             border-radius: 16px;
             margin-bottom: 3rem;
         }
+
+        /* Fix for SAT Reveal Buttons: Hide redundant global pseudo-elements */
+        .practix-reveal summary::after {
+            display: none !important;
+        }
     </style>
 
     <script

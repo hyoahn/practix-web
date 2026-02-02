@@ -14,12 +14,14 @@ def generate_sitemap():
     for root, dirs, files in os.walk(ROOT_DIR):
         for file in files:
             if file.endswith("index.html"):
-                # specific exclusion logic can go here
                 path = os.path.relpath(os.path.join(root, file), ROOT_DIR)
+                # Correctly handle index.html to avoid duplicate slashing
                 if path == "index.html":
                    url_path = ""
                 else:
                    url_path = path.replace("/index.html", "/")
+                   if url_path.endswith("index.html"):
+                       url_path = url_path.replace("index.html", "")
                 
                 urls.append(f"{BASE_URL}/{url_path}")
 

@@ -73,9 +73,40 @@
             margin-bottom: 3rem;
         }
 
-        /* Fix for SAT Reveal Buttons: Hide redundant global pseudo-elements */
+        /* Fix for SAT Reveal Buttons: Hide redundant global pseudo-elements and handle dynamic toggling */
         .practix-reveal summary::after {
             display: none !important;
+        }
+
+        .practix-reveal summary {
+            background: #065f46 !important;
+            color: white !important;
+            padding: 0.75rem 1.5rem !important;
+            border-radius: 8px !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            display: inline-block !important;
+            list-style: none !important;
+            transition: background-color 0.2s ease !important;
+        }
+
+        .practix-reveal summary::-webkit-details-marker {
+            display: none !important;
+        }
+
+        /* Default text via pseudo-element to allow easy swapping (even if we hide the global one) */
+        .practix-reveal summary::before {
+            content: "💡 Click to Reveal Desmos Solve";
+            display: inline-block;
+        }
+
+        /* Expanded State: Red background and Swap Text */
+        .practix-reveal[open] summary {
+            background: #ef4444 !important;
+        }
+
+        .practix-reveal[open] summary::before {
+            content: "Click to hide Desmos Solve";
         }
     </style>
 
@@ -167,9 +198,7 @@
                         </div>
 
                         <details class="practix-reveal">
-                            <summary
-                                style="background: #065f46; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; display: inline-block;">
-                                💡 Click to Reveal Desmos Solve</summary>
+                            <summary></summary>
                             <div class="solution-content"
                                 style="margin-top: 1.5rem; border-top: 2px dashed #065f46; padding-top: 1.5rem;">
                                 <h4 style="color: #065f46; margin-top: 0;">Step 1: Enter Your Points</h4>
@@ -243,9 +272,7 @@
                                 2x + 2</div>
                         </div>
                         <details class="practix-reveal">
-                            <summary
-                                style="background: #991b1b; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; display: inline-block;">
-                                💡 Click to Reveal Desmos Solve</summary>
+                            <summary></summary>
                             <div class="solution-content"
                                 style="margin-top: 1.5rem; border-top: 2px dashed #ef4444; padding-top: 1.5rem;">
                                 <h4 style="color: #991b1b; margin-top: 0;">Step 1: Enter 3 Points in a Table</h4>
@@ -322,9 +349,7 @@
                         </div>
 
                         <details class="practix-reveal">
-                            <summary
-                                style="background: #1e40af; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; display: inline-block;">
-                                💡 Click to Reveal Desmos Solve</summary>
+                            <summary></summary>
                             <div class="solution-content"
                                 style="margin-top: 1.5rem; border-top: 2px dashed #3b82f6; padding-top: 1.5rem;">
                                 <h4 style="color: #1e40af; margin-top: 0;">Step 1: Enter Your Growth Points</h4>
@@ -379,7 +404,7 @@
                         <code style="color: #374151; font-weight: 700;">2x + 3y = 12<br>y = x - 1</code>
                     </div>
                     <details class="practix-reveal">
-                        <summary>💡 The Shortcut</summary>
+                        <summary></summary>
                         <div class="solution-content">
                             <p>Type them in two lines. Hover over the intersection point to see <strong>(3, 2)</strong>.
                                 Done.</p>
@@ -398,7 +423,7 @@
                         <code style="color: #7c3aed; font-weight: 700;">y = |2x - 5| - 7</code>
                     </div>
                     <details class="practix-reveal">
-                        <summary>💡 The Shortcut</summary>
+                        <summary></summary>
                         <div class="solution-content">
                             <p>Graph it. Look for the x-intercepts. Those are your solutions <strong>(x = -1, x =
                                     6)</strong>.</p>
@@ -418,7 +443,7 @@
                         <code style="color: #c2410c; font-weight: 700;">y = x^3 - 4x^2 + x + 6</code>
                     </div>
                     <details class="practix-reveal">
-                        <summary>💡 The Shortcut</summary>
+                        <summary></summary>
                         <div class="solution-content">
                             <p>Click the dots on the x-axis. It crosses at <strong>-1, 2, and 3</strong>, so your
                                 factors are (x+1), (x-2), (x-3).</p>
@@ -440,7 +465,7 @@
                         <code style="color: #be185d; font-weight: 700;">mean(L), median(L), stdev(L)</code>
                     </div>
                     <details class="practix-reveal">
-                        <summary>💡 The Shortcut</summary>
+                        <summary></summary>
                         <div class="solution-content">
                             <p>Define a list like L=[...] then just type the command. (e.g., mean = 18.4)</p>
                         </div>
@@ -459,7 +484,7 @@
                         <code style="color: #0369a1; font-weight: 700;">4x + 2k = 18 <br> {x=3}</code>
                     </div>
                     <details class="practix-reveal">
-                        <summary>💡 The Shortcut</summary>
+                        <summary></summary>
                         <div class="solution-content">
                             <p>Type the equation. Then type the known value (x=3) in curly brackets. Desmos solves for k
                                 (<strong>k = 3</strong>).</p>

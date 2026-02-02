@@ -25,96 +25,128 @@
     <script src="../../assets/scripts/pulse-relay.js?v=24"></script>
 
     <style>
-        /* Calculator Sidebar Styles */
-        .calculator-sidebar {
+        /* Floating Calculator Window */
+        .calculator-float {
             position: fixed;
-            right: 0;
-            top: 60px;
-            width: 40%;
-            height: calc(100vh - 60px);
+            right: 40px;
+            bottom: 40px;
+            width: 450px;
+            height: 550px;
             background: white;
-            border-left: 1px solid var(--border);
-            z-index: 100;
-            display: flex;
+            border: 2px solid var(--accent-primary);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+            z-index: 1000;
+            display: none;
             flex-direction: column;
+            resize: both;
+            overflow: hidden;
+            min-width: 350px;
+            min-height: 400px;
+            max-width: 90vw;
+            max-height: 90vh;
         }
 
-        .calculator-header {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border);
-            background: var(--bg-secondary);
+        .calculator-float.active {
+            display: flex;
+        }
+
+        .calculator-float-header {
+            padding: 0.75rem 1rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            cursor: move;
+            user-select: none;
+        }
+
+        .calculator-float-header h3 {
+            margin: 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .calculator-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .calculator-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+
+        .calculator-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .calculator-float-body {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calculator-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         .calculator-toggle-btn {
-            display: none;
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 56px;
-            height: 56px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            background: var(--accent-primary);
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
             color: white;
             border: none;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
-            z-index: 101;
-            transition: transform 0.2s;
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+            z-index: 999;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .calculator-toggle-btn:hover {
             transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
         }
 
-        .calculator-iframe {
-            flex: 1;
-            border: none;
-        }
-
-        .content-with-calculator {
-            width: 60%;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 1199px) {
-            .calculator-sidebar {
-                width: 100%;
-                top: 0;
-                transform: translateX(100%);
-                transition: transform 0.3s ease;
-            }
-
-            .calculator-sidebar.active {
-                transform: translateX(0);
-            }
-
-            .calculator-toggle-btn {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .content-with-calculator {
-                width: 100%;
-            }
-
-            .calculator-close-btn {
-                display: block !important;
-            }
-        }
-
-        .calculator-close-btn {
+        .calculator-toggle-btn.hidden {
             display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            color: var(--text-secondary);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .calculator-float {
+                width: calc(100vw - 20px);
+                height: calc(100vh - 20px);
+                right: 10px;
+                bottom: 10px;
+                max-width: none;
+                max-height: none;
+                resize: none;
+            }
         }
 
         .technique-section {
@@ -194,7 +226,7 @@
         </aside>
 
         <!-- 3. MAIN STAGE -->
-        <main class="main-stage content-with-calculator">
+        <main class="main-stage">
             <div class="stage-content-scroll">
                 <header class="hero-section">
                     <div
@@ -229,7 +261,12 @@
                             <h2 style="color: #065f46; margin-bottom: 1rem;">🪄 Linear Regression Code</h2>
                             <p>For problems asking for a line through $(x_1, y_1)$ and $(x_2, y_2)$.</p>
                         </div>
-                        <button class="btn-copy" data-code="y1 ~ m*x1 + b">Copy Code</button>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn-copy" onclick="toggleCalculator()"
+                                style="background: var(--accent-primary); color: white; border-color: var(--accent-primary);">🧮
+                                Try It</button>
+                            <button class="btn-copy" data-code="y1 ~ m*x1 + b">Copy Code</button>
+                        </div>
                     </div>
                     <div class="magic-code-container">
                         <code style="color: #065f46; font-weight: 700;">y₁ ~ m·x₁ + b</code>
@@ -249,8 +286,13 @@
                             <h2 style="color: #991b1b; margin-bottom: 1rem;">📈 Quadratic Regression Code</h2>
                             <p>For parabolas through 3 points or finding a vertex from data.</p>
                         </div>
-                        <button class="btn-copy" data-code="y1 ~ a*x1^2 + b*x1 + c" style="border-color: #fecaca;">Copy
-                            Code</button>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn-copy" onclick="toggleCalculator()"
+                                style="background: var(--accent-primary); color: white; border-color: var(--accent-primary);">🧮
+                                Try It</button>
+                            <button class="btn-copy" data-code="y1 ~ a*x1^2 + b*x1 + c"
+                                style="border-color: #fecaca;">Copy Code</button>
+                        </div>
                     </div>
                     <div class="magic-code-container" style="border-color: #fecaca;">
                         <code style="color: #991b1b; font-weight: 700;">y₁ ~ a·x₁² + b·x₁ + c</code>
@@ -271,8 +313,13 @@
                             <h2 style="color: #1e40af; margin-bottom: 1rem;">📊 Exponential Regression</h2>
                             <p>For interest, population growth, or doubling time problems.</p>
                         </div>
-                        <button class="btn-copy" data-code="y1 ~ a*b^x1" style="border-color: #bfdbfe;">Copy
-                            Code</button>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn-copy" onclick="toggleCalculator()"
+                                style="background: var(--accent-primary); color: white; border-color: var(--accent-primary);">🧮
+                                Try It</button>
+                            <button class="btn-copy" data-code="y1 ~ a*b^x1" style="border-color: #bfdbfe;">Copy
+                                Code</button>
+                        </div>
                     </div>
                     <div class="magic-code-container" style="border-color: #bfdbfe;">
                         <code style="color: #1e40af; font-weight: 700;">y₁ ~ a·b^{x₁}</code>
@@ -486,22 +533,23 @@
                 </section>
             </div>
         </main>
-
-        <!-- 4. CALCULATOR SIDEBAR -->
-        <aside class="calculator-sidebar">
-            <div class="calculator-header">
-                <div>
-                    <h3 style="margin: 0; font-size: 1rem; font-weight: 600;">🧮 Practice Sandbox</h3>
-                    <p style="margin: 0; font-size: 0.8rem; color: var(--text-secondary);">Try the codes here</p>
-                </div>
-                <button class="calculator-close-btn" onclick="toggleCalculator()">✕</button>
-            </div>
-            <iframe class="calculator-iframe" src="https://www.desmos.com/calculator"></iframe>
-        </aside>
-
-        <!-- Calculator Toggle Button (Mobile) -->
-        <button class="calculator-toggle-btn" onclick="toggleCalculator()">🧮</button>
     </div>
+
+    <!-- Floating Calculator Window -->
+    <div class="calculator-float" id="calculatorFloat">
+        <div class="calculator-float-header" id="calcHeader">
+            <h3>🧮 Desmos Calculator</h3>
+            <div class="calculator-controls">
+                <button class="calculator-btn" onclick="toggleCalculator()" title="Close">✕</button>
+            </div>
+        </div>
+        <div class="calculator-float-body">
+            <iframe class="calculator-iframe" src="https://www.desmos.com/calculator"></iframe>
+        </div>
+    </div>
+
+    <!-- Calculator Toggle Button -->
+    <button class="calculator-toggle-btn" id="calcToggle" onclick="toggleCalculator()">🧮</button>
 
     <script>
         // Copy to Clipboard logic
@@ -528,10 +576,67 @@
     </script>
 
     <script>
-        // Calculator Toggle for Mobile
+        // Floating Calculator Toggle & Drag Functionality
+        const calcFloat = document.getElementById('calculatorFloat');
+        const calcToggle = document.getElementById('calcToggle');
+        const calcHeader = document.getElementById('calcHeader');
+
         function toggleCalculator() {
-            const sidebar = document.querySelector('.calculator-sidebar');
-            sidebar.classList.toggle('active');
+            calcFloat.classList.toggle('active');
+            calcToggle.classList.toggle('hidden');
+        }
+
+        // Dragging functionality
+        let isDragging = false;
+        let currentX;
+        let currentY;
+        let initialX;
+        let initialY;
+
+        calcHeader.addEventListener('mousedown', dragStart);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', dragEnd);
+
+        // Touch support for mobile
+        calcHeader.addEventListener('touchstart', dragStart);
+        document.addEventListener('touchmove', drag);
+        document.addEventListener('touchend', dragEnd);
+
+        function dragStart(e) {
+            if (e.type === 'touchstart') {
+                initialX = e.touches[0].clientX - (parseInt(calcFloat.style.left) || 0);
+                initialY = e.touches[0].clientY - (parseInt(calcFloat.style.top) || 0);
+            } else {
+                initialX = e.clientX - (parseInt(calcFloat.style.left) || 0);
+                initialY = e.clientY - (parseInt(calcFloat.style.top) || 0);
+            }
+
+            if (e.target === calcHeader || e.target.parentElement === calcHeader) {
+                isDragging = true;
+            }
+        }
+
+        function drag(e) {
+            if (isDragging) {
+                e.preventDefault();
+
+                if (e.type === 'touchmove') {
+                    currentX = e.touches[0].clientX - initialX;
+                    currentY = e.touches[0].clientY - initialY;
+                } else {
+                    currentX = e.clientX - initialX;
+                    currentY = e.clientY - initialY;
+                }
+
+                calcFloat.style.right = 'auto';
+                calcFloat.style.bottom = 'auto';
+                calcFloat.style.left = currentX + 'px';
+                calcFloat.style.top = currentY + 'px';
+            }
+        }
+
+        function dragEnd() {
+            isDragging = false;
         }
     </script>
 </body>

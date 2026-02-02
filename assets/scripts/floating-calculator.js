@@ -30,45 +30,36 @@
                 </div>
                 <div class="calculator-float-body">
                     <div class="calculator-help-overlay" id="helpOverlay">
-                        <div class="help-title">🚀 Complete Step-by-Step Guide</div>
+                        <div class="help-title">🚀 How to Solve Any Problem</div>
                         
+                        <div style="background: #f0fdf4; padding: 0.75rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #dcfce7;">
+                            <div style="font-weight: 700; color: #166534; font-size: 0.85rem; margin-bottom: 0.25rem;">📝 The Goal:</div>
+                            <p style="margin: 0; font-size: 0.8rem; color: #065f46;">Find the line through <strong>(4, 5)</strong> and <strong>(7, 9)</strong>.</p>
+                        </div>
+
                         <div class="help-step">
                             <span class="help-step-num">1</span>
-                            <span class="help-step-text"><strong>Open:</strong> Click the <strong>🧮 Try It</strong> or <strong>🧮</strong> button.</span>
+                            <span class="help-step-text"><strong>Step 1:</strong> Click <strong>+</strong> → <strong>Table</strong>. Type <strong>4</strong>, Tab, <strong>5</strong>. Move to row 2 and type <strong>7</strong>, Tab, <strong>9</strong>.</span>
                         </div>
                         
                         <div class="help-step">
                             <span class="help-step-num">2</span>
-                            <span class="help-step-text"><strong>Create Table:</strong> Click the <strong>+</strong> icon (top left) → <strong>Table</strong>.</span>
+                            <span class="help-step-text"><strong>Step 2:</strong> Click the empty space <strong>Line 2</strong> BELOW the table.</span>
                         </div>
                         
                         <div class="help-step">
                             <span class="help-step-num">3</span>
-                            <span class="help-step-text"><strong>Add Points:</strong> 
-                                <br>• Click cell <strong>(1,1)</strong>, type your X value.
-                                <br>• Press <strong>Tab</strong>, type your Y value.
-                                <br>• Repeat for your second point!
-                            </span>
+                            <span class="help-step-text"><strong>Step 3:</strong> Click <strong>Copy Code</strong> (e.g., Linear Regression) on the page and <strong>Paste</strong> it.</span>
                         </div>
                         
                         <div class="help-step">
                             <span class="help-step-num">4</span>
-                            <span class="help-step-text"><strong>Click Line 2:</strong> Click the empty space <strong>BELOW</strong> your table. You should see a number 2 appear on the left.</span>
+                            <span class="help-step-text"><strong>Result:</strong> Look at <strong>m</strong> and <strong>b</strong> on the left. That's your answer!</span>
                         </div>
 
-                        <div class="help-step">
-                            <span class="help-step-num">5</span>
-                            <span class="help-step-text"><strong>Paste Magic:</strong> Click <strong>Copy Code</strong> (e.g., Linear Regression) and <strong>Paste</strong> it into that new Line 2.</span>
-                        </div>
-
-                        <div class="help-step">
-                            <span class="help-step-num">6</span>
-                            <span class="help-step-text"><strong>Standard Equation:</strong> If you already have an equation like <strong>y = 2x + 3</strong>, just type it into any empty line!</span>
-                        </div>
-
-                        <div style="background: #fef2f2; border: 1px solid #fee2e2; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                            <div style="color: #991b1b; font-weight: 700; font-size: 0.85rem; margin-bottom: 0.25rem;">⚠️ High Alert: Don't Paste in Table!</div>
-                            <p style="color: #991b1b; font-size: 0.8rem; margin: 0; line-height: 1.4;">If you paste <strong>inside</strong> the table rows, you'll get an error. Always click the empty Line 2 first!</p>
+                        <div style="background: #fef2f2; border: 1px solid #fee2e2; padding: 0.75rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <div style="color: #991b1b; font-weight: 700; font-size: 0.8rem; margin-bottom: 0.25rem;">⚠️ Error Alert:</div>
+                            <p style="color: #991b1b; font-size: 0.75rem; margin: 0; line-height: 1.4;">Don't paste <strong>inside</strong> the table. Always click the empty Line 2 first!</p>
                         </div>
 
                         <div class="help-footer">

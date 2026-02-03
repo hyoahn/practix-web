@@ -123,17 +123,18 @@
                     <h2 class="hack-title"><span>🦠</span> Logistic Regression Hack</h2>
                     <p class="hack-description">Use this complex code when growth levels off.</p>
 
-                    <div class="magic-code-box" style="position: relative;">
+                    <div class="magic-code-box">
                         y_1 ~ c / (1 + a*e^(-b*x_1))
-                        <br><br>
-                        <button class="btn-copy" onclick="navigator.clipboard.writeText('y_1 ~ c / (1 + a*e^(-b*x_1))')"
-                            style="font-size: 0.9rem; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; border: 1px solid #dc2626; background: white; color: #b91c1c;">📄
-                            Copy Code</button>
                     </div>
 
                     <div class="sat-problem-card">
-                        <h3 class="sat-problem-header">
-                            <span>📝</span> SAT Problem
+                        <h3 class="sat-problem-header"
+                            style="display: flex; justify-content: space-between; align-items: center;">
+                            <div><span>📝</span> SAT Problem</div>
+                            <button class="btn-copy"
+                                onclick="navigator.clipboard.writeText('y_1 ~ c / (1 + a*e^(-b*x_1))')"
+                                style="font-size: 0.8rem; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; border: 1px solid #dc2626; background: white; color: #b91c1c; font-weight: 600;">📄
+                                Copy Code</button>
                         </h3>
                         <p>The population of deer in a reserve is tracked over years: \((0, 50), (2, 120), (5, 280),
                             (10, 390)\).</p>
@@ -150,7 +151,20 @@
                     <details class="practix-reveal">
                         <summary></summary>
                         <div class="solution-box">
-                            <p style="margin: 0;">Copy exactly. 'c' is your carrying capacity (max population).</p>
+                            <div class="solution-step">
+                                <h4>Step 1: Enter the Data</h4>
+                                <p>Click <strong>+</strong> then <strong>Table</strong>. Type: \((0, 50)\), \((2,
+                                    120)\), \((5, 280)\), \((10, 390)\).</p>
+                            </div>
+                            <div class="solution-step">
+                                <h4>Step 2: Run the Regression</h4>
+                                <p>Paste the code: <code>y_1 ~ c / (1 + a*e^(-b*x_1))</code>.</p>
+                            </div>
+                            <div class="solution-step">
+                                <h4>Step 3: Find the Capacity</h4>
+                                <p>Look at the value of <strong>c</strong> in the parameter list.</p>
+                                <p>Desmos shows <strong>c ≈ 400</strong>. That's your limit.</p>
+                            </div>
                         </div>
                     </details>
                 </section>

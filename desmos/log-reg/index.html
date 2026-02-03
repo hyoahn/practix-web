@@ -123,17 +123,17 @@
                     <h2 class="hack-title"><span>🪵</span> Log Regression Hack</h2>
                     <p class="hack-description">Paste this when data grows fast then slows down.</p>
 
-                    <div class="magic-code-box" style="position: relative;">
+                    <div class="magic-code-box">
                         y_1 ~ a + b*ln(x_1)
-                        <br><br>
-                        <button class="btn-copy" onclick="navigator.clipboard.writeText('y_1 ~ a + b*ln(x_1)')"
-                            style="font-size: 0.9rem; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; border: 1px solid #16a34a; background: white; color: #166534;">📄
-                            Copy Code</button>
                     </div>
 
                     <div class="sat-problem-card">
-                        <h3 class="sat-problem-header">
-                            <span>📝</span> SAT Problem
+                        <h3 class="sat-problem-header"
+                            style="display: flex; justify-content: space-between; align-items: center;">
+                            <div><span>📝</span> SAT Problem</div>
+                            <button class="btn-copy" onclick="navigator.clipboard.writeText('y_1 ~ a + b*ln(x_1)')"
+                                style="font-size: 0.8rem; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; border: 1px solid #16a34a; background: white; color: #166534; font-weight: 600;">📄
+                                Copy Code</button>
                         </h3>
                         <p>A Biology student measures bacteria growth over time: \((1, 10), (5, 25), (10, 32)\).</p>
                         <p>Using a logarithmic model \(y \approx a + b \ln(x)\), what is the predicted count at day 20?
@@ -149,11 +149,24 @@
                     <details class="practix-reveal">
                         <summary></summary>
                         <div class="solution-box">
-                            <p style="margin: 0; margin-bottom: 1rem;">Enter points in a table first. Paste the code.
-                                Desmos finds a and b.</p>
-                            <img src="../../assets/images/desmos/log-reg-desmos.png"
-                                alt="Logarithmic Regression Desmos Solution"
-                                style="width: 100%; max-width: 450px; display: block; margin: 0 auto; border-radius: 8px; border: 1px solid #bbf7d0;">
+                            <div class="solution-step">
+                                <h4>Step 1: Enter the Data</h4>
+                                <p>Click <strong>+</strong> then <strong>Table</strong>. Type the points: \((1, 10)\),
+                                    \((5, 25)\), \((10, 32)\).</p>
+                            </div>
+                            <div class="solution-step">
+                                <h4>Step 2: Run the Regression</h4>
+                                <p>In a new box, paste the code: <code>y_1 ~ a + b*ln(x_1)</code>.</p>
+                                <p>Desmos will calculate <strong>a</strong> and <strong>b</strong> instantly.</p>
+                            </div>
+                            <div class="solution-step">
+                                <h4>Step 3: The Prediction</h4>
+                                <p>To find the value for day 20, type: <code>a + b*ln(20)</code>.</p>
+                                <p>Desmos gives: <strong>38.42</strong>.</p>
+                                <img src="../../assets/images/desmos/log-reg-desmos.png"
+                                    alt="Logarithmic Regression Desmos Solution"
+                                    style="width: 100%; max-width: 450px; display: block; margin: 0.5rem auto 0; border-radius: 8px; border: 1px solid #bbf7d0;">
+                            </div>
                         </div>
                     </details>
                 </section>

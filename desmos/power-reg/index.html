@@ -123,17 +123,17 @@
                     <h2 class="hack-title"><span>⚡</span> Power Regression Hack</h2>
                     <p class="hack-description">Use for inverse variation like I = k/d².</p>
 
-                    <div class="magic-code-box" style="position: relative;">
+                    <div class="magic-code-box">
                         y_1 ~ a*x_1^b
-                        <br><br>
-                        <button class="btn-copy" onclick="navigator.clipboard.writeText('y_1 ~ a*x_1^b')"
-                            style="font-size: 0.9rem; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; border: 1px solid #2563eb; background: white; color: #1d4ed8;">📄
-                            Copy Code</button>
                     </div>
 
                     <div class="sat-problem-card">
-                        <h3 class="sat-problem-header">
-                            <span>📝</span> SAT Problem
+                        <h3 class="sat-problem-header"
+                            style="display: flex; justify-content: space-between; align-items: center;">
+                            <div><span>📝</span> SAT Problem</div>
+                            <button class="btn-copy" onclick="navigator.clipboard.writeText('y_1 ~ a*x_1^b')"
+                                style="font-size: 0.8rem; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; border: 1px solid #2563eb; background: white; color: #1d4ed8; font-weight: 600;">📄
+                                Copy Code</button>
                         </h3>
                         <p>The intensity of a signal is measured at different distances: \((2, 100), (4, 25), (5, 16)\).
                         </p>
@@ -149,7 +149,20 @@
                     <details class="practix-reveal">
                         <summary></summary>
                         <div class="solution-box">
-                            <p style="margin: 0;">Desmos finds the exponent 'b'. If b = -2, it's inverse square.</p>
+                            <div class="solution-step">
+                                <h4>Step 1: Enter the Data</h4>
+                                <p>Click <strong>+</strong> then <strong>Table</strong>. Type the points: \((2, 100)\),
+                                    \((4, 25)\), \((5, 16)\).</p>
+                            </div>
+                            <div class="solution-step">
+                                <h4>Step 2: Run the Regression</h4>
+                                <p>In a new box, paste the code: <code>y_1 ~ a*x_1^b</code>.</p>
+                            </div>
+                            <div class="solution-step">
+                                <h4>Step 3: Solve for Distance 10</h4>
+                                <p>Type <code>a * 10^b</code> to get the intensity at distance 10.</p>
+                                <p>Desmos calculates: <strong>4</strong>.</p>
+                            </div>
                         </div>
                     </details>
                 </section>

@@ -198,29 +198,24 @@
                     <div class="sat-problem-card">
                         <h3 class="sat-problem-header">
                             <span>📝</span> SAT Problem
-                            <button class="btn-copy" onclick="copyCode('total(L)')">📄 Copy Code</button>
+                            <button class="btn-copy" onclick="copyCode('total([2, 3, 5, 10])')">📄 Copy Code</button>
                         </h3>
-                        <p>Calculate the total sum of the values: <strong>[5, 5, 5, 10, 10]</strong>.</p>
+                        <p>Calculate the total sum of the values: <strong>[2, 3, 5, 10]</strong>.</p>
                         <div class="sat-option-grid">
-                            <div class="sat-option">(A) 30</div>
-                            <div class="sat-option">(B) 35</div>
-                            <div class="sat-option">(C) 40</div>
-                            <div class="sat-option">(D) 45</div>
+                            <div class="sat-option">(A) 15</div>
+                            <div class="sat-option">(B) 20</div>
+                            <div class="sat-option">(C) 25</div>
+                            <div class="sat-option">(D) 30</div>
                         </div>
                     </div>
 
                     <details class="practix-reveal">
                         <summary></summary>
                         <div class="solution-content">
-                            <p>Instant addition. <strong>Answer: 35</strong>. Essential for "weighted average" manual
-                                setups.</p>
-
-                            <img src="../../assets/images/desmos/lists-total-sum.png" alt="Desmos Total Sum Solution"
-                                style="width: 100%; max-width: 450px; display: block; margin: 1.5rem auto; border-radius: 12px; border: 1px solid #e5e7eb;">
-
+                            <p>Instant addition. <strong>Answer: 20</strong>.</p>
                             <div class="final-answer-box">
                                 <h4><span>✅</span> Final Answer:</h4>
-                                <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">35 (Choice B)</p>
+                                <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">20 (Choice B)</p>
                             </div>
                         </div>
                     </details>
@@ -395,29 +390,34 @@
                     <div class="sat-problem-card">
                         <h3 class="sat-problem-header">
                             <span>📝</span> SAT Problem
-                            <button class="btn-copy" onclick="copyCode('stdevp([2, 4, 6, 8])')">📄 Copy Code</button>
+                            <button class="btn-copy" onclick="copyCode('stdevp([10, 10, 20, 20])')">📄 Copy
+                                Code</button>
                         </h3>
-                        <p>What is the <strong>standard deviation</strong> of the set <strong>[2, 4, 6, 8]</strong>?</p>
+                        <p>What is the <strong>standard deviation</strong> of the set <strong>[10, 10, 20, 20]</strong>?
+                        </p>
                         <div class="sat-option-grid">
-                            <div class="sat-option">(A) 2</div>
-                            <div class="sat-option">(B) 2.24</div>
-                            <div class="sat-option">(C) 2.58</div>
-                            <div class="sat-option">(D) 5</div>
+                            <div class="sat-option">(A) 2.5</div>
+                            <div class="sat-option">(B) 5</div>
+                            <div class="sat-option">(C) 10</div>
+                            <div class="sat-option">(D) 15</div>
                         </div>
                     </div>
 
                     <details class="practix-reveal">
                         <summary></summary>
                         <div class="solution-content">
-                            <p>Use <code>stdevp</code> (population) unless the problem says "sample".</p>
-
-                            <img src="../../assets/images/desmos/lists-stdevp.png"
-                                alt="Desmos Standard Deviation Solution"
-                                style="width: 100%; max-width: 450px; display: block; margin: 1.5rem auto; border-radius: 12px; border: 1px solid #e5e7eb;">
-
+                            <div class="solution-step">
+                                <h4>Step 1: Define the List</h4>
+                                <p>Type <code>L = [10, 10, 20, 20]</code>.</p>
+                            </div>
+                            <div class="solution-step">
+                                <h4>Step 2: Calculate Stdev</h4>
+                                <p>Type <code>stdevp(L)</code>.</p>
+                                <p>Desmos calculates: <strong>5</strong></p>
+                            </div>
                             <div class="final-answer-box">
                                 <h4><span>✅</span> Final Answer:</h4>
-                                <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">2.24 (Choice B)</p>
+                                <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">5 (Choice B)</p>
                             </div>
                         </div>
                     </details>

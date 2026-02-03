@@ -1664,6 +1664,7 @@ input[type=range]::-webkit-slider-runnable-track {
     display: inline-flex;
     align-items: center;
     margin-left: auto;
+    /* Push to right by default */
 }
 
 .btn-copy:hover {
@@ -1680,7 +1681,15 @@ input[type=range]::-webkit-slider-runnable-track {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    margin-right: 0.5rem;
+    margin-right: 0 !important;
+    /* Reset specific spacing */
+    margin-left: auto !important;
+    /* This takes over the push */
+}
+
+/* When Copy follows Try It, remove Copy's auto margin so they stick together */
+.try-it-btn+.btn-copy {
+    margin-left: 0.5rem !important;
 }
 
 .try-it-btn:hover {

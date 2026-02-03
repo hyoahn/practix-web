@@ -4,92 +4,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Solver Desmos Hack | Practix</title>
-    <meta name="description" content="Master the Desmos SAT Calculator for the SAT Math hardest questions. Learn essential SAT math formulas and hacks.">
-    <link rel="stylesheet" href="../../assets/styles/styles.css?v=24">
+    <!-- SEO Meta Tags -->
+    <title>SAT Desmos System Solver: Instant Intersection Hacks | Practix</title>
+    <meta name="description"
+        content="Master the System Solver hack on the Desmos SAT calculator. Learn how to find intersections and solve for variables instantly without substitution.">
+
+    <link rel="stylesheet" href="../../assets/styles/styles.css?v=26">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
         rel="stylesheet">
+
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.min.js"></script>
     <script src="../../assets/scripts/practix-nav.js?v=23"></script>
-    <script src="../../assets/scripts/sidebar.js?v=26"></script>
+    <script src="../../assets/scripts/sidebar.js"></script>
     <script src="../../assets/scripts/practix-footer.js?v=23"></script>
-    <script src="../../assets/scripts/analytics.js?v=24"></script>
-    <script src="../../assets/scripts/pulse-relay.js?v=24"></script>
+    <script src="../../assets/scripts/pulse-relay.js?v=26"></script>
+    <script src="../../assets/scripts/analytics.js?v=26"></script>
     <script src="../../assets/scripts/floating-calculator.js"></script>
 
     <style>
-        .hack-section {
+        .technique-section {
             background: #f0fdf4;
             border-left: 4px solid #10b981;
             padding: 2.5rem;
             border-radius: 16px;
             margin-bottom: 3rem;
+            position: relative;
         }
 
-        .hack-title {
-            color: #1f2937;
-            font-size: 1.5rem;
-            font-weight: 700;
+        .magic-code-container {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .hack-description {
-            color: #374151;
-            font-size: 1.1rem;
+            gap: 1rem;
             margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .magic-code-box {
             background: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .magic-code {
             font-family: 'JetBrains Mono', 'Fira Code', monospace;
             font-size: 1.5rem;
             font-weight: 700;
             color: #374151;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            flex-grow: 1;
         }
 
         .practix-reveal summary {
             background: #ef4444 !important;
-            /* Red Button */
             color: white !important;
             border-radius: 8px !important;
             font-weight: 700 !important;
             padding: 0.75rem 1.5rem !important;
         }
 
-        .practix-reveal[open] summary {
-            background: #dc2626 !important;
+        .solution-step {
+            margin-bottom: 1.5rem;
         }
 
-        .practix-reveal summary::before {
-            content: "Click to reveal Desmos Solve";
-        }
-
-        .practix-reveal[open] summary::before {
-            content: "Click to hide Desmos Solve";
-        }
-
-        .solution-box {
-            background: #f0fdf4;
-            border: 1px solid #bbf7d0;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-top: 1.5rem;
-            color: #166534;
+        .solution-step h4 {
+            color: #10b981;
+            margin-bottom: 0.5rem;
             font-size: 1.1rem;
+        }
+
+        .final-answer-box {
+            background: #f0fdf4;
+            border: 2px solid #10b981;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .final-answer-box h4 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
     </style>
 </head>
@@ -98,7 +94,10 @@
     <div class="page-bg"></div>
 
     <div class="page-container">
+        <!-- 1. NARROW RAIL -->
         <aside class="narrow-rail" id="narrow-rail"></aside>
+
+        <!-- 2. COMMAND SIDEBAR -->
         <aside class="command-sidebar">
             <div class="sidebar-search-container">
                 <span class="search-icon-fixed">🔍</span>
@@ -107,6 +106,7 @@
             <div id="sidebar-tree" style="flex: 1; overflow-y: auto;"></div>
         </aside>
 
+        <!-- 3. MAIN STAGE -->
         <main class="main-stage">
             <div class="stage-content-scroll">
                 <header class="hero-section">
@@ -117,32 +117,80 @@
                     <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">System <span class="gradient-text">Solver</span>
                     </h1>
                     <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px;">
-                        Solve systems of linear equations instantly.
+                        Solve systems of linear equations instantly. No substitution, no elimination. Just the gray
+                        dots.
                     </p>
                 </header>
 
-                <section class="hack-section">
-                    <h2 class="hack-title"><span>⚔️</span> System Solver Hack</h2>
-                    <p class="hack-description">Don't use substitution. Just type the equations.</p>
+                <section class="technique-section">
+                    <h2 style="color: #1e40af; margin-bottom: 1.5rem;"><span>⚔️</span> The Intersection Hack</h2>
+                    <p>Don't use substitution. Just type the equations and click the intersection.</p>
 
-                    <div class="magic-code-box">
-                        <div style="text-align: left;">
-                            2x + 3y = 12<br>
-                            y = x - 1
+                    <div class="magic-code-container">
+                        <div class="magic-code" id="system-code">2x + 3y = 12, y = x - 1</div>
+                        <button class="btn-copy" onclick="copyCode('2x + 3y = 12\ny = x - 1')">📄 Copy Code</button>
+                    </div>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header"><span>📝</span> SAT Problem</h3>
+                        <div style="text-align: center; margin: 2rem 0; font-size: 1.25rem;">
+                            \[ 2x + 3y = 12 \]
+                            \[ y = x - 1 \]
+                        </div>
+                        <p>The system of equations above has solution \((x, y)\). What is the value of \(5x\)?</p>
+
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) 2</div>
+                            <div class="sat-option">(B) 3</div>
+                            <div class="sat-option">(C) 15</div>
+                            <div class="sat-option">(D) 25</div>
                         </div>
                     </div>
 
                     <details class="practix-reveal">
                         <summary></summary>
-                        <div class="solution-box">
-                            <p style="margin: 0;">Type them in two lines. Hover over the intersection point to see
-                                <strong>(3, 2)</strong>. Done.</p>
+                        <div class="solution-content">
+                            <div class="solution-step">
+                                <h4>Step 1: Type Equations Exactly</h4>
+                                <p>Don't rearrange for \(y\). Just type them into two separate lines in Desmos.</p>
+                                <div
+                                    style="color: #10b981; font-family: monospace; font-weight: 700; font-size: 1.2rem; margin: 1rem 0; background: white; padding: 1rem; border-radius: 8px;">
+                                    2x + 3y = 12<br>
+                                    y = x - 1
+                                </div>
+                            </div>
+
+                            <div class="solution-step">
+                                <h4>Step 2: Find Intersection</h4>
+                                <p>Click the point where the lines cross. Desmos displays a gray dot at <strong>(3,
+                                        2)</strong>.</p>
+                                <img src="../../assets/images/desmos/system-solver-desmos.png"
+                                    alt="Desmos System Solver Solution"
+                                    style="width: 100%; border-radius: 12px; margin: 1.5rem 0; border: 1px solid #dcfce7;">
+                                <p>The question asks for \(5x\). Since \(x = 3\), the answer is \(5(3) = 15\).</p>
+                            </div>
+
+                            <div class="final-answer-box">
+                                <h4><span>✅</span> Final Answer:</h4>
+                                <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">15 (Answer choice C)</p>
+                            </div>
                         </div>
                     </details>
                 </section>
             </div>
         </main>
     </div>
+
+    <script>
+        function copyCode(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = event.target;
+                const originalText = btn.innerText;
+                btn.innerText = '✅ Copied!';
+                setTimeout(() => btn.innerText = originalText, 2000);
+            });
+        }
+    </script>
 </body>
 
 </html>

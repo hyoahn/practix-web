@@ -72,7 +72,10 @@
                     <p><strong>Problem:</strong> Function \(g(x) = (x-2)^2 + k\) passes through (0, 5). Find \(k\).</p>
                     <div class="magic-code">g(x) = (x-2)^2 + k</div>
                     <div class="sat-problem-card">
-                        <h3 class="sat-problem-header"><span>📝</span> SAT Problem</h3>
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
+                            <button class="btn-copy" onclick="copyCode('g(x) = (x-2)^2 + k')">📄 Copy Code</button>
+                        </h3>
                         <p>Function \(g(x) = (x-2)^2 + k\) passes through the point <strong>(0, 5)</strong>. Find the
                             value of \(k\).</p>
                     </div>
@@ -80,21 +83,24 @@
                         <summary></summary>
                         <div class="solution-content">
                             <div class="solution-step">
-                                <h4>Step 1: Enter the Function</h4>
-                                <p>Type <code>g(x) = (x-2)^2 + k</code>.</p>
+                                <h4>Step 1: Enter Function & Add Slider</h4>
+                                <p>Type <code>g(x) = (x-2)^2 + k</code>. Desmos will ask to add a slider.</p>
+                                <img src="../../assets/images/desmos/slider-trick-1.png" alt="Desmos Add Slider Prompt"
+                                    style="width: 100%; max-width: 450px; display: block; margin: 1rem auto; border-radius: 8px; border: 1px solid #ddd6fe;">
+                                <p>Click the blue <strong>"k"</strong> button.</p>
                             </div>
                             <div class="solution-step">
-                                <h4>Step 2: Add Slider</h4>
-                                <p>Desmos will say "Too many variables". Click the blue button that says <strong>"add
-                                        slider:
-                                        k"</strong>.</p>
-                                <p><em>Alternatively, type <code>k=1</code> on a new line.</em></p>
+                                <h4>Step 2: Slide to Find Match</h4>
+                                <p>Move the slider. As <code>k</code> changes, the parabola shifts up and down.</p>
+                                <img src="../../assets/images/desmos/slider-trick-2.png" alt="Desmos Slider Interaction"
+                                    style="width: 100%; max-width: 450px; display: block; margin: 1rem auto; border-radius: 8px; border: 1px solid #ddd6fe;">
                             </div>
                             <div class="solution-step">
-                                <h4>Step 3: Solve</h4>
-                                <p>Drag the slider until the curve passes through (0, 5). You will see
-                                    <strong>k=1</strong>.
-                                </p>
+                                <h4>Step 3: Lock in the Value</h4>
+                                <p>Adjust until the graph passes through exactly <strong>(0, 5)</strong>.</p>
+                                <img src="../../assets/images/desmos/slider-trick-3.png" alt="Desmos Slider Solved"
+                                    style="width: 100%; max-width: 450px; display: block; margin: 1rem auto; border-radius: 8px; border: 1px solid #ddd6fe;">
+                                <p>The slider value is <strong>1</strong>.</p>
                             </div>
                             <div class="final-answer-box">
                                 <h4><span>✅</span> Final Answer:</h4>

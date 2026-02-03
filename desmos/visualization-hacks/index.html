@@ -122,10 +122,11 @@
                     <div class="sat-problem-card">
                         <h3 class="sat-problem-header">
                             <span>📝</span> SAT Problem
-                            <button class="btn-copy" onclick="copyCode('y > 2x + 1')">📄 Copy Code</button>
+                            <button class="btn-copy" onclick="copyCode('y > 2x + 1\ny < -x + 5')">📄 Copy Code</button>
                         </h3>
-                        <p>Which quadrant contains the solution to the system <strong>y > 2x + 1</strong> and <strong>y
-                                < -x + 5</strong>?</p>
+                        <p>The solution to the system <strong>y > 2x + 1</strong> and <strong>y < -x + 5</strong>
+                                    contains
+                                    points in every quadrant <strong>EXCEPT</strong>:</p>
                         <div class="sat-option-grid">
                             <div class="sat-option">(A) Quadrant I</div>
                             <div class="sat-option">(B) Quadrant II</div>
@@ -133,6 +134,29 @@
                             <div class="sat-option">(D) Quadrant IV</div>
                         </div>
                     </div>
+
+                    <details class="practix-reveal">
+                        <summary></summary>
+                        <div class="solution-content">
+                            <div class="solution-step">
+                                <h4>Step 1: Graph the Inequalities</h4>
+                                <p>Type both equations into Desmos. Look for the <strong>overlapping shaded
+                                        region</strong>
+                                    (usually purple or darker color).</p>
+                                <img src="../../assets/images/desmos/inequality-map.png" alt="Desmos Inequality Shading"
+                                    style="width: 100%; max-width: 450px; display: block; margin: 1rem auto; border-radius: 8px; border: 1px solid #99f6e4;">
+                            </div>
+                            <div class="solution-step">
+                                <h4>Step 2: Check Quadrants</h4>
+                                <p>The shaded region exists in Top-Right (I), Top-Left (II), and Bottom-Left (III).</p>
+                                <p>It never crosses into the Bottom-Right (IV).</p>
+                            </div>
+                            <div class="final-answer-box">
+                                <h4><span>✅</span> Final Answer:</h4>
+                                <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">Quadrant IV (Choice D)</p>
+                            </div>
+                        </div>
+                    </details>
                 </section>
 
                 <div class="magic-code-container">

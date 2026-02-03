@@ -137,16 +137,24 @@
                         <summary></summary>
                         <div class="solution-content">
                             <div class="solution-step">
-                                <h4>Step 1: Filter the List</h4>
-                                <p>Use square brackets with a condition: <code>L[L > 12]</code>.</p>
+                                <h4>Step 1: The Logic Inside</h4>
+                                <p>Inside the brackets, Desmos checks <code>L > 12</code> for every number. It asks: "Is
+                                    10 > 12? No. Is 15 > 12? Yes."</p>
                             </div>
                             <div class="solution-step">
-                                <h4>Step 2: Count them</h4>
-                                <p>Wrap it in <code>length()</code>.</p>
-                                <img src="../../assets/images/desmos/lists-filter-desmos.png"
+                                <h4>Step 2: The Filter</h4>
+                                <p>The brackets <code>L[...]</code> act like a gate. They keep <strong>only</strong> the
+                                    numbers where the answer was "Yes". The list becomes <code>[15, 20]</code>.</p>
+                            </div>
+                            <div class="solution-step">
+                                <h4>Step 3: The Count</h4>
+                                <p>The <code>length(...)</code> function counts how many numbers survived the filter.
+                                </p>
+                                <img src="../../assets/images/desmos/lists-filter-detailed.png"
                                     alt="Desmos List Filter Solution"
                                     style="width: 100%; max-width: 450px; display: block; margin: 1.5rem auto; border-radius: 12px; border: 1px solid #e5e7eb;">
-                                <p>Result: <strong>2</strong> (Length of the filtered list).</p>
+                                <p>The calculator shows <strong>2</strong> because there are two numbers (15 and 20)
+                                    greater than 12.</p>
                             </div>
                             <div class="final-answer-box">
                                 <h4><span>✅</span> Final Answer:</h4>

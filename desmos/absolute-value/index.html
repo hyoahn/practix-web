@@ -120,25 +120,73 @@
                     </p>
                 </header>
 
-                <section class="hack-section">
-                    <h2 class="hack-title"><span>📏</span> Absolute Value Hack</h2>
-                    <p class="hack-description">Don't split into two cases. Just graph it.</p>
+                <section class="technique-section">
+                    <h2 style="color: #1e40af; margin-bottom: 1.5rem;"><span>📏</span> Absolute Value Hack</h2>
+                    <p>Don't split into two cases. Just graph it.</p>
 
-                    <div class="magic-code-box">
-                        y = |2x - 5| - 7
+                    <div class="magic-code-container">
+                        <div class="magic-code" id="abs-code">y = |2x - 5| - 7</div>
+                        <button class="btn-copy" onclick="copyCode('|2x - 5| - 7 = 0')">📄 Copy Code</button>
+                    </div>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header"><span>📝</span> SAT Problem</h3>
+                        <div style="text-align: center; margin: 2rem 0; font-size: 1.25rem;">
+                            \[ |2x - 5| - 7 = 0 \]
+                        </div>
+                        <p>What is the sum of the solutions to the given equation?</p>
+
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) 5</div>
+                            <div class="sat-option">(B) 6</div>
+                            <div class="sat-option">(C) 7</div>
+                            <div class="sat-option">(D) 12</div>
+                        </div>
                     </div>
 
                     <details class="practix-reveal">
                         <summary></summary>
-                        <div class="solution-box">
-                            <p style="margin: 0;">Type the equation. Look for where the V-shape crosses the x-axis.
-                                Done.</p>
+                        <div class="solution-content">
+                            <div class="solution-step">
+                                <h4>Step 1: Graph the Equation</h4>
+                                <p>Type the equation into Desmos exactly as seen. You can set it equal to 0 or graph \(y
+                                    = |2x - 5| - 7\).</p>
+                                <div
+                                    style="color: #10b981; font-family: monospace; font-weight: 700; font-size: 1.2rem; margin: 1rem 0; background: white; padding: 1rem; border-radius: 8px;">
+                                    |2x - 5| = 7
+                                </div>
+                            </div>
+
+                            <div class="solution-step">
+                                <h4>Step 2: Find the x-intercepts</h4>
+                                <p>Look for where the graph intersects the x-axis or the line \(y=7\).</p>
+                                <img src="../../assets/images/desmos/absolute-value-desmos.png"
+                                    alt="Desmos Absolute Value Solution"
+                                    style="width: 100%; max-width: 450px; display: block; margin: 1.5rem auto; border-radius: 12px; border: 1px solid #dcfce7;">
+                                <p>The solutions are \(x = -1\) and \(x = 6\).</p>
+                                <p>The sum is \(-1 + 6 = 5\).</p>
+                            </div>
+
+                            <div class="final-answer-box">
+                                <h4><span>✅</span> Final Answer:</h4>
+                                <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">5 (Answer choice A)</p>
+                            </div>
                         </div>
                     </details>
                 </section>
             </div>
         </main>
     </div>
-</body>
+
+    <script>
+        function copyCode(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = event.target;
+                const originalText = btn.innerText;
+                btn.innerText = '✅ Copied!';
+                setTimeout(() => btn.innerText = originalText, 2000);
+            });
+        }
+    </script>
 
 </html>

@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         { name: "System Solver", path: "desmos/system-solver/" },
                         { name: "Absolute Value Solves", path: "desmos/absolute-value/" },
                         { name: "Polynomial Roots", path: "desmos/poly-roots/" },
-                        { name: "Stats Lists", path: "desmos/lists-and-tables/" },
+
                         { name: "Poly-Solve Variables", path: "desmos/poly-solve/" },
                         { name: "Regression Secrets", path: "desmos/regression-secrets/" },
                         { name: "Logarithmic Regression", path: "desmos/log-reg/" },
@@ -113,13 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         { name: "Residual Plot", path: "desmos/residual-plot/" },
                         { name: "Prediction Value", path: "desmos/prediction-value/" },
                         { name: "Lists & Tables", path: "desmos/lists-and-tables/" },
-                        { name: "Total Sum", path: "desmos/lists-and-tables/#total-sum" },
-                        { name: "Min/Max Range", path: "desmos/lists-and-tables/#min-max" },
-                        { name: "Sort List", path: "desmos/lists-and-tables/#sort-list" },
-                        { name: "Percentiles", path: "desmos/lists-and-tables/#quantile" },
-                        { name: "Mean Abs Deviation", path: "desmos/lists-and-tables/#mad-stat" },
-                        { name: "Standard Deviation", path: "desmos/lists-and-tables/#stdev-pop" },
-                        { name: "Unique Values", path: "desmos/lists-and-tables/#unique-list" },
+
                         { name: "Visualization Hacks", path: "desmos/visualization-hacks/" },
                         { name: "Parametric Circle", path: "desmos/visualization-hacks/#parametric-circle" },
                         { name: "Polar Mode", path: "desmos/visualization-hacks/#polar-mode" },

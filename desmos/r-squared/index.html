@@ -133,7 +133,7 @@
                             style="display: flex; justify-content: space-between; align-items: center;">
                             <div><span>📝</span> SAT Problem</div>
                         </h3>
-                        <p>A physicist models experimental data. The Linear regression gives \(R^2 = 0.82\), while the
+                        <p>A physicist models experimental data. The Linear regression gives \(r = 0.82\), while the
                             Quadratic regression gives \(R^2 = 0.99\).</p>
                         <p>Which model is the most appropriate for this data?</p>
                         <div class="sat-option-grid">
@@ -147,7 +147,17 @@
                     <details class="practix-reveal">
                         <summary></summary>
                         <div class="solution-box">
-                            <p style="margin: 0;">If Linear R²=0.95 and Quadratic R²=0.99, choose Quadratic.</p>
+                            <div class="solution-step">
+                                <h4>Step 1: Compare R² Values</h4>
+                                <p>Linear: \(r = 0.82 \implies R^2 \approx 0.67\)</p>
+                                <p>Quadratic: \(R^2 = 0.99\)</p>
+                            </div>
+                            <div class="solution-step">
+                                <h4>Step 2: Choose the Closer to 1</h4>
+                                <p>0.99 is much closer to 1 than 0.67.</p>
+                                <p>Therefore, the Quadratic model fits better.</p>
+                                <p><strong>✅ Final Answer: (B)</strong></p>
+                            </div>
                         </div>
                     </details>
                 </section>

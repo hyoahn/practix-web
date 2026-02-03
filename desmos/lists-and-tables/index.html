@@ -144,7 +144,15 @@
                             <div class="solution-step">
                                 <h4>Step 2: The Filter</h4>
                                 <p>The brackets <code>L[...]</code> act like a gate. They keep <strong>only</strong> the
-                                    numbers where the answer was "Yes". The list becomes <code>[15, 20]</code>.</p>
+                                    numbers where the answer was "Yes".</p>
+                                <ul
+                                    style="list-style: none; padding-left: 0.5rem; margin: 0.5rem 0; font-family: monospace; font-size: 0.95rem; color: #4b5563;">
+                                    <li>❌ 10 > 12? No. (Discarded)</li>
+                                    <li>❌ 12 > 12? No. (Discarded)</li>
+                                    <li>✅ 15 > 12? Yes! (Kept)</li>
+                                    <li>✅ 20 > 12? Yes! (Kept)</li>
+                                </ul>
+                                <p style="margin-top: 0.5rem;">The list becomes <code>[15, 20]</code>.</p>
                             </div>
                             <div class="solution-step">
                                 <h4>Step 3: The Count</h4>

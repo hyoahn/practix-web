@@ -185,16 +185,32 @@
                 <section class="technique-section" id="total-sum">
                     <h2 style="color: #991b1b; margin-bottom: 1.5rem;">∑ Trick #6: The Total Sum</h2>
                     <p><strong>The Move:</strong> Set <code>L = [5, 5, 5, 10, 10]</code>.</p>
-                    <div class="magic-code">total(L)</div>
-                    <div class="sat-problem-card">
-                        <h3 class="sat-problem-header"><span>📝</span> SAT Scenario</h3>
-                        <p>Calculate the total sum of the values: <strong>[5, 5, 5, 10, 10]</strong>.</p>
+
+                    <div class="magic-code-container">
+                        <div class="magic-code">total(L)</div>
+                        <button class="btn-copy" onclick="copyCode('total(L)')">📄 Copy Code</button>
                     </div>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header"><span>📝</span> SAT Problem</h3>
+                        <p>Calculate the total sum of the values: <strong>[5, 5, 5, 10, 10]</strong>.</p>
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) 30</div>
+                            <div class="sat-option">(B) 35</div>
+                            <div class="sat-option">(C) 40</div>
+                            <div class="sat-option">(D) 45</div>
+                        </div>
+                    </div>
+
                     <details class="practix-reveal">
                         <summary></summary>
                         <div class="solution-content">
                             <p>Instant addition. <strong>Answer: 35</strong>. Essential for "weighted average" manual
                                 setups.</p>
+                            <div class="final-answer-box">
+                                <h4><span>✅</span> Final Answer:</h4>
+                                <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">35 (Choice B)</p>
+                            </div>
                         </div>
                     </details>
                 </section>
@@ -203,15 +219,31 @@
                     style="background: #f5f3ff; border-left-color: #8b5cf6;">
                     <h2 style="color: #5b21b6; margin-bottom: 1.5rem;">📏 Trick #7: Range Finder</h2>
                     <p><strong>Scenario:</strong> Find the range of a dataset.</p>
-                    <div class="magic-code" style="border-color: #ddd6fe;">max(L) - min(L)</div>
+
+                    <div class="magic-code-container">
+                        <div class="magic-code" style="border-color: #ddd6fe;">max(L) - min(L)</div>
+                        <button class="btn-copy" onclick="copyCode('max(L) - min(L)')">📄 Copy Code</button>
+                    </div>
+
                     <div class="sat-problem-card">
                         <h3 class="sat-problem-header"><span>📝</span> SAT Problem</h3>
-                        <p>Find the <strong>range</strong> of the dataset <strong>L</strong>.</p>
+                        <p>Find the <strong>range</strong> of the dataset <strong>L = [5, 5, 5, 10, 10]</strong>.</p>
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) 5</div>
+                            <div class="sat-option">(B) 10</div>
+                            <div class="sat-option">(C) 15</div>
+                            <div class="sat-option">(D) 20</div>
+                        </div>
                     </div>
+
                     <details class="practix-reveal">
                         <summary></summary>
                         <div class="solution-content">
                             <p>No need to search for the biggest and smallest numbers visually.</p>
+                            <div class="final-answer-box">
+                                <h4><span>✅</span> Final Answer:</h4>
+                                <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">5 (Choice A)</p>
+                            </div>
                         </div>
                     </details>
                 </section>

@@ -269,16 +269,54 @@
 
                 <section class="technique-section" id="quantile"
                     style="background: #ecfdf5; border-left-color: #10b981;">
-                    <h2 style="color: #047857; margin-bottom: 1.5rem;">🔢 Trick #9: Percentiles</h2>
-                    <div class="magic-code" style="border-color: #6ee7b7;">quantile([1, 2, 3, 4, 5], 0.75)</div>
-                    <div class="sat-problem-card">
-                        <h3 class="sat-problem-header"><span>📝</span> SAT Problem</h3>
-                        <p>Find the <strong>75th percentile (Q3)</strong> of the set [1, 2, 3, 4, 5].</p>
+                    <h2 style="color: #047857; margin-bottom: 1.5rem;">📊 Trick #3: Percentiles & Quartiles</h2>
+                    <p><strong>The Move:</strong> Use <code>quantile(L, p)</code> to find the p-th percentile instantly.
+                    </p>
+
+                    <div class="magic-code-container">
+                        <div class="magic-code">quantile(L, 0.75)</div>
                     </div>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
+                            <button class="btn-copy" onclick="copyCode('quantile(L, 0.75)')">📄 Copy Code</button>
+                        </h3>
+                        <p>Given the list <strong>L = [1, 2, 3, 4, 5]</strong>, what is the value of the 3rd quartile
+                            (Q3)?</p>
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) 2</div>
+                            <div class="sat-option">(B) 3</div>
+                            <div class="sat-option">(C) 4</div>
+                            <div class="sat-option">(D) 5</div>
+                        </div>
+                    </div>
+
                     <details class="practix-reveal">
                         <summary></summary>
                         <div class="solution-content">
-                            <p>Finds the 75th percentile (Q3) instantly. <strong>Answer: 4</strong>.</p>
+                            <div class="solution-step">
+                                <h4>Step 1: The Concept</h4>
+                                <p>The "3rd Quartile" (Q3) is the same thing as the <strong>75th Percentile</strong>.
+                                </p>
+                                <p>It represents the value that is greater than 75% of the data points.</p>
+                            </div>
+                            <div class="solution-step">
+                                <h4>Step 2: The Command</h4>
+                                <p>In Desmos, we use <code>quantile(List, Decimal)</code>.</p>
+                                <ul>
+                                    <li>For Q1 (25%), use <code>0.25</code>.</li>
+                                    <li>For Q3 (75%), use <code>0.75</code>.</li>
+                                </ul>
+                                <p>So, type <code>quantile(L, 0.75)</code>.</p>
+
+                                <img src="../../assets/images/desmos/lists-quantile.png" alt="Desmos Quantile Solution"
+                                    style="width: 100%; max-width: 450px; display: block; margin: 1.5rem auto; border-radius: 12px; border: 1px solid #e5e7eb;">
+                            </div>
+                            <div class="final-answer-box">
+                                <h4><span>✅</span> Final Answer:</h4>
+                                <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">4 (Choice C)</p>
+                            </div>
                         </div>
                     </details>
                 </section>
@@ -286,24 +324,89 @@
                 <section class="technique-section" id="mad-stat"
                     style="background: #eff6ff; border-left-color: #3b82f6;">
                     <h2 style="color: #1d4ed8; margin-bottom: 1.5rem;">📉 Trick #10: Mean Absolute Deviation</h2>
-                    <div class="magic-code" style="border-color: #93c5fd;">mad(L)</div>
-                    <p>Calculates the average distance from the mean. A rare but painful calculation to do by hand.</p>
+                    <p><strong>The Move:</strong> Use <code>mad(L)</code> to find the average distance from the mean.
+                    </p>
+
+                    <div class="magic-code-container">
+                        <div class="magic-code">mad(L)</div>
+                        <button class="btn-copy" onclick="copyCode('mad([2, 4, 6, 8])')">📄 Copy Code</button>
+                    </div>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
+                            <button class="btn-copy" onclick="copyCode('mad([2, 4, 6, 8])')">📄 Copy Code</button>
+                        </h3>
+                        <p>Calculate the <strong>Mean Absolute Deviation</strong> of the set <strong>[2, 4, 6,
+                                8]</strong>.</p>
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) 1</div>
+                            <div class="sat-option">(B) 2</div>
+                            <div class="sat-option">(C) 2.24</div>
+                            <div class="sat-option">(D) 4</div>
+                        </div>
+                    </div>
+
+                    <details class="practix-reveal">
+                        <summary></summary>
+                        <div class="solution-content">
+                            <p>Calculating this by hand takes forever. Desmos does it in one line.</p>
+                            <p><code>mad([2, 4, 6, 8]) = 2</code></p>
+                            <div class="final-answer-box">
+                                <h4><span>✅</span> Final Answer:</h4>
+                                <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">2 (Choice B)</p>
+                            </div>
+                        </div>
+                    </details>
                 </section>
 
                 <section class="technique-section" id="stdev-pop"
                     style="background: #fff1f2; border-left-color: #be123c;">
                     <h2 style="color: #9f1239; margin-bottom: 1.5rem;">📊 Trick #11: Standard Deviation</h2>
-                    <div class="magic-code" style="border-color: #fda4af;">stdevp([2, 4, 6, 8])</div>
-                    <div class="sat-problem-card">
-                        <h3 class="sat-problem-header"><span>📝</span> SAT Problem</h3>
-                        <p>What is the <strong>standard deviation</strong> of the set [2, 4, 6, 8]?</p>
+                    <p><strong>The Move:</strong> Use <code>stdevp(L)</code> for population standard deviation (what SAT
+                        usually wants).</p>
+
+                    <div class="magic-code-container">
+                        <div class="magic-code">stdevp(L)</div>
+                        <button class="btn-copy" onclick="copyCode('stdevp([2, 4, 6, 8])')">📄 Copy Code</button>
                     </div>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
+                            <button class="btn-copy" onclick="copyCode('stdevp([2, 4, 6, 8])')">📄 Copy Code</button>
+                        </h3>
+                        <p>What is the <strong>standard deviation</strong> of the set <strong>[2, 4, 6, 8]</strong>?</p>
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) 2</div>
+                            <div class="sat-option">(B) 2.24</div>
+                            <div class="sat-option">(C) 2.58</div>
+                            <div class="sat-option">(D) 5</div>
+                        </div>
+                    </div>
+
                     <details class="practix-reveal">
                         <summary></summary>
                         <div class="solution-content">
-                            <p>Use `stdevp` for population (SAT standard). <strong>Answer: 2.236</strong>.</p>
+                            <p>Use <code>stdevp</code> (population) unless the problem says "sample".</p>
+
+                            <img src="../../assets/images/desmos/lists-stdevp.png"
+                                alt="Desmos Standard Deviation Solution"
+                                style="width: 100%; max-width: 450px; display: block; margin: 1.5rem auto; border-radius: 12px; border: 1px solid #e5e7eb;">
+
+                            <div class="final-answer-box">
+                                <h4><span>✅</span> Final Answer:</h4>
+                                <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">2.24 (Choice B)</p>
+                            </div>
                         </div>
                     </details>
+                </section>
+                <details class="practix-reveal">
+                    <summary></summary>
+                    <div class="solution-content">
+                        <p>Use `stdevp` for population (SAT standard). <strong>Answer: 2.236</strong>.</p>
+                    </div>
+                </details>
                 </section>
 
                 <section class="technique-section" id="unique-list"

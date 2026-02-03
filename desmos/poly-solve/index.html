@@ -119,19 +119,49 @@
                     </p>
                 </header>
 
-                <section class="hack-section">
-                    <h2 class="hack-title"><span>⚡</span> Variable Solve Hack</h2>
-                    <p class="hack-description">Type the equation and define knowns with curly braces.</p>
+                <section class="technique-section" id="solve-k"
+                    style="background: #f0f9ff; border-left-color: #0ea5e9;">
+                    <h2 style="color: #0369a1; margin-bottom: 1.5rem;">⚡ Trick: The Regression Solver</h2>
+                    <p><strong>The Move:</strong> Don't use <code>=</code>. Use <code>~</code> (tilde) to make Desmos
+                        solve for any letter.</p>
 
-                    <div class="magic-code-box">
-                        4x + 2k = 18 <br> {x=3}
+                    <div class="magic-code-container">
+                        <div class="magic-code">18 ~ 4(3) + 2k</div>
+                        <button class="btn-copy" onclick="copyCode('18 ~ 4(3) + 2k')">📄 Copy Code</button>
+                    </div>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header">
+                            <span>📝</span> SAT Problem
+                            <button class="btn-copy" onclick="copyCode('18 ~ 4(3) + 2k')">📄 Copy Code</button>
+                        </h3>
+                        <p>If \(4x + 2k = 18\) and \(x = 3\), what is the value of \(k\)?</p>
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) 2</div>
+                            <div class="sat-option">(B) 3</div>
+                            <div class="sat-option">(C) 4.5</div>
+                            <div class="sat-option">(D) 6</div>
+                        </div>
                     </div>
 
                     <details class="practix-reveal">
                         <summary></summary>
-                        <div class="solution-box">
-                            <p style="margin: 0;">Desmos automatically solves for the unknown. Answer: <strong>k =
-                                    3</strong>.</p>
+                        <div class="solution-content">
+                            <div class="solution-step">
+                                <h4>Why the original failed?</h4>
+                                <p>If you type <code>4x + 2k = 18</code>, Desmos gets confused because it expects a
+                                    graph of x and y.</p>
+                            </div>
+                            <div class="solution-step">
+                                <h4>The Regression Fix (~)</h4>
+                                <p>By swapping <code>=</code> for <code>~</code>, you tell Desmos: <em>"Find the value
+                                        of k that makes this true."</em></p>
+                                <p>It gives you <strong>k = 3</strong> instantly.</p>
+                            </div>
+                            <div class="final-answer-box">
+                                <h4><span>✅</span> Final Answer:</h4>
+                                <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">3 (Choice B)</p>
+                            </div>
                         </div>
                     </details>
                 </section>

@@ -119,25 +119,72 @@
                     </p>
                 </header>
 
-                <section class="hack-section">
-                    <h2 class="hack-title"><span>🌱</span> Finding Roots Hack</h2>
-                    <p class="hack-description">Don't use synthetic division. Just type the polynomial.</p>
+                <section class="technique-section">
+                    <h2 style="color: #c2410c; margin-bottom: 1.5rem;"><span>🌱</span> Finding Roots Hack</h2>
+                    <p>Don't use synthetic division. Just type the polynomial.</p>
 
-                    <div class="magic-code-box">
-                        y = x^3 - 4x^2 + x + 6
+                    <div class="magic-code-container">
+                        <div class="magic-code" id="poly-code">y = x^3 - 4x^2 + x + 6</div>
+                        <button class="btn-copy" onclick="copyCode('y = x^3 - 4x^2 + x + 6')">📄 Copy Code</button>
+                    </div>
+
+                    <div class="sat-problem-card">
+                        <h3 class="sat-problem-header"><span>📝</span> SAT Problem</h3>
+                        <div style="text-align: center; margin: 2rem 0; font-size: 1.25rem;">
+                            \[ x^3 - 4x^2 + x + 6 = 0 \]
+                        </div>
+                        <p>One of the solutions to the given equation can be written as \(x\). Which of the following is
+                            a possible value for \(x\)?</p>
+
+                        <div class="sat-option-grid">
+                            <div class="sat-option">(A) -1</div>
+                            <div class="sat-option">(B) 0</div>
+                            <div class="sat-option">(C) 1</div>
+                            <div class="sat-option">(D) 4</div>
+                        </div>
                     </div>
 
                     <details class="practix-reveal">
                         <summary></summary>
-                        <div class="solution-box">
-                            <p style="margin: 0;">Click the dots on the x-axis. The roots are <strong>-1, 2, 3</strong>.
-                                Factors are (x+1), (x-2), (x-3).</p>
+                        <div class="solution-content">
+                            <div class="solution-step">
+                                <h4>Step 1: Graph the Polynomial</h4>
+                                <p>Type the equation exactly as given.</p>
+                                <div
+                                    style="color: #c2410c; font-family: monospace; font-weight: 700; font-size: 1.2rem; margin: 1rem 0; background: white; padding: 1rem; border-radius: 8px;">
+                                    y = x^3 - 4x^2 + x + 6
+                                </div>
+                            </div>
+
+                            <div class="solution-step">
+                                <h4>Step 2: Click the x-intercepts</h4>
+                                <p>The roots are the points where the graph crosses the x-axis.</p>
+                                <img src="../../assets/images/desmos/poly-roots-desmos.png"
+                                    alt="Desmos Polynomial Roots Solution"
+                                    style="width: 100%; max-width: 450px; display: block; margin: 1.5rem auto; border-radius: 12px; border: 1px solid #fed7aa;">
+                                <p>Desmos shows roots at <strong>x = -1, 2, and 3</strong>.</p>
+                            </div>
+
+                            <div class="final-answer-box">
+                                <h4><span>✅</span> Final Answer:</h4>
+                                <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">-1 (Answer choice A)</p>
+                            </div>
                         </div>
                     </details>
                 </section>
             </div>
         </main>
     </div>
+    <script>
+        function copyCode(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = event.target;
+                const originalText = btn.innerText;
+                btn.innerText = '✅ Copied!';
+                setTimeout(() => btn.innerText = originalText, 2000);
+            });
+        }
+    </script>
 </body>
 
 </html>

@@ -69,40 +69,67 @@
 
                 <section class="technique-section" id="stats">
                     <h2 style="color: #991b1b; margin-bottom: 1.5rem;">📊 Trick #4: Statistical Visualization</h2>
-                    <p><strong>The Move:</strong> Use <code>L = [10, 12, 12, 15, 20]</code> to handle large datasets
-                        instantly.</p>
-                    <div class="magic-code">median(L)</div>
-                    <div class="magic-code">mean(L)</div>
-                    <div class="magic-code">boxplot(L)</div>
+                    <p><strong>The Move:</strong> Use <code>L = [...]</code> to handle large datasets instantly.</p>
+
+                    <div class="magic-code-container">
+                        <div class="magic-code" id="list-code">L = [10, 12, 12, 15, 20]</div>
+                        <button class="btn-copy" onclick="copyCode('L = [10, 12, 12, 15, 20]')">📄 Copy Code</button>
+                    </div>
+
                     <div class="sat-problem-card">
                         <h3 class="sat-problem-header"><span>📝</span> SAT Scenario</h3>
-                        <p>You have a large data set: <strong>L = [10, 12, 12, 15, 20]</strong>. Find the mean and
-                            median instantly.</p>
+                        <p>You have a data set: <strong>L = [10, 12, 12, 15, 20]</strong>. Find the mean and median.</p>
                     </div>
+
                     <details class="practix-reveal">
                         <summary></summary>
                         <div class="solution-content">
-                            <p>Never cross off numbers by hand again. For this list, <strong>Mean = 13.8</strong> and
-                                <strong>Median = 12</strong>. Desmos finds the center in 2 seconds.
-                            </p>
+                            <div class="solution-step">
+                                <h4>Step 1: Define the List</h4>
+                                <p>Type <code>L = [10, 12, 12, 15, 20]</code>.</p>
+                            </div>
+                            <div class="solution-step">
+                                <h4>Step 2: Type stats functions</h4>
+                                <p>Type <code>mean(L)</code> and <code>median(L)</code>.</p>
+                                <img src="../../assets/images/desmos/lists-stats-desmos.png"
+                                    alt="Desmos List Stats Solution"
+                                    style="width: 100%; max-width: 450px; display: block; margin: 1.5rem auto; border-radius: 12px; border: 1px solid #e5e7eb;">
+                                <p><strong>Mean = 13.8</strong> and <strong>Median = 12</strong>.</p>
+                            </div>
                         </div>
                     </details>
                 </section>
 
-                <section class="technique-section" id="filter" style="background: #f5f3ff; border-left-color: #8b5cf6;">
+                <section class="technique-section" id="filter">
                     <h2 style="color: #5b21b6; margin-bottom: 1.5rem;">🧬 Trick #5: The List Filter</h2>
                     <p><strong>Scenario:</strong> "In the list above, how many integers are greater than 12?"</p>
-                    <div class="magic-code" style="border-color: #ddd6fe;">length(L[L > 12])</div>
+
+                    <div class="magic-code-container">
+                        <div class="magic-code" id="filter-code">length(L[L > 12])</div>
+                        <button class="btn-copy" onclick="copyCode('length(L[L > 12])')">📄 Copy Code</button>
+                    </div>
+
                     <div class="sat-problem-card">
                         <h3 class="sat-problem-header"><span>📝</span> SAT Problem</h3>
                         <p>"In the list <strong>L = [10, 12, 12, 15, 20]</strong>, how many integers are greater than
                             12?"</p>
                     </div>
+
                     <details class="practix-reveal">
                         <summary></summary>
                         <div class="solution-content">
-                            <p>This filters the list to [15, 20] and counts them. <strong>Answer: 2</strong>. Perfect
-                                for hard Module 2 statistics questions.</p>
+                            <div class="solution-step">
+                                <h4>Step 1: Filter the List</h4>
+                                <p>Use square brackets with a condition: <code>L[L > 12]</code>.</p>
+                            </div>
+                            <div class="solution-step">
+                                <h4>Step 2: Count them</h4>
+                                <p>Wrap it in <code>length()</code>.</p>
+                                <img src="../../assets/images/desmos/lists-filter-desmos.png"
+                                    alt="Desmos List Filter Solution"
+                                    style="width: 100%; max-width: 450px; display: block; margin: 1.5rem auto; border-radius: 12px; border: 1px solid #e5e7eb;">
+                                <p>Result: <strong>2</strong> (Length of the filtered list).</p>
+                            </div>
                         </div>
                     </details>
                 </section>
@@ -207,8 +234,16 @@
         </main>
     </div>
 
-    <!-- Hidden Footer (Reflow system will grab it) -->
-    <footer style="display: none;"></footer>
+    <script>
+        function copyCode(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = event.target;
+                const originalText = btn.innerText;
+                btn.innerText = '✅ Copied!';
+                setTimeout(() => btn.innerText = originalText, 2000);
+            });
+        }
+    </script>
 </body>
 
 </html>

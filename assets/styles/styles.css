@@ -1589,3 +1589,49 @@ input[type=range]::-webkit-slider-runnable-track {
         transform: translateY(0);
     }
 }
+
+/* --- MAGIC CODE & SOLUTION STYLES (Migrated for Consistency) --- */
+.magic-code-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.magic-code {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #374151;
+    flex-grow: 1;
+}
+
+.solution-step {
+    margin-bottom: 1.5rem;
+}
+
+.solution-step h4 {
+    color: #10b981;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.final-answer-box {
+    background: #f0fdf4;
+    border: 2px solid #10b981;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+
+.final-answer-box h4 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}

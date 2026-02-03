@@ -115,13 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         { name: "Lists & Tables", path: "desmos/lists-and-tables/" },
 
                         { name: "Visualization Hacks", path: "desmos/visualization-hacks/" },
-                        { name: "Parametric Circle", path: "desmos/visualization-hacks/#parametric-circle" },
-                        { name: "Polar Mode", path: "desmos/visualization-hacks/#polar-mode" },
-                        { name: "Implicit Shading", path: "desmos/visualization-hacks/#implicit-shade" },
-                        { name: "Intersection Click", path: "desmos/visualization-hacks/#intersection-click" },
-                        { name: "Zoom Fit", path: "desmos/visualization-hacks/#zoom-hack" },
-                        { name: "Trig Grid", path: "desmos/visualization-hacks/#grid-pi" },
-                        { name: "Connect Points", path: "desmos/visualization-hacks/#connect-dots" },
                         { name: "Inequality Shading", path: "desmos/inequality-shading/" },
                         { name: "Mean vs Median", path: "desmos/mean-vs-median/" }
                     ]

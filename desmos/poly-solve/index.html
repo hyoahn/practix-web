@@ -119,21 +119,23 @@
                     </p>
                 </header>
 
-                <section class="technique-section" id="solve-k"
-                    style="background: #f0f9ff; border-left-color: #0ea5e9;">
-                    <h2 style="color: #0369a1; margin-bottom: 1.5rem;">⚡ Trick: The Regression Solver</h2>
-                    <p><strong>The Move:</strong> Don't use <code>=</code>. Use <code>~</code> (tilde) to make Desmos
-                        solve for any letter.</p>
+                <section class="technique-section" id="solve-k">
+                    <h2 class="hack-title"><span>⚡</span> The "Variables to y" Trick</h2>
+                    <p class="hack-description"><strong>The Problem:</strong> Desmos doesn't natively solve for
+                        variables like \(k\), \(m\), or \(a\). It expects \(x\) and \(y\).</p>
+                    <p class="hack-description"><strong>The Move:</strong> Simply replace the unknown letter (e.g.,
+                        \(k\)) with \(y\). Then find the intersection.</p>
 
                     <div class="magic-code-container">
-                        <div class="magic-code">18 ~ 4(3) + 2k</div>
-                        <button class="btn-copy" onclick="copyCode('18 ~ 4(3) + 2k')">📄 Copy Code</button>
+                        <div class="magic-code">4x + 2y = 18</div>
+                        <br>
+                        <div class="magic-code">x = 3</div>
+                        <button class="btn-copy" onclick="copyCode('4x + 2y = 18')">📄 Copy Eq 1</button>
                     </div>
 
                     <div class="sat-problem-card">
                         <h3 class="sat-problem-header">
                             <span>📝</span> SAT Problem
-                            <button class="btn-copy" onclick="copyCode('18 ~ 4(3) + 2k')">📄 Copy Code</button>
                         </h3>
                         <p>If \(4x + 2k = 18\) and \(x = 3\), what is the value of \(k\)?</p>
                         <div class="sat-option-grid">
@@ -148,15 +150,20 @@
                         <summary></summary>
                         <div class="solution-content">
                             <div class="solution-step">
-                                <h4>Why the original failed?</h4>
-                                <p>If you type <code>4x + 2k = 18</code>, Desmos gets confused because it expects a
-                                    graph of x and y.</p>
+                                <h4>Step 1: Swap k for y</h4>
+                                <p>Type <code>4x + 2y = 18</code> instead of using k.</p>
                             </div>
                             <div class="solution-step">
-                                <h4>The Regression Fix (~)</h4>
-                                <p>By swapping <code>=</code> for <code>~</code>, you tell Desmos: <em>"Find the value
-                                        of k that makes this true."</em></p>
-                                <p>It gives you <strong>k = 3</strong> instantly.</p>
+                                <h4>Step 2: Type the known value</h4>
+                                <p>Type <code>x = 3</code> on the next line.</p>
+                            </div>
+                            <div class="solution-step">
+                                <h4>Step 3: Click the Dot</h4>
+                                <p>Find the intersection point. The y-value is your answer.</p>
+                                <img src="../../assets/images/desmos/poly-solve-desmos.png"
+                                    alt="Desmos Poly Solve Solution"
+                                    style="width: 100%; max-width: 450px; display: block; margin: 1.5rem auto; border-radius: 12px; border: 1px solid #bae6fd;">
+                                <p>The intersection is at <strong>(3, 3)</strong>, so <strong>k = 3</strong>.</p>
                             </div>
                             <div class="final-answer-box">
                                 <h4><span>✅</span> Final Answer:</h4>

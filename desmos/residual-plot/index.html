@@ -137,15 +137,48 @@
                         <h3 class="sat-problem-header"
                             style="display: flex; justify-content: space-between; align-items: center;">
                             <div><span>📝</span> SAT Problem</div>
+                            <button class="btn-copy"
+                                onclick="navigator.clipboard.writeText('1\t8\n2\t4\n3\t2\n4\t4\n5\t8')"
+                                style="font-size: 0.8rem; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; border: 1px solid #ea580c; background: white; color: #9a3412; font-weight: 600;">📄
+                                Copy Data</button>
                         </h3>
-                        <p>A data set is fit with a linear model. The residual plot shows a clear U-shaped pattern of
-                            points.</p>
-                        <p>What does this pattern indicate about the linear model?</p>
+                        <p>Fit a Linear Regression to the data below. Is the linear model appropriate?</p>
+                        <table
+                            style="width: 100%; max-width: 200px; margin: 1rem auto; text-align: center; border-collapse: collapse;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid #e5e7eb;">
+                                    <th style="padding: 0.5rem;">x</th>
+                                    <th style="padding: 0.5rem;">y</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>8</td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <div class="sat-option-grid">
-                            <div class="sat-option" style="font-size: 0.9rem;">(A) It is a perfect fit</div>
-                            <div class="sat-option" style="font-size: 0.9rem;">(B) The data is random</div>
-                            <div class="sat-option" style="font-size: 0.9rem;">(C) A non-linear model is needed</div>
-                            <div class="sat-option" style="font-size: 0.9rem;">(D) The correlation is zero</div>
+                            <div class="sat-option" style="font-size: 0.9rem;">(A) Yes, random residuals</div>
+                            <div class="sat-option" style="font-size: 0.9rem;">(B) Yes, \(R^2 = 1\)</div>
+                            <div class="sat-option" style="font-size: 0.9rem;">(C) No, U-shaped residuals</div>
+                            <div class="sat-option" style="font-size: 0.9rem;">(D) No, r is negative</div>
                         </div>
                     </div>
 
@@ -153,18 +186,19 @@
                         <summary></summary>
                         <div class="solution-box">
                             <div class="solution-step">
-                                <h4>Step 1: Check for Patterns</h4>
-                                <p>We see a "U-shaped" pattern in the residuals.</p>
+                                <h4>Step 1: Enter Data & Run Linear</h4>
+                                <p>Type the table. Run <code>y1 ~ mx1 + b</code>.</p>
                             </div>
                             <div class="solution-step">
-                                <h4>Step 2: Interpret the Pattern</h4>
-                                <p><strong>Random Noise</strong> = Good Linear Fit.</p>
-                                <p><strong>Distinct Pattern</strong> = Bad Linear Fit (needs curve).</p>
+                                <h4>Step 2: Plot Residuals</h4>
+                                <p>Click the <strong>plot</strong> button next to <code>e1</code> in the regression box.
+                                </p>
                             </div>
                             <div class="solution-step">
-                                <h4>Step 3: Conclusion</h4>
-                                <p>Since there is a pattern, the linear model is not sufficient. We likely need a
-                                    quadratic or exponential model.</p>
+                                <h4>Step 3: Check Patterns</h4>
+                                <p>The dots form a <strong>U-shape</strong> (High-Low-High).</p>
+                                <p>A pattern means the linear model found the wrong shape. It is <strong>not
+                                        appropriate</strong>.</p>
                                 <p><strong>✅ Final Answer: (C)</strong></p>
                             </div>
                         </div>

@@ -132,13 +132,43 @@
                         <h3 class="sat-problem-header"
                             style="display: flex; justify-content: space-between; align-items: center;">
                             <div><span>📝</span> SAT Problem</div>
+                            <button class="btn-copy"
+                                onclick="navigator.clipboard.writeText('1\t2.1\n2\t3.9\n3\t8.2\n4\t14.1\n5\t22.0')"
+                                style="font-size: 0.8rem; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; border: 1px solid #c026d3; background: white; color: #a21caf; font-weight: 600;">📄
+                                Copy Data</button>
                         </h3>
-                        <p>A physicist models experimental data and records the coefficients of determination:</p>
-                        <ul style="list-style: none; padding-left: 1rem; margin-bottom: 1rem;">
-                            <li><strong>Linear Model:</strong> \(R^2 = 0.67\)</li>
-                            <li><strong>Quadratic Model:</strong> \(R^2 = 0.99\)</li>
-                        </ul>
-                        <p>Based on these values, which model fits the data better?</p>
+                        <p>Which regression model best fits the data provided below?</p>
+                        <table
+                            style="width: 100%; max-width: 200px; margin: 1rem auto; text-align: center; border-collapse: collapse;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid #e5e7eb;">
+                                    <th style="padding: 0.5rem;">x</th>
+                                    <th style="padding: 0.5rem;">y</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2.1</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>3.9</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>8.2</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>14.1</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>22.0</td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <div class="sat-option-grid">
                             <div class="sat-option">(A) Linear</div>
                             <div class="sat-option">(B) Quadratic</div>
@@ -151,14 +181,20 @@
                         <summary></summary>
                         <div class="solution-box">
                             <div class="solution-step">
-                                <h4>Step 1: Compare R² Values</h4>
-                                <p>Linear: \(R^2 = 0.67\)</p>
-                                <p>Quadratic: \(R^2 = 0.99\)</p>
+                                <h4>Step 1: Enter the Data</h4>
+                                <p>Click <strong>+</strong> > <strong>Table</strong>. Type the x and y values from the
+                                    problem.</p>
                             </div>
                             <div class="solution-step">
-                                <h4>Step 2: Choose the Closer to 1</h4>
-                                <p>0.99 is much closer to 1 (perfect fit) than 0.67.</p>
-                                <p>Therefore, the Quadratic model fits better.</p>
+                                <h4>Step 2: Test Linear vs Quadratic</h4>
+                                <p>Type <code>y1 ~ mx1 + b</code>. Check \(R^2\). (Values will be low, \( \approx 0.96
+                                    \))</p>
+                                <p>Type <code>y1 ~ ax1^2 + bx1 + c</code>. Check \(R^2\). (Values will be \( \approx
+                                    0.999 \))</p>
+                            </div>
+                            <div class="solution-step">
+                                <h4>Step 3: Conclusion</h4>
+                                <p>The Quadratic model has an \(R^2\) much closer to 1.</p>
                                 <p><strong>✅ Final Answer: (B)</strong></p>
                             </div>
                         </div>

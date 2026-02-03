@@ -1635,3 +1635,56 @@ input[type=range]::-webkit-slider-runnable-track {
     align-items: center;
     gap: 0.5rem;
 }
+
+/* --- Global Desmos Styles (Technique & Buttons) --- */
+.technique-section {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #3b82f6;
+    /* Default accent */
+    padding: 2.5rem;
+    border-radius: 16px;
+    margin-bottom: 5rem;
+    /* Generous spacing between problems */
+    position: relative;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.btn-copy {
+    background: white;
+    border: 1px solid #e5e7eb;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.btn-copy:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+    color: #111827;
+}
+
+.try-it-btn {
+    background: #2563eb !important;
+    /* Blue-600 */
+    color: white !important;
+    border-color: #2563eb !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.try-it-btn:hover {
+    background: #1d4ed8 !important;
+    /* Blue-700 */
+    border-color: #1d4ed8 !important;
+}

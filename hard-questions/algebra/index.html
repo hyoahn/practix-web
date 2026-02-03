@@ -158,16 +158,36 @@
                     <div class="problem-box">
                         <p>If \(5x - 3y = 10\) and \(6x + 3y = 23\), what is the value of \(11x\)?</p>
                     </div>
-                    <div class="trap-box">
-                        <h4>🚩 The Trap</h4>
-                        <p>Solving for \(x\), then \(y\), then 11x. It wastes 40 precious seconds.</p>
-                    </div>
+                    <!-- Trap Box Removed - Integrated into Comparison -->
                     <details class="practix-reveal">
                         <summary>✅ The Practix Shortcut</summary>
                         <div class="solution-content">
-                            <p>Add the equations vertically. The structure is a "gift".</p>
-                            <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">11x = 33</p>
-                            <p>Done. <strong>Answer: 33</strong>.</p>
+                            <div class="comparison-grid">
+                                <div>
+                                    <div class="school-header">🚫 The School Way (Trap)</div>
+                                    <ul class="step-list">
+                                        <li>Step 1: Solve top equation for \(x\): \(5x = 10 + 3y \rightarrow x = 2 +
+                                            0.6y\).</li>
+                                        <li>Step 2: Plug into bottom: \(6(2 + 0.6y) + 3y = 23\).</li>
+                                        <li>Step 3: Distribute: \(12 + 3.6y + 3y = 23\).</li>
+                                        <li>Step 4: Combine: \(6.6y = 11\).</li>
+                                        <li>Step 5: Solve for y: \(y = 11/6.6 = 1.666...\) (Messy!).</li>
+                                        <li>Step 6: Plug y back in to find x.</li>
+                                        <li>Step 7: Multiply x by 11.</li>
+                                        <li><em>Result: 45+ seconds and high risk of arithmetic error.</em></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <div class="practix-header">✅ The Practix Way (3s)</div>
+                                    <ul class="step-list">
+                                        <li>Step 1: Stack them. Look at the coefficients.</li>
+                                        <li>Step 2: Add vertically: \((5x+6x) + (-3y+3y) = 10+23\).</li>
+                                        <li>Step 3: \(11x = 33\).</li>
+                                        <li>Step 4: You need \(11x\)? It's right there.</li>
+                                        <li><strong>Answer: 33</strong>.</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </details>
                 </article>

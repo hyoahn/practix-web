@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO Meta Tags -->
     <title>30 Essential SAT Math Formulas (Missing from Textbooks) | Practix</title>
-    <meta name="description" content="Master the 30 'missing' SAT Math formulas used by high scorers. Learn the Vertex Shortcut, Discriminant hack, and more with Practix training.">
-    
+    <meta name="description"
+        content="Master the 30 'missing' SAT Math formulas used by high scorers. Learn the Vertex Shortcut, Discriminant hack, and more with Practix training.">
+
     <!-- OpenGraph / Social -->
     <meta property="og:title" content="30 Essential SAT Math Formulas (Missing from Textbooks) | Practix">
-    <meta property="og:description" content="Your one-page cheat sheet for the SAT Math Section. 30 formulas that will save you minutes of work.">
+    <meta property="og:description"
+        content="Your one-page cheat sheet for the SAT Math Section. 30 formulas that will save you minutes of work.">
     <meta property="og:image" content="https://practix.org/assets/images/logo.png">
     <meta property="og:url" content="https://practix.org/formulas/">
-    
+
     <!-- JSON-LD Schema for Rich Snippets -->
     <script type="application/ld+json">
     {
@@ -35,17 +38,19 @@
       }]
     }
     </script>
-    
+
     <link rel="stylesheet" href="../assets/styles/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../assets/scripts/nav.js"></script>
     <script src="../assets/scripts/footer.js"></script>
-    
+
     <style>
         :root {
             --formula-card-bg: var(--bg-primary);
@@ -90,9 +95,20 @@
             margin-bottom: 1rem;
         }
 
-        .cat-quad { background: rgba(16, 185, 129, 0.1); color: var(--formula-accent-quad); }
-        .cat-geo { background: rgba(59, 130, 246, 0.1); color: var(--formula-accent-geo); }
-        .cat-alg { background: rgba(99, 102, 241, 0.1); color: var(--formula-accent-alg); }
+        .cat-quad {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--formula-accent-quad);
+        }
+
+        .cat-geo {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--formula-accent-geo);
+        }
+
+        .cat-alg {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--formula-accent-alg);
+        }
 
         .formula-display {
             font-size: 2.2rem;
@@ -161,8 +177,23 @@
             font-weight: bold;
         }
 
-        .school-header { color: var(--trap-color); font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em; }
-        .practix-header { color: var(--shortcut-color); font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em; }
+        .school-header {
+            color: var(--trap-color);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+        }
+
+        .practix-header {
+            color: var(--shortcut-color);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+        }
 
         /* Quick-Scan Table */
         .scan-table-container {
@@ -171,7 +202,7 @@
             border: 1px solid var(--border);
             overflow: hidden;
             margin-bottom: 4rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
         }
 
         .scan-table {
@@ -196,14 +227,39 @@
             vertical-align: middle;
         }
 
-        .scan-table tr:hover { background: #fdfdfd; }
-        .scan-table tr:last-child td { border-bottom: none; }
+        .scan-table tr:hover {
+            background: #fdfdfd;
+        }
 
-        .scan-num { color: var(--text-muted); font-weight: 700; width: 40px; }
-        .scan-name { font-weight: 600; color: var(--accent-primary); }
-        .scan-math { font-family: serif; font-size: 1.1rem; }
-        .scan-gift { background: #f0fdf4; color: #166534; padding: 0.25rem 0.6rem; border-radius: 4px; font-weight: 700; font-size: 0.8rem; }
-        
+        .scan-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .scan-num {
+            color: var(--text-muted);
+            font-weight: 700;
+            width: 40px;
+        }
+
+        .scan-name {
+            font-weight: 600;
+            color: var(--accent-primary);
+        }
+
+        .scan-math {
+            font-family: serif;
+            font-size: 1.1rem;
+        }
+
+        .scan-gift {
+            background: #f0fdf4;
+            color: #166534;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
         .mastery-check {
             width: 18px;
             height: 18px;
@@ -227,17 +283,38 @@
         }
     </style>
 </head>
+
 <body class="content-page">
     <div class="page-bg"></div>
     <header class="hero-section">
-        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin-bottom: 1rem;">The Field Manual</h1>
+        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin-bottom: 1rem;">The Field Manual
+        </h1>
         <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto;">
             The 20+ formulas they don't give you. Detailed evidence of why traditional methods are too slow.
         </p>
     </header>
 
+    <section class="viral-growth-section"
+        style="background: #0f172a; color: white; padding: 2rem 5%; text-align: center; margin-bottom: 2rem;">
+        <div
+            style="max-width: 800px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+            <div style="text-align: left;">
+                <span
+                    style="color: var(--accent-primary); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; display: block; margin-bottom: 0.25rem;">Free
+                    Download</span>
+                <h3 style="margin: 0; font-size: 1.5rem; font-family: 'Space Grotesk', sans-serif;">Get the "Boss Mode"
+                    Lock Screen</h3>
+                <p style="margin: 0.5rem 0 0; color: #94a3b8; font-size: 0.95rem;">The top 5 formulas you forget, right
+                    on your phone.</p>
+            </div>
+            <a href="../wallpapers/" class="btn-primary"
+                style="padding: 0.8rem 1.5rem; font-size: 1rem; border: 1px solid rgba(255,255,255,0.1);">Get the
+                Wallpaper →</a>
+        </div>
+    </section>
+
     <main class="formula-hub-container">
-        
+
         <section class="scan-table-container">
             <table class="scan-table">
                 <thead>
@@ -254,17 +331,19 @@
                 </tbody>
             </table>
         </section>
-        
-        
+
+
         <!-- 1 -->
         <article class="formula-card" id="f1">
             <span class="category-badge cat-geo">Geometry</span>
             <h3>1. Circle Equation</h3>
             <div class="formula-display">\[ (x-h)^2 + (y-k)^2 = r^2 \]</div>
             <p class="formula-explanation">Identify circle centers instantly.</p>
-            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span class="plus">+</span></button>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span
+                    class="plus">+</span></button>
             <div class="example-content">
-                <p style="font-weight: 700; margin-bottom: 1.5rem;">"Find the center of \(x^2 + y^2 - 6x + 8y = 0\)."</p>
+                <p style="font-weight: 700; margin-bottom: 1.5rem;">"Find the center of \(x^2 + y^2 - 6x + 8y = 0\)."
+                </p>
                 <div class="comparison-grid">
                     <div>
                         <div class="school-header">🚫 The School Way (90+ Seconds)</div>
@@ -301,9 +380,11 @@
             <h3>2. The Vertex Shortcut</h3>
             <div class="formula-display">\[ x = -\frac{b}{2a} \]</div>
             <p class="formula-explanation">Instantly find the maximum or minimum of any parabola.</p>
-            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span class="plus">+</span></button>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span
+                    class="plus">+</span></button>
             <div class="example-content">
-                <p style="font-weight: 700; margin-bottom: 1.5rem;">"Find the x-coordinate of the vertex for \(y = 3x^2 - 12x + 7\)."</p>
+                <p style="font-weight: 700; margin-bottom: 1.5rem;">"Find the x-coordinate of the vertex for \(y = 3x^2
+                    - 12x + 7\)."</p>
                 <div class="comparison-grid">
                     <div>
                         <div class="school-header">🚫 The School Way (70+ Seconds)</div>
@@ -339,9 +420,11 @@
             <h3>3. Product of Solutions</h3>
             <div class="formula-display">\[ \text{Product} = \frac{c}{a} \]</div>
             <p class="formula-explanation">Find the product of all x-values without solving.</p>
-            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span class="plus">+</span></button>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span
+                    class="plus">+</span></button>
             <div class="example-content">
-                <p style="font-weight: 700; margin-bottom: 1.5rem;">"Product of solutions for \(4x^2 - 19x - 12 = 0\)."</p>
+                <p style="font-weight: 700; margin-bottom: 1.5rem;">"Product of solutions for \(4x^2 - 19x - 12 = 0\)."
+                </p>
                 <div class="comparison-grid">
                     <div>
                         <div class="school-header">🚫 The School Way (65+ Seconds)</div>
@@ -353,8 +436,10 @@
                             <li>Step 5: Calculate discriminant: \(361 - (-192) = 361 + 192 = 553\).</li>
                             <li>Step 6: Find \(\sqrt{553}\): Calculator shows ≈ 23.516.</li>
                             <li>Step 7: Plug into formula: \(x = \frac{19 \pm 23.516}{8}\).</li>
-                            <li>Step 8: Find first root: \(x_1 = \frac{19 + 23.516}{8} = \frac{42.516}{8} = 5.3145\).</li>
-                            <li>Step 9: Find second root: \(x_2 = \frac{19 - 23.516}{8} = \frac{-4.516}{8} = -0.5645\).</li>
+                            <li>Step 8: Find first root: \(x_1 = \frac{19 + 23.516}{8} = \frac{42.516}{8} = 5.3145\).
+                            </li>
+                            <li>Step 9: Find second root: \(x_2 = \frac{19 - 23.516}{8} = \frac{-4.516}{8} = -0.5645\).
+                            </li>
                             <li>Step 10: Multiply roots: \(5.3145 \times (-0.5645) = -3.00...\)</li>
                             <li><em>Risk of arithmetic errors at every step!</em></li>
                         </ul>
@@ -375,7 +460,8 @@
             <h3>4. Sum of Solutions</h3>
             <div class="formula-display">\[ \text{Sum} = -\frac{b}{a} \]</div>
             <p class="formula-explanation">Find the sum of all x-values without solving.</p>
-            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span class="plus">+</span></button>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span
+                    class="plus">+</span></button>
             <div class="example-content">
                 <p style="font-weight: 700; margin-bottom: 1.5rem;">"Sum of solutions for \(2x^2 + 10x - 48 = 0\)."</p>
                 <div class="comparison-grid">
@@ -427,9 +513,11 @@
             <h3>7. The Discriminant</h3>
             <div class="formula-display">\[ D = b^2 - 4ac \]</div>
             <p class="formula-explanation">Determine the number of solutions instantly.</p>
-            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span class="plus">+</span></button>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span
+                    class="plus">+</span></button>
             <div class="example-content">
-                <p style="font-weight: 700; margin-bottom: 1.5rem;">"How many real solutions for \(x^2 + 4x + 5 = 0\)?"</p>
+                <p style="font-weight: 700; margin-bottom: 1.5rem;">"How many real solutions for \(x^2 + 4x + 5 = 0\)?"
+                </p>
                 <div class="comparison-grid">
                     <div>
                         <div class="school-header">🚫 The School Way (40+ Seconds)</div>
@@ -487,7 +575,8 @@
             <h3>11. Growth & Decay</h3>
             <div class="formula-display">\[ y = a(1 \pm r)^t \]</div>
             <p class="formula-explanation">Master percent word problems.</p>
-            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span class="plus">+</span></button>
+            <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Step-by-Step</span><span
+                    class="plus">+</span></button>
             <div class="example-content">
                 <p style="font-weight: 700; margin-bottom: 1.5rem;">"$1000 grows at 5% for 3 years."</p>
                 <div class="comparison-grid">
@@ -527,7 +616,8 @@
         <article class="formula-card" id="f13">
             <span class="category-badge cat-geo">Geometry</span>
             <h3>13. Arc/Sector Proportions</h3>
-            <div class="formula-display">\[ \frac{\text{Arc}}{\text{Circum}} = \frac{\text{Sector}}{\text{Area}} = \frac{\theta}{360} \]</div>
+            <div class="formula-display">\[ \frac{\text{Arc}}{\text{Circum}} = \frac{\text{Sector}}{\text{Area}} =
+                \frac{\theta}{360} \]</div>
             <p class="formula-explanation">The universal proportion for all circle slice problems.</p>
         </article>
 
@@ -568,7 +658,8 @@
             <span class="category-badge cat-alg">Statistics</span>
             <h3>18. Standard Deviation Logic</h3>
             <div class="formula-display">Spread = Gap</div>
-            <p class="formula-explanation">Don't calculate it. Understand it. More "spread out" data = Higher Standard Deviation.</p>
+            <p class="formula-explanation">Don't calculate it. Understand it. More "spread out" data = Higher Standard
+                Deviation.</p>
         </article>
 
         <!-- 19 -->
@@ -576,7 +667,8 @@
             <span class="category-badge cat-alg">Statistics</span>
             <h3>19. Margin of Error</h3>
             <div class="formula-display">Sample Size ↑ = MoE ↓</div>
-            <p class="formula-explanation">The more people you ask, the smaller the error. Guaranteed point if you remember this inverse relationship.</p>
+            <p class="formula-explanation">The more people you ask, the smaller the error. Guaranteed point if you
+                remember this inverse relationship.</p>
         </article>
 
         <!-- 20 -->
@@ -649,4 +741,5 @@
         document.addEventListener('DOMContentLoaded', populateTable);
     </script>
 </body>
+
 </html>

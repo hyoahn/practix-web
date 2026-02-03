@@ -1697,3 +1697,68 @@ input[type=range]::-webkit-slider-runnable-track {
     /* Blue-700 */
     border-color: #1d4ed8 !important;
 }
+
+/* =========================================
+   COMPARISON GRID SYSTEM (Standardized)
+   ========================================= */
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.step-list {
+    list-style: none;
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.step-list li {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.step-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--text-muted);
+    font-weight: bold;
+}
+
+.school-header {
+    color: #ef4444;
+    /* Trap Red */
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.practix-header {
+    color: #10b981;
+    /* Shortcut Green */
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}

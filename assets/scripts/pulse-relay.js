@@ -161,6 +161,40 @@ async function getEventCounts(eventName, filters = {}, since = null) {
     return count;
 }
 
+/**
+ * Get Unique Visitor Count
+ * Manually calculating uniques from params.visitor_id
+ */
+async function getUniqueVisitorCount(eventName, since = null) {
+    if (relayInitPromise) await relayInitPromise;
+    if (!supabaseClient) return 1; // Fallback to 1 for local/offline
+
+    let query = supabaseClient
+        .from(RELAY_CONFIG.table)
+        .select('params')
+        .eq('event_name', eventName);
+
+    if (since) {
+        query = query.gte('created_at', since);
+    }
+
+    const { data, error } = await query;
+    if (error) {
+        console.warn("Pulse Relay Visitor Error:", error);
+        return 1;
+    }
+
+    // Extract unique visitor_ids from params JSON
+    const visitors = new Set();
+    data.forEach(row => {
+        if (row.params && row.params.visitor_id) {
+            visitors.add(row.params.visitor_id);
+        }
+    });
+
+    return visitors.size > 0 ? visitors.size : 0;
+}
+
 // Auto-init on load
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initRelay);
@@ -171,5 +205,6 @@ if (document.readyState === 'loading') {
 window.PulseRelay = {
     broadcast: broadcastEvent,
     subscribe: subscribeToEvents,
-    getCounts: getEventCounts
+    getCounts: getEventCounts,
+    getUniqueVisitors: getUniqueVisitorCount
 };

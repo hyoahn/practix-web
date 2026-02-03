@@ -425,9 +425,11 @@
                     } else {
                         activeUsersEl.innerText = activeEvents.toLocaleString();
                         activeUsersEl.style.color = "#0f172a";
-                        // Local Mode Estimate: 1 Unique User
+
+                        // Real Unique User Tracking
+                        const uniqueCount = await PulseRelay.getUniqueVisitors('page_view', epoch);
                         const uniqueEl = document.getElementById('unique-visitors');
-                        if (uniqueEl) uniqueEl.innerText = activeEvents > 0 ? "1" : "0";
+                        if (uniqueEl) uniqueEl.innerText = uniqueCount.toLocaleString();
                     }
                 }
 

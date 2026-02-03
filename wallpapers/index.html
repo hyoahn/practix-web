@@ -369,6 +369,9 @@
             btn.addEventListener('click', (e) => {
                 const wallName = btn.parentElement.querySelector('.wallpaper-title').innerText;
                 if (btn.hasAttribute('download')) {
+                    // Prevent immediate navigation so toast can be seen
+                    e.preventDefault();
+
                     // Log to Analytics
                     if (window.practixLog) {
                         window.practixLog('wallpaper_download', {
@@ -376,11 +379,18 @@
                             location: 'wallpaper_hub'
                         });
                     }
+
                     // Show Viral Toast
+                    const toast = document.getElementById('viral-toast');
+                    if (toast) {
+                        toast.style.display = 'block';
+                        // Add class for animation if needed
+                    }
+
+                    // Delay download slightly to allow UI update
                     setTimeout(() => {
-                        const toast = document.getElementById('viral-toast');
-                        if (toast) toast.style.display = 'block';
-                    }, 1000);
+                        window.location.href = btn.href;
+                    }, 500);
                 }
             });
         });

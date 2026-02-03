@@ -23,17 +23,33 @@ function initGA() {
     gtag('config', GA_MEASUREMENT_ID);
 }
 
+// Visitor Identity (Anonymous)
+function getVisitorId() {
+    let vid = localStorage.getItem('practix_visitor_id');
+    if (!vid) {
+        vid = crypto.randomUUID(); // Modern browser UUID
+        localStorage.setItem('practix_visitor_id', vid);
+    }
+    return vid;
+}
+
 // Unified Event Tracker
 window.practixLog = function (eventName, params = {}) {
     console.log(`[Practix Tracking] ${eventName}:`, params);
 
+    // Auto-inject Identity
+    const enrichedParams = {
+        ...params,
+        visitor_id: getVisitorId()
+    };
+
     if (typeof gtag === 'function') {
-        gtag('event', eventName, params);
+        gtag('event', eventName, enrichedParams);
     }
 
     // Forward to Live Pulse Relay
     if (window.PulseRelay) {
-        window.PulseRelay.broadcast(eventName, params);
+        window.PulseRelay.broadcast(eventName, enrichedParams);
     }
 };
 

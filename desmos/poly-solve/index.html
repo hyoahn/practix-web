@@ -121,10 +121,14 @@
 
                 <section class="technique-section" id="solve-k">
                     <h2 class="hack-title"><span>⚡</span> The "Variables to y" Trick</h2>
-                    <p class="hack-description"><strong>The Problem:</strong> Desmos doesn't natively solve for
-                        variables like \(k\), \(m\), or \(a\). It expects \(x\) and \(y\).</p>
-                    <p class="hack-description"><strong>The Move:</strong> Simply replace the unknown letter (e.g.,
-                        \(k\)) with \(y\). Then find the intersection.</p>
+                    <p class="hack-description"><strong>The Golden Rule:</strong> Desmos only explicitly understands
+                        <strong>x</strong> and <strong>y</strong> for graphing intersections.
+                    </p>
+                    <p class="hack-description"
+                        style="background: #fee2e2; color: #991b1b; padding: 0.5rem; border-radius: 6px; border: 1px solid #fca5a5;">
+                        <strong>⚠️ ERROR ALERT:</strong> If you see variables like \(k\), \(m\), \(a\), or \(b\)...
+                        <strong>CHANGE THEM TO \(y\) IMMEDIATELY</strong> or Desmos will fail!
+                    </p>
 
                     <div class="magic-code-container">
                         <div class="magic-code">4x + 2y = 18</div>
@@ -150,8 +154,9 @@
                         <summary></summary>
                         <div class="solution-content">
                             <div class="solution-step">
-                                <h4>Step 1: Swap k for y</h4>
-                                <p>Type <code>4x + 2y = 18</code> instead of using k.</p>
+                                <h4>Step 1: FORCE 'y' into the equation</h4>
+                                <p>You CANNOT type <code>4x + 2k</code>. It won't work.</p>
+                                <p>You <strong>MUST</strong> type <code>4x + 2y = 18</code>.</p>
                             </div>
                             <div class="solution-step">
                                 <h4>Step 2: Type the known value</h4>

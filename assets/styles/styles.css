@@ -100,9 +100,19 @@ body {
 
 /* COMMAND SIDEBAR (Dynamic Tree) */
 #sidebar-tree {
-    padding-right: 1rem;
-    scrollbar-gutter: stable;
-    /* Keeps scrollbar from eating padding */
+    padding-right: 2rem !important;
+    /* Large distinct gap */
+    padding-left: 0.5rem;
+    padding-top: 1rem;
+    box-sizing: border-box;
+}
+
+/* Force content away from edge */
+.side-tree-group,
+.side-tree-subsection,
+.side-link {
+    width: auto;
+    max-width: 100%;
 }
 
 .command-sidebar {

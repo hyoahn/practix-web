@@ -97,14 +97,26 @@ document.addEventListener('DOMContentLoaded', () => {
             path: 'desmos/',
             categories: [
                 {
-                    name: "Core Techniques",
+                    name: "Heart of Algebra",
                     path: "desmos/",
                     topics: [
                         { name: "System Solver", path: "desmos/system-solver/" },
                         { name: "Absolute Value Solves", path: "desmos/absolute-value/" },
+                        { name: "Inequality Shading", path: "desmos/inequality-shading/" }
+                    ]
+                },
+                {
+                    name: "Advanced Math",
+                    path: "desmos/",
+                    topics: [
                         { name: "Polynomial Roots", path: "desmos/poly-roots/" },
-
-                        { name: "Poly-Solve Variables", path: "desmos/poly-solve/" },
+                        { name: "Poly-Solve Variables", path: "desmos/poly-solve/" }
+                    ]
+                },
+                {
+                    name: "Problem-Solving & Data",
+                    path: "desmos/",
+                    topics: [
                         { name: "Regression Secrets", path: "desmos/regression-secrets/" },
                         { name: "Logarithmic Regression", path: "desmos/log-reg/" },
                         { name: "Logistic Growth", path: "desmos/logistic-reg/" },
@@ -113,9 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         { name: "Residual Plot", path: "desmos/residual-plot/" },
                         { name: "Prediction Value", path: "desmos/prediction-value/" },
                         { name: "Lists & Tables", path: "desmos/lists-and-tables/" },
-
                         { name: "Visualization Hacks", path: "desmos/visualization-hacks/" },
-                        { name: "Inequality Shading", path: "desmos/inequality-shading/" },
                         { name: "Mean vs Median", path: "desmos/mean-vs-median/" }
                     ]
                 }
@@ -128,27 +138,33 @@ document.addEventListener('DOMContentLoaded', () => {
             path: 'hard-questions/',
             categories: [
                 {
-                    name: "Trap Slayer",
+                    name: "Heart of Algebra",
                     path: "hard-questions/",
                     topics: [
                         { name: "Algebra Traps", path: "hard-questions/algebra/" },
                         { name: "Infinite Solutions Trap", path: "hard-questions/algebra/#q10" },
                         { name: "No Solution Constants", path: "hard-questions/algebra/#q11" },
                         { name: "Perpendicular Slopes", path: "hard-questions/algebra/#q12" },
-                        { name: "Quadratic Sum Hack", path: "hard-questions/algebra/#q13" },
-                        { name: "Extraneous Roots", path: "hard-questions/algebra/#q14" },
-                        { name: "Manipulating Constants", path: "hard-questions/algebra/#q15" },
                         { name: "Slope Interpretation", path: "hard-questions/algebra/#q16" },
                         { name: "Infinite Mystery", path: "hard-questions/algebra/#q17" },
                         { name: "Parallel Barrier", path: "hard-questions/algebra/#q18" },
                         { name: "Inequality Zone", path: "hard-questions/algebra/#q19" },
+                        { name: "Absolute Range", path: "hard-questions/algebra/#q24" },
+                        { name: "System Solutions", path: "hard-questions/system-solutions/" }
+                    ]
+                },
+                {
+                    name: "Advanced Math",
+                    path: "hard-questions/",
+                    topics: [
+                        { name: "Advanced Math", path: "hard-questions/advanced-math/" },
+                        { name: "Quadratic Sum Hack", path: "hard-questions/algebra/#q13" },
+                        { name: "Extraneous Roots", path: "hard-questions/algebra/#q14" },
+                        { name: "Manipulating Constants", path: "hard-questions/algebra/#q15" },
                         { name: "Composite Chaos", path: "hard-questions/algebra/#q20" },
                         { name: "Inverse Trap", path: "hard-questions/algebra/#q21" },
                         { name: "Shifting Asymptote", path: "hard-questions/algebra/#q22" },
                         { name: "Growth Identity", path: "hard-questions/algebra/#q23" },
-                        { name: "Absolute Range", path: "hard-questions/algebra/#q24" },
-                        { name: "Problem Solving", path: "hard-questions/problem-solving/" },
-                        { name: "Advanced Math", path: "hard-questions/advanced-math/" },
                         { name: "Vertex Speed Run", path: "hard-questions/advanced-math/#q9" },
                         { name: "Two Root Test", path: "hard-questions/advanced-math/#q10" },
                         { name: "Ghost Roots", path: "hard-questions/advanced-math/#q11" },
@@ -159,10 +175,22 @@ document.addEventListener('DOMContentLoaded', () => {
                         { name: "Decay Delay", path: "hard-questions/advanced-math/#q16" },
                         { name: "Fake Roots", path: "hard-questions/advanced-math/#q17" },
                         { name: "Forbidden Values", path: "hard-questions/advanced-math/#q18" },
-                        { name: "Geometry & Trig", path: "hard-questions/geometry/" },
-                        { name: "Discriminant Dangers", path: "hard-questions/discriminant-dangers/" },
-                        { name: "Unit Conversion", path: "hard-questions/unit-conversion/" },
-                        { name: "System Solutions", path: "hard-questions/system-solutions/" }
+                        { name: "Discriminant Dangers", path: "hard-questions/discriminant-dangers/" }
+                    ]
+                },
+                {
+                    name: "Problem-Solving & Data",
+                    path: "hard-questions/",
+                    topics: [
+                        { name: "Problem Solving", path: "hard-questions/problem-solving/" },
+                        { name: "Unit Conversion", path: "hard-questions/unit-conversion/" }
+                    ]
+                },
+                {
+                    name: "Geometry & Trig",
+                    path: "hard-questions/",
+                    topics: [
+                        { name: "Geometry & Trig", path: "hard-questions/geometry/" }
                     ]
                 }
             ]

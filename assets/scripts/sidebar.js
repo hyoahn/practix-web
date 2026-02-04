@@ -467,13 +467,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         const hasContent = pSub && pSub.topics.length > 0;
 
+                        // Tokenize search query for fuzzy matching (match all terms)
+                        const searchTerms = searchQuery.toLowerCase().split(/\s+/).filter(t => t.length > 0);
+                        const isMatch = (text) => {
+                            if (!searchQuery) return true;
+                            const lowerText = text.toLowerCase();
+                            return searchTerms.every(term => lowerText.includes(term));
+                        };
+
                         // Check match (Subsection name or Topic name)
-                        const subNameMatch = sub.name.toLowerCase().includes(searchQuery.toLowerCase());
+                        const subNameMatch = isMatch(sub.name);
 
                         let matchTopics = [];
                         if (hasContent) {
                             matchTopics = searchQuery
-                                ? pSub.topics.filter(t => subNameMatch || t.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                                ? pSub.topics.filter(t => subNameMatch || isMatch(t.name))
                                 : pSub.topics;
                         }
 

@@ -1267,7 +1267,7 @@ input[type=range]::-webkit-slider-runnable-track {
 
 .side-tree-group h4 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 800;
     /* Boldface for section as requested */
     text-transform: uppercase;

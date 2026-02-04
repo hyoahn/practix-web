@@ -1265,28 +1265,35 @@ input[type=range]::-webkit-slider-runnable-track {
     margin-bottom: 0.5rem;
 }
 
+/* Consistent Sidebar Header Styles for all Sidebar variants */
+.command-sidebar .side-tree-group h4,
 .sidebar-nav .side-tree-group h4 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.5rem !important;
     font-weight: 800 !important;
-    text-transform: uppercase;
+    text-transform: uppercase !important;
     letter-spacing: 0.05em;
     color: var(--text-primary);
     padding: 0.5rem 0;
     margin-top: 1.5rem;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
     border-bottom: 3px solid var(--accent-primary);
+    display: block;
+    /* Ensure it takes full width */
 }
 
+.command-sidebar .side-tree-subsection-header,
+.sidebar-nav .side-tree-subsection-header,
 .side-tree-subsection-header {
-    font-size: 1.25rem !important;
-    /* Larger than topic (1.1) */
+    font-size: 1.2rem !important;
+    /* Clearly larger than topic */
     color: var(--text-primary) !important;
-    text-transform: uppercase;
+    text-transform: uppercase !important;
     letter-spacing: 0.05em;
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.5rem;
     margin-top: 1.25rem;
     font-weight: 700 !important;
+    display: block;
 }
 
 .side-tree-topic {
@@ -1297,11 +1304,10 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 .side-link {
-    color: var(--text-primary);
-    /* Back to primary for better readability */
+    color: var(--text-secondary);
     text-decoration: none;
-    font-size: 1.1rem !important;
-    /* Standard readability size */
+    font-size: 1.05rem !important;
+    /* Slightly smaller than subsection */
     font-weight: 500;
     display: block;
     padding: 0.4rem 0.8rem;

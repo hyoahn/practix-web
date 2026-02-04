@@ -405,19 +405,20 @@
 
                 addEvent("Connecting to Pulse Relay...");
 
-                // Define the Growth Epoch (Zero-to-One start)
-                // Using Jan 31 to capture tests from GMT+9 morning.
-                const epoch = '2026-01-31T12:00:00Z';
+                // Define time windows
+                const now = new Date();
+                const last24h = new Date(now.getTime() - (24 * 60 * 60 * 1000)).toISOString();
+                const epoch = '2026-01-31T12:00:00Z'; // Lifetime start
 
-                // 1. Fetch initial snapshots (Filtered by Epoch)
-                totalDownloads = await PulseRelay.getCounts('wallpaper_download', {}, epoch);
-                wpCounts[0] = await PulseRelay.getCounts('wallpaper_download', { wallpaper_name: 'Desmos God Mode' }, epoch);
-                wpCounts[1] = await PulseRelay.getCounts('wallpaper_download', { wallpaper_name: 'The Trap Radar' }, epoch);
-                wpCounts[2] = await PulseRelay.getCounts('wallpaper_download', { wallpaper_name: 'The Boss Mode' }, epoch);
+                // 1. Fetch Snapshot Data
+                // Lifetime (Total)
+                const lifetimeViews = await PulseRelay.getCounts('page_view', {}, epoch);
 
-                // Track Active Users (simplified: unique events since epoch)
-                const activeEvents = await PulseRelay.getCounts('page_view', {}, epoch);
+                // 24 Hour Window
+                const activeEvents = await PulseRelay.getCounts('page_view', {}, last24h);
+                const uniqueCount = await PulseRelay.getUniqueVisitors('page_view', last24h);
 
+                // Update UI
                 if (activeUsersEl) {
                     if (activeEvents === -1) {
                         activeUsersEl.innerText = "ERR";
@@ -426,12 +427,32 @@
                         activeUsersEl.innerText = activeEvents.toLocaleString();
                         activeUsersEl.style.color = "#0f172a";
 
-                        // Real Unique User Tracking
-                        const uniqueCount = await PulseRelay.getUniqueVisitors('page_view', epoch);
+                        // Update Unique Visitors
                         const uniqueEl = document.getElementById('unique-visitors');
                         if (uniqueEl) uniqueEl.innerText = uniqueCount.toLocaleString();
+
+                        // Add Lifetime View display if missing (injecting into the UI)
+                        let lifetimeEl = document.getElementById('lifetime-views');
+                        if (!lifetimeEl) {
+                            const container = activeUsersEl.parentElement.parentElement;
+                            const div = document.createElement('div');
+                            div.style = "border-left: 1px solid #e2e8f0; padding-left: 2rem;";
+                            div.innerHTML = `
+                                <div class="stat-label">Lifetime Views</div>
+                                <div class="stat-value" id="lifetime-views">${lifetimeViews.toLocaleString()}</div>
+                            `;
+                            container.appendChild(div);
+                        } else {
+                            lifetimeEl.innerText = lifetimeViews.toLocaleString();
+                        }
                     }
                 }
+
+                // Wallpaper Downloads (Lifetime)
+                totalDownloads = await PulseRelay.getCounts('wallpaper_download', {}, epoch);
+                wpCounts[0] = await PulseRelay.getCounts('wallpaper_download', { wallpaper_name: 'Desmos God Mode' }, epoch);
+                wpCounts[1] = await PulseRelay.getCounts('wallpaper_download', { wallpaper_name: 'The Trap Radar' }, epoch);
+                wpCounts[2] = await PulseRelay.getCounts('wallpaper_download', { wallpaper_name: 'The Boss Mode' }, epoch);
 
                 updateUI();
 

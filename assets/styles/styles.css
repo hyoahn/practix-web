@@ -1267,14 +1267,30 @@ input[type=range]::-webkit-slider-runnable-track {
 
 .side-tree-group h4 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    /* Boldface for section as requested */
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem;
+    margin-bottom: 0.25rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    /* Subtle separator for domain */
+}
+
+.side-tree-subsection-header {
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.35rem;
+    margin-top: 0.75rem;
+    font-weight: 600;
+    opacity: 0.8;
 }
 
 .side-tree-topic {

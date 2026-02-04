@@ -404,8 +404,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             if (matchedTopics.length > 0) {
                                 html += `
                                     <div class="side-tree-group active">
-                                        <h4>${cat.name} › ${subsection.name}</h4>
-                                        <ul class="side-tree-topic">
+                                        <h4>${cat.name}</h4>
+                                        <div class="side-tree-subsection-header" style="margin-left: 0.5rem;">${subsection.name}</div>
+                                        <ul class="side-tree-topic" style="margin-left: 1rem; border-left: 1px dashed var(--border);">
                                             ${matchedTopics.map(topic => {
                                     const isActive = isLinkActive(topic.path, currentPath, currentHash);
                                     return `
@@ -464,9 +465,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="side-tree-group active">
                             <h4>${cat.name}</h4>
                             ${cat.subsections.map(subsection => `
-                                <div class="side-tree-subsection" style="margin-left: 0.5rem; margin-top: 0.5rem;">
-                                    <div style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; font-weight: 600;">${subsection.name}</div>
-                                    <ul class="side-tree-topic">
+                                <div class="side-tree-subsection" style="margin-left: 0.5rem; margin-bottom: 1rem;">
+                                    <div class="side-tree-subsection-header">${subsection.name}</div>
+                                    <ul class="side-tree-topic" style="margin-left: 0.5rem; border-left: 1px dashed var(--border);">
                                         ${subsection.topics.map(topic => {
                         const isActive = isLinkActive(topic.path, currentPath, currentHash);
                         let href = basePath + topic.path;

@@ -10,8 +10,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Determine Robust Path Depth (Same as nav.js)
     const currentPath = window.location.pathname;
     const pathSegments = currentPath.split('/').filter(s => s.length > 0);
-    const hasFile = pathSegments.length > 0 && pathSegments[pathSegments.length - 1].includes('.');
-    const depth = hasFile ? pathSegments.length - 1 : pathSegments.length;
+
+    // Find the index of the root directory "_Sever" in the path
+    const rootIndex = pathSegments.indexOf('_Sever');
+    let depth = 0;
+
+    if (rootIndex !== -1) {
+        // We are inside _Sever
+        const segmentsAfterRoot = pathSegments.slice(rootIndex + 1);
+        const hasFile = segmentsAfterRoot.length > 0 && segmentsAfterRoot[segmentsAfterRoot.length - 1].includes('.');
+        depth = hasFile ? segmentsAfterRoot.length - 1 : segmentsAfterRoot.length;
+    } else {
+        // Fallback for hosted environments where root is /
+        const hasFile = pathSegments.length > 0 && pathSegments[pathSegments.length - 1].includes('.');
+        depth = hasFile ? pathSegments.length - 1 : pathSegments.length;
+    }
+
     const basePath = depth === 0 ? '' : '../'.repeat(depth);
     const isInSubfolder = depth > 0;
 

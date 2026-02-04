@@ -9,9 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentPath = window.location.pathname;
     const pathSegments = currentPath.split('/').filter(s => s.length > 0);
 
-    // If the last segment is a file (like index.html), don't count it for depth
-    const hasFile = pathSegments.length > 0 && pathSegments[pathSegments.length - 1].includes('.');
-    const depth = hasFile ? pathSegments.length - 1 : pathSegments.length;
+    // 1. Determine the path depth (Robust for file:// and hosted)
+    // Find the index of the root directory "_Sever" in the path
+    const rootIndex = pathSegments.indexOf('_Sever');
+    let depth = 0;
+
+    if (rootIndex !== -1) {
+        // We are inside _Sever
+        const segmentsAfterRoot = pathSegments.slice(rootIndex + 1);
+        const hasFile = segmentsAfterRoot.length > 0 && segmentsAfterRoot[segmentsAfterRoot.length - 1].includes('.');
+        depth = hasFile ? segmentsAfterRoot.length - 1 : segmentsAfterRoot.length;
+    } else {
+        // Fallback for hosted environments where root is /
+        const hasFile = pathSegments.length > 0 && pathSegments[pathSegments.length - 1].includes('.');
+        depth = hasFile ? pathSegments.length - 1 : pathSegments.length;
+    }
 
     // Build relative basePath (e.g., "", "../", "../../")
     const basePath = depth === 0 ? '' : '../'.repeat(depth);
@@ -36,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <a href="${basePath}app/" class="nav-btn ${currentPath.includes('/app/') ? 'active' : ''}">App</a>
             <a href="${basePath}strategy/" class="nav-btn ${currentPath.includes('/strategy/') ? 'active' : ''}">Strategy</a>
             <a href="${basePath}formulas/" class="nav-btn ${currentPath.includes('/formulas/') ? 'active' : ''}">Formulas</a>
-            <a href="${basePath}desmos/" class="nav-btn ${currentPath.includes('/desmos/') ? 'active' : ''}">Desmos</a>
             <a href="${basePath}hard-questions/" class="nav-btn ${currentPath.includes('/hard-questions/') ? 'active' : ''}">Hardest Questions</a>
+            <a href="${basePath}desmos/" class="nav-btn ${currentPath.includes('/desmos/') ? 'active' : ''}">Desmos</a>
             <a href="${basePath}cram/" class="nav-btn ${currentPath.includes('/cram/') ? 'active' : ''}" style="color: #ef4444; font-weight: 700;">🚨 Cram</a>
             <a href="${basePath}wallpapers/" class="nav-btn ${currentPath.includes('/wallpapers/') ? 'active' : ''}" style="color: var(--accent-primary); font-weight: 700;">Wallpapers</a>
             <button id="layout-toggle" 

@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO Meta Tags -->
-    <title>SAT Desmos Graphing & Visualization Hacks | Practix Sliders</title>
+    <title>How to solve Circles on Desmos: Digital SAT Geometry Tricks | Practix</title>
     <meta name="description"
-        content="Unlock Desmos Visualization hacks for the SAT. Master Sliders, Inequality Mapping, and the Calculus Slope Trick to solve geometry and transformation problems.">
+        content="Master Digital SAT Desmos geometry tricks in the Hack Lab. Learn how to solve circle tangency, arcs, and visualization hacks instantly with integrated Desmos practice.">
 
     <link rel="stylesheet" href="../../assets/styles/styles.css?v=24">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,6 +25,90 @@
     <script src="../../assets/scripts/floating-calculator.js"></script>
     <script src="../../assets/scripts/analytics.js"></script>
 
+    <style>
+        .technique-section {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .practix-reveal summary {
+            background: #ef4444 !important;
+            color: white !important;
+            border-radius: 8px !important;
+            font-weight: 700 !important;
+            padding: 0.75rem 1.5rem !important;
+        }
+
+        /* Mobile Sticky Problem */
+        @media (max-width: 768px) {
+            .sat-problem-card {
+                position: sticky;
+                top: 1rem;
+                z-index: 100;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                border: 2px solid var(--accent-primary);
+            }
+        }
+
+        .sat-option {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .sat-option:hover {
+            background: #f0fdf4;
+            border-color: #10b981;
+        }
+
+        .sat-option.correct {
+            background: #10b981 !important;
+            color: white !important;
+            border-color: #059669 !important;
+        }
+
+        .sat-option.correct::after {
+            content: " ✨ Correct!";
+            font-weight: 700;
+        }
+
+        .sat-option.incorrect {
+            background: #fee2e2 !important;
+            border-color: #ef4444 !important;
+            opacity: 0.7;
+        }
+
+        .cross-link-box {
+            margin-top: 4rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            border-radius: 16px;
+            color: white;
+            text-align: center;
+        }
+
+        .cross-link-box h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .btn-pillar {
+            display: inline-block;
+            background: white;
+            color: #1e40af;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .btn-pillar:hover {
+            transform: scale(1.05);
+        }
     </style>
 
     <script
@@ -128,10 +212,10 @@
                                     contains
                                     points in every quadrant <strong>EXCEPT</strong>:</p>
                         <div class="sat-option-grid">
-                            <div class="sat-option">(A) Quadrant I</div>
-                            <div class="sat-option">(B) Quadrant II</div>
-                            <div class="sat-option">(C) Quadrant III</div>
-                            <div class="sat-option">(D) Quadrant IV</div>
+                            <div class="sat-option" onclick="checkAnswer(this, false)">(A) Quadrant I</div>
+                            <div class="sat-option" onclick="checkAnswer(this, false)">(B) Quadrant II</div>
+                            <div class="sat-option" onclick="checkAnswer(this, false)">(C) Quadrant III</div>
+                            <div class="sat-option" onclick="checkAnswer(this, true)">(D) Quadrant IV</div>
                         </div>
                     </div>
 
@@ -139,11 +223,12 @@
                         <summary></summary>
                         <div class="solution-content">
                             <div class="solution-step">
-                                <h4>Step 1: Graph the Inequalities</h4>
+                                <h4>Step 1: Graph Inequalities for Digital SAT Mapping Trick</h4>
                                 <p>Type both equations into Desmos. Look for the <strong>overlapping shaded
                                         region</strong>
                                     (usually purple or darker color).</p>
-                                <img src="../../assets/images/desmos/inequality-map.png" alt="Desmos Inequality Shading"
+                                <img src="../../assets/images/desmos/inequality-map.png"
+                                    alt="Digital SAT inequality shading Desmos trick mapping quadrants"
                                     style="width: 100%; max-width: 450px; display: block; margin: 1rem auto; border-radius: 8px; border: 1px solid #99f6e4;">
                             </div>
                             <div class="solution-step">
@@ -170,17 +255,17 @@
                     <p>Find the value of \(c\) such that the line \(y = c\) is tangent to the circle \((x-2)^2 + (y-1)^2
                         = 4\).</p>
                     <div class="sat-option-grid">
-                        <div class="sat-option">(A) 2</div>
-                        <div class="sat-option">(B) 3</div>
-                        <div class="sat-option">(C) 4</div>
-                        <div class="sat-option">(D) 5</div>
+                        <div class="sat-option" onclick="checkAnswer(this, false)">(A) 2</div>
+                        <div class="sat-option" onclick="checkAnswer(this, true)">(B) 3</div>
+                        <div class="sat-option" onclick="checkAnswer(this, false)">(C) 4</div>
+                        <div class="sat-option" onclick="checkAnswer(this, false)">(D) 5</div>
                     </div>
                 </div>
                 <details class="practix-reveal">
                     <summary></summary>
                     <div class="solution-content">
                         <div class="solution-step">
-                            <h4>Step 1: Graph & Add Slider</h4>
+                            <h4>Step 1: Graph & Solve Circle Tangency via Desmos Sliders</h4>
                             <p>Graph the circle `(x-2)^2 + (y-1)^2 = 4` and the line `y = c`. Add a slider for `c`.</p>
                             <img src="../../assets/images/desmos/circle-tangent-1.png" alt="Desmos Slider Interaction"
                                 style="width: 100%; max-width: 450px; display: block; margin: 1rem auto; border-radius: 8px; border: 1px solid #ddd6fe;">
@@ -250,7 +335,17 @@
                     <h2 style="color: #047857; margin-bottom: 1.5rem;">📈 Trick #14: Connect Points</h2>
                     <p><strong>The Move:</strong> Long-press the circle icon next to a table.</p>
                     <p>Turn on "Lines". Useful for visualizing polygons on the coordinate plane.</p>
-                </section>
+                    <section class="technique-section">
+                        <h2 style="color: #1e40af; margin-bottom: 1.5rem;">📐 Mastered Geometry Hacks?</h2>
+                        <p>Take on our elite geometry and circle theorem challenges.</p>
+                        <div class="cross-link-box">
+                            <h3>Hardest Geometry Questions</h3>
+                            <p style="margin-bottom: 1.5rem;">Visualized every slider? Now solve the complex circle &
+                                trig problems students usually skip.</p>
+                            <a href="../../formulas/geometry-trigonometry/" class="btn-pillar">Try Hardest Geometry
+                                →</a>
+                        </div>
+                    </section>
             </div>
         </main>
     </div>
@@ -263,6 +358,16 @@
                 btn.innerText = '✅ Copied!';
                 setTimeout(() => btn.innerText = originalText, 2000);
             });
+        }
+
+        function checkAnswer(el, isCorrect) {
+            if (isCorrect) {
+                el.classList.add('correct');
+                if (window.reportSuccess) window.reportSuccess('visualization_hacks');
+            } else {
+                el.classList.add('incorrect');
+                setTimeout(() => el.classList.remove('incorrect'), 1000);
+            }
         }
     </script>
 

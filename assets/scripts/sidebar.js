@@ -375,8 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             topics: [
                                 { name: "Variables in Linear Equations", path: "math/linear-equations/" },
                                 { name: "Lines and Linear Functions", path: "math/linear-equations/" },
-                                { name: "Systems of Linear Equations", path: "math/systems/" },
-                                { name: "Word Problems", path: "math/#section-5" }
+                                { name: "Systems of Linear Equations", path: "math/systems/" }
                             ]
                         },
                         {

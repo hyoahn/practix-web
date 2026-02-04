@@ -368,8 +368,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     let searchQuery = urlParams.get('q') || '';
 
-    // If there's a search query, default to 'topic' view for better discovery
-    if (searchQuery) sidebarView = 'topic';
+    // 4.1 Search Intent Logic for Phase 2
+    if (searchQuery) {
+        const query = searchQuery.toLowerCase();
+        const pillarKeywords = ['desmos', 'formula', 'trap', 'hard', 'hardest', 'cheat'];
+        const isPillarSearch = pillarKeywords.some(keyword => query.includes(keyword));
+
+        if (isPillarSearch) {
+            sidebarView = 'pillar';
+        } else {
+            sidebarView = 'topic';
+        }
+    }
 
     // 5. Rendering Functions
     function renderToggle() {

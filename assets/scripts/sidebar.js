@@ -512,33 +512,38 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h4>${domain.name}</h4>
                     ${matchingSubsections.map(subItem => `
                         <div class="side-tree-subsection">
-                            <div class="side-tree-subsection-header">${subItem.subName}</div>
+                            <div class="side-tree-subsection-header">
+                                ${subItem.subName === 'Circles & Arc Measures'
+                    ? `<a href="${basePath}circle-equations/" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--accent-primary);"> ${subItem.subName} →</a>`
+                    : subItem.subName
+                }
+                            </div>
                             <ul class="side-tree-topic">
                                 ${subItem.content.map(pc => {
-                if (pc.isPlaceholder) {
-                    return `
+                    if (pc.isPlaceholder) {
+                        return `
                                             <li>
                                                 <span class="side-link" style="opacity: 0.3; cursor: default;">
                                                     <span style="margin-right: 4px;">[${pc.pillar.icon}]</span> —
                                                 </span>
                                             </li>
                                         `;
-                }
-                return pc.content.topics.map(topic => {
-                    const isActive = isLinkActive(topic.path, currentPath, currentHash);
-                    let href = basePath + topic.path;
-                    if (window.location.protocol === 'file:' && href.endsWith('/')) {
-                        href += 'index.html';
                     }
-                    return `
+                    return pc.content.topics.map(topic => {
+                        const isActive = isLinkActive(topic.path, currentPath, currentHash);
+                        let href = basePath + topic.path;
+                        if (window.location.protocol === 'file:' && href.endsWith('/')) {
+                            href += 'index.html';
+                        }
+                        return `
                                             <li>
                                                 <a href="${href}" class="side-link ${isActive ? 'active' : ''}">
                                                     <span style="opacity: 0.6; margin-right: 4px;">[${pc.pillar.icon}]</span> ${topic.name}
                                                 </a>
                                             </li>
                                         `;
-                }).join('');
-            }).join('')}
+                    }).join('');
+                }).join('')}
                             </ul>
                         </div>
                     `).join('')}

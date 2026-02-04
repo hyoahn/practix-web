@@ -453,10 +453,8 @@ document.addEventListener('DOMContentLoaded', () => {
         html = domains.map(domain => {
             if (!domain.subsections) return '';
 
-            return `
-                <div class="side-tree-group active">
-                    <h4>${domain.name}</h4>
-                    ${domain.subsections.map(sub => {
+            // Check if domain has any matching content
+            const matchingSubsections = domain.subsections.map(sub => {
                 // 2. For each subsection, find content across ALL pillars
                 const pillarContent = PILLARS.map(p => {
                     const pDomain = p.categories.find(d => d.name === domain.name);
@@ -465,34 +463,58 @@ document.addEventListener('DOMContentLoaded', () => {
                     return { pillar: p, content: pSub };
                 }).filter(item => item && item.content);
 
-                return `
-                            <div class="side-tree-subsection">
-                                <div class="side-tree-subsection-header">${sub.name}</div>
-                                <ul class="side-tree-topic">
-                                    ${pillarContent.map(pc => {
-                    return pc.content.topics.map(topic => {
-                        const isActive = isLinkActive(topic.path, currentPath, currentHash);
-                        let href = basePath + topic.path;
-                        if (window.location.protocol === 'file:' && href.endsWith('/')) {
-                            href += 'index.html';
-                        }
-                        // Add pillar icon/marker
-                        return `
-                                                <li>
-                                                    <a href="${href}" class="side-link ${isActive ? 'active' : ''}">
-                                                        <span style="opacity: 0.6; margin-right: 4px;">[${pc.pillar.icon}]</span> ${topic.name}
-                                                    </a>
-                                                </li>
-                                            `;
-                    }).join('');
-                }).join('')}
-                                </ul>
-                            </div>
-                        `;
+                // Filter topics if search query exists
+                const relevantContent = pillarContent.map(pc => {
+                    const filteredTopics = searchQuery
+                        ? pc.content.topics.filter(t => t.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                        : pc.content.topics;
+
+                    if (filteredTopics.length === 0) return null;
+
+                    return { ...pc, content: { ...pc.content, topics: filteredTopics } };
+                }).filter(item => item !== null);
+
+                if (relevantContent.length === 0) return null;
+
+                return { subName: sub.name, content: relevantContent };
+            }).filter(sub => sub !== null);
+
+            if (matchingSubsections.length === 0) return '';
+
+            return `
+                <div class="side-tree-group active">
+                    <h4>${domain.name}</h4>
+                    ${matchingSubsections.map(subItem => `
+                        <div class="side-tree-subsection">
+                            <div class="side-tree-subsection-header">${subItem.subName}</div>
+                            <ul class="side-tree-topic">
+                                ${subItem.content.map(pc => {
+                return pc.content.topics.map(topic => {
+                    const isActive = isLinkActive(topic.path, currentPath, currentHash);
+                    let href = basePath + topic.path;
+                    if (window.location.protocol === 'file:' && href.endsWith('/')) {
+                        href += 'index.html';
+                    }
+                    // Add pillar icon/marker
+                    return `
+                                            <li>
+                                                <a href="${href}" class="side-link ${isActive ? 'active' : ''}">
+                                                    <span style="opacity: 0.6; margin-right: 4px;">[${pc.pillar.icon}]</span> ${topic.name}
+                                                </a>
+                                            </li>
+                                        `;
+                }).join('');
             }).join('')}
+                            </ul>
+                        </div>
+                    `).join('')}
                 </div>
             `;
         }).join('');
+
+        if (!html && searchQuery) {
+            html = `<div style="padding: 2rem; text-align: center; color: var(--text-secondary); font-size: 0.9rem;">No topics found for "${searchQuery}"</div>`;
+        }
 
         sidebarTree.innerHTML = html;
     }

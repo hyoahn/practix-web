@@ -241,7 +241,12 @@
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>https://practix.org/strategy/</loc>
+    <loc>https://practix.org/math/</loc>
+    <lastmod>2026-02-04</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://practix.org/circle-equations/</loc>
     <lastmod>2026-02-04</lastmod>
     <changefreq>daily</changefreq>
   </url>

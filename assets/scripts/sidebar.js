@@ -65,8 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         {
                             name: "Functions & Graphing",
                             topics: [
-                                { name: "Slope & Line Mastery", path: "formulas/heart-of-algebra/slope-and-lines/" },
-                                { name: "Pythagorean Triples", path: "formulas/heart-of-algebra/linear-equations/#pythag-triples" }
+                                { name: "Slope & Line Mastery", path: "formulas/heart-of-algebra/slope-and-lines/" }
                             ]
                         },
                         {
@@ -76,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             ]
                         },
                         {
-                            name: "Averages & Statistics",
+                            name: "Averages & Statistics Basics",
                             topics: [
                                 { name: "Averages & Mixtures", path: "formulas/heart-of-algebra/averages-and-mixtures/" }
                             ]
@@ -94,22 +93,40 @@ document.addEventListener('DOMContentLoaded', () => {
                                 { name: "Quadratic Solutions", path: "formulas/passport-to-advanced-math/quadratic-solutions/" }
                             ]
                         },
+                        { name: "Polynomial Operations", topics: [] },
                         {
                             name: "Exponential Functions",
                             topics: [
                                 { name: "Exponential Growth", path: "formulas/passport-to-advanced-math/exponential-growth/" }
                             ]
                         },
+                        { name: "Rational Expressions & Equations", topics: [] },
+                        { name: "Radicals & Complex Numbers", topics: [] },
+                        { name: "Functions (Advanced)", topics: [] },
                         {
                             name: "Factoring Techniques",
                             topics: [
                                 { name: "Factoring Patterns", path: "formulas/passport-to-advanced-math/factoring-patterns/" }
                             ]
-                        }
+                        },
+                        { name: "Word Problems (Advanced)", topics: [] },
+                        { name: "Sequences & Series", topics: [] }
                     ]
                 },
                 {
-                    name: "Geometry & Trig",
+                    name: "Problem-Solving & Data Analysis",
+                    path: "formulas/",
+                    subsections: [
+                        { name: "Percentages & Percent Change", topics: [] },
+                        { name: "Data Interpretation (Tables, Charts)", topics: [] },
+                        { name: "Statistical Measures (Mean, Median, Mode)", topics: [] },
+                        { name: "Probability & Counting", topics: [] },
+                        { name: "Scatterplots & Regression", topics: [] },
+                        { name: "Study Design & Sampling", topics: [] }
+                    ]
+                },
+                {
+                    name: "Geometry & Trigonometry",
                     path: "formulas/geometry-trigonometry/",
                     subsections: [
                         {
@@ -130,6 +147,13 @@ document.addEventListener('DOMContentLoaded', () => {
                             ]
                         },
                         {
+                            name: "Triangles & Pythagorean Theorem",
+                            topics: [
+                                { name: "Pythagorean Triples", path: "formulas/heart-of-algebra/linear-equations/#pythag-triples" }
+                            ]
+                        },
+                        { name: "Coordinate Geometry", topics: [] },
+                        {
                             name: "Angles & Polygons",
                             topics: [
                                 { name: "Polygons & Ratios", path: "formulas/geometry-trigonometry/polygons-and-ratio/" }
@@ -140,7 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             topics: [
                                 { name: "Trigonometry Hacks", path: "formulas/geometry-trigonometry/trigonometry-hacks/" }
                             ]
-                        }
+                        },
+                        { name: "Unit Circle & Radians", topics: [] }
                     ]
                 }
             ]
@@ -177,14 +202,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         {
                             name: "Polynomial Operations",
                             topics: [
-                                { name: "Polynomial Roots", path: "desmos/poly-roots/" },
+                                { name: "Polynomial Roots", path: "desmos/polynomial-roots/" },
                                 { name: "Poly-Solve Variables", path: "desmos/poly-solve/" }
                             ]
                         }
                     ]
                 },
                 {
-                    name: "Problem-Solving & Data",
+                    name: "Problem-Solving & Data Analysis",
                     path: "desmos/",
                     subsections: [
                         {
@@ -200,14 +225,14 @@ document.addEventListener('DOMContentLoaded', () => {
                             ]
                         },
                         {
-                            name: "Data Interpretation",
+                            name: "Data Interpretation (Tables, Charts)",
                             topics: [
                                 { name: "Lists & Tables", path: "desmos/lists-and-tables/" },
                                 { name: "Visualization Hacks", path: "desmos/visualization-hacks/" }
                             ]
                         },
                         {
-                            name: "Statistical Measures",
+                            name: "Statistical Measures (Mean, Median, Mode)",
                             topics: [
                                 { name: "Mean vs Median", path: "desmos/mean-vs-median/" }
                             ]
@@ -309,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     ]
                 },
                 {
-                    name: "Problem-Solving & Data",
+                    name: "Problem-Solving & Data Analysis",
                     path: "hard-questions/",
                     subsections: [
                         {
@@ -322,13 +347,161 @@ document.addEventListener('DOMContentLoaded', () => {
                     ]
                 },
                 {
-                    name: "Geometry & Trig",
+                    name: "Geometry & Trigonometry",
                     path: "hard-questions/",
                     subsections: [
                         {
                             name: "Circles & Arc Measures",
                             topics: [
                                 { name: "Geometry & Trig", path: "hard-questions/geometry/" }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'math',
+            name: 'SAT Math Knowledge',
+            icon: '📐',
+            path: 'math/',
+            categories: [
+                {
+                    name: "Heart of Algebra",
+                    path: "math/",
+                    subsections: [
+                        {
+                            name: "Linear Equations & Systems",
+                            topics: [
+                                { name: "Variables in Linear Equations", path: "math/#section-1" },
+                                { name: "Lines and Linear Functions", path: "math/#section-2" },
+                                { name: "Systems of Linear Equations", path: "math/#section-3" },
+                                { name: "Word Problems", path: "math/#section-5" }
+                            ]
+                        },
+                        {
+                            name: "Inequalities & Absolute Value",
+                            topics: [
+                                { name: "Linear Inequalities", path: "math/#section-4" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Advanced Math",
+                    path: "math/",
+                    subsections: [
+                        {
+                            name: "Polynomial Operations",
+                            topics: [
+                                { name: "Polynomial Functions", path: "math/#section-6" }
+                            ]
+                        },
+                        {
+                            name: "Quadratic Equations & Parabolas",
+                            topics: [
+                                { name: "Quadratic Equations", path: "math/#section-7" }
+                            ]
+                        },
+                        {
+                            name: "Rational Expressions & Equations",
+                            topics: [
+                                { name: "Solutions of Linear Expressions", path: "math/#section-8" }
+                            ]
+                        },
+                        {
+                            name: "Inequalities & Absolute Value",
+                            topics: [
+                                { name: "Absolute Value", path: "math/#section-9" }
+                            ]
+                        },
+                        {
+                            name: "Rate, Ratio, Proportion",
+                            topics: [
+                                { name: "Ratios, Fractions, Proportions", path: "math/#section-10" }
+                            ]
+                        },
+                        {
+                            name: "Percentages & Percent Change",
+                            topics: [
+                                { name: "Percentages", path: "math/#section-11" }
+                            ]
+                        },
+                        {
+                            name: "Exponential Functions",
+                            topics: [
+                                { name: "Exponents", path: "math/#section-12" },
+                                { name: "Exponential Growth & Decay", path: "math/#section-13" }
+                            ]
+                        },
+                        {
+                            name: "Polynomial Operations",
+                            topics: [
+                                { name: "Manipulating Expressions", path: "math/#section-14" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Problem-Solving & Data Analysis",
+                    path: "math/",
+                    subsections: [
+                        {
+                            name: "Probability & Counting",
+                            topics: [
+                                { name: "Probability", path: "math/#section-15" }
+                            ]
+                        },
+                        {
+                            name: "Data Interpretation (Tables, Charts)",
+                            topics: [
+                                { name: "Reading Graphs", path: "math/#section-16" },
+                                { name: "Histograms & Bar Graphs", path: "math/#section-17" },
+                                { name: "Studies & Data Interpretation", path: "math/#section-20" }
+                            ]
+                        },
+                        {
+                            name: "Statistical Measures (Mean, Median, Mode)",
+                            topics: [
+                                { name: "Mean, Median, Mode, Range", path: "math/#section-18" },
+                                { name: "Median in Box Plots", path: "math/#section-19" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Geometry & Trigonometry",
+                    path: "math/",
+                    subsections: [
+                        {
+                            name: "Circles & Arc Measures",
+                            topics: [
+                                { name: "Circles", path: "math/#section-21" }
+                            ]
+                        },
+                        {
+                            name: "Angles & Polygons",
+                            topics: [
+                                { name: "Lines and Angles", path: "math/#section-22" },
+                                { name: "Quadrilaterals", path: "math/#section-24" }
+                            ]
+                        },
+                        {
+                            name: "Triangles & Pythagorean Theorem",
+                            topics: [
+                                { name: "Triangles", path: "math/#section-23" }
+                            ]
+                        },
+                        {
+                            name: "Coordinate Geometry",
+                            topics: [
+                                { name: "Three-Dimensional Figures", path: "math/#section-25" }
+                            ]
+                        },
+                        {
+                            name: "Trigonometric Ratios",
+                            topics: [
+                                { name: "Trigonometry", path: "math/#section-26" }
                             ]
                         }
                     ]
@@ -451,7 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const domains = PILLARS[0].categories;
 
         // Pillars to track for gaps (excluding Wallpapers)
-        const TARGET_PILLAR_IDS = ['formulas', 'desmos', 'hard-questions'];
+        const TARGET_PILLAR_IDS = ['math', 'formulas', 'desmos', 'hard-questions'];
 
         html = domains.map(domain => {
             if (!domain.subsections) return '';

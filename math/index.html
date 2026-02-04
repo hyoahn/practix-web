@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>SAT Math Knowledge Base - Complete Digital SAT Math Curriculum | Practix</title>
+    <meta name="description"
+        content="Master the foundational knowledge for all 26 SAT Math topics. From linear equations to trigonometry, learn the core concepts before memorizing shortcuts.">
+
+    <!-- OpenGraph / Social -->
+    <meta property="og:title" content="SAT Math Knowledge Base | Practix">
+    <meta property="og:description"
+        content="Complete explanations of all SAT Math concepts organized by the College Board curriculum.">
+
+    <link rel="stylesheet" href="../assets/styles/styles.css?v=23">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../assets/scripts/practix-nav.js?v=30"></script>
+    <script src="../assets/scripts/sidebar.js?v=30"></script>
+    <script src="../assets/scripts/practix-footer.js?v=30"></script>
+    <script src="../assets/scripts/pulse-relay.js?v=26"></script>
+    <script src="../assets/scripts/analytics.js"></script>
+
+    <style>
+        .hero-section {
+            padding: 4rem 5%;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .knowledge-hub-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .intro-section {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .curriculum-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .domain-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.2s;
+        }
+
+        .domain-card:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .domain-header {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .domain-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .section-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+        }
+
+        .section-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f3f4f6;
+            color: var(--text-secondary);
+        }
+
+        .section-list li:last-child {
+            border-bottom: none;
+        }
+
+        .section-number {
+            display: inline-block;
+            width: 2.5rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--accent-primary);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-bg"></div>
+
+    <!-- Top Nav will be injected here by practix-nav.js -->
+
+    <div class="page-container">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
+            <!-- JS will populate -->
+        </aside>
+
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search topics... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
+
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin-bottom: 1rem;">The
+                        Math Knowledge Base
+                    </h1>
+                    <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto;">
+                        Foundational explanations for all 26 SAT Math topics. Learn the concepts before memorizing
+                        shortcuts.
+                    </p>
+                </header>
+
+                <div class="knowledge-hub-container">
+
+                    <section class="intro-section">
+                        <h2 style="font-family: 'Space Grotesk', sans-serif; margin-bottom: 1rem;">Why This Exists</h2>
+                        <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+                            The <strong>Formulas</strong> pillar teaches you shortcuts. The <strong>Desmos</strong>
+                            pillar shows you visual tricks. The <strong>Hard Questions</strong> pillar trains your
+                            reflexes.
+                        </p>
+                        <p style="color: var(--text-secondary); line-height: 1.7;">
+                            But before you can master any of those, you need to <strong>understand the math</strong>.
+                            This pillar provides complete explanations of every SAT Math topic, organized by the
+                            official College Board curriculum.
+                        </p>
+                    </section>
+
+                    <div class="curriculum-grid">
+                        <!-- Algebra -->
+                        <div class="domain-card">
+                            <h3 class="domain-header">
+                                <span class="domain-icon" style="background: rgba(99, 102, 241, 0.1); color: #6366f1;">
+                                    📐
+                                </span>
+                                Algebra
+                            </h3>
+                            <ul class="section-list">
+                                <li><span class="section-number">Section 1</span> Variables in Linear Equations and
+                                    Expressions <span class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 2</span> Lines and Linear Functions <span
+                                        class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 3</span> Systems of Linear Equations <span
+                                        class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 4</span> Linear Inequalities and Systems of
+                                    Linear Inequalities <span class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 5</span> Word Problems on Linear Equations and
+                                    Inequalities <span class="coming-soon">Coming Soon</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Advanced Math -->
+                        <div class="domain-card">
+                            <h3 class="domain-header">
+                                <span class="domain-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">
+                                    🔬
+                                </span>
+                                Advanced Math
+                            </h3>
+                            <ul class="section-list">
+                                <li><span class="section-number">Section 6</span> Polynomial Functions <span
+                                        class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 7</span> Quadratic Equations and Parabola <span
+                                        class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 8</span> Solutions of Linear Expressions <span
+                                        class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 9</span> Absolute Value <span
+                                        class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 10</span> Ratios, Fractions, Proportions, and
+                                    Rate <span class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 11</span> Percentages <span
+                                        class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 12</span> Exponents <span
+                                        class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 13</span> Exponential Growth and Decay <span
+                                        class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 14</span> Manipulating Expressions and
+                                    Equations <span class="coming-soon">Coming Soon</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Problem-Solving and Data Analysis -->
+                        <div class="domain-card">
+                            <h3 class="domain-header">
+                                <span class="domain-icon" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">
+                                    📊
+                                </span>
+                                Problem-Solving and Data Analysis
+                            </h3>
+                            <ul class="section-list">
+                                <li><span class="section-number">Section 15</span> Probability <span
+                                        class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 16</span> Reading Graphs <span
+                                        class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 17</span> Histograms, Bar Graphs, and Dot Plots
+                                    <span class="coming-soon">Coming Soon</span>
+                                </li>
+                                <li><span class="section-number">Section 18</span> Mean, Median, Mode, Range, and
+                                    Standard Deviation <span class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 19</span> Median and Range in Box Plots <span
+                                        class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 20</span> Studies and Data Interpretation <span
+                                        class="coming-soon">Coming Soon</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Geometry and Trigonometry -->
+                        <div class="domain-card">
+                            <h3 class="domain-header">
+                                <span class="domain-icon" style="background: rgba(236, 72, 153, 0.1); color: #ec4899;">
+                                    ⚡
+                                </span>
+                                Geometry and Trigonometry
+                            </h3>
+                            <ul class="section-list">
+                                <li><span class="section-number">Section 21</span> Circles <span
+                                        class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 22</span> Lines and Angles <span
+                                        class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 23</span> Triangles <span
+                                        class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 24</span> Quadrilaterals <span
+                                        class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 25</span> Three-Dimensional Figures <span
+                                        class="coming-soon">Coming Soon</span></li>
+                                <li><span class="section-number">Section 26</span> Trigonometry <span
+                                        class="coming-soon">Coming Soon</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Hidden Footer -->
+    <footer style="display: none;"></footer>
+
+</body>
+
+</html>

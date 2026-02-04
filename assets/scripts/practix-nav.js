@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="nav-links" id="nav-menu">
             <a href="${basePath}index.html" class="nav-btn ${currentPath.endsWith('index.html') || currentPath === '/' ? 'active' : ''}">Home</a>
             <a href="${basePath}app/" class="nav-btn ${currentPath.includes('/app/') ? 'active' : ''}">App</a>
-            <a href="${basePath}strategy/" class="nav-btn ${currentPath.includes('/strategy/') ? 'active' : ''}">Strategy</a>
+            <a href="${basePath}math/" class="nav-btn ${currentPath.includes('/math/') ? 'active' : ''}">Math</a>
             <a href="${basePath}formulas/" class="nav-btn ${currentPath.includes('/formulas/') ? 'active' : ''}">Formulas</a>
             <a href="${basePath}hard-questions/" class="nav-btn ${currentPath.includes('/hard-questions/') ? 'active' : ''}">Hardest Questions</a>
             <a href="${basePath}desmos/" class="nav-btn ${currentPath.includes('/desmos/') ? 'active' : ''}">Desmos</a>

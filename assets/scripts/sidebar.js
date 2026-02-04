@@ -450,34 +450,51 @@ document.addEventListener('DOMContentLoaded', () => {
         // 1. Get the unified Domain/Subsection structure from the first pillar (canonical)
         const domains = PILLARS[0].categories;
 
+        // Pillars to track for gaps (excluding Wallpapers)
+        const TARGET_PILLAR_IDS = ['formulas', 'desmos', 'hard-questions'];
+
         html = domains.map(domain => {
             if (!domain.subsections) return '';
 
             // Check if domain has any matching content
             const matchingSubsections = domain.subsections.map(sub => {
-                // 2. For each subsection, find content across ALL pillars
-                const pillarContent = PILLARS.map(p => {
-                    const pDomain = p.categories.find(d => d.name === domain.name);
-                    if (!pDomain || !pDomain.subsections) return null;
-                    const pSub = pDomain.subsections.find(s => s.name === sub.name);
-                    return { pillar: p, content: pSub };
-                }).filter(item => item && item.content);
+                // 2. For each subsection, gather content from TARGET pillars
+                const pillarContent = PILLARS
+                    .filter(p => TARGET_PILLAR_IDS.includes(p.id))
+                    .map(p => {
+                        const pDomain = p.categories.find(d => d.name === domain.name);
+                        const pSub = pDomain?.subsections?.find(s => s.name === sub.name);
 
-                // Filter topics if search query exists
-                const relevantContent = pillarContent.map(pc => {
-                    const subNameMatch = sub.name.toLowerCase().includes(searchQuery.toLowerCase());
-                    const filteredTopics = searchQuery
-                        ? pc.content.topics.filter(t => subNameMatch || t.name.toLowerCase().includes(searchQuery.toLowerCase()))
-                        : pc.content.topics;
+                        const hasContent = pSub && pSub.topics.length > 0;
 
-                    if (filteredTopics.length === 0) return null;
+                        // Check match (Subsection name or Topic name)
+                        const subNameMatch = sub.name.toLowerCase().includes(searchQuery.toLowerCase());
 
-                    return { ...pc, content: { ...pc.content, topics: filteredTopics } };
-                }).filter(item => item !== null);
+                        let matchTopics = [];
+                        if (hasContent) {
+                            matchTopics = searchQuery
+                                ? pSub.topics.filter(t => subNameMatch || t.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                                : pSub.topics;
+                        }
 
-                if (relevantContent.length === 0) return null;
+                        // Logic: Show placeholder if EMPTY, but only if:
+                        // 1. No search query (show all gaps)
+                        // 2. Search query matches Subsection Name (show gaps for this specific sub)
 
-                return { subName: sub.name, content: relevantContent };
+                        const showPlaceholder = !hasContent && (!searchQuery || subNameMatch);
+                        const showContent = hasContent && matchTopics.length > 0;
+
+                        if (showPlaceholder) {
+                            return { pillar: p, isPlaceholder: true };
+                        } else if (showContent) {
+                            return { pillar: p, content: { name: pSub.name, topics: matchTopics } };
+                        }
+                        return null;
+                    }).filter(item => item !== null);
+
+                if (pillarContent.length === 0) return null;
+
+                return { subName: sub.name, content: pillarContent };
             }).filter(sub => sub !== null);
 
             if (matchingSubsections.length === 0) return '';
@@ -490,13 +507,21 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="side-tree-subsection-header">${subItem.subName}</div>
                             <ul class="side-tree-topic">
                                 ${subItem.content.map(pc => {
+                if (pc.isPlaceholder) {
+                    return `
+                                            <li>
+                                                <span class="side-link" style="opacity: 0.3; cursor: default;">
+                                                    <span style="margin-right: 4px;">[${pc.pillar.icon}]</span> —
+                                                </span>
+                                            </li>
+                                        `;
+                }
                 return pc.content.topics.map(topic => {
                     const isActive = isLinkActive(topic.path, currentPath, currentHash);
                     let href = basePath + topic.path;
                     if (window.location.protocol === 'file:' && href.endsWith('/')) {
                         href += 'index.html';
                     }
-                    // Add pillar icon/marker
                     return `
                                             <li>
                                                 <a href="${href}" class="side-link ${isActive ? 'active' : ''}">

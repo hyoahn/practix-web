@@ -476,7 +476,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         {
                             name: "Circles & Arc Measures",
                             topics: [
-                                { name: "Circles", path: "math/#section-21" }
+                                { name: "Circles", path: "math/circles/" }
                             ]
                         },
                         {

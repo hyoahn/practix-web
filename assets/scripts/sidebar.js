@@ -36,56 +36,111 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     name: "Heart of Algebra",
                     path: "formulas/heart-of-algebra/",
-                    topics: [
-                        { name: "Linear Equations", path: "formulas/heart-of-algebra/linear-equations/" },
-                        { name: "Slope from Standard Form", path: "formulas/heart-of-algebra/linear-equations/#standard-slope" },
-                        { name: "Point-Slope Form", path: "formulas/heart-of-algebra/linear-equations/#point-slope" },
-                        { name: "Midpoint Formula", path: "formulas/heart-of-algebra/linear-equations/#midpoint" },
-                        { name: "Distance Formula", path: "formulas/heart-of-algebra/linear-equations/#distance" },
-                        { name: "Pythagorean Triples", path: "formulas/heart-of-algebra/linear-equations/#pythag-triples" },
-                        { name: "Percent Change Hacks", path: "formulas/heart-of-algebra/percent-change-shortcuts/" },
-                        { name: "Slope & Line Mastery", path: "formulas/heart-of-algebra/slope-and-lines/" },
-                        { name: "Averages & Mixtures", path: "formulas/heart-of-algebra/averages-and-mixtures/" },
-                        { name: "Parallel Lines", path: "formulas/heart-of-algebra/linear-equations/#parallel-slope" },
-                        { name: "Perpendicular Lines", path: "formulas/heart-of-algebra/linear-equations/#perp-slope" },
-                        { name: "Horizontal Line (HOY)", path: "formulas/heart-of-algebra/linear-equations/#horiz-slope" },
-                        { name: "Vertical Line (VUX)", path: "formulas/heart-of-algebra/linear-equations/#vert-slope" },
-                        { name: "X-Intercept Hack", path: "formulas/heart-of-algebra/linear-equations/#x-int-hack" },
-                        { name: "Intersection Meaning", path: "formulas/heart-of-algebra/linear-equations/#intersect-meaning" },
-                        { name: "Infinite Solutions", path: "formulas/heart-of-algebra/linear-equations/#infinite-sols" },
-                        { name: "No Solution", path: "formulas/heart-of-algebra/linear-equations/#no-sols" },
-                        { name: "Standard Form Intercepts", path: "formulas/heart-of-algebra/linear-equations/#standard-ints" },
-                        { name: "Inequality Shading", path: "formulas/heart-of-algebra/linear-equations/#ineq-shade" }
+                    subsections: [
+                        {
+                            name: "Linear Equations & Systems",
+                            topics: [
+                                { name: "Linear Equations", path: "formulas/heart-of-algebra/linear-equations/" },
+                                { name: "Slope from Standard Form", path: "formulas/heart-of-algebra/linear-equations/#standard-slope" },
+                                { name: "Point-Slope Form", path: "formulas/heart-of-algebra/linear-equations/#point-slope" },
+                                { name: "Midpoint Formula", path: "formulas/heart-of-algebra/linear-equations/#midpoint" },
+                                { name: "Distance Formula", path: "formulas/heart-of-algebra/linear-equations/#distance" },
+                                { name: "Parallel Lines", path: "formulas/heart-of-algebra/linear-equations/#parallel-slope" },
+                                { name: "Perpendicular Lines", path: "formulas/heart-of-algebra/linear-equations/#perp-slope" },
+                                { name: "Horizontal Line (HOY)", path: "formulas/heart-of-algebra/linear-equations/#horiz-slope" },
+                                { name: "Vertical Line (VUX)", path: "formulas/heart-of-algebra/linear-equations/#vert-slope" },
+                                { name: "X-Intercept Hack", path: "formulas/heart-of-algebra/linear-equations/#x-int-hack" },
+                                { name: "Intersection Meaning", path: "formulas/heart-of-algebra/linear-equations/#intersect-meaning" },
+                                { name: "Infinite Solutions", path: "formulas/heart-of-algebra/linear-equations/#infinite-sols" },
+                                { name: "No Solution", path: "formulas/heart-of-algebra/linear-equations/#no-sols" },
+                                { name: "Standard Form Intercepts", path: "formulas/heart-of-algebra/linear-equations/#standard-ints" }
+                            ]
+                        },
+                        {
+                            name: "Inequalities & Absolute Value",
+                            topics: [
+                                { name: "Inequality Shading", path: "formulas/heart-of-algebra/linear-equations/#ineq-shade" }
+                            ]
+                        },
+                        {
+                            name: "Functions & Graphing",
+                            topics: [
+                                { name: "Slope & Line Mastery", path: "formulas/heart-of-algebra/slope-and-lines/" },
+                                { name: "Pythagorean Triples", path: "formulas/heart-of-algebra/linear-equations/#pythag-triples" }
+                            ]
+                        },
+                        {
+                            name: "Rate, Ratio, Proportion",
+                            topics: [
+                                { name: "Percent Change Hacks", path: "formulas/heart-of-algebra/percent-change-shortcuts/" }
+                            ]
+                        },
+                        {
+                            name: "Averages & Statistics",
+                            topics: [
+                                { name: "Averages & Mixtures", path: "formulas/heart-of-algebra/averages-and-mixtures/" }
+                            ]
+                        }
                     ]
                 },
                 {
                     name: "Advanced Math",
                     path: "formulas/passport-to-advanced-math/",
-                    topics: [
-                        { name: "Parabola Mastery", path: "formulas/passport-to-advanced-math/parabola-mastery/" },
-                        { name: "Quadratic Solutions", path: "formulas/passport-to-advanced-math/quadratic-solutions/" },
-                        { name: "Exponential Growth", path: "formulas/passport-to-advanced-math/exponential-growth/" },
-                        { name: "Factoring Patterns", path: "formulas/passport-to-advanced-math/factoring-patterns/" }
+                    subsections: [
+                        {
+                            name: "Quadratic Equations & Parabolas",
+                            topics: [
+                                { name: "Parabola Mastery", path: "formulas/passport-to-advanced-math/parabola-mastery/" },
+                                { name: "Quadratic Solutions", path: "formulas/passport-to-advanced-math/quadratic-solutions/" }
+                            ]
+                        },
+                        {
+                            name: "Exponential Functions",
+                            topics: [
+                                { name: "Exponential Growth", path: "formulas/passport-to-advanced-math/exponential-growth/" }
+                            ]
+                        },
+                        {
+                            name: "Factoring Techniques",
+                            topics: [
+                                { name: "Factoring Patterns", path: "formulas/passport-to-advanced-math/factoring-patterns/" }
+                            ]
+                        }
                     ]
                 },
                 {
                     name: "Geometry & Trig",
                     path: "formulas/geometry-trigonometry/",
-                    topics: [
-                        { name: "Circle Equations", path: "formulas/geometry-trigonometry/circle-equations/" },
-                        { name: "Arc Length (Degrees)", path: "formulas/geometry-trigonometry/circle-equations/#arc-len-deg" },
-                        { name: "Sector Area (Degrees)", path: "formulas/geometry-trigonometry/circle-equations/#sector-area-deg" },
-                        { name: "Arc Length (Radians)", path: "formulas/geometry-trigonometry/circle-equations/#arc-len-rad" },
-                        { name: "Sector Area (Radians)", path: "formulas/geometry-trigonometry/circle-equations/#sector-area-rad" },
-                        { name: "Inscribed Angle", path: "formulas/geometry-trigonometry/circle-equations/#inscribed-angle" },
-                        { name: "Central Angle", path: "formulas/geometry-trigonometry/circle-equations/#central-angle" },
-                        { name: "Tangent-Radius", path: "formulas/geometry-trigonometry/circle-equations/#tangent-rad" },
-                        { name: "Diameter to Equation", path: "formulas/geometry-trigonometry/circle-equations/#diameter-endpoints" },
-                        { name: "Cyclic Quadrilateral", path: "formulas/geometry-trigonometry/circle-equations/#cyclic-quad" },
-                        { name: "Annulus Area", path: "formulas/geometry-trigonometry/circle-equations/#annulus-area" },
-                        { name: "Arcs & Sectors", path: "formulas/geometry-trigonometry/arcs-and-sectors/" },
-                        { name: "Polygons & Ratios", path: "formulas/geometry-trigonometry/polygons-and-ratio/" },
-                        { name: "Trigonometry Hacks", path: "formulas/geometry-trigonometry/trigonometry-hacks/" }
+                    subsections: [
+                        {
+                            name: "Circles & Arc Measures",
+                            topics: [
+                                { name: "Circle Equations", path: "formulas/geometry-trigonometry/circle-equations/" },
+                                { name: "Arc Length (Degrees)", path: "formulas/geometry-trigonometry/circle-equations/#arc-len-deg" },
+                                { name: "Sector Area (Degrees)", path: "formulas/geometry-trigonometry/circle-equations/#sector-area-deg" },
+                                { name: "Arc Length (Radians)", path: "formulas/geometry-trigonometry/circle-equations/#arc-len-rad" },
+                                { name: "Sector Area (Radians)", path: "formulas/geometry-trigonometry/circle-equations/#sector-area-rad" },
+                                { name: "Inscribed Angle", path: "formulas/geometry-trigonometry/circle-equations/#inscribed-angle" },
+                                { name: "Central Angle", path: "formulas/geometry-trigonometry/circle-equations/#central-angle" },
+                                { name: "Tangent-Radius", path: "formulas/geometry-trigonometry/circle-equations/#tangent-rad" },
+                                { name: "Diameter to Equation", path: "formulas/geometry-trigonometry/circle-equations/#diameter-endpoints" },
+                                { name: "Cyclic Quadrilateral", path: "formulas/geometry-trigonometry/circle-equations/#cyclic-quad" },
+                                { name: "Annulus Area", path: "formulas/geometry-trigonometry/circle-equations/#annulus-area" },
+                                { name: "Arcs & Sectors", path: "formulas/geometry-trigonometry/arcs-and-sectors/" }
+                            ]
+                        },
+                        {
+                            name: "Angles & Polygons",
+                            topics: [
+                                { name: "Polygons & Ratios", path: "formulas/geometry-trigonometry/polygons-and-ratio/" }
+                            ]
+                        },
+                        {
+                            name: "Trigonometric Ratios",
+                            topics: [
+                                { name: "Trigonometry Hacks", path: "formulas/geometry-trigonometry/trigonometry-hacks/" }
+                            ]
+                        }
                     ]
                 }
             ]
@@ -99,34 +154,64 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     name: "Heart of Algebra",
                     path: "desmos/",
-                    topics: [
-                        { name: "System Solver", path: "desmos/system-solver/" },
-                        { name: "Absolute Value Solves", path: "desmos/absolute-value/" },
-                        { name: "Inequality Shading", path: "desmos/inequality-shading/" }
+                    subsections: [
+                        {
+                            name: "Linear Equations & Systems",
+                            topics: [
+                                { name: "System Solver", path: "desmos/system-solver/" }
+                            ]
+                        },
+                        {
+                            name: "Inequalities & Absolute Value",
+                            topics: [
+                                { name: "Absolute Value Solves", path: "desmos/absolute-value/" },
+                                { name: "Inequality Shading", path: "desmos/inequality-shading/" }
+                            ]
+                        }
                     ]
                 },
                 {
                     name: "Advanced Math",
                     path: "desmos/",
-                    topics: [
-                        { name: "Polynomial Roots", path: "desmos/poly-roots/" },
-                        { name: "Poly-Solve Variables", path: "desmos/poly-solve/" }
+                    subsections: [
+                        {
+                            name: "Polynomial Operations",
+                            topics: [
+                                { name: "Polynomial Roots", path: "desmos/poly-roots/" },
+                                { name: "Poly-Solve Variables", path: "desmos/poly-solve/" }
+                            ]
+                        }
                     ]
                 },
                 {
                     name: "Problem-Solving & Data",
                     path: "desmos/",
-                    topics: [
-                        { name: "Regression Secrets", path: "desmos/regression-secrets/" },
-                        { name: "Logarithmic Regression", path: "desmos/log-reg/" },
-                        { name: "Logistic Growth", path: "desmos/logistic-reg/" },
-                        { name: "Power Regression", path: "desmos/power-reg/" },
-                        { name: "R-squared Check", path: "desmos/r-squared/" },
-                        { name: "Residual Plot", path: "desmos/residual-plot/" },
-                        { name: "Prediction Value", path: "desmos/prediction-value/" },
-                        { name: "Lists & Tables", path: "desmos/lists-and-tables/" },
-                        { name: "Visualization Hacks", path: "desmos/visualization-hacks/" },
-                        { name: "Mean vs Median", path: "desmos/mean-vs-median/" }
+                    subsections: [
+                        {
+                            name: "Scatterplots & Regression",
+                            topics: [
+                                { name: "Regression Secrets", path: "desmos/regression-secrets/" },
+                                { name: "Logarithmic Regression", path: "desmos/log-reg/" },
+                                { name: "Logistic Growth", path: "desmos/logistic-reg/" },
+                                { name: "Power Regression", path: "desmos/power-reg/" },
+                                { name: "R-squared Check", path: "desmos/r-squared/" },
+                                { name: "Residual Plot", path: "desmos/residual-plot/" },
+                                { name: "Prediction Value", path: "desmos/prediction-value/" }
+                            ]
+                        },
+                        {
+                            name: "Data Interpretation",
+                            topics: [
+                                { name: "Lists & Tables", path: "desmos/lists-and-tables/" },
+                                { name: "Visualization Hacks", path: "desmos/visualization-hacks/" }
+                            ]
+                        },
+                        {
+                            name: "Statistical Measures",
+                            topics: [
+                                { name: "Mean vs Median", path: "desmos/mean-vs-median/" }
+                            ]
+                        }
                     ]
                 }
             ]
@@ -140,57 +225,112 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     name: "Heart of Algebra",
                     path: "hard-questions/",
-                    topics: [
-                        { name: "Algebra Traps", path: "hard-questions/algebra/" },
-                        { name: "Infinite Solutions Trap", path: "hard-questions/algebra/#q10" },
-                        { name: "No Solution Constants", path: "hard-questions/algebra/#q11" },
-                        { name: "Perpendicular Slopes", path: "hard-questions/algebra/#q12" },
-                        { name: "Slope Interpretation", path: "hard-questions/algebra/#q16" },
-                        { name: "Infinite Mystery", path: "hard-questions/algebra/#q17" },
-                        { name: "Parallel Barrier", path: "hard-questions/algebra/#q18" },
-                        { name: "Inequality Zone", path: "hard-questions/algebra/#q19" },
-                        { name: "Absolute Range", path: "hard-questions/algebra/#q24" },
-                        { name: "System Solutions", path: "hard-questions/system-solutions/" }
+                    subsections: [
+                        {
+                            name: "Linear Equations & Systems",
+                            topics: [
+                                { name: "Algebra Traps", path: "hard-questions/algebra/" },
+                                { name: "Infinite Solutions Trap", path: "hard-questions/algebra/#q10" },
+                                { name: "No Solution Constants", path: "hard-questions/algebra/#q11" },
+                                { name: "Infinite Mystery", path: "hard-questions/algebra/#q17" },
+                                { name: "System Solutions", path: "hard-questions/system-solutions/" }
+                            ]
+                        },
+                        {
+                            name: "Functions & Graphing",
+                            topics: [
+                                { name: "Perpendicular Slopes", path: "hard-questions/algebra/#q12" },
+                                { name: "Slope Interpretation", path: "hard-questions/algebra/#q16" },
+                                { name: "Parallel Barrier", path: "hard-questions/algebra/#q18" }
+                            ]
+                        },
+                        {
+                            name: "Inequalities & Absolute Value",
+                            topics: [
+                                { name: "Inequality Zone", path: "hard-questions/algebra/#q19" },
+                                { name: "Absolute Range", path: "hard-questions/algebra/#q24" }
+                            ]
+                        }
                     ]
                 },
                 {
                     name: "Advanced Math",
                     path: "hard-questions/",
-                    topics: [
-                        { name: "Advanced Math", path: "hard-questions/advanced-math/" },
-                        { name: "Quadratic Sum Hack", path: "hard-questions/algebra/#q13" },
-                        { name: "Extraneous Roots", path: "hard-questions/algebra/#q14" },
-                        { name: "Manipulating Constants", path: "hard-questions/algebra/#q15" },
-                        { name: "Composite Chaos", path: "hard-questions/algebra/#q20" },
-                        { name: "Inverse Trap", path: "hard-questions/algebra/#q21" },
-                        { name: "Shifting Asymptote", path: "hard-questions/algebra/#q22" },
-                        { name: "Growth Identity", path: "hard-questions/algebra/#q23" },
-                        { name: "Vertex Speed Run", path: "hard-questions/advanced-math/#q9" },
-                        { name: "Two Root Test", path: "hard-questions/advanced-math/#q10" },
-                        { name: "Ghost Roots", path: "hard-questions/advanced-math/#q11" },
-                        { name: "Sum it Up", path: "hard-questions/advanced-math/#q12" },
-                        { name: "Product Power", path: "hard-questions/advanced-math/#q13" },
-                        { name: "Factor Logic", path: "hard-questions/advanced-math/#q14" },
-                        { name: "Expression Match", path: "hard-questions/advanced-math/#q15" },
-                        { name: "Decay Delay", path: "hard-questions/advanced-math/#q16" },
-                        { name: "Fake Roots", path: "hard-questions/advanced-math/#q17" },
-                        { name: "Forbidden Values", path: "hard-questions/advanced-math/#q18" },
-                        { name: "Discriminant Dangers", path: "hard-questions/discriminant-dangers/" }
+                    subsections: [
+                        {
+                            name: "Quadratic Equations & Parabolas",
+                            topics: [
+                                { name: "Advanced Math", path: "hard-questions/advanced-math/" },
+                                { name: "Quadratic Sum Hack", path: "hard-questions/algebra/#q13" },
+                                { name: "Vertex Speed Run", path: "hard-questions/advanced-math/#q9" },
+                                { name: "Two Root Test", path: "hard-questions/advanced-math/#q10" },
+                                { name: "Ghost Roots", path: "hard-questions/advanced-math/#q11" },
+                                { name: "Sum it Up", path: "hard-questions/advanced-math/#q12" },
+                                { name: "Product Power", path: "hard-questions/advanced-math/#q13" },
+                                { name: "Fake Roots", path: "hard-questions/advanced-math/#q17" },
+                                { name: "Discriminant Dangers", path: "hard-questions/discriminant-dangers/" }
+                            ]
+                        },
+                        {
+                            name: "Polynomial Operations",
+                            topics: [
+                                { name: "Manipulating Constants", path: "hard-questions/algebra/#q15" },
+                                { name: "Expression Match", path: "hard-questions/advanced-math/#q15" }
+                            ]
+                        },
+                        {
+                            name: "Rational Expressions & Equations",
+                            topics: [
+                                { name: "Extraneous Roots", path: "hard-questions/algebra/#q14" },
+                                { name: "Shifting Asymptote", path: "hard-questions/algebra/#q22" },
+                                { name: "Forbidden Values", path: "hard-questions/advanced-math/#q18" }
+                            ]
+                        },
+                        {
+                            name: "Functions (Advanced)",
+                            topics: [
+                                { name: "Composite Chaos", path: "hard-questions/algebra/#q20" },
+                                { name: "Inverse Trap", path: "hard-questions/algebra/#q21" }
+                            ]
+                        },
+                        {
+                            name: "Exponential Functions",
+                            topics: [
+                                { name: "Growth Identity", path: "hard-questions/algebra/#q23" },
+                                { name: "Decay Delay", path: "hard-questions/advanced-math/#q16" }
+                            ]
+                        },
+                        {
+                            name: "Factoring Techniques",
+                            topics: [
+                                { name: "Factor Logic", path: "hard-questions/advanced-math/#q14" }
+                            ]
+                        }
                     ]
                 },
                 {
                     name: "Problem-Solving & Data",
                     path: "hard-questions/",
-                    topics: [
-                        { name: "Problem Solving", path: "hard-questions/problem-solving/" },
-                        { name: "Unit Conversion", path: "hard-questions/unit-conversion/" }
+                    subsections: [
+                        {
+                            name: "Rate, Ratio, Proportion",
+                            topics: [
+                                { name: "Problem Solving", path: "hard-questions/problem-solving/" },
+                                { name: "Unit Conversion", path: "hard-questions/unit-conversion/" }
+                            ]
+                        }
                     ]
                 },
                 {
                     name: "Geometry & Trig",
                     path: "hard-questions/",
-                    topics: [
-                        { name: "Geometry & Trig", path: "hard-questions/geometry/" }
+                    subsections: [
+                        {
+                            name: "General Geometry",
+                            topics: [
+                                { name: "Geometry & Trig", path: "hard-questions/geometry/" }
+                            ]
+                        }
                     ]
                 }
             ]
@@ -253,34 +393,60 @@ document.addEventListener('DOMContentLoaded', () => {
         if (searchQuery) {
             // GLOBAL SEARCH ACROSS ALL PILLARS
             PILLARS.forEach(pillar => {
-                let matches = pillar.categories.map(cat => ({
-                    ...cat,
-                    topics: cat.topics.filter(t =>
-                        t.name.toLowerCase().includes(searchQuery.toLowerCase())
-                    )
-                })).filter(cat => cat.topics.length > 0);
-
-                if (matches.length > 0) {
-                    html += `<div class="pillar-search-header" style="font-size: 0.7rem; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 1.5rem; margin-bottom: 0.5rem; padding: 0 1rem;">${pillar.name}</div>`;
-                    matches.forEach(cat => {
-                        html += `
-                            <div class="side-tree-group active">
-                                <h4>${cat.name}</h4>
-                                <ul class="side-tree-topic">
-                                    ${cat.topics.map(topic => {
-                            const isActive = isLinkActive(topic.path, currentPath, currentHash);
-                            return `
-                                        <li>
-                                            <a href="${basePath}${topic.path}" class="side-link ${isActive ? 'active' : ''}">
-                                                ${topic.name}
-                                            </a>
-                                        </li>
-                                    `}).join('')}
-                                </ul>
-                            </div>
-                        `;
-                    });
-                }
+                pillar.categories.forEach(cat => {
+                    // Check if category has subsections or direct topics
+                    if (cat.subsections) {
+                        // Search within subsections
+                        cat.subsections.forEach(subsection => {
+                            const matchedTopics = subsection.topics.filter(t =>
+                                t.name.toLowerCase().includes(searchQuery.toLowerCase())
+                            );
+                            if (matchedTopics.length > 0) {
+                                html += `
+                                    <div class="side-tree-group active">
+                                        <h4>${cat.name} › ${subsection.name}</h4>
+                                        <ul class="side-tree-topic">
+                                            ${matchedTopics.map(topic => {
+                                    const isActive = isLinkActive(topic.path, currentPath, currentHash);
+                                    return `
+                                                    <li>
+                                                        <a href="${basePath}${topic.path}" class="side-link ${isActive ? 'active' : ''}">
+                                                            ${topic.name}
+                                                        </a>
+                                                    </li>
+                                                `;
+                                }).join('')}
+                                        </ul>
+                                    </div>
+                                `;
+                            }
+                        });
+                    } else if (cat.topics) {
+                        // Legacy: direct topics (for wallpapers pillar)
+                        const matchedTopics = cat.topics.filter(t =>
+                            t.name.toLowerCase().includes(searchQuery.toLowerCase())
+                        );
+                        if (matchedTopics.length > 0) {
+                            html += `
+                                <div class="side-tree-group active">
+                                    <h4>${cat.name}</h4>
+                                    <ul class="side-tree-topic">
+                                        ${matchedTopics.map(topic => {
+                                const isActive = isLinkActive(topic.path, currentPath, currentHash);
+                                return `
+                                                <li>
+                                                    <a href="${basePath}${topic.path}" class="side-link ${isActive ? 'active' : ''}">
+                                                        ${topic.name}
+                                                    </a>
+                                                </li>
+                                            `;
+                            }).join('')}
+                                    </ul>
+                                </div>
+                            `;
+                        }
+                    }
+                });
             });
 
             if (!html) {
@@ -290,29 +456,62 @@ document.addEventListener('DOMContentLoaded', () => {
             // STANDARD PILLAR VIEW
             let filteredCategories = activePillar.categories;
 
-            html = filteredCategories.map(cat => `
-                <div class="side-tree-group active">
-                    <h4>${cat.name}</h4>
-                    <ul class="side-tree-topic">
-                        ${cat.topics.map(topic => {
-                const isActive = isLinkActive(topic.path, currentPath, currentHash);
-                // Verify if we are in local file mode and append index.html for smoother navigation
-                let href = basePath + topic.path;
-                if (window.location.protocol === 'file:' && href.endsWith('/')) {
-                    href += 'index.html';
+            html = filteredCategories.map(cat => {
+                // Check if category has subsections or direct topics
+                if (cat.subsections) {
+                    // Render with subsections (3-level hierarchy)
+                    return `
+                        <div class="side-tree-group active">
+                            <h4>${cat.name}</h4>
+                            ${cat.subsections.map(subsection => `
+                                <div class="side-tree-subsection" style="margin-left: 0.5rem; margin-top: 0.5rem;">
+                                    <div style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; font-weight: 600;">${subsection.name}</div>
+                                    <ul class="side-tree-topic">
+                                        ${subsection.topics.map(topic => {
+                        const isActive = isLinkActive(topic.path, currentPath, currentHash);
+                        let href = basePath + topic.path;
+                        if (window.location.protocol === 'file:' && href.endsWith('/')) {
+                            href += 'index.html';
+                        }
+                        return `
+                                                <li>
+                                                    <a href="${href}" class="side-link ${isActive ? 'active' : ''}">
+                                                        ${topic.name}
+                                                    </a>
+                                                </li>
+                                            `;
+                    }).join('')}
+                                    </ul>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                } else {
+                    // Legacy: direct topics (2-level hierarchy for wallpapers etc.)
+                    return `
+                        <div class="side-tree-group active">
+                            <h4>${cat.name}</h4>
+                            <ul class="side-tree-topic">
+                                ${cat.topics.map(topic => {
+                        const isActive = isLinkActive(topic.path, currentPath, currentHash);
+                        let href = basePath + topic.path;
+                        if (window.location.protocol === 'file:' && href.endsWith('/')) {
+                            href += 'index.html';
+                        }
+                        return `
+                                        <li>
+                                            <a href="${href}" class="side-link ${isActive ? 'active' : ''}">
+                                                ${topic.name}
+                                            </a>
+                                        </li>
+                                    `;
+                    }).join('')}
+                            </ul>
+                        </div>
+                    `;
                 }
-                return `
-                            <li>
-                                <a href="${href}" class="side-link ${isActive ? 'active' : ''}">
-                                    ${topic.name}
-                                </a>
-                            </li>
-                        `}).join('')}
-                    </ul>
-                </div>
-            `).join('');
+            }).join('');
         }
-
         sidebarTree.innerHTML = html;
     }
 

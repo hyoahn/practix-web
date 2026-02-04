@@ -1288,7 +1288,7 @@ input[type=range]::-webkit-slider-runnable-track {
     font-size: 1.2rem !important;
     /* Clearly larger than topic */
     color: var(--text-primary) !important;
-    text-transform: uppercase !important;
+    text-transform: none !important;
     letter-spacing: 0.05em;
     margin-bottom: 0.5rem;
     margin-top: 1.25rem;

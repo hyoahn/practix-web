@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAT Linear Inequalities | Shading Rules & Dashed Lines | Practix</title>
+    <meta name="description"
+        content="Master SAT Linear Inequalities. Learn when to shade above vs. below, the difference between dashed and solid lines, and the golden rule of dividing by negatives.">
+    <link rel="stylesheet" href="../../assets/styles/styles.css?v=34">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../assets/scripts/practix-nav.js?v=34"></script>
+    <script src="../../assets/scripts/sidebar.js?v=34"></script>
+    <script src="../../assets/scripts/practix-footer.js?v=34"></script>
+    <script src="../../assets/scripts/pulse-relay.js?v=26"></script>
+    <script src="../../assets/scripts/analytics.js"></script>
+
+    <style>
+        .topic-header {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .perspective-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .perspective-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .perspective-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .p-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.03);
+            padding: 1rem;
+            border-radius: 12px;
+        }
+
+        .p-formula .p-icon {
+            color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .p-desmos .p-icon {
+            color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .p-trap .p-icon {
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .concept-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .comparison-table th {
+            background: #f8fafc;
+            padding: 1rem;
+            text-align: left;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .visual-guide {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .visual-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-bg"></div>
+    <div class="page-container">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail"></aside>
+
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search inequalities...">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;"></div>
+        </aside>
+
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+
+                <header class="topic-header">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #f59e0b; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Heart of Algebra
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1rem;">Inequalities</h1>
+                    <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto;">
+                        Shade above or below? Dashed or solid line? Learn the visual language of SAT Inequalities.
+                    </p>
+                </header>
+
+                <div style="max-width: 1000px; margin: 0 auto; padding: 0 5%;">
+
+                    <!-- PERSPECTIVES GRID -->
+                    <div class="perspective-grid">
+                        <a href="../../formulas/heart-of-algebra/inequalities/" class="perspective-card p-formula"
+                            style="text-decoration: none; color: inherit;">
+                            <div class="p-icon">Σ</div>
+                            <h3 style="margin-bottom: 0.5rem;">The Golden Rule</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">When to FLIP the sign. If you
+                                divide by a negative, the world turns upside down.</p>
+                            <span style="color: #3b82f6; font-weight: 700; font-size: 0.9rem;">See Rules →</span>
+                        </a>
+
+                        <a href="../../desmos/inequality-shading/" class="perspective-card p-desmos"
+                            style="text-decoration: none; color: inherit;">
+                            <div class="p-icon">y=</div>
+                            <h3 style="margin-bottom: 0.5rem;">Desmos Shading</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">Don't guess. Type it in. Desmos
+                                handles dashed lines and shading automatically.</p>
+                            <span style="color: #10b981; font-weight: 700; font-size: 0.9rem;">View Desmos Hack →</span>
+                        </a>
+
+                        <a href="../../hard-questions/inequality-zone/" class="perspective-card p-trap"
+                            style="text-decoration: none; color: inherit;">
+                            <div class="p-icon">☠️</div>
+                            <h3 style="margin-bottom: 0.5rem;">The "NOT" Trap</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">"Which point is NOT a
+                                solution?" Why boundary lines matter.</p>
+                            <span style="color: #ef4444; font-weight: 700; font-size: 0.9rem;">Spot the Trap →</span>
+                        </a>
+                    </div>
+
+                    <!-- CONCEPT: SHADING RULES -->
+                    <div class="concept-section">
+                        <h2 style="font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">The Shading Cheat Sheet</h2>
+                        <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary);">
+                            Assuming \(y\) is on the left side (e.g., \(y > ...\)):
+                        </p>
+
+                        <div class="visual-guide">
+                            <div class="visual-card">
+                                <h3 style="color: #10b981; font-size: 2rem; margin-bottom: 1rem;">> or ≥</h3>
+                                <p style="font-weight: 700; font-size: 1.2rem;">SHADE ABOVE</p>
+                                <p style="color: var(--text-secondary);">Think: "Greater" = "Higher"</p>
+                            </div>
+                            <div class="visual-card">
+                                <h3 style="color: #ef4444; font-size: 2rem; margin-bottom: 1rem;">
+                                    < or ≤</h3>
+                                        <p style="font-weight: 700; font-size: 1.2rem;">SHADE BELOW</p>
+                                        <p style="color: var(--text-secondary);">Think: "Less" = "Lower"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CONCEPT: DASHED VS SOLID -->
+                    <div class="concept-section" style="border-bottom: none;">
+                        <h2 style="font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">The Boundary Line</h2>
+
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Symbol</th>
+                                    <th>Line Type</th>
+                                    <th>Meaning</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-family: monospace; font-size: 1.2rem;">> or << /td>
+                                    <td><strong>--- Dashed ---</strong></td>
+                                    <td>Points ON the line are <strong>NOT</strong> solutions.</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-family: monospace; font-size: 1.2rem;">≥ or ≤</td>
+                                    <td><strong>___ Solid ___</strong></td>
+                                    <td>Points ON the line <strong>ARE</strong> solutions.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div
+                            style="background: #fff1f2; padding: 1.5rem; border-left: 4px solid #f43f5e; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+                            <strong style="display: block; margin-bottom: 0.5rem; color: #881337;">⚠️ Critical Test
+                                Trap:</strong>
+                            <p style="margin: 0; color: #9f1239;">"Which point is a solution?" If the point is ON a
+                                dashed line, the answer is NO. If it's ON a solid line, the answer is YES.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

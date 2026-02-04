@@ -373,16 +373,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         {
                             name: "Linear Equations & Systems",
                             topics: [
-                                { name: "Variables in Linear Equations", path: "math/#section-1" },
-                                { name: "Lines and Linear Functions", path: "math/#section-2" },
-                                { name: "Systems of Linear Equations", path: "math/#section-3" },
+                                { name: "Variables in Linear Equations", path: "math/linear-equations/" },
+                                { name: "Lines and Linear Functions", path: "math/linear-equations/" },
+                                { name: "Systems of Linear Equations", path: "math/systems/" },
                                 { name: "Word Problems", path: "math/#section-5" }
                             ]
                         },
                         {
                             name: "Inequalities & Absolute Value",
                             topics: [
-                                { name: "Linear Inequalities", path: "math/#section-4" }
+                                { name: "Linear Inequalities", path: "math/inequalities/" }
                             ]
                         }
                     ]

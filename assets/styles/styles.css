@@ -1267,7 +1267,7 @@ input[type=range]::-webkit-slider-runnable-track {
 
 .sidebar-nav .side-tree-group h4 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.25rem !important;
+    font-size: 1.5rem !important;
     font-weight: 800 !important;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -1279,8 +1279,8 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 .side-tree-subsection-header {
-    font-size: 1.1rem !important;
-    /* Larger than topic (0.95) */
+    font-size: 1.25rem !important;
+    /* Larger than topic (1.1) */
     color: var(--text-primary) !important;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -1300,7 +1300,7 @@ input[type=range]::-webkit-slider-runnable-track {
     color: var(--text-primary);
     /* Back to primary for better readability */
     text-decoration: none;
-    font-size: 0.95rem !important;
+    font-size: 1.1rem !important;
     /* Standard readability size */
     font-weight: 500;
     display: block;

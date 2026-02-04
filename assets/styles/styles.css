@@ -1267,34 +1267,26 @@ input[type=range]::-webkit-slider-runnable-track {
 
 .sidebar-nav .side-tree-group h4 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.1rem;
-    /* Significantly larger for Section/Domain */
-    font-weight: 800;
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
     padding: 0.5rem 0;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     margin-bottom: 0.75rem;
-    border-bottom: 2px solid var(--accent-primary);
-    /* Stronger indicator for domain */
+    border-bottom: 3px solid var(--accent-primary);
 }
 
-.sidebar-nav .side-tree-subsection-header {
-    font-size: 0.75rem;
-    /* Clearly smaller than domain, slightly larger than before for readability */
-    color: var(--text-secondary);
+.side-tree-subsection-header {
+    font-size: 0.75rem !important;
+    color: var(--text-secondary) !important;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     margin-bottom: 0.5rem;
     margin-top: 1.25rem;
-    font-weight: 700;
-    opacity: 0.9;
-    border-left: 3px solid var(--border);
-    padding-left: 0.5rem;
+    font-weight: 700 !important;
+    opacity: 0.8;
 }
 
 .side-tree-topic {

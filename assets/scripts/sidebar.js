@@ -465,9 +465,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="side-tree-group active">
                             <h4>${cat.name}</h4>
                             ${cat.subsections.map(subsection => `
-                                <div class="side-tree-subsection" style="margin-left: 0.5rem; margin-bottom: 1rem;">
+                                <div class="side-tree-subsection">
                                     <div class="side-tree-subsection-header">${subsection.name}</div>
-                                    <ul class="side-tree-topic" style="margin-left: 0.5rem; border-left: 1px dashed var(--border);">
+                                    <ul class="side-tree-topic">
                                         ${subsection.topics.map(topic => {
                         const isActive = isLinkActive(topic.path, currentPath, currentHash);
                         let href = basePath + topic.path;

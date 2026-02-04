@@ -1265,32 +1265,36 @@ input[type=range]::-webkit-slider-runnable-track {
     margin-bottom: 0.5rem;
 }
 
-.side-tree-group h4 {
+.sidebar-nav .side-tree-group h4 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    /* Significantly larger for Section/Domain */
     font-weight: 800;
-    /* Boldface for section as requested */
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     color: var(--text-primary);
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem;
-    margin-bottom: 0.25rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    /* Subtle separator for domain */
+    padding: 0.5rem 0;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 2px solid var(--accent-primary);
+    /* Stronger indicator for domain */
 }
 
-.side-tree-subsection-header {
-    font-size: 0.65rem;
+.sidebar-nav .side-tree-subsection-header {
+    font-size: 0.75rem;
+    /* Clearly smaller than domain, slightly larger than before for readability */
     color: var(--text-secondary);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.35rem;
-    margin-top: 0.75rem;
-    font-weight: 600;
-    opacity: 0.8;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+    margin-top: 1.25rem;
+    font-weight: 700;
+    opacity: 0.9;
+    border-left: 3px solid var(--border);
+    padding-left: 0.5rem;
 }
 
 .side-tree-topic {

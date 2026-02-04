@@ -180,66 +180,104 @@
                         </a>
                     </div>
 
-                    <!-- CONCEPT: SHADING RULES -->
+                    <!-- FOUNDATION: SYMBOLS -->
                     <div class="concept-section">
-                        <h2 style="font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">The Shading Cheat Sheet</h2>
-                        <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary);">
-                            Assuming \(y\) is on the left side (e.g., \(y > ...\)):
+                        <h2 style="font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">Foundation: Reading the Symbols
+                        </h2>
+                        <p
+                            style="font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 2rem;">
+                            Inequalities are just equations with a "direction".
                         </p>
 
-                        <div class="visual-guide">
-                            <div class="visual-card">
-                                <h3 style="color: #10b981; font-size: 2rem; margin-bottom: 1rem;">> or ≥</h3>
-                                <p style="font-weight: 700; font-size: 1.2rem;">SHADE ABOVE</p>
-                                <p style="color: var(--text-secondary);">Think: "Greater" = "Higher"</p>
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+                            <div
+                                style="background: white; padding: 1.5rem; border: 1px solid var(--border); border-radius: 12px; text-align: center;">
+                                <div
+                                    style="font-size: 2rem; font-family: monospace; font-weight: 700; color: #ef4444; margin-bottom: 0.5rem;">
+                                    &lt; or &gt;
+                                </div>
+                                <h3
+                                    style="font-size: 1rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">
+                                    Strict</h3>
+                                <p>"Less than" / "Greater than"</p>
+                                <div style="margin-top: 1rem; font-weight: 700;">○ Open Circle</div>
                             </div>
-                            <div class="visual-card">
-                                <h3 style="color: #ef4444; font-size: 2rem; margin-bottom: 1rem;">
-                                    < or ≤</h3>
-                                        <p style="font-weight: 700; font-size: 1.2rem;">SHADE BELOW</p>
-                                        <p style="color: var(--text-secondary);">Think: "Less" = "Lower"</p>
+
+                            <div
+                                style="background: white; padding: 1.5rem; border: 1px solid var(--border); border-radius: 12px; text-align: center;">
+                                <div
+                                    style="font-size: 2rem; font-family: monospace; font-weight: 700; color: #10b981; margin-bottom: 0.5rem;">
+                                    &le; or &ge;
+                                </div>
+                                <h3
+                                    style="font-size: 1rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">
+                                    Inclusive</h3>
+                                <p>"...or equal to"</p>
+                                <div style="margin-top: 1rem; font-weight: 700;">● Closed Circle</div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- CONCEPT: DASHED VS SOLID -->
-                    <div class="concept-section" style="border-bottom: none;">
-                        <h2 style="font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">The Boundary Line</h2>
+                        <!-- CONCEPT: SHADING RULES -->
+                        <div class="concept-section">
+                            <h2 style="font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">The Shading Cheat Sheet
+                            </h2>
+                            <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary);">
+                                Assuming \(y\) is on the left side (e.g., \(y > ...\)):
+                            </p>
 
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Symbol</th>
-                                    <th>Line Type</th>
-                                    <th>Meaning</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="font-family: monospace; font-size: 1.2rem;">> or << /td>
-                                    <td><strong>--- Dashed ---</strong></td>
-                                    <td>Points ON the line are <strong>NOT</strong> solutions.</td>
-                                </tr>
-                                <tr>
-                                    <td style="font-family: monospace; font-size: 1.2rem;">≥ or ≤</td>
-                                    <td><strong>___ Solid ___</strong></td>
-                                    <td>Points ON the line <strong>ARE</strong> solutions.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <div
-                            style="background: #fff1f2; padding: 1.5rem; border-left: 4px solid #f43f5e; border-radius: 0 8px 8px 0; margin-top: 1rem;">
-                            <strong style="display: block; margin-bottom: 0.5rem; color: #881337;">⚠️ Critical Test
-                                Trap:</strong>
-                            <p style="margin: 0; color: #9f1239;">"Which point is a solution?" If the point is ON a
-                                dashed line, the answer is NO. If it's ON a solid line, the answer is YES.</p>
+                            <div class="visual-guide">
+                                <div class="visual-card">
+                                    <h3 style="color: #10b981; font-size: 2rem; margin-bottom: 1rem;">> or ≥</h3>
+                                    <p style="font-weight: 700; font-size: 1.2rem;">SHADE ABOVE</p>
+                                    <p style="color: var(--text-secondary);">Think: "Greater" = "Higher"</p>
+                                </div>
+                                <div class="visual-card">
+                                    <h3 style="color: #ef4444; font-size: 2rem; margin-bottom: 1rem;">
+                                        < or ≤</h3>
+                                            <p style="font-weight: 700; font-size: 1.2rem;">SHADE BELOW</p>
+                                            <p style="color: var(--text-secondary);">Think: "Less" = "Lower"</p>
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- CONCEPT: DASHED VS SOLID -->
+                        <div class="concept-section" style="border-bottom: none;">
+                            <h2 style="font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">The Boundary Line</h2>
+
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Symbol</th>
+                                        <th>Line Type</th>
+                                        <th>Meaning</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="font-family: monospace; font-size: 1.2rem;">> or << /td>
+                                        <td><strong>--- Dashed ---</strong></td>
+                                        <td>Points ON the line are <strong>NOT</strong> solutions.</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-family: monospace; font-size: 1.2rem;">≥ or ≤</td>
+                                        <td><strong>___ Solid ___</strong></td>
+                                        <td>Points ON the line <strong>ARE</strong> solutions.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div
+                                style="background: #fff1f2; padding: 1.5rem; border-left: 4px solid #f43f5e; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+                                <strong style="display: block; margin-bottom: 0.5rem; color: #881337;">⚠️ Critical Test
+                                    Trap:</strong>
+                                <p style="margin: 0; color: #9f1239;">"Which point is a solution?" If the point is ON a
+                                    dashed line, the answer is NO. If it's ON a solid line, the answer is YES.</p>
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
-
-            </div>
         </main>
     </div>
 </body>

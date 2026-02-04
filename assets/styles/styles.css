@@ -1279,13 +1279,13 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 .side-tree-subsection-header {
-    font-size: 1.05rem !important;
-    /* Larger than topic (0.85) */
+    font-size: 1.1rem !important;
+    /* Larger than topic (0.95) */
     color: var(--text-primary) !important;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-bottom: 0.25rem;
-    margin-top: 1rem;
+    margin-bottom: 0.35rem;
+    margin-top: 1.25rem;
     font-weight: 700 !important;
 }
 
@@ -1297,11 +1297,11 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 .side-link {
-    color: var(--text-secondary);
-    /* Muted for topics */
+    color: var(--text-primary);
+    /* Back to primary for better readability */
     text-decoration: none;
-    font-size: 0.85rem !important;
-    /* Smallest level */
+    font-size: 0.95rem !important;
+    /* Standard readability size */
     font-weight: 500;
     display: block;
     padding: 0.4rem 0.8rem;

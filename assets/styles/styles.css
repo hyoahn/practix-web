@@ -99,6 +99,12 @@ body {
 }
 
 /* COMMAND SIDEBAR (Dynamic Tree) */
+#sidebar-tree {
+    padding-right: 1rem;
+    scrollbar-gutter: stable;
+    /* Keeps scrollbar from eating padding */
+}
+
 .command-sidebar {
     width: 280px;
     /* Default width */

@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     path: "hard-questions/",
                     subsections: [
                         {
-                            name: "General Geometry",
+                            name: "Circles & Arc Measures",
                             topics: [
                                 { name: "Geometry & Trig", path: "hard-questions/geometry/" }
                             ]
@@ -465,8 +465,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Filter topics if search query exists
                 const relevantContent = pillarContent.map(pc => {
+                    const subNameMatch = sub.name.toLowerCase().includes(searchQuery.toLowerCase());
                     const filteredTopics = searchQuery
-                        ? pc.content.topics.filter(t => t.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                        ? pc.content.topics.filter(t => subNameMatch || t.name.toLowerCase().includes(searchQuery.toLowerCase()))
                         : pc.content.topics;
 
                     if (filteredTopics.length === 0) return null;

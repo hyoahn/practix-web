@@ -556,7 +556,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. Rendering Functions
     function renderToggle() {
-        const sidebar = document.querySelector('.command-sidebar') || document.querySelector('.sidebar-nav');
+        const sidebar = document.querySelector('.command-sidebar');
         if (!sidebar) return;
 
         // Check if toggle already exists
@@ -601,6 +601,53 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.view-toggle-pill').classList.toggle('right', sidebarView === 'topic');
 
             renderTree();
+        });
+    }
+
+    function initResizableSidebar() {
+        const sidebar = document.querySelector('.command-sidebar');
+        if (!sidebar) return;
+
+        // Create resize handle
+        const handle = document.createElement('div');
+        handle.className = 'sidebar-resize-handle';
+        sidebar.appendChild(handle);
+
+        let isResizing = false;
+
+        // Restore saved width
+        const savedWidth = localStorage.getItem('practix_sidebar_width');
+        if (savedWidth) {
+            sidebar.style.width = savedWidth + 'px';
+        }
+
+        handle.addEventListener('mousedown', (e) => {
+            isResizing = true;
+            document.body.style.cursor = 'col-resize';
+            handle.classList.add('active');
+            e.preventDefault(); // Prevent text selection
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isResizing) return;
+
+            const sidebarRect = sidebar.getBoundingClientRect();
+            let newWidth = e.clientX - sidebarRect.left;
+
+            // Constrain
+            if (newWidth < 200) newWidth = 200;
+            if (newWidth > 600) newWidth = 600;
+
+            sidebar.style.width = newWidth + 'px';
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (isResizing) {
+                isResizing = false;
+                document.body.style.cursor = '';
+                handle.classList.remove('active');
+                localStorage.setItem('practix_sidebar_width', sidebar.style.width.replace('px', ''));
+            }
         });
     }
 
@@ -741,17 +788,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!activePillar) return;
 
         let html = '';
-
-        // Get current hash for precise matching
         const currentHash = window.location.hash;
 
-        // STANDARD PILLAR VIEW
-        let filteredCategories = activePillar.categories;
-
-        html = filteredCategories.map(cat => {
-            // Check if category has subsections or direct topics
+        html = activePillar.categories.map(cat => {
             if (cat.subsections) {
-                // Render with subsections (3-level hierarchy)
                 return `
                     <div class="side-tree-group active">
                         <h4>${cat.name}</h4>
@@ -779,7 +819,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `;
             } else {
-                // Legacy: direct topics (2-level hierarchy for wallpapers etc.)
                 return `
                     <div class="side-tree-group active">
                         <h4>${cat.name}</h4>
@@ -809,43 +848,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Helper function to determine if a link is active
     function isLinkActive(topicPath, currentPath, currentHash) {
-        // If topic has a hash, match exact hash
         if (topicPath.includes('#')) {
             const [topicBase, topicHash] = topicPath.split('#');
             return currentPath.includes(topicBase) && currentHash === `#${topicHash}`;
         }
-        // If no hash in topic path, only match if current page also has no hash
         return currentPath.includes(topicPath) && !currentHash;
     }
 
     // 6. Event Handlers
     if (searchInput) {
-        // Sync input value with searchQuery (if from URL)
-        if (searchQuery) {
-            searchInput.value = searchQuery;
-        }
+        if (searchQuery) searchInput.value = searchQuery;
 
         searchInput.addEventListener('input', (e) => {
             searchQuery = e.target.value;
             renderTree();
         });
 
-        // Auto-switch to topic mode on search focus
         searchInput.addEventListener('focus', () => {
             if (sidebarView !== 'topic') {
                 sidebarView = 'topic';
-                // Trigger UI update for toggle
                 document.querySelectorAll('.view-toggle-option').forEach(opt => opt.classList.remove('active'));
-                document.querySelector('[data-view="topic"]').classList.add('active');
-                document.querySelector('.view-toggle-pill').classList.add('right');
+                const topicOption = document.querySelector('[data-view="topic"]');
+                if (topicOption) topicOption.classList.add('active');
+                const togglePill = document.querySelector('.view-toggle-pill');
+                if (togglePill) togglePill.classList.add('right');
                 renderTree();
             }
         });
 
-        // Hotkey: "/" to focus search
         document.addEventListener('keydown', (e) => {
             const isTyping = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName) || document.activeElement.isContentEditable;
-
             if (e.key === '/' && !isTyping) {
                 e.preventDefault();
                 searchInput.focus();
@@ -855,8 +887,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 7. Initialize
     renderRail();
-    renderToggle();
     renderTree();
+    renderToggle();
+    initResizableSidebar();
 
     // Listen for hash changes to update active highlighting
     window.addEventListener('hashchange', () => {

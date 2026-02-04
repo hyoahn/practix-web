@@ -101,6 +101,9 @@ body {
 /* COMMAND SIDEBAR (Dynamic Tree) */
 .command-sidebar {
     width: 280px;
+    /* Default width */
+    min-width: 200px;
+    max-width: 600px;
     background: white;
     border-right: 1px solid var(--border);
     display: flex;
@@ -109,6 +112,26 @@ body {
     height: 100%;
     overflow: hidden;
     z-index: 1005;
+    position: relative;
+    /* For the resize handle */
+}
+
+.sidebar-resize-handle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    cursor: col-resize;
+    z-index: 1010;
+    transition: background 0.2s;
+    background: transparent;
+}
+
+.sidebar-resize-handle:hover,
+.sidebar-resize-handle.active {
+    background: var(--accent-primary);
+    opacity: 0.3;
 }
 
 .sidebar-search-container {

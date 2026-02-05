@@ -84,14 +84,15 @@
                             Practix isn't a quiz app. It's a military-grade flight simulator for the SAT Math Test.
                         </p>
 
-                        <!-- NEW COMMAND LINE SEARCH -->
-                        <div class="hero-search-box"
-                            style="margin-bottom: 2.5rem; position: relative; max-width: 600px;">
-                            <input type="text" id="hero-search"
-                                placeholder="> Enter topic sequence (e.g. Circle, Quadratic)..."
-                                style="width: 100%; padding: 1.25rem 1.5rem; padding-left: 3rem; border-radius: 8px; border: 2px solid #333; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); outline: none; font-family: monospace; background: #fafafa;">
-                            <span
-                                style="position: absolute; left: 1rem; top: 1.2rem; font-size: 1.2rem; filter: grayscale(1); opacity: 0.5;">_</span>
+                        <!-- NEW COMMAND LINE SEARCH - REFINED -->
+                        <div class="hero-search-box" style="margin-bottom: 2.5rem; position: relative; max-width: 600px;">
+                            <input type="text" id="hero-search" 
+                                   placeholder="> Search topics, practice sets, or command..." 
+                                   style="width: 100%; padding: 1.25rem 1.5rem; padding-left: 3rem; border-radius: 12px; border: 2px solid var(--border-strong); font-size: 1.1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); outline: none; font-family: monospace; background: var(--glass-bg); backdrop-filter: blur(10px);">
+                            <span style="position: absolute; left: 1rem; top: 1.2rem; font-size: 1.2rem; filter: grayscale(1); opacity: 0.5;">_</span>
+                            <button id="initialize-training" class="btn-primary" style="position: absolute; right: 0.5rem; top: 0.5rem; padding: 0.75rem 1.25rem; font-size: 0.85rem; border-radius: 8px;">
+                                INITIALIZE TRAINING 🚀
+                            </button>
                         </div>
 
                         <!-- 5-PILLAR GATEWAY GRID -->
@@ -141,6 +142,16 @@
                     <div class="image-overlay-gradient"></div>
                     <img src="images/hero_girl.png" alt="Student focused on Practix SAT Math simulation">
 
+                    <!-- HUD HUD HUD (NEW Circular HUD) -->
+                    <div class="hud-circle-overlay" style="position: absolute; top: 40%; left: 30%; transform: translate(-50%, -50%); z-index: 15;">
+                        <div style="width: 200px; height: 200px; border-radius: 50%; border: 2px dashed rgba(99, 102, 241, 0.4); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); background: rgba(255, 255, 255, 0.1); box-shadow: 0 0 30px rgba(99, 102, 241, 0.2); animation: spin 20s linear infinite;">
+                        </div>
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 100%;">
+                            <span style="font-family: var(--font-heading); color: var(--accent-primary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">SAT SCORE REARED</span><br>
+                            <span style="font-family: var(--font-heading); color: var(--text-primary); font-size: 2rem; font-weight: 800;">1550+</span>
+                        </div>
+                    </div>
+
                     <!-- Floating Trust Badge (New Tech Story) -->
                     <div class="floating-card score-card"
                         style="background: rgba(17, 24, 39, 0.95); border: 1px solid rgba(75, 85, 99, 0.4); color: white;">
@@ -157,6 +168,38 @@
                         <div class="text">
                             <strong>100vh Focus</strong>
                             <span>Training Mode</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOTTOM STATS ROW (NEW) -->
+                <div class="stats-hud-row" style="position: absolute; bottom: 2rem; left: 5%; width: 90%; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; z-index: 20;">
+                    <div class="hud-stat-card" style="background: var(--glass-bg); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); padding: 1rem; border-radius: 12px; display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="font-size: 1.5rem;">🔥</span>
+                        <div>
+                            <div style="font-size: 0.7rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Daily Streak</div>
+                            <div style="font-size: 1rem; color: var(--text-primary); font-weight: 800;">14 DAYS</div>
+                        </div>
+                    </div>
+                    <div class="hud-stat-card" style="background: var(--glass-bg); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); padding: 1rem; border-radius: 12px; display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="font-size: 1.5rem;">📈</span>
+                        <div>
+                            <div style="font-size: 0.7rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Avg. Score Gain</div>
+                            <div style="font-size: 1rem; color: var(--accent-primary); font-weight: 800;">+220 PTS</div>
+                        </div>
+                    </div>
+                    <div class="hud-stat-card" style="background: var(--glass-bg); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); padding: 1rem; border-radius: 12px; display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="font-size: 1.5rem;">💻</span>
+                        <div>
+                            <div style="font-size: 0.7rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Training Activity</div>
+                            <div style="font-size: 1rem; color: var(--text-primary); font-weight: 800;">3,651 SETS</div>
+                        </div>
+                    </div>
+                    <div class="hud-stat-card" style="background: var(--glass-bg); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); padding: 1rem; border-radius: 12px; display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="font-size: 1.5rem;">🕒</span>
+                        <div>
+                            <div style="font-size: 0.7rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Next Live Session</div>
+                            <div style="font-size: 1rem; color: var(--text-primary); font-weight: 800;">TODAY, 4PM</div>
                         </div>
                     </div>
                 </div>

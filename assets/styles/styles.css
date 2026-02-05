@@ -192,12 +192,24 @@ body {
     background: var(--bg-main);
 }
 
-/* Viewport Lock for Main Content */
-.page-container {
-    display: flex;
-    flex: 1;
-    overflow: hidden;
-    width: 100%;
+/* HUD Circle Overlay */
+.hud-circle-overlay {
+    pointer-events: none;
+    user-select: none;
+}
+
+.stats-hud-row {
+    max-width: 1200px;
+}
+
+.hud-stat-card {
+    transition: all 0.3s ease;
+}
+
+.hud-stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-primary);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
 }
 
 .stage-content-scroll {

@@ -154,81 +154,100 @@
                             Before you learn the hacks, you must fluent in the three languages of linear equations.
                         </p>
 
-                        <div style="margin-bottom: 3rem; text-align: center;">
-                            <img src="../../assets/images/linear_forms.png" alt="Linear Equations 3 Forms Diagram"
-                                style="max-width: 100%; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
-                        </div>
-
-                        <div
-                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
-                            <!-- Form 1 -->
+                        <div style="display: flex; flex-direction: column; gap: 3rem;">
+                            
+                            <!-- Form 1: Slope-Intercept -->
                             <div
-                                style="background: #eff6ff; padding: 1.5rem; border-radius: 12px; border: 1px solid #dbeafe;">
-                                <h3 style="color: #1e40af; font-size: 1.1rem; margin-bottom: 1rem;">Slope-Intercept</h3>
-                                <div
-                                    style="font-size: 1.5rem; font-family: 'Space Grotesk'; margin-bottom: 1rem; color: #1e3a8a;">
-                                    y = mx + b
+                                style="background: #eff6ff; padding: 2rem; border-radius: 16px; border: 1px solid #dbeafe; display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap;">
+                                <img src="../../assets/images/linear_forms.png" alt="Slope-Intercept Form"
+                                    style="width: 280px; height: auto; border-radius: 12px; border: 1px solid #bfdbfe; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                                <div style="flex: 1; min-width: 300px;">
+                                    <h3 style="color: #1e40af; font-size: 1.1rem; margin-bottom: 0.5rem;">Slope-Intercept Form</h3>
+                                    <div
+                                        style="font-size: 1.7rem; font-family: 'Space Grotesk'; margin-bottom: 1rem; color: #1e3a8a;">
+                                        y = mx + b
+                                    </div>
+                                    <p style="color: #1e3a8a; line-height: 1.6; margin-bottom: 1rem;">
+                                        The most common form. It tells you exactly where to start (<strong>b</strong>) and where to go (<strong>m</strong>).
+                                    </p>
+                                    <ul
+                                        style="list-style: none; padding: 0; color: #1e40af; font-size: 0.95rem; line-height: 1.8;">
+                                        <li>👉 <strong>m</strong> = slope (rise/run)</li>
+                                        <li>👉 <strong>b</strong> = y-intercept (starting value)</li>
+                                        <li><em>Best for: Graphing & Word Problems</em></li>
+                                    </ul>
                                 </div>
-                                <ul
-                                    style="list-style: none; padding: 0; color: #1e3a8a; font-size: 0.9rem; line-height: 1.6;">
-                                    <li><strong>m</strong> = slope (rise/run)</li>
-                                    <li><strong>b</strong> = y-intercept (start)</li>
-                                    <li><em>Best for: Graphing & Word Problems</em></li>
-                                </ul>
                             </div>
 
-                            <!-- Form 2 -->
+                            <!-- Form 2: Point-Slope -->
                             <div
-                                style="background: #f0fdf4; padding: 1.5rem; border-radius: 12px; border: 1px solid #dcfce7;">
-                                <h3 style="color: #166534; font-size: 1.1rem; margin-bottom: 1rem;">Point-Slope</h3>
-                                <div
-                                    style="font-size: 1.5rem; font-family: 'Space Grotesk'; margin-bottom: 1rem; color: #14532d;">
-                                    y - y₁ = m(x - x₁)
+                                style="background: #f0fdf4; padding: 2rem; border-radius: 16px; border: 1px solid #dcfce7; display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap;">
+                                <img src="../../assets/images/point_slope_form.png" alt="Point-Slope Form"
+                                    style="width: 280px; height: auto; border-radius: 12px; border: 1px solid #bbf7d0; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                                <div style="flex: 1; min-width: 300px;">
+                                    <h3 style="color: #166534; font-size: 1.1rem; margin-bottom: 0.5rem;">Point-Slope Form</h3>
+                                    <div
+                                        style="font-size: 1.7rem; font-family: 'Space Grotesk'; margin-bottom: 1rem; color: #14532d;">
+                                        y - y₁ = m(x - x₁)
+                                    </div>
+                                    <p style="color: #14532d; line-height: 1.6; margin-bottom: 1rem;">
+                                        The most flexible form. Use this when you have a random point (not the intercept) and the slope.
+                                    </p>
+                                    <ul
+                                        style="list-style: none; padding: 0; color: #15803d; font-size: 0.95rem; line-height: 1.8;">
+                                        <li>👉 <strong>(x₁, y₁)</strong> = any point on the line</li>
+                                        <li>👉 <strong>m</strong> = slope</li>
+                                        <li><em>Best for: Writing equations from 2 points</em></li>
+                                    </ul>
                                 </div>
-                                <ul
-                                    style="list-style: none; padding: 0; color: #14532d; font-size: 0.9rem; line-height: 1.6;">
-                                    <li><strong>(x₁, y₁)</strong> = any point</li>
-                                    <li><strong>m</strong> = slope</li>
-                                    <li><em>Best for: Writing equations from 2 points</em></li>
-                                </ul>
                             </div>
 
-                            <!-- Form 3 -->
+                            <!-- Form 3: Standard Form -->
                             <div
-                                style="background: #fef2f2; padding: 1.5rem; border-radius: 12px; border: 1px solid #fee2e2;">
-                                <h3 style="color: #991b1b; font-size: 1.1rem; margin-bottom: 1rem;">Standard Form</h3>
-                                <div
-                                    style="font-size: 1.5rem; font-family: 'Space Grotesk'; margin-bottom: 1rem; color: #7f1d1d;">
-                                    Ax + By = C
+                                style="background: #fef2f2; padding: 2rem; border-radius: 16px; border: 1px solid #fee2e2; display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap;">
+                                <img src="../../assets/images/standard_form.png" alt="Standard Form"
+                                    style="width: 280px; height: auto; border-radius: 12px; border: 1px solid #fecaca; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                                <div style="flex: 1; min-width: 300px;">
+                                    <h3 style="color: #991b1b; font-size: 1.1rem; margin-bottom: 0.5rem;">Standard Form</h3>
+                                    <div
+                                        style="font-size: 1.7rem; font-family: 'Space Grotesk'; margin-bottom: 1rem; color: #7f1d1d;">
+                                        Ax + By = C
+                                    </div>
+                                    <p style="color: #7f1d1d; line-height: 1.6; margin-bottom: 1rem;">
+                                        The "pretty" form where A, B, and C are integers. It hides the slope, but reveals intercepts easily.
+                                    </p>
+                                    <ul
+                                        style="list-style: none; padding: 0; color: #b91c1c; font-size: 0.95rem; line-height: 1.8;">
+                                        <li>👉 <strong>A, B, C</strong> = Integers (No Fractions)</li>
+                                        <li>👉 Slope = <strong>-A/B</strong> (The Hack!)</li>
+                                        <li><em>Best for: Systems of Equations & Intercepts</em></li>
+                                    </ul>
                                 </div>
-                                <ul
-                                    style="list-style: none; padding: 0; color: #7f1d1d; font-size: 0.9rem; line-height: 1.6;">
-                                    <li><strong>A, B, C</strong> = integers</li>
-                                    <li><em>Best for: Intercepts & Systems</em></li>
-                                </ul>
                             </div>
-                        </div>
 
-                        <!-- BONUS: INTERCEPT FORM -->
-                        <div
-                            style="margin-top: 3rem; background: #fdf2f8; padding: 2rem; border-radius: 16px; border: 1px solid #fce7f3; display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap;">
-                            <img src="../../assets/images/intercept_form.png" alt="Intercept Form Diagram"
-                                style="width: 280px; height: auto; border-radius: 12px; border: 1px solid #fbcfe8; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                            <div style="flex: 1; min-width: 300px;">
-                                <h3 style="margin-bottom: 0.5rem; color: #86198f;">The "Magic" Intercept Form</h3>
-                                <div
-                                    style="font-size: 1.5rem; font-family: 'Space Grotesk'; margin-bottom: 1rem; color: #701a75;">
-                                    x/a + y/b = 1
+                            <!-- Form 4: Intercept Form -->
+                            <div
+                                style="background: #fdf2f8; padding: 2rem; border-radius: 16px; border: 1px solid #fce7f3; display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap;">
+                                <img src="../../assets/images/intercept_form.png" alt="Intercept Form"
+                                    style="width: 280px; height: auto; border-radius: 12px; border: 1px solid #fbcfe8; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                                <div style="flex: 1; min-width: 300px;">
+                                    <h3 style="color: #86198f; font-size: 1.1rem; margin-bottom: 0.5rem;">Intercept Form</h3>
+                                    <div
+                                        style="font-size: 1.7rem; font-family: 'Space Grotesk'; margin-bottom: 1rem; color: #701a75;">
+                                        x/a + y/b = 1
+                                    </div>
+                                    <p style="color: #701a75; line-height: 1.6; margin-bottom: 1rem;">
+                                        The "Magic" form. If you know where the line crosses the axes, you write this instantly.
+                                    </p>
+                                    <ul
+                                        style="list-style: none; padding: 0; color: #a21caf; font-size: 0.95rem; line-height: 1.8;">
+                                        <li>👉 <strong>a</strong> = x-intercept (where y=0)</li>
+                                        <li>👉 <strong>b</strong> = y-intercept (where x=0)</li>
+                                        <li><em>Best for: Speed-running graph problems</em></li>
+                                    </ul>
                                 </div>
-                                <p style="color: #701a75; line-height: 1.6;">
-                                    If you see a graph crossing the <strong>x-axis at 'a'</strong> and the
-                                    <strong>y-axis at 'b'</strong>, you don't need slope formulas. Just plug 'a' and 'b'
-                                    into this "magic" equation.
-                                    <br><br>
-                                    <em>Pro Tip: This is the fastest way to write an equation from a graph on the
-                                        SAT.</em>
-                                </p>
                             </div>
+
                         </div>
                     </div>
 

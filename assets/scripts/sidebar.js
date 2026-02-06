@@ -183,6 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         {
                             name: "Linear Equations & Systems",
                             topics: [
+                                { name: "Linear Equations (4 Forms)", path: "math/linear-equations/" },
                                 { name: "System Solver", path: "desmos/system-solver/" }
                             ]
                         },

@@ -189,111 +189,113 @@
                             </h3>
                             <p style="margin: 1.5rem 0;">A line passed through \((3, 5)\) and has a slope of \(2\).
                                 Which graph represents this line?</p>
-                            <div class="sat-option-grid" style="grid-template-columns: 1fr 1fr;">
-                                <div class="sat-option correct" onclick="checkAnswer(this, true)">
+                            <div class="sat-option-grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div class="sat-option" onclick="checkAnswer(this, true)" style="padding: 1rem;">
                                     (A) <br> <img src="../../assets/images/desmos/graph_option_a.png"
-                                        style="width: 100px; height: 100px; background: #eee; border-radius: 4px;"
+                                        style="width: 100%; height: auto; background: white; border: 1px solid #eee; border-radius: 4px;"
                                         alt="Graph A">
                                 </div>
-                                <div class="sat-option" onclick="checkAnswer(this, false)">
+                                <div class="sat-option" onclick="checkAnswer(this, false)" style="padding: 1rem;">
                                     (B) <br> <img src="../../assets/images/desmos/graph_option_b.png"
-                                        style="width: 100px; height: 100px; background: #eee; border-radius: 4px;"
+                                        style="width: 100%; height: auto; background: white; border: 1px solid #eee; border-radius: 4px;"
                                         alt="Graph B">
                                 </div>
-                                <div class="sat-option" onclick="checkAnswer(this, false)">
+                                <div class="sat-option" onclick="checkAnswer(this, false)" style="padding: 1rem;">
                                     (C) <br> <img src="../../assets/images/desmos/graph_option_c.png"
-                                        style="width: 100px; height: 100px; background: #eee; border-radius: 4px;"
+                                        style="width: 100%; height: auto; background: white; border: 1px solid #eee; border-radius: 4px;"
                                         alt="Graph C">
                                 </div>
-                                <div class="sat-option" onclick="checkAnswer(this, false)">
+                                <div class="sat-option" onclick="checkAnswer(this, false)" style="padding: 1rem;">
                                     (D) <br> <img src="../../assets/images/desmos/graph_option_d.png"
-                                        style="width: 100px; height: 100px; background: #eee; border-radius: 4px;"
+                                        style="width: 100%; height: auto; background: white; border: 1px solid #eee; border-radius: 4px;"
                                         alt="Graph D">
                                 </div>
+                                alt="Graph D">
                             </div>
                         </div>
-                        <details class="practix-reveal">
-                            <summary>Click to Reveal Desmos Trick</summary>
-                            <div class="solution-content">
-                                <h4>Stop distributing numbers.</h4>
-                                <p>Just type the Point-Slope formula directly: <code>y - 5 = 2(x - 3)</code>.</p>
-                                <img src="../../assets/images/desmos/point_slope_v2.png"
-                                    style="width: 100%; border-radius: 8px; margin-top: 1rem;">
-                                <p style="margin-top: 1rem;">Desmos graphs it instantly. Just match the picture.</p>
-                            </div>
-                        </details>
                     </div>
-
-                    <!-- Problem 3: Standard Form (Slope Check) -->
-                    <div style="margin-bottom: 4rem;">
-                        <div class="sat-problem-card">
-                            <h3 class="sat-problem-header">
-                                <span>standard form</span> Form 3: Slope Hack
-                                <button class="btn-copy" onclick="copyCode('3x + 4y = 12')">Copy Equation</button>
-                            </h3>
-                            <p style="margin: 1.5rem 0;">What is the slope of the line \(3x + 4y = 12\)?</p>
-                            <div class="sat-option-grid">
-                                <div class="sat-option" onclick="checkAnswer(this, false)">(A) \(3/4\)</div>
-                                <div class="sat-option" onclick="checkAnswer(this, true)">(B) \(-3/4\)</div>
-                                <div class="sat-option" onclick="checkAnswer(this, false)">(C) \(4/3\)</div>
-                                <div class="sat-option" onclick="checkAnswer(this, false)">(D) \(-4/3\)</div>
-                            </div>
+                    <details class="practix-reveal">
+                        <summary>Click to Reveal Desmos Trick</summary>
+                        <div class="solution-content">
+                            <h4>Stop distributing numbers.</h4>
+                            <p>Just type the Point-Slope formula directly: <code>y - 5 = 2(x - 3)</code>.</p>
+                            <img src="../../assets/images/desmos/point_slope_v2.png"
+                                style="width: 100%; border-radius: 8px; margin-top: 1rem;">
+                            <p style="margin-top: 1rem;">Desmos graphs it instantly. Just match the picture.</p>
                         </div>
-                        <details class="practix-reveal">
-                            <summary>Click to Reveal Desmos Trick</summary>
-                            <div class="solution-content">
-                                <h4>Don't solve for y.</h4>
-                                <p>Type <code>3x + 4y = 12</code>. Look at the intercepts.</p>
-                                <img src="../../assets/images/desmos/standard_slope_v2.png"
-                                    style="width: 100%; border-radius: 8px; margin-top: 1rem;">
-                                <p style="margin-top: 1rem;">Rise/Run from \((0, 3)\) to \((4, 0)\) is down 3, right
-                                    4. Slope = \(-3/4\).</p>
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Problem 4: Intercept Form (Visual Check) -->
-                    <div style="margin-bottom: 4rem;">
-                        <div class="sat-problem-card">
-                            <h3 class="sat-problem-header">
-                                <span>intercept form</span> Form 4: Visual Check
-                                <button class="btn-copy" onclick="copyCode('x/3 + y/4 = 1')">Copy Magic Form</button>
-                            </h3>
-                            <p style="margin: 1.5rem 0;">Which equation has an x-intercept of 3 and a y-intercept of
-                                4?</p>
-                            <div class="sat-option-grid">
-                                <div class="sat-option" onclick="checkAnswer(this, true)">(A) \(\frac{x}{3} +
-                                    \frac{y}{4} = 1\)</div>
-                                <div class="sat-option" onclick="checkAnswer(this, false)">(B) \(\frac{x}{4} +
-                                    \frac{y}{3} = 1\)</div>
-                            </div>
-                        </div>
-                        <details class="practix-reveal">
-                            <summary>Click to Reveal Desmos Trick</summary>
-                            <div class="solution-content">
-                                <h4>The "Magic" Form</h4>
-                                <p>Type option (A) exactly: <code>x/3 + y/4 = 1</code>.</p>
-                                <img src="../../assets/images/desmos/intercept_magic_v2.png"
-                                    style="width: 100%; border-radius: 8px; margin-top: 1rem;">
-                                <p style="margin-top: 1rem;">Click the axes. x-int is 3, y-int is 4. Done.</p>
-                            </div>
-                        </details>
-                    </div>
-
-                </section>
-
-                <section class="technique-section">
-                    <h2 style="color: #1e40af; margin-bottom: 1.5rem;">⚔️ Mastered the 4 Forms?</h2>
-                    <p>Put your speed to the test with our System Solver.</p>
-                    <div class="cross-link-box">
-                        <h3>Solve Systems Instantly</h3>
-                        <p style="margin-bottom: 1.5rem;">Now that you can handle single lines, learn how to solve them
-                            when they cross.</p>
-                        <a href="../../desmos/system-solver/" class="btn-pillar">Go to System Solver →</a>
-                    </div>
-                </section>
+                    </details>
             </div>
-        </main>
+
+            <!-- Problem 3: Standard Form (Slope Check) -->
+            <div style="margin-bottom: 4rem;">
+                <div class="sat-problem-card">
+                    <h3 class="sat-problem-header">
+                        <span>standard form</span> Form 3: Slope Hack
+                        <button class="btn-copy" onclick="copyCode('3x + 4y = 12')">Copy Equation</button>
+                    </h3>
+                    <p style="margin: 1.5rem 0;">What is the slope of the line \(3x + 4y = 12\)?</p>
+                    <div class="sat-option-grid">
+                        <div class="sat-option" onclick="checkAnswer(this, false)">(A) \(3/4\)</div>
+                        <div class="sat-option" onclick="checkAnswer(this, true)">(B) \(-3/4\)</div>
+                        <div class="sat-option" onclick="checkAnswer(this, false)">(C) \(4/3\)</div>
+                        <div class="sat-option" onclick="checkAnswer(this, false)">(D) \(-4/3\)</div>
+                    </div>
+                </div>
+                <details class="practix-reveal">
+                    <summary>Click to Reveal Desmos Trick</summary>
+                    <div class="solution-content">
+                        <h4>Don't solve for y.</h4>
+                        <p>Type <code>3x + 4y = 12</code>. Look at the intercepts.</p>
+                        <img src="../../assets/images/desmos/standard_slope_v2.png"
+                            style="width: 100%; border-radius: 8px; margin-top: 1rem;">
+                        <p style="margin-top: 1rem;">Rise/Run from \((0, 3)\) to \((4, 0)\) is down 3, right
+                            4. Slope = \(-3/4\).</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Problem 4: Intercept Form (Visual Check) -->
+            <div style="margin-bottom: 4rem;">
+                <div class="sat-problem-card">
+                    <h3 class="sat-problem-header">
+                        <span>intercept form</span> Form 4: Visual Check
+                        <button class="btn-copy" onclick="copyCode('x/3 + y/4 = 1')">Copy Magic Form</button>
+                    </h3>
+                    <p style="margin: 1.5rem 0;">Which equation has an x-intercept of 3 and a y-intercept of
+                        4?</p>
+                    <div class="sat-option-grid">
+                        <div class="sat-option" onclick="checkAnswer(this, true)">(A) \(\frac{x}{3} +
+                            \frac{y}{4} = 1\)</div>
+                        <div class="sat-option" onclick="checkAnswer(this, false)">(B) \(\frac{x}{4} +
+                            \frac{y}{3} = 1\)</div>
+                    </div>
+                </div>
+                <details class="practix-reveal">
+                    <summary>Click to Reveal Desmos Trick</summary>
+                    <div class="solution-content">
+                        <h4>The "Magic" Form</h4>
+                        <p>Type option (A) exactly: <code>x/3 + y/4 = 1</code>.</p>
+                        <img src="../../assets/images/desmos/intercept_magic_v2.png"
+                            style="width: 100%; border-radius: 8px; margin-top: 1rem;">
+                        <p style="margin-top: 1rem;">Click the axes. x-int is 3, y-int is 4. Done.</p>
+                    </div>
+                </details>
+            </div>
+
+            </section>
+
+            <section class="technique-section">
+                <h2 style="color: #1e40af; margin-bottom: 1.5rem;">⚔️ Mastered the 4 Forms?</h2>
+                <p>Put your speed to the test with our System Solver.</p>
+                <div class="cross-link-box">
+                    <h3>Solve Systems Instantly</h3>
+                    <p style="margin-bottom: 1.5rem;">Now that you can handle single lines, learn how to solve them
+                        when they cross.</p>
+                    <a href="../../desmos/system-solver/" class="btn-pillar">Go to System Solver →</a>
+                </div>
+            </section>
+    </div>
+    </main>
     </div>
 
     <script>

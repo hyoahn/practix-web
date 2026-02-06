@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desmos Linear Equations Hacks | 4 Essential Forms | Practix</title>
+    <meta name="description"
+        content="Master the 4 forms of linear equations on the Desmos calculator. learn regression hacks, direct entry, and intercept shortcuts.">
+
+    <link rel="stylesheet" href="../../assets/styles/styles.css?v=26">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.min.js"></script>
+    <script src="../../assets/scripts/practix-nav.js?v=30"></script>
+    <script src="../../assets/scripts/sidebar.js"></script>
+    <script src="../../assets/scripts/practix-footer.js?v=30"></script>
+    <script src="../../assets/scripts/pulse-relay.js?v=26"></script>
+    <script src="../../assets/scripts/analytics.js?v=26"></script>
+    <script src="../../assets/scripts/floating-calculator.js"></script>
+
+    <style>
+        .technique-section {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .practix-reveal summary {
+            background: #ef4444 !important;
+            color: white !important;
+            border-radius: 8px !important;
+            font-weight: 700 !important;
+            padding: 0.75rem 1.5rem !important;
+        }
+
+        /* Mobile Sticky Problem */
+        @media (max-width: 768px) {
+            .sat-problem-card {
+                position: sticky;
+                top: 1rem;
+                z-index: 100;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                border: 2px solid var(--accent-primary);
+            }
+        }
+
+        .sat-option {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .sat-option:hover {
+            background: #f0fdf4;
+            border-color: #10b981;
+        }
+
+        .sat-option.correct {
+            background: #10b981 !important;
+            color: white !important;
+            border-color: #059669 !important;
+        }
+
+        .sat-option.correct::after {
+            content: " ✨ Correct!";
+            font-weight: 700;
+        }
+
+        .sat-option.incorrect {
+            background: #fee2e2 !important;
+            border-color: #ef4444 !important;
+            opacity: 0.7;
+        }
+
+        .cross-link-box {
+            margin-top: 4rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            border-radius: 16px;
+            color: white;
+            text-align: center;
+        }
+
+        .cross-link-box h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .btn-pillar {
+            display: inline-block;
+            background: white;
+            color: #1e40af;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .btn-pillar:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-bg"></div>
+
+    <div class="page-container">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail"></aside>
+
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input" placeholder="Search hacks...">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;"></div>
+        </aside>
+
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Desmos Tricks
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Linear Equations <span
+                            class="gradient-text">Mastery</span>
+                    </h1>
+                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px;">
+                        Why solve for \(y\) when Desmos can handle the raw equations? Here is how to hack every form.
+                    </p>
+                </header>
+
+                <section class="technique-section">
+                    <h2 style="font-family: 'Space Grotesk'; color: #10b981; margin-bottom: 1.5rem;">Desmos 4-Form
+                        Mastery</h2>
+
+                    <!-- Problem 1: Slope-Intercept (Regression) -->
+                    <div style="margin-bottom: 4rem;">
+                        <div class="sat-problem-card">
+                            <h3 class="sat-problem-header">
+                                <span>slope-intercept</span> Form 1: Regression Hack
+                                <button class="btn-copy">Use Regression</button>
+                            </h3>
+                            <p style="margin: 1.5rem 0;">A line passes through the points \((-1, -1)\) and \((1,
+                                3)\). What is the equation of the line?</p>
+                            <div class="sat-option-grid">
+                                <div class="sat-option">(A) \(y = x + 1\)</div>
+                                <div class="sat-option correct" onclick="checkAnswer(this, true)">(B) \(y = 2x + 1\)
+                                </div>
+                                <div class="sat-option" onclick="checkAnswer(this, false)">(C) \(y = 2x - 1\)</div>
+                                <div class="sat-option" onclick="checkAnswer(this, false)">(D) \(y = 3x\)</div>
+                            </div>
+                        </div>
+                        <details class="practix-reveal">
+                            <summary>Click to Reveal Desmos Trick</summary>
+                            <div class="solution-content">
+                                <h4>Don't calculate slope. Use Regression.</h4>
+                                <p>1. Add a table in Desmos. Enter \((-1, -1)\) and \((1, 3)\).</p>
+                                <p>2. Type <code>y1 ~ mx1 + b</code>.</p>
+                                <img src="../../assets/images/desmos/slope_intercept_regression.png"
+                                    style="width: 100%; border-radius: 8px; margin-top: 1rem;">
+                                <p style="margin-top: 1rem;">Desmos tells you <strong>m=2</strong> and
+                                    <strong>b=1</strong>. The equation is \(y=2x+1\).
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <!-- Problem 2: Point-Slope (Direct Entry) -->
+                    <div style="margin-bottom: 4rem;">
+                        <div class="sat-problem-card">
+                            <h3 class="sat-problem-header">
+                                <span>point-slope</span> Form 2: Direct Entry
+                                <button class="btn-copy">Type It Raw</button>
+                            </h3>
+                            <p style="margin: 1.5rem 0;">A line passed through \((3, 5)\) and has a slope of \(2\).
+                                Which graph represents this line?</p>
+                            <div class="sat-option-grid">
+                                <div class="sat-option correct" onclick="checkAnswer(this, true)">(A) Matches Desmos
+                                </div>
+                                <div class="sat-option" onclick="checkAnswer(this, false)">(B) Wrong Slope</div>
+                            </div>
+                        </div>
+                        <details class="practix-reveal">
+                            <summary>Click to Reveal Desmos Trick</summary>
+                            <div class="solution-content">
+                                <h4>Stop distributing numbers.</h4>
+                                <p>Just type the Point-Slope formula directly: <code>y - 5 = 2(x - 3)</code>.</p>
+                                <img src="../../assets/images/desmos/point_slope_entry.png"
+                                    style="width: 100%; border-radius: 8px; margin-top: 1rem;">
+                                <p style="margin-top: 1rem;">Desmos graphs it instantly. Just match the picture.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <!-- Problem 3: Standard Form (Slope Check) -->
+                    <div style="margin-bottom: 4rem;">
+                        <div class="sat-problem-card">
+                            <h3 class="sat-problem-header">
+                                <span>standard form</span> Form 3: Slope Hack
+                                <button class="btn-copy">Find Intercepts</button>
+                            </h3>
+                            <p style="margin: 1.5rem 0;">What is the slope of the line \(3x + 4y = 12\)?</p>
+                            <div class="sat-option-grid">
+                                <div class="sat-option" onclick="checkAnswer(this, false)">(A) \(3/4\)</div>
+                                <div class="sat-option correct" onclick="checkAnswer(this, true)">(B) \(-3/4\)</div>
+                                <div class="sat-option" onclick="checkAnswer(this, false)">(C) \(4/3\)</div>
+                                <div class="sat-option" onclick="checkAnswer(this, false)">(D) \(-4/3\)</div>
+                            </div>
+                        </div>
+                        <details class="practix-reveal">
+                            <summary>Click to Reveal Desmos Trick</summary>
+                            <div class="solution-content">
+                                <h4>Don't solve for y.</h4>
+                                <p>Type <code>3x + 4y = 12</code>. Look at the intercepts.</p>
+                                <img src="../../assets/images/desmos/standard_slope_check.png"
+                                    style="width: 100%; border-radius: 8px; margin-top: 1rem;">
+                                <p style="margin-top: 1rem;">Rise/Run from \((0, 3)\) to \((4, 0)\) is down 3, right
+                                    4. Slope = \(-3/4\).</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <!-- Problem 4: Intercept Form (Visual Check) -->
+                    <div style="margin-bottom: 4rem;">
+                        <div class="sat-problem-card">
+                            <h3 class="sat-problem-header">
+                                <span>intercept form</span> Form 4: Visual Check
+                                <button class="btn-copy">Check Intercepts</button>
+                            </h3>
+                            <p style="margin: 1.5rem 0;">Which equation has an x-intercept of 3 and a y-intercept of
+                                4?</p>
+                            <div class="sat-option-grid">
+                                <div class="sat-option correct" onclick="checkAnswer(this, true)">(A) \(\frac{x}{3} +
+                                    \frac{y}{4} = 1\)</div>
+                                <div class="sat-option" onclick="checkAnswer(this, false)">(B) \(\frac{x}{4} +
+                                    \frac{y}{3} = 1\)</div>
+                            </div>
+                        </div>
+                        <details class="practix-reveal">
+                            <summary>Click to Reveal Desmos Trick</summary>
+                            <div class="solution-content">
+                                <h4>The "Magic" Form</h4>
+                                <p>Type option (A) exactly: <code>x/3 + y/4 = 1</code>.</p>
+                                <img src="../../assets/images/desmos/intercept_form_check.png"
+                                    style="width: 100%; border-radius: 8px; margin-top: 1rem;">
+                                <p style="margin-top: 1rem;">Click the axes. x-int is 3, y-int is 4. Done.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                </section>
+
+                <section class="technique-section">
+                    <h2 style="color: #1e40af; margin-bottom: 1.5rem;">⚔️ Mastered the 4 Forms?</h2>
+                    <p>Put your speed to the test with our System Solver.</p>
+                    <div class="cross-link-box">
+                        <h3>Solve Systems Instantly</h3>
+                        <p style="margin-bottom: 1.5rem;">Now that you can handle single lines, learn how to solve them
+                            when they cross.</p>
+                        <a href="../../desmos/system-solver/" class="btn-pillar">Go to System Solver →</a>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function copyCode(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = event.target;
+                const originalText = btn.innerText;
+                btn.innerText = '✅ Copied!';
+                setTimeout(() => btn.innerText = originalText, 2000);
+            });
+        }
+
+        function checkAnswer(el, isCorrect) {
+            if (isCorrect) {
+                el.classList.add('correct');
+                // Pulse integration placeholder
+                if (window.reportSuccess) window.reportSuccess('linear_desmos');
+            } else {
+                el.classList.add('incorrect');
+                setTimeout(() => el.classList.remove('incorrect'), 1000);
+            }
+        }
+    </script>
+</body>
+
+</html>

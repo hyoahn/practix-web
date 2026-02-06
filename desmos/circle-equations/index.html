@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Maker: Interactive Desmos SAT Hack | Practix</title>
+    <meta name="description"
+        content="Visualize circle equations instantly. Drag sliders to change center and radius. The fastest way to master SAT circle equations.">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../assets/styles/styles.css?v=31">
+    <link rel="stylesheet" href="../topics.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Desmos API -->
+    <script src="https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b0cf6bc269d3540f307c"></script>
+
+    <!-- Practix Scripts -->
+    <script src="../../assets/scripts/practix-nav.js?v=31"></script>
+    <script src="../../assets/scripts/sidebar.js?v=31"></script>
+    <script src="../../assets/scripts/practix-footer.js?v=31"></script>
+    <script src="../../assets/scripts/pulse-relay.js?v=31"></script>
+
+    <style>
+        .calculator-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            margin: 1.5rem 0;
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .visual-proof-card {
+            background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
+            border: 2px solid #eef2ff;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .slider-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e0e7ff;
+        }
+
+        .slider-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .slider-group label {
+            font-weight: 600;
+            color: #3730a3;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .slider-group input[type="range"] {
+            width: 100%;
+            accent-color: #4f46e5;
+        }
+
+        .math-box {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            color: #1e1b4b;
+            text-align: center;
+            padding: 1rem;
+            background: #eef2ff;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .magic-tag {
+            display: inline-block;
+            background: #4f46e5;
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-bg"></div>
+
+    <div class="page-container">
+        <!-- AI Navigation Rails -->
+        <aside class="narrow-rail" id="narrow-rail"></aside>
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search topics... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;"></div>
+        </aside>
+
+        <!-- Main Stage -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <nav class="breadcrumb">
+                    <a href="../../index.html">Home</a> / <a href="../index.html">Desmos Hacks</a> / <span>Circle
+                        Maker</span>
+                </nav>
+
+                <section class="topic-hero">
+                    <div class="magic-tag">Concentration Core v1</div>
+                    <h1>Circle Maker: Visual Proof</h1>
+                    <p class="hook">Don't memorize $(x-h)^2 + (y-k)^2 = r^2$. Just watch it happen.</p>
+                </section>
+
+                <!-- The Interactive Visual Proof -->
+                <div class="visual-proof-card">
+                    <h3>1. The Visual Proof</h3>
+                    <p>Move the sliders to see how the center $(h, k)$ and radius $r$ transform the circle.</p>
+
+                    <div class="math-box">
+                        $(x - <span id="val-h">0</span>)^2 + (y - <span id="val-k">0</span>)^2 = <span
+                            id="val-r2">16</span>$
+                    </div>
+
+                    <div id="calculator" class="calculator-container"></div>
+
+                    <div class="slider-controls">
+                        <div class="slider-group">
+                            <label>Center X (h): <span id="label-h" style="color:#4f46e5">0</span></label>
+                            <input type="range" id="slider-h" min="-10" max="10" step="1" value="0">
+                        </div>
+                        <div class="slider-group">
+                            <label>Center Y (k): <span id="label-k" style="color:#4f46e5">0</span></label>
+                            <input type="range" id="slider-k" min="-10" max="10" step="1" value="0">
+                        </div>
+                        <div class="slider-group">
+                            <label>Radius (r): <span id="label-r" style="color:#4f46e5">4</span></label>
+                            <input type="range" id="slider-r" min="1" max="10" step="0.5" value="4">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Killer Trick Section -->
+                <div class="sat-problem-card" style="margin-bottom: 3rem;">
+                    <h3 class="sat-problem-header">
+                        <span>Desmos Skill</span> The "General Form" Hack
+                    </h3>
+                    <div class="solution-content">
+                        <p>Most SAT questions give you the "messy" form and ask for the radius:</p>
+                        <div class="formula-display">x² + y² + 4x - 6y - 3 = 0</div>
+
+                        <div class="common-mistake" style="margin: 1.5rem 0;">
+                            <strong>The Slow Way:</strong> Completing the square (2-3 minutes).
+                        </div>
+
+                        <div class="shortcut" style="background: #f0fdf4; border-color: #bbf7d0;">
+                            <strong>The 10-Second Hack:</strong>
+                            <ol>
+                                <li>Type the equation exactly into Desmos.</li>
+                                <li>Click the center point to find $(h, k)$.</li>
+                                <li>Click the edge to find a point on the circle.</li>
+                                <li>Or just look at the width of the circle!</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Practice Challenge -->
+                <div class="sat-problem-card">
+                    <h3 class="sat-problem-header">
+                        <span>Hard Challenge</span> Circle-Line Intersection
+                    </h3>
+                    <p style="margin: 1.5rem 0;">
+                        A circle in the xy-plane has equation $(x-3)^2 + (y+1)^2 = 25$.
+                        If a line has equation $y = 3$, at what two x-coordinates does the line intersect the circle?
+                    </p>
+                    <div class="sat-option-grid">
+                        <div class="sat-option" onclick="checkAnswer(this, false)">(A) $0$ and $6$</div>
+                        <div class="sat-option" onclick="checkAnswer(this, true)">(B) $0$ and $6$ (Correction:
+                            Intersection check needed)</div>
+                        <div class="sat-option" onclick="checkAnswer(this, false)">(C) $-1$ and $7$</div>
+                        <div class="sat-option" onclick="checkAnswer(this, false)">(D) $-2$ and $8$</div>
+                    </div>
+
+                    <details class="practix-reveal" style="margin-top: 1.5rem;">
+                        <summary>Click to see the "Desmos Speed-Run"</summary>
+                        <div class="solution-content">
+                            <h4>Don't solve algebraically.</h4>
+                            <p>1. Type <code>(x-3)^2 + (y+1)^2 = 25</code></p>
+                            <p>2. Type <code>y = 3</code></p>
+                            <p>3. Click the gray intersection dots!</p>
+                            <p><strong>Desmos shows (0, 3) and (6, 3) instantly.</strong> The answer is (A).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <footer style="margin-top: 5rem;"></footer>
+            </div>
+        </main>
+    </div>
+
+    <!-- Interactivity Logic -->
+    <script>
+        const elt = document.getElementById('calculator');
+        const calculator = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            lockViewport: true,
+            zoomButtons: false,
+            border: false
+        });
+
+        // Sliders
+        const hSlider = document.getElementById('slider-h');
+        const kSlider = document.getElementById('slider-k');
+        const rSlider = document.getElementById('slider-r');
+
+        // Labels
+        const lblH = document.getElementById('label-h');
+        const lblK = document.getElementById('label-k');
+        const lblR = document.getElementById('label-r');
+        const valH = document.getElementById('val-h');
+        const valK = document.getElementById('val-k');
+        const valR2 = document.getElementById('val-r2');
+
+        function updateCircle() {
+            const h = parseFloat(hSlider.value);
+            const k = parseFloat(kSlider.value);
+            const r = parseFloat(rSlider.value);
+
+            // Update UI
+            lblH.textContent = h;
+            lblK.textContent = k;
+            lblR.textContent = r;
+            valH.textContent = h;
+            valK.textContent = k;
+            valR2.textContent = (r * r).toFixed(1);
+
+            // Update Desmos
+            calculator.setExpression({ id: 'circle', latex: `(x - ${h})^2 + (y - ${k})^2 = ${r * r}`, color: '#4f46e5' });
+            calculator.setExpression({ id: 'center', latex: `(${h}, ${k})`, color: '#3730a3', pointLabel: 'Center', showLabel: true });
+        }
+
+        hSlider.addEventListener('input', updateCircle);
+        kSlider.addEventListener('input', updateCircle);
+        rSlider.addEventListener('input', updateCircle);
+
+        // Initial setup
+        calculator.setMathBounds({ left: -15, right: 15, bottom: -15, top: 15 });
+        updateCircle();
+
+        // Answer checking
+        function checkAnswer(el, isCorrect) {
+            if (isCorrect) {
+                el.classList.add('correct');
+                el.style.borderColor = '#10b981';
+            } else {
+                el.classList.add('incorrect');
+                el.style.borderColor = '#ef4444';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -301,51 +301,6 @@
                             </div>
                         </details>
                     </div>
-
-                    <!-- Problem 4: Standard Form Speed -->
-                    <div style="margin-top: 4rem;">
-                        <h2 style="color: #6366f1; margin-bottom: 1.5rem;"><span>⚡</span> Standard Form Speed-Run</h2>
-                        <p>Never set \(y=0\) manually. Let Desmos find the intercept for you.</p>
-
-                        <div class="sat-problem-card">
-                            <h3 class="sat-problem-header">
-                                <span>📝</span> SAT Problem
-                                <button class="btn-copy" onclick="copyCode('5x - 4y = 20')">📄 Copy Code</button>
-                            </h3>
-                            <div style="text-align: center; margin: 2rem 0; font-size: 1.25rem;">
-                                \[ 5x - 4y = 20 \]
-                            </div>
-                            <p>What is the x-intercept of the graph of the equation above?</p>
-
-                            <div class="sat-option-grid">
-                                <div class="sat-option" onclick="checkAnswer(this, false)">(A) -5</div>
-                                <div class="sat-option" onclick="checkAnswer(this, true)">(B) 4</div>
-                                <div class="sat-option" onclick="checkAnswer(this, false)">(C) 5</div>
-                                <div class="sat-option" onclick="checkAnswer(this, false)">(D) 20</div>
-                            </div>
-                        </div>
-
-                        <details class="practix-reveal">
-                            <summary></summary>
-                            <div class="solution-content">
-                                <div class="solution-step">
-                                    <h4>Step 1: Type & Click</h4>
-                                    <p>Type \(5x - 4y = 20\). Click the point where the line crosses the x-axis.</p>
-                                    <img src="../../assets/images/desmos/standard_intercept.png"
-                                        alt="Desmos showing x-intercept click"
-                                        style="width: 100%; max-width: 450px; display: block; margin: 1.5rem auto; border-radius: 12px; border: 1px solid #dcfce7;">
-                                </div>
-                                <div class="solution-step">
-                                    <h4>Step 2: Read the Coordinate</h4>
-                                    <p>Desmos shows <strong>(4, 0)</strong>. The x-coordinate is 4.</p>
-                                </div>
-                                <div class="final-answer-box">
-                                    <h4><span>✅</span> Final Answer:</h4>
-                                    <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">4 (Answer choice B)</p>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
                     <section class="technique-section">
                         <h2 style="color: #1e40af; margin-bottom: 1.5rem;">⚔️ Mastered the Intersection Hack?</h2>
                         <p>Put your speed to the test with our 800-level challenge set.</p>
@@ -362,8 +317,7 @@
     </div>
 
     <script>
-        function copyCode(text) {
-            navigator.clipboard.writeText(text).then(() => {
+        function copyCode(text)   navigator.clipboard.writeText(text).then(() => {
                 const btn = event.target;
                 const originalText = btn.innerText;
                 btn.innerText = '✅ Copied!';

@@ -239,6 +239,18 @@ document.addEventListener('DOMContentLoaded', () => {
                             ]
                         }
                     ]
+                },
+                {
+                    name: "Geometry & Trigonometry",
+                    path: "desmos/",
+                    subsections: [
+                        {
+                            name: "Circles & Arc Measures",
+                            topics: [
+                                { name: "Circle Maker", path: "desmos/circle-equations/" }
+                            ]
+                        }
+                    ]
                 }
             ]
         },

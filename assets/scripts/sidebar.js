@@ -937,14 +937,20 @@ document.addEventListener('DOMContentLoaded', () => {
                         toggleDesmosSplitScreen();
                         // Close flyout if it was open
                         closeFlyout();
-                        // Remove active state from other buttons
-                        railContainer.querySelectorAll('button[data-pillar]').forEach(b => {
-                            b.classList.remove('flyout-active');
-                        });
-                        // Toggle active state for Desmos button based on split-screen state
-                        if (document.body.classList.contains('desmos-split-active')) {
+                        // Check if panel is now visible (logic inside toggle sets display block first)
+                        const panel = document.getElementById('mobile-desmos-panel');
+                        const isPanelOpen = panel && panel.style.display !== 'none';
+
+                        if (isPanelOpen) {
+                            // Panel is OPEN: Clear active from others, highlight Desmos
+                            railContainer.querySelectorAll('.rail-item').forEach(b => {
+                                b.classList.remove('flyout-active');
+                                b.classList.remove('active');
+                            });
                             btn.classList.add('flyout-active');
                         } else {
+                            // Panel is CLOSED: Remove highlight from Desmos
+                            // closeFlyout() already restored the original active state to "App"
                             btn.classList.remove('flyout-active');
                         }
                         return;
@@ -958,7 +964,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 // Highlight the active pillar button in the rail
-                railContainer.querySelectorAll('.rail-item').forEach(b => {
+                // Use closest to ensure we have the live DOM element
+                const rail = btn.closest('#narrow-rail') || railContainer;
+                rail.querySelectorAll('.rail-item').forEach(b => {
                     b.classList.remove('flyout-active');
                     b.classList.remove('active'); // Ensure mutual exclusivity
                 });

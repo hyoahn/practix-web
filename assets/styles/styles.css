@@ -2471,3 +2471,20 @@ body.mobile-active .narrow-rail {
         z-index: 10 !important;
     }
 }
+
+/* 
+ * FINAL FIX FOR FLOATING CONTENT (Sticky Removal)
+ * Force static/relative flow on mobile to prevent detachment.
+ */
+@media (max-width: 1024px) {
+    .practix-reveal,
+    .practix-reveal summary,
+    .practix-reveal[open] summary,
+    .solution-content {
+        position: relative !important; /* Override sticky/fixed */
+        top: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        z-index: 1 !important; /* Low z-index */
+    }
+}

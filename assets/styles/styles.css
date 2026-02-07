@@ -988,11 +988,14 @@ h3 {
         left: auto;
     }
 
-    /* MOBILE: Force hero image to show full iPad */
+    /* MOBILE: Force hero image to show iPad on right */
     .hero-image-container img {
-        object-position: center center !important;
-        object-fit: contain !important;
-        /* Show full image including iPad */
+        object-position: 60% center !important;
+        /* Show right side where iPad is */
+        object-fit: cover !important;
+        /* Fill container completely - no white gaps */
+        width: 100% !important;
+        height: 100% !important;
     }
 
 }

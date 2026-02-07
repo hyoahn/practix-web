@@ -2617,3 +2617,31 @@ body.mobile-active .narrow-rail {
         font-weight: 600 !important; /* Lighter than title */
     }
 }
+
+/* 
+ * NUCLEAR HIERARCHY FIX (User Request 2026-02-07 21:28)
+ * Specificity Nuke: High-specificity selectors to override EVERYTHING.
+ */
+@media (max-width: 1024px) {
+    /* Title: Huge and Bold */
+    div.sat-problem-card h3.sat-problem-header,
+    div.sat-problem-card .sat-problem-header {
+        font-size: 1.5rem !important; 
+        line-height: 1.2 !important;
+        font-weight: 900 !important;
+        color: var(--text-primary) !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    /* Tag: Tiny and Lighter */
+    div.sat-problem-card h3.sat-problem-header span,
+    div.sat-problem-card .sat-problem-header span {
+        font-size: 0.7rem !important; 
+        line-height: 1 !important;
+        font-weight: 600 !important;
+        opacity: 0.7 !important;
+        margin-bottom: 0.3rem !important;
+        display: block !important;
+        color: var(--accent-primary) !important;
+    }
+}

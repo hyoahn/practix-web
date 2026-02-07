@@ -67,86 +67,92 @@
         }
     </style>
 
-<style>
-/* NUCLEAR MOBILE FIXES - INJECTED INLINE */
-@media (max-width: 1024px) {
-    /* 1. FORCE HIDE TOP NAV */
-    nav { display: none !important; }
-    
-    /* 2. FIX HOMEPAGE LAYOUT MASH */
-    .hero-split-fullscreen {
-        display: flex !important;
-        flex-direction: column !important;
-        height: auto !important;
-        min-height: auto !important;
-        padding-top: 2rem !important;
-        gap: 3rem !important;
-    }
-    .hero-text-container {
-        width: 100% !important;
-        padding: 2rem 5% !important;
-        order: 1 !important;
-        text-align: left !important;
-        display: block !important;
-    }
-    .hero-image-container {
-        width: 100% !important;
-        height: 350px !important;
-        order: 2 !important;
-        position: relative !important;
-        display: block !important;
-    }
-    .hero-split-fullscreen h1 {
-        font-size: 2.5rem !important;
-        line-height: 1.1 !important;
-    }
-    
-    /* 3. FIX MENU Z-INDEX */
-    .nav-links {
-        z-index: 9999 !important;
-    }
-}
-</style>
+    <style>
+        /* NUCLEAR MOBILE FIXES - INJECTED INLINE */
+        @media (max-width: 1024px) {
+
+            /* 1. FORCE HIDE TOP NAV */
+            nav {
+                display: none !important;
+            }
+
+            /* 2. FIX HOMEPAGE LAYOUT MASH */
+            .hero-split-fullscreen {
+                display: flex !important;
+                flex-direction: column !important;
+                height: auto !important;
+                min-height: auto !important;
+                padding-top: 2rem !important;
+                gap: 3rem !important;
+            }
+
+            .hero-text-container {
+                width: 100% !important;
+                padding: 2rem 5% !important;
+                order: 1 !important;
+                text-align: left !important;
+                display: block !important;
+            }
+
+            .hero-image-container {
+                width: 100% !important;
+                height: 350px !important;
+                order: 2 !important;
+                position: relative !important;
+                display: block !important;
+            }
+
+            .hero-split-fullscreen h1 {
+                font-size: 2.5rem !important;
+                line-height: 1.1 !important;
+            }
+
+            /* 3. FIX MENU Z-INDEX */
+            .nav-links {
+                z-index: 9999 !important;
+            }
+        }
+    </style>
 
 </head>
 
 <body>
 
-<script>
-// NUCLEAR JS FIXES - INJECTED INLINE
-(function() {
-    // 1. ELIMINATE TOP NAV ON MOBILE
-    function nukeNav() {
-        if (window.innerWidth <= 1024) {
-            const nav = document.querySelector('nav:not(.breadcrumb)');
-            if (nav) nav.remove();
-        }
-    }
-    // Run immediately
-    nukeNav();
-    // Run on resize
-    window.addEventListener('resize', nukeNav);
-    // Observe for re-injection
-    new MutationObserver(nukeNav).observe(document.body, {childList: true, subtree: true});
-
-    // 2. FIX MENU CLOSING
-    document.addEventListener('click', function(e) {
-        const menu = document.getElementById('nav-menu');
-        const toggle = document.getElementById('nav-toggle');
-        
-        // If clicking inside menu on a link (or child of link)
-        if (menu && menu.classList.contains('active')) {
-            if (e.target.closest('a') || !menu.contains(e.target)) {
-                 // But don't close if clicking the toggle itself
-                 if (toggle && toggle.contains(e.target)) return;
-                 
-                 menu.classList.remove('active');
-                 document.body.style.overflow = '';
+    <script>
+        // NUCLEAR JS FIXES - INJECTED INLINE
+        (function () {
+            // 1. ELIMINATE TOP NAV ON MOBILE
+            function nukeNav() {
+                if (window.innerWidth <= 1024) {
+                    const nav = document.querySelector('nav:not(.breadcrumb)');
+                    if (nav) nav.remove();
+                }
             }
-        }
-    }, true); // Capture phase to beat other listeners
-})();
-</script>
+            // Run immediately
+            nukeNav();
+            // Run on resize
+            window.addEventListener('resize', nukeNav);
+            // Observe for re-injection
+            new MutationObserver(nukeNav).observe(document.body, { childList: true, subtree: true });
+
+            // 2. FIX MENU CLOSING
+            document.addEventListener('click', function (e) {
+                const menu = document.getElementById('nav-menu');
+                const toggle = document.getElementById('nav-toggle');
+
+                // If clicking inside menu on a link (or child of link)
+                if (menu && menu.classList.contains('active')) {
+                    if (e.target.closest('a') || !menu.contains(e.target)) {
+                        // But don't close if clicking the toggle itself
+                        if (toggle && toggle.contains(e.target)) return;
+
+                        menu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                }
+            }, true); // Capture phase to beat other listeners
+        })();
+    </script>
 
     <div class="page-bg"></div>
 
@@ -173,18 +179,83 @@
         <!-- 3. MAIN STAGE -->
         <main class="main-stage">
             <div class="stage-content-scroll">
-                <header class="hero-section" style="margin-bottom: 3rem;">
-                    <div
-                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
-                        Stop Studying. Start Training.
+                <!-- 50/50 Split Hero Section - ADAPTED FOR HARD QUESTIONS -->
+                <section class="hero-split-fullscreen">
+                    <!-- Left Content -->
+                    <div class="hero-text-container">
+                        <div class="hero-text-content">
+                            <div class="hero-badge status-system">
+                                <span class="dot"></span>
+                                <span class="status-label">SYSTEM STATUS: ONLINE</span>
+                            </div>
+                            <h1 style="margin-bottom: 1rem;"><span class="gradient-text">Stop Studying.</span><br>Start
+                                Training.</h1>
+                            <h2
+                                style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; margin-bottom: 2rem; color: var(--text-primary);">
+                                The 35 <span style="background: #000; color: #fff; padding: 0 0.4rem;">Hardest
+                                    Questions</span>
+                                designed to break your 800 streak.
+                            </h2>
+                            <p
+                                style="margin-bottom: 2.5rem; color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; line-height: 1.6;">
+                                Master the elite-level trap questions that 90% of students miss. This isn't practice;
+                                it's calibration.
+                            </p>
+
+                            <!-- Search (Optional, keeping consistent) -->
+                            <div class="hero-search-box"
+                                style="margin-bottom: 2.5rem; position: relative; max-width: 600px;">
+                                <input type="text" id="hero-search"
+                                    placeholder="> Search traps (e.g. 'Circle Equations')..."
+                                    style="width: 100%; padding: 1.25rem 1.5rem; padding-left: 3rem; border-radius: 12px; border: 2px solid var(--border-strong); font-size: 1.1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); outline: none; font-family: monospace; background: var(--glass-bg); backdrop-filter: blur(10px);">
+                                <span
+                                    style="position: absolute; left: 1rem; top: 1.2rem; font-size: 1.2rem; filter: grayscale(1); opacity: 0.5;">_</span>
+                            </div>
+                        </div>
                     </div>
-                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;"><span class="gradient-text">SAT Math Hardest
-                            Questions</span></h1>
-                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px;">
-                        The 35 hardest question types on the Digital SAT. These are the problems designed to break your
-                        800 streak. Master them here.
-                    </p>
-                </header>
+
+                    <!-- Right Image (Restored) -->
+                    <div class="hero-image-container">
+                        <div class="image-overlay-gradient"></div>
+                        <img src="../assets/images/hero_girl.png" alt="Student focused on Hardest Questions">
+
+                        <!-- HUD HUD HUD -->
+                        <div class="hud-circle-overlay">
+                            <div class="hud-spinning-ring"></div>
+                            <div class="hud-score-display">
+                                <span class="hud-score-label">TARGET SCORE</span><br>
+                                <span class="hud-score-value">800</span>
+                            </div>
+                        </div>
+
+                        <!-- Floating Badge -->
+                        <div class="floating-card score-card tech-badge">
+                            <span class="icon badge-icon">🛡️</span>
+                            <div class="text">
+                                <strong class="badge-title">Sniper Mode</strong>
+                                <span class="badge-status">ACTIVE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BOTTOM STATS ROW (Simplified for subpage) -->
+                    <div class="stats-hud-row">
+                        <div class="hud-stat-card">
+                            <span class="stat-emoji">☠️</span>
+                            <div class="stat-content">
+                                <div class="stat-label">Trap Types</div>
+                                <div class="stat-value">35 DETECTED</div>
+                            </div>
+                        </div>
+                        <div class="hud-stat-card">
+                            <span class="stat-emoji">🎯</span>
+                            <div class="stat-content">
+                                <div class="stat-label">Avg. Difficulty</div>
+                                <div class="stat-value gain">760+</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <div class="hub-grid">
                     <a href="algebra/" class="category-card">

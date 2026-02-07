@@ -672,8 +672,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const style = document.createElement('style');
                 style.id = 'desmos-split-styles';
                 style.textContent = `
-                /* Split Screen Styles for Mobile Portrait */
-                @media (max-width: 1024px) and (orientation: portrait) {
+                /* Split Screen Styles for Mobile (Aggressive Overrides) */
+                @media (max-width: 1024px) {
                     body.desmos-split-active {
                         overflow: hidden !important;
                     }
@@ -683,7 +683,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     body.desmos-split-active #content-area {
                         height: 50vh !important;
                         overflow-y: auto !important;
-                        padding-bottom: 60px !important; /* Space for fab if needed */
+                        padding-bottom: 150px !important; /* increased to prevent overlap */
                         -webkit-overflow-scrolling: touch; /* Smooth scroll */
                     }
 
@@ -692,9 +692,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         overflow: visible !important;
                     }
 
-                    /* FIX: Force 1 column for options in split screen */
+                    /* FIX: Force 1 column for options in split screen (Flex Column) */
                     body.desmos-split-active .sat-option-grid {
+                        display: flex !important;
+                        flex-direction: column !important;
                         grid-template-columns: 1fr !important;
+                        gap: 1rem !important;
                     }
 
                     /* FIX: Prevent right cut-off */
@@ -708,16 +711,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     body.desmos-split-active .sat-problem-card {
                         width: 100% !important;
                         max-width: 100% !important;
+                        overflow-x: hidden !important;
+                    }
+                    
+                    /* FIX: Reveal Button Visibility */
+                    body.desmos-split-active .practix-reveal {
+                        margin-bottom: 20px !important;
+                        position: relative !important;
+                        z-index: 5 !important;
                     }
 
                     #mobile-desmos-panel {
                         position: fixed;
                         bottom: 0;
-                        left: 60px; /* Width of narrow rail */
+                        left: 0; /* Full width on mobile, ignoring rail indentation if needed, but rail is 60px */
                         right: 0;
                         height: 50vh;
                         background: white;
-                        z-index: 1005; /* Below rail (1010) but above content */
+                        z-index: 2005; /* High z-index to sit above everything */
                         border-top: 1px solid var(--border);
                         box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
                         display: none;
@@ -725,10 +736,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         transition: transform 0.3s ease;
                         transform: translateY(100%);
                     }
-
+                    
+                    /* Adjust for rail if body has padding */
                     body.desmos-split-active #mobile-desmos-panel {
                         display: flex;
                         transform: translateY(0);
+                        left: 60px; /* Keep 60px offset if rail is visible */
                     }
 
                     .desmos-handle {

@@ -642,18 +642,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Update flyout title
                 flyoutTitle.textContent = pillar.name;
 
-                // Build flyout content from pillar sections
+                // Build flyout content from pillar categories
                 let html = '';
-                pillar.sections.forEach(section => {
+                pillar.categories.forEach(category => {
                     html += `<div class="flyout-section">`;
-                    html += `<div class="flyout-section-title">${section.title}</div>`;
-                    section.pages.forEach(page => {
-                        const pageHref = `${basePath}${pillarPath}${page.path ? page.path + '/' : ''}`;
-                        const isActive = currentPath.includes(page.path || section.path);
-                        html += `<a href="${pageHref}" class="${isActive ? 'active' : ''}">${page.name}</a>`;
+                    html += `<div class="flyout-section-title">${category.name}</div>`;
+                    category.subsections.forEach(sub => {
+                        const pageHref = category.path ? `${basePath}${category.path}` : `${basePath}${pillarPath}`;
+                        const isActive = currentPath.includes(category.path || sub.name);
+                        html += `<a href="${pageHref}" class="${isActive ? 'active' : ''}">${sub.name}</a>`;
                     });
                     html += `</div>`;
                 });
+
 
                 flyoutContent.innerHTML = html;
 

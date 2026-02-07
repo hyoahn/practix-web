@@ -2596,3 +2596,24 @@ body.mobile-active .narrow-rail {
         color: var(--accent-primary) !important;
     }
 }
+
+/* 
+ * FINAL FINAL HIERARCHY FIX (User Request 2026-02-07 21:23)
+ * Absolute forced hierarchy: Title (1.35rem) > Tag (0.7rem)
+ */
+@media (max-width: 1024px) {
+    .sat-problem-header {
+        font-size: 1.35rem !important;
+        margin-bottom: 0.5rem !important;
+        line-height: 1.25 !important;
+        font-weight: 800 !important; /* Extra bold */
+    }
+
+    .sat-problem-header span {
+        font-size: 0.75rem !important; 
+        line-height: 1 !important;
+        margin-bottom: 0.25rem !important;
+        opacity: 0.8 !important;
+        font-weight: 600 !important; /* Lighter than title */
+    }
+}

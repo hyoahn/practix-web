@@ -756,6 +756,154 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // Mobile Split-Screen Desmos Toggle
+        function toggleDesmosSplitScreen(forceOpen = false) {
+            const body = document.body;
+            const existingPanel = document.getElementById('mobile-desmos-panel');
+
+            // If panel exists, toggle or force open
+            if (existingPanel) {
+                if (forceOpen) {
+                    body.classList.add('desmos-split-active');
+                } else {
+                    body.classList.toggle('desmos-split-active');
+                }
+                return;
+            }
+
+            // Create panel and iframe
+            const panel = document.createElement('div');
+            panel.id = 'mobile-desmos-panel';
+            panel.innerHTML = `
+            <div class="desmos-handle">
+                <span>Desmos Calculator</span>
+                <button class="desmos-close-btn">✕</button>
+            </div>
+            <iframe src="https://www.desmos.com/calculator?lang=ko" frameborder="0"></iframe>
+        `;
+            // Ensure it's hidden by default globally via inline style until class kicks in
+            panel.style.display = 'none';
+            body.appendChild(panel);
+
+            // Add styles
+            if (!document.getElementById('desmos-split-styles')) {
+                const style = document.createElement('style');
+                style.id = 'desmos-split-styles';
+                style.textContent = `
+                /* Global default: hide panel */
+                #mobile-desmos-panel {
+                    display: none;
+                }
+
+                /* Split Screen Styles for Mobile Portrait */
+                @media (max-width: 1024px) and (orientation: portrait) {
+                    body.desmos-split-active {
+                        overflow: hidden !important;
+                    }
+                    
+                    body.desmos-split-active main,
+                    body.desmos-split-active .main-stage,
+                    body.desmos-split-active #content-area {
+                        height: 50vh !important;
+                        overflow-y: auto !important;
+                        padding-bottom: 60px !important; 
+                    }
+
+                    #mobile-desmos-panel {
+                        position: fixed;
+                        bottom: 0;
+                        left: 60px; /* Width of narrow rail */
+                        right: 0;
+                        height: 50vh;
+                        background: white;
+                        z-index: 1005; 
+                        border-top: 1px solid var(--border);
+                        box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+                        /* display is managed by parent logic */
+                        display: none; 
+                        flex-direction: column;
+                        transition: transform 0.3s ease;
+                        transform: translateY(100%);
+                    }
+
+                    body.desmos-split-active #mobile-desmos-panel {
+                        display: flex !important;
+                        transform: translateY(0);
+                    }
+
+                    .desmos-handle {
+                        height: 40px;
+                        background: var(--bg-secondary);
+                        border-bottom: 1px solid var(--border);
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 0 1rem;
+                        font-size: 0.9rem;
+                        font-weight: 600;
+                        color: var(--text-primary);
+                    }
+
+                    .desmos-close-btn {
+                        background: none;
+                        border: none;
+                        font-size: 1.2rem;
+                        cursor: pointer;
+                        padding: 0.25rem;
+                        color: var(--text-secondary);
+                    }
+
+                    #mobile-desmos-panel iframe {
+                        flex: 1;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            `;
+                document.head.appendChild(style);
+            }
+
+            // Close button handler
+            panel.querySelector('.desmos-close-btn').addEventListener('click', () => {
+                body.classList.remove('desmos-split-active');
+            });
+
+            // Activate after creation
+            requestAnimationFrame(() => {
+                body.classList.add('desmos-split-active');
+            });
+        }
+
+        // Auto-init Desmos on Mobile Portrait and Remove Button
+        function checkAndInitDesmos() {
+            const isPortrait = window.matchMedia('(orientation: portrait)').matches;
+            const isMobileWidth = window.innerWidth <= 1024;
+
+            if (isMobileWidth) {
+                // Brutal removal of Desmos button if it sneaked in
+                const desmosBtns = document.querySelectorAll('button[data-pillar="desmos"], a[href*="desmos"]');
+                desmosBtns.forEach(btn => btn.remove());
+            }
+
+            if (isPortrait && isMobileWidth) {
+                // Only init if not already present
+                if (!document.getElementById('mobile-desmos-panel')) {
+                    toggleDesmosSplitScreen(true);
+                } else {
+                    document.body.classList.add('desmos-split-active');
+                }
+            }
+        }
+
+        // Check on load
+        checkAndInitDesmos();
+        // Check on resize (debounced)
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(checkAndInitDesmos, 200);
+        });
+
         // Close flyout function
         const closeFlyout = () => {
             flyout.classList.remove('active');

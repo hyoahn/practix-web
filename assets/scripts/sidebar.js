@@ -684,6 +684,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         height: 50vh !important;
                         overflow-y: auto !important;
                         padding-bottom: 60px !important; /* Space for fab if needed */
+                        -webkit-overflow-scrolling: touch; /* Smooth scroll */
+                    }
+
+                    body.desmos-split-active .stage-content-scroll {
+                        height: auto !important;
+                        overflow: visible !important;
                     }
 
                     #mobile-desmos-panel {

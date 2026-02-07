@@ -580,6 +580,33 @@ document.addEventListener('DOMContentLoaded', () => {
                         color: var(--text-secondary);
                         padding: 0.5rem 1rem;
                         margin-bottom: 0.25rem;
+                        font-weight: 700;
+                        background: var(--bg-secondary);
+                        border-radius: 4px;
+                    }
+                    .flyout-subsection-title {
+                        font-size: 0.8rem;
+                        font-weight: 600;
+                        color: var(--text-primary);
+                        padding: 0.5rem 1rem;
+                        margin-top: 0.5rem;
+                        pointer-events: none;
+                    }
+                    .flyout-topic {
+                        display: block;
+                        padding: 0.5rem 1rem 0.5rem 1.5rem;
+                        color: var(--accent-primary);
+                        text-decoration: none;
+                        border-radius: 8px;
+                        font-size: 0.9rem;
+                        transition: background 0.2s;
+                    }
+                    .flyout-topic:hover {
+                        background: var(--bg-secondary);
+                    }
+                    .flyout-topic.active {
+                        background: var(--accent-primary);
+                        color: white;
                     }
                     .flyout-overlay {
                         position: fixed;
@@ -651,18 +678,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 flyoutTitle.textContent = pillar.name;
 
                 // Build flyout content from pillar categories
+                // Structure: Category (header) > Subsection (sub-header, NOT clickable) > Topics (clickable links)
                 let html = '';
                 pillar.categories.forEach(category => {
                     html += `<div class="flyout-section">`;
                     html += `<div class="flyout-section-title">${category.name}</div>`;
+
                     category.subsections.forEach(sub => {
-                        // Create proper navigation path for each subsection
-                        const pageHref = category.path ? `${basePath}${category.path}` : `${basePath}${pillarPath}`;
-                        const isActive = currentPath.includes(category.path || sub.name);
-                        html += `<a href="${pageHref}" class="${isActive ? 'active' : ''}">${sub.name}</a>`;
+                        // Only show subsections that have topics with paths
+                        if (sub.topics && sub.topics.length > 0) {
+                            // Subsection name as sub-header (NOT clickable)
+                            html += `<div class="flyout-subsection-title">${sub.name}</div>`;
+
+                            // Topics are the actual clickable exercise links
+                            sub.topics.forEach(topic => {
+                                if (topic.path) {
+                                    const topicHref = `${basePath}${topic.path}`;
+                                    const isActive = currentPath.includes(topic.path);
+                                    html += `<a href="${topicHref}" class="flyout-topic ${isActive ? 'active' : ''}">${topic.name}</a>`;
+                                }
+                            });
+                        }
                     });
+
                     html += `</div>`;
                 });
+
 
                 flyoutContent.innerHTML = html;
 

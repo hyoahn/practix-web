@@ -2488,3 +2488,32 @@ body.mobile-active .narrow-rail {
         z-index: 1 !important; /* Low z-index */
     }
 }
+
+/* 
+ * EMERGENCY VISIBILITY FIX (User Request 2026-02-07 20:23)
+ * Restore visibility of solution content with high z-index.
+ */
+@media (max-width: 1024px) {
+    .practix-reveal,
+    .practix-reveal summary,
+    .practix-reveal[open] summary,
+    .solution-content {
+        position: relative !important; 
+        z-index: 9999 !important; /* Force on top */
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    /* Ensure styles like background persist and aren't transparent */
+    .solution-content {
+        background-color: #f0fdf4 !important; 
+    }
+
+    /* Ensure parents don't clip */
+    .technique-section,
+    .sat-problem-card {
+        z-index: auto !important;
+        overflow: visible !important;
+    }
+}

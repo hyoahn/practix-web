@@ -999,8 +999,8 @@ h3 {
 
     /* MOBILE: Zoomed in on iPad (Right Side) */
     .hero-image-container img {
-        object-position: center center !important;
-        /* Center align to frame the iPad (which is now in the middle of the buffered image) */
+        object-position: right center !important;
+        /* Right align to show iPad, crop the bed (left) */
         object-fit: cover !important;
         /* Fill height */
         width: 100% !important;

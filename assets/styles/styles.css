@@ -891,7 +891,8 @@ h3 {
         display: block !important;
         height: auto !important;
         min-height: auto !important;
-        padding-top: 0;
+        padding: 0 !important;
+        margin: 0 !important;
         overflow: visible;
     }
 
@@ -899,8 +900,9 @@ h3 {
         display: block;
         width: 100%;
         max-width: 100%;
-        padding: 0 1.5rem 0.5rem;
-        /* ZERO top padding - Gateway/HUD moved to bottom */
+        padding: 0 1.5rem 0 !important;
+        /* ZERO padding all around */
+        margin: 0 !important;
         text-align: center;
         box-sizing: border-box;
     }
@@ -914,17 +916,19 @@ h3 {
 
     .hero-split-fullscreen h1 {
         font-size: 2.5rem;
-        margin-bottom: 1rem;
+        margin: 0 0 0.5rem 0 !important;
+        /* Tight margins */
     }
 
     .hero-split-fullscreen h2 {
         font-size: 1.25rem;
-        margin-bottom: 1.5rem;
+        margin: 0 0 0.5rem 0 !important;
+        /* Tight margins */
     }
 
     .hero-split-fullscreen p {
         font-size: 1rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem !important;
     }
 
     .hero-search-box {

@@ -434,14 +434,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderRail() {
         if (!railContainer) return;
-        railContainer.innerHTML = PILLARS.map(p => `
-            <a href="${basePath}${p.path}" class="rail-item ${p.id === activePillarId ? 'active' : ''}" title="${p.name}">
-                ${p.icon}
+
+        // Global Navigation Rail - 8 Icons as specified by user
+        const NAV_ITEMS = [
+            { id: 'home', name: 'Home', icon: '🏠', path: '' },
+            { id: 'app', name: 'App', icon: '🚀', path: 'app/' },
+            { id: 'math', name: 'Math', icon: '📐', path: 'math/' },
+            { id: 'formulas', name: 'Formulas', icon: 'Σ', path: 'formulas/' },
+            { id: 'hard-questions', name: 'Hardest Questions', icon: '☠️', path: 'hard-questions/' },
+            { id: 'desmos', name: 'Desmos', icon: 'y=', path: 'desmos/' },
+            { id: 'wallpapers', name: 'Wallpapers', icon: '📱', path: 'wallpapers/' },
+            { id: 'contact', name: 'About Us', icon: 'ℹ️', path: 'contact/' }
+        ];
+
+        // Determine active item based on current path
+        const getActiveId = () => {
+            if (currentPath === '/' || currentPath.endsWith('/index.html') && depth === 0) return 'home';
+            for (const item of NAV_ITEMS) {
+                if (item.path && currentPath.includes(item.path)) return item.id;
+            }
+            return 'home';
+        };
+
+        const activeId = getActiveId();
+
+        railContainer.innerHTML = NAV_ITEMS.map(item => {
+            const href = item.path ? `${basePath}${item.path}` : `${basePath}index.html`;
+            return `
+            <a href="${href}" class="rail-item ${item.id === activeId ? 'active' : ''}" title="${item.name}">
+                ${item.icon}
             </a>
-        `).join('') + `
-            <div style="flex-grow: 1;"></div>
-            <a href="${basePath}settings/" class="rail-item" title="Settings">⚙️</a>
-        `;
+        `}).join('');
     }
 
     function renderByTopic() {

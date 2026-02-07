@@ -997,9 +997,10 @@ h3 {
         overflow: hidden !important;
     }
 
+    /* MOBILE: Zoomed in on iPad (Right Side) */
     .hero-image-container img {
-        object-position: right center !important;
-        /* Right align to show the buffer we added */
+        object-position: center center !important;
+        /* Center align to frame the iPad (which is now in the middle of the buffered image) */
         object-fit: cover !important;
         /* Fill height */
         width: 100% !important;

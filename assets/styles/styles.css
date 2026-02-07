@@ -987,10 +987,10 @@ h3 {
 
     /* MOBILE: Force hero image to show iPad on right side */
     .hero-image-container img {
-        object-position: 85% center !important;
-        /* Extreme right to show iPad */
-        object-fit: contain !important;
-        /* Show full image without cropping */
+        object-position: right center !important;
+        /* Show right edge where iPad is */
+        object-fit: cover !important;
+        /* Fill container, crop from left */
     }
 
 }

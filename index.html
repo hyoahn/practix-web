@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practix | SAT Desmos Calculator, Formulas & Hardest Questions</title>
+
+    <!-- Disable Browser Caching for Development -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
     <meta name="description"
         content="The ultimate Digital SAT training platform. Master SAT Formulas, SAT Hardest Questions, and the SAT Desmos Calculator hacks for an easy 800.">
     <link rel="stylesheet" href="assets/styles/styles.css?v=34">
@@ -49,13 +55,92 @@
         gtag('js', new Date());
         gtag('config', 'G-XXXXXXXXXX');
     </script>
-    <script src="assets/scripts/practix-nav.js?v=30"></script>
+    <script src="assets/scripts/practix-nav.js?v=EMERGENCY_FIX"></script>
     <script src="assets/scripts/practix-footer.js?v=30"></script>
     <script src="assets/scripts/pulse-relay.js?v=26"></script>
     <script src="assets/scripts/analytics.js"></script>
+
+<style>
+/* NUCLEAR MOBILE FIXES - INJECTED INLINE */
+@media (max-width: 1024px) {
+    /* 1. FORCE HIDE TOP NAV */
+    nav { display: none !important; }
+    
+    /* 2. FIX HOMEPAGE LAYOUT MASH */
+    .hero-split-fullscreen {
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+        min-height: auto !important;
+        padding-top: 2rem !important;
+        gap: 3rem !important;
+    }
+    .hero-text-container {
+        width: 100% !important;
+        padding: 2rem 5% !important;
+        order: 1 !important;
+        text-align: left !important;
+        display: block !important;
+    }
+    .hero-image-container {
+        width: 100% !important;
+        height: 350px !important;
+        order: 2 !important;
+        position: relative !important;
+        display: block !important;
+    }
+    .hero-split-fullscreen h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.1 !important;
+    }
+    
+    /* 3. FIX MENU Z-INDEX */
+    .nav-links {
+        z-index: 9999 !important;
+    }
+}
+</style>
+
 </head>
 
 <body class="homepage">
+
+<script>
+// NUCLEAR JS FIXES - INJECTED INLINE
+(function() {
+    // 1. ELIMINATE TOP NAV ON MOBILE
+    function nukeNav() {
+        if (window.innerWidth <= 1024) {
+            const nav = document.querySelector('nav:not(.breadcrumb)');
+            if (nav) nav.remove();
+        }
+    }
+    // Run immediately
+    nukeNav();
+    // Run on resize
+    window.addEventListener('resize', nukeNav);
+    // Observe for re-injection
+    new MutationObserver(nukeNav).observe(document.body, {childList: true, subtree: true});
+
+    // 2. FIX MENU CLOSING
+    document.addEventListener('click', function(e) {
+        const menu = document.getElementById('nav-menu');
+        const toggle = document.getElementById('nav-toggle');
+        
+        // If clicking inside menu on a link (or child of link)
+        if (menu && menu.classList.contains('active')) {
+            if (e.target.closest('a') || !menu.contains(e.target)) {
+                 // But don't close if clicking the toggle itself
+                 if (toggle && toggle.contains(e.target)) return;
+                 
+                 menu.classList.remove('active');
+                 document.body.style.overflow = '';
+            }
+        }
+    }, true); // Capture phase to beat other listeners
+})();
+</script>
+
     <!-- Background gradient -->
     <div class="page-bg"></div>
 
@@ -67,13 +152,12 @@
                 <!-- Left Content -->
                 <div class="hero-text-container">
                     <div class="hero-text-content">
-                        <div class="hero-badge"
-                            style="background: rgba(0,0,0,1); color: white; border: 1px solid #333;">
-                            <span class="dot" style="background: #00ff00; box-shadow: 0 0 10px #00ff00;"></span>
-                            <span style="font-family: monospace; letter-spacing: 0.05em;">SYSTEM STATUS: ONLINE</span>
+                        <div class="hero-badge status-system">
+                            <span class="dot"></span>
+                            <span class="status-label">SYSTEM STATUS: ONLINE</span>
                         </div>
                         <h1 style="margin-bottom: 1rem;"><span class="gradient-text">Stop Studying.</span><br>Start
-                            Formal Training.</h1>
+                            Training.</h1>
                         <h2
                             style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; margin-bottom: 2rem; color: var(--text-primary);">
                             The only <span style="background: #000; color: #fff; padding: 0 0.4rem;">C++ Engine</span>
@@ -85,53 +169,45 @@
                         </p>
 
                         <!-- NEW COMMAND LINE SEARCH - REFINED -->
-                        <div class="hero-search-box" style="margin-bottom: 2.5rem; position: relative; max-width: 600px;">
-                            <input type="text" id="hero-search" 
-                                   placeholder="> Search topics, practice sets, or command..." 
-                                   style="width: 100%; padding: 1.25rem 1.5rem; padding-left: 3rem; border-radius: 12px; border: 2px solid var(--border-strong); font-size: 1.1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); outline: none; font-family: monospace; background: var(--glass-bg); backdrop-filter: blur(10px);">
-                            <span style="position: absolute; left: 1rem; top: 1.2rem; font-size: 1.2rem; filter: grayscale(1); opacity: 0.5;">_</span>
-                            <button id="initialize-training" class="btn-primary" style="position: absolute; right: 0.5rem; top: 0.5rem; padding: 0.75rem 1.25rem; font-size: 0.85rem; border-radius: 8px;">
+                        <div class="hero-search-box"
+                            style="margin-bottom: 2.5rem; position: relative; max-width: 600px;">
+                            <input type="text" id="hero-search"
+                                placeholder="> Search topics, practice sets, or command..."
+                                style="width: 100%; padding: 1.25rem 1.5rem; padding-left: 3rem; border-radius: 12px; border: 2px solid var(--border-strong); font-size: 1.1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); outline: none; font-family: monospace; background: var(--glass-bg); backdrop-filter: blur(10px);">
+                            <span
+                                style="position: absolute; left: 1rem; top: 1.2rem; font-size: 1.2rem; filter: grayscale(1); opacity: 0.5;">_</span>
+                            <button id="initialize-training" class="btn-primary"
+                                style="position: absolute; right: 0.5rem; top: 0.5rem; padding: 0.75rem 1.25rem; font-size: 0.85rem; border-radius: 8px;">
                                 INITIALIZE TRAINING 🚀
                             </button>
                         </div>
 
                         <!-- 5-PILLAR GATEWAY GRID -->
-                        <div class="hero-buttons"
-                            style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; max-width: 650px;">
+                        <div class="hero-buttons gateway-grid">
                             <!-- Pillar 1: Formulas -->
-                            <a href="formulas/" class="btn-primary"
-                                style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 1rem 0.5rem; background: white; border: 1px solid var(--border); color: var(--text-primary); box-shadow: none;">
-                                <span style="font-size: 1.2rem; margin-bottom: 0.3rem;">Σ</span>
-                                <span
-                                    style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Formulas</span>
+                            <a href="formulas/" class="btn-gateway pillar-formulas">
+                                <span class="gateway-icon">Σ</span>
+                                <span class="gateway-label">Formulas</span>
                             </a>
                             <!-- Pillar 2: Desmos -->
-                            <a href="desmos/" class="btn-primary"
-                                style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 1rem 0.5rem; background: white; border: 1px solid var(--border); color: var(--text-primary); box-shadow: none;">
-                                <span style="font-size: 1.2rem; margin-bottom: 0.3rem;">y=</span>
-                                <span
-                                    style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Desmos</span>
+                            <a href="desmos/" class="btn-gateway pillar-desmos">
+                                <span class="gateway-icon">y=</span>
+                                <span class="gateway-label">Desmos</span>
                             </a>
                             <!-- Pillar 3: Hard Questions -->
-                            <a href="hard-questions/" class="btn-primary"
-                                style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 1rem 0.5rem; background: white; border: 1px solid var(--border); color: var(--text-primary); box-shadow: none;">
-                                <span style="font-size: 1.2rem; margin-bottom: 0.3rem;">☠️</span>
-                                <span
-                                    style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Sniper</span>
+                            <a href="hard-questions/" class="btn-gateway pillar-sniper">
+                                <span class="gateway-icon">☠️</span>
+                                <span class="gateway-label">Sniper</span>
                             </a>
                             <!-- Pillar 4: Math (NEW) -->
-                            <a href="math/" class="btn-primary"
-                                style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 1rem 0.5rem; background: var(--text-primary); border: 1px solid var(--text-primary); color: white; box-shadow: none;">
-                                <span style="font-size: 1.2rem; margin-bottom: 0.3rem;">📐</span>
-                                <span
-                                    style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Math</span>
+                            <a href="math/" class="btn-gateway pillar-math">
+                                <span class="gateway-icon">📐</span>
+                                <span class="gateway-label">Math</span>
                             </a>
                             <!-- Pillar 5: App (NEW) -->
-                            <a href="app/" class="btn-primary"
-                                style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 1rem 0.5rem; background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%); color: white; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);">
-                                <span style="font-size: 1.2rem; margin-bottom: 0.3rem;">🚀</span>
-                                <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">The
-                                    App</span>
+                            <a href="app/" class="btn-gateway pillar-app">
+                                <span class="gateway-icon">🚀</span>
+                                <span class="gateway-label">The App</span>
                             </a>
                         </div>
                     </div>
@@ -143,22 +219,20 @@
                     <img src="images/hero_girl.png" alt="Student focused on Practix SAT Math simulation">
 
                     <!-- HUD HUD HUD (NEW Circular HUD) -->
-                    <div class="hud-circle-overlay" style="position: absolute; top: 40%; left: 30%; transform: translate(-50%, -50%); z-index: 15;">
-                        <div style="width: 200px; height: 200px; border-radius: 50%; border: 2px dashed rgba(99, 102, 241, 0.4); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); background: rgba(255, 255, 255, 0.1); box-shadow: 0 0 30px rgba(99, 102, 241, 0.2); animation: spin 20s linear infinite;">
-                        </div>
-                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 100%;">
-                            <span style="font-family: var(--font-heading); color: var(--accent-primary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">SAT SCORE REARED</span><br>
-                            <span style="font-family: var(--font-heading); color: var(--text-primary); font-size: 2rem; font-weight: 800;">1550+</span>
+                    <div class="hud-circle-overlay">
+                        <div class="hud-spinning-ring"></div>
+                        <div class="hud-score-display">
+                            <span class="hud-score-label">SAT SCORE REARED</span><br>
+                            <span class="hud-score-value">1550+</span>
                         </div>
                     </div>
 
                     <!-- Floating Trust Badge (New Tech Story) -->
-                    <div class="floating-card score-card"
-                        style="background: rgba(17, 24, 39, 0.95); border: 1px solid rgba(75, 85, 99, 0.4); color: white;">
-                        <span class="icon" style="background: rgba(31, 41, 55, 0.8);">🛡️</span>
+                    <div class="floating-card score-card tech-badge">
+                        <span class="icon badge-icon">🛡️</span>
                         <div class="text">
-                            <strong style="color: white;">Trust Engine</strong>
-                            <span style="color: #9ca3af; font-family: monospace;">STATUS: ONLINE</span>
+                            <strong class="badge-title">Trust Engine</strong>
+                            <span class="badge-status">STATUS: ONLINE</span>
                         </div>
                     </div>
 
@@ -173,33 +247,33 @@
                 </div>
 
                 <!-- BOTTOM STATS ROW (NEW) -->
-                <div class="stats-hud-row" style="position: absolute; bottom: 2rem; left: 5%; width: 90%; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; z-index: 20;">
-                    <div class="hud-stat-card" style="background: var(--glass-bg); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); padding: 1rem; border-radius: 12px; display: flex; align-items: center; gap: 0.75rem;">
-                        <span style="font-size: 1.5rem;">🔥</span>
-                        <div>
-                            <div style="font-size: 0.7rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Daily Streak</div>
-                            <div style="font-size: 1rem; color: var(--text-primary); font-weight: 800;">14 DAYS</div>
+                <div class="stats-hud-row">
+                    <div class="hud-stat-card">
+                        <span class="stat-emoji">🔥</span>
+                        <div class="stat-content">
+                            <div class="stat-label">Daily Streak</div>
+                            <div class="stat-value">14 DAYS</div>
                         </div>
                     </div>
-                    <div class="hud-stat-card" style="background: var(--glass-bg); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); padding: 1rem; border-radius: 12px; display: flex; align-items: center; gap: 0.75rem;">
-                        <span style="font-size: 1.5rem;">📈</span>
-                        <div>
-                            <div style="font-size: 0.7rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Avg. Score Gain</div>
-                            <div style="font-size: 1rem; color: var(--accent-primary); font-weight: 800;">+220 PTS</div>
+                    <div class="hud-stat-card">
+                        <span class="stat-emoji">📈</span>
+                        <div class="stat-content">
+                            <div class="stat-label">Avg. Score Gain</div>
+                            <div class="stat-value gain">+220 PTS</div>
                         </div>
                     </div>
-                    <div class="hud-stat-card" style="background: var(--glass-bg); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); padding: 1rem; border-radius: 12px; display: flex; align-items: center; gap: 0.75rem;">
-                        <span style="font-size: 1.5rem;">💻</span>
-                        <div>
-                            <div style="font-size: 0.7rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Training Activity</div>
-                            <div style="font-size: 1rem; color: var(--text-primary); font-weight: 800;">3,651 SETS</div>
+                    <div class="hud-stat-card">
+                        <span class="stat-emoji">💻</span>
+                        <div class="stat-content">
+                            <div class="stat-label">Training Activity</div>
+                            <div class="stat-value">3,651 SETS</div>
                         </div>
                     </div>
-                    <div class="hud-stat-card" style="background: var(--glass-bg); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); padding: 1rem; border-radius: 12px; display: flex; align-items: center; gap: 0.75rem;">
-                        <span style="font-size: 1.5rem;">🕒</span>
-                        <div>
-                            <div style="font-size: 0.7rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Next Live Session</div>
-                            <div style="font-size: 1rem; color: var(--text-primary); font-weight: 800;">TODAY, 4PM</div>
+                    <div class="hud-stat-card">
+                        <span class="stat-emoji">🕒</span>
+                        <div class="stat-content">
+                            <div class="stat-label">Next Live Session</div>
+                            <div class="stat-value">TODAY, 4PM</div>
                         </div>
                     </div>
                 </div>

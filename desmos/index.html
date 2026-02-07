@@ -4,6 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Disable Browser Caching for Development -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
     <!-- SEO Meta Tags -->
     <title>SAT Desmos Calculator Hacks | Integrated Practice | Practix</title>
     <meta name="description"
@@ -18,14 +24,93 @@
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="../assets/scripts/practix-nav.js?v=30"></script>
+    <script src="../assets/scripts/practix-nav.js?v=EMERGENCY_FIX"></script>
     <script src="../assets/scripts/sidebar.js"></script>
     <script src="../assets/scripts/practix-footer.js?v=30"></script>
     <script src="../assets/scripts/pulse-relay.js?v=26"></script>
     <script src="../assets/scripts/analytics.js"></script>
+
+<style>
+/* NUCLEAR MOBILE FIXES - INJECTED INLINE */
+@media (max-width: 1024px) {
+    /* 1. FORCE HIDE TOP NAV */
+    nav { display: none !important; }
+    
+    /* 2. FIX HOMEPAGE LAYOUT MASH */
+    .hero-split-fullscreen {
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+        min-height: auto !important;
+        padding-top: 2rem !important;
+        gap: 3rem !important;
+    }
+    .hero-text-container {
+        width: 100% !important;
+        padding: 2rem 5% !important;
+        order: 1 !important;
+        text-align: left !important;
+        display: block !important;
+    }
+    .hero-image-container {
+        width: 100% !important;
+        height: 350px !important;
+        order: 2 !important;
+        position: relative !important;
+        display: block !important;
+    }
+    .hero-split-fullscreen h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.1 !important;
+    }
+    
+    /* 3. FIX MENU Z-INDEX */
+    .nav-links {
+        z-index: 9999 !important;
+    }
+}
+</style>
+
 </head>
 
 <body>
+
+<script>
+// NUCLEAR JS FIXES - INJECTED INLINE
+(function() {
+    // 1. ELIMINATE TOP NAV ON MOBILE
+    function nukeNav() {
+        if (window.innerWidth <= 1024) {
+            const nav = document.querySelector('nav:not(.breadcrumb)');
+            if (nav) nav.remove();
+        }
+    }
+    // Run immediately
+    nukeNav();
+    // Run on resize
+    window.addEventListener('resize', nukeNav);
+    // Observe for re-injection
+    new MutationObserver(nukeNav).observe(document.body, {childList: true, subtree: true});
+
+    // 2. FIX MENU CLOSING
+    document.addEventListener('click', function(e) {
+        const menu = document.getElementById('nav-menu');
+        const toggle = document.getElementById('nav-toggle');
+        
+        // If clicking inside menu on a link (or child of link)
+        if (menu && menu.classList.contains('active')) {
+            if (e.target.closest('a') || !menu.contains(e.target)) {
+                 // But don't close if clicking the toggle itself
+                 if (toggle && toggle.contains(e.target)) return;
+                 
+                 menu.classList.remove('active');
+                 document.body.style.overflow = '';
+            }
+        }
+    }, true); // Capture phase to beat other listeners
+})();
+</script>
+
     <div class="page-bg"></div>
 
     <!-- Top Nav will be injected here by practix-nav.js?v=30 -->

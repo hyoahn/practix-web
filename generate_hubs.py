@@ -1,0 +1,255 @@
+import os
+
+topics = [
+    {"id": "variables-linear-equations", "name": "Variables in Linear Equations", "domain": "Algebra"},
+    {"id": "lines-and-functions", "name": "Lines and Linear Functions", "domain": "Algebra"},
+    {"id": "systems-of-equations", "name": "Systems of Linear Equations", "domain": "Algebra"},
+    {"id": "linear-inequalities", "name": "Linear Inequalities", "domain": "Algebra"},
+    {"id": "linear-word-problems", "name": "Word Problems on Linear Equations", "domain": "Algebra"},
+    {"id": "polynomial-functions", "name": "Polynomial Functions", "domain": "Advanced Math"},
+    {"id": "quadratic-equations", "name": "Quadratic Equations and Parabola", "domain": "Advanced Math"},
+    {"id": "linear-expressions-solutions", "name": "Solutions of Linear Expressions", "domain": "Advanced Math"},
+    {"id": "absolute-value", "name": "Absolute Value", "domain": "Advanced Math"},
+    {"id": "ratios-proportions-rates", "name": "Ratios, Proportions, and Rates", "domain": "Advanced Math"},
+    {"id": "percentages", "name": "Percentages", "domain": "Advanced Math"},
+    {"id": "exponents", "name": "Exponents", "domain": "Advanced Math"},
+    {"id": "exponential-growth", "name": "Exponential Growth and Decay", "domain": "Advanced Math"},
+    {"id": "manipulating-expressions", "name": "Manipulating Expressions", "domain": "Advanced Math"},
+    {"id": "probability", "name": "Probability", "domain": "Data Analysis"},
+    {"id": "reading-graphs", "name": "Reading Graphs", "domain": "Data Analysis"},
+    {"id": "histograms-bar-graphs", "name": "Histograms and Bar Graphs", "domain": "Data Analysis"},
+    {"id": "statistics-measures", "name": "Statistics (Mean, Median, Mode)", "domain": "Data Analysis"},
+    {"id": "median-range-box-plots", "name": "Median and Range in Box Plots", "domain": "Data Analysis"},
+    {"id": "studies-data-interpretation", "name": "Studies and Data Interpretation", "domain": "Data Analysis"},
+    {"id": "circles", "name": "Circles", "domain": "Geometry & Trig"},
+    {"id": "lines-and-angles", "name": "Lines and Angles", "domain": "Geometry & Trig"},
+    {"id": "triangles", "name": "Triangles", "domain": "Geometry & Trig"},
+    {"id": "quadrilaterals", "name": "Quadrilaterals", "domain": "Geometry & Trig"},
+    {"id": "three-dimensional-figures", "name": "Three-Dimensional Figures", "domain": "Geometry & Trig"},
+    {"id": "trigonometry", "name": "Trigonometry", "domain": "Geometry & Trig"}
+]
+
+template = """<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>SAT {name} Mastery: Formulas, Desmos & Hard Questions | Practix</title>
+    <meta name="description"
+        content="The definitive guide to SAT {name}. Master the formulas, learn Desmos shortcuts, and solve the hardest questions. Stop studying, start training.">
+    <meta name="keywords"
+        content="SAT {name}, digital SAT math, {name} formulas, Desmos {name} hacks">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="SAT {name} Mastery Hub | Practix">
+    <meta property="og:description"
+        content="All-in-one battle plan for {name}. Formula + Desmos + Hard Questions.">
+    <meta property="og:image" content="../assets/images/wallpapers/wall_boss_mode.png">
+
+    <link rel="stylesheet" href="../assets/styles/styles.css?v=26">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="../assets/scripts/practix-nav.js?v=30"></script>
+    <script src="../assets/scripts/sidebar.js?v=30"></script>
+    <script src="../assets/scripts/practix-footer.js?v=30"></script>
+    <script src="../assets/scripts/pulse-relay.js?v=26"></script>
+    <script src="../assets/scripts/analytics.js"></script>
+
+    <style>
+        :root {{
+            --hub-accent: #6366f1;
+        }}
+
+        .hub-hero {{
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            padding: 6rem 5%;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }}
+
+        .hub-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }}
+
+        .pillar-portal {{
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }}
+
+        .pillar-portal:hover {{
+            transform: translateY(-8px);
+            border-color: var(--hub-accent);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.1);
+        }}
+
+        .pillar-icon {{
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }}
+
+        .pillar-name {{
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }}
+
+        .pillar-desc {{
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }}
+
+        .pillar-cta {{
+            margin-top: auto;
+            font-weight: 600;
+            color: var(--hub-accent);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }}
+
+        .seo-content {{
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }}
+
+        .seo-content h2 {{
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-primary);
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+        }}
+    </style>
+</head>
+
+<body class="content-page">
+    <div class="page-bg"></div>
+
+    <div class="page-container">
+        <!-- Main Sidebar -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search topics... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="hub-hero">
+                <div
+                    style="font-family: 'Space Grotesk', sans-serif; color: var(--hub-accent); font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 1rem;">
+                    {domain} Mastery Hub
+                </div>
+                <h1 style="font-size: 3.5rem; margin-bottom: 1.5rem; font-family: 'Space Grotesk', sans-serif;">{name}</h1>
+                <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto;">
+                    Master {name} with our multi-perspective training path: Theory → Formula → Desmos → Elite Practice.
+                </p>
+            </header>
+
+            <div class="hub-grid">
+                <!-- Math Pillar -->
+                <a href="../math/" class="pillar-portal">
+                    <div class="pillar-icon">📐</div>
+                    <div class="pillar-name">The Knowledge</div>
+                    <p class="pillar-desc">
+                        Foundational explanation of {name}. Learn the core concepts from first principles to ensure a deep understanding.
+                    </p>
+                    <div class="pillar-cta">Learn the Fundamentals →</div>
+                </a>
+
+                <!-- Formula Pillar -->
+                <a href="../formulas/" class="pillar-portal">
+                    <div class="pillar-icon">Σ</div>
+                    <div class="pillar-name">The Formulas</div>
+                    <p class="pillar-desc">
+                        Essential {name} cheat sheets and mental models. The fast way to memorize and apply what you've learned.
+                    </p>
+                    <div class="pillar-cta">View Formulas →</div>
+                </a>
+
+                <!-- Desmos Pillar -->
+                <a href="../desmos/" class="pillar-portal">
+                    <div class="pillar-icon">y=</div>
+                    <div class="pillar-name">Desmos Hacks</div>
+                    <p class="pillar-desc">
+                        Leveage the Desmos Graphing Calculator to solve {name} problems instantly. Visualize and conquer.
+                    </p>
+                    <div class="pillar-cta">Master Desmos →</div>
+                </a>
+
+                <!-- Hard Questions Pillar -->
+                <a href="../hard-questions/" class="pillar-portal">
+                    <div class="pillar-icon">☠️</div>
+                    <div class="pillar-name">Hardest Questions</div>
+                    <p class="pillar-desc">
+                        Battle-tested elite problems and traps involving {name}. If you can solve these, you can solve anything.
+                    </p>
+                    <div class="pillar-cta">Solve ☠️ Problems →</div>
+                </a>
+            </div>
+
+            <article class="seo-content">
+                <h2>Mastering {name} for the Digital SAT</h2>
+                <p>
+                    {name} is an essential component of the SAT Math section. Whether you are aiming for a 700+ or just looking to improve your score, understanding this topic is non-negotiable.
+                </p>
+
+                <h2>The Practix Approach</h2>
+                <p>
+                    At Practix, we believe in training, not just studying. By combining theoretical knowledge with practical Desmos hacks and toughest practice questions, we ensure you are ready for any curveball the SAT throws at you.
+                </p>
+
+                <div
+                    style="margin-top: 4rem; padding: 2rem; background: var(--bg-dark); color: white; border-radius: 16px; text-align: center;">
+                    <h3 style="margin-bottom: 1rem;">Ready to dominate {name}?</h3>
+                    <p style="margin-bottom: 2rem; opacity: 0.8;">Choose a training pillar above to begin.</p>
+                </div>
+            </article>
+
+            <footer></footer>
+        </main>
+    </div>
+</body>
+
+</html>
+"""
+
+for topic in topics:
+    path = os.path.join(topic["id"], "index.html")
+    # Ensure directory exists (though we already created them)
+    os.makedirs(topic["id"], exist_ok=True)
+    with open(path, "w") as f:
+        f.write(template.format(name=topic["name"], id=topic["id"], domain=topic["domain"]))
+    print(f"Generated {path}")

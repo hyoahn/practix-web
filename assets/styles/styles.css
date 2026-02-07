@@ -37,9 +37,12 @@
     box-sizing: border-box;
 }
 
-/* STRICT VIEWPORT LOCK - APP FRAME LAYOUT */
-html,
-body {
+/* STRICT VIEWPORT LOCK - APP FRAME LAYOUT 
+   Only applied to content pages that use the command-center layout.
+   By default, we allow normal scrolling for SEO and homepages.
+*/
+.content-page,
+.content-page body {
     height: 100vh !important;
     max-height: 100vh !important;
     width: 100vw !important;
@@ -55,6 +58,13 @@ body {
     color: var(--text-primary);
     font-family: var(--font-body);
     font-size: 16px;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* On mobile, if the sidebar is open, lock the main body */
+body.mobile-active {
+    overflow: hidden !important;
 }
 
 /* NARROW RAIL (Far Left) */
@@ -330,18 +340,25 @@ nav {
         position: fixed;
         top: 80px;
         right: -100%;
-        width: 80%;
-        height: calc(100vh - 80px);
+        width: 100%;
+        /* Full width for grid */
+        height: auto;
+        min-height: 0;
+        max-height: calc(100vh - 80px);
         background: white;
-        flex-direction: column;
-        padding: 2rem;
-        gap: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* 2 Column Grid */
+        gap: 0.75rem;
+        /* Tighter gap */
+        padding: 1.5rem;
         transition: 0.3s ease;
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
-        border-radius: 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 20px 20px;
         border: none;
-        border-left: 1px solid var(--border);
+        border-top: 1px solid var(--border);
         z-index: 1001;
+        overflow-y: auto;
     }
 
     .nav-links.active {
@@ -349,9 +366,23 @@ nav {
     }
 
     .nav-btn {
-        font-size: 1.1rem;
+        font-size: 0.95rem;
         width: 100%;
-        text-align: left;
+        text-align: center;
+        padding: 0.75rem 0.5rem;
+        border: 1px solid var(--border);
+        border-radius: 50px;
+        /* Pill shape */
+        background: var(--bg-main);
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-btn.active {
+        background: var(--accent-primary);
+        color: white;
+        border-color: var(--accent-primary);
     }
 }
 
@@ -382,17 +413,19 @@ nav {
         display: flex;
     }
 
+    .command-sidebar.mobile-active,
     .sidebar-nav.mobile-active {
         display: block !important;
-        position: fixed !important;
-        top: 80px !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: calc(100vh - 80px) !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 85% !important;
+        height: 100vh !important;
         background: white !important;
-        z-index: 1000 !important;
+        z-index: 2000 !important;
         padding: 2rem !important;
-        border: none !important;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
     }
 }
 
@@ -621,86 +654,185 @@ h3 {
     pointer-events: none;
 }
 
-/* Floating Cards - positioned relative to image container */
-.floating-card {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 0.85rem 1.25rem;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    animation: float 6s ease-in-out infinite;
-    z-index: 5;
-    min-width: 180px;
+/* Hero Badge Styles */
+.hero-badge.status-system {
+    background: #000;
+    color: #fff;
+    border: 1px solid #333;
 }
 
-.btn-viral {
-    background: white;
-    color: var(--accent-primary);
-    border: 1px solid var(--accent-primary);
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 0.8rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
+.hero-badge.status-system .dot {
+    background: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.hero-badge .status-label {
+    font-family: monospace;
+    letter-spacing: 0.05em;
+}
+
+/* Gateway Grid Styles */
+.gateway-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 0.5rem;
-    margin-top: 1rem;
+    max-width: 650px;
 }
 
-.btn-viral:hover {
-    background: var(--accent-primary);
-    color: white;
+.btn-gateway {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0.5rem;
+    background: white;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.gateway-icon {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.gateway-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.pillar-formulas:hover,
+.pillar-desmos:hover,
+.pillar-sniper:hover {
+    border-color: var(--accent-primary);
+    background: rgba(99, 102, 241, 0.03);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
 }
 
-.score-card {
-    top: 20%;
-    left: 10%;
-    /* Inside the image area */
-    animation-delay: 0s;
+.pillar-math {
+    background: var(--text-primary);
+    border-color: var(--text-primary);
+    color: white;
 }
 
-.streak-card {
-    bottom: 20%;
-    right: 15%;
-    /* Inside the image area */
-    animation-delay: 1.5s;
+.pillar-app {
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
-.floating-card .icon {
-    font-size: 1.5rem;
-    background: var(--bg-main);
-    width: 42px;
-    height: 42px;
+/* HUD Overlay Styles */
+.hud-circle-overlay {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    z-index: 15;
+}
+
+.hud-spinning-ring {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px dashed rgba(99, 102, 241, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
+    backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.2);
+    animation: spin 20s linear infinite;
 }
 
-.floating-card .text {
-    display: flex;
-    flex-direction: column;
+.hud-score-display {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
 }
 
-.floating-card strong {
-    font-size: 0.95rem;
-    color: var(--text-primary);
+.hud-score-label {
+    font-family: var(--font-heading);
+    color: var(--accent-primary);
+    font-size: 0.8rem;
     font-weight: 700;
+    text-transform: uppercase;
 }
 
-.floating-card span {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-    font-weight: 500;
+.hud-score-value {
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+/* Tech Badges */
+.tech-badge {
+    background: rgba(17, 24, 39, 0.95) !important;
+    border: 1px solid rgba(75, 85, 99, 0.4) !important;
+}
+
+.badge-icon {
+    background: rgba(31, 41, 55, 0.8) !important;
+}
+
+.badge-title {
+    color: white !important;
+}
+
+.badge-status {
+    color: #9ca3af !important;
+    font-family: monospace;
+}
+
+/* Stats HUD Row */
+.stats-hud-row {
+    position: absolute;
+    bottom: 2rem;
+    left: 5%;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    z-index: 20;
+}
+
+.hud-stat-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    padding: 1rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.stat-emoji {
+    font-size: 1.5rem;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-weight: 800;
+}
+
+.stat-value.gain {
+    color: var(--accent-primary);
 }
 
 @keyframes float {
@@ -714,6 +846,119 @@ h3 {
         transform: translateY(-10px);
     }
 }
+
+/* --- MOBILE RESPONSIVE HOMEPAGE --- */
+@media (max-width: 768px) {
+    .hero-split-fullscreen {
+        display: block !important;
+        height: auto !important;
+        min-height: auto !important;
+        padding-top: 0;
+        overflow: visible;
+    }
+
+    .hero-text-container {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        padding: 4rem 1.5rem 2rem;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .hero-text-content {
+        display: block;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .hero-split-fullscreen h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-split-fullscreen h2 {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-split-fullscreen p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-search-box {
+        width: 100%;
+    }
+
+    #initialize-training {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        margin-top: 0.5rem;
+        padding: 1rem;
+    }
+
+    #hero-search {
+        padding-right: 1.5rem;
+    }
+
+    .gateway-grid {
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+        gap: 0.4rem;
+    }
+
+    .hero-image-container {
+        display: block !important;
+        width: 100% !important;
+        height: 400px !important;
+        min-height: 400px !important;
+        flex: none !important;
+        mask-image: linear-gradient(to top, transparent, black 15%);
+        -webkit-mask-image: linear-gradient(to top, transparent 0%, black 15%);
+        margin-top: 2rem;
+    }
+
+    /* Reposition HUD elements on mobile to avoid headline overlap */
+    .hud-circle-overlay {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+
+    .score-card {
+        top: 10%;
+        left: 5%;
+        right: auto;
+    }
+
+    .streak-card {
+        bottom: 10%;
+        right: 5%;
+        left: auto;
+    }
+
+
+}
+
+.stats-hud-row {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1.5rem;
+    background: var(--bg-main);
+    box-sizing: border-box;
+}
+
+.hud-stat-card {
+    padding: 0.75rem;
+}
+
 
 /* Tabs Section */
 .tabs-section {
@@ -1299,9 +1544,154 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 /* Show sidebar on Desktop/Tablet, hide only on Mobile */
-@media (max-width: 768px) {
-    .sidebar-nav {
+@media (max-width: 1024px) {
+
+    .narrow-rail {
+        display: flex !important;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 60px;
+        z-index: 2000;
+        border-right: 1px solid var(--border);
+        background: white;
+        padding-top: 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .sidebar-nav,
+    .command-sidebar {
         display: none;
+    }
+
+    /* Fix Mobile Nav Bar Occlusion */
+    body {
+        padding-top: 0 !important;
+        /* No top nav */
+        padding-left: 60px;
+        /* Make space for rail */
+    }
+
+    /* Hide Top Nav on Mobile */
+    nav {
+        display: none !important;
+    }
+
+
+    /* Additional safety for main stage scrolling */
+    .main-stage,
+    .stage-content-scroll {
+        padding-top: 0 !important;
+        /* Managed by body padding */
+    }
+
+    /* Force page container to respect the flow */
+    .page-container {
+        height: auto !important;
+        min-height: calc(100vh - 80px) !important;
+        overflow: visible !important;
+    }
+
+    nav {
+        display: none !important;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 60px;
+        /* Slide out from rail */
+        right: auto;
+        width: 250px;
+        height: 100vh;
+        max-height: 100vh;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 2rem 1.5rem;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.1);
+        border-radius: 0 20px 20px 0;
+        border: none;
+        border-right: 1px solid var(--border);
+        z-index: 1999;
+        /* Below rail (2000) but above content */
+        overflow-y: auto;
+        transform: translateX(-110%);
+        /* Hidden by default */
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+        right: auto;
+    }
+
+    .nav-btn {
+        font-size: 1rem;
+        width: 100%;
+        text-align: left;
+        padding: 0.75rem 1rem;
+        border: 1px solid transparent;
+        border-radius: 12px;
+        background: transparent;
+        justify-content: flex-start;
+        display: flex;
+        align-items: center;
+        color: var(--text-secondary);
+        font-weight: 600;
+    }
+
+    .nav-btn:hover,
+    .nav-btn.active {
+        background: var(--bg-main);
+        color: var(--accent-primary);
+        border-color: var(--border);
+    }
+
+    /* Hero Split Fullscreen Refinements for Mobile */
+    .hero-split-fullscreen {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important;
+        height: auto !important;
+        min-height: 100vh;
+        padding-top: 2rem !important;
+        gap: 3rem !important;
+    }
+
+    .hero-text-container {
+        padding: 2rem 5% !important;
+        order: 1 !important;
+        text-align: left;
+        width: 100% !important;
+    }
+
+    .hero-image-container {
+        height: 350px !important;
+        /* Slightly smaller to fit better */
+        width: 100% !important;
+        order: 2 !important;
+        position: relative;
+        margin-bottom: 2rem;
+    }
+
+    .hero-split-fullscreen h1 {
+        font-size: 2.5rem !important;
+        margin-top: 1rem;
+        line-height: 1.1;
+    }
+
+    .hero-split-fullscreen h2 {
+        font-size: 1.3rem !important;
+    }
+
+    /* Fix overlapping text in general mobile layout */
+    .main-content {
+        padding: 2rem 5% 5rem 5% !important;
     }
 }
 
@@ -1493,16 +1883,24 @@ input[type=range]::-webkit-slider-runnable-track {
     }
 }
 
-.sidebar-nav.mobile-active {
-    display: block !important;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: var(--bg-primary);
-    padding: 5rem 10% 2rem;
-    overflow-y: auto;
+/* Full Screen Mobile Navigation Overlay */
+.command-sidebar.mobile-active {
+    display: flex !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    background: white !important;
+    padding: 5rem 10% 2rem !important;
+    overflow-y: auto !important;
+    z-index: 2000 !important;
+    flex-direction: column !important;
+}
+
+/* Ensure the rail is also hidden when mobile sidebar is active (it's redundant) */
+body.mobile-active .narrow-rail {
+    display: none !important;
 }
 
 /* ==========================================================================

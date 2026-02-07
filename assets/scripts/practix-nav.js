@@ -65,12 +65,29 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
-    // 4. Inject into the page
-    const existingNav = document.body.querySelector('nav:not(.breadcrumb)');
-    if (existingNav) {
-        existingNav.replaceWith(nav);
+    // 4. Inject into the page (ONLY ON DESKTOP)
+    // On mobile, we use the Rail + Side Panel architecture.
+    // We strictly prevent the Top Nav from entering the DOM on mobile to avoid "zombie nav" issues.
+    if (window.innerWidth > 1024) {
+        const existingNav = document.body.querySelector('nav:not(.breadcrumb)');
+        if (existingNav) {
+            existingNav.replaceWith(nav);
+        } else {
+            document.body.insertBefore(nav, document.body.firstChild);
+        }
     } else {
-        document.body.insertBefore(nav, document.body.firstChild);
+        // NUCLEAR OPTION: If on mobile, ensure no rogue nav elements survive
+        const existingNav = document.body.querySelector('nav:not(.breadcrumb)');
+        if (existingNav) existingNav.remove();
+
+        // Watch for any attempts to inject it later
+        const observer = new MutationObserver((mutations) => {
+            if (window.innerWidth <= 1024) {
+                const rogueNav = document.body.querySelector('nav:not(.breadcrumb)');
+                if (rogueNav) rogueNav.remove();
+            }
+        });
+        observer.observe(document.body, { childList: true, subtree: false });
     }
 
     // 5. Layout Toggle Logic (Self-contained)
@@ -137,4 +154,67 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+
+    // 7. Rail-Based Mobile Navigation Logic
+    // We rely on the sidebar.js to render the rail on mobile.
+
+    setTimeout(() => {
+        const rail = document.querySelector('.narrow-rail');
+        // The mobile nav menu is the one injected by this script (.nav-links)
+        // But on mobile, we might want to repurpose it or ensure it's accessible via the rail.
+        const mobileNavMenu = document.querySelector('.nav-links');
+        const body = document.body;
+
+        if (window.innerWidth <= 1024 && mobileNavMenu && rail) {
+            // Create a "Menu" button at the bottom of the rail for mobile.
+            if (!rail.querySelector('.mobile-menu-trigger')) {
+                const menuBtn = document.createElement('button');
+                menuBtn.className = 'rail-item mobile-menu-trigger';
+                menuBtn.innerHTML = '☰';
+                menuBtn.style.marginTop = 'auto'; // Push to bottom
+                menuBtn.style.marginBottom = '1rem';
+                menuBtn.style.fontWeight = 'bold';
+                menuBtn.style.fontSize = '1.5rem';
+
+                // Append to rail
+                rail.appendChild(menuBtn);
+
+                const toggleMenu = (e) => {
+                    e.stopPropagation();
+                    mobileNavMenu.classList.toggle('active');
+
+                    if (mobileNavMenu.classList.contains('active')) {
+                        menuBtn.innerHTML = '✕';
+                        body.style.overflow = 'hidden';
+                    } else {
+                        menuBtn.innerHTML = '☰';
+                        body.style.overflow = '';
+                    }
+                };
+
+                menuBtn.addEventListener('click', toggleMenu);
+
+                // Close when clicking outside content
+                document.addEventListener('click', (e) => {
+                    if (mobileNavMenu.classList.contains('active') &&
+                        !mobileNavMenu.contains(e.target) &&
+                        e.target !== menuBtn) {
+                        mobileNavMenu.classList.remove('active');
+                        menuBtn.innerHTML = '☰';
+                        body.style.overflow = '';
+                    }
+                });
+
+                // Close when clicking a link
+                mobileNavMenu.addEventListener('click', (e) => {
+                    if (e.target.closest('a')) {
+                        mobileNavMenu.classList.remove('active');
+                        menuBtn.innerHTML = '☰';
+                        body.style.overflow = '';
+                    }
+                });
+            }
+        }
+    }, 500);
 });

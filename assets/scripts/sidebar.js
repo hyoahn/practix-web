@@ -928,34 +928,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const pillarPath = btn.dataset.path;
                 const pillar = PILLARS.find(p => p.id === pillarId);
 
-                // Desmos Split-Screen Toggle (Mobile Portrait)
-                if (pillarId === 'desmos') {
-                    const isPortrait = window.matchMedia('(orientation: portrait)').matches;
-                    const isMobileWidth = window.innerWidth <= 1024;
 
-                    if (isPortrait && isMobileWidth) {
-                        toggleDesmosSplitScreen();
-                        // Close flyout if it was open
-                        closeFlyout();
-                        // Check if panel is now visible (logic inside toggle sets display block first)
-                        const panel = document.getElementById('mobile-desmos-panel');
-                        const isPanelOpen = panel && panel.style.display !== 'none';
-
-                        if (isPanelOpen) {
-                            // Panel is OPEN: Clear active from others, highlight Desmos
-                            railContainer.querySelectorAll('.rail-item').forEach(b => {
-                                b.classList.remove('flyout-active');
-                                b.classList.remove('active');
-                            });
-                            btn.classList.add('flyout-active');
-                        } else {
-                            // Panel is CLOSED: Remove highlight from Desmos
-                            // closeFlyout() already restored the original active state to "App"
-                            btn.classList.remove('flyout-active');
-                        }
-                        return;
-                    }
-                }
 
                 if (!pillar) {
                     // Navigate directly if no pillar data

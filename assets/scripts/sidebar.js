@@ -744,6 +744,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         left: 60px; /* Keep 60px offset if rail is visible */
                     }
 
+                    /* FIX: Hide 'Try It' Toggle Button in Split Screen */
+                    body.desmos-split-active #calcToggle,
+                    body.desmos-split-active .calc-toggle {
+                        display: none !important;
+                    }
+
                     .desmos-handle {
                         height: 40px;
                         background: var(--bg-secondary);

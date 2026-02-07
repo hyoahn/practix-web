@@ -629,6 +629,8 @@ document.addEventListener('DOMContentLoaded', () => {
         railContainer.querySelectorAll('button[data-pillar]').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
+                e.stopPropagation();
+
                 const pillarId = btn.dataset.pillar;
                 const pillarPath = btn.dataset.path;
                 const pillar = PILLARS.find(p => p.id === pillarId);
@@ -639,6 +641,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
 
+                // Highlight the active pillar button in the rail
+                railContainer.querySelectorAll('button[data-pillar]').forEach(b => {
+                    b.classList.remove('flyout-active');
+                });
+                btn.classList.add('flyout-active');
+
                 // Update flyout title
                 flyoutTitle.textContent = pillar.name;
 
@@ -648,6 +656,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     html += `<div class="flyout-section">`;
                     html += `<div class="flyout-section-title">${category.name}</div>`;
                     category.subsections.forEach(sub => {
+                        // Create proper navigation path for each subsection
                         const pageHref = category.path ? `${basePath}${category.path}` : `${basePath}${pillarPath}`;
                         const isActive = currentPath.includes(category.path || sub.name);
                         html += `<a href="${pageHref}" class="${isActive ? 'active' : ''}">${sub.name}</a>`;
@@ -655,22 +664,41 @@ document.addEventListener('DOMContentLoaded', () => {
                     html += `</div>`;
                 });
 
-
                 flyoutContent.innerHTML = html;
 
-                // Close flyout when link is clicked
+                // Attach click handlers for links - navigate and close flyout
                 flyoutContent.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
+                    link.addEventListener('click', (e) => {
+                        // Allow default navigation to happen
                         closeFlyout();
+                        // Remove flyout-active from buttons
+                        railContainer.querySelectorAll('button[data-pillar]').forEach(b => {
+                            b.classList.remove('flyout-active');
+                        });
                     });
                 });
 
-                // Open flyout
+                // Open flyout (or update if already open)
                 flyout.classList.add('active');
                 flyoutOverlay.classList.add('active');
             });
         });
+
+        // Add style for flyout-active state
+        if (!document.getElementById('flyout-active-style')) {
+            const activeStyle = document.createElement('style');
+            activeStyle.id = 'flyout-active-style';
+            activeStyle.textContent = `
+                .rail-item.flyout-active {
+                    background: var(--accent-primary) !important;
+                    color: white !important;
+                    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+                }
+            `;
+            document.head.appendChild(activeStyle);
+        }
     }
+
 
 
     function renderByTopic() {

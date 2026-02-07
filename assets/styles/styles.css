@@ -966,11 +966,14 @@ h3 {
         overflow: visible !important;
     }
 
-    /* Reposition HUD elements on mobile to avoid headline overlap */
+    /* Reposition HUD elements on mobile to avoid blocking hero's face */
     .hud-circle-overlay {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0.8);
+        top: auto !important;
+        bottom: 10% !important;
+        left: auto !important;
+        right: 10% !important;
+        transform: scale(0.6) !important;
+        /* Smaller on mobile, positioned bottom-right */
     }
 
     .score-card {
@@ -985,12 +988,11 @@ h3 {
         left: auto;
     }
 
-    /* MOBILE: Force hero image to show iPad on right side */
+    /* MOBILE: Force hero image to show full iPad */
     .hero-image-container img {
-        object-position: right center !important;
-        /* Show right edge where iPad is */
-        object-fit: cover !important;
-        /* Fill container, crop from left */
+        object-position: center center !important;
+        object-fit: contain !important;
+        /* Show full image including iPad */
     }
 
 }

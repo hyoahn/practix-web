@@ -1562,9 +1562,8 @@ input[type=range]::-webkit-slider-runnable-track {
         gap: 1.5rem;
     }
 
-    /* Hide Desmos on Mobile as requested */
-    .rail-item[data-pillar="desmos"],
-    .rail-item[href*="desmos"] {
+    /* Hide floating calculator button on mobile */
+    #calcToggle {
         display: none !important;
     }
 

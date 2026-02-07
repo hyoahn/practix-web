@@ -988,13 +988,18 @@ h3 {
         left: auto;
     }
 
-    /* MOBILE: Force hero image to show iPad on right */
+    /* MOBILE: Show FULL hero image with iPad - no cropping */
     .hero-image-container img {
-        object-position: 75% center !important;
-        /* Far right to show iPad fully */
-        object-fit: cover !important;
+        object-position: center center !important;
+        object-fit: contain !important;
+        /* CONTAIN shows full image - NO cropping */
         width: 100% !important;
         height: 100% !important;
+    }
+
+    /* Match container bg to image bg color */
+    .hero-image-container {
+        background: linear-gradient(180deg, #f8f6f3 0%, #fff 100%) !important;
     }
 
 }

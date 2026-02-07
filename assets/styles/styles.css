@@ -1007,8 +1007,8 @@ h3 {
     .hero-image-container {
         background: linear-gradient(180deg, #f8f6f3 0%, #fff 100%) !important;
         width: 100% !important;
-        height: 35vh !important;
-        min-height: 280px !important;
+        height: 30vh !important;
+        min-height: 250px !important;
         display: block !important;
         position: relative !important;
         overflow: hidden !important;

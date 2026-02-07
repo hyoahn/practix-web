@@ -442,15 +442,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!railContainer) return;
 
         // Global Navigation Rail - 8 Icons as specified by user
+        // hasFlyout: true means on mobile, clicking opens a flyout sidebar
         const NAV_ITEMS = [
-            { id: 'home', name: 'Home', icon: '🏠', path: '' },
-            { id: 'app', name: 'App', icon: '🚀', path: 'app/' },
-            { id: 'math', name: 'Math', icon: '📐', path: 'math/' },
-            { id: 'formulas', name: 'Formulas', icon: 'Σ', path: 'formulas/' },
-            { id: 'hard-questions', name: 'Hardest Questions', icon: '☠️', path: 'hard-questions/' },
-            { id: 'desmos', name: 'Desmos', icon: 'y=', path: 'desmos/' },
-            { id: 'wallpapers', name: 'Wallpapers', icon: '📱', path: 'wallpapers/' },
-            { id: 'contact', name: 'About Us', icon: 'ℹ️', path: 'contact/' }
+            { id: 'home', name: 'Home', icon: '🏠', path: '', hasFlyout: false },
+            { id: 'app', name: 'App', icon: '🚀', path: 'app/', hasFlyout: false },
+            { id: 'math', name: 'Math', icon: '📐', path: 'math/', hasFlyout: true },
+            { id: 'formulas', name: 'Formulas', icon: 'Σ', path: 'formulas/', hasFlyout: true },
+            { id: 'hard-questions', name: 'Hardest Questions', icon: '☠️', path: 'hard-questions/', hasFlyout: true },
+            { id: 'desmos', name: 'Desmos', icon: 'y=', path: 'desmos/', hasFlyout: true },
+            { id: 'wallpapers', name: 'Wallpapers', icon: '📱', path: 'wallpapers/', hasFlyout: false },
+            { id: 'contact', name: 'About Us', icon: 'ℹ️', path: 'contact/', hasFlyout: false }
         ];
 
         // Determine active item based on current path
@@ -463,15 +464,213 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const activeId = getActiveId();
+        const isMobile = window.innerWidth <= 1024;
 
         railContainer.innerHTML = NAV_ITEMS.map(item => {
             const href = item.path ? `${basePath}${item.path}` : `${basePath}index.html`;
+            // On mobile, pillar items with flyout become buttons instead of links
+            if (isMobile && item.hasFlyout) {
+                return `
+                <button class="rail-item ${item.id === activeId ? 'active' : ''}" 
+                        title="${item.name}" 
+                        data-pillar="${item.id}" 
+                        data-path="${item.path}">
+                    ${item.icon}
+                </button>`;
+            }
             return `
             <a href="${href}" class="rail-item ${item.id === activeId ? 'active' : ''}" title="${item.name}">
                 ${item.icon}
-            </a>
-        `}).join('');
+            </a>`;
+        }).join('');
+
+        // Mobile flyout toggle behavior
+        if (isMobile) {
+            initMobileFlyout(NAV_ITEMS);
+        }
     }
+
+    // Mobile Flyout Sidebar for Pillar Navigation
+    function initMobileFlyout(navItems) {
+        // Create flyout container if it doesn't exist
+        let flyout = document.getElementById('mobile-flyout');
+        if (!flyout) {
+            flyout = document.createElement('div');
+            flyout.id = 'mobile-flyout';
+            flyout.className = 'mobile-flyout';
+            flyout.innerHTML = `
+                <div class="flyout-header">
+                    <span class="flyout-title">Navigation</span>
+                    <button class="flyout-close">✕</button>
+                </div>
+                <div class="flyout-content"></div>
+            `;
+            document.body.appendChild(flyout);
+
+            // Add flyout styles dynamically
+            if (!document.getElementById('flyout-styles')) {
+                const style = document.createElement('style');
+                style.id = 'flyout-styles';
+                style.textContent = `
+                    .mobile-flyout {
+                        position: fixed;
+                        top: 0;
+                        left: 60px;
+                        width: 280px;
+                        height: 100vh;
+                        background: white;
+                        border-right: 1px solid var(--border);
+                        z-index: 1999;
+                        transform: translateX(-340px);
+                        transition: transform 0.3s ease;
+                        display: flex;
+                        flex-direction: column;
+                        box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+                    }
+                    .mobile-flyout.active {
+                        transform: translateX(0);
+                    }
+                    .flyout-header {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 1rem;
+                        border-bottom: 1px solid var(--border);
+                        background: var(--bg-secondary);
+                    }
+                    .flyout-title {
+                        font-weight: 600;
+                        font-size: 1.1rem;
+                    }
+                    .flyout-close {
+                        background: none;
+                        border: none;
+                        font-size: 1.2rem;
+                        cursor: pointer;
+                        padding: 0.5rem;
+                        color: var(--text-secondary);
+                    }
+                    .flyout-content {
+                        flex: 1;
+                        overflow-y: auto;
+                        padding: 1rem;
+                    }
+                    .flyout-content a {
+                        display: block;
+                        padding: 0.75rem 1rem;
+                        color: var(--text-primary);
+                        text-decoration: none;
+                        border-radius: 8px;
+                        margin-bottom: 0.25rem;
+                        transition: background 0.2s;
+                    }
+                    .flyout-content a:hover {
+                        background: var(--bg-secondary);
+                    }
+                    .flyout-content a.active {
+                        background: var(--accent-primary);
+                        color: white;
+                    }
+                    .flyout-section {
+                        margin-bottom: 1rem;
+                    }
+                    .flyout-section-title {
+                        font-size: 0.75rem;
+                        text-transform: uppercase;
+                        color: var(--text-secondary);
+                        padding: 0.5rem 1rem;
+                        margin-bottom: 0.25rem;
+                    }
+                    .flyout-overlay {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: rgba(0,0,0,0.3);
+                        z-index: 1998;
+                        opacity: 0;
+                        pointer-events: none;
+                        transition: opacity 0.3s;
+                    }
+                    .flyout-overlay.active {
+                        opacity: 1;
+                        pointer-events: auto;
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+
+            // Create overlay
+            if (!document.getElementById('flyout-overlay')) {
+                const overlay = document.createElement('div');
+                overlay.id = 'flyout-overlay';
+                overlay.className = 'flyout-overlay';
+                document.body.appendChild(overlay);
+            }
+        }
+
+        const flyoutContent = flyout.querySelector('.flyout-content');
+        const flyoutTitle = flyout.querySelector('.flyout-title');
+        const flyoutClose = flyout.querySelector('.flyout-close');
+        const flyoutOverlay = document.getElementById('flyout-overlay');
+
+        // Close flyout function
+        const closeFlyout = () => {
+            flyout.classList.remove('active');
+            flyoutOverlay.classList.remove('active');
+        };
+
+        // Close button event
+        flyoutClose.addEventListener('click', closeFlyout);
+        flyoutOverlay.addEventListener('click', closeFlyout);
+
+        // Pillar button click handlers
+        railContainer.querySelectorAll('button[data-pillar]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pillarId = btn.dataset.pillar;
+                const pillarPath = btn.dataset.path;
+                const pillar = PILLARS.find(p => p.id === pillarId);
+
+                if (!pillar) {
+                    // Navigate directly if no pillar data
+                    window.location.href = `${basePath}${pillarPath}`;
+                    return;
+                }
+
+                // Update flyout title
+                flyoutTitle.textContent = pillar.name;
+
+                // Build flyout content from pillar sections
+                let html = '';
+                pillar.sections.forEach(section => {
+                    html += `<div class="flyout-section">`;
+                    html += `<div class="flyout-section-title">${section.title}</div>`;
+                    section.pages.forEach(page => {
+                        const pageHref = `${basePath}${pillarPath}${page.path ? page.path + '/' : ''}`;
+                        const isActive = currentPath.includes(page.path || section.path);
+                        html += `<a href="${pageHref}" class="${isActive ? 'active' : ''}">${page.name}</a>`;
+                    });
+                    html += `</div>`;
+                });
+
+                flyoutContent.innerHTML = html;
+
+                // Close flyout when link is clicked
+                flyoutContent.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        closeFlyout();
+                    });
+                });
+
+                // Open flyout
+                flyout.classList.add('active');
+                flyoutOverlay.classList.add('active');
+            });
+        });
+    }
+
 
     function renderByTopic() {
         let html = '';

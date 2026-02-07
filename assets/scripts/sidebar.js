@@ -312,6 +312,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebarTree = document.getElementById('sidebar-tree');
     const searchInput = document.getElementById('sidebar-search');
 
+    // RENDER RAIL FIRST - This must run on ALL pages including Home, App, Contact
+    // which don't have a sidebar-tree element
+    renderRail();
+
+    // If no sidebar tree, exit early (Home, App, Contact pages)
+    // The rail is already rendered above
     if (!sidebarTree) return;
 
     // 4. State Management
@@ -723,8 +729,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 7. Initialize
-    renderRail();
+    // 7. Initialize (note: renderRail() was already called earlier)
     renderTree();
     renderToggle();
     initResizableSidebar();

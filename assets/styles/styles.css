@@ -793,14 +793,53 @@ h3 {
 
 /* Stats HUD Row */
 .stats-hud-row {
-    position: absolute;
-    bottom: 2rem;
-    left: 5%;
-    width: 90%;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     z-index: 20;
+}
+
+/* Homepage Terminal Zone (Bottom Section) */
+.homepage-terminal-zone {
+    padding: 6rem 5%;
+    background: linear-gradient(180deg, transparent 0%, rgba(99, 102, 241, 0.03) 100%);
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+}
+
+.terminal-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    /* Gap between Gateway and Stats */
+}
+
+.gateway-block {
+    text-align: center;
+}
+
+.gateway-block .gateway-grid {
+    margin: 0 auto;
+}
+
+.hud-block {
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .homepage-terminal-zone {
+        padding: 4rem 1.5rem;
+    }
+
+    .stats-hud-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+    }
 }
 
 .hud-stat-card {
@@ -2373,11 +2412,13 @@ body.mobile-active .narrow-rail {
         overflow: visible !important;
     }
 }
+
 /* 
  * FINAL MOBILE OVERRIDES (Typography & Layout)
  * Ensuring all elements fit within 100vw and text doesn't overflow 
  */
 @media (max-width: 1024px) {
+
     /* Typography Scalling */
     .sat-problem-header h2 {
         font-size: 1.5rem !important;
@@ -2385,7 +2426,7 @@ body.mobile-active .narrow-rail {
         overflow-wrap: break-word !important;
         line-height: 1.3 !important;
     }
-    
+
     .sat-problem-header span {
         font-size: 0.9rem !important;
         display: block !important;
@@ -2395,7 +2436,8 @@ body.mobile-active .narrow-rail {
     /* Distractor Safety */
     .sat-option {
         width: 100% !important;
-        min-width: 0 !important; /* Fix flex overflow */
+        min-width: 0 !important;
+        /* Fix flex overflow */
     }
 
     /* Hide Try It Toggle in Split Screen just in case JS fails */
@@ -2410,47 +2452,54 @@ body.mobile-active .narrow-rail {
  * Remove "Try It", fix font sizes, reclaim horizontal space.
  */
 @media (max-width: 1024px) {
+
     /* 1. Hide Calculator Buttons & "Try It" */
-    .try-it-btn, 
-    #calcToggle, 
+    .try-it-btn,
+    #calcToggle,
     .calculator-toggle-btn {
         display: none !important;
     }
 
     /* 2. Optimize Spacing (Reclaim Green/Blue Box Space) */
     .technique-section {
-        padding: 0.75rem !important; /* Was 2.5rem */
-        border-left-width: 2px !important; /* Was 4px */
+        padding: 0.75rem !important;
+        /* Was 2.5rem */
+        border-left-width: 2px !important;
+        /* Was 4px */
         border-radius: 8px !important;
     }
-    
+
     .sat-problem-card {
         padding: 1rem !important;
-        border: 1px solid #e2e8f0 !important; /* Reduce thick borders */
+        border: 1px solid #e2e8f0 !important;
+        /* Reduce thick borders */
     }
 
     /* 3. Typography Tuning */
     /* Target the H3 directly ("Form 1: Regression Hack") */
     h3.sat-problem-header {
-        font-size: 1rem !important; /* User wants it small */
+        font-size: 1rem !important;
+        /* User wants it small */
         line-height: 1.3 !important;
-        display: flex !important; 
-        flex-direction: column !important; /* Stack tag above text */
+        display: flex !important;
+        flex-direction: column !important;
+        /* Stack tag above text */
         align-items: flex-start !important;
         gap: 0.25rem !important;
     }
-    
+
     /* The "slope-intercept" tag */
     h3.sat-problem-header span {
-        font-size: 0.85rem !important; /* Small tag */
+        font-size: 0.85rem !important;
+        /* Small tag */
         padding: 0.25rem 0.5rem !important;
         display: inline-block !important;
         margin-right: 0 !important;
     }
-    
+
     /* Hide Copy button in header on mobile to prevent clutter */
     h3.sat-problem-header .btn-copy {
-        display: none !important; 
+        display: none !important;
     }
 }
 
@@ -2459,7 +2508,8 @@ body.mobile-active .narrow-rail {
  * Ensure solution pane flows with document, doesn't float.
  */
 @media (max-width: 1024px) {
-    .practix-reveal, 
+
+    .practix-reveal,
     .practix-reveal[open],
     .solution-content {
         position: relative !important;
@@ -2477,15 +2527,18 @@ body.mobile-active .narrow-rail {
  * Force static/relative flow on mobile to prevent detachment.
  */
 @media (max-width: 1024px) {
+
     .practix-reveal,
     .practix-reveal summary,
     .practix-reveal[open] summary,
     .solution-content {
-        position: relative !important; /* Override sticky/fixed */
+        position: relative !important;
+        /* Override sticky/fixed */
         top: auto !important;
         bottom: auto !important;
         transform: none !important;
-        z-index: 1 !important; /* Low z-index */
+        z-index: 1 !important;
+        /* Low z-index */
     }
 }
 
@@ -2494,20 +2547,22 @@ body.mobile-active .narrow-rail {
  * Restore visibility of solution content with high z-index.
  */
 @media (max-width: 1024px) {
+
     .practix-reveal,
     .practix-reveal summary,
     .practix-reveal[open] summary,
     .solution-content {
-        position: relative !important; 
-        z-index: 9999 !important; /* Force on top */
+        position: relative !important;
+        z-index: 9999 !important;
+        /* Force on top */
         transform: none !important;
         opacity: 1 !important;
         visibility: visible !important;
     }
-    
+
     /* Ensure styles like background persist and aren't transparent */
     .solution-content {
-        background-color: #f0fdf4 !important; 
+        background-color: #f0fdf4 !important;
     }
 
     /* Ensure parents don't clip */
@@ -2523,28 +2578,30 @@ body.mobile-active .narrow-rail {
  * Aggressively reduce header sizes to reclaim vertical space.
  */
 @media (max-width: 1024px) {
-    h1, 
-    .display-1, 
-    .display-2, 
+
+    h1,
+    .display-1,
+    .display-2,
     .display-3,
     .hero-split-fullscreen h1 {
-        font-size: 1.75rem !important; /* Reduced from ~3-4rem */
+        font-size: 1.75rem !important;
+        /* Reduced from ~3-4rem */
         line-height: 1.2 !important;
         margin-bottom: 0.5rem !important;
     }
 
     /* Target the specific "Linear Equations Mastery" title if it uses specific classes */
     .hero-text-content h1 {
-        font-size: 1.6rem !important; 
+        font-size: 1.6rem !important;
     }
 
-    h2, 
+    h2,
     .sat-problem-header h2 {
         font-size: 1.3rem !important;
         margin-bottom: 0.5rem !important;
     }
 
-    h3, 
+    h3,
     .sat-problem-header {
         font-size: 1.1rem !important;
         margin-bottom: 0.25rem !important;
@@ -2557,16 +2614,17 @@ body.mobile-active .narrow-rail {
 
     /* Compress Hero Section Padding */
     .hero-text-container {
-        padding: 1rem 5% 0 5% !important; /* Remove bottom padding */
+        padding: 1rem 5% 0 5% !important;
+        /* Remove bottom padding */
         margin-bottom: 0 !important;
     }
-    
+
     .hero-split-fullscreen {
         min-height: auto !important;
         margin-bottom: 1rem !important;
         display: block !important;
     }
-    
+
     .hero-split-fullscreen p {
         font-size: 1rem !important;
         margin-bottom: 1rem !important;
@@ -2580,13 +2638,15 @@ body.mobile-active .narrow-rail {
  */
 @media (max-width: 1024px) {
     .sat-problem-header {
-        font-size: 1.25rem !important; /* Title: Larger (was 1.1rem) */
+        font-size: 1.25rem !important;
+        /* Title: Larger (was 1.1rem) */
         line-height: 1.3 !important;
         margin-bottom: 0.5rem !important;
     }
 
     .sat-problem-header span {
-        font-size: 0.75rem !important; /* Tag: Smaller (was 0.85rem) */
+        font-size: 0.75rem !important;
+        /* Tag: Smaller (was 0.85rem) */
         text-transform: uppercase !important;
         letter-spacing: 0.05em !important;
         display: block !important;
@@ -2606,15 +2666,17 @@ body.mobile-active .narrow-rail {
         font-size: 1.35rem !important;
         margin-bottom: 0.5rem !important;
         line-height: 1.25 !important;
-        font-weight: 800 !important; /* Extra bold */
+        font-weight: 800 !important;
+        /* Extra bold */
     }
 
     .sat-problem-header span {
-        font-size: 0.75rem !important; 
+        font-size: 0.75rem !important;
         line-height: 1 !important;
         margin-bottom: 0.25rem !important;
         opacity: 0.8 !important;
-        font-weight: 600 !important; /* Lighter than title */
+        font-weight: 600 !important;
+        /* Lighter than title */
     }
 }
 
@@ -2623,10 +2685,11 @@ body.mobile-active .narrow-rail {
  * Specificity Nuke: High-specificity selectors to override EVERYTHING.
  */
 @media (max-width: 1024px) {
+
     /* Title: Huge and Bold */
     div.sat-problem-card h3.sat-problem-header,
     div.sat-problem-card .sat-problem-header {
-        font-size: 1.5rem !important; 
+        font-size: 1.5rem !important;
         line-height: 1.2 !important;
         font-weight: 900 !important;
         color: var(--text-primary) !important;
@@ -2636,7 +2699,7 @@ body.mobile-active .narrow-rail {
     /* Tag: Tiny and Lighter */
     div.sat-problem-card h3.sat-problem-header span,
     div.sat-problem-card .sat-problem-header span {
-        font-size: 0.7rem !important; 
+        font-size: 0.7rem !important;
         line-height: 1 !important;
         font-weight: 600 !important;
         opacity: 0.7 !important;

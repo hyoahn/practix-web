@@ -2404,3 +2404,52 @@ body.mobile-active .narrow-rail {
         display: none !important;
     }
 }
+
+/* 
+ * FINAL POLISH FOR MOBILE (User Request 2026-02-07)
+ * Remove "Try It", fix font sizes, reclaim horizontal space.
+ */
+@media (max-width: 1024px) {
+    /* 1. Hide Calculator Buttons & "Try It" */
+    .try-it-btn, 
+    #calcToggle, 
+    .calculator-toggle-btn {
+        display: none !important;
+    }
+
+    /* 2. Optimize Spacing (Reclaim Green/Blue Box Space) */
+    .technique-section {
+        padding: 0.75rem !important; /* Was 2.5rem */
+        border-left-width: 2px !important; /* Was 4px */
+        border-radius: 8px !important;
+    }
+    
+    .sat-problem-card {
+        padding: 1rem !important;
+        border: 1px solid #e2e8f0 !important; /* Reduce thick borders */
+    }
+
+    /* 3. Typography Tuning */
+    /* Target the H3 directly ("Form 1: Regression Hack") */
+    h3.sat-problem-header {
+        font-size: 1rem !important; /* User wants it small */
+        line-height: 1.3 !important;
+        display: flex !important; 
+        flex-direction: column !important; /* Stack tag above text */
+        align-items: flex-start !important;
+        gap: 0.25rem !important;
+    }
+    
+    /* The "slope-intercept" tag */
+    h3.sat-problem-header span {
+        font-size: 0.85rem !important; /* Small tag */
+        padding: 0.25rem 0.5rem !important;
+        display: inline-block !important;
+        margin-right: 0 !important;
+    }
+    
+    /* Hide Copy button in header on mobile to prevent clutter */
+    h3.sat-problem-header .btn-copy {
+        display: none !important; 
+    }
+}

@@ -903,6 +903,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const closeFlyout = () => {
             flyout.classList.remove('active');
             flyoutOverlay.classList.remove('active');
+
+            // Remove flyout-active from all buttons
+            railContainer.querySelectorAll('button[data-pillar]').forEach(b => {
+                b.classList.remove('flyout-active');
+            });
+
+            // Restore original active state
+            const activeBtn = railContainer.querySelector(`button[data-pillar="${activeId}"]`);
+            if (activeBtn) activeBtn.classList.add('active');
         };
 
         // Close button event
@@ -951,6 +960,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Highlight the active pillar button in the rail
                 railContainer.querySelectorAll('button[data-pillar]').forEach(b => {
                     b.classList.remove('flyout-active');
+                    b.classList.remove('active'); // Ensure mutual exclusivity
                 });
                 btn.classList.add('flyout-active');
 

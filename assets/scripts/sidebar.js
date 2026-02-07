@@ -479,7 +479,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </button>`;
             }
             return `
-            <a href="${href}" class="rail-item ${item.id === activeId ? 'active' : ''}" title="${item.name}">
+            <a href="${href}" class="rail-item ${item.id === activeId ? 'active' : ''}" title="${item.name}" data-pillar="${item.id}">
                 ${item.icon}
             </a>`;
         }).join('');
@@ -904,14 +904,14 @@ document.addEventListener('DOMContentLoaded', () => {
             flyout.classList.remove('active');
             flyoutOverlay.classList.remove('active');
 
-            // Remove flyout-active from all buttons
-            railContainer.querySelectorAll('button[data-pillar]').forEach(b => {
+            // Remove flyout-active from all items
+            railContainer.querySelectorAll('.rail-item').forEach(b => {
                 b.classList.remove('flyout-active');
             });
 
             // Restore original active state
-            const activeBtn = railContainer.querySelector(`button[data-pillar="${activeId}"]`);
-            if (activeBtn) activeBtn.classList.add('active');
+            const activeElement = railContainer.querySelector(`.rail-item[data-pillar="${activeId}"]`);
+            if (activeElement) activeElement.classList.add('active');
         };
 
         // Close button event
@@ -958,7 +958,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 // Highlight the active pillar button in the rail
-                railContainer.querySelectorAll('button[data-pillar]').forEach(b => {
+                railContainer.querySelectorAll('.rail-item').forEach(b => {
                     b.classList.remove('flyout-active');
                     b.classList.remove('active'); // Ensure mutual exclusivity
                 });

@@ -9,9 +9,9 @@ def crop_bed():
         img = Image.open(source_path)
         width, height = img.size
         
-        # Crop 35% from the left to remove bed/nightstand
+        # Crop 50% from the left to remove bed/nightstand COMPLETELY
         # "Rotate camera right" = Shift frame right = Cut left
-        crop_amount = int(width * 0.35)
+        crop_amount = int(width * 0.50)
         
         # Define box (left, upper, right, lower)
         box = (crop_amount, 0, width, height)

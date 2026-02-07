@@ -899,7 +899,8 @@ h3 {
         display: block;
         width: 100%;
         max-width: 100%;
-        padding: 4rem 1.5rem 2rem;
+        padding: 1rem 1.5rem 1rem;
+        /* Reduced top padding - Gateway/HUD moved to bottom */
         text-align: center;
         box-sizing: border-box;
     }
@@ -979,6 +980,11 @@ h3 {
         left: auto;
     }
 
+    /* MOBILE: Force hero image to show iPad on right side */
+    .hero-image-container img {
+        object-position: 70% center !important;
+        /* Show right side where iPad is */
+    }
 
 }
 

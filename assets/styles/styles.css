@@ -990,6 +990,13 @@ h3 {
 
     /* MOBILE: Zoomed in on iPad (Right Side) */
     /* MOBILE: Zoomed in on iPad (Right Side) */
+    /* MOBILE: Zoomed in on iPad (Right Side) */
+    .hero-image-container {
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow: hidden !important;
+    }
+
     .hero-image-container img {
         object-position: right center !important;
         /* Right align to show the buffer we added */

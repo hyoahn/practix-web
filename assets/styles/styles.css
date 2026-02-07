@@ -1562,6 +1562,12 @@ input[type=range]::-webkit-slider-runnable-track {
         gap: 1.5rem;
     }
 
+    /* Hide Desmos on Mobile as requested */
+    .rail-item[data-pillar="desmos"],
+    .rail-item[href*="desmos"] {
+        display: none !important;
+    }
+
     .sidebar-nav,
     .command-sidebar {
         display: none;

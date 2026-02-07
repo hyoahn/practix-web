@@ -989,26 +989,26 @@ h3 {
     }
 
     /* MOBILE: Zoomed in on iPad (Right Side) */
+    /* MOBILE: Zoomed in on iPad (Right Side) */
     .hero-image-container img {
-        object-position: 80% center !important;
-        /* Shift view to the right (iPad side) */
+        object-position: 100% center !important;
+        /* HARD RIGHT to show iPad */
         object-fit: cover !important;
         /* Fill height */
         width: 100% !important;
         height: 100% !important;
-        transform: scale(1.15) !important;
-        /* Slight zoom to make iPad bigger */
-        transform-origin: 80% center !important;
-        /* Zoom towards the iPad */
+        transform: none !important;
+        /* No zoom to see more content */
     }
 
+    /* Match container bg to image bg color */
     /* Match container bg to image bg color */
     /* Match container bg to image bg color */
     .hero-image-container {
         background: linear-gradient(180deg, #f8f6f3 0%, #fff 100%) !important;
         width: 100% !important;
-        height: 40vh !important;
-        min-height: 350px !important;
+        height: 35vh !important;
+        min-height: 280px !important;
         display: block !important;
         position: relative !important;
         overflow: hidden !important;

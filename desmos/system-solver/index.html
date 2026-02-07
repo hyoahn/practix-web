@@ -172,7 +172,6 @@
                             <div class="sat-option" onclick="checkAnswer(this, true)">(C) 15</div>
                             <div class="sat-option" onclick="checkAnswer(this, false)">(D) 25</div>
                         </div>
-                    </div>
 
                     <details class="practix-reveal">
                         <summary></summary>
@@ -203,124 +202,127 @@
                             </div>
                         </div>
                     </details>
-
-                    <!-- Problem 2: No Solution (Slider Hack) -->
-                    <div style="margin-top: 4rem;">
-                        <h2 style="color: #ef4444; margin-bottom: 1.5rem;"><span>🚫</span> The "No Solution" Trap</h2>
-                        <p>When questions ask for "No Solution", they mean <strong>Parallel Lines</strong> (Same Slope).
-                        </p>
-
-                        <div class="sat-problem-card">
-                            <h3 class="sat-problem-header">
-                                <span>📝</span> SAT Problem
-                                <button class="btn-copy" onclick="copyCode('kx - 3y = 4\n4x - 5y = 7')">📄 Copy
-                                    Code</button>
-                            </h3>
-                            <div style="text-align: center; margin: 2rem 0; font-size: 1.25rem;">
-                                \[ kx - 3y = 4 \]
-                                \[ 4x - 5y = 7 \]
-                            </div>
-                            <p>For what value of \(k\) does the system of equations above have <strong>no
-                                    solution</strong>?</p>
-
-                            <div class="sat-option-grid">
-                                <div class="sat-option" onclick="checkAnswer(this, false)">(A) 1.2</div>
-                                <div class="sat-option" onclick="checkAnswer(this, true)">(B) 2.4</div>
-                                <div class="sat-option" onclick="checkAnswer(this, false)">(C) 3.6</div>
-                                <div class="sat-option" onclick="checkAnswer(this, false)">(D) 4.8</div>
-                            </div>
-                        </div>
-
-                        <details class="practix-reveal">
-                            <summary></summary>
-                            <div class="solution-content">
-                                <div class="solution-step">
-                                    <h4>Step 1: Use the Slider Hack</h4>
-                                    <p>Type the equations exactly as shown. Desmos will ask if you want to add a slider
-                                        for \(k\). Click <strong>"all"</strong>.</p>
-                                </div>
-                                <div class="solution-step">
-                                    <h4>Step 2: Make Lines Parallel</h4>
-                                    <p>Move the slider until the lines look <strong>perfectly parallel</strong> (never
-                                        crossing).</p>
-                                    <img src="../../assets/images/desmos/no_solution_slider.png"
-                                        alt="Desmos slider hack showing parallel lines"
-                                        style="width: 100%; max-width: 450px; display: block; margin: 1.5rem auto; border-radius: 12px; border: 1px solid #dcfce7;">
-                                    <p>At \(k = 2.4\), the lines are parallel. This is the "No Solution" state.</p>
-                                </div>
-                                <div class="final-answer-box">
-                                    <h4><span>✅</span> Final Answer:</h4>
-                                    <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">2.4 (Answer choice B)</p>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Problem 3: Inequality Zone -->
-                    <div style="margin-top: 4rem;">
-                        <h2 style="color: #d97706; margin-bottom: 1.5rem;"><span>🎨</span> The Shading Zone</h2>
-                        <p>For systems of inequalities, the answer is in the <strong>double-shaded</strong> region.</p>
-
-                        <div class="sat-problem-card">
-                            <h3 class="sat-problem-header">
-                                <span>📝</span> SAT Problem
-                                <button class="btn-copy" onclick="copyCode('y < 2x + 1\ny > -x + 3')">📄 Copy
-                                    Code</button>
-                            </h3>
-                            <div style="text-align: center; margin: 2rem 0; font-size: 1.25rem;">
-                                \[ y < 2x + 1 \] \[ y> -x + 3 \]
-                            </div>
-                            <p>Which point \((x, y)\) is a solution to the system of inequalities above?</p>
-
-                            <div class="sat-option-grid">
-                                <div class="sat-option" onclick="checkAnswer(this, false)">(A) (0, 0)</div>
-                                <div class="sat-option" onclick="checkAnswer(this, false)">(B) (2, 0)</div>
-                                <div class="sat-option" onclick="checkAnswer(this, false)">(C) (0, 5)</div>
-                                <div class="sat-option" onclick="checkAnswer(this, true)">(D) (4, 2)</div>
-                            </div>
-                        </div>
-
-                        <details class="practix-reveal">
-                            <summary></summary>
-                            <div class="solution-content">
-                                <div class="solution-step">
-                                    <h4>Step 1: Graph & Spot the Dark Zone</h4>
-                                    <p>Type both inequalities. Look for where the blue and red shadings overlap (the
-                                        darkest region).</p>
-                                    <img src="../../assets/images/desmos/inequality_shading.png"
-                                        alt="Desmos inequality shading showing solution region"
-                                        style="width: 100%; max-width: 450px; display: block; margin: 1.5rem auto; border-radius: 12px; border: 1px solid #dcfce7;">
-                                </div>
-                                <div class="solution-step">
-                                    <h4>Step 2: Check the Points</h4>
-                                    <p>Type the point \((4, 2)\). Since it lands inside the <strong>double-shaded
-                                            region</strong>, it is the correct answer.</p>
-                                </div>
-                                <div class="final-answer-box">
-                                    <h4><span>✅</span> Final Answer:</h4>
-                                    <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">(4, 2) (Answer choice D)
-                                    </p>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-                    <section class="technique-section">
-                        <h2 style="color: #1e40af; margin-bottom: 1.5rem;">⚔️ Mastered the Intersection Hack?</h2>
-                        <p>Put your speed to the test with our 800-level challenge set.</p>
-                        <div class="cross-link-box">
-                            <h3>Hardest System Questions</h3>
-                            <p style="margin-bottom: 1.5rem;">Mastered the basic intersections? Now try our most
-                                deceptive linear & non-linear systems.</p>
-                            <a href="../../formulas/heart-of-algebra/linear-equations/" class="btn-pillar">Try Hardest
-                                Systems →</a>
-                        </div>
-                    </section>
             </div>
-        </main>
+    </div>
+
+    <!-- Problem 2: No Solution (Slider Hack) -->
+    <div style="margin-top: 4rem;">
+        <h2 style="color: #ef4444; margin-bottom: 1.5rem;"><span>🚫</span> The "No Solution" Trap</h2>
+        <p>When questions ask for "No Solution", they mean <strong>Parallel Lines</strong> (Same Slope).
+        </p>
+
+        <div class="sat-problem-card">
+            <h3 class="sat-problem-header">
+                <span>📝</span> SAT Problem
+                <button class="btn-copy" onclick="copyCode('kx - 3y = 4\n4x - 5y = 7')">📄 Copy
+                    Code</button>
+            </h3>
+            <div style="text-align: center; margin: 2rem 0; font-size: 1.25rem;">
+                \[ kx - 3y = 4 \]
+                \[ 4x - 5y = 7 \]
+            </div>
+            <p>For what value of \(k\) does the system of equations above have <strong>no
+                    solution</strong>?</p>
+
+            <div class="sat-option-grid">
+                <div class="sat-option" onclick="checkAnswer(this, false)">(A) 1.2</div>
+                <div class="sat-option" onclick="checkAnswer(this, true)">(B) 2.4</div>
+                <div class="sat-option" onclick="checkAnswer(this, false)">(C) 3.6</div>
+                <div class="sat-option" onclick="checkAnswer(this, false)">(D) 4.8</div>
+            </div>
+
+        <details class="practix-reveal">
+            <summary></summary>
+            <div class="solution-content">
+                <div class="solution-step">
+                    <h4>Step 1: Use the Slider Hack</h4>
+                    <p>Type the equations exactly as shown. Desmos will ask if you want to add a slider
+                        for \(k\). Click <strong>"all"</strong>.</p>
+                </div>
+                <div class="solution-step">
+                    <h4>Step 2: Make Lines Parallel</h4>
+                    <p>Move the slider until the lines look <strong>perfectly parallel</strong> (never
+                        crossing).</p>
+                    <img src="../../assets/images/desmos/no_solution_slider.png"
+                        alt="Desmos slider hack showing parallel lines"
+                        style="width: 100%; max-width: 450px; display: block; margin: 1.5rem auto; border-radius: 12px; border: 1px solid #dcfce7;">
+                    <p>At \(k = 2.4\), the lines are parallel. This is the "No Solution" state.</p>
+                </div>
+                <div class="final-answer-box">
+                    <h4><span>✅</span> Final Answer:</h4>
+                    <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">2.4 (Answer choice B)</p>
+                </div>
+            </div>
+        </details>
+    </div>
+    </div>
+
+    <!-- Problem 3: Inequality Zone -->
+    <div style="margin-top: 4rem;">
+        <h2 style="color: #d97706; margin-bottom: 1.5rem;"><span>🎨</span> The Shading Zone</h2>
+        <p>For systems of inequalities, the answer is in the <strong>double-shaded</strong> region.</p>
+
+        <div class="sat-problem-card">
+            <h3 class="sat-problem-header">
+                <span>📝</span> SAT Problem
+                <button class="btn-copy" onclick="copyCode('y < 2x + 1\ny > -x + 3')">📄 Copy
+                    Code</button>
+            </h3>
+            <div style="text-align: center; margin: 2rem 0; font-size: 1.25rem;">
+                \[ y < 2x + 1 \] \[ y> -x + 3 \]
+            </div>
+            <p>Which point \((x, y)\) is a solution to the system of inequalities above?</p>
+
+            <div class="sat-option-grid">
+                <div class="sat-option" onclick="checkAnswer(this, false)">(A) (0, 0)</div>
+                <div class="sat-option" onclick="checkAnswer(this, false)">(B) (2, 0)</div>
+                <div class="sat-option" onclick="checkAnswer(this, false)">(C) (0, 5)</div>
+                <div class="sat-option" onclick="checkAnswer(this, true)">(D) (4, 2)</div>
+            </div>
+
+        <details class="practix-reveal">
+            <summary></summary>
+            <div class="solution-content">
+                <div class="solution-step">
+                    <h4>Step 1: Graph & Spot the Dark Zone</h4>
+                    <p>Type both inequalities. Look for where the blue and red shadings overlap (the
+                        darkest region).</p>
+                    <img src="../../assets/images/desmos/inequality_shading.png"
+                        alt="Desmos inequality shading showing solution region"
+                        style="width: 100%; max-width: 450px; display: block; margin: 1.5rem auto; border-radius: 12px; border: 1px solid #dcfce7;">
+                </div>
+                <div class="solution-step">
+                    <h4>Step 2: Check the Points</h4>
+                    <p>Type the point \((4, 2)\). Since it lands inside the <strong>double-shaded
+                            region</strong>, it is the correct answer.</p>
+                </div>
+                <div class="final-answer-box">
+                    <h4><span>✅</span> Final Answer:</h4>
+                    <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">(4, 2) (Answer choice D)
+                    </p>
+                </div>
+            </div>
+        </details>
+    </div>
+    </div>
+    <section class="technique-section">
+        <h2 style="color: #1e40af; margin-bottom: 1.5rem;">⚔️ Mastered the Intersection Hack?</h2>
+        <p>Put your speed to the test with our 800-level challenge set.</p>
+        <div class="cross-link-box">
+            <h3>Hardest System Questions</h3>
+            <p style="margin-bottom: 1.5rem;">Mastered the basic intersections? Now try our most
+                deceptive linear & non-linear systems.</p>
+            <a href="../../formulas/heart-of-algebra/linear-equations/" class="btn-pillar">Try Hardest
+                Systems →</a>
+        </div>
+    </section>
+    </div>
+    </main>
     </div>
 
     <script>
-        function copyCode(text)   navigator.clipboard.writeText(text).then(() => {
+        function copyCode(text) {
+            navigator.clipboard.writeText(text).then(() => {
                 const btn = event.target;
                 const originalText = btn.innerText;
                 btn.innerText = '✅ Copied!';

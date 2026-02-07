@@ -2517,3 +2517,59 @@ body.mobile-active .narrow-rail {
         overflow: visible !important;
     }
 }
+
+/* 
+ * MOBILE TYPOGRAPHY POLISH (User Request 2026-02-07 21:10)
+ * Aggressively reduce header sizes to reclaim vertical space.
+ */
+@media (max-width: 1024px) {
+    h1, 
+    .display-1, 
+    .display-2, 
+    .display-3,
+    .hero-split-fullscreen h1 {
+        font-size: 1.75rem !important; /* Reduced from ~3-4rem */
+        line-height: 1.2 !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    /* Target the specific "Linear Equations Mastery" title if it uses specific classes */
+    .hero-text-content h1 {
+        font-size: 1.6rem !important; 
+    }
+
+    h2, 
+    .sat-problem-header h2 {
+        font-size: 1.3rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    h3, 
+    .sat-problem-header {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    .sat-problem-header span {
+        font-size: 0.85rem !important;
+        margin-bottom: 0.1rem !important;
+    }
+
+    /* Compress Hero Section Padding */
+    .hero-text-container {
+        padding: 1rem 5% 0 5% !important; /* Remove bottom padding */
+        margin-bottom: 0 !important;
+    }
+    
+    .hero-split-fullscreen {
+        min-height: auto !important;
+        margin-bottom: 1rem !important;
+        display: block !important;
+    }
+    
+    .hero-split-fullscreen p {
+        font-size: 1rem !important;
+        margin-bottom: 1rem !important;
+        line-height: 1.4 !important;
+    }
+}

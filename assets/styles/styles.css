@@ -2453,3 +2453,21 @@ body.mobile-active .narrow-rail {
         display: none !important; 
     }
 }
+
+/* 
+ * FIX FLOATING CONTENT & TYPOS (User Request 2026-02-07 Analysis)
+ * Ensure solution pane flows with document, doesn't float.
+ */
+@media (max-width: 1024px) {
+    .practix-reveal, 
+    .practix-reveal[open],
+    .solution-content {
+        position: relative !important;
+        transform: none !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        margin-top: 1rem !important;
+        z-index: 10 !important;
+    }
+}

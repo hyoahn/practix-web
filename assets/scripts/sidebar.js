@@ -490,108 +490,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Desmos Landscape Mode Overlay - shown when clicking Desmos icon in portrait mode
-    function showDesmosLandscapeOverlay(basePath, pillarPath) {
-        // Remove existing overlay if any
-        let existing = document.getElementById('desmos-landscape-overlay');
-        if (existing) existing.remove();
 
-        const overlay = document.createElement('div');
-        overlay.id = 'desmos-landscape-overlay';
-        overlay.innerHTML = `
-            <div class="rotate-prompt">
-                <div class="rotate-icon">📱↻</div>
-                <h2>화면을 가로로 돌려주세요</h2>
-                <p>Please rotate your device to landscape mode</p>
-                <p class="subtext">Desmos 계산기를 사용하려면 가로 모드가 필요합니다</p>
-                <button class="continue-btn" id="desmos-continue-btn">계속하기 (Continue)</button>
-            </div>
-        `;
-
-        // Add styles
-        if (!document.getElementById('desmos-landscape-styles')) {
-            const style = document.createElement('style');
-            style.id = 'desmos-landscape-styles';
-            style.textContent = `
-                #desmos-landscape-overlay {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    z-index: 9999;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    flex-direction: column;
-                }
-                #desmos-landscape-overlay .rotate-prompt {
-                    text-align: center;
-                    color: white;
-                    padding: 2rem;
-                }
-                #desmos-landscape-overlay .rotate-icon {
-                    font-size: 4rem;
-                    margin-bottom: 1rem;
-                    animation: rotate-hint 2s ease-in-out infinite;
-                }
-                @keyframes rotate-hint {
-                    0%, 100% { transform: rotate(0deg); }
-                    25% { transform: rotate(-15deg); }
-                    75% { transform: rotate(15deg); }
-                }
-                #desmos-landscape-overlay h2 {
-                    font-size: 1.5rem;
-                    margin-bottom: 0.5rem;
-                    font-weight: 700;
-                }
-                #desmos-landscape-overlay p {
-                    font-size: 1rem;
-                    opacity: 0.9;
-                    margin-bottom: 0.5rem;
-                }
-                #desmos-landscape-overlay .subtext {
-                    font-size: 0.85rem;
-                    opacity: 0.7;
-                    margin-bottom: 1.5rem;
-                }
-                #desmos-landscape-overlay .continue-btn {
-                    background: white;
-                    color: #667eea;
-                    border: none;
-                    padding: 0.75rem 2rem;
-                    font-size: 1rem;
-                    font-weight: 600;
-                    border-radius: 25px;
-                    cursor: pointer;
-                    transition: transform 0.2s, box-shadow 0.2s;
-                }
-                #desmos-landscape-overlay .continue-btn:hover {
-                    transform: scale(1.05);
-                    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-                }
-            `;
-            document.head.appendChild(style);
-        }
-
-        document.body.appendChild(overlay);
-
-        // Continue button navigates to Desmos page
-        document.getElementById('desmos-continue-btn').addEventListener('click', () => {
-            window.location.href = `${basePath}${pillarPath}`;
-        });
-
-        // Auto-navigate when user rotates to landscape
-        const checkOrientation = () => {
-            const isLandscape = window.matchMedia('(orientation: landscape)').matches;
-            if (isLandscape) {
-                window.location.href = `${basePath}${pillarPath}`;
-            }
-        };
-        window.addEventListener('orientationchange', checkOrientation);
-        window.addEventListener('resize', checkOrientation);
-    }
 
     // Mobile Flyout Sidebar for Pillar Navigation
     function initMobileFlyout(navItems) {
@@ -764,19 +663,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const pillarId = btn.dataset.pillar;
                 const pillarPath = btn.dataset.path;
                 const pillar = PILLARS.find(p => p.id === pillarId);
-
-                // Special handling for Desmos: Show landscape mode overlay on mobile in portrait
-                if (pillarId === 'desmos') {
-                    const isPortrait = window.matchMedia('(orientation: portrait)').matches;
-                    const isMobileWidth = window.innerWidth <= 1024;
-
-                    if (isPortrait && isMobileWidth) {
-                        // Show landscape overlay
-                        showDesmosLandscapeOverlay(basePath, pillarPath);
-                        closeFlyout();
-                        return;
-                    }
-                }
 
                 if (!pillar) {
                     // Navigate directly if no pillar data

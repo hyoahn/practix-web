@@ -899,8 +899,8 @@ h3 {
         display: block;
         width: 100%;
         max-width: 100%;
-        padding: 1rem 1.5rem 1rem;
-        /* Reduced top padding - Gateway/HUD moved to bottom */
+        padding: 0 1.5rem 0.5rem;
+        /* ZERO top padding - Gateway/HUD moved to bottom */
         text-align: center;
         box-sizing: border-box;
     }
@@ -953,12 +953,13 @@ h3 {
     .hero-image-container {
         display: block !important;
         width: 100% !important;
-        height: 400px !important;
-        min-height: 400px !important;
+        height: 350px !important;
+        min-height: 350px !important;
         flex: none !important;
-        mask-image: linear-gradient(to top, transparent, black 15%);
-        -webkit-mask-image: linear-gradient(to top, transparent 0%, black 15%);
-        margin-top: 2rem;
+        mask-image: linear-gradient(to top, transparent, black 10%);
+        -webkit-mask-image: linear-gradient(to top, transparent 0%, black 10%);
+        margin-top: 0.5rem;
+        overflow: visible !important;
     }
 
     /* Reposition HUD elements on mobile to avoid headline overlap */
@@ -982,8 +983,10 @@ h3 {
 
     /* MOBILE: Force hero image to show iPad on right side */
     .hero-image-container img {
-        object-position: 70% center !important;
-        /* Show right side where iPad is */
+        object-position: 85% center !important;
+        /* Extreme right to show iPad */
+        object-fit: contain !important;
+        /* Show full image without cropping */
     }
 
 }

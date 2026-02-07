@@ -988,13 +988,18 @@ h3 {
         left: auto;
     }
 
-    /* MOBILE: Show FULL hero image with iPad - no cropping */
+    /* MOBILE: Zoomed in on iPad (Right Side) */
     .hero-image-container img {
-        object-position: center center !important;
-        object-fit: contain !important;
-        /* CONTAIN shows full image - NO cropping */
+        object-position: 80% center !important;
+        /* Shift view to the right (iPad side) */
+        object-fit: cover !important;
+        /* Fill height */
         width: 100% !important;
         height: 100% !important;
+        transform: scale(1.15) !important;
+        /* Slight zoom to make iPad bigger */
+        transform-origin: 80% center !important;
+        /* Zoom towards the iPad */
     }
 
     /* Match container bg to image bg color */

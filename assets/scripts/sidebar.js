@@ -466,23 +466,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const activeId = getActiveId();
         const isMobile = window.innerWidth <= 1024;
 
-        railContainer.innerHTML = NAV_ITEMS.map(item => {
-            const href = item.path ? `${basePath}${item.path}` : `${basePath}index.html`;
-            // On mobile, pillar items with flyout become buttons instead of links
-            if (isMobile && item.hasFlyout) {
-                return `
+        railContainer.innerHTML = NAV_ITEMS
+            .filter(item => !(isMobile && item.id === 'desmos'))
+            .map(item => {
+                const href = item.path ? `${basePath}${item.path}` : `${basePath}index.html`;
+                // On mobile, pillar items with flyout become buttons instead of links
+                if (isMobile && item.hasFlyout) {
+                    return `
                 <button class="rail-item ${item.id === activeId ? 'active' : ''}" 
                         title="${item.name}" 
                         data-pillar="${item.id}" 
                         data-path="${item.path}">
                     ${item.icon}
                 </button>`;
-            }
-            return `
+                }
+                return `
             <a href="${href}" class="rail-item ${item.id === activeId ? 'active' : ''}" title="${item.name}">
                 ${item.icon}
             </a>`;
-        }).join('');
+            }).join('');
 
         // Mobile flyout toggle behavior
         if (isMobile) {

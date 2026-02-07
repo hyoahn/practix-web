@@ -495,11 +495,11 @@ h3 {
 
 .hero-split-fullscreen {
     display: flex;
-    min-height: 85vh;
-    /* Takes up most of the viewport height */
+    min-height: 75vh;
+    /* Reduced since Gateway/HUD moved to bottom */
     position: relative;
-    overflow: hidden;
-    margin-bottom: 2rem;
+    overflow: visible;
+    margin-bottom: 0;
 }
 
 /* Left side: Text Content */
@@ -629,10 +629,9 @@ h3 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center bottom;
-    /* Center horizontally to show both student and iPad */
-    min-width: 600px;
-    /* Force image to not shrink below this width, causing scroll/cutoff handle */
+    object-position: 75% center;
+    /* Show the right side of image (iPad area) */
+    min-width: 500px;
     transform: scale(1.02);
     transition: transform 0.5s ease-out;
 }

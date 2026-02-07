@@ -692,6 +692,24 @@ document.addEventListener('DOMContentLoaded', () => {
                         overflow: visible !important;
                     }
 
+                    /* FIX: Force 1 column for options in split screen */
+                    body.desmos-split-active .sat-option-grid {
+                        grid-template-columns: 1fr !important;
+                    }
+
+                    /* FIX: Prevent right cut-off */
+                    body.desmos-split-active .main-stage {
+                        padding-right: 1.5rem !important;
+                        width: 100% !important;
+                        box-sizing: border-box !important;
+                    }
+
+                    /* FIX: Ensure card doesn't overflow */
+                    body.desmos-split-active .sat-problem-card {
+                        width: 100% !important;
+                        max-width: 100% !important;
+                    }
+
                     #mobile-desmos-panel {
                         position: fixed;
                         bottom: 0;

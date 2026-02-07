@@ -874,6 +874,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Auto-init Desmos on Mobile Portrait and Remove Button
         function checkAndInitDesmos() {
+            // Only run on Desmos pillar pages
+            if (!window.location.pathname.includes('/desmos/')) return;
+
             const isPortrait = window.matchMedia('(orientation: portrait)').matches;
             const isMobileWidth = window.innerWidth <= 1024;
 

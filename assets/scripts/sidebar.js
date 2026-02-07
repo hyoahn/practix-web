@@ -1106,9 +1106,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h4>${domain.name}</h4>
                     ${matchingSubsections.map(subItem => {
                 const hubPath = SUBSECTION_TO_HUB[subItem.subName];
-                const headerHTML = hubPath
-                    ? `<a href="${basePath}${hubPath}/" class="side-tree-subsection-link"> ${subItem.subName} →</a>`
-                    : subItem.subName;
+                // CHANGED: Render as plain text (no link, no arrow)
+                const headerHTML = subItem.subName;
 
                 return `
                         <div class="side-tree-subsection">
@@ -1175,9 +1174,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h4>${cat.name}</h4>
                     ${cat.subsections.map(subsection => {
                 const hubPath = SUBSECTION_TO_HUB[subsection.name];
-                const headerHTML = hubPath
-                    ? `<a href="${basePath}${hubPath}/" class="side-tree-subsection-link"> ${subsection.name} →</a>`
-                    : subsection.name;
+                // CHANGED: Render as plain text (no link, no arrow)
+                const headerHTML = subsection.name;
 
                 return `
                         <div class="side-tree-subsection">

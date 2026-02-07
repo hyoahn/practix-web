@@ -1003,8 +1003,17 @@ h3 {
     }
 
     /* Match container bg to image bg color */
+    /* Match container bg to image bg color */
     .hero-image-container {
         background: linear-gradient(180deg, #f8f6f3 0%, #fff 100%) !important;
+        width: 100% !important;
+        height: 40vh !important;
+        min-height: 350px !important;
+        display: block !important;
+        position: relative !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        order: 2 !important;
     }
 
 }

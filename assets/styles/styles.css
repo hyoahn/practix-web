@@ -1749,6 +1749,11 @@ input[type=range]::-webkit-slider-runnable-track {
     .main-content {
         padding: 2rem 5% 5rem 5% !important;
     }
+
+    /* HOMEPAGE ONLY: Zero top padding for hero */
+    .homepage .main-content {
+        padding: 0 !important;
+    }
 }
 
 .side-tree-group {

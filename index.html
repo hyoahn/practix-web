@@ -80,7 +80,8 @@
 
             .hero-text-container {
                 width: 100% !important;
-                padding: 0 1.5rem !important;
+                padding: 1rem 1.5rem 0.5rem !important;
+                /* Small top padding for breathing room */
                 margin: 0 !important;
                 order: 1 !important;
                 text-align: center !important;
@@ -89,11 +90,14 @@
 
             .hero-image-container {
                 width: 100% !important;
-                height: 350px !important;
+                height: 45vh !important;
+                /* Use viewport height for responsive sizing */
+                min-height: 300px !important;
                 order: 2 !important;
                 position: relative !important;
                 display: block !important;
                 margin-top: 0.5rem !important;
+                overflow: visible !important;
             }
 
             .hero-split-fullscreen h1 {

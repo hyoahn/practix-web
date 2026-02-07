@@ -166,21 +166,21 @@
                                 <div class="sat-option" onclick="checkAnswer(this, false)">(C) \(y = 2x - 1\)</div>
                                 <div class="sat-option" onclick="checkAnswer(this, false)">(D) \(y = 3x\)</div>
                             </div>
+                            <details class="practix-reveal">
+                                <summary></summary>
+                                <div class="solution-content">
+                                    <h4>Don't calculate slope. Use Regression.</h4>
+                                    <p>1. Add a table in Desmos. Enter \((-1, -1)\) and \((1, 3)\).</p>
+                                    <p>2. Type <code>y_1 ~ mx_1 + b</code>.</p>
+                                    <img src="../../assets/images/desmos/slope_intercept_v2.png"
+                                        style="width: 100%; border-radius: 8px; margin-top: 1rem;">
+                                    <p style="margin-top: 1rem;">Desmos tells you <strong>m=2</strong> and
+                                        <strong>b=1</strong>. The equation is \(y=2x+1\). <strong>The answer is
+                                            (B).</strong>
+                                    </p>
+                                </div>
+                            </details>
                         </div>
-                        <details class="practix-reveal">
-                            <summary></summary>
-                            <div class="solution-content">
-                                <h4>Don't calculate slope. Use Regression.</h4>
-                                <p>1. Add a table in Desmos. Enter \((-1, -1)\) and \((1, 3)\).</p>
-                                <p>2. Type <code>y_1 ~ mx_1 + b</code>.</p>
-                                <img src="../../assets/images/desmos/slope_intercept_v2.png"
-                                    style="width: 100%; border-radius: 8px; margin-top: 1rem;">
-                                <p style="margin-top: 1rem;">Desmos tells you <strong>m=2</strong> and
-                                    <strong>b=1</strong>. The equation is \(y=2x+1\). <strong>The answer is
-                                        (B).</strong>
-                                </p>
-                            </div>
-                        </details>
                     </div>
 
                     <!-- Problem 2: Point-Slope (Direct Entry) -->
@@ -214,39 +214,41 @@
                                         alt="Graph D">
                                 </div>
                             </div>
-                        </div>
-                        <details class="practix-reveal">
-                            <summary></summary>
-                            <div class="solution-content">
-                                <div class="hack-description">
-                                    <h4>Use the Point-Slope Formula directly.</h4>
-                                    <p>The Point-Slope Form is:</p>
-                                    <div class="latex-formula"
-                                        style="background: #f8f9fa; padding: 1rem; border-radius: 8px; text-align: center; margin: 1rem 0;">
-                                        \( y - y_1 = m(x - x_1) \)
+                            <details class="practix-reveal">
+                                <summary></summary>
+                                <div class="solution-content">
+                                    <div class="hack-description">
+                                        <h4>Use the Point-Slope Formula directly.</h4>
+                                        <p>The Point-Slope Form is:</p>
+                                        <div class="latex-formula"
+                                            style="background: #f8f9fa; padding: 1rem; border-radius: 8px; text-align: center; margin: 1rem 0;">
+                                            \( y - y_1 = m(x - x_1) \)
+                                        </div>
+                                        <p>Given the point \((3, 5)\) and slope \(m=2\), just plug them in:</p>
+                                        <ul class="step-list" style="list-style: none; padding-left: 0;">
+                                            <li style="margin-bottom: 0.5rem;"><strong>Step 1:</strong> Identify
+                                                \(x_1=3\),
+                                                \(y_1=5\), and \(m=2\).</li>
+                                            <li style="margin-bottom: 0.5rem;"><strong>Step 2:</strong> Substitute into
+                                                the
+                                                formula: \( y - 5 = 2(x - 3) \).</li>
+                                            <li style="margin-bottom: 0.5rem;"><strong>Step 3:</strong> Type this exact
+                                                equation
+                                                into Desmos.
+                                            </li>
+                                            <li style="margin-bottom: 0.5rem;"><strong>Step 4:</strong> Match the graph
+                                                Desmos
+                                                draws with the correct option below.</li>
+                                        </ul>
+                                        <img src="../../assets/images/desmos/p2_solution_pro_v1.png"
+                                            style="width: 320px; max-width: 100%; border-radius: 8px; margin-top: 1.5rem; border: 1px solid #eee; display: block;"
+                                            alt="Purple Desmos Calculator">
+                                        <p style="margin-top: 1.5rem;">The graph will pass through \((3, 5)\) and have a
+                                            2. <strong>Option (A) is the correct match.</strong></p>
                                     </div>
-                                    <p>Given the point \((3, 5)\) and slope \(m=2\), just plug them in:</p>
-                                    <ul class="step-list" style="list-style: none; padding-left: 0;">
-                                        <li style="margin-bottom: 0.5rem;"><strong>Step 1:</strong> Identify \(x_1=3\),
-                                            \(y_1=5\), and \(m=2\).</li>
-                                        <li style="margin-bottom: 0.5rem;"><strong>Step 2:</strong> Substitute into the
-                                            formula: \( y - 5 = 2(x - 3) \).</li>
-                                        <li style="margin-bottom: 0.5rem;"><strong>Step 3:</strong> Type this exact
-                                            equation
-                                            into Desmos.
-                                        </li>
-                                        <li style="margin-bottom: 0.5rem;"><strong>Step 4:</strong> Match the graph
-                                            Desmos
-                                            draws with the correct option below.</li>
-                                    </ul>
-                                    <img src="../../assets/images/desmos/p2_solution_pro_v1.png"
-                                        style="width: 320px; max-width: 100%; border-radius: 8px; margin-top: 1.5rem; border: 1px solid #eee; display: block;"
-                                        alt="Purple Desmos Calculator">
-                                    <p style="margin-top: 1.5rem;">The graph will pass through \((3, 5)\) and have a
-                                        2. <strong>Option (A) is the correct match.</strong></p>
                                 </div>
-                            </div>
-                        </details>
+                            </details>
+                        </div>
                     </div>
 
                     <!-- Problem 3: Standard Form (Slope Check) -->

@@ -102,22 +102,18 @@
             }
 
             /* 3. FIX MENU Z-INDEX */
-            margin: 0 0 0.5rem 0 !important;
-        }
+            .nav-links {
+                z-index: 9999 !important;
+            }
 
-        /* 3. FIX MENU Z-INDEX */
-        .nav-links {
-            z-index: 9999 !important;
-        }
-
-        /* 4. MOVE HUD TO BOTTOM-RIGHT (DON'T BLOCK FACE) */
-        .hud-circle-overlay {
-            top: auto !important;
-            bottom: 5% !important;
-            left: auto !important;
-            right: 5% !important;
-            transform: scale(0.5) !important;
-        }
+            /* 4. MOVE HUD TO BOTTOM-RIGHT (DON'T BLOCK FACE) */
+            .hud-circle-overlay {
+                top: auto !important;
+                bottom: 5% !important;
+                left: auto !important;
+                right: 5% !important;
+                transform: scale(0.5) !important;
+            }
         }
     </style>
 
@@ -188,7 +184,10 @@
                 <!-- Right Image (Restored with Tech Overlay) -->
                 <div class="hero-image-container">
                     <div class="image-overlay-gradient"></div>
-                    <img src="images/hero_girl.png" alt="Student focused on Practix SAT Math simulation">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="images/hero_girl_mobile.png">
+                        <img src="images/hero_girl.png" alt="Student focused on Practix SAT Math simulation">
+                    </picture>
 
                     <!-- HUD HUD HUD (NEW Circular HUD) -->
                     <div class="hud-circle-overlay">

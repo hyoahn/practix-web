@@ -997,16 +997,28 @@ h3 {
         overflow: hidden !important;
     }
 
-    /* MOBILE: Zoomed in on iPad (No Bed) */
+    /* MOBILE: Original Asset with "Ghost Bed" Mask */
     .hero-image-container img {
-        width: 135% !important;
-        /* Make image wider than viewport to allow cropping the left side (bed) */
-        max-width: none !important;
+        width: 100% !important;
         height: 100% !important;
         object-fit: cover !important;
         object-position: right center !important;
-        /* Anchor to the right (iPad) and hide the left (bed) */
+        /* Align to iPad (Right Side) */
         transform: none !important;
+    }
+
+    /* Surgical Fade-out of the Bed (Left Side) */
+    .hero-image-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        /* Fade out the bed area */
+        height: 100%;
+        background: linear-gradient(to right, #ffffff 0%, #ffffff 20%, rgba(255, 255, 255, 0) 100%);
+        z-index: 5;
+        pointer-events: none;
     }
 
     /* Match container bg to image bg color */

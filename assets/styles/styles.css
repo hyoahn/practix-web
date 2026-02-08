@@ -997,13 +997,16 @@ h3 {
         overflow: hidden !important;
     }
 
-    /* MOBILE: Original Asset with "Ghost Bed" Mask */
+    /* MOBILE: Original Asset with "True Right" Pin (Camera Rotation) */
     .hero-image-container img {
-        width: 100% !important;
+        width: 140% !important;
+        max-width: none !important;
         height: 100% !important;
         object-fit: cover !important;
-        object-position: right center !important;
-        /* Align to iPad (Right Side) */
+        position: relative !important;
+        left: auto !important;
+        right: 0 !important;
+        /* Pin right edge of image to container right edge */
         transform: none !important;
     }
 

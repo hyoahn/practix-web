@@ -566,6 +566,23 @@ h3 {
     -webkit-mask-image: none !important;
 }
 
+/* DESKTOP SPECIFIC OVERLAY RESET */
+/* Ensure the mobile "white box" doesn't leak to desktop */
+.hero-image-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px !important;
+    /* Only 60px wide on desktop to blend edge */
+    height: 100%;
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0) 100%);
+    z-index: 5;
+    pointer-events: none;
+}
+
 .hero-split-fullscreen h1 {
     font-size: clamp(4rem, 7vw, 7.5rem) !important;
     /* ULTRA MAX SIZE */

@@ -596,11 +596,12 @@ h3 {
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%) !important;
 }
 
-/* Fix 61: Desktop Specific Override */
+/* Fix 62: Desktop Extreme Right Shift (iPad Rescue II) */
 @media (min-width: 1024px) {
     .hero-image-container img {
-        /* Desktop needs to look at the RIGHT side (70%) to see the iPad */
-        object-position: 70% center !important;
+        /* Desktop needs to look at the FAR RIGHT (100%) to see the iPad */
+        /* "Pull image left" = Show Right Side */
+        object-position: 100% center !important;
         object-fit: cover !important;
         transform: none !important;
     }

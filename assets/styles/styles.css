@@ -603,9 +603,9 @@ h3 {
     height: 100%;
     object-fit: cover !important;
 
-    /* SOFT MERGE: Noticeable 15% fade on the left edge for smoother blend */
-    mask-image: linear-gradient(to right, transparent 0%, black 15%, black 100%) !important;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 100%) !important;
+    /* DEEP MERGE: 30% fade for undeniable blending */
+    mask-image: linear-gradient(to right, transparent 0%, black 30%, black 100%) !important;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%, black 100%) !important;
 }
 
 /* Ensure Desktop DOES NOT override this left-pull */

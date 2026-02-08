@@ -1055,9 +1055,16 @@ document.addEventListener('DOMContentLoaded', () => {
                                     const cleanCurrent = currentPath.replace(/^\/|\/$/g, '').replace('index.html', '');
                                     const cleanTopic = topic.path.replace(/^\/|\/$/g, '').replace('index.html', '');
 
-                                    // 2. Exact match on the last segment (folder name) is usually best for static sites
-                                    // But let's try path inclusion ONLY if it's the specific folder
-                                    const isActive = cleanCurrent.endsWith(cleanTopic) || (cleanTopic !== '' && cleanCurrent.includes(cleanTopic));
+                                    // 2. Exact match on the last segment (folder name) is absolutely required to prevent sticky active states
+                                    // Split by '/' and compare the last non-empty part
+                                    const currentSegments = cleanCurrent.split('/').filter(Boolean);
+                                    const topicSegments = cleanTopic.split('/').filter(Boolean);
+
+                                    const currentFolder = currentSegments.length > 0 ? currentSegments[currentSegments.length - 1] : '';
+                                    const topicFolder = topicSegments.length > 0 ? topicSegments[topicSegments.length - 1] : '';
+
+                                    // The folder names MUST match exactly. No fuzzy matching allowed.
+                                    const isActive = (currentFolder !== '' && topicFolder !== '' && currentFolder === topicFolder);
 
                                     html += `<a href="${topicHref}" class="flyout-topic ${isActive ? 'active' : ''}" style="border: 2px solid #ff4d4f !important;">${topic.name}</a>`;
                                 }

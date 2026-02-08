@@ -511,6 +511,7 @@ h3 {
     max-width: none !important;
     width: 100% !important;
     padding: 0 !important;
+    overflow-x: hidden !important;
 }
 
 /* Force breakout of any padding for full-bleed effect on desktop */

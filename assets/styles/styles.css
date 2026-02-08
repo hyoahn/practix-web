@@ -498,8 +498,11 @@ h3 {
     min-height: 75vh;
     /* Reduced since Gateway/HUD moved to bottom */
     position: relative;
-    overflow: visible;
+    overflow: hidden;
+    /* Prevent strip leakage */
     margin-bottom: 0;
+    background: #ffffff !important;
+    /* Force white to eliminate dark strips */
 }
 
 /* Left side: Text Content */
@@ -725,11 +728,11 @@ h3 {
 /* HUD Circle Overlay */
 .hud-circle-overlay {
     position: absolute;
-    bottom: 20%;
-    /* Move away from face */
-    right: 35%;
-    /* Position near iPad/Desk area */
-    transform: translate(50%, 50%);
+    bottom: 5%;
+    /* Near the desk bottom */
+    right: 5%;
+    /* Pin to the absolute right corner of his focal area */
+    transform: none !important;
     z-index: 15;
 }
 
@@ -999,14 +1002,15 @@ h3 {
 
     /* MOBILE: "True Right" Pin (Camera Rotation) */
     .hero-image-container img {
-        width: 160% !important;
+        width: 175% !important;
+        /* Massive reach to hide bed side */
         max-width: none !important;
         height: 100% !important;
         object-fit: cover !important;
         object-position: 100% center !important;
         /* Pin right edge */
-        transform: translateX(-10%) !important;
-        /* Pull away from bezel to "center" the iPad */
+        transform: translateX(-15%) !important;
+        /* Pull away from bezel significantly */
     }
 
     /* Aggressive Ghost Bed Mask (Mobile) */
@@ -1015,13 +1019,14 @@ h3 {
         position: absolute;
         top: 0;
         left: 0;
-        width: 60%;
+        width: 65%;
+        /* Tighter mask */
         height: 100%;
-        /* Softer fade: avoids "solid white gap" feeeling */
+        /* Ultra-soft fade: hides bed pilllows without "white gap" look */
         background: linear-gradient(to right,
-                rgba(252, 251, 250, 1) 0%,
-                rgba(252, 251, 250, 0.9) 30%,
-                rgba(252, 251, 250, 0) 100%);
+                rgba(255, 255, 255, 1) 0%,
+                rgba(255, 255, 255, 0.9) 20%,
+                rgba(255, 255, 255, 0) 100%);
         z-index: 5;
         pointer-events: none;
     }

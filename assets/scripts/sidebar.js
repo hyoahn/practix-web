@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     path: "math/",
                     subsections: [
                         { name: "Variables in Linear Equations", topics: [{ name: "Basics", path: "math/linear-equations/" }] },
-                        { name: "Lines and Linear Functions", topics: [{ name: "Lines & Graphs", path: "math/linear-equations/" }] },
+                        { name: "Lines and Linear Functions", topics: [{ name: "Lines & Graphs", path: "math/linear-equations/#interpreting" }] },
                         { name: "Systems of Linear Equations", topics: [{ name: "Systems", path: "math/systems/" }] },
                         { name: "Linear Inequalities", topics: [{ name: "Inequalities", path: "math/inequalities/" }] },
                         { name: "Word Problems on Linear Equations", topics: [] }

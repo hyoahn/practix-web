@@ -528,15 +528,22 @@ h3 {
 .hero-text-container {
     flex: 1;
     /* Give more relative space back to text */
-    display: flex;
-    flex-direction: column;
-    /* VERTICAL STACKING */
-    align-items: flex-start;
+    display: flex !important;
+    flex-direction: column !important;
+    /* FORCE VERTICAL STACKING */
+    align-items: flex-start !important;
     /* Left align for a clean hierarchy */
-    justify-content: center;
-    padding: 2rem 5% 2rem 10%;
+    justify-content: center !important;
+    padding: 2rem 5% 2rem 10% !important;
     /* More generous left padding for desktop */
     z-index: 10;
+}
+
+.hero-text-container h1,
+.hero-text-container h2 {
+    width: 100% !important;
+    /* Ensure they take full width */
+    max-width: none !important;
 }
 
 /* ... */

@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     name: "Advanced Math",
                     path: "desmos/",
                     subsections: [
-                        { name: "Polynomial Functions", topics: [{ name: "Polynomial Roots", path: "desmos/polynomial-roots/" }] },
+                        { name: "Polynomial Functions", topics: [{ name: "Polynomial Roots", path: "desmos/poly-roots/" }] },
                         { name: "Quadratic Equations and Parabola", topics: [] },
                         { name: "Solutions of Linear Expressions", topics: [] },
                         { name: "Absolute Value", topics: [{ name: "Absolute Value Solve", path: "desmos/absolute-value/" }] },

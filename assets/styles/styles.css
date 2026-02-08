@@ -584,10 +584,25 @@ h3 {
 /* Ensure the mobile "white box" doesn't leak to desktop AT ALL */
 /* DESKTOP SPECIFIC OVERLAY RESET */
 /* Ensure the mobile "white box" doesn't leak to desktop AT ALL */
-.hero-image-container::before,
 .hero-image-container::after,
 .image-overlay-gradient {
     display: none !important;
+}
+
+/* WHITE FOG OVERLAY: Physically paint white gradient over left edge to kill sharpness */
+.hero-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    /* Wide fog area */
+    height: 100%;
+    background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 5;
+    /* Above image */
+    pointer-events: none;
+    display: block !important;
 }
 
 /* Fix 58 & 61: iPad Rescue & Desktop Balance */
@@ -603,9 +618,9 @@ h3 {
     height: 100%;
     object-fit: cover !important;
 
-    /* DEEP MERGE: 30% fade for undeniable blending */
-    mask-image: linear-gradient(to right, transparent 0%, black 30%, black 100%) !important;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%, black 100%) !important;
+    /* NO MASK: We used the white overlay instead for smoother "fog" effect */
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
 }
 
 /* Ensure Desktop DOES NOT override this left-pull */

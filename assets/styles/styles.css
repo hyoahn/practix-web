@@ -550,9 +550,28 @@ h3 {
 
 .hero-text-container h1,
 .hero-text-container h2 {
-    width: 100% !important;
-    /* Ensure they take full width */
+    /* DESKTOP DEFAULT: Full width for stacking */
+    width: 100%;
     max-width: none !important;
+}
+
+/* MOBILE TEXT RESET: Don't force full width on spans inside h2 */
+@media (max-width: 1024px) {
+
+    .hero-text-container h1,
+    .hero-text-container h2 {
+        width: auto !important;
+        /* Let text flow naturally */
+        display: block;
+    }
+
+    .hero-text-container h2 span {
+        width: auto !important;
+        display: inline-block !important;
+        /* Keep it inline with text */
+        margin: 0 0.3rem !important;
+        /* Add breathing room */
+    }
 }
 
 /* ... */

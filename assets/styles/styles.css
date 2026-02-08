@@ -503,7 +503,14 @@ h3 {
     margin: 0 !important;
     width: 100% !important;
     background: #ffffff !important;
-    /* Force white to eliminate dark strips */
+    /* Force white background */
+}
+
+/* Eliminate ANY padding leakage on the right side for desktop */
+.homepage .main-content {
+    max-width: none !important;
+    width: 100% !important;
+    padding: 0 !important;
 }
 
 /* Force breakout of any padding for full-bleed effect on desktop */
@@ -629,8 +636,8 @@ h3 {
     position: relative;
     overflow: hidden;
     display: flex;
-    background: #fff;
-    /* Force white background to match site */
+    background: #ffffff !important;
+    /* Force pure white to eliminate dark strips */
     mask-image: linear-gradient(to right, transparent, black 15%);
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%);
 }
@@ -748,9 +755,9 @@ h3 {
 /* On Desktop specifically, ensure it doesn't float too far in if container is wide */
 @media (min-width: 1025px) {
     .hud-circle-overlay {
-        right: 15%;
-        /* Pull closer to iPad area away from edge */
-        bottom: 10%;
+        right: 18% !important;
+        /* Pull further in to avoid the "border" of any background data */
+        bottom: 12% !important;
     }
 }
 

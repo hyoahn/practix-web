@@ -997,29 +997,28 @@ h3 {
         overflow: hidden !important;
     }
 
-    /* MOBILE: Original Asset with "True Right" Pin (Camera Rotation) */
+    /* MOBILE: "True Right" Pin (Camera Rotation) */
     .hero-image-container img {
-        width: 140% !important;
+        width: 160% !important;
         max-width: none !important;
         height: 100% !important;
         object-fit: cover !important;
-        position: relative !important;
-        left: auto !important;
-        right: 0 !important;
-        /* Pin right edge of image to container right edge */
-        transform: none !important;
+        object-position: 100% center !important;
+        /* Pin right edge */
+        transform: translateX(-10%) !important;
+        /* Pull away from bezel to "center" the iPad */
     }
 
-    /* Surgical Fade-out of the Bed (Left Side) */
+    /* Aggressive Ghost Bed Mask */
     .hero-image-container::before {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
-        width: 50%;
-        /* Fade out the bed area */
+        width: 70%;
+        /* Wide mask to cover bed after shift */
         height: 100%;
-        background: linear-gradient(to right, #ffffff 0%, #ffffff 20%, rgba(255, 255, 255, 0) 100%);
+        background: linear-gradient(to right, #ffffff 40%, rgba(255, 255, 255, 0) 100%);
         z-index: 5;
         pointer-events: none;
     }

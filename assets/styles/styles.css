@@ -573,9 +573,16 @@ h3 {
 .hero-image-container::before {
     display: none !important;
     content: none !important;
-    width: 0 !important;
-    height: 0 !important;
-    background: none !important;
+}
+
+/* Fix 55: Re-center Image to show left side (Red Box Area) */
+/* Moving object-position to center reveals the "hidden" left part of the image */
+.hero-image-container img {
+    object-position: 40% center !important;
+    /* Shift focal point left to expose more image */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .hero-split-fullscreen h1 {

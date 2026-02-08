@@ -612,11 +612,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         font-size: 0.95rem;
                         font-weight: 600;
                         transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-                        background: #ffffff;
+                        background: #ffffff !important;
                         margin-bottom: 0.6rem; 
-                        /* USER REQUEST: Red Outline Box */
-                        border: 2px solid #ff4d4f; 
-                        box-shadow: 0 2px 4px rgba(255, 77, 79, 0.1);
+                        /* USER REQUEST: Red Outline Box FORCE */
+                        border: 2px solid #ff4d4f !important; 
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
                         position: relative;
                         overflow: hidden;
                     }

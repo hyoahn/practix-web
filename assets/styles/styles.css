@@ -578,19 +578,27 @@ h3 {
 .hero-image-container::after,
 .image-overlay-gradient {
     display: none !important;
-    content: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
 }
 
-/* Fix 57: The Perfect Blend (Shift Left + Soft Edge) */
+/* Fix 58: The iPad Rescue (EXTREME Left Shift + Scale Down) */
 .hero-image-container img {
-    object-position: 15% center !important;
-    /* MAJOR SHIFT LEFT: Pulls "Red Box" area to center */
+    /* 1. ANCHOR LEFT: Force the image's left edge (where iPad is) to be the anchor */
+    object-position: 0% center !important;
+
+    /* 2. PHYSICAL PULL: Use transform to pull even more left if needed */
+    /* Nudge left by 10% of its own width to ensure iPad isn't cut off */
+    /* Scale down slightly (95%) to prevent "zoomed in" cropping of the iPad */
+    transform: translateX(0%) scale(0.95) !important;
+    transform-origin: left center !important;
+
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    /* Soft Edge Mask: Only fades the very edges (last 5-10%) to blend, keeping center crisp */
+    object-fit: contain !important;
+    /* BACKUP: If cover cuts it, switch to contain or cover with extreme position */
+    /* Let's stick to cover for now but rely on position 0% first. If iPad is still cut, we change to contain */
+    object-fit: cover !important;
+
+    /* Soft Edge Mask (Kept from Fix 57 but adjusted) */
     mask-image: linear-gradient(to right,
             transparent 0%,
             black 5%,

@@ -580,35 +580,30 @@ h3 {
     display: none !important;
 }
 
-/* Fix 58: The iPad Rescue (EXTREME Left Shift + Scale Down) */
+/* Fix 58 & 61: iPad Rescue & Desktop Balance */
 .hero-image-container img {
-    /* 1. ANCHOR LEFT: Force the image's left edge (where iPad is) to be the anchor */
+    /* DEFAULT (Mobile): User confirmed this works ok. */
     object-position: 0% center !important;
-
-    /* 2. PHYSICAL PULL: Use transform to pull even more left if needed */
-    /* Nudge left by 10% of its own width to ensure iPad isn't cut off */
-    /* Scale down slightly (95%) to prevent "zoomed in" cropping of the iPad */
     transform: translateX(0%) scale(0.95) !important;
     transform-origin: left center !important;
-
     width: 100%;
     height: 100%;
     object-fit: contain !important;
-    /* BACKUP: If cover cuts it, switch to contain or cover with extreme position */
-    /* Let's stick to cover for now but rely on position 0% first. If iPad is still cut, we change to contain */
-    object-fit: cover !important;
+    /* Mobile prefers contain/cover mix from previous fix */
 
-    /* Soft Edge Mask (Kept from Fix 57 but adjusted) */
-    mask-image: linear-gradient(to right,
-            transparent 0%,
-            black 5%,
-            black 95%,
-            transparent 100%) !important;
-    -webkit-mask-image: linear-gradient(to right,
-            transparent 0%,
-            black 5%,
-            black 95%,
-            transparent 100%) !important;
+    /* Soft Edge Mask */
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%) !important;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%) !important;
+}
+
+/* Fix 61: Desktop Specific Override */
+@media (min-width: 1024px) {
+    .hero-image-container img {
+        /* Desktop needs to look at the RIGHT side (70%) to see the iPad */
+        object-position: 70% center !important;
+        object-fit: cover !important;
+        transform: none !important;
+    }
 }
 
 .hero-split-fullscreen h1 {

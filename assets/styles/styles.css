@@ -997,10 +997,10 @@ h3 {
         overflow: hidden !important;
     }
 
-    /* MOBILE: Zoomed in on iPad (No Bed) */
+    /* MOBILE: Zoomed in on iPad (Right Side) */
     .hero-image-container img {
-        object-position: center center !important;
-        /* Center align the cropped image */
+        object-position: right center !important;
+        /* Right align to show iPad, crop the bed (left) as much as possible */
         object-fit: cover !important;
         /* Fill height */
         width: 100% !important;

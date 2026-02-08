@@ -1050,7 +1050,15 @@ document.addEventListener('DOMContentLoaded', () => {
                             sub.topics.forEach(topic => {
                                 if (topic.path) {
                                     const topicHref = `${basePath}${topic.path}`;
-                                    const isActive = currentPath.includes(topic.path);
+                                    // STRICT MATCHING LOGIC
+                                    // 1. Remove leading/trailing slashes for comparison
+                                    const cleanCurrent = currentPath.replace(/^\/|\/$/g, '').replace('index.html', '');
+                                    const cleanTopic = topic.path.replace(/^\/|\/$/g, '').replace('index.html', '');
+
+                                    // 2. Exact match on the last segment (folder name) is usually best for static sites
+                                    // But let's try path inclusion ONLY if it's the specific folder
+                                    const isActive = cleanCurrent.endsWith(cleanTopic) || (cleanTopic !== '' && cleanCurrent.includes(cleanTopic));
+
                                     html += `<a href="${topicHref}" class="flyout-topic ${isActive ? 'active' : ''}" style="border: 2px solid #ff4d4f !important;">${topic.name}</a>`;
                                 }
                             });

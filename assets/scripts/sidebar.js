@@ -1051,7 +1051,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 if (topic.path) {
                                     const topicHref = `${basePath}${topic.path}`;
                                     const isActive = currentPath.includes(topic.path);
-                                    html += `<a href="${topicHref}" class="flyout-topic ${isActive ? 'active' : ''}">${topic.name}</a>`;
+                                    html += `<a href="${topicHref}" class="flyout-topic ${isActive ? 'active' : ''}" style="border: 2px solid #ff4d4f !important;">${topic.name}</a>`;
                                 }
                             });
                         }

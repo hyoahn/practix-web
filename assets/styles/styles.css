@@ -568,19 +568,14 @@ h3 {
 
 /* DESKTOP SPECIFIC OVERLAY RESET */
 /* Ensure the mobile "white box" doesn't leak to desktop */
+/* DESKTOP SPECIFIC OVERLAY RESET */
+/* Ensure the mobile "white box" doesn't leak to desktop AT ALL */
 .hero-image-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 60px !important;
-    /* Only 60px wide on desktop to blend edge */
-    height: 100%;
-    background: linear-gradient(to right,
-            rgba(255, 255, 255, 1) 0%,
-            rgba(255, 255, 255, 0) 100%);
-    z-index: 5;
-    pointer-events: none;
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: none !important;
 }
 
 .hero-split-fullscreen h1 {
@@ -1081,9 +1076,11 @@ span {
         /* Pull away from bezel significantly */
     }
 
-    /* Aggressive Ghost Bed Mask (Mobile) */
+    /* Aggressive Ghost Bed Mask (Mobile Only) */
     .hero-image-container::before {
-        content: "";
+        display: block !important;
+        /* Force show on mobile */
+        content: "" !important;
         position: absolute;
         top: 0;
         left: 0;

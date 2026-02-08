@@ -558,19 +558,38 @@ h3 {
 /* MOBILE TEXT RESET: Don't force full width on spans inside h2 */
 @media (max-width: 1024px) {
 
+    /* MOBILE TEXT RESET: Don't force full width on spans inside h2 */
+    .hero-text-container {
+        width: 100% !important;
+        min-width: 0 !important;
+        /* Remove desktop constraint */
+        max-width: 100vw !important;
+        /* Prevent overflow */
+        margin-right: 0 !important;
+        padding-right: 1.5rem !important;
+        /* Add right padding */
+        align-items: center !important;
+        /* Center content */
+    }
+
     .hero-text-container h1,
     .hero-text-container h2 {
-        width: auto !important;
-        /* Let text flow naturally */
-        display: block;
+        width: 100% !important;
+        /* Use full container width */
+        max-width: none !important;
+        text-align: center !important;
+        /* Force center alignment */
+        white-space: normal !important;
+        /* Allow wrapping */
+        word-wrap: break-word !important;
+        /* Prevent overflow */
     }
 
     .hero-text-container h2 span {
+        display: inline !important;
+        /* Pure inline to flow with text */
         width: auto !important;
-        display: inline-block !important;
-        /* Keep it inline with text */
-        margin: 0 0.3rem !important;
-        /* Add breathing room */
+        margin: 0 0.3rem;
     }
 }
 

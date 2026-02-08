@@ -608,14 +608,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         padding: 0.85rem 1rem;
                         color: var(--text-primary);
                         text-decoration: none;
-                        border-radius: 12px; /* Smoother Round Box */
+                        border-radius: 12px;
                         font-size: 0.95rem;
                         font-weight: 600;
                         transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-                        background: #ffffff; /* Explicit White Card */
+                        background: #ffffff;
                         margin-bottom: 0.6rem; 
-                        border: 1px solid rgba(0,0,0,0.08); /* Subtle border */
-                        box-shadow: 0 2px 5px rgba(0,0,0,0.03); /* Lifted effect */
+                        /* USER REQUEST: Red Outline Box */
+                        border: 2px solid #ff4d4f; 
+                        box-shadow: 0 2px 4px rgba(255, 77, 79, 0.1);
                         position: relative;
                         overflow: hidden;
                     }

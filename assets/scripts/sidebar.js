@@ -605,27 +605,51 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     .flyout-topic {
                         display: block;
-                        padding: 0.75rem 1rem;
+                        padding: 0.85rem 1rem;
                         color: var(--text-primary);
                         text-decoration: none;
-                        border-radius: 8px; /* Rounded Box for Button Feel */
+                        border-radius: 12px; /* Smoother Round Box */
                         font-size: 0.95rem;
-                        font-weight: 500;
+                        font-weight: 600;
+                        transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+                        background: #ffffff; /* Explicit White Card */
+                        margin-bottom: 0.6rem; 
+                        border: 1px solid rgba(0,0,0,0.08); /* Subtle border */
+                        box-shadow: 0 2px 5px rgba(0,0,0,0.03); /* Lifted effect */
+                        position: relative;
+                        overflow: hidden;
+                    }
+                    /* Add a subtle indicator arrow or icon if needed, but for now just the box */
+                    .flyout-topic::after {
+                        content: '→';
+                        position: absolute;
+                        right: 1rem;
+                        opacity: 0;
+                        transform: translateX(-10px);
                         transition: all 0.2s;
-                        background: var(--bg-main); /* Light background by default */
-                        margin-bottom: 0.5rem; /* Gap between buttons */
-                        border: 1px solid var(--border);
+                        color: var(--accent-primary);
                     }
                     .flyout-topic:hover {
-                        background: var(--bg-secondary);
+                        background: #f8f9fa;
                         border-color: var(--accent-primary);
-                        transform: translateX(2px);
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+                        padding-right: 2rem; /* Make room for arrow */
+                    }
+                    .flyout-topic:hover::after {
+                        opacity: 1;
+                        transform: translateX(0);
                     }
                     .flyout-topic.active {
                         background: var(--accent-primary);
                         color: white !important;
                         border-color: var(--accent-primary);
-                        box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+                        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+                    }
+                    .flyout-topic.active::after {
+                        color: white;
+                        opacity: 1;
+                        transform: translateX(0);
                     }
                     .flyout-overlay {
                         position: fixed;

@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     subsections: [
                         { name: "Variables in Linear Equations", topics: [{ name: "Basics", path: "formulas/heart-of-algebra/linear-equations/" }] },
                         { name: "Lines and Linear Functions", topics: [{ name: "Slope & Lines", path: "formulas/heart-of-algebra/slope-and-lines/" }] },
-                        { name: "Systems of Linear Equations", topics: [{ name: "System Basics", path: "formulas/heart-of-algebra/systems-of-linear-equations/" }] },
-                        { name: "Linear Inequalities", topics: [{ name: "Inequality Shading", path: "formulas/heart-of-algebra/linear-inequalities/" }] },
+                        { name: "Systems of Linear Equations", topics: [{ name: "System Basics", path: "formulas/heart-of-algebra/linear-equations/#intersect-meaning" }] },
+                        { name: "Linear Inequalities", topics: [{ name: "Inequality Shading", path: "formulas/heart-of-algebra/linear-equations/#ineq-shade" }] },
                         { name: "Word Problems on Linear Equations", topics: [] }
                     ]
                 },
@@ -1052,19 +1052,33 @@ document.addEventListener('DOMContentLoaded', () => {
                                     const topicHref = `${basePath}${topic.path}`;
                                     // STRICT MATCHING LOGIC
                                     // 1. Remove leading/trailing slashes for comparison
-                                    const cleanCurrent = currentPath.replace(/^\/|\/$/g, '').replace('index.html', '');
-                                    const cleanTopic = topic.path.replace(/^\/|\/$/g, '').replace('index.html', '');
+                                    const cleanCurrentPath = currentPath.split('#')[0].replace(/^\/|\/$/g, '').replace('index.html', '');
+                                    const topicParts = topic.path.split('#');
+                                    const cleanTopicPath = topicParts[0].replace(/^\/|\/$/g, '').replace('index.html', '');
+                                    const topicHash = topicParts.length > 1 ? '#' + topicParts[1] : '';
 
-                                    // 2. Exact match on the last segment (folder name) is absolutely required to prevent sticky active states
-                                    // Split by '/' and compare the last non-empty part
-                                    const currentSegments = cleanCurrent.split('/').filter(Boolean);
-                                    const topicSegments = cleanTopic.split('/').filter(Boolean);
+                                    // 2. Exact match on the last segment (folder name)
+                                    const currentSegments = cleanCurrentPath.split('/').filter(Boolean);
+                                    const topicSegments = cleanTopicPath.split('/').filter(Boolean);
 
                                     const currentFolder = currentSegments.length > 0 ? currentSegments[currentSegments.length - 1] : '';
                                     const topicFolder = topicSegments.length > 0 ? topicSegments[topicSegments.length - 1] : '';
 
-                                    // The folder names MUST match exactly. No fuzzy matching allowed.
-                                    const isActive = (currentFolder !== '' && topicFolder !== '' && currentFolder === topicFolder);
+                                    // 3. Hash Awareness Logic
+                                    // - If topic has a hash, it needs folder match AND exact hash match.
+                                    // - If topic has NO hash, it needs folder match AND current hash must be empty (to distinguish from subsections).
+                                    const currentHash = window.location.hash;
+                                    let isActive = false;
+
+                                    if (currentFolder !== '' && topicFolder !== '' && currentFolder === topicFolder) {
+                                        if (topicHash) {
+                                            // Topic requests specific hash -> Must match current hash
+                                            isActive = (currentHash === topicHash);
+                                        } else {
+                                            // Topic is the root/basics (no hash) -> Active only if no hash is present in URL
+                                            isActive = (!currentHash || currentHash === '');
+                                        }
+                                    }
 
                                     html += `<a href="${topicHref}" class="flyout-topic ${isActive ? 'active' : ''}" style="border: 2px solid #ff4d4f !important;">${topic.name}</a>`;
                                 }

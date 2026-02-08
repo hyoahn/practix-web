@@ -560,7 +560,9 @@ h3 {
     position: relative;
     overflow: hidden;
     display: flex;
-    background: var(--bg-main);
+    display: flex;
+    background: transparent !important;
+    /* Ensure no background color bleeds through */
     /* Mask REMOVED for crisp edge */
     mask-image: none !important;
     -webkit-mask-image: none !important;
@@ -570,9 +572,15 @@ h3 {
 /* Ensure the mobile "white box" doesn't leak to desktop */
 /* DESKTOP SPECIFIC OVERLAY RESET */
 /* Ensure the mobile "white box" doesn't leak to desktop AT ALL */
-.hero-image-container::before {
+/* DESKTOP SPECIFIC OVERLAY RESET */
+/* Ensure the mobile "white box" doesn't leak to desktop AT ALL */
+.hero-image-container::before,
+.hero-image-container::after,
+.image-overlay-gradient {
     display: none !important;
     content: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
 }
 
 /* Fix 55: Re-center Image to show left side (Red Box Area) */

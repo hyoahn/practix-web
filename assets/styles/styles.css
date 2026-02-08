@@ -524,26 +524,26 @@ h3 {
     }
 }
 
-/* Left side: Text Content */
+/* Left side: Text Content - Stacked in single column */
 .hero-text-container {
-    flex: 0.6;
-    /* Significantly reduced to push content left */
+    flex: 1;
+    /* Give more relative space back to text */
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    /* Push text towards the image */
-    padding: 2rem 0 2rem 5%;
-    /* Shift text block physically right */
-    justify-content: flex-end;
-    /* Ensure it hugs the right side (image side) */
+    flex-direction: column;
+    /* VERTICAL STACKING */
+    align-items: flex-start;
+    /* Left align for a clean hierarchy */
+    justify-content: center;
+    padding: 2rem 5% 2rem 10%;
+    /* More generous left padding for desktop */
     z-index: 10;
 }
 
 /* ... */
 /* Right side: Full Image */
 .hero-image-container {
-    flex: 1.8;
-    /* Occupies ~75% of the width */
+    flex: 1.5;
+    /* Slightly reduced to balance text container */
     position: relative;
     overflow: hidden;
     display: flex;

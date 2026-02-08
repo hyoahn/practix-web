@@ -614,14 +614,12 @@ h3 {
 /* Right side: Full Image */
 .hero-image-container {
     flex: 1.4;
-    /* Give image significantly more space */
     position: relative;
     overflow: hidden;
     display: flex;
-    background: var(--bg-main);
-    /* Fallback */
+    background: #fff;
+    /* Force white background to match site */
     mask-image: linear-gradient(to right, transparent, black 15%);
-    /* Soft fade edge on left */
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%);
 }
 
@@ -724,12 +722,14 @@ h3 {
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
-/* HUD Overlay Styles */
+/* HUD Circle Overlay */
 .hud-circle-overlay {
     position: absolute;
-    top: 40%;
-    left: 30%;
-    transform: translate(-50%, -50%);
+    bottom: 20%;
+    /* Move away from face */
+    right: 35%;
+    /* Position near iPad/Desk area */
+    transform: translate(50%, 50%);
     z-index: 15;
 }
 
@@ -1009,16 +1009,19 @@ h3 {
         /* Pull away from bezel to "center" the iPad */
     }
 
-    /* Aggressive Ghost Bed Mask */
+    /* Aggressive Ghost Bed Mask (Mobile) */
     .hero-image-container::before {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
-        width: 70%;
-        /* Wide mask to cover bed after shift */
+        width: 60%;
         height: 100%;
-        background: linear-gradient(to right, #ffffff 40%, rgba(255, 255, 255, 0) 100%);
+        /* Softer fade: avoids "solid white gap" feeeling */
+        background: linear-gradient(to right,
+                rgba(252, 251, 250, 1) 0%,
+                rgba(252, 251, 250, 0.9) 30%,
+                rgba(252, 251, 250, 0) 100%);
         z-index: 5;
         pointer-events: none;
     }

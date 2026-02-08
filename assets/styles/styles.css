@@ -583,14 +583,24 @@ h3 {
     visibility: hidden !important;
 }
 
-/* Fix 55: Re-center Image to show left side (Red Box Area) */
-/* Moving object-position to center reveals the "hidden" left part of the image */
+/* Fix 57: The Perfect Blend (Shift Left + Soft Edge) */
 .hero-image-container img {
-    object-position: 40% center !important;
-    /* Shift focal point left to expose more image */
+    object-position: 15% center !important;
+    /* MAJOR SHIFT LEFT: Pulls "Red Box" area to center */
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* Soft Edge Mask: Only fades the very edges (last 5-10%) to blend, keeping center crisp */
+    mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 5%,
+            black 95%,
+            transparent 100%) !important;
+    -webkit-mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 5%,
+            black 95%,
+            transparent 100%) !important;
 }
 
 .hero-split-fullscreen h1 {

@@ -526,9 +526,10 @@ h3 {
 
 /* Left side: Text Content - Stacked in single column */
 /* Left side: Text Content - Stacked in single column */
+/* Left side: Text Content - Stacked in single column */
 .hero-text-container {
-    flex: 1.4;
-    /* INCREASED: Aggressively push towards center */
+    flex: 2;
+    /* INCREASED: Extreme 2/3 width to dominate */
     display: flex !important;
     flex-direction: column !important;
     /* FORCE VERTICAL STACKING */
@@ -537,8 +538,8 @@ h3 {
     justify-content: center !important;
     padding: 2rem 0 2rem 10% !important;
     /* ZERO RIGHT PADDING */
-    margin-right: -2rem;
-    /* Negative margin to force overlap if needed */
+    margin-right: -8rem;
+    /* DOUBLE NEGATIVE MARGIN */
     z-index: 10;
 }
 
@@ -552,22 +553,23 @@ h3 {
 /* ... */
 /* Right side: Full Image */
 /* Right side: Full Image */
+/* Right side: Full Image */
 .hero-image-container {
-    flex: 1.1;
-    /* REDUCED: Allow text to dominate */
+    flex: 1;
+    /* REDUCED: 1/3 width */
     position: relative;
     overflow: hidden;
     display: flex;
     background: var(--bg-main);
-    /* Extended mask to allow bleed */
-    mask-image: linear-gradient(to right, transparent, black 10%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%);
+    /* Mask REMOVED for crisp edge */
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
 }
 
 .hero-split-fullscreen h1 {
-    font-size: clamp(3.5rem, 6vw, 6.5rem) !important;
-    /* EXTREME MAX SIZE */
-    line-height: 1.0;
+    font-size: clamp(4rem, 7vw, 7.5rem) !important;
+    /* ULTRA MAX SIZE */
+    line-height: 0.95;
     margin-bottom: 1.5rem;
     color: var(--text-primary);
     letter-spacing: -0.04em;

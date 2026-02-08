@@ -603,9 +603,9 @@ h3 {
     height: 100%;
     object-fit: cover !important;
 
-    /* NO MASK - Full Visibility */
-    mask-image: none !important;
-    -webkit-mask-image: none !important;
+    /* SOFT MERGE: Subtle 5% fade on the left edge for premium finish */
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 100%) !important;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 100%) !important;
 }
 
 /* Ensure Desktop DOES NOT override this left-pull */

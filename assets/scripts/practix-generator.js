@@ -35,7 +35,9 @@ class PractixGenerator {
     initialGenerate() {
         // Automatically generate for all elements with data-eqn-type on page load
         const types = new Set();
-        document.querySelectorAll('[data-eqn-type]').forEach(el => types.add(el.dataset.eqn - type));
+        document.querySelectorAll('[data-eqn-type]').forEach(el => {
+            if (el.dataset.eqnType) types.add(el.dataset.eqnType);
+        });
         types.forEach(type => this.generate(type));
     }
 
@@ -80,8 +82,8 @@ class PractixGenerator {
 
     genLinearCoeffs(type) {
         if (type === 'linear-base') {
-            const m = Math.floor(Math.random() * 10) - 5;
-            const b = Math.floor(Math.random() * 20) - 10;
+            const m = (Math.floor(Math.random() * 40) + 1) * (Math.random() > 0.5 ? 1 : -1);
+            const b = Math.floor(Math.random() * 100) - 50;
             return { m, b };
         }
         if (type === 'slope-formula') {
@@ -130,9 +132,9 @@ class PractixGenerator {
             return { val: Math.floor(Math.random() * 20) - 10 };
         }
         if (type === 'point-slope') {
-            const x1 = Math.floor(Math.random() * 10) - 5;
-            const y1 = Math.floor(Math.random() * 10) - 5;
-            const m = Math.floor(Math.random() * 5) + 2;
+            const x1 = Math.floor(Math.random() * 20) - 10;
+            const y1 = Math.floor(Math.random() * 20) - 10;
+            const m = Math.floor(Math.random() * 12) + 2;
             return { x1, y1, m };
         }
         // Generate nice integer intercepts for standard forms
@@ -345,10 +347,13 @@ class PractixGenerator {
         const feedback = document.querySelector(`#${type}-feedback`);
         if (!input || !feedback) return;
 
-        const userAnswer = input.value.trim();
-        const correctAnswer = this.currentAnswers[type];
+        // Strip whitespace and normalize (sloppy matching for coordinate commas)
+        const normalize = (val) => String(val).replace(/\s+/g, '').replace(/[()]/g, '').toLowerCase();
 
-        if (userAnswer === correctAnswer) {
+        const userAnswer = normalize(input.value);
+        const correctAnswer = normalize(this.currentAnswers[type]);
+
+        if (userAnswer === correctAnswer && userAnswer !== '') {
             feedback.innerHTML = "✅ Correct! Mastery Earned +1";
             feedback.style.color = "#10b981";
             this.triggerConfetti();

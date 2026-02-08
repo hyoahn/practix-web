@@ -587,28 +587,40 @@ document.addEventListener('DOMContentLoaded', () => {
                         border-radius: 4px;
                     }
                     .flyout-subsection-title {
-                        font-size: 0.8rem;
-                        font-weight: 600;
-                        color: var(--text-primary);
-                        padding: 0.5rem 1rem;
+                        font-size: 0.75rem;
+                        font-weight: 700;
+                        color: var(--text-muted);
+                        padding: 0.75rem 0.5rem 0.25rem 0.5rem;
                         margin-top: 0.5rem;
+                        text-transform: uppercase;
+                        letter-spacing: 0.05em;
                         pointer-events: none;
+                        border-bottom: 1px solid var(--border);
+                        margin-bottom: 0.5rem;
                     }
                     .flyout-topic {
                         display: block;
-                        padding: 0.5rem 1rem 0.5rem 1.5rem;
-                        color: var(--accent-primary);
+                        padding: 0.75rem 1rem;
+                        color: var(--text-primary);
                         text-decoration: none;
-                        border-radius: 8px;
-                        font-size: 0.9rem;
-                        transition: background 0.2s;
+                        border-radius: 8px; /* Rounded Box for Button Feel */
+                        font-size: 0.95rem;
+                        font-weight: 500;
+                        transition: all 0.2s;
+                        background: var(--bg-main); /* Light background by default */
+                        margin-bottom: 0.5rem; /* Gap between buttons */
+                        border: 1px solid var(--border);
                     }
                     .flyout-topic:hover {
                         background: var(--bg-secondary);
+                        border-color: var(--accent-primary);
+                        transform: translateX(2px);
                     }
                     .flyout-topic.active {
                         background: var(--accent-primary);
-                        color: white;
+                        color: white !important;
+                        border-color: var(--accent-primary);
+                        box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
                     }
                     .flyout-overlay {
                         position: fixed;

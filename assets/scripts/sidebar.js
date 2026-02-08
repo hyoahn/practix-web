@@ -577,26 +577,31 @@ document.addEventListener('DOMContentLoaded', () => {
                         margin-bottom: 1rem;
                     }
                     .flyout-section-title {
-                        font-size: 0.75rem;
+                    .flyout-section-title {
+                        font-size: 0.85rem;
                         text-transform: uppercase;
-                        color: var(--text-secondary);
-                        padding: 0.5rem 1rem;
-                        margin-bottom: 0.25rem;
-                        font-weight: 700;
+                        color: var(--accent-primary);
+                        padding: 0.75rem 1rem;
+                        margin-top: 1rem;
+                        margin-bottom: 0.5rem;
+                        font-weight: 800;
+                        letter-spacing: 0.05em;
                         background: var(--bg-secondary);
-                        border-radius: 4px;
+                        border-radius: 8px;
+                        border-left: 4px solid var(--accent-primary);
                     }
                     .flyout-subsection-title {
-                        font-size: 0.75rem;
+                        font-size: 0.7rem;
                         font-weight: 700;
                         color: var(--text-muted);
-                        padding: 0.75rem 0.5rem 0.25rem 0.5rem;
-                        margin-top: 0.5rem;
+                        padding: 0.5rem 0.5rem 0.25rem 0.5rem;
+                        margin-top: 0.75rem;
                         text-transform: uppercase;
                         letter-spacing: 0.05em;
                         pointer-events: none;
-                        border-bottom: 1px solid var(--border);
+                        border-bottom: 1px dashed var(--border);
                         margin-bottom: 0.5rem;
+                        opacity: 0.8;
                     }
                     .flyout-topic {
                         display: block;

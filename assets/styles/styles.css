@@ -525,17 +525,20 @@ h3 {
 }
 
 /* Left side: Text Content - Stacked in single column */
+/* Left side: Text Content - Stacked in single column */
 .hero-text-container {
-    flex: 1;
-    /* Give more relative space back to text */
+    flex: 1.4;
+    /* INCREASED: Aggressively push towards center */
     display: flex !important;
     flex-direction: column !important;
     /* FORCE VERTICAL STACKING */
     align-items: flex-start !important;
     /* Left align for a clean hierarchy */
     justify-content: center !important;
-    padding: 2rem 5% 2rem 10% !important;
-    /* More generous left padding for desktop */
+    padding: 2rem 0 2rem 10% !important;
+    /* ZERO RIGHT PADDING */
+    margin-right: -2rem;
+    /* Negative margin to force overlap if needed */
     z-index: 10;
 }
 
@@ -548,15 +551,17 @@ h3 {
 
 /* ... */
 /* Right side: Full Image */
+/* Right side: Full Image */
 .hero-image-container {
-    flex: 1.5;
-    /* Slightly reduced to balance text container */
+    flex: 1.1;
+    /* REDUCED: Allow text to dominate */
     position: relative;
     overflow: hidden;
     display: flex;
     background: var(--bg-main);
-    mask-image: linear-gradient(to right, transparent, black 15%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%);
+    /* Extended mask to allow bleed */
+    mask-image: linear-gradient(to right, transparent, black 10%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%);
 }
 
 .hero-split-fullscreen h1 {

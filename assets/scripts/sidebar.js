@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     subsections: [
                         { name: "Variables in Linear Equations", topics: [{ name: "Basics", path: "formulas/heart-of-algebra/linear-equations/" }] },
                         { name: "Lines and Linear Functions", topics: [{ name: "Slope & Lines", path: "formulas/heart-of-algebra/slope-and-lines/" }] },
-                        { name: "Systems of Linear Equations", topics: [{ name: "System Basics", path: "formulas/heart-of-algebra/linear-equations/#intersect-meaning" }] },
-                        { name: "Linear Inequalities", topics: [{ name: "Inequality Shading", path: "formulas/heart-of-algebra/linear-equations/#ineq-shade" }] },
+                        { name: "Systems of Linear Equations", topics: [{ name: "System Basics", path: "formulas/heart-of-algebra/systems-of-linear-equations/" }] },
+                        { name: "Linear Inequalities", topics: [{ name: "Inequality Shading", path: "formulas/heart-of-algebra/linear-inequalities/" }] },
                         { name: "Word Problems on Linear Equations", topics: [] }
                     ]
                 },

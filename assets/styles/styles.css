@@ -500,9 +500,18 @@ h3 {
     position: relative;
     overflow: hidden;
     /* Prevent strip leakage */
-    margin-bottom: 0;
+    margin: 0 !important;
+    width: 100% !important;
     background: #ffffff !important;
     /* Force white to eliminate dark strips */
+}
+
+/* Force breakout of any padding for full-bleed effect on desktop */
+@media (min-width: 1025px) {
+    .homepage .main-content {
+        padding: 0 !important;
+        overflow-x: hidden;
+    }
 }
 
 /* Left side: Text Content */
@@ -725,7 +734,7 @@ h3 {
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
-/* HUD Circle Overlay */
+/* HUD Circle Overlay - Desktop Default */
 .hud-circle-overlay {
     position: absolute;
     bottom: 5%;
@@ -734,6 +743,15 @@ h3 {
     /* Pin to the absolute right corner of his focal area */
     transform: none !important;
     z-index: 15;
+}
+
+/* On Desktop specifically, ensure it doesn't float too far in if container is wide */
+@media (min-width: 1025px) {
+    .hud-circle-overlay {
+        right: 15%;
+        /* Pull closer to iPad area away from edge */
+        bottom: 10%;
+    }
 }
 
 .hud-spinning-ring {
@@ -1031,19 +1049,15 @@ h3 {
         pointer-events: none;
     }
 
-    /* Match container bg to image bg color */
-    /* Match container bg to image bg color */
-    /* Match container bg to image bg color */
-    .hero-image-container {
-        background: linear-gradient(180deg, #f8f6f3 0%, #fff 100%) !important;
-        width: 100% !important;
-        height: 30vh !important;
-        min-height: 250px !important;
-        display: block !important;
-        position: relative !important;
-        overflow: hidden !important;
-        margin: 0 !important;
-        order: 2 !important;
+    /* MOBILE: Move 1550+ to LEFT (Don't block body) */
+    .hud-circle-overlay {
+        top: auto !important;
+        bottom: 5% !important;
+        right: auto !important;
+        left: 5% !important;
+        /* Move to the soft white mask area */
+        transform: scale(0.6) !important;
+        z-index: 20 !important;
     }
 
 }

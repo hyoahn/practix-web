@@ -799,22 +799,25 @@ h3 {
     font-weight: 800;
 }
 
-/* Tech Badges */
+/* Tech Badges - Glassmorphism Light Type */
 .tech-badge {
-    background: rgba(17, 24, 39, 0.95) !important;
-    border: 1px solid rgba(75, 85, 99, 0.4) !important;
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .badge-icon {
-    background: rgba(31, 41, 55, 0.8) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
 }
 
 .badge-title {
-    color: white !important;
+    color: var(--text-primary) !important;
 }
 
 .badge-status {
-    color: #9ca3af !important;
+    color: var(--text-secondary) !important;
     font-family: monospace;
 }
 

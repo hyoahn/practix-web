@@ -108,11 +108,13 @@
 
             /* 4. MOVE HUD TO ABSOLUTE TOP-LEFT (SAFE ZONE) */
             .hud-circle-overlay {
-                top: 5% !important;
+                top: 1rem !important;
+                left: 1rem !important;
                 bottom: auto !important;
-                left: 2% !important;
                 right: auto !important;
                 transform: scale(0.6) !important;
+                transform-origin: top left !important;
+                margin: 0 !important;
             }
         }
     </style>

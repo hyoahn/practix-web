@@ -2593,8 +2593,8 @@ body.mobile-active .narrow-rail {
     /* Fix potential cut-off */
     .sat-problem-card,
     .question-card {
-        padding: 1.5rem 0.25rem !important;
-        /* Aggressively reduce horizontal padding */
+        padding: 1.5rem 0.2rem !important;
+        /* Absolute minimum horizontal padding */
         width: 100% !important;
         max-width: 100vw !important;
         box-sizing: border-box !important;
@@ -2605,8 +2605,8 @@ body.mobile-active .narrow-rail {
     .problem-box,
     .solution-box,
     .solution-content {
-        padding-left: 0.4rem !important;
-        padding-right: 0.4rem !important;
+        padding-left: 0.35rem !important;
+        padding-right: 0.35rem !important;
         width: 100% !important;
         box-sizing: border-box !important;
     }
@@ -2615,23 +2615,22 @@ body.mobile-active .narrow-rail {
     .step-list li,
     .solution-content p {
         overflow-x: auto !important;
-        white-space: normal !important;
-        /* Allow text to wrap initially */
+        white-space: nowrap !important;
+        /* NEVER ALLOW WRAPPING of punctuation */
+        display: block !important;
+        width: 100% !important;
         -webkit-overflow-scrolling: touch;
         padding-bottom: 5px;
-        /* Space for scrollbar */
-        display: block;
-        max-width: 100%;
     }
 
     /* Revert MathJax to inline-block to keep punctuation attached */
     mjx-container,
     .MathJax {
         display: inline-block !important;
-        vertical-align: middle;
-        margin: 0.2rem 0 !important;
+        vertical-align: middle !important;
+        margin: 0 !important;
+        padding: 0 !important;
         max-width: none !important;
-        /* Allow breathing, container scrolls */
     }
 
     /* Force text wrapping in solution headers */

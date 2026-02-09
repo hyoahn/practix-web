@@ -2593,12 +2593,22 @@ body.mobile-active .narrow-rail {
     /* Fix potential cut-off */
     .sat-problem-card,
     .question-card {
-        padding: 1.5rem !important;
-        /* Reduce padding */
+        padding: 1.5rem 0.5rem !important;
+        /* Aggressively reduce horizontal padding */
         width: 100% !important;
         max-width: 100vw !important;
         box-sizing: border-box !important;
-        overflow: visible !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Ensure inner boxes don't add too much padding either */
+    .problem-box,
+    .solution-box,
+    .solution-content {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     /* Force text wrapping in solution headers */

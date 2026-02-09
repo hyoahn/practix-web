@@ -2593,7 +2593,7 @@ body.mobile-active .narrow-rail {
     /* Fix potential cut-off */
     .sat-problem-card,
     .question-card {
-        padding: 1.5rem 0.5rem !important;
+        padding: 1.5rem 0.25rem !important;
         /* Aggressively reduce horizontal padding */
         width: 100% !important;
         max-width: 100vw !important;
@@ -2605,8 +2605,8 @@ body.mobile-active .narrow-rail {
     .problem-box,
     .solution-box,
     .solution-content {
-        padding-left: 0.75rem !important;
-        padding-right: 0.75rem !important;
+        padding-left: 0.4rem !important;
+        padding-right: 0.4rem !important;
         width: 100% !important;
         box-sizing: border-box !important;
     }
@@ -2624,13 +2624,14 @@ body.mobile-active .narrow-rail {
         max-width: 100%;
     }
 
-    /* Target MathJax containers specifically to ensure they break to new line if needed */
+    /* Revert MathJax to inline-block to keep punctuation attached */
     mjx-container,
     .MathJax {
-        display: block !important;
-        overflow-x: auto !important;
-        margin: 0.5rem 0 !important;
-        max-width: 100% !important;
+        display: inline-block !important;
+        vertical-align: middle;
+        margin: 0.2rem 0 !important;
+        max-width: none !important;
+        /* Allow breathing, container scrolls */
     }
 
     /* Force text wrapping in solution headers */

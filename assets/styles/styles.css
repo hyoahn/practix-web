@@ -2523,9 +2523,9 @@ body.mobile-active .narrow-rail {
     gap: 0.5rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .comparison-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: 2rem;
     }
 }

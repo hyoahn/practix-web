@@ -2615,13 +2615,22 @@ body.mobile-active .narrow-rail {
     .step-list li,
     .solution-content p {
         overflow-x: auto !important;
-        white-space: nowrap !important;
-        /* Keep equations on one line but scrollable */
+        white-space: normal !important;
+        /* Allow text to wrap initially */
         -webkit-overflow-scrolling: touch;
         padding-bottom: 5px;
         /* Space for scrollbar */
         display: block;
         max-width: 100%;
+    }
+
+    /* Target MathJax containers specifically to ensure they break to new line if needed */
+    mjx-container,
+    .MathJax {
+        display: block !important;
+        overflow-x: auto !important;
+        margin: 0.5rem 0 !important;
+        max-width: 100% !important;
     }
 
     /* Force text wrapping in solution headers */

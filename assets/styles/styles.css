@@ -2591,13 +2591,28 @@ body.mobile-active .narrow-rail {
     }
 
     /* Fix potential cut-off */
-    .sat-problem-card {
+    .sat-problem-card,
+    .question-card {
         padding: 1.5rem !important;
         /* Reduce padding */
         width: 100% !important;
         max-width: 100vw !important;
         box-sizing: border-box !important;
         overflow: visible !important;
+    }
+
+    /* Force text wrapping in solution headers */
+    .school-header,
+    .practix-header {
+        white-space: normal !important;
+        word-break: break-word !important;
+    }
+
+    /* Comparison Grid Mobile Reset */
+    .comparison-grid {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
     }
 }
 

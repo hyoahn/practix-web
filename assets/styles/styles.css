@@ -2611,6 +2611,19 @@ body.mobile-active .narrow-rail {
         box-sizing: border-box !important;
     }
 
+    /* CRITICAL: Force MathJax/steps to scroll horizontally if too wide */
+    .step-list li,
+    .solution-content p {
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        /* Keep equations on one line but scrollable */
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 5px;
+        /* Space for scrollbar */
+        display: block;
+        max-width: 100%;
+    }
+
     /* Force text wrapping in solution headers */
     .school-header,
     .practix-header {

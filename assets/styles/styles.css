@@ -2612,15 +2612,16 @@ body.mobile-active .narrow-rail {
     }
 
     /* CRITICAL: Force MathJax/steps to scroll horizontally if too wide */
+    /* Fix Punctuation Orphans & Equation Cutoff */
     .step-list li,
     .solution-content p {
         overflow-x: auto !important;
         white-space: normal !important;
-        /* Allow description to wrap */
+        /* Allow label text to wrap */
         display: block !important;
         width: 100% !important;
+        padding-bottom: 5px !important;
         -webkit-overflow-scrolling: touch;
-        padding-bottom: 5px;
     }
 
     /* Revert MathJax to inline-block to keep punctuation attached */
@@ -2999,10 +3000,17 @@ body.mobile-active .narrow-rail {
         text-align: center;
     }
 
-    /* Feedback text scalling */
-    div[id$="-feedback"] {
-        font-size: 0.8rem !important;
-        white-space: normal !important;
-        word-break: break-word !important;
+    /* GLOBAL VIEWPORT FIX: Prevent content from being pushed off-screen by sidebar */
+    .course-content,
+    .main-container {
+        max-width: calc(100vw - 60px) !important;
+        /* Account for left rail */
+        box-sizing: border-box !important;
+    }
+
+    /* INDEX button safety */
+    .mobile-tree-toggle {
+        right: 15px !important;
+        bottom: 25px !important;
     }
 }

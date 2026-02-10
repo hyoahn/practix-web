@@ -2625,6 +2625,7 @@ body.mobile-active .narrow-rail {
         overflow-x: visible !important;
         /* Prevent label from scrolling away */
         white-space: normal !important;
+        /* Allow natural wrapping */
         display: block !important;
         width: 100% !important;
         word-break: break-word !important;

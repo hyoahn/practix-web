@@ -149,6 +149,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     } else {
         // HOMEPAGE / FALLBACK: Standard append
+        // Inject CSS if not present
+        if (!document.querySelector('link[href*="styles.v4.css"]')) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = basePath + 'assets/styles/styles.v4.css';
+            document.head.appendChild(link);
+        }
         const target = document.querySelector('.main-content') ||
             document.querySelector('.main-stage') ||
             document.body;

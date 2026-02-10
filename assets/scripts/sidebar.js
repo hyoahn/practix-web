@@ -1335,6 +1335,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function initMobileToggle() {
+        // Inject styles.v4.css if it doesn't exist
+        if (!document.querySelector('link[href*="styles.v4.css"]')) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = basePath + 'assets/styles/styles.v4.css';
+            document.head.appendChild(link);
+        }
+
         // Inject toggle button if it doesn't exist
         if (!document.querySelector('.mobile-tree-toggle')) {
             const toggle = document.createElement('button');

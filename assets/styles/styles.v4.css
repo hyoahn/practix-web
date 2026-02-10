@@ -1,0 +1,3090 @@
+:root {
+    /* Modern Gen-Z Palette */
+    --bg-main: #fafafa;
+    --bg-card: #ffffff;
+    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --bg-gradient-subtle: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a68;
+    --text-muted: #8888a4;
+
+    /* Vibrant Accents */
+    --accent-primary: #6366f1;
+    /* Indigo */
+    --accent-secondary: #8b5cf6;
+    /* Purple */
+    --accent-cyan: #06b6d4;
+    --accent-green: #10b981;
+    --accent-pink: #ec4899;
+
+    --border: rgba(0, 0, 0, 0.06);
+    --border-strong: rgba(0, 0, 0, 0.1);
+
+    /* Glass Effect */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-shadow: 0 8px 32px rgba(99, 102, 241, 0.1);
+
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --radius: 16px;
+    --radius-lg: 24px;
+    --nav-height: 80px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* STRICT VIEWPORT LOCK - APP FRAME LAYOUT 
+   Only applied to content pages that use the command-center layout.
+   By default, we allow normal scrolling for SEO and homepages.
+*/
+.content-page,
+.content-page body {
+    height: 100vh !important;
+    max-height: 100vh !important;
+    width: 100vw !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body {
+    display: flex !important;
+    flex-direction: column !important;
+    background: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 16px;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* On mobile, if the sidebar is open, lock the main body */
+body.mobile-active {
+    overflow: hidden !important;
+}
+
+/* NARROW RAIL (Far Left) */
+.narrow-rail {
+    width: 64px;
+    background: white;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 0;
+    gap: 1.5rem;
+    flex-shrink: 0;
+    z-index: 1010;
+}
+
+.rail-item {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.rail-item:hover {
+    background: var(--bg-main);
+    color: var(--accent-primary);
+}
+
+.rail-item.active {
+    background: var(--accent-primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+/* COMMAND SIDEBAR (Dynamic Tree) */
+#sidebar-tree {
+    padding-right: 2rem !important;
+    /* Large distinct gap */
+    padding-left: 0.5rem;
+    padding-top: 1rem;
+    box-sizing: border-box;
+}
+
+/* Force content away from edge */
+.side-tree-group,
+.side-tree-subsection,
+.side-link {
+    width: auto;
+    max-width: 100%;
+}
+
+.command-sidebar {
+    width: 280px;
+    /* Default width */
+    min-width: 200px;
+    max-width: 600px;
+    background: white;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1005;
+    position: relative;
+    /* For the resize handle */
+}
+
+.sidebar-resize-handle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    cursor: col-resize;
+    z-index: 1010;
+    transition: background 0.2s;
+    background: transparent;
+}
+
+.sidebar-resize-handle:hover,
+.sidebar-resize-handle.active {
+    background: var(--accent-primary);
+    opacity: 0.3;
+}
+
+.sidebar-search-container {
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.sidebar-search-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    padding-left: 2.5rem;
+    background: var(--bg-main);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.sidebar-search-input:focus {
+    border-color: var(--accent-primary);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.search-icon-fixed {
+    position: absolute;
+    left: 2.25rem;
+    top: 2.1rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    pointer-events: none;
+}
+
+/* MAIN STAGE (Training Deck) */
+.main-stage {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background: var(--bg-main);
+}
+
+/* HUD Circle Overlay */
+.hud-circle-overlay {
+    pointer-events: none;
+    user-select: none;
+}
+
+.stats-hud-row {
+    max-width: 1200px;
+}
+
+.hud-stat-card {
+    transition: all 0.3s ease;
+}
+
+.hud-stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-primary);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+}
+
+.stage-content-scroll {
+    height: 100%;
+    overflow-y: auto;
+    padding: 2rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Hide global nav if inside app frame? 
+   No, let's keep it for now but adjust it.
+*/
+
+/* Subtle animated background gradient */
+.page-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background:
+        radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
+}
+
+/* Navbar - Glassmorphism */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 5%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    flex-shrink: 0;
+    z-index: 1000;
+
+    /* Grid Placement */
+    grid-row: 1;
+    position: relative;
+    /* In-flow */
+    width: 100%;
+}
+
+.logo img {
+    height: 48px;
+    transition: transform 0.2s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 0.25rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.nav-btn {
+    border: none;
+    background: transparent;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.nav-btn.active {
+    background: white;
+    color: var(--accent-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Hamburger Menu styles */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1002;
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        width: 100%;
+        /* Full width for grid */
+        height: auto;
+        min-height: 0;
+        max-height: calc(100vh - 80px);
+        background: white;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* 2 Column Grid */
+        gap: 0.75rem;
+        /* Tighter gap */
+        padding: 1.5rem;
+        transition: 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 20px 20px;
+        border: none;
+        border-top: 1px solid var(--border);
+        z-index: 1001;
+        overflow-y: auto;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-btn {
+        font-size: 0.95rem;
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem 0.5rem;
+        border: 1px solid var(--border);
+        border-radius: 50px;
+        /* Pill shape */
+        background: var(--bg-main);
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-btn.active {
+        background: var(--accent-primary);
+        color: white;
+        border-color: var(--accent-primary);
+    }
+}
+
+.mobile-tree-toggle {
+    display: none;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--accent-primary);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+    z-index: 999;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 1024px) {
+    .mobile-tree-toggle {
+        display: flex;
+    }
+
+    .command-sidebar.mobile-active,
+    .sidebar-nav.mobile-active {
+        display: block !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 85% !important;
+        height: 100vh !important;
+        background: white !important;
+        z-index: 2000 !important;
+        padding: 2rem !important;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+    }
+}
+
+.side-tree-topic a.active {
+    background: rgba(99, 102, 241, 0.1) !important;
+    color: var(--accent-primary) !important;
+    font-weight: 700 !important;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-top: 0;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    color: white;
+    padding: 0.6rem 1.25rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(99, 102, 241, 0.4);
+}
+
+.btn-secondary {
+    background: var(--glass-bg);
+    color: var(--text-primary);
+    padding: 0.6rem 1.25rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-strong);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-secondary:hover {
+    background: white;
+    border-color: var(--accent-primary);
+}
+
+/* Fullscreen Split Hero Section */
+.hero-text-content {
+    max-width: 550px;
+    width: 100%;
+    margin-right: -8rem;
+    /* Aggressive overlap: text hugs the image tightly */
+    position: relative;
+    z-index: 12;
+}
+
+.hero-split-fullscreen {
+    display: flex;
+    min-height: 75vh;
+    /* Reduced since Gateway/HUD moved to bottom */
+    position: relative;
+    overflow: hidden;
+    /* Prevent strip leakage */
+    margin: 0 !important;
+    width: 100% !important;
+    background: transparent !important;
+    /* Let parent background show through */
+}
+
+/* Eliminate ANY padding leakage on the right side for desktop */
+.homepage .main-content {
+    max-width: none !important;
+    width: 100% !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+    background: #ffffff !important;
+    /* Force the entire hero zone to match exactly */
+}
+
+/* Force breakout of any padding for full-bleed effect on desktop */
+@media (min-width: 1025px) {
+    .homepage .main-content {
+        padding: 0 !important;
+        overflow-x: hidden;
+    }
+}
+
+/* Left side: Text Content - Stacked in single column */
+/* Left side: Text Content - Stacked in single column */
+/* Left side: Text Content - Stacked in single column */
+.hero-text-container {
+    flex: 0 0 auto;
+    /* FIX: Don't let it hoard empty space. Shrink to fit, but keep a healthy width. */
+    width: 45%;
+    /* Set explicit width to control the split point */
+    min-width: 600px;
+    /* Ensure it doesn't get too small */
+    display: flex !important;
+    flex-direction: column !important;
+    /* FORCE VERTICAL STACKING */
+    align-items: flex-start !important;
+    /* Left align for a clean hierarchy */
+    justify-content: center !important;
+    padding: 2rem 0 2rem 10% !important;
+    /* ZERO RIGHT PADDING */
+    margin-right: -2rem;
+    /* Slight overlap only */
+    z-index: 20;
+    /* Ensure text is ABOVE the image overlap */
+}
+
+.hero-text-container h1,
+.hero-text-container h2 {
+    /* DESKTOP DEFAULT: Full width for stacking */
+    width: 100%;
+    max-width: none !important;
+}
+
+/* MOBILE TEXT RESET: Don't force full width on spans inside h2 */
+@media (max-width: 1024px) {
+
+    /* MOBILE TEXT RESET: Don't force full width on spans inside h2 */
+    .hero-text-container {
+        width: 100% !important;
+        min-width: 0 !important;
+        /* Remove desktop constraint */
+        max-width: 100vw !important;
+        /* Prevent overflow */
+        margin-right: 0 !important;
+        padding-right: 1.5rem !important;
+        /* Add right padding */
+        align-items: center !important;
+        /* Center content */
+    }
+
+    .hero-text-container h1,
+    .hero-text-container h2 {
+        width: 100% !important;
+        /* Use full container width */
+        max-width: none !important;
+        text-align: center !important;
+        /* Force center alignment */
+        white-space: normal !important;
+        /* Allow wrapping */
+        word-wrap: break-word !important;
+        /* Prevent overflow */
+    }
+
+    .hero-text-container h2 span {
+        display: inline !important;
+        /* Pure inline to flow with text */
+        width: auto !important;
+        margin: 0 0.3rem;
+    }
+}
+
+/* ... */
+/* Right side: Full Image */
+/* Right side: Full Image */
+/* Right side: Full Image */
+.hero-image-container {
+    flex: 1;
+    /* Take up ALL remaining space */
+    width: auto;
+    /* Reset manual width */
+    margin-left: 0;
+    /* Reset manual margin */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    background: transparent !important;
+    /* Ensure no background color bleeds through */
+    z-index: 1;
+    /* Behind text */
+    /* Mask REMOVED for crisp edge on container (applied to img instead) */
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+}
+
+/* DESKTOP SPECIFIC OVERLAY RESET */
+/* Ensure the mobile "white box" doesn't leak to desktop */
+/* DESKTOP SPECIFIC OVERLAY RESET */
+/* Ensure the mobile "white box" doesn't leak to desktop AT ALL */
+/* DESKTOP SPECIFIC OVERLAY RESET */
+/* Ensure the mobile "white box" doesn't leak to desktop AT ALL */
+.hero-image-container::after,
+.image-overlay-gradient {
+    display: none !important;
+}
+
+/* WHITE FOG OVERLAY: Physically paint white gradient over left edge to kill sharpness */
+.hero-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    /* Wide fog area */
+    height: 100%;
+    background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 5;
+    /* Above image */
+    pointer-events: none;
+    display: block !important;
+}
+
+/* Fix 58 & 61: iPad Rescue & Desktop Balance */
+/* Fix 64: AGGRESSIVE LEFT PULL - Eliminate White Gap */
+/* Fix 65: FUNDAMENTAL CONTAINER SHIFT - Reset Image Hacks */
+.hero-image-container img {
+    /* 1. ANCHOR LEFT: Image starts at left edge of container */
+    object-position: left center !important;
+
+    /* 2. RESET HACKS: Let the container shift do the work */
+    transform: none !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+
+    /* NO MASK: We used the white overlay instead for smoother "fog" effect */
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+}
+
+/* Ensure Desktop DOES NOT override this left-pull */
+@media (min-width: 1024px) {
+    .hero-image-container img {
+        object-position: 0% center !important;
+        transform: translateX(-10%) !important;
+        width: 110% !important;
+    }
+}
+
+.hero-split-fullscreen h1 {
+    font-size: clamp(4rem, 7vw, 7.5rem) !important;
+    /* ULTRA MAX SIZE */
+    line-height: 0.95;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    letter-spacing: -0.04em;
+}
+
+.hero-split-fullscreen h1 .gradient-text {
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 50%, var(--accent-cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-split-fullscreen p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    justify-content: flex-start;
+}
+
+.hero-social-proof {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hero-social-proof .avatars {
+    display: flex;
+    font-size: 1.5rem;
+    letter-spacing: -0.5rem;
+}
+
+.hero-social-proof p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 0.35rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    margin-bottom: 0.75rem;
+}
+
+.hero-badge .dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent-green);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* [REMOVED DUPLICATE HERO-IMAGE-CONTAINER RULES] */
+
+/* Hero Badge Styles */
+.hero-badge.status-system {
+    background: #000;
+    color: #fff;
+    border: 1px solid #333;
+}
+
+.hero-badge.status-system .dot {
+    background: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.hero-badge .status-label {
+    font-family: monospace;
+    letter-spacing: 0.05em;
+}
+
+/* Gateway Grid Styles */
+.gateway-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+    max-width: 650px;
+}
+
+.btn-gateway {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0.5rem;
+    background: white;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.gateway-icon {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.gateway-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.pillar-formulas:hover,
+.pillar-desmos:hover,
+.pillar-sniper:hover {
+    border-color: var(--accent-primary);
+    background: rgba(99, 102, 241, 0.03);
+    transform: translateY(-2px);
+}
+
+.pillar-math {
+    background: var(--text-primary);
+    border-color: var(--text-primary);
+    color: white;
+}
+
+.pillar-app {
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* HUD Circle Overlay - Desktop Default */
+.hud-circle-overlay {
+    position: absolute;
+    bottom: 5%;
+    /* Near the desk bottom */
+    right: 5%;
+    /* Pin to the absolute right corner of his focal area */
+    transform: none !important;
+    z-index: 15;
+}
+
+/* On Desktop specifically, ensure it doesn't float too far in if container is wide */
+@media (min-width: 1025px) {
+    .hud-circle-overlay {
+        right: 18% !important;
+        /* Pull further in to avoid the "border" of any background data */
+        bottom: 12% !important;
+    }
+}
+
+.hud-spinning-ring {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px dashed rgba(99, 102, 241, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.2);
+    animation: spin 20s linear infinite;
+}
+
+.hud-score-display {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+}
+
+.hud-score-label {
+    font-family: var(--font-heading);
+    color: var(--accent-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.hud-score-value {
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+/* Floating Tech Cards - Glassmorphism Light Type (Standardized) */
+.tech-badge,
+.floating-card,
+.score-card,
+.streak-card {
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.badge-icon,
+.icon {
+    background: rgba(255, 255, 255, 0.9) !important;
+}
+
+.badge-title,
+strong {
+    color: var(--text-primary) !important;
+}
+
+.badge-status,
+span {
+    color: var(--text-secondary) !important;
+}
+
+/* Stats HUD Row */
+.stats-hud-row {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    z-index: 20;
+}
+
+/* Homepage Terminal Zone (Bottom Section) */
+.homepage-terminal-zone {
+    padding: 6rem 5%;
+    background: linear-gradient(180deg, transparent 0%, rgba(99, 102, 241, 0.03) 100%);
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+}
+
+.terminal-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    /* Gap between Gateway and Stats */
+}
+
+.gateway-block {
+    text-align: center;
+}
+
+.gateway-block .gateway-grid {
+    margin: 0 auto;
+}
+
+.hud-block {
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .homepage-terminal-zone {
+        padding: 4rem 1.5rem;
+    }
+
+    .stats-hud-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+    }
+}
+
+.hud-stat-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    padding: 1rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.stat-emoji {
+    font-size: 1.5rem;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-weight: 800;
+}
+
+.stat-value.gain {
+    color: var(--accent-primary);
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* --- MOBILE RESPONSIVE HOMEPAGE --- */
+@media (max-width: 768px) {
+    .hero-split-fullscreen {
+        display: block !important;
+        height: auto !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: visible;
+    }
+
+    .hero-text-container {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1.5rem 0 !important;
+        /* ZERO padding all around */
+        margin: 0 !important;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .hero-text-content {
+        display: block;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .hero-split-fullscreen h1 {
+        font-size: 2.5rem;
+        margin: 0 0 0.5rem 0 !important;
+        /* Tight margins */
+    }
+
+    .hero-split-fullscreen h2 {
+        font-size: 1.25rem;
+        margin: 0 0 0.5rem 0 !important;
+        /* Tight margins */
+    }
+
+    .hero-split-fullscreen p {
+        font-size: 1rem;
+        margin-bottom: 1rem !important;
+    }
+
+    .hero-search-box {
+        width: 100%;
+    }
+
+    #initialize-training {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        margin-top: 0.5rem;
+        padding: 1rem;
+    }
+
+    #hero-search {
+        padding-right: 1.5rem;
+    }
+
+    .gateway-grid {
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+        gap: 0.4rem;
+    }
+
+    .hero-image-container {
+        display: block !important;
+        width: 100% !important;
+        height: 350px !important;
+        min-height: 350px !important;
+        flex: none !important;
+        mask-image: linear-gradient(to top, transparent, black 10%);
+        -webkit-mask-image: linear-gradient(to top, transparent 0%, black 10%);
+        margin-top: 0.5rem;
+        overflow: visible !important;
+    }
+
+    /* Reposition HUD elements on mobile to avoid blocking hero's face */
+    .hud-circle-overlay {
+        top: auto !important;
+        bottom: 10% !important;
+        left: auto !important;
+        right: 10% !important;
+        transform: scale(0.6) !important;
+        /* Smaller on mobile, positioned bottom-right */
+    }
+
+    .score-card {
+        top: 10%;
+        left: 5%;
+        right: auto;
+    }
+
+    .streak-card {
+        bottom: 10%;
+        right: 5%;
+        left: auto;
+    }
+
+    /* MOBILE: Zoomed in on iPad (Right Side) */
+    /* MOBILE: Zoomed in on iPad (Right Side) */
+    /* MOBILE: Zoomed in on iPad (Right Side) */
+    .hero-image-container {
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow: hidden !important;
+    }
+
+    /* MOBILE: "True Right" Pin (Camera Rotation) */
+    .hero-image-container img {
+        width: 175% !important;
+        /* Massive reach to hide bed side */
+        max-width: none !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: 100% center !important;
+        /* Pin right edge */
+        transform: translateX(-15%) !important;
+        /* Pull away from bezel significantly */
+    }
+
+    /* Aggressive Ghost Bed Mask (Mobile Only) */
+    .hero-image-container::before {
+        display: block !important;
+        /* Force show on mobile */
+        content: "" !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 65%;
+        /* Tighter mask */
+        height: 100%;
+        /* Ultra-soft fade: hides bed pilllows without "white gap" look */
+        background: linear-gradient(to right,
+                rgba(255, 255, 255, 1) 0%,
+                rgba(255, 255, 255, 0.9) 20%,
+                rgba(255, 255, 255, 0) 100%);
+        z-index: 5;
+        pointer-events: none;
+    }
+
+    /* MOBILE: Move 1550+ to LEFT (Don't block body) */
+    .hud-circle-overlay {
+        top: auto !important;
+        bottom: 5% !important;
+        right: auto !important;
+        left: 5% !important;
+        /* Move to the soft white mask area */
+        transform: scale(0.6) !important;
+        z-index: 20 !important;
+    }
+
+}
+
+.stats-hud-row {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1.5rem;
+    background: var(--bg-main);
+    box-sizing: border-box;
+}
+
+.hud-stat-card {
+    padding: 0.75rem;
+}
+
+
+/* Tabs Section */
+.tabs-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5%;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.tabs-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* Tab Navigation (Moved to Top) 
+   Keeping .tabs-container for layout but removing .tab-nav specific styling 
+*/
+
+/* Tab Content */
+.tab-content-wrapper {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.tab-content {
+    display: none;
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: 1rem;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Resources Grid */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.resource-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-card:hover {
+    border-color: var(--accent-primary);
+    box-shadow: var(--glass-shadow);
+    transform: translateY(-2px);
+}
+
+.resource-card.primary {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+    border-color: rgba(99, 102, 241, 0.2);
+}
+
+.resource-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.resource-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.resource-count {
+    font-size: 0.8rem;
+    color: var(--accent-primary);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.resource-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+    flex-grow: 1;
+}
+
+.resource-list li {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    padding: 0.25rem 0;
+    padding-left: 1.1rem;
+    position: relative;
+}
+
+.resource-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-green);
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+.resource-link {
+    display: inline-block;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.resource-link:hover {
+    color: var(--accent-secondary);
+}
+
+.resource-tip {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+/* =========================================
+   COLLAPSIBLE FOOTER
+   ========================================= */
+
+/* GLOBAL OVERRIDE: Hide ALL footers by default unless explicitly visible */
+footer:not(.visible) {
+    display: none !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+}
+
+#layout-toggle {
+    cursor: pointer !important;
+    z-index: 3001 !important;
+    position: relative;
+}
+
+.practix-footer-panel {
+    background: #1a1a2e;
+    color: white;
+    padding: 0;
+    margin-top: auto;
+    position: relative;
+    transition: opacity 0.3s ease;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: none;
+    /* DEFAULT HIDDEN */
+    flex-direction: column;
+    flex-shrink: 0;
+    z-index: 2000;
+    overflow: hidden;
+}
+
+.practix-footer-panel.visible,
+footer.visible {
+    display: flex !important;
+    opacity: 1 !important;
+    height: auto !important;
+    min-height: 200px;
+    pointer-events: auto !important;
+    visibility: visible !important;
+}
+
+/* Inner content wrapper */
+.footer-content {
+    padding: 3rem 5% 2rem;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+/* Collapsed State - Completely Hidden (Zero Height) */
+.practix-footer-panel.collapsed {
+    height: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.practix-footer-panel.collapsed .footer-content {
+    display: none;
+}
+
+.tip-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.resource-tip p {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* Strategy Grid */
+.strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.strategy-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.strategy-card:hover {
+    border-color: var(--accent-primary);
+    box-shadow: var(--glass-shadow);
+}
+
+.strategy-number {
+    position: absolute;
+    top: -10px;
+    left: 1rem;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.strategy-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.strategy-card p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+}
+
+.strategy-time {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--accent-primary);
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+/* FAQ Grid */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.faq-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.faq-card:hover {
+    border-color: var(--accent-primary);
+    box-shadow: var(--glass-shadow);
+}
+
+.faq-card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.faq-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Demo Container */
+.demo-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1.5rem;
+    height: 100%;
+}
+
+.vre-window {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+}
+
+.vre-header {
+    padding: 0.6rem 1rem;
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.window-controls {
+    display: flex;
+    gap: 6px;
+}
+
+.window-controls span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.control-close {
+    background: #ef4444;
+}
+
+.control-min {
+    background: #eab308;
+}
+
+.control-max {
+    background: #22c55e;
+}
+
+.vre-title {
+    font-family: 'SF Mono', 'Monaco', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.vre-canvas-container {
+    flex: 1;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 250px;
+}
+
+.vre-footer {
+    padding: 0.75rem;
+    background: #f8fafc;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.demo-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.demo-features h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.demo-feature {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.demo-feature:hover {
+    border-color: var(--accent-primary);
+}
+
+.feature-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.demo-feature strong {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.demo-feature p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Score Predictor Widget */
+.predictor-section-wrapper {
+    padding: 4rem 5%;
+    margin-top: 2rem;
+    background: var(--bg-main);
+}
+
+.predictor-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+}
+
+.predictor-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.predictor-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.predictor-header p {
+    color: var(--text-secondary);
+}
+
+.predictor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.control-group {
+    margin-bottom: 1.5rem;
+}
+
+.control-group label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.control-group .range-value {
+    color: var(--accent-primary);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+}
+
+.control-help {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+}
+
+/* Custom Range Slider */
+input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    background: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    cursor: pointer;
+    margin-top: -10px;
+    box-shadow: 0 2px 6px rgba(99, 102, 241, 0.4);
+    transition: transform 0.1s;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: #e2e8f0;
+    border-radius: 2px;
+}
+
+/* Predictor Result */
+.predictor-result {
+    text-align: center;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+    padding: 2rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.score-box {
+    margin-bottom: 1rem;
+}
+
+/* Duplicates removed */
+
+/* ==========================================================================
+   Real Tree Sidebar Navigation & App Layout
+   ========================================================================== */
+
+.page-container {
+    flex: 1;
+    /* Take all remaining vertical space */
+    display: grid;
+    grid-template-columns: 100%;
+    min-height: 0;
+    /* Crucial for scrolling */
+    height: 100%;
+
+    /* Flex Internal Layout (Sidebar + Main) */
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.sidebar-nav {
+    width: 300px;
+    height: 100%;
+    overflow-y: auto;
+    border-right: 1px solid var(--border);
+    padding: 2rem 1rem;
+    background: var(--bg-secondary);
+    flex-shrink: 0;
+}
+
+.main-content {
+    flex: 1;
+    height: 100%;
+    overflow-y: auto;
+    padding: 3rem 5%;
+    position: relative;
+}
+
+/* Ensure heroes don't break the shell */
+.hero-section {
+    padding: 4rem 5%;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+    border-bottom: 1px solid var(--border);
+    margin: -3rem -5% 3rem -5%;
+    /* Pull up to top of main-content */
+}
+
+/* Show sidebar on Desktop/Tablet, hide only on Mobile */
+@media (max-width: 1024px) {
+
+    .narrow-rail {
+        display: flex !important;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 60px;
+        z-index: 2000;
+        border-right: 1px solid var(--border);
+        background: white;
+        padding-top: 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    /* Hide floating calculator button on mobile */
+    #calcToggle {
+        display: none !important;
+    }
+
+    .sidebar-nav,
+    .command-sidebar {
+        display: none;
+    }
+
+    /* Fix Mobile Nav Bar Occlusion */
+    body {
+        padding-top: 0 !important;
+        /* No top nav */
+        padding-left: 60px;
+        /* Make space for rail */
+    }
+
+    /* Hide Top Nav on Mobile */
+    nav {
+        display: none !important;
+    }
+
+
+    /* Additional safety for main stage scrolling */
+    .main-stage,
+    .stage-content-scroll {
+        padding-top: 0 !important;
+        /* Managed by body padding */
+    }
+
+    /* Force page container to respect the flow */
+    .page-container {
+        height: auto !important;
+        min-height: calc(100vh - 80px) !important;
+        overflow: visible !important;
+    }
+
+    nav {
+        display: none !important;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 60px;
+        /* Slide out from rail */
+        right: auto;
+        width: 250px;
+        height: 100vh;
+        max-height: 100vh;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 2rem 1.5rem;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.1);
+        border-radius: 0 20px 20px 0;
+        border: none;
+        border-right: 1px solid var(--border);
+        z-index: 1999;
+        /* Below rail (2000) but above content */
+        overflow-y: auto;
+        transform: translateX(-110%);
+        /* Hidden by default */
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+        right: auto;
+    }
+
+    .nav-btn {
+        font-size: 1rem;
+        width: 100%;
+        text-align: left;
+        padding: 0.75rem 1rem;
+        border: 1px solid transparent;
+        border-radius: 12px;
+        background: transparent;
+        justify-content: flex-start;
+        display: flex;
+        align-items: center;
+        color: var(--text-secondary);
+        font-weight: 600;
+    }
+
+    .nav-btn:hover,
+    .nav-btn.active {
+        background: var(--bg-main);
+        color: var(--accent-primary);
+        border-color: var(--border);
+    }
+
+    /* Hero Split Fullscreen Refinements for Mobile */
+    .hero-split-fullscreen {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important;
+        height: auto !important;
+        min-height: 100vh;
+        padding-top: 2rem !important;
+        gap: 3rem !important;
+    }
+
+    .hero-text-container {
+        padding: 2rem 5% !important;
+        order: 1 !important;
+        text-align: left;
+        width: 100% !important;
+    }
+
+    .hero-image-container {
+        height: 350px !important;
+        /* Slightly smaller to fit better */
+        width: 100% !important;
+        order: 2 !important;
+        position: relative;
+        margin-bottom: 2rem;
+    }
+
+    .hero-split-fullscreen h1 {
+        font-size: 2.5rem !important;
+        margin-top: 1rem;
+        line-height: 1.1;
+    }
+
+    .hero-split-fullscreen h2 {
+        font-size: 1.3rem !important;
+    }
+
+    /* Fix overlapping text in general mobile layout */
+    .main-content {
+        padding: 2rem 5% 5rem 5% !important;
+    }
+
+    /* HOMEPAGE ONLY: Zero top padding for hero */
+    .homepage .main-content {
+        padding: 0 !important;
+    }
+}
+
+.side-tree-group {
+    margin-bottom: 1.5rem;
+}
+
+.pillar-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Sidebar View Toggle */
+.sidebar-view-toggle-container {
+    padding: 1rem 1.25rem;
+    padding-top: 0.5rem;
+}
+
+.view-toggle {
+    display: flex;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 4px;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    backdrop-filter: blur(8px);
+}
+
+.view-toggle-pill {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    height: calc(100% - 8px);
+    background: white;
+    border-radius: 9px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+.view-toggle-pill.right {
+    transform: translateX(100%);
+}
+
+.view-toggle-option {
+    flex: 1;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s;
+}
+
+.view-toggle-option.active {
+    color: var(--text-primary);
+}
+
+.view-toggle-option:hover:not(.active) {
+    color: var(--primary);
+}
+
+/* Base Navigation Container Rules */
+
+/* Consistent Sidebar Header Styles for all Sidebar variants */
+.command-sidebar .side-tree-group h4,
+.sidebar-nav .side-tree-group h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.35rem !important;
+    /* Slightly smaller to fit in box comfortably */
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em;
+    background: #0f172a !important;
+    /* Dark navy/black box */
+    color: #ffffff !important;
+    /* White text */
+    padding: 0.75rem 1rem !important;
+    border-radius: 8px !important;
+    margin-top: 2rem !important;
+    margin-bottom: 1rem !important;
+    display: inline-block !important;
+    /* Box only covers text width + padding */
+    width: auto !important;
+    padding-right: 1.5rem !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.command-sidebar .side-tree-subsection-header,
+.sidebar-nav .side-tree-subsection-header,
+.side-tree-subsection-header {
+    font-size: 1.2rem !important;
+    /* Clearly larger than topic */
+    color: var(--text-primary) !important;
+    text-transform: none !important;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    margin-top: 1.25rem;
+    font-weight: 700 !important;
+    display: block;
+    padding-right: 1.5rem;
+}
+
+.side-tree-topic {
+    list-style: none;
+    padding-left: 0.5rem;
+    margin-left: 0.5rem;
+    border-left: 1px solid var(--border);
+}
+
+.side-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 1.05rem !important;
+    /* Slightly smaller than subsection */
+    font-weight: 500;
+    display: block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+    margin: 2px 0;
+    padding-right: 1.5rem;
+}
+
+.side-link:hover {
+    background: rgba(99, 102, 241, 0.05);
+    color: var(--primary);
+}
+
+.side-link.active {
+    background: var(--primary) !important;
+    color: white !important;
+    font-weight: 600;
+}
+
+/* Level 3: Anchor/Nested links */
+.side-anchor-list {
+    list-style: none;
+    padding-left: 1.2rem;
+    margin-top: 2px;
+}
+
+.side-anchor-link {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.3rem 0.8rem;
+    display: block;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.side-anchor-link:hover {
+    color: var(--primary);
+}
+
+.side-anchor-link.active {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* Mobile Toggle */
+.mobile-tree-toggle {
+    display: block;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+    z-index: 1000;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+    .mobile-tree-toggle {
+        display: none;
+    }
+}
+
+/* Full Screen Mobile Navigation Overlay */
+.command-sidebar.mobile-active {
+    display: flex !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    background: white !important;
+    padding: 5rem 10% 2rem !important;
+    overflow-y: auto !important;
+    z-index: 2000 !important;
+    flex-direction: column !important;
+}
+
+/* Ensure the rail is also hidden when mobile sidebar is active (it's redundant) */
+body.mobile-active .narrow-rail {
+    display: none !important;
+}
+
+/* ==========================================================================
+   Practix Global Footer (Full Bleed Fix)
+   ========================================================================== */
+.practix-footer-panel {
+    display: none;
+    flex-direction: column;
+    background: #0f172a !important;
+    width: 100%;
+    /* Simple full width now that we handle container constraints via JS */
+    margin-top: 4rem !important;
+    padding: 4rem 5% 2rem 5%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.practix-footer-panel.visible {
+    display: flex !important;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .practix-footer-panel {
+        width: 100%;
+        margin: 4rem 0 0 0 !important;
+        padding: 4rem 1.5rem 2rem 1.5rem;
+    }
+}
+
+/* ==========================================================================
+   Practix Pillar Reflow System (JS-Injected)
+   ========================================================================== */
+.stage-content-scroll.practix-reflow {
+    padding: 0 !important;
+    max-width: none !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.practix-content-wrapper {
+    padding: 2rem 5%;
+    /* Inherited from original stage-content-scroll */
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    flex: 1;
+    /* Pushes footer to bottom if content is short */
+    box-sizing: border-box;
+    /* Ensure hero section negative margins still work relative to this */
+    position: relative;
+}
+
+/* --- MASTERY ENGINE UI --- */
+.formula-card {
+    position: relative;
+    padding-top: 3rem;
+}
+
+.mastery-check-wrapper {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    z-index: 5;
+    /* Above content */
+    padding: 0.4rem 0.75rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.mastery-check-wrapper:hover {
+    border-color: var(--accent-green);
+    background: white;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+}
+
+.mastery-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.mastery-check {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--accent-green);
+}
+
+/* --- PRACTIX REVEAL INTERFACE --- */
+.practix-reveal {
+    margin-top: 1.5rem;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    transition: all 0.3s ease;
+}
+
+.practix-reveal[open] {
+    border-color: var(--accent-primary);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
+}
+
+.practix-reveal summary {
+    background: #065f46 !important;
+    /* Default Green */
+    color: white !important;
+    padding: 0.75rem 1.5rem !important;
+    cursor: pointer;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    display: inline-block !important;
+    /* Changed from flex to inline-block for consistency */
+    border-radius: 8px !important;
+    list-style: none;
+    user-select: none;
+    transition: background-color 0.2s ease !important;
+}
+
+.practix-reveal summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Default state text via pseudo (if needed) or just hardcode in CSS */
+.practix-reveal summary::before {
+    content: "💡 Click to Reveal Desmos Solve";
+    display: inline-block;
+}
+
+/* Expanded State: Red background and Swap Text */
+.practix-reveal[open] summary {
+    background: #ef4444 !important;
+    /* Red */
+}
+
+.practix-reveal[open] summary::before {
+    content: "Click to hide Desmos Solve";
+}
+
+/* Suppression of global summary::after that causes the white box glitch */
+.practix-reveal summary::after {
+    display: none !important;
+}
+
+.solution-content {
+    padding: 2rem;
+    background: #f0fdf4;
+    /* Light green success background */
+    border-top: 1px solid #dcfce7;
+    animation: slideDown 0.3s ease-out;
+}
+
+/* --- SAT PROBLEM CARD DESIGN --- */
+.sat-problem-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+    border: 1px solid #3b82f6;
+    border-left: 5px solid #1e40af;
+    padding: 2rem;
+    border-radius: 16px;
+    margin: 2rem 0;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.difficulty-rating {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: #ef4444;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.sat-problem-header {
+    color: #1e40af;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.sat-problem-header span {
+    font-size: 1.5rem;
+}
+
+.sat-option-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.sat-option {
+    padding: 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    background: white;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.sat-option:hover {
+    border-color: #3b82f6;
+    background: #f1f5f9;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- MAGIC CODE & SOLUTION STYLES (Migrated for Consistency) --- */
+.magic-code-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.magic-code {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #374151;
+    flex-grow: 1;
+}
+
+.solution-step {
+    margin-bottom: 1.5rem;
+}
+
+.solution-step h4 {
+    color: #10b981;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.final-answer-box {
+    background: #f0fdf4;
+    border: 2px solid #10b981;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+
+.final-answer-box h4 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* --- Global Desmos Styles (Technique & Buttons) --- */
+.technique-section {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #3b82f6;
+    /* Default accent */
+    padding: 2.5rem;
+    border-radius: 16px;
+    margin-bottom: 5rem;
+    /* Generous spacing between problems */
+    position: relative;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.btn-copy {
+    background: white;
+    border: 1px solid #e5e7eb;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    margin-left: auto;
+    /* Push to right by default */
+}
+
+.btn-copy:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+    color: #111827;
+}
+
+.try-it-btn {
+    background: #2563eb !important;
+    /* Blue-600 */
+    color: white !important;
+    border-color: #2563eb !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-right: 0 !important;
+    /* Reset specific spacing */
+    margin-left: auto !important;
+    /* This takes over the push */
+}
+
+/* When Copy follows Try It, remove Copy's auto margin so they stick together */
+.try-it-btn+.btn-copy {
+    margin-left: 0.5rem !important;
+}
+
+.try-it-btn:hover {
+    background: #1d4ed8 !important;
+    /* Blue-700 */
+    border-color: #1d4ed8 !important;
+}
+
+/* =========================================
+   COMPARISON GRID SYSTEM (Standardized)
+   ========================================= */
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.step-list {
+    list-style: none;
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.step-list li {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.step-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--text-muted);
+    font-weight: bold;
+}
+
+.school-header {
+    color: #ef4444;
+    /* Trap Red */
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.practix-header {
+    color: #10b981;
+    /* Shortcut Green */
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+    .comparison-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+}
+
+/* 
+ * CRITICAL MOBILE FIXES (Desmos Split-Screen & General) 
+ * Added via styles.css to ensure loading before JS injection 
+ */
+@media (max-width: 1024px) {
+
+    /* Force 1-column layout for distractors on ALL mobile/tablet screens */
+    .sat-option-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        margin-bottom: 2rem !important;
+    }
+
+    .sat-option {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        min-width: 0 !important;
+        /* Fix flex overflow */
+    }
+
+    /* TYPOGRAPHY FIXES */
+    .sat-problem-header h2 {
+        font-size: 1.5rem !important;
+        /* Smaller header */
+        word-break: break-word !important;
+        /* Prevent overflow */
+        overflow-wrap: break-word !important;
+        line-height: 1.2 !important;
+    }
+
+    .sat-problem-header span {
+        font-size: 1rem !important;
+        /* Smaller tag */
+        display: block !important;
+        /* Stack tag if needed */
+        margin-bottom: 0.5rem !important;
+    }
+
+    /* Fix Red Button Overlap & Visibility */
+    .practix-reveal {
+        position: relative !important;
+        z-index: 100 !important;
+        margin-top: 20px !important;
+        margin-bottom: 2rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-shadow: none !important;
+    }
+
+    /* Ensure content area allows scrolling past the button */
+    .main-stage,
+    .stage-content-scroll {
+        padding-bottom: 2rem !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    /* Fix potential cut-off */
+    .sat-problem-card,
+    .question-card {
+        padding: 1.5rem 0.15rem !important;
+        /* Reclaim every possible pixel */
+        width: 100% !important;
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Ensure inner boxes don't add too much padding either */
+    .problem-box,
+    .solution-box,
+    .solution-content {
+        padding-left: 0.3rem !important;
+        padding-right: 0.3rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* SOLUTION STEPS: No horizontal scrolling for the whole line */
+    .step-list li,
+    .solution-content p {
+        overflow-x: visible !important;
+        /* Prevent label from scrolling away */
+        white-space: normal !important;
+        /* Allow natural wrapping */
+        display: block !important;
+        width: 100% !important;
+        word-break: normal !important;
+        /* REVERT: Don't break words like "there" awkwardly */
+        overflow-wrap: break-word !important;
+        /* Safety net only */
+        padding-bottom: 8px !important;
+    }
+
+    /* EQUATION BASELINE FIX: Remove drop, keep full width */
+    mjx-container,
+    .MathJax {
+        display: inline-block !important;
+        vertical-align: baseline !important;
+        /* RESTORE: Fix "11x" drop */
+        margin: 0.3rem 0 !important;
+        max-width: 100% !important;
+
+        /* Allow internal wrapping for long equations like "10 - 23" */
+        white-space: normal !important;
+
+        overflow-x: auto !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+    }
+
+    /* Force the break before equation on mobile */
+    mjx-container::before {
+        content: "\A";
+        white-space: pre;
+        display: block;
+        height: 0;
+        margin-top: 5px;
+    }
+
+    mjx-container::-webkit-scrollbar,
+    .MathJax::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    /* Fix Overlap: Move Difficulty Rating to relative position on narrow screens */
+    .difficulty-rating {
+        position: relative !important;
+        top: 0 !important;
+        right: 0 !important;
+        margin: 0.5rem 0 1rem 0 !important;
+        display: block !important;
+    }
+
+    /* Force text wrapping in solution headers */
+    .school-header,
+    .practix-header {
+        white-space: normal !important;
+        word-break: break-word !important;
+    }
+
+    /* Comparison Grid Mobile Reset */
+    .comparison-grid {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
+}
+
+/* 
+ * FINAL MOBILE OVERRIDES (Typography & Layout)
+ * Ensuring all elements fit within 100vw and text doesn't overflow 
+ */
+@media (max-width: 1024px) {
+
+    /* Typography Scalling */
+    .sat-problem-header h2 {
+        font-size: 1.5rem !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.3 !important;
+    }
+
+    .sat-problem-header span {
+        font-size: 0.9rem !important;
+        display: block !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    /* Distractor Safety */
+    .sat-option {
+        width: 100% !important;
+        min-width: 0 !important;
+        /* Fix flex overflow */
+    }
+
+    /* Hide Try It Toggle in Split Screen just in case JS fails */
+    body.desmos-split-active #calcToggle,
+    body.desmos-split-active .calc-toggle {
+        display: none !important;
+    }
+}
+
+/* 
+ * FINAL POLISH FOR MOBILE (User Request 2026-02-07)
+ * Remove "Try It", fix font sizes, reclaim horizontal space.
+ */
+@media (max-width: 1024px) {
+
+    /* 1. Hide Calculator Buttons & "Try It" */
+    .try-it-btn,
+    #calcToggle,
+    .calculator-toggle-btn {
+        display: none !important;
+    }
+
+    /* 2. Optimize Spacing (Reclaim Green/Blue Box Space) */
+    .technique-section {
+        padding: 0.75rem !important;
+        /* Was 2.5rem */
+        border-left-width: 2px !important;
+        /* Was 4px */
+        border-radius: 8px !important;
+    }
+
+    .sat-problem-card {
+        padding: 1rem !important;
+        border: 1px solid #e2e8f0 !important;
+        /* Reduce thick borders */
+    }
+
+    /* 3. Typography Tuning */
+    /* Target the H3 directly ("Form 1: Regression Hack") */
+    h3.sat-problem-header {
+        font-size: 1rem !important;
+        /* User wants it small */
+        line-height: 1.3 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        /* Stack tag above text */
+        align-items: flex-start !important;
+        gap: 0.25rem !important;
+    }
+
+    /* The "slope-intercept" tag */
+    h3.sat-problem-header span {
+        font-size: 0.85rem !important;
+        /* Small tag */
+        padding: 0.25rem 0.5rem !important;
+        display: inline-block !important;
+        margin-right: 0 !important;
+    }
+
+    /* Hide Copy button in header on mobile to prevent clutter */
+    h3.sat-problem-header .btn-copy {
+        display: none !important;
+    }
+}
+
+/* 
+ * FIX FLOATING CONTENT & TYPOS (User Request 2026-02-07 Analysis)
+ * Ensure solution pane flows with document, doesn't float.
+ */
+@media (max-width: 1024px) {
+
+    .practix-reveal,
+    .practix-reveal[open],
+    .solution-content {
+        position: relative !important;
+        transform: none !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        margin-top: 1rem !important;
+        z-index: 10 !important;
+    }
+}
+
+/* 
+ * FINAL FIX FOR FLOATING CONTENT (Sticky Removal)
+ * Force static/relative flow on mobile to prevent detachment.
+ */
+@media (max-width: 1024px) {
+
+    .practix-reveal,
+    .practix-reveal summary,
+    .practix-reveal[open] summary,
+    .solution-content {
+        position: relative !important;
+        /* Override sticky/fixed */
+        top: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        z-index: 1 !important;
+        /* Low z-index */
+    }
+}
+
+/* 
+ * EMERGENCY VISIBILITY FIX (User Request 2026-02-07 20:23)
+ * Restore visibility of solution content with high z-index.
+ */
+@media (max-width: 1024px) {
+
+    .practix-reveal,
+    .practix-reveal summary,
+    .practix-reveal[open] summary,
+    .solution-content {
+        position: relative !important;
+        z-index: 9999 !important;
+        /* Force on top */
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* Ensure styles like background persist and aren't transparent */
+    .solution-content {
+        background-color: #f0fdf4 !important;
+    }
+
+    /* Ensure parents don't clip */
+    .technique-section,
+    .sat-problem-card {
+        z-index: auto !important;
+        overflow: visible !important;
+    }
+}
+
+/* 
+ * MOBILE TYPOGRAPHY POLISH (User Request 2026-02-07 21:10)
+ * Aggressively reduce header sizes to reclaim vertical space.
+ */
+@media (max-width: 1024px) {
+
+    h1,
+    .display-1,
+    .display-2,
+    .display-3,
+    .hero-split-fullscreen h1 {
+        font-size: 1.75rem !important;
+        /* Reduced from ~3-4rem */
+        line-height: 1.2 !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    /* Target the specific "Linear Equations Mastery" title if it uses specific classes */
+    .hero-text-content h1 {
+        font-size: 1.6rem !important;
+    }
+
+    h2,
+    .sat-problem-header h2 {
+        font-size: 1.3rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    h3,
+    .sat-problem-header {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    .sat-problem-header span {
+        font-size: 0.85rem !important;
+        margin-bottom: 0.1rem !important;
+    }
+
+    /* Compress Hero Section Padding */
+    .hero-text-container {
+        padding: 1rem 5% 0 5% !important;
+        /* Remove bottom padding */
+        margin-bottom: 0 !important;
+    }
+
+    .hero-split-fullscreen {
+        min-height: auto !important;
+        margin-bottom: 1rem !important;
+        display: block !important;
+    }
+
+    .hero-split-fullscreen p {
+        font-size: 1rem !important;
+        margin-bottom: 1rem !important;
+        line-height: 1.4 !important;
+    }
+}
+
+/* 
+ * MOBILE HIERARCHY RESTORATION (User Request 2026-02-07 21:19)
+ * Fix: Title must be larger than Tag (span).
+ */
+@media (max-width: 1024px) {
+    .sat-problem-header {
+        font-size: 1.25rem !important;
+        /* Title: Larger (was 1.1rem) */
+        line-height: 1.3 !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .sat-problem-header span {
+        font-size: 0.75rem !important;
+        /* Tag: Smaller (was 0.85rem) */
+        text-transform: uppercase !important;
+        letter-spacing: 0.05em !important;
+        display: block !important;
+        opacity: 0.85 !important;
+        margin-bottom: 0.2rem !important;
+        line-height: 1.1 !important;
+        color: var(--accent-primary) !important;
+    }
+}
+
+/* 
+ * FINAL FINAL HIERARCHY FIX (User Request 2026-02-07 21:23)
+ * Absolute forced hierarchy: Title (1.35rem) > Tag (0.7rem)
+ */
+@media (max-width: 1024px) {
+    .sat-problem-header {
+        font-size: 1.35rem !important;
+        margin-bottom: 0.5rem !important;
+        line-height: 1.25 !important;
+        font-weight: 800 !important;
+        /* Extra bold */
+    }
+
+    .sat-problem-header span {
+        font-size: 0.75rem !important;
+        line-height: 1 !important;
+        margin-bottom: 0.25rem !important;
+        opacity: 0.8 !important;
+        font-weight: 600 !important;
+        /* Lighter than title */
+    }
+}
+
+/* 
+ * NUCLEAR HIERARCHY FIX (User Request 2026-02-07 21:28)
+ * Specificity Nuke: High-specificity selectors to override EVERYTHING.
+ */
+@media (max-width: 1024px) {
+
+    /* Title: Huge and Bold */
+    div.sat-problem-card h3.sat-problem-header,
+    div.sat-problem-card .sat-problem-header {
+        font-size: 1.5rem !important;
+        line-height: 1.2 !important;
+        font-weight: 900 !important;
+        color: var(--text-primary) !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    /* Tag: Tiny and Lighter */
+    div.sat-problem-card h3.sat-problem-header span,
+    div.sat-problem-card .sat-problem-header span {
+        font-size: 0.7rem !important;
+        line-height: 1 !important;
+        font-weight: 600 !important;
+        opacity: 0.7 !important;
+        margin-bottom: 0.3rem !important;
+        display: block !important;
+        color: var(--accent-primary) !important;
+    }
+
+    /* PRACTICE CARD MOBILE FIXES */
+    .formula-card {
+        padding-top: 4.5rem !important;
+        /* Reclaim space for mastery checkbox */
+    }
+
+    .mastery-check-wrapper {
+        top: 0.75rem !important;
+        right: 0.75rem !important;
+        padding: 0.25rem 0.5rem !important;
+    }
+
+    /* Handle the 'Practice: What is...' text and 'New Problem' button */
+    .formula-card div[style*="justify-content: space-between"] {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+        align-items: flex-start !important;
+    }
+
+    .randomize-btn {
+        align-self: flex-end !important;
+        /* Push button to right if stacked */
+        margin-top: -0.5rem !important;
+    }
+
+    /* Fix Input and Check Answer Button overflow */
+    .formula-card div[style*="display: flex; gap: 0.8rem"] {
+        flex-wrap: wrap !important;
+        gap: 0.5rem !important;
+    }
+
+    .formula-card input[style*="flex: 1"] {
+        flex: 1 1 120px !important;
+        /* Allow shrinking but keep minimum base */
+        min-width: 0 !important;
+    }
+
+    .check-answer-btn {
+        flex: 1 1 auto !important;
+        width: 100% !important;
+        /* Stack button below on very narrow screens */
+        padding: 0.8rem !important;
+        text-align: center;
+    }
+
+    /* GLOBAL VIEWPORT FIX: Prevent content from being pushed off-screen by sidebar */
+    .course-content,
+    .main-container {
+        max-width: calc(100vw - 60px) !important;
+        /* Account for left rail */
+        box-sizing: border-box !important;
+    }
+
+    /* INDEX button safety */
+    .mobile-tree-toggle {
+        right: 15px !important;
+        bottom: 25px !important;
+    }
+
+    /* Close the Gaps */
+    .problem-box {
+        margin-bottom: 0.5rem !important;
+    }
+
+    .practix-reveal {
+        margin-top: 0.5rem !important;
+    }
+
+    /* Sat Problem Header Polish */
+    .sat-problem-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.4rem !important;
+    }
+}
+
+/* Final, definitive MathJax Shadow Kill & Punctuation Glue */
+mjx-container,
+mjx-container[scrollable="true"],
+.MathJax {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
+
+    /* Ensure punctuation glue applies globally */
+    display: inline-block !important;
+    vertical-align: middle !important;
+    max-width: calc(100% - 3ch) !important;
+
+    /* Global scrollbar hide */
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+mjx-container::-webkit-scrollbar,
+.MathJax::-webkit-scrollbar {
+    display: none !important;
+}

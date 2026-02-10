@@ -2614,28 +2614,34 @@ body.mobile-active .narrow-rail {
     /* CRITICAL: Force MathJax/steps to scroll horizontally if too wide */
     .step-list li,
     .solution-content p {
-        overflow-x: visible !important;
+        overflow-x: auto !important;
         white-space: normal !important;
-        /* Allow label to wrap, equation to drop down */
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
+        /* Allow description to wrap */
         display: block !important;
         width: 100% !important;
         -webkit-overflow-scrolling: touch;
+        padding-bottom: 5px;
     }
 
     /* Revert MathJax to inline-block to keep punctuation attached */
     /* FORCE MATHJAX TO NEW LINE: Give it 100% width and block display */
+    /* GLUE PUNCTUATION: Keep equation and trailing dot together */
     mjx-container,
     .MathJax {
-        display: block !important;
-        /* Force to next line after colon */
-        margin: 0.75rem 0 !important;
+        display: inline-block !important;
+        vertical-align: middle !important;
+        margin: 0.5rem 0 !important;
+        max-width: 92% !important;
+        /* Leave room for punctuation to skip newline */
         overflow-x: auto !important;
-        /* Only the equation scrolls if needed */
-        max-width: 100% !important;
-        padding-bottom: 8px;
         -webkit-overflow-scrolling: touch;
+    }
+
+    /* Trick to force break BEFORE equation if it doesn't fit */
+    mjx-container::before {
+        content: "";
+        display: block;
+        height: 0;
     }
 
     /* Force text wrapping in solution headers */

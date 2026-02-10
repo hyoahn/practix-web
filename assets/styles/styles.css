@@ -2628,19 +2628,19 @@ body.mobile-active .narrow-rail {
         /* Allow natural wrapping */
         display: block !important;
         width: 100% !important;
-        word-break: break-word !important;
-        /* FORCE break if word is too long */
+        word-break: normal !important;
+        /* REVERT: Don't break words like "there" awkwardly */
         overflow-wrap: break-word !important;
-        /* Standard property for "there" */
+        /* Safety net only */
         padding-bottom: 8px !important;
     }
 
-    /* EQUATION CLEAN BREAK & INTERNAL WRAP: Force to next line, allow internal break */
+    /* EQUATION BASELINE FIX: Remove drop, keep full width */
     mjx-container,
     .MathJax {
         display: inline-block !important;
-        /* Keep punctuation on same line */
-        vertical-align: middle !important;
+        vertical-align: baseline !important;
+        /* RESTORE: Fix "11x" drop */
         margin: 0.3rem 0 !important;
         max-width: 100% !important;
 

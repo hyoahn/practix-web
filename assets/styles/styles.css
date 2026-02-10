@@ -2623,6 +2623,7 @@ body.mobile-active .narrow-rail {
     .step-list li,
     .solution-content p {
         overflow-x: visible !important;
+        /* Prevent label from scrolling away */
         white-space: normal !important;
         display: block !important;
         width: 100% !important;
@@ -2630,26 +2631,30 @@ body.mobile-active .narrow-rail {
         padding-bottom: 8px !important;
     }
 
-    /* MATHJAX: Force to new line to prevent labels from pushing it out */
+    /* PERMANENT PUNCTUATION GLUE: Keep equation and trailing dot together */
     mjx-container,
     .MathJax {
-        display: block !important;
-        /* Force to its own line */
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0.5rem 0 !important;
+        display: inline-block !important;
+        /* Keep punctuation on same line */
+        vertical-align: middle !important;
+        margin: 0.5rem 0.1rem !important;
+
+        /* RESERVE ROOM: 2ch is enough for ".", ",", "?", ": " */
+        max-width: calc(100% - 2ch) !important;
+
         overflow-x: auto !important;
         background: transparent !important;
         box-shadow: none !important;
         -webkit-overflow-scrolling: touch;
-        /* Hide scrollbar to prevent "gray box" (scroll track) shadow */
+
+        /* Hide scrollbars to kill the "gray box" artifact */
         scrollbar-width: none;
         -ms-overflow-style: none;
     }
 
     mjx-container::-webkit-scrollbar,
     .MathJax::-webkit-scrollbar {
-        display: none;
+        display: none !important;
     }
 
     /* Trick to force break BEFORE equation if it doesn't fit */
@@ -3064,6 +3069,10 @@ mjx-container[scrollable="true"],
     border: none !important;
     outline: none !important;
     /* overflow handled in media query */
+
+    /* Global scrollbar hide */
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
 }
 
 mjx-container::-webkit-scrollbar,

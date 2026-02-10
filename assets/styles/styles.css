@@ -2631,11 +2631,11 @@ body.mobile-active .narrow-rail {
     .MathJax {
         display: inline-block !important;
         vertical-align: middle !important;
-        margin: 0.5rem 0 !important;
+        margin: 0.5rem 0.1rem !important;
         max-width: 92% !important;
-        /* Leave room for punctuation to skip newline */
         overflow-x: auto !important;
         -webkit-overflow-scrolling: touch;
+        background: transparent !important;
     }
 
     /* Trick to force break BEFORE equation if it doesn't fit */

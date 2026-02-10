@@ -3048,15 +3048,14 @@ body.mobile-active .narrow-rail {
     }
 }
 
-/* Fix for MathJax white space/background and "shadow" */
+/* Final, definitive MathJax Shadow Kill */
 mjx-container,
+mjx-container[scrollable="true"],
 .MathJax {
     background: transparent !important;
+    background-color: transparent !important;
     box-shadow: none !important;
     border: none !important;
     outline: none !important;
-}
-
-mjx-container[scrollable="true"] {
-    background: transparent !important;
+    overflow-x: visible !important;
 }

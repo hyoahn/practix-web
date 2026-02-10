@@ -2619,31 +2619,37 @@ body.mobile-active .narrow-rail {
         box-sizing: border-box !important;
     }
 
-    /* CRITICAL: Force MathJax/steps to scroll horizontally if too wide */
-    /* Fix Punctuation Orphans & Equation Cutoff */
+    /* SOLUTION STEPS: No horizontal scrolling for the whole line */
     .step-list li,
     .solution-content p {
-        overflow-x: auto !important;
+        overflow-x: visible !important;
         white-space: normal !important;
-        /* Allow label text to wrap */
         display: block !important;
         width: 100% !important;
-        padding-bottom: 5px !important;
-        -webkit-overflow-scrolling: touch;
+        word-break: break-word !important;
+        padding-bottom: 8px !important;
     }
 
-    /* Revert MathJax to inline-block to keep punctuation attached */
-    /* FORCE MATHJAX TO NEW LINE: Give it 100% width and block display */
-    /* GLUE PUNCTUATION: Keep equation and trailing dot together */
+    /* MATHJAX: Force to new line to prevent labels from pushing it out */
     mjx-container,
     .MathJax {
-        display: inline-block !important;
-        vertical-align: middle !important;
-        margin: 0.5rem 0.1rem !important;
-        max-width: 92% !important;
-        overflow-x: visible !important;
-        -webkit-overflow-scrolling: touch;
+        display: block !important;
+        /* Force to its own line */
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0.5rem 0 !important;
+        overflow-x: auto !important;
         background: transparent !important;
+        box-shadow: none !important;
+        -webkit-overflow-scrolling: touch;
+        /* Hide scrollbar to prevent "gray box" (scroll track) shadow */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    mjx-container::-webkit-scrollbar,
+    .MathJax::-webkit-scrollbar {
+        display: none;
     }
 
     /* Trick to force break BEFORE equation if it doesn't fit */
@@ -3057,5 +3063,10 @@ mjx-container[scrollable="true"],
     box-shadow: none !important;
     border: none !important;
     outline: none !important;
-    overflow-x: visible !important;
+    /* overflow handled in media query */
+}
+
+mjx-container::-webkit-scrollbar,
+.MathJax::-webkit-scrollbar {
+    display: none !important;
 }

@@ -2629,10 +2629,13 @@ body.mobile-active .narrow-rail {
         display: block !important;
         width: 100% !important;
         word-break: break-word !important;
+        /* FORCE break if word is too long */
+        overflow-wrap: break-word !important;
+        /* Standard property for "there" */
         padding-bottom: 8px !important;
     }
 
-    /* EQUATION CLEAN BREAK: Force to next line but keep dot attached */
+    /* EQUATION CLEAN BREAK & INTERNAL WRAP: Force to next line, allow internal break */
     mjx-container,
     .MathJax {
         display: inline-block !important;
@@ -2640,6 +2643,10 @@ body.mobile-active .narrow-rail {
         vertical-align: middle !important;
         margin: 0.3rem 0 !important;
         max-width: 100% !important;
+
+        /* Allow internal wrapping for long equations like "10 - 23" */
+        white-space: normal !important;
+
         overflow-x: auto !important;
         background: transparent !important;
         box-shadow: none !important;

@@ -2637,10 +2637,11 @@ body.mobile-active .narrow-rail {
         display: inline-block !important;
         /* Keep punctuation on same line */
         vertical-align: middle !important;
-        margin: 0.5rem 0.1rem !important;
+        margin: 0.5rem 0 !important;
+        /* Reclaimed 0.1rem margin */
 
-        /* RESERVE ROOM: 2ch is enough for ".", ",", "?", ": " */
-        max-width: calc(100% - 2ch) !important;
+        /* INCREASED ROOM: 3ch ensures room for ".", "?", ": " even with scaling */
+        max-width: calc(100% - 3ch) !important;
 
         overflow-x: auto !important;
         background: transparent !important;
@@ -2648,8 +2649,8 @@ body.mobile-active .narrow-rail {
         -webkit-overflow-scrolling: touch;
 
         /* Hide scrollbars to kill the "gray box" artifact */
-        scrollbar-width: none;
-        -ms-overflow-style: none;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
     }
 
     mjx-container::-webkit-scrollbar,
@@ -3059,7 +3060,7 @@ body.mobile-active .narrow-rail {
     }
 }
 
-/* Final, definitive MathJax Shadow Kill */
+/* Final, definitive MathJax Shadow Kill & Punctuation Glue */
 mjx-container,
 mjx-container[scrollable="true"],
 .MathJax {
@@ -3068,7 +3069,11 @@ mjx-container[scrollable="true"],
     box-shadow: none !important;
     border: none !important;
     outline: none !important;
-    /* overflow handled in media query */
+
+    /* Ensure punctuation glue applies globally */
+    display: inline-block !important;
+    vertical-align: middle !important;
+    max-width: calc(100% - 3ch) !important;
 
     /* Global scrollbar hide */
     scrollbar-width: none !important;

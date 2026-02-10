@@ -3032,4 +3032,34 @@ body.mobile-active .narrow-rail {
         right: 15px !important;
         bottom: 25px !important;
     }
+
+    /* Close the Gaps */
+    .problem-box {
+        margin-bottom: 0.5rem !important;
+    }
+
+    .practix-reveal {
+        margin-top: 0.5rem !important;
+    }
+
+    /* Sat Problem Header Polish */
+    .sat-problem-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.4rem !important;
+    }
+}
+
+/* Fix for MathJax white space/background and "shadow" */
+mjx-container,
+.MathJax {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
+}
+
+mjx-container[scrollable="true"] {
+    background: transparent !important;
+}
 }

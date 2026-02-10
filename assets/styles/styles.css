@@ -2632,38 +2632,34 @@ body.mobile-active .narrow-rail {
         padding-bottom: 8px !important;
     }
 
-    /* PERMANENT PUNCTUATION GLUE: Keep equation and trailing dot together */
+    /* EQUATION CLEAN BREAK: Force to next line but keep dot attached */
     mjx-container,
     .MathJax {
         display: inline-block !important;
         /* Keep punctuation on same line */
         vertical-align: middle !important;
-        margin: 0.5rem 0 !important;
-        /* Reclaimed 0.1rem margin */
-
-        /* INCREASED ROOM: 3ch ensures room for ".", "?", ": " even with scaling */
-        max-width: calc(100% - 3ch) !important;
-
+        margin: 0.3rem 0 !important;
+        max-width: 100% !important;
         overflow-x: auto !important;
         background: transparent !important;
         box-shadow: none !important;
         -webkit-overflow-scrolling: touch;
-
-        /* Hide scrollbars to kill the "gray box" artifact */
         scrollbar-width: none !important;
         -ms-overflow-style: none !important;
+    }
+
+    /* Force the break before equation on mobile */
+    mjx-container::before {
+        content: "\A";
+        white-space: pre;
+        display: block;
+        height: 0;
+        margin-top: 5px;
     }
 
     mjx-container::-webkit-scrollbar,
     .MathJax::-webkit-scrollbar {
         display: none !important;
-    }
-
-    /* Trick to force break BEFORE equation if it doesn't fit */
-    mjx-container::before {
-        content: "";
-        display: block;
-        height: 0;
     }
 
     /* Fix Overlap: Move Difficulty Rating to relative position on narrow screens */

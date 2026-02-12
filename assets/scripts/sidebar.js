@@ -470,7 +470,10 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const activeId = getActiveId();
-        const isMobile = window.innerWidth <= 1024 || window.matchMedia('(max-width: 1024px)').matches;
+        // Mobile Threshold: 1280px OR Touch Device
+        const isMobile = window.innerWidth <= 1280 ||
+            window.matchMedia('(max-width: 1280px)').matches ||
+            window.matchMedia('(pointer: coarse)').matches;
 
         railContainer.innerHTML = NAV_ITEMS.map(item => {
             const href = item.path ? `${basePath}${item.path}` : `${basePath}index.html`;

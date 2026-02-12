@@ -69,8 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // On mobile, we use the Rail + Side Panel architecture.
     // We strictly prevent the Top Nav from entering the DOM on mobile to avoid "zombie nav" issues.
     // 4. Robust Mobile Detection
+    // 4. Robust Mobile Detection (Expanded for iPad Pro / High-Res Tablets)
     const isMobile = () => {
-        return window.innerWidth <= 1024 || window.matchMedia('(max-width: 1024px)').matches;
+        return window.innerWidth <= 1280 ||
+            window.matchMedia('(max-width: 1280px)').matches ||
+            window.matchMedia('(pointer: coarse)').matches;
     };
 
     // 5. Inject into the page (ONLY ON DESKTOP)
@@ -87,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const style = document.createElement('style');
         style.id = 'practix-mobile-nav-blocker';
         style.textContent = `
-            @media (max-width: 1024px) {
+            @media (max-width: 1280px), (pointer: coarse) {
                 nav:not(.breadcrumb):not(.narrow-rail) { display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; }
                 body { padding-top: 0 !important; }
             }

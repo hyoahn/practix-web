@@ -81,7 +81,7 @@ body.mobile-active {
     z-index: 1010;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
     .narrow-rail {
         /* display: none !important; -> ENABLED FOR MOBILE NAVIGATION */
         width: 60px;
@@ -355,7 +355,7 @@ nav {
     transition: all 0.3s ease;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
     .hamburger {
         display: flex;
     }
@@ -432,7 +432,7 @@ nav {
     letter-spacing: 0.05em;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
     .mobile-tree-toggle {
         display: flex;
     }
@@ -580,7 +580,7 @@ h3 {
 }
 
 /* MOBILE TEXT RESET: Don't force full width on spans inside h2 */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
 
     /* MOBILE TEXT RESET: Don't force full width on spans inside h2 */
     .hero-text-container {
@@ -974,7 +974,7 @@ span {
     text-align: center;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
     .homepage-terminal-zone {
         padding: 4rem 1.5rem;
     }
@@ -1787,7 +1787,7 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 /* Show sidebar on Desktop/Tablet, hide only on Mobile */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
 
     /* NARROW RAIL (Mobile Hide) - Moved to top for global consistency */
     .narrow-rail {
@@ -2546,7 +2546,7 @@ body.mobile-active .narrow-rail {
     gap: 0.5rem;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
 
     /* CRITICAL: Hide Top Nav on Mobile */
     nav {
@@ -2563,7 +2563,7 @@ body.mobile-active .narrow-rail {
  * CRITICAL MOBILE FIXES (Desmos Split-Screen & General) 
  * Added via styles.css to ensure loading before JS injection 
  */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
 
     /* Force 1-column layout for distractors on ALL mobile/tablet screens */
     .sat-option-grid {
@@ -2712,7 +2712,7 @@ body.mobile-active .narrow-rail {
  * FINAL MOBILE OVERRIDES (Typography & Layout)
  * Ensuring all elements fit within 100vw and text doesn't overflow 
  */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
 
     /* Typography Scalling */
     .sat-problem-header h2 {
@@ -2746,7 +2746,7 @@ body.mobile-active .narrow-rail {
  * FINAL POLISH FOR MOBILE (User Request 2026-02-07)
  * Remove "Try It", fix font sizes, reclaim horizontal space.
  */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
 
     /* 1. Hide Calculator Buttons & "Try It" */
     .try-it-btn,
@@ -2802,7 +2802,7 @@ body.mobile-active .narrow-rail {
  * FIX FLOATING CONTENT & TYPOS (User Request 2026-02-07 Analysis)
  * Ensure solution pane flows with document, doesn't float.
  */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
 
     .practix-reveal,
     .practix-reveal[open],
@@ -2821,7 +2821,7 @@ body.mobile-active .narrow-rail {
  * FINAL FIX FOR FLOATING CONTENT (Sticky Removal)
  * Force static/relative flow on mobile to prevent detachment.
  */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
 
     .practix-reveal,
     .practix-reveal summary,
@@ -2841,7 +2841,7 @@ body.mobile-active .narrow-rail {
  * EMERGENCY VISIBILITY FIX (User Request 2026-02-07 20:23)
  * Restore visibility of solution content with high z-index.
  */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
 
     .practix-reveal,
     .practix-reveal summary,
@@ -2872,7 +2872,7 @@ body.mobile-active .narrow-rail {
  * MOBILE TYPOGRAPHY POLISH (User Request 2026-02-07 21:10)
  * Aggressively reduce header sizes to reclaim vertical space.
  */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
 
     h1,
     .display-1,
@@ -2931,7 +2931,7 @@ body.mobile-active .narrow-rail {
  * MOBILE HIERARCHY RESTORATION (User Request 2026-02-07 21:19)
  * Fix: Title must be larger than Tag (span).
  */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
     .sat-problem-header {
         font-size: 1.25rem !important;
         /* Title: Larger (was 1.1rem) */
@@ -2956,7 +2956,7 @@ body.mobile-active .narrow-rail {
  * FINAL FINAL HIERARCHY FIX (User Request 2026-02-07 21:23)
  * Absolute forced hierarchy: Title (1.35rem) > Tag (0.7rem)
  */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
     .sat-problem-header {
         font-size: 1.35rem !important;
         margin-bottom: 0.5rem !important;
@@ -2979,7 +2979,7 @@ body.mobile-active .narrow-rail {
  * NUCLEAR HIERARCHY FIX (User Request 2026-02-07 21:28)
  * Specificity Nuke: High-specificity selectors to override EVERYTHING.
  */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
 
     /* Title: Huge and Bold */
     div.sat-problem-card h3.sat-problem-header,
@@ -3103,7 +3103,7 @@ mjx-container[scrollable="true"],
  * NUCLEAR MOBILE OVERRIDES (2026-02-12)
  * Force-hide rail and lock viewport to prevent horizontal overflow.
  */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
 
     /* Algebra overflow fix: reduce math size slightly */
     mjx-container,

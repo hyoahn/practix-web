@@ -1110,15 +1110,7 @@ span {
         overflow: visible !important;
     }
 
-    /* Reposition HUD elements on mobile to avoid blocking hero's face */
-    .hud-circle-overlay {
-        top: auto !important;
-        bottom: 10% !important;
-        left: auto !important;
-        right: 10% !important;
-        transform: scale(0.6) !important;
-        /* Smaller on mobile, positioned bottom-right */
-    }
+    /* MOBILE: HUD elements repositioned below to avoid face blockage */
 
     .score-card {
         top: 10%;
@@ -1175,13 +1167,14 @@ span {
     }
 
     /* MOBILE: Move 1550+ to soft white space (Don't block face/head) */
-    /* CRITICAL: DO NOT MOVE WITHOUT USER COMMAND */
+    /* CRITICAL: DO NOT MOVE WITHOUT USER COMMAND - LOCKED AT TOP-LEFT */
     .hud-circle-overlay {
-        top: 30% !important;
+        top: 0% !important;
+        left: 0% !important;
         bottom: auto !important;
         right: auto !important;
-        left: 5% !important;
-        transform: scale(0.6) !important;
+        transform: scale(0.55) !important;
+        transform-origin: top left !important;
         z-index: 20 !important;
     }
 

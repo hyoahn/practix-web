@@ -3,6 +3,98 @@
  * Manages the multi-pillar navigation and instant search.
  */
 
+// FAST RAIL LOADER: Attempt to render rail immediately to avoid wait on heavy pages
+(function () {
+    let railRendered = false;
+
+    function fastRenderRail() {
+        if (railRendered) return;
+        const rail = document.getElementById('narrow-rail');
+        if (rail) {
+            // Check if we have the needed data (PILLARS are defined below, so we need to move them up or duplicate minimal logic)
+            // Actually, we can just use the renderRail logic if we hoist the config. 
+            // BUT: The config is inside DOMContentLoaded. 
+            // FIX: We will just trigger a custom event or use a simple interval to wait for the main logic to be ready? 
+            // NO, we want to render BEFORE main logic. 
+
+            // To do this properly without duplicating the huge PILLARS object, 
+            // we should rely on the fact that sidebar.js is loaded. 
+            // We will move the NAV_ITEMS definition and renderRail function OUT of DOMContentLoaded.
+
+            // However, rewriting the whole file is risky. 
+            // STRATEGY: We will just use a polling interval inside the main scope to trigger renderRail as soon as body exists.
+        }
+    }
+})();
+
+// MOVED OUTSIDE DOMContentLoaded to allow early access
+const NAV_ITEMS_GLOBAL = [
+    { id: 'home', name: 'Home', icon: '🏠', path: '', hasFlyout: false },
+    { id: 'app', name: 'App', icon: '🚀', path: 'app/', hasFlyout: false },
+    { id: 'math', name: 'Math', icon: '📐', path: 'math/', hasFlyout: true },
+    { id: 'formulas', name: 'Formulas', icon: 'Σ', path: 'formulas/', hasFlyout: true },
+    { id: 'hard-questions', name: 'Hardest Questions', icon: '☠️', path: 'hard-questions/', hasFlyout: true },
+    { id: 'desmos', name: 'Desmos', icon: 'y=', path: 'desmos/', hasFlyout: true },
+    { id: 'wallpapers', name: 'Wallpapers', icon: '📱', path: 'wallpapers/', hasFlyout: false },
+    { id: 'contact', name: 'About Us', icon: 'ℹ️', path: 'contact/', hasFlyout: false }
+];
+
+function globalRenderRail() {
+    const railContainer = document.getElementById('narrow-rail');
+    if (!railContainer || railContainer.hasChildNodes()) return; // Already rendered
+
+    const currentPath = window.location.pathname;
+
+    // Simple Active ID Logic for Fast Render
+    let activeId = 'home';
+    if (currentPath.includes('app/')) activeId = 'app';
+    else if (currentPath.includes('math/')) activeId = 'math';
+    else if (currentPath.includes('formulas/')) activeId = 'formulas';
+    else if (currentPath.includes('hard-questions/')) activeId = 'hard-questions';
+    else if (currentPath.includes('desmos/')) activeId = 'desmos';
+    else if (currentPath.includes('wallpapers/')) activeId = 'wallpapers';
+    else if (currentPath.includes('contact/')) activeId = 'contact';
+
+    // Determine Base Path
+    const pathSegments = currentPath.split('/').filter(s => s.length > 0);
+    const rootIndex = pathSegments.indexOf('_Sever');
+    let depth = 0;
+    if (rootIndex !== -1) {
+        const segmentsAfterRoot = pathSegments.slice(rootIndex + 1);
+        const hasFile = segmentsAfterRoot.length > 0 && segmentsAfterRoot[segmentsAfterRoot.length - 1].includes('.');
+        depth = hasFile ? segmentsAfterRoot.length - 1 : segmentsAfterRoot.length;
+    } else {
+        const hasFile = pathSegments.length > 0 && pathSegments[pathSegments.length - 1].includes('.');
+        depth = hasFile ? pathSegments.length - 1 : pathSegments.length;
+    }
+    const basePath = depth === 0 ? '' : '../'.repeat(depth);
+
+    const isMobile = window.innerWidth <= 1280;
+
+    railContainer.innerHTML = NAV_ITEMS_GLOBAL.map(item => {
+        const href = item.path ? `${basePath}${item.path}` : `${basePath}index.html`;
+        if (isMobile && item.hasFlyout) {
+            return `<button class="rail-item ${item.id === activeId ? 'active' : ''}" title="${item.name}" data-pillar="${item.id}" data-path="${item.path}">${item.icon}</button>`;
+        }
+        return `<a href="${href}" class="rail-item ${item.id === activeId ? 'active' : ''}" title="${item.name}" data-pillar="${item.id}">${item.icon}</a>`;
+    }).join('');
+
+    // Mark as rendered to prevent overwrite/flicker
+    railContainer.dataset.rendered = "true";
+}
+
+// IMMEDIATE POLL for Rail Container
+const railPoll = setInterval(() => {
+    const rail = document.getElementById('narrow-rail');
+    if (rail) {
+        globalRenderRail();
+        clearInterval(railPoll);
+    }
+}, 10);
+
+// Stop polling after 3 seconds to save resources
+setTimeout(() => clearInterval(railPoll), 3000);
+
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Determine the path depth (Robust for file:// and hosted)
     const currentPath = window.location.pathname;
@@ -312,8 +404,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebarTree = document.getElementById('sidebar-tree');
     const searchInput = document.getElementById('sidebar-search');
 
-    // RENDER RAIL FIRST - This must run on ALL pages including Home, App, Contact
-    // which don't have a sidebar-tree element
+    // RENDER RAIL (Redundant check, but safe)
+    if (!document.getElementById('narrow-rail')?.hasChildNodes()) {
+        renderRail();
+    }
+    // We still keep renderRail definition below for full functionality (flyouts etc) which might need re-binding.
+    // Actually, globalRenderRail handles basic HTML. The event listeners for Flyout need to be attached.
+    // So we should let renderRail run, but strictly to attach listeners if HTML exists? 
+    // Simplify: The main renderRail overwrites innerHTML. 
+    // We should update renderRail to NOT overwrite if already valid, just attach events.
     renderRail();
 
     // If no sidebar tree, exit early (Home, App, Contact pages)
@@ -447,53 +546,36 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderRail() {
         if (!railContainer) return;
 
-        // Global Navigation Rail - 8 Icons as specified by user
-        // hasFlyout: true means on mobile, clicking opens a flyout sidebar
-        const NAV_ITEMS = [
-            { id: 'home', name: 'Home', icon: '🏠', path: '', hasFlyout: false },
-            { id: 'app', name: 'App', icon: '🚀', path: 'app/', hasFlyout: false },
-            { id: 'math', name: 'Math', icon: '📐', path: 'math/', hasFlyout: true },
-            { id: 'formulas', name: 'Formulas', icon: 'Σ', path: 'formulas/', hasFlyout: true },
-            { id: 'hard-questions', name: 'Hardest Questions', icon: '☠️', path: 'hard-questions/', hasFlyout: true },
-            { id: 'desmos', name: 'Desmos', icon: 'y=', path: 'desmos/', hasFlyout: true },
-            { id: 'wallpapers', name: 'Wallpapers', icon: '📱', path: 'wallpapers/', hasFlyout: false },
-            { id: 'contact', name: 'About Us', icon: 'ℹ️', path: 'contact/', hasFlyout: false }
-        ];
-
-        // Determine active item based on current path
-        const getActiveId = () => {
-            if (currentPath === '/' || currentPath.endsWith('/index.html') && depth === 0) return 'home';
-            for (const item of NAV_ITEMS) {
-                if (item.path && currentPath.includes(item.path)) return item.id;
-            }
-            return 'home';
-        };
-
+        // Re-use logic for consistency
         const activeId = getActiveId();
-        // Mobile Threshold: 1280px OR Touch Device
         const isMobile = window.innerWidth <= 1280 ||
             window.matchMedia('(max-width: 1280px)').matches ||
             window.matchMedia('(pointer: coarse)').matches;
 
-        railContainer.innerHTML = NAV_ITEMS.map(item => {
-            const href = item.path ? `${basePath}${item.path}` : `${basePath}index.html`;
-            // On mobile, pillar items with flyout become buttons instead of links
-            if (isMobile && item.hasFlyout) {
+        // Only render HTML if not already done by fast loader
+        if (!railContainer.dataset.rendered) {
+            railContainer.innerHTML = NAV_ITEMS.map(item => {
+                const href = item.path ? `${basePath}${item.path}` : `${basePath}index.html`;
+                if (isMobile && item.hasFlyout) {
+                    return `
+                    <button class="rail-item ${item.id === activeId ? 'active' : ''}" 
+                            title="${item.name}" 
+                            data-pillar="${item.id}" 
+                            data-path="${item.path}">
+                        ${item.icon}
+                    </button>`;
+                }
                 return `
-                <button class="rail-item ${item.id === activeId ? 'active' : ''}" 
-                        title="${item.name}" 
-                        data-pillar="${item.id}" 
-                        data-path="${item.path}">
+                <a href="${href}" class="rail-item ${item.id === activeId ? 'active' : ''}" title="${item.name}" data-pillar="${item.id}">
                     ${item.icon}
-                </button>`;
-            }
-            return `
-            <a href="${href}" class="rail-item ${item.id === activeId ? 'active' : ''}" title="${item.name}" data-pillar="${item.id}">
-                ${item.icon}
-            </a>`;
-        }).join('');
+                </a>`;
+            }).join('');
+            railContainer.dataset.rendered = "true";
+        }
 
-        // Mobile flyout toggle behavior
+        // Always re-attach mobile flyout logic if needed (listeners don't persist via innerHTML but here we preserved it)
+        // If we preserved innerHTML, listeners attached by fast loader (none) are missing.
+        // So we MUST attach listeners now.
         if (isMobile) {
             initMobileFlyout(NAV_ITEMS);
         }

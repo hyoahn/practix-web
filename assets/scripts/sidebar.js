@@ -402,10 +402,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let isResizing = false;
 
-        // Restore saved width
-        const savedWidth = localStorage.getItem('practix_sidebar_width');
-        if (savedWidth) {
-            sidebar.style.width = savedWidth + 'px';
+        // Restore saved width (Desktop Only)
+        if (window.innerWidth > 1024) {
+            const savedWidth = localStorage.getItem('practix_sidebar_width');
+            if (savedWidth) {
+                sidebar.style.width = savedWidth + 'px';
+            }
+        } else {
+            // Mobile Failsafe: Always 60px
+            sidebar.style.width = '60px';
         }
 
         handle.addEventListener('mousedown', (e) => {

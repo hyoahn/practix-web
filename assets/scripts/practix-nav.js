@@ -216,5 +216,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         }
+
+        // HOTFIX: Clear any legacy desktop sidebar width if on mobile
+        if (window.innerWidth <= 1024) {
+            localStorage.removeItem('practix_sidebar_width');
+        }
     }, 500);
 });

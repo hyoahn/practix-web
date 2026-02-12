@@ -81,6 +81,12 @@ body.mobile-active {
     z-index: 1010;
 }
 
+@media (max-width: 1024px) {
+    .narrow-rail {
+        display: none !important;
+    }
+}
+
 .rail-item {
     width: 42px;
     height: 42px;
@@ -2638,9 +2644,9 @@ body.mobile-active .narrow-rail {
     /* EQUATION BASELINE FIX: Remove drop, keep full width */
     mjx-container,
     .MathJax {
-        display: inline-block !important;
-        vertical-align: baseline !important;
-        /* RESTORE: Fix "11x" drop */
+        display: inline !important;
+        vertical-align: middle !important;
+        /* FIX: Ensure equations don't drop below text baseline */
         margin: 0.3rem 0 !important;
         max-width: 100% !important;
 
@@ -2655,13 +2661,9 @@ body.mobile-active .narrow-rail {
         -ms-overflow-style: none !important;
     }
 
-    /* Force the break before equation on mobile */
+    /* REMOVED: Forced break was causing text layout fractures on mobile */
     mjx-container::before {
-        content: "\A";
-        white-space: pre;
-        display: block;
-        height: 0;
-        margin-top: 5px;
+        display: none !important;
     }
 
     mjx-container::-webkit-scrollbar,
@@ -3087,4 +3089,6 @@ mjx-container[scrollable="true"],
 mjx-container::-webkit-scrollbar,
 .MathJax::-webkit-scrollbar {
     display: none !important;
-}/* Force Update Timestamp: Tue Feb 10 17:34:14 KST 2026 */
+}
+
+/* Force Update Timestamp: Tue Feb 10 17:34:14 KST 2026 */

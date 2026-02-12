@@ -69,7 +69,9 @@ function globalRenderRail() {
     }
     const basePath = depth === 0 ? '' : '../'.repeat(depth);
 
-    const isMobile = window.innerWidth <= 1280;
+    const isMobile = window.innerWidth <= 1280 ||
+        window.matchMedia('(max-width: 1280px)').matches ||
+        window.matchMedia('(pointer: coarse)').matches;
 
     railContainer.innerHTML = NAV_ITEMS_GLOBAL.map(item => {
         const href = item.path ? `${basePath}${item.path}` : `${basePath}index.html`;

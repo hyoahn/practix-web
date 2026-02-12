@@ -8,12 +8,14 @@
 (function () {
     try {
         const href = window.location.href.toLowerCase();
-        // Check for App Pillars
-        const isApp = href.includes('/hard-questions/') ||
-            href.includes('/formulas/') ||
-            href.includes('/desmos/') ||
-            href.includes('/math/') ||
-            href.includes('/cram/');
+        // Check for App Pillars (loose match to catch redirects/rewrites)
+        const isApp = href.includes('hard-questions') ||
+            href.includes('formulas') ||
+            href.includes('desmos') ||
+            href.includes('math') ||
+            href.includes('cram') ||
+            href.includes('algebra') || // Topic specific backup
+            href.includes('geometry'); // Topic specific backup
 
         if (isApp) {
             const style = document.createElement('style');

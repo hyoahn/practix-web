@@ -14,3 +14,7 @@ This session focused on resolving critical mobile layout issues on Practix.org, 
 - Consistent "Just Content" layout across all primary hubs.
 - Perfect text containment and visibility on narrow mobile viewports.
 - Enhanced homepage hero UX with clear focal points.
+
+## Strict Rules Established
+- **No Unprompted Layout Changes**: The AI is strictly forbidden from moving, resizing, or altering layout elements (like HUD badges) without an explicit user command.
+- **Subject Clearance**: All UI elements must strictly avoid overlapping focal points (faces, text) in hero imagery.

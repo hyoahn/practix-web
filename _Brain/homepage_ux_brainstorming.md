@@ -9,3 +9,6 @@
 - **Dynamic Masking**: Consider using CSS masks or SVG overlays that respond to image focal points to automatically position HUD labels.
 - **Theme-Aware HUDs**: Adjust badge colors and rings based on the underlying image contrast for maximum legibility.
 - **Standardization Purity**: Continue purging inline JS and legacy IDs as we move toward a fully componentized V4 structure.
+
+## Strict Operational Rules
+- **No Unprompted Changes**: ABSOLUTELY NO moving UI elements or altering the creative layout without a direct user command. The AI must respect the fixed positions established by the designer.

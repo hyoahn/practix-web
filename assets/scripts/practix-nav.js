@@ -14,6 +14,8 @@
             href.includes('desmos') ||
             href.includes('math') ||
             href.includes('cram') ||
+            href.includes('app') ||
+            href.includes('wallpapers') ||
             href.includes('algebra') || // Topic specific backup
             href.includes('geometry'); // Topic specific backup
 
@@ -41,7 +43,7 @@
                 /* 4. ADJUST BODY PADDING */
                 body { 
                     padding-top: 0 !important; 
-                    padding-left: 60px !important; /* Make room for rail */
+                    padding-left: 72px !important; /* Make room for rail + buffer */
                 }
             `;
             // Safe to append to head/documentElement even before body exists

@@ -40,10 +40,13 @@
                 /* 3. HIDE DESKTOP SIDEBAR (Prevent overlap/duplication) */
                 .command-sidebar { display: none !important; }
 
-                /* 4. ADJUST BODY PADDING */
-                body { 
+                /* 4. ADJUST BODY PADDING (Higher specificity to beat styles.v4.css) */
+                body.content-page, body { 
                     padding-top: 0 !important; 
-                    padding-left: 72px !important; /* Make room for rail + buffer */
+                    padding-left: 80px !important; /* Make room for rail + buffer */
+                }
+                .page-container {
+                    padding-left: 0 !important;
                 }
             `;
             // Safe to append to head/documentElement even before body exists

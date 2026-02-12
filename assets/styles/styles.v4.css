@@ -1146,34 +1146,14 @@ span {
         /* Pull away from bezel significantly */
     }
 
-    /* Aggressive Ghost Bed Mask (Mobile Only) */
-    .hero-image-container::before {
-        display: block !important;
-        /* Force show on mobile */
-        content: "" !important;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 65%;
-        /* Tighter mask */
-        height: 100%;
-        /* Ultra-soft fade: hides bed pilllows without "white gap" look */
-        background: linear-gradient(to right,
-                rgba(255, 255, 255, 1) 0%,
-                rgba(255, 255, 255, 0.9) 20%,
-                rgba(255, 255, 255, 0) 100%);
-        z-index: 5;
-        pointer-events: none;
-    }
-
     /* MOBILE: Move 1550+ to soft white space (Don't block face/head) */
-    /* CRITICAL: DO NOT MOVE WITHOUT USER COMMAND - LOCKED AT TOP-LEFT */
+    /* CRITICAL: DO NOT MOVE WITHOUT USER COMMAND - LOCKED AT EXTREME TOP-LEFT */
     .hud-circle-overlay {
-        top: 0% !important;
-        left: 0% !important;
+        top: -10px !important;
+        left: -20px !important;
         bottom: auto !important;
         right: auto !important;
-        transform: scale(0.55) !important;
+        transform: scale(0.45) !important;
         transform-origin: top left !important;
         z-index: 20 !important;
     }

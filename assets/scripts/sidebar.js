@@ -547,6 +547,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!railContainer) return;
 
         // Re-use logic for consistency
+        const getActiveId = () => {
+            if (currentPath === '/' || currentPath.endsWith('/index.html') && depth === 0) return 'home';
+            for (const item of NAV_ITEMS_GLOBAL) {
+                if (item.path && currentPath.includes(item.path)) return item.id;
+            }
+            return 'home';
+        };
         const activeId = getActiveId();
         const isMobile = window.innerWidth <= 1280 ||
             window.matchMedia('(max-width: 1280px)').matches ||

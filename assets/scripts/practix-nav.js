@@ -78,11 +78,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. APPLIKE MODE DETECTION: If deeper in the app (pillars), disable Top Nav entirely.
     // The user wants a clean "App" feel for these sections, relying 100% on the Sidebar/Rail.
-    const isAppPage = currentPath.includes('/hard-questions/') ||
-        currentPath.includes('/formulas/') ||
-        currentPath.includes('/desmos/') ||
-        currentPath.includes('/math/') ||
-        currentPath.includes('/cram/');
+    // 5. APPLIKE MODE DETECTION: If deeper in the app (pillars), disable Top Nav entirely.
+    // We check for:
+    // A) URL path segments (hard-questions, formulas, desmos, math, cram)
+    // B) PRESENCE OF SIDEBAR (.command-sidebar) - This is the most robust check.
+    const currentPathLower = window.location.pathname.toLowerCase();
+    const isAppPage = currentPathLower.includes('/hard-questions/') ||
+        currentPathLower.includes('/formulas/') ||
+        currentPathLower.includes('/desmos/') ||
+        currentPathLower.includes('/math/') ||
+        currentPathLower.includes('/cram/') ||
+        document.querySelector('.command-sidebar') !== null;
 
     if (isAppPage) {
         // FORCE NO TOP NAV

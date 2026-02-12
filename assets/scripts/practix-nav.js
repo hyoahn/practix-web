@@ -19,8 +19,28 @@
             const style = document.createElement('style');
             style.id = 'practix-app-nav-blocker';
             style.textContent = `
+                /* 1. NUCLEAR NAV REMOVAL */
                 nav:not(.breadcrumb):not(.narrow-rail) { display: none !important; visibility: hidden !important; height: 0 !important; }
-                body { padding-top: 0 !important; }
+                
+                /* 2. FORCE RAIL VISIBILITY (The user's lifeline) */
+                .narrow-rail { 
+                    display: flex !important; 
+                    width: 60px !important; 
+                    z-index: 9999 !important;
+                    position: fixed !important;
+                    top: 0; left: 0; bottom: 0;
+                    background: white;
+                    border-right: 1px solid #e5e7eb;
+                }
+
+                /* 3. HIDE DESKTOP SIDEBAR (Prevent overlap/duplication) */
+                .command-sidebar { display: none !important; }
+
+                /* 4. ADJUST BODY PADDING */
+                body { 
+                    padding-top: 0 !important; 
+                    padding-left: 60px !important; /* Make room for rail */
+                }
             `;
             // Safe to append to head/documentElement even before body exists
             (document.head || document.documentElement).appendChild(style);

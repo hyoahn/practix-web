@@ -1147,14 +1147,14 @@ span {
     }
 
     /* MOBILE: Move 1550+ to soft white space (Don't block face/head) */
-    /* CRITICAL: DO NOT MOVE WITHOUT USER COMMAND - LOCKED AT EXTREME TOP-LEFT */
+    /* CRITICAL: DO NOT MOVE WITHOUT USER COMMAND - LOCKED POSITION */
     .hud-circle-overlay {
-        top: -10px !important;
-        left: -20px !important;
+        top: 15% !important;
+        left: 10% !important;
         bottom: auto !important;
         right: auto !important;
-        transform: scale(0.45) !important;
-        transform-origin: top left !important;
+        transform: scale(0.6) !important;
+        transform-origin: center center !important;
         z-index: 20 !important;
     }
 

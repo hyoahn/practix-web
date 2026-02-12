@@ -76,6 +76,34 @@ document.addEventListener('DOMContentLoaded', () => {
             window.matchMedia('(pointer: coarse)').matches;
     };
 
+    // 5. APPLIKE MODE DETECTION: If deeper in the app (pillars), disable Top Nav entirely.
+    // The user wants a clean "App" feel for these sections, relying 100% on the Sidebar/Rail.
+    const isAppPage = currentPath.includes('/hard-questions/') ||
+        currentPath.includes('/formulas/') ||
+        currentPath.includes('/desmos/') ||
+        currentPath.includes('/math/') ||
+        currentPath.includes('/cram/');
+
+    if (isAppPage) {
+        // FORCE NO TOP NAV
+        // 1. Ensure body has no top padding (in case specific styles add it)
+        document.body.style.paddingTop = '0px';
+
+        // 2. Remove any existing nav if present (e.g. from static HTML)
+        const existingNav = document.body.querySelector('nav:not(.breadcrumb):not(.narrow-rail)');
+        if (existingNav) existingNav.remove();
+
+        // 3. Inject a style to prevent future injection/layout issues
+        const appStyle = document.createElement('style');
+        appStyle.textContent = `
+            nav:not(.breadcrumb):not(.narrow-rail) { display: none !important; }
+            body { padding-top: 0 !important; }
+        `;
+        document.head.appendChild(appStyle);
+
+        return; // EXIT EARLY - DO NOT INJECT NAV
+    }
+
     // 5. Inject into the page (ONLY ON DESKTOP)
     if (!isMobile()) {
         const existingNav = document.body.querySelector('nav:not(.breadcrumb)');

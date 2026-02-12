@@ -1176,7 +1176,7 @@ span {
 
     /* MOBILE: Move 1550+ to LEFT (Don't block body) */
     .hud-circle-overlay {
-        top: 15% !important;
+        top: 5% !important;
         bottom: auto !important;
         right: auto !important;
         left: 5% !important;

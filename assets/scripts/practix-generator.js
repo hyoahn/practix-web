@@ -38,10 +38,17 @@ class PractixGenerator {
         document.querySelectorAll('[data-eqn-type]').forEach(el => {
             if (el.dataset.eqnType) types.add(el.dataset.eqnType);
         });
-        types.forEach(type => this.generate(type));
+
+        // Generate content for all types WITHOUT triggering individual MathJax behaviors
+        types.forEach(type => this.generate(type, false));
+
+        // Single MathJax pass at the end
+        if (window.MathJax) {
+            MathJax.typesetPromise();
+        }
     }
 
-    generate(type) {
+    generate(type, triggerMathJax = true) {
         let data = {};
 
         // --- QUADRATIC/PARABOLA MODULE ---
@@ -61,7 +68,7 @@ class PractixGenerator {
         if (feedback) { feedback.innerHTML = ''; }
 
         // Re-render MathJax
-        if (window.MathJax) {
+        if (triggerMathJax && window.MathJax) {
             MathJax.typesetPromise();
         }
     }

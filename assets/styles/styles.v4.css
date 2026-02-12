@@ -3146,6 +3146,12 @@ mjx-container::-webkit-scrollbar,
         gap: 1rem !important;
         padding: 0 !important;
     }
+
+    .comparison-grid>div {
+        min-width: 0 !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
 }
 
 /* Force Update Timestamp: Thu Feb 12 09:42:00 KST 2026 */

@@ -1771,20 +1771,9 @@ input[type=range]::-webkit-slider-runnable-track {
 /* Show sidebar on Desktop/Tablet, hide only on Mobile */
 @media (max-width: 1024px) {
 
+    /* NARROW RAIL (Mobile Hide) - Moved to top for global consistency */
     .narrow-rail {
-        display: flex !important;
-        position: fixed;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 60px;
-        z-index: 2000;
-        border-right: 1px solid var(--border);
-        background: white;
-        padding-top: 1rem;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
+        display: none !important;
     }
 
     /* Hide floating calculator button on mobile */
@@ -1801,8 +1790,8 @@ input[type=range]::-webkit-slider-runnable-track {
     body {
         padding-top: 0 !important;
         /* No top nav */
-        padding-left: 60px;
-        /* Make space for rail */
+        padding-left: 0 !important;
+        /* RECLAIM SPACE: No space for rail on mobile */
     }
 
     /* Hide Top Nav on Mobile */

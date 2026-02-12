@@ -68,7 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Inject into the page (ONLY ON DESKTOP)
     // On mobile, we use the Rail + Side Panel architecture.
     // We strictly prevent the Top Nav from entering the DOM on mobile to avoid "zombie nav" issues.
-    if (window.innerWidth > 1024) {
+    // 4. Robust Mobile Detection
+    const isMobile = () => {
+        return window.innerWidth <= 1024 || window.matchMedia('(max-width: 1024px)').matches;
+    };
+
+    // 5. Inject into the page (ONLY ON DESKTOP)
+    if (!isMobile()) {
         const existingNav = document.body.querySelector('nav:not(.breadcrumb)');
         if (existingNav) {
             existingNav.replaceWith(nav);
@@ -77,14 +83,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     } else {
         // NUCLEAR OPTION: If on mobile, ensure no rogue nav elements survive
+        // 1. Inject a style tag to FORCE hide navs immediately
+        const style = document.createElement('style');
+        style.id = 'practix-mobile-nav-blocker';
+        style.textContent = `
+            @media (max-width: 1024px) {
+                nav:not(.breadcrumb) { display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; }
+                body { padding-top: 0 !important; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // 2. Remove existing navs
         const existingNav = document.body.querySelector('nav:not(.breadcrumb)');
         if (existingNav) existingNav.remove();
 
-        // Watch for any attempts to inject it later
+        // 3. Watch for any attempts to inject it later
         const observer = new MutationObserver((mutations) => {
-            if (window.innerWidth <= 1024) {
+            if (isMobile()) {
                 const rogueNav = document.body.querySelector('nav:not(.breadcrumb)');
-                if (rogueNav) rogueNav.remove();
+                if (rogueNav) {
+                    console.log('Practix: Blocking rogue nav injection on mobile');
+                    rogueNav.remove();
+                }
             }
         });
         observer.observe(document.body, { childList: true, subtree: false });
@@ -218,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // HOTFIX: Clear any legacy desktop sidebar width if on mobile
-        if (window.innerWidth <= 1024) {
+        if (isMobile()) {
             localStorage.removeItem('practix_sidebar_width');
         }
     }, 500);

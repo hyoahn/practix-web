@@ -403,7 +403,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let isResizing = false;
 
         // Restore saved width (Desktop Only)
-        if (window.innerWidth > 1024) {
+        const isMobile = window.innerWidth <= 1024 || window.matchMedia('(max-width: 1024px)').matches;
+        if (!isMobile) {
             const savedWidth = localStorage.getItem('practix_sidebar_width');
             if (savedWidth) {
                 sidebar.style.width = savedWidth + 'px';
@@ -469,7 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const activeId = getActiveId();
-        const isMobile = window.innerWidth <= 1024;
+        const isMobile = window.innerWidth <= 1024 || window.matchMedia('(max-width: 1024px)').matches;
 
         railContainer.innerHTML = NAV_ITEMS.map(item => {
             const href = item.path ? `${basePath}${item.path}` : `${basePath}index.html`;

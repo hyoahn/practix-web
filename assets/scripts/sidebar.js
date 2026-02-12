@@ -554,7 +554,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Only render HTML if not already done by fast loader
         if (!railContainer.dataset.rendered) {
-            railContainer.innerHTML = NAV_ITEMS.map(item => {
+            railContainer.innerHTML = NAV_ITEMS_GLOBAL.map(item => {
                 const href = item.path ? `${basePath}${item.path}` : `${basePath}index.html`;
                 if (isMobile && item.hasFlyout) {
                     return `
@@ -577,7 +577,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // If we preserved innerHTML, listeners attached by fast loader (none) are missing.
         // So we MUST attach listeners now.
         if (isMobile) {
-            initMobileFlyout(NAV_ITEMS);
+            initMobileFlyout(NAV_ITEMS_GLOBAL);
         }
     }
 

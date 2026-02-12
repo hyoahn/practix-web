@@ -4,6 +4,32 @@
  * Handles relative paths automatically.
  */
 
+// IMMEDIATE NAV SUPPRESSION: Runs before DOMContentLoaded to prevent Flash of Nav
+(function () {
+    try {
+        const href = window.location.href.toLowerCase();
+        // Check for App Pillars
+        const isApp = href.includes('/hard-questions/') ||
+            href.includes('/formulas/') ||
+            href.includes('/desmos/') ||
+            href.includes('/math/') ||
+            href.includes('/cram/');
+
+        if (isApp) {
+            const style = document.createElement('style');
+            style.id = 'practix-app-nav-blocker';
+            style.textContent = `
+                nav:not(.breadcrumb):not(.narrow-rail) { display: none !important; visibility: hidden !important; height: 0 !important; }
+                body { padding-top: 0 !important; }
+            `;
+            // Safe to append to head/documentElement even before body exists
+            (document.head || document.documentElement).appendChild(style);
+        }
+    } catch (e) {
+        console.error('Practix Nav Blocker Error:', e);
+    }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Determine the path depth
     const currentPath = window.location.pathname;

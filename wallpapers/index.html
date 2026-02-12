@@ -153,10 +153,10 @@
     </style>
 </head>
 
-<body>
+<body class="content-page">
     <div class="page-bg"></div>
 
-    <!-- Top Nav will be injected here by practix-nav.js?v=30 -->
+    <!-- Top Nav will be injected here by practix-nav.js -->
 
     <div class="page-container">
         <!-- 1. NARROW RAIL -->
@@ -164,212 +164,197 @@
             <!-- JS will populate -->
         </aside>
 
-        <!-- 2. COMMAND SIDEBAR -->
-        <aside class="command-sidebar">
-            <div class="sidebar-search-container">
-                <span class="search-icon-fixed">🔍</span>
-                <input type="text" id="sidebar-search" class="sidebar-search-input" placeholder="Search shortcuts...">
-            </div>
-            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
-                <!-- JS will populate -->
-            </div>
-        </aside>
-
-        <!-- 3. MAIN STAGE -->
-        <main class="main-stage">
-            <div class="stage-content-scroll">
-                <header class="hero-section" style="margin-bottom: 2rem;">
-                    <div
-                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
-                        Passive Mastery Engine
-                    </div>
-                    <h1 style="font-size: 3rem; margin-bottom: 1rem;">The 800-Level <span class="gradient-text">Lock
-                            Screen</span></h1>
-                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 700px; line-height: 1.6;">
-                        You check your phone 100+ times a day. Turn those glances into points.
-                        Master formulas to unlock designer cheat sheets.
-                    </p>
-                </header>
-
-                <div class="mastery-progress-tracker" id="mastery-tracker">
-                    <div class="progress-circle-container">
-                        <svg width="80" height="80" viewBox="0 0 80 80">
-                            <circle cx="40" cy="40" r="36" fill="none" stroke="#e2e8f0" stroke-width="8"></circle>
-                            <circle id="progress-bar" cx="40" cy="40" r="36" fill="none" stroke="var(--accent-primary)"
-                                stroke-width="8" stroke-dasharray="226.2" stroke-dashoffset="226.2"
-                                stroke-linecap="round" style="transition: stroke-dashoffset 1s ease;"></circle>
-                        </svg>
-                        <div class="progress-text" id="mastery-pct">0</div>
-                    </div>
-                    <div class="progress-info">
-                        <h4 id="progress-heading">Elite Training Status</h4>
-                        <p id="progress-subtext">Master 5 formulas to unlock the Desmos pack.</p>
-                    </div>
-                </div>
-
-                <div class="wallpaper-grid">
-                    <!-- Card 1: Boss Mode (ALWAYS FREE) -->
-                    <article class="wallpaper-card" id="wall-boss">
-                        <div class="wallpaper-preview">
-                            <img src="../assets/images/wallpapers/wall_boss_mode.png" alt="Formulas Lockscreen"
-                                onerror="this.src='https://placehold.co/1080x1920/1e1e2e/6366f1?text=Generating...'">
-                        </div>
-                        <div class="wallpaper-info">
-                            <span class="wallpaper-tag">Essential formulas</span>
-                            <h3 class="wallpaper-title">The Boss Mode</h3>
-                            <p class="wallpaper-desc">The 5 hardest formulas (Discriminant, Vertex Form) in a clean,
-                                dark-mode aesthetic.</p>
-                            <a href="../assets/images/wallpapers/wall_boss_mode.png" download="Practix_Boss_Mode.png"
-                                id="btn-wall-boss" class="btn-primary wallpaper-dl-btn"
-                                style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
-                        </div>
-                    </article>
-
-                    <!-- Card 2: Desmos God (GATED - 5) -->
-                    <article class="wallpaper-card locked" id="wall-desmos">
-                        <div class="lock-overlay">
-                            <span style="font-size: 2rem; margin-bottom: 0.5rem;">🔒</span>
-                            <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Locked</span>
-                        </div>
-                        <div class="wallpaper-preview">
-                            <img src="../assets/images/wallpapers/wall_desmos.png" alt="Desmos Lockscreen"
-                                onerror="this.src='https://placehold.co/1080x1920/1e1e2e/6366f1?text=Generating...'">
-                        </div>
-                        <div class="wallpaper-info">
-                            <span class="wallpaper-tag">Calculator Hacks</span>
-                            <h3 class="wallpaper-title">Desmos God Mode</h3>
-                            <p class="wallpaper-desc">Regression codes, list syntax, and slider tricks. Don't memorize,
-                                just look.</p>
-                            <a href="../formulas/" id="btn-wall-desmos" class="btn-primary wallpaper-dl-btn"
-                                style="width: 100%; justify-content: center; text-decoration: none; background: rgba(99, 102, 241, 0.1); color: var(--accent-primary); border: 1px dashed var(--accent-primary);">Train
-                                to Unlock</a>
-                        </div>
-                    </article>
-
-                    <!-- Card 3: Trap Radar (GATED - 10) -->
-                    <article class="wallpaper-card locked" id="wall-trap">
-                        <div class="lock-overlay">
-                            <span style="font-size: 2rem; margin-bottom: 0.5rem;">🔒</span>
-                            <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Locked</span>
-                        </div>
-                        <div class="wallpaper-preview">
-                            <img src="../assets/images/wallpapers/wall_trap_radar.png" alt="Trap Radar Lockscreen"
-                                onerror="this.src='https://placehold.co/1080x1920/1e1e2e/6366f1?text=Generating...'">
-                        </div>
-                        <div class="wallpaper-info">
-                            <span class="wallpaper-tag">Error Prevention</span>
-                            <h3 class="wallpaper-title">The Trap Radar</h3>
-                            <p class="wallpaper-desc">Visual warnings for "Unit Mismatches" and "Zero/Negative"
-                                constraints.</p>
-                            <a href="../formulas/" id="btn-wall-trap" class="btn-primary wallpaper-dl-btn"
-                                style="width: 100%; justify-content: center; text-decoration: none; background: rgba(99, 102, 241, 0.1); color: var(--accent-primary); border: 1px dashed var(--accent-primary);">Train
-                                to Unlock</a>
-                        </div>
-                    </article>
-
-                    <!-- Card 4: Midnight Study (NEW) -->
-                    <article class="wallpaper-card" id="wall-midnight">
-                        <div class="wallpaper-preview">
-                            <img src="../assets/images/wallpapers/wall_midnight_study.png"
-                                alt="Midnight Study Lockscreen">
-                        </div>
-                        <div class="wallpaper-info">
-                            <span class="wallpaper-tag">Formula Zen</span>
-                            <h3 class="wallpaper-title">Midnight Study</h3>
-                            <p class="wallpaper-desc">Crystal-clear formulas floating in a quiet night sky.</p>
-                            <a href="../assets/images/wallpapers/wall_midnight_study.png"
-                                download="Practix_Midnight_Study.png" class="btn-primary wallpaper-dl-btn"
-                                style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
-                        </div>
-                    </article>
-
-                    <!-- Card 5: 800 Reflex (NEW) -->
-                    <article class="wallpaper-card" id="wall-800-reflex">
-                        <div class="wallpaper-preview">
-                            <img src="../assets/images/wallpapers/wall_800_reflex.png" alt="800 Reflex Lockscreen">
-                        </div>
-                        <div class="wallpaper-info">
-                            <span class="wallpaper-tag">Pro Motivation</span>
-                            <h3 class="wallpaper-title">800 Reflex</h3>
-                            <h3 class="wallpaper-title" style="display:none;">800 Reflex</h3>
-                            <p class="wallpaper-desc">High-tech HUD for the elite tier student. Target acquired.</p>
-                            <a href="../assets/images/wallpapers/wall_800_reflex.png" download="Practix_800_Reflex.png"
-                                class="btn-primary wallpaper-dl-btn"
-                                style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
-                        </div>
-                    </article>
-
-                    <!-- Card 6: Dream Ivy (NEW) -->
-                    <article class="wallpaper-card" id="wall-dream-ivy">
-                        <div class="wallpaper-preview">
-                            <img src="../assets/images/wallpapers/wall_dream_ivy.png" alt="Dream Ivy Lockscreen">
-                        </div>
-                        <div class="wallpaper-info">
-                            <span class="wallpaper-tag">Academic Aesthetic</span>
-                            <h3 class="wallpaper-title">Dream Ivy</h3>
-                            <p class="wallpaper-desc">The perfect study desk vibe with integrated math tips.</p>
-                            <a href="../assets/images/wallpapers/wall_dream_ivy.png" download="Practix_Dream_Ivy.png"
-                                class="btn-primary wallpaper-dl-btn"
-                                style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
-                        </div>
-                    </article>
-
-                    <!-- Card 7: Neon Focus (NEW) -->
-                    <article class="wallpaper-card" id="wall-neon">
-                        <div class="wallpaper-preview">
-                            <img src="../assets/images/wallpapers/wall_neon_focus.png" alt="Neon Focus Lockscreen">
-                        </div>
-                        <div class="wallpaper-info">
-                            <span class="wallpaper-tag">Cyber Mastery</span>
-                            <h3 class="wallpaper-title">Neon Focus</h3>
-                            <p class="wallpaper-desc">Electric neon math for those late-night grind sessions.</p>
-                            <a href="../assets/images/wallpapers/wall_neon_focus.png" download="Practix_Neon_Focus.png"
-                                class="btn-primary wallpaper-dl-btn"
-                                style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
-                        </div>
-                    </article>
-
-                    <!-- Card 8: Zen Mastery (NEW) -->
-                    <article class="wallpaper-card" id="wall-zen">
-                        <div class="wallpaper-preview">
-                            <img src="../assets/images/wallpapers/wall_zen_mastery.png" alt="Zen Mastery Lockscreen">
-                        </div>
-                        <div class="wallpaper-info">
-                            <span class="wallpaper-tag">Minimalist Focus</span>
-                            <h3 class="wallpaper-title">Zen Mastery</h3>
-                            <p class="wallpaper-desc">The ultimate clean lockscreen. One formula, total focus.</p>
-                            <a href="../assets/images/wallpapers/wall_zen_mastery.png"
-                                download="Practix_Zen_Mastery.png" class="btn-primary wallpaper-dl-btn"
-                                style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
-                        </div>
-                    </article>
-
-                    <!-- Card 9: Cheat Sheet Blue (NEW) -->
-                    <article class="wallpaper-card" id="wall-cheat-sheet">
-                        <div class="wallpaper-preview">
-                            <img src="../assets/images/wallpapers/wall_cheat_sheet_blue.png"
-                                alt="Cheat Sheet Lockscreen">
-                        </div>
-                        <div class="wallpaper-info">
-                            <span class="wallpaper-tag">Blueprint Guide</span>
-                            <h3 class="wallpaper-title">Cheat Sheet Blue</h3>
-                            <p class="wallpaper-desc">A professional technical guide for all your math needs.</p>
-                            <a href="../assets/images/wallpapers/wall_cheat_sheet_blue.png"
-                                download="Practix_Cheat_Sheet_Blue.png" class="btn-primary wallpaper-dl-btn"
-                                style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
-                        </div>
-                    </article>
-                </div>
-
+        <!-- 3. MAIN CONTENT -->
+        <main class="main-content">
+            <header class="hero-section" style="margin-bottom: 2rem;">
                 <div
-                    style="margin-top: 5rem; padding: 2rem; background: rgba(99, 102, 241, 0.05); border-radius: 16px; border: 1px dashed var(--accent-primary); text-align: center;">
-                    <h3 style="margin-bottom: 0.5rem; color: var(--accent-primary);">Want a Custom Build?</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Select your own 5 weak spots and
-                        generate a unique wallpaper.</p>
-                    <span
-                        style="display: inline-block; margin-top: 1rem; padding: 0.4rem 0.8rem; background: #e0e7ff; color: #4338ca; border-radius: 4px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em;">COMING
-                        SOON</span>
+                    style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                    Passive Mastery Engine
                 </div>
+                <h1 style="font-size: 3rem; margin-bottom: 1rem;">The 800-Level <span class="gradient-text">Lock
+                        Screen</span></h1>
+                <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 700px; line-height: 1.6;">
+                    You check your phone 100+ times a day. Turn those glances into points.
+                    Master formulas to unlock designer cheat sheets.
+                </p>
+            </header>
+
+            <div class="mastery-progress-tracker" id="mastery-tracker">
+                <div class="progress-circle-container">
+                    <svg width="80" height="80" viewBox="0 0 80 80">
+                        <circle cx="40" cy="40" r="36" fill="none" stroke="#e2e8f0" stroke-width="8"></circle>
+                        <circle id="progress-bar" cx="40" cy="40" r="36" fill="none" stroke="var(--accent-primary)"
+                            stroke-width="8" stroke-dasharray="226.2" stroke-dashoffset="226.2" stroke-linecap="round"
+                            style="transition: stroke-dashoffset 1s ease;"></circle>
+                    </svg>
+                    <div class="progress-text" id="mastery-pct">0</div>
+                </div>
+                <div class="progress-info">
+                    <h4 id="progress-heading">Elite Training Status</h4>
+                    <p id="progress-subtext">Master 5 formulas to unlock the Desmos pack.</p>
+                </div>
+            </div>
+
+            <div class="wallpaper-grid">
+                <!-- Card 1: Boss Mode (ALWAYS FREE) -->
+                <article class="wallpaper-card" id="wall-boss">
+                    <div class="wallpaper-preview">
+                        <img src="../assets/images/wallpapers/wall_boss_mode.png" alt="Formulas Lockscreen"
+                            onerror="this.src='https://placehold.co/1080x1920/1e1e2e/6366f1?text=Generating...'">
+                    </div>
+                    <div class="wallpaper-info">
+                        <span class="wallpaper-tag">Essential formulas</span>
+                        <h3 class="wallpaper-title">The Boss Mode</h3>
+                        <p class="wallpaper-desc">The 5 hardest formulas (Discriminant, Vertex Form) in a clean,
+                            dark-mode aesthetic.</p>
+                        <a href="../assets/images/wallpapers/wall_boss_mode.png" download="Practix_Boss_Mode.png"
+                            id="btn-wall-boss" class="btn-primary wallpaper-dl-btn"
+                            style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
+                    </div>
+                </article>
+
+                <!-- Card 2: Desmos God (GATED - 5) -->
+                <article class="wallpaper-card locked" id="wall-desmos">
+                    <div class="lock-overlay">
+                        <span style="font-size: 2rem; margin-bottom: 0.5rem;">🔒</span>
+                        <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Locked</span>
+                    </div>
+                    <div class="wallpaper-preview">
+                        <img src="../assets/images/wallpapers/wall_desmos.png" alt="Desmos Lockscreen"
+                            onerror="this.src='https://placehold.co/1080x1920/1e1e2e/6366f1?text=Generating...'">
+                    </div>
+                    <div class="wallpaper-info">
+                        <span class="wallpaper-tag">Calculator Hacks</span>
+                        <h3 class="wallpaper-title">Desmos God Mode</h3>
+                        <p class="wallpaper-desc">Regression codes, list syntax, and slider tricks. Don't memorize,
+                            just look.</p>
+                        <a href="../formulas/" id="btn-wall-desmos" class="btn-primary wallpaper-dl-btn"
+                            style="width: 100%; justify-content: center; text-decoration: none; background: rgba(99, 102, 241, 0.1); color: var(--accent-primary); border: 1px dashed var(--accent-primary);">Train
+                            to Unlock</a>
+                    </div>
+                </article>
+
+                <!-- Card 3: Trap Radar (GATED - 10) -->
+                <article class="wallpaper-card locked" id="wall-trap">
+                    <div class="lock-overlay">
+                        <span style="font-size: 2rem; margin-bottom: 0.5rem;">🔒</span>
+                        <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Locked</span>
+                    </div>
+                    <div class="wallpaper-preview">
+                        <img src="../assets/images/wallpapers/wall_trap_radar.png" alt="Trap Radar Lockscreen"
+                            onerror="this.src='https://placehold.co/1080x1920/1e1e2e/6366f1?text=Generating...'">
+                    </div>
+                    <div class="wallpaper-info">
+                        <span class="wallpaper-tag">Error Prevention</span>
+                        <h3 class="wallpaper-title">The Trap Radar</h3>
+                        <p class="wallpaper-desc">Visual warnings for "Unit Mismatches" and "Zero/Negative"
+                            constraints.</p>
+                        <a href="../formulas/" id="btn-wall-trap" class="btn-primary wallpaper-dl-btn"
+                            style="width: 100%; justify-content: center; text-decoration: none; background: rgba(99, 102, 241, 0.1); color: var(--accent-primary); border: 1px dashed var(--accent-primary);">Train
+                            to Unlock</a>
+                    </div>
+                </article>
+
+                <!-- Card 4: Midnight Study (NEW) -->
+                <article class="wallpaper-card" id="wall-midnight">
+                    <div class="wallpaper-preview">
+                        <img src="../assets/images/wallpapers/wall_midnight_study.png" alt="Midnight Study Lockscreen">
+                    </div>
+                    <div class="wallpaper-info">
+                        <span class="wallpaper-tag">Formula Zen</span>
+                        <h3 class="wallpaper-title">Midnight Study</h3>
+                        <p class="wallpaper-desc">Crystal-clear formulas floating in a quiet night sky.</p>
+                        <a href="../assets/images/wallpapers/wall_midnight_study.png"
+                            download="Practix_Midnight_Study.png" class="btn-primary wallpaper-dl-btn"
+                            style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
+                    </div>
+                </article>
+
+                <!-- Card 5: 800 Reflex (NEW) -->
+                <article class="wallpaper-card" id="wall-800-reflex">
+                    <div class="wallpaper-preview">
+                        <img src="../assets/images/wallpapers/wall_800_reflex.png" alt="800 Reflex Lockscreen">
+                    </div>
+                    <div class="wallpaper-info">
+                        <span class="wallpaper-tag">Pro Motivation</span>
+                        <h3 class="wallpaper-title">800 Reflex</h3>
+                        <h3 class="wallpaper-title" style="display:none;">800 Reflex</h3>
+                        <p class="wallpaper-desc">High-tech HUD for the elite tier student. Target acquired.</p>
+                        <a href="../assets/images/wallpapers/wall_800_reflex.png" download="Practix_800_Reflex.png"
+                            class="btn-primary wallpaper-dl-btn"
+                            style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
+                    </div>
+                </article>
+
+                <!-- Card 6: Dream Ivy (NEW) -->
+                <article class="wallpaper-card" id="wall-dream-ivy">
+                    <div class="wallpaper-preview">
+                        <img src="../assets/images/wallpapers/wall_dream_ivy.png" alt="Dream Ivy Lockscreen">
+                    </div>
+                    <div class="wallpaper-info">
+                        <span class="wallpaper-tag">Academic Aesthetic</span>
+                        <h3 class="wallpaper-title">Dream Ivy</h3>
+                        <p class="wallpaper-desc">The perfect study desk vibe with integrated math tips.</p>
+                        <a href="../assets/images/wallpapers/wall_dream_ivy.png" download="Practix_Dream_Ivy.png"
+                            class="btn-primary wallpaper-dl-btn"
+                            style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
+                    </div>
+                </article>
+
+                <!-- Card 7: Neon Focus (NEW) -->
+                <article class="wallpaper-card" id="wall-neon">
+                    <div class="wallpaper-preview">
+                        <img src="../assets/images/wallpapers/wall_neon_focus.png" alt="Neon Focus Lockscreen">
+                    </div>
+                    <div class="wallpaper-info">
+                        <span class="wallpaper-tag">Cyber Mastery</span>
+                        <h3 class="wallpaper-title">Neon Focus</h3>
+                        <p class="wallpaper-desc">Electric neon math for those late-night grind sessions.</p>
+                        <a href="../assets/images/wallpapers/wall_neon_focus.png" download="Practix_Neon_Focus.png"
+                            class="btn-primary wallpaper-dl-btn"
+                            style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
+                    </div>
+                </article>
+
+                <!-- Card 8: Zen Mastery (NEW) -->
+                <article class="wallpaper-card" id="wall-zen">
+                    <div class="wallpaper-preview">
+                        <img src="../assets/images/wallpapers/wall_zen_mastery.png" alt="Zen Mastery Lockscreen">
+                    </div>
+                    <div class="wallpaper-info">
+                        <span class="wallpaper-tag">Minimalist Focus</span>
+                        <h3 class="wallpaper-title">Zen Mastery</h3>
+                        <p class="wallpaper-desc">The ultimate clean lockscreen. One formula, total focus.</p>
+                        <a href="../assets/images/wallpapers/wall_zen_mastery.png" download="Practix_Zen_Mastery.png"
+                            class="btn-primary wallpaper-dl-btn"
+                            style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
+                    </div>
+                </article>
+
+                <!-- Card 9: Cheat Sheet Blue (NEW) -->
+                <article class="wallpaper-card" id="wall-cheat-sheet">
+                    <div class="wallpaper-preview">
+                        <img src="../assets/images/wallpapers/wall_cheat_sheet_blue.png" alt="Cheat Sheet Lockscreen">
+                    </div>
+                    <div class="wallpaper-info">
+                        <span class="wallpaper-tag">Blueprint Guide</span>
+                        <h3 class="wallpaper-title">Cheat Sheet Blue</h3>
+                        <p class="wallpaper-desc">A professional technical guide for all your math needs.</p>
+                        <a href="../assets/images/wallpapers/wall_cheat_sheet_blue.png"
+                            download="Practix_Cheat_Sheet_Blue.png" class="btn-primary wallpaper-dl-btn"
+                            style="width: 100%; justify-content: center; text-decoration: none;">Download Free</a>
+                    </div>
+                </article>
+            </div>
+
+            <div
+                style="margin-top: 5rem; padding: 2rem; background: rgba(99, 102, 241, 0.05); border-radius: 16px; border: 1px dashed var(--accent-primary); text-align: center;">
+                <h3 style="margin-bottom: 0.5rem; color: var(--accent-primary);">Want a Custom Build?</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">Select your own 5 weak spots and
+                    generate a unique wallpaper.</p>
+                <span
+                    style="display: inline-block; margin-top: 1rem; padding: 0.4rem 0.8rem; background: #e0e7ff; color: #4338ca; border-radius: 4px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em;">COMING
+                    SOON</span>
             </div>
         </main>
     </div>

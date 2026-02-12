@@ -88,6 +88,20 @@ const railPoll = setInterval(() => {
     const rail = document.getElementById('narrow-rail');
     if (rail) {
         globalRenderRail();
+
+        // IMMEDIATE INTERACTIVITY: Attach listeners now!
+        // Otherwise buttons are visible but dead until DOMContentLoaded (which is slow on Formulas)
+        const isMobile = window.innerWidth <= 1280 ||
+            window.matchMedia('(max-width: 1280px)').matches ||
+            window.matchMedia('(pointer: coarse)').matches;
+
+        if (isMobile) {
+            // We need to ensure initMobileFlyout is available. 
+            // It is defined below as function declaration, so it is hoisted!
+            // Safe to call here.
+            initMobileFlyout(NAV_ITEMS_GLOBAL);
+        }
+
         clearInterval(railPoll);
     }
 }, 10);

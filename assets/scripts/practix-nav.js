@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         style.id = 'practix-mobile-nav-blocker';
         style.textContent = `
             @media (max-width: 1024px) {
-                nav:not(.breadcrumb) { display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; }
+                nav:not(.breadcrumb):not(.narrow-rail) { display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; }
                 body { padding-top: 0 !important; }
             }
         `;

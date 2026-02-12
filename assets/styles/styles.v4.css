@@ -83,7 +83,25 @@ body.mobile-active {
 
 @media (max-width: 1024px) {
     .narrow-rail {
-        display: none !important;
+        /* display: none !important; -> ENABLED FOR MOBILE NAVIGATION */
+        width: 60px;
+        padding: 1rem 0;
+        z-index: 2000;
+        /* High z-index to sit above content */
+        background: white;
+        border-right: 1px solid var(--border);
+        position: fixed;
+        /* Stick to left */
+        top: 0;
+        left: 0;
+        height: 100vh;
+        display: flex;
+        /* Restore flex */
+    }
+
+    body {
+        padding-left: 60px;
+        /* Push content */
     }
 }
 

@@ -3075,16 +3075,17 @@ mjx-container[scrollable="true"],
     -ms-overflow-style: none !important;
 }
 
-mjx-container::-webkit-scrollbar,
-.MathJax::-webkit-scrollbar {
-    display: none !important;
-}
-
 /* 
  * NUCLEAR MOBILE OVERRIDES (2026-02-12)
  * Force-hide rail and lock viewport to prevent horizontal overflow.
  */
 @media (max-width: 1024px) {
+
+    /* Algebra overflow fix: reduce math size slightly */
+    mjx-container,
+    .MathJax {
+        font-size: 90% !important;
+    }
 
     .narrow-rail,
     #narrow-rail,

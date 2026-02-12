@@ -1174,14 +1174,14 @@ span {
         pointer-events: none;
     }
 
-    /* MOBILE: Move 1550+ to LEFT (Don't block body) */
+    /* MOBILE: Move 1550+ to extreme top-left (Don't block face) */
     .hud-circle-overlay {
-        top: 5% !important;
+        top: 2% !important;
         bottom: auto !important;
         right: auto !important;
-        left: 5% !important;
-        /* Move to the soft white mask area */
-        transform: scale(0.6) !important;
+        left: 0 !important;
+        /* Move to the very edge for face clearance */
+        transform: scale(0.5) !important;
         z-index: 20 !important;
     }
 

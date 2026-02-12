@@ -2529,6 +2529,12 @@ body.mobile-active .narrow-rail {
 }
 
 @media (max-width: 1024px) {
+
+    /* CRITICAL: Hide Top Nav on Mobile */
+    nav {
+        display: none !important;
+    }
+
     .comparison-grid {
         grid-template-columns: 1fr !important;
         gap: 2rem;

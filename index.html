@@ -58,106 +58,7 @@
     <script src="assets/scripts/pulse-relay.js?v=1770561723"></script>
     <script src="assets/scripts/analytics.js?v=1770561723"></script>
 
-    <style>
-        /* NUCLEAR MOBILE FIXES - INJECTED INLINE */
-        @media (max-width: 1024px) {
-
-            /* 1. FORCE HIDE TOP NAV */
-            nav {
-                display: none !important;
-            }
-
-            /* 2. FIX HOMEPAGE LAYOUT MASH */
-            .hero-split-fullscreen {
-                display: flex !important;
-                flex-direction: column !important;
-                height: auto !important;
-                min-height: auto !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                gap: 0 !important;
-                background: radial-gradient(ellipse at top, rgba(99, 102, 241, 0.08) 0%, transparent 60%) !important;
-                /* Match page gradient so no white gap */
-            }
-
-            .hero-text-container {
-                width: 100% !important;
-                padding: 1rem 1.5rem 0 !important;
-                /* Small top padding, NO bottom padding */
-                margin: 0 !important;
-                order: 1 !important;
-                text-align: center !important;
-                display: block !important;
-                background: transparent !important;
-            }
-
-            .hero-split-fullscreen h1 {
-                font-size: 2.5rem !important;
-                line-height: 1.1 !important;
-                margin: 0 0 0.5rem 0 !important;
-            }
-
-            .hero-split-fullscreen h2 {
-                margin: 0 0 0.5rem 0 !important;
-            }
-
-            /* 3. FIX MENU Z-INDEX */
-            .nav-links {
-                z-index: 9999 !important;
-            }
-
-            /* 4. MOVE HUD TO ABSOLUTE TOP-LEFT (SAFE ZONE) */
-            .hud-circle-overlay {
-                top: 1rem !important;
-                left: 1rem !important;
-                bottom: auto !important;
-                right: auto !important;
-                transform: scale(0.6) !important;
-                transform-origin: top left !important;
-                margin: 0 !important;
-            }
-        }
-    </style>
-
-</head>
-
-<body class="homepage">
-
-    <script>
-        // NUCLEAR JS FIXES - INJECTED INLINE
-        (function () {
-            // 1. ELIMINATE TOP NAV ON MOBILE
-            function nukeNav() {
-                if (window.innerWidth <= 1024) {
-                    const nav = document.querySelector('nav:not(.breadcrumb)');
-                    if (nav) nav.remove();
-                }
-            }
-            // Run immediately
-            nukeNav();
-            // Run on resize
-            window.addEventListener('resize', nukeNav);
-            // Observe for re-injection
-            new MutationObserver(nukeNav).observe(document.body, { childList: true, subtree: true });
-
-            // 2. FIX MENU CLOSING
-            document.addEventListener('click', function (e) {
-                const menu = document.getElementById('nav-menu');
-                const toggle = document.getElementById('nav-toggle');
-
-                // If clicking inside menu on a link (or child of link)
-                if (menu && menu.classList.contains('active')) {
-                    if (e.target.closest('a') || !menu.contains(e.target)) {
-                        // But don't close if clicking the toggle itself
-                        if (toggle && toggle.contains(e.target)) return;
-
-                        menu.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                }
-            }, true); // Capture phase to beat other listeners
-        })();
-    </script>
+    <!-- Internal styles removed in favor of styles.v4.css -->
 
     <!-- Background gradient -->
     <div class="page-bg"></div>
@@ -704,6 +605,6 @@
             animation: spin 1s linear infinite;
         }
     </style>
-</body>
+    </body>
 
 </html>

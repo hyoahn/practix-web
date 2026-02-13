@@ -3,7 +3,7 @@
  * Centralized tracking for user engagement and mastery depth.
  */
 
-const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // Replace with real ID later
+const GA_MEASUREMENT_ID = 'G-35BMDPMZRK';
 
 // Initialize GA4
 function initGA() {

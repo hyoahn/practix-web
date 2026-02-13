@@ -180,7 +180,12 @@ async function getUniqueVisitorCount(eventName, since = null) {
 
     const { data, error } = await query;
     if (error) {
-        console.warn("Pulse Relay Visitor Error:", error);
+        console.error("📡 Pulse Relay Visitor Error Details:", {
+            message: error.message,
+            code: error.code,
+            details: error.details,
+            hint: error.hint
+        });
         return 1;
     }
 

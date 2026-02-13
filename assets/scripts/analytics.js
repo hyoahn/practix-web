@@ -27,7 +27,12 @@ function initGA() {
 function getVisitorId() {
     let vid = localStorage.getItem('practix_visitor_id');
     if (!vid) {
-        vid = crypto.randomUUID(); // Modern browser UUID
+        // Fallback for older browsers or non-secure contexts
+        if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+            vid = crypto.randomUUID();
+        } else {
+            vid = 'v-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        }
         localStorage.setItem('practix_visitor_id', vid);
     }
     return vid;

@@ -416,7 +416,7 @@
 
                 // 24 Hour Window
                 const activeEvents = await PulseRelay.getCounts('page_view', {}, last24h);
-                const uniqueCount = await PulseRelay.getUniqueVisitors('page_view', last24h);
+                const uniqueCount = await PulseRelay.getUniqueVisitors('unique_visitor_session', last24h);
 
                 // Update UI
                 if (activeUsersEl) {

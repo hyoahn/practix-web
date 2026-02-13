@@ -163,6 +163,16 @@ document.addEventListener('DOMContentLoaded', () => {
         title: document.title,
         path: window.location.pathname
     });
+
+    // Take 3: Robust Unique Visitor Tracking (Fire once per device per lifetime)
+    const hasRecordedSession = localStorage.getItem('practix_visitor_session_recorded');
+    if (!hasRecordedSession) {
+        window.practixLog('unique_visitor_session', {
+            first_visit_path: window.location.pathname,
+            user_agent: navigator.userAgent
+        });
+        localStorage.setItem('practix_visitor_session_recorded', 'true');
+    }
 });
 
 /**

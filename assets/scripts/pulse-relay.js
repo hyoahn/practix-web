@@ -167,37 +167,9 @@ async function getEventCounts(eventName, filters = {}, since = null) {
  */
 async function getUniqueVisitorCount(eventName, since = null) {
     if (relayInitPromise) await relayInitPromise;
-    if (!supabaseClient) return 1; // Fallback to 1 for local/offline
-
-    let query = supabaseClient
-        .from(RELAY_CONFIG.table)
-        .select('params')
-        .eq('event_name', eventName);
-
-    if (since) {
-        query = query.gte('created_at', since);
-    }
-
-    const { data, error } = await query;
-    if (error) {
-        console.error("📡 Pulse Relay Visitor Error Details:", {
-            message: error.message,
-            code: error.code,
-            details: error.details,
-            hint: error.hint
-        });
-        return 1;
-    }
-
-    // Extract unique visitor_ids from params JSON
-    const visitors = new Set();
-    data.forEach(row => {
-        if (row.params && row.params.visitor_id) {
-            visitors.add(row.params.visitor_id);
-        }
-    });
-
-    return visitors.size > 0 ? visitors.size : 0;
+    // Redirect to simple event count for the unique session event
+    // This bypasses the need to select row data (RLS friendly)
+    return getEventCounts('unique_visitor_session', {}, since);
 }
 
 // Auto-init on load

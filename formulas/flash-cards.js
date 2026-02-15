@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const formula = formulas[index];
 
         // 1. Reset Flip State (always show front first when changing cards)
+        // This allows user to navigate from Back -> Next Front immediately
         card.classList.remove('is-flipped');
 
         // 2. Update Content

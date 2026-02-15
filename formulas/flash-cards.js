@@ -56,26 +56,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const renderCard = (index) => {
         const formula = formulas[index];
 
-        // Reset flip state with animation
+        // 1. Reset Flip State (always show front first when changing cards)
         card.classList.remove('is-flipped');
 
-        // Short timeout to update content while "front" is visible or to allow flip animation reset
-        // Actually, for instant feel, we update text immediately but need MathJax to re-render
+        // 2. Update Content
+        // We use a small timeout to allow the flip-back animation to start if it was flipped
+        // But for navigation, we want instant updates.
 
-        // Better UX: Flip back to front instantly, then update content
-        setTimeout(() => {
-            card.querySelector('.card-front .card-label').textContent = `Concept #${index + 1}`;
-            card.querySelector('.card-front .card-title').textContent = formula.name;
+        const frontFace = card.querySelector('.card-front');
+        const backFace = card.querySelector('.card-back');
 
-            card.querySelector('.card-back .card-math').innerHTML = `\\[ ${formula.math} \\]`;
-            card.querySelector('.card-back .card-gift').innerHTML = `💡 ${formula.gift}`;
+        // Update Text
+        frontFace.querySelector('.card-label').textContent = `Concept #${index + 1}`;
+        frontFace.querySelector('.card-title').textContent = formula.name;
 
-            // Re-render MathJax
-            if (window.MathJax) {
-                MathJax.typesetPromise([card.querySelector('.card-back')]);
-            }
-        }, 150); // Small delay to allow flip-back if it was flipped
+        // Update Math (Use innerHTML to support MathJax elements if needed, but we rely on re-typesetting)
+        const mathContainer = backFace.querySelector('.card-math');
+        mathContainer.innerHTML = `\\[ ${formula.math} \\]`; // Reset to raw LaTeX
+
+        backFace.querySelector('.card-gift').innerHTML = `💡 ${formula.gift}`;
+
+        // 3. Re-render MathJax
+        if (window.MathJax && window.MathJax.typesetPromise) {
+            MathJax.typesetPromise([mathContainer]).then(() => {
+                // Formatting complete
+            }).catch((err) => console.log('MathJax error:', err));
+        } else if (window.MathJax && window.MathJax.Hub) {
+            // Legacy MathJax support if needed
+            window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub, mathContainer]);
+        }
     };
+
+    // Initial Render
+    renderCard(currentIndex);
 
     // 5. Navigation Logic
     const nextCard = () => {

@@ -1,6 +1,6 @@
 /* Flash Cards Container */
 .flash-cards-section {
-    max-width: 600px;
+    max-width: 800px;
     margin: 2rem auto 4rem;
     padding: 0 1rem;
     perspective: 1000px;
@@ -11,7 +11,7 @@
 .card-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 1.6 / 1;
+    aspect-ratio: 1.8 / 1;
     /* Classic flashcard ratio */
 }
 
@@ -157,11 +157,13 @@
 @media (max-width: 768px) {
     .flash-cards-section {
         margin: 1rem auto 3rem;
-        padding: 0 5%;
+        padding: 0 10px;
+        /* Reduced padding */
+        max-width: 100%;
     }
 
     .card-wrapper {
-        aspect-ratio: 1.4 / 1;
+        aspect-ratio: 1.3 / 1;
         /* Taller on mobile */
     }
 

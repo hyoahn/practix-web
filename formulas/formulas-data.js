@@ -1,0 +1,23 @@
+const formulas = [
+    { id: 1, name: "Circle Equation", math: "(x-h)²+(y-k)²=r²", gift: "Save 90s", link: "#f1" },
+    { id: 2, name: "Vertex Shortcut", math: "x = -b/2a", gift: "Save 70s", link: "#f2" },
+    { id: 3, name: "Product of Solutions", math: "c/a", gift: "Save 65s", link: "#f3" },
+    { id: 4, name: "Sum of Solutions", math: "-b/a", gift: "Save 50s", link: "#f4" },
+    { id: 5, name: "Complementary Trig", math: "sin(x)=cos(90-x)", gift: "Instant pts", link: "#f5" },
+    { id: 6, name: "Exterior Angle Sum", math: "Always 360°", gift: "Instant pts", link: "#f6" },
+    { id: 7, name: "The Discriminant", math: "b²-4ac", gift: "Fast logic", link: "#f7" },
+    { id: 8, name: "Weighted Average", math: "Σ(w·x) / Σw", gift: "Speed mixtures", link: "#f8" },
+    { id: 9, name: "Harmonic Mean", math: "2ab/(a+b)", gift: "Avg Speed hack", link: "#f9" },
+    { id: 10, name: "Distance from Origin", math: "√x² + y²", gift: "Speed Pythag", link: "#f10" },
+    { id: 11, name: "Growth & Decay", math: "a(1±r)^t", gift: "No manual %", link: "#f11" },
+    { id: 12, name: "Percent Change", math: "(N-O)/O * 100", gift: "No confusion", link: "#f12" },
+    { id: 13, name: "Arc Area (Proportion)", math: "Area / πr² = θ / 360", gift: "No formulas", link: "#f13" },
+    { id: 14, name: "The 'Golden' Ratio Pattern", math: "1 : √3 : 2", gift: "Triangle Hack", link: "#f14" },
+    { id: 15, name: "Slope Formula", math: "(y₂-y₁)/(x₂-x₁)", gift: "Basic", link: "#f15" },
+    { id: 16, name: "Parallel Slopes", math: "m₁ = m₂", gift: "Basic", link: "#f16" },
+    { id: 17, name: "Perpendicular Slopes", math: "m₁ · m₂ = -1", gift: "Basic", link: "#f17" },
+    { id: 18, name: "Standard Deviation Logic", math: "Spread = Gap", gift: "Stat Mastery", link: "#f18" },
+    { id: 19, name: "Margin of Error", math: "Sample Size ↑ = MoE ↓", gift: "Stat Mastery", link: "#f19" },
+    { id: 20, name: "Sum of Interior Angles", math: "(n-2)·180", gift: "Polygons", link: "#f20" },
+    { id: 21, name: "Equation of Circle (General)", math: "x² + y² + Dx + Ey + F = 0", gift: "Mental Math", link: "#f21" }
+];

@@ -170,9 +170,10 @@
     }
 
     .card-wrapper {
-        aspect-ratio: 1.1 / 1 !important;
-        /* Almost square to give vertical space */
+        aspect-ratio: 0.8 / 1 !important;
+        /* Taller than wide to fit 2-3 lines of math */
         width: 100% !important;
+        margin-bottom: 2rem !important;
     }
 
     .card-title {
@@ -196,11 +197,10 @@
         padding: 1rem !important;
         overflow: visible !important;
     }
-}
 
-/* Hide side buttons on mobile, rely on swipe */
-.nav-prev,
-.nav-next {
-    display: none;
-}
+    /* Hide side buttons on mobile, rely on swipe */
+    .nav-prev,
+    .nav-next {
+        display: none;
+    }
 }

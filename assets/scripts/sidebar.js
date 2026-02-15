@@ -1150,6 +1150,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Build flyout content from pillar categories
                 // Structure: Category (header) > Subsection (sub-header, NOT clickable) > Topics (clickable links)
                 let html = '';
+
+                // SPECIAL INJECTION: Flash Cards for Formulas Pillar
+                if (pillar.id === 'formulas') {
+                    html += `
+                        <div class="flyout-section" style="margin-bottom: 0.5rem;">
+                             <a href="../formulas/" class="flyout-topic" style="border: 2px solid #10b981 !important; background-color: #f0fdf4 !important; display: flex !important; align-items: center; gap: 0.75rem;">
+                                <span style="font-size: 1.5rem;">⚡</span>
+                                <div>
+                                    <div style="font-weight: 800; color: #047857; line-height: 1.2;">Flash Cards</div>
+                                    <div style="font-size: 0.75rem; color: #059669; font-weight: 600;">Swipe & Memorize</div>
+                                </div>
+                            </a>
+                        </div>
+                    `;
+                }
+
                 pillar.categories.forEach(category => {
                     html += `<div class="flyout-section">`;
                     html += `<div class="flyout-section-title">${category.name}</div>`;

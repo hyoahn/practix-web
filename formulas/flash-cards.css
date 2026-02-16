@@ -202,6 +202,10 @@
         overflow-y: hidden !important;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
+        /* Remove math padding if strictly needed, but keep vertical spacing */
+        margin: 0 -1rem !important;
+        /* Negative margin to pull to edges */
+        width: calc(100% + 2rem) !important;
     }
 
     /* Flexbox centering for faces */
@@ -216,7 +220,8 @@
         flex-direction: column !important;
         justify-content: center !important;
         align-items: center !important;
-        padding: 1rem !important;
+        /* ZERO PADDING as requested */
+        padding: 0 !important;
         overflow: hidden !important;
         /* Hide vertical overflow */
     }

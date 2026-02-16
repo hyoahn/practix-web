@@ -156,45 +156,44 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .flash-cards-section {
-        /* Full Viewport Width Breakout */
-        width: 100vw !important;
-        position: relative !important;
-        left: 50% !important;
-        right: 50% !important;
-        margin-left: -50vw !important;
-        margin-right: -50vw !important;
-        padding: 0 0 !important;
-        /* Zero padding as requested */
-        max-width: 100vw !important;
-        overflow-x: hidden !important;
+        /* Remove breakout hacks since we moved the HTML container */
+        width: 100% !important;
+        margin: 2rem 0 !important;
+        padding: 0 5% !important;
+        /* Match site padding */
+        left: auto !important;
+        right: auto !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
     .card-wrapper {
         aspect-ratio: 0.8 / 1 !important;
-        /* Taller than wide to fit 2-3 lines of math */
+        /* Taller for mobile */
         width: 100% !important;
-        margin-bottom: 2rem !important;
     }
 
     .card-title {
-        font-size: 1.3rem !important;
+        font-size: 1.4rem !important;
         padding: 0 0.5rem;
     }
 
     .card-math {
-        /* Responsive font size based on viewport width */
-        font-size: clamp(1.1rem, 5vw, 1.8rem) !important;
+        /* Responsive font size */
+        font-size: clamp(1.1rem, 6vw, 1.8rem) !important;
         white-space: normal !important;
         word-break: break-word !important;
         overflow-wrap: break-word !important;
         max-width: 100%;
-        line-height: 1.4 !important;
+        line-height: 1.5 !important;
         padding: 0 0.25rem;
+        /* Allow horizontal scroll if absolutely necessary, but try to wrap first */
+        overflow-x: auto;
     }
 
     /* Ensure no overflow clipping on the card face */
     .card-face {
-        padding: 1rem !important;
+        padding: 1.5rem 1rem !important;
         overflow: visible !important;
     }
 

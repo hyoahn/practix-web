@@ -156,11 +156,9 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .flash-cards-section {
-        /* Remove breakout hacks since we moved the HTML container */
         width: 100% !important;
         margin: 2rem 0 !important;
         padding: 0 5% !important;
-        /* Match site padding */
         left: auto !important;
         right: auto !important;
         margin-left: 0 !important;
@@ -168,9 +166,18 @@
     }
 
     .card-wrapper {
-        aspect-ratio: 0.8 / 1 !important;
-        /* Taller for mobile */
+        /* Remove fixed aspect ratio to allow growth */
+        aspect-ratio: auto !important;
         width: 100% !important;
+        min-height: 320px;
+        /* Ensure enough height for tall formulas */
+        height: auto !important;
+    }
+
+    .flash-card {
+        height: 100% !important;
+        /* Fill wrapper */
+        min-height: 320px;
     }
 
     .card-title {
@@ -179,25 +186,36 @@
     }
 
     .card-math {
-        /* Responsive font size */
-        font-size: clamp(1.1rem, 6vw, 1.8rem) !important;
+        font-size: clamp(1.1rem, 6vw, 1.6rem) !important;
         white-space: normal !important;
         word-break: break-word !important;
         overflow-wrap: break-word !important;
         max-width: 100%;
         line-height: 1.5 !important;
-        padding: 0 0.25rem;
-        /* Allow horizontal scroll if absolutely necessary, but try to wrap first */
+        padding: 0.5rem 0;
+        /* Ensure MathJax scales down if still too wide */
+        display: flex;
+        justify-content: center;
+        align-items: center;
         overflow-x: auto;
     }
 
-    /* Ensure no overflow clipping on the card face */
+    /* Flexbox centering for faces */
     .card-face {
-        padding: 1.5rem 1rem !important;
+        position: absolute !important;
+        /* Keep absolute for flip effect */
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 1.5rem !important;
         overflow: visible !important;
     }
 
-    /* Hide side buttons on mobile, rely on swipe */
     .nav-prev,
     .nav-next {
         display: none;

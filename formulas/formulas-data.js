@@ -1,5 +1,5 @@
 const formulas = [
-    { id: 1, name: "Circle Equation", math: "\\begin{gathered}(x-h)^2 + \\\\ (y-k)^2 = r^2\\end{gathered}", gift: "Save 90s", link: "#f1" },
+    { id: 1, name: "Circle Equation", math: "\\small\\begin{gathered}(x-h)^2 + \\\\ (y-k)^2 = r^2\\end{gathered}", gift: "Save 90s", link: "#f1" },
     { id: 2, name: "Vertex Shortcut", math: "x = \\frac{-b}{2a}", gift: "Save 70s", link: "#f2" },
     { id: 3, name: "Product of Solutions", math: "\\frac{c}{a}", gift: "Save 65s", link: "#f3" },
     { id: 4, name: "Sum of Solutions", math: "\\frac{-b}{a}", gift: "Save 50s", link: "#f4" },

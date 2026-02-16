@@ -194,9 +194,9 @@
         line-height: 1.5 !important;
         padding: 0.5rem 0;
         /* Ensure MathJax scales down if still too wide */
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        /* Remove flex here to allow block layout */
+        display: block !important;
+        text-align: center;
         overflow-x: auto;
     }
 

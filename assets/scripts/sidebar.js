@@ -388,53 +388,61 @@ function initMobileFlyout() {
     if (flyoutOverlay) flyoutOverlay.addEventListener('click', window.PRACTIX_CLOSE_FLYOUT);
 
     if (railContainer) {
-        const triggerHandler = (e) => {
+        const railInteractionHandler = (e) => {
+            // Check for flyout button first
             const btn = e.target.closest('button[data-pillar]');
-            if (!btn) return;
-
-            // Only preventDefault if we found a flyout button
-            if (e.type === 'touchend') {
+            if (btn) {
                 e.preventDefault();
-            }
+                e.stopPropagation();
 
-            const pillarId = btn.dataset.pillar;
-            const pillar = window.PRACTIX_PILLARS.find(p => p.id === pillarId);
-            if (!pillar) return;
+                const pillarId = btn.dataset.pillar;
+                const pillar = window.PRACTIX_PILLARS.find(p => p.id === pillarId);
+                if (!pillar) return;
 
-            flyoutTitle.textContent = pillar.name;
-            let html = '';
-            if (pillar.id === 'formulas' || pillar.id === 'math') {
-                const bPath = window.PRACTIX_BASE_PATH;
-                let flashHref = window.PRACTIX_NORMALIZE_HREF(`${bPath}formulas/index.html#flash-card-container`);
-                html += `
-                    <div class="flyout-section" style="margin-bottom: 0.75rem;">
-                        <a href="${flashHref}" class="flyout-topic" style="border: 2px solid #10b981 !important; background-color: #f0fdf4 !important; display: flex !important; align-items: center; gap: 0.75rem; border-radius: 16px !important;">
-                            <span style="font-size: 1.75rem;">⚡</span>
-                            <div><div style="font-weight: 800; color: #047857; line-height: 1.2; font-size: 1.1rem;">Flash Cards</div><div style="font-size: 0.8rem; color: #059669; font-weight: 600;">Swipe & Memorize</div></div>
-                        </a>
-                    </div>
-                `;
-            }
-            pillar.categories.forEach(category => {
-                html += `<div class="flyout-section"><div class="flyout-section-title">${category.name}</div>`;
-                category.subsections.forEach(sub => {
-                    if (sub.topics && sub.topics.length > 0) {
-                        html += `<div class="flyout-subsection-title">${sub.name}</div>`;
-                        sub.topics.forEach(topic => {
-                            let topicHref = (window.PRACTIX_BASE_PATH + topic.path);
-                            topicHref = window.PRACTIX_NORMALIZE_HREF(topicHref);
-                            html += `<a href="${topicHref}" class="flyout-topic">${topic.name}</a>`;
-                        });
-                    }
+                flyoutTitle.textContent = pillar.name;
+                let html = '';
+                if (pillar.id === 'formulas' || pillar.id === 'math') {
+                    const bPath = window.PRACTIX_BASE_PATH;
+                    let flashHref = window.PRACTIX_NORMALIZE_HREF(`${bPath}formulas/index.html#flash-card-container`);
+                    html += `
+                        <div class="flyout-section" style="margin-bottom: 0.75rem;">
+                            <a href="${flashHref}" class="flyout-topic" style="border: 2px solid #10b981 !important; background-color: #f0fdf4 !important; display: flex !important; align-items: center; gap: 0.75rem; border-radius: 16px !important;">
+                                <span style="font-size: 1.75rem;">⚡</span>
+                                <div><div style="font-weight: 800; color: #047857; line-height: 1.2; font-size: 1.1rem;">Flash Cards</div><div style="font-size: 0.8rem; color: #059669; font-weight: 600;">Swipe & Memorize</div></div>
+                            </a>
+                        </div>
+                    `;
+                }
+                pillar.categories.forEach(category => {
+                    html += `<div class="flyout-section"><div class="flyout-section-title">${category.name}</div>`;
+                    category.subsections.forEach(sub => {
+                        if (sub.topics && sub.topics.length > 0) {
+                            html += `<div class="flyout-subsection-title">${sub.name}</div>`;
+                            sub.topics.forEach(topic => {
+                                let topicHref = (window.PRACTIX_BASE_PATH + topic.path);
+                                topicHref = window.PRACTIX_NORMALIZE_HREF(topicHref);
+                                html += `<a href="${topicHref}" class="flyout-topic">${topic.name}</a>`;
+                            });
+                        }
+                    });
+                    html += `</div>`;
                 });
-                html += `</div>`;
-            });
-            flyoutContent.innerHTML = html;
-            flyout.classList.add('active');
-            if (flyoutOverlay) flyoutOverlay.classList.add('active');
+                flyoutContent.innerHTML = html;
+                flyout.classList.add('active');
+                if (flyoutOverlay) flyoutOverlay.classList.add('active');
+                return;
+            }
+
+            // Check for direct navigation link
+            const link = e.target.closest('a.rail-item');
+            if (link && link.href) {
+                window.PRACTIX_NAVIGATE(link, e);
+                return;
+            }
         };
-        railContainer.addEventListener('click', triggerHandler);
-        railContainer.addEventListener('touchend', triggerHandler);
+
+        railContainer.addEventListener('click', railInteractionHandler);
+        railContainer.addEventListener('touchend', railInteractionHandler);
     }
 }
 

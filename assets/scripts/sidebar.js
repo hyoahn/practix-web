@@ -1155,7 +1155,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (pillar.id === 'formulas') {
                     html += `
                         <div class="flyout-section" style="margin-bottom: 0.5rem;">
-                             <a href="../formulas/" class="flyout-topic" style="border: 2px solid #10b981 !important; background-color: #f0fdf4 !important; display: flex !important; align-items: center; gap: 0.75rem;">
+                            <a href="${basePath}formulas/" class="flyout-topic" style="border: 2px solid #10b981 !important; background-color: #f0fdf4 !important; display: flex !important; align-items: center; gap: 0.75rem;">
                                 <span style="font-size: 1.5rem;">⚡</span>
                                 <div>
                                     <div style="font-weight: 800; color: #047857; line-height: 1.2;">Flash Cards</div>
@@ -1222,15 +1222,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 flyoutContent.innerHTML = html;
 
-                // Attach click handlers for links - navigate and close flyout
+                // Attach click handlers for links - navigate and cleanup Desmos
                 flyoutContent.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', (e) => {
-                        // Allow default navigation to happen
+                        e.preventDefault(); // Prevent default to handle cleanup first
+                        const targetUrl = link.href;
+
+                        // 1. Cleanup Desmos Iframes to prevent "Leave Site?" alert
+                        const floatingCalc = document.getElementById('calculatorFloat');
+                        if (floatingCalc) floatingCalc.remove(); // Nuke it
+
+                        const mobilePanel = document.getElementById('mobile-desmos-panel');
+                        if (mobilePanel) mobilePanel.remove(); // Nuke it
+
+                        // 2. Common UI Cleanup
                         closeFlyout();
-                        // Remove flyout-active from buttons
                         railContainer.querySelectorAll('button[data-pillar]').forEach(b => {
                             b.classList.remove('flyout-active');
                         });
+
+                        // 3. Navigate manually
+                        // Small timeout to ensure DOM removal propagates if needed (usually sync is fine)
+                        window.location.href = targetUrl;
                     });
                 });
 

@@ -71,6 +71,7 @@ function globalRenderRail() {
         depth = hasFile ? pathSegments.length - 1 : pathSegments.length;
     }
     const basePath = depth === 0 ? '' : '../'.repeat(depth);
+    window.PRACTIX_BASE_PATH = basePath;
 
     const isMobile = window.innerWidth <= 1280 ||
         window.matchMedia('(max-width: 1280px)').matches ||
@@ -135,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const basePath = depth === 0 ? '' : '../'.repeat(depth);
+    window.PRACTIX_BASE_PATH = basePath;
 
     // 2. Define the Full Site Tree (Categorized by Pillar)
     const PILLARS = [

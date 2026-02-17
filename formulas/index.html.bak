@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>35 Essential SAT Math Formulas (Missing from Textbooks) | Practix</title>
+    <meta name="description"
+        content="Master the 35 'missing' SAT Math formulas used by high scorers. Navigate our organized silos for Heart of Algebra, Geometry, and Advanced Math shortcuts.">
+
+    <link rel="stylesheet" href="../assets/styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../assets/scripts/nav.js"></script>
+    <script src="../assets/scripts/sidebar.js"></script>
+    <script src="../assets/scripts/footer.js"></script>
+    <script src="../assets/scripts/analytics.js"></script>
+
+    <style>
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.1);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .category-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .explore-btn {
+            display: inline-flex;
+            align-items: center;
+            font-weight: 700;
+            color: var(--primary);
+            gap: 0.5rem;
+        }
+
+        .explore-btn::after {
+            content: "→";
+            transition: transform 0.2s;
+        }
+
+        .category-card:hover .explore-btn::after {
+            transform: translateX(5px);
+        }
+
+        .scan-table-container {
+            margin-bottom: 6rem;
+        }
+
+        .scan-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .scan-table th {
+            background: #f8fafc;
+            padding: 1.25rem;
+            text-align: left;
+            font-family: 'Space Grotesk', sans-serif;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .scan-table td {
+            padding: 1.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .scan-math {
+            font-family: serif;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body class="content-page">
+    <div class="page-bg"></div>
+    <div class="page-container">
+        <aside class="sidebar-nav" id="sidebar-tree">
+            <!-- JS will populate -->
+        </aside>
+
+        <button class="mobile-tree-toggle" id="mobile-tree-btn">Menu</button>
+
+        <main class="main-content">
+            <header class="hero-section">
+                <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin-bottom: 1rem;">The SAT
+                    Formula Field Manual</h1>
+                <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto;">
+                    Our 35 legendary shortcuts organized into tactical silos. Choose your area of focus for instant
+                    mastery.
+                </p>
+            </header>
+
+            <div class="hub-grid">
+                <a href="heart-of-algebra/" class="category-card">
+                    <div class="category-icon">⚡</div>
+                    <h3>Heart of Algebra</h3>
+                    <p>Linear systems, percentages, and absolute values. The high-speed foundation of the test.</p>
+                    <span class="explore-btn">See 8 Formulas</span>
+                </a>
+
+                <a href="passport-to-advanced-math/" class="category-card">
+                    <div class="category-icon">🚀</div>
+                    <h3>Advanced Math</h3>
+                    <p>Quadratics, exponents, and parabola mastery. Where the 700+ scorers are made.</p>
+                    <span class="explore-btn">See 10 Formulas</span>
+                </a>
+
+                <a href="problem-solving-data-analysis/" class="category-card">
+                    <div class="category-icon">📊</div>
+                    <h3>Data Analysis</h3>
+                    <p>Statistics logic, margins of error, and probabilities. Win the points others guess on.</p>
+                    <span class="explore-btn">See 5 Formulas</span>
+                </a>
+
+                <a href="geometry-trigonometry/" class="category-card">
+                    <div class="category-icon">📐</div>
+                    <h3>Geometry & Trig</h3>
+                    <p>Circle equation shortcuts, radian ratios, and triangle hacks. No geometry angst required.</p>
+                    <span class="explore-btn">See 12 Formulas</span>
+                </a>
+            </div>
+
+            <section class="scan-table-container">
+                <h2 style="font-family: 'Space Grotesk', sans-serif; margin-bottom: 2rem;">Quick-Scan Checklist</h2>
+                <table class="scan-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Concept</th>
+                            <th>Shortcut Preview</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scan-body">
+                        <!-- JS will fill with silo links -->
+                    </tbody>
+                </table>
+            </section>
+
+            <script>
+                const silos = [
+                    { id: 1, name: "Vertex Intersect", math: "k = c - b²/4a", path: "passport-to-advanced-math/#f1" },
+                    { id: 3, name: "The Constant Trick", math: "a₁/a₂ = b₁/b₂", path: "heart-of-algebra/#f3" },
+                    { id: 6, name: "Circle Equation", math: "(x-h)²+(y-k)²=r²", path: "geometry-trigonometry/#f6" },
+                    { id: 7, name: "Vertex Shortcut", math: "x = -b/2a", path: "passport-to-advanced-math/#f7" },
+                    { id: 26, name: "Standard Deviation", math: "Spread = Gap", path: "problem-solving-data-analysis/#f26" }
+                ];
+
+                document.getElementById('scan-body').innerHTML = silos.map(s => `
+            <tr>
+                <td style="color: var(--text-muted); font-weight: 700;">${s.id}</td>
+                <td style="font-weight: 600;">${s.name}</td>
+                <td class="scan-math">${s.math}</td>
+                <td><a href="${s.path}" style="color: var(--primary); text-decoration: none; font-weight: 700;">View Mastery Step →</a></td>
+            </tr>
+        `).join('');
+            </script>
+            <footer></footer>
+        </main>
+    </div>
+</body>
+
+</html>

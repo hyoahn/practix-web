@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>Hardest Digital SAT Math Questions (2026): "Boss Level" Guide | Practix</title>
+    <meta name="description"
+        content="Stop falling for traps. Master the 10 hardest Digital SAT Math problem types (Module 2) with our organized silos, speed-run shortcuts, and trap-spotting guides.">
+
+    <link rel="stylesheet" href="../assets/styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../assets/scripts/nav.js"></script>
+    <script src="../assets/scripts/sidebar.js"></script>
+    <script src="../assets/scripts/footer.js"></script>
+    <script src="../assets/scripts/analytics.js"></script>
+
+    <style>
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            border-color: #6366f1;
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.1);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .quick-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            margin-bottom: 6rem;
+        }
+
+        .quick-table th {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .quick-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .difficulty-pill {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+
+<body class="content-page">
+    <div class="page-bg"></div>
+    <div class="page-container">
+        <aside class="sidebar-nav" id="sidebar-tree">
+            <!-- JS will populate -->
+        </aside>
+
+        <button class="mobile-tree-toggle" id="mobile-tree-btn">Menu</button>
+
+        <main class="main-content">
+            <header class="hero-section">
+                <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin-bottom: 1rem;">Boss Level
+                    Questions</h1>
+                <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto;">
+                    The 10 hardest question types on the Digital SAT. Master the traps before they master you.
+                </p>
+            </header>
+
+            <div class="hub-grid">
+                <a href="algebra/" class="category-card">
+                    <div class="category-icon">❤️</div>
+                    <h3>Algebra Traps</h3>
+                    <p>Complex systems and linear patterns designed to steal time.</p>
+                </a>
+                <a href="advanced-math/" class="category-card">
+                    <div class="category-icon">🚀</div>
+                    <h3>Advanced Math</h3>
+                    <p>Remainder Theorem, complex numbers, and parameter puzzles.</p>
+                </a>
+                <a href="problem-solving/" class="category-card">
+                    <div class="category-icon">📊</div>
+                    <h3>Data Analysis</h3>
+                    <p>Standard deviation and box plot traps that trip up 90% of students.</p>
+                </a>
+                <a href="geometry/" class="category-card">
+                    <div class="category-icon">📐</div>
+                    <h3>Geometry & Trig</h3>
+                    <p>Circle equation shortcuts and proportional reasoning hacks.</p>
+                </a>
+            </div>
+
+            <div style="max-width: 900px; margin: 0 auto; padding: 0 5%;">
+                <h2 style="font-family: 'Space Grotesk', sans-serif; text-align: center; margin-bottom: 2rem;">The
+                    Hardest
+                    Questions Quick-Scan</h2>
+                <table class="quick-table">
+                    <thead>
+                        <tr>
+                            <th>Question Type</th>
+                            <th>The Primary Trap</th>
+                            <th>Difficulty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Remainder Theorem</td>
+                            <td>Long division time-sink</td>
+                            <td><span class="difficulty-pill">ELITE</span></td>
+                        </tr>
+                        <tr>
+                            <td>Circle Equations</td>
+                            <td>Completing the square errors</td>
+                            <td><span class="difficulty-pill">HIGH</span></td>
+                        </tr>
+                        <tr>
+                            <td>Systems of Equations</td>
+                            <td>Solving for x and y individually</td>
+                            <td><span class="difficulty-pill">HIGH</span></td>
+                        </tr>
+                        <tr>
+                            <td>Standard Deviation</td>
+                            <td>Calculating manually</td>
+                            <td><span class="difficulty-pill">ELITE</span></td>
+                        </tr>
+                        <tr>
+                            <td>Parameter Puzzles</td>
+                            <td>Guessing vs using discriminant</td>
+                            <td><span class="difficulty-pill">ELITE</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

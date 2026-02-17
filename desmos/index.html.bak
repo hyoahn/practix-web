@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>Desmos Power Moves for the Digital SAT: High-Speed Hacks | Practix</title>
+    <meta name="description"
+        content="Master the Digital SAT with Desmos Power Moves. Our organized silos cover Regression, Lists, and Visualization hacks used by the top 1% of scorers.">
+
+    <link rel="stylesheet" href="../assets/styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../assets/scripts/nav.js"></script>
+    <script src="../assets/scripts/sidebar.js"></script>
+    <script src="../assets/scripts/footer.js"></script>
+    <script src="../assets/scripts/analytics.js"></script>
+
+    <style>
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 3rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card:hover {
+            transform: translateY(-12px);
+            border-color: #8b5cf6;
+            box-shadow: 0 25px 50px rgba(139, 92, 246, 0.15);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .category-card p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .explore-link {
+            font-weight: 800;
+            color: #8b5cf6;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .calculator-demo {
+            margin-bottom: 6rem;
+            text-align: center;
+        }
+
+        iframe {
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body class="content-page">
+    <div class="page-bg"></div>
+    <div class="page-container">
+        <aside class="sidebar-nav" id="sidebar-tree">
+            <!-- JS will populate -->
+        </aside>
+
+        <button class="mobile-tree-toggle" id="mobile-tree-btn">Menu</button>
+
+        <main class="main-content">
+            <header class="hero-section">
+                <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin-bottom: 1rem;">Desmos
+                    Power Moves</h1>
+                <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto;">
+                    The Digital SAT is won or lost in the calculator. Master the 1% maneuvers.
+                </p>
+            </header>
+
+            <div class="hub-grid">
+                <a href="regression-secrets/" class="category-card">
+                    <div class="category-icon">🪄</div>
+                    <h3>Regression Secrets</h3>
+                    <p>The "magic codes" for linear, quadratic, and exponential problems. Solve complex modeling in 10
+                        seconds.
+                    </p>
+                    <span class="explore-link">Master Regressions →</span>
+                </a>
+
+                <a href="lists-and-tables/" class="category-card">
+                    <div class="category-icon">📊</div>
+                    <h3>Lists & Tables</h3>
+                    <p>Advanced statistical visualization and iterative dataset filtering. Handle 20+ numbers without
+                        breaking a
+                        sweat.</p>
+                    <span class="explore-link">See Data Hacks →</span>
+                </a>
+
+                <a href="visualization-hacks/" class="category-card">
+                    <div class="category-icon">🗺️</div>
+                    <h3>Visualization Hacks</h3>
+                    <p>Sliders for transformations, inequality overlap mapping, and geometric tangency solvers.</p>
+                    <span class="explore-link">Explore Visualization →</span>
+                </a>
+            </div>
+
+            <section class="calculator-demo">
+                <h2 style="font-family: 'Space Grotesk', sans-serif; margin-bottom: 2rem;">Sandbox Training</h2>
+                <p style="margin-bottom: 2rem; color: var(--text-secondary);">Try any hack here before you use it on the
+                    test.
+                </p>
+                <iframe src="https://www.desmos.com/calculator" width="100%" height="600"></iframe>
+        </main>
+    </div>
+</body>
+
+</html>

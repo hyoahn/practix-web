@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAT Math Cheat Sheet & Training Simulator | Practix</title>
+    <meta name="description"
+        content="Stop studying. Start training. Practix is the interactive SAT Math simulator designed for elite students aiming for 800.">
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Practix",
+      "url": "https://practix.org",
+      "logo": "https://practix.org/assets/images/logo.png",
+      "sameAs": [
+        "https://www.tiktok.com/@practix_sat",
+        "https://www.youtube.com/@practix_sat"
+      ],
+      "description": "The Digital SAT math training platform for students aiming for elite scores."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Practix",
+      "url": "https://practix.org",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://practix.org/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <script src="assets/scripts/nav.js"></script>
+    <script src="assets/scripts/footer.js"></script>
+    <script src="assets/scripts/analytics.js"></script>
+</head>
+
+<body class="homepage">
+    <!-- Background gradient -->
+    <div class="page-bg"></div>
+
+    <div class="page-container">
+        <main class="main-content" style="padding: 0;">
+
+            <!-- 50/50 Split Hero Section -->
+            <section class="hero-split-fullscreen">
+                <!-- Left Content -->
+                <div class="hero-text-container">
+                    <div class="hero-text-content">
+                        <div class="hero-badge">
+                            <span class="dot"></span>
+                            <span>Now accepting Class of 2026</span>
+                        </div>
+                        <h1><span class="gradient-text">Stop Studying.</span><br>Start Training.</h1>
+                        <p>Build the weekly routine that turns test anxiety into 800-level mastery. The flight simulator
+                            for SAT
+                            Math.</p>
+                        <div class="hero-buttons">
+                            <!-- <a href="#waitlist" class="btn-primary">Join Beta</a> -->
+                            <!-- Panic Button (Effect: Pulse Animation) -->
+                            <a href="formulas/" class="btn-secondary"
+                                style="background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid #ef4444; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; animation: pulse 2s infinite;">
+                                <span>🚨</span> Exam Tomorrow? Cram Mode
+                            </a>
+                        </div>
+                        <div class="hero-social-proof">
+                            <div class="avatars">
+                                <span>👩‍🎓</span><span>👨‍🎓</span><span>👩‍🏫</span>
+                            </div>
+                            <p>Training with <strong>100+</strong> elite students aiming for 800</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Image (Full Half Screen) -->
+                <div class="hero-image-container">
+                    <div class="image-overlay-gradient"></div>
+                    <img src="images/hero_girl.png" alt="Student focused on Practix SAT Math simulation">
+
+                    <!-- Floating Cards within the image area -->
+                    <div class="floating-card score-card" onclick="this.classList.toggle('expanded')">
+                        <span class="icon">📈</span>
+                        <div class="text">
+                            <strong>+150 Points</strong>
+                            <span>Average Improvement</span>
+                        </div>
+                    </div>
+                    <div class="floating-card streak-card" onclick="this.classList.toggle('expanded')">
+                        <span class="icon">🔥</span>
+                        <div class="text">
+                            <strong>4 Week Streak</strong>
+                            <span>The Power of Routine</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tabbed Content Section -->
+            <section class="tabs-section">
+                <div class="tabs-container">
+                    <!-- Tab Navigation Removed (Moved to Top Nav) -->
+
+                    <!-- Tab Content -->
+                    <div class="tab-content-wrapper">
+                        <!-- Resources Tab -->
+                        <div class="tab-content active" id="resources">
+                            <div class="resources-grid">
+                                <div class="resource-card primary">
+                                    <div class="resource-icon">📱</div>
+                                    <h3>Bluebook App</h3>
+                                    <p class="resource-count">6 Full Practice Tests</p>
+                                    <ul class="resource-list">
+                                        <li>Official College Board app</li>
+                                        <li>Exact digital SAT format</li>
+                                        <li>Adaptive difficulty like real test</li>
+                                        <li>Instant score reports</li>
+                                    </ul>
+                                    <a href="https://bluebook.collegeboard.org/" target="_blank"
+                                        class="resource-link">Download
+                                        Free →</a>
+                                </div>
+                                <div class="resource-card">
+                                    <div class="resource-icon">🎓</div>
+                                    <h3>Khan Academy</h3>
+                                    <p class="resource-count">Unlimited Practice</p>
+                                    <ul class="resource-list">
+                                        <li>Personalized practice</li>
+                                        <li>Video explanations</li>
+                                        <li>Syncs with College Board</li>
+                                        <li>Track your progress</li>
+                                    </ul>
+                                    <a href="https://www.khanacademy.org/digital-sat" target="_blank"
+                                        class="resource-link">Start Practicing →</a>
+                                </div>
+                                <div class="resource-card">
+                                    <div class="resource-icon">📄</div>
+                                    <h3>College Board PDFs</h3>
+                                    <p class="resource-count">4 Linear Practice Forms</p>
+                                    <ul class="resource-list">
+                                        <li>Non-adaptive format</li>
+                                        <li>Good for targeted review</li>
+                                        <li>Printable worksheets</li>
+                                        <li>Answer explanations</li>
+                                    </ul>
+                                    <a href="https://satsuite.collegeboard.org/digital/digital-practice-preparation"
+                                        target="_blank" class="resource-link">View Official Practice →</a>
+                                </div>
+                                <div class="resource-card primary">
+                                    <div class="resource-icon">⚡</div>
+                                    <h3>Practix Topic Guides</h3>
+                                    <p class="resource-count">35+ Pro Shortcuts</p>
+                                    <ul class="resource-list">
+                                        <li>Quadratic Sum Trick</li>
+                                        <li>Circle Radius Hack</li>
+                                        <li>Systems Addition</li>
+                                        <li>Remainder Theorem</li>
+                                    </ul>
+                                    <a href="hard-questions/" class="resource-link">View All Shortcuts →</a>
+                                </div>
+                            </div>
+                            <div class="resource-tip">
+                                <span class="tip-icon">💡</span>
+                                <p><strong>Pro tip:</strong> Start with 1 Bluebook test as diagnostic. Save the last 2
+                                    tests for
+                                    the final 2 weeks before your exam.</p>
+                            </div>
+                        </div>
+
+                        <!-- Strategy Tab -->
+                        <div class="tab-content" id="strategy">
+                            <div class="strategy-grid">
+                                <div class="strategy-card">
+                                    <div class="strategy-number">1</div>
+                                    <h3>Take a Diagnostic Test</h3>
+                                    <p>Use 1 Bluebook test to find your baseline score. Don't study beforehand - this
+                                        shows your
+                                        true starting point.</p>
+                                    <span class="strategy-time">Week 1</span>
+                                </div>
+                                <div class="strategy-card">
+                                    <div class="strategy-number">2</div>
+                                    <h3>Analyze Your Mistakes</h3>
+                                    <p>Review EVERY wrong answer. Categorize by topic: Algebra, Geometry, Advanced Math.
+                                        Find
+                                        your weak areas.</p>
+                                    <span class="strategy-time">Week 1-2</span>
+                                </div>
+                                <div class="strategy-card">
+                                    <div class="strategy-number">3</div>
+                                    <h3>Targeted Practice</h3>
+                                    <p>Focus 80% of study time on weak topics. Use Khan Academy for specific skills.
+                                        Quality
+                                        over quantity.</p>
+                                    <span class="strategy-time">Week 2-6</span>
+                                </div>
+                                <div class="strategy-card">
+                                    <div class="strategy-number">4</div>
+                                    <h3>Take Practice Tests</h3>
+                                    <p>One full test every 1-2 weeks. Always under real conditions: timed, no breaks, no
+                                        phone.
+                                    </p>
+                                    <span class="strategy-time">Week 3-7</span>
+                                </div>
+                                <div class="strategy-card">
+                                    <div class="strategy-number">5</div>
+                                    <h3>Review & Adjust</h3>
+                                    <p>After each test, analyze mistakes again. Are the same errors repeating? Adjust
+                                        your focus
+                                        areas.</p>
+                                    <span class="strategy-time">Ongoing</span>
+                                </div>
+                                <div class="strategy-card">
+                                    <div class="strategy-number">6</div>
+                                    <h3>Final Week</h3>
+                                    <p>Light review only. Take 1 final practice test 5-7 days before. Rest before exam
+                                        day.
+                                        Trust your prep.</p>
+                                    <span class="strategy-time">Week 8</span>
+                                </div>
+                            </div>
+                            <div class="resource-tip">
+                                <span class="tip-icon">⏰</span>
+                                <p><strong>Recommended timeline:</strong> 8 weeks of prep for 100+ point improvement. 4
+                                    weeks
+                                    minimum for meaningful gains.</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Tab -->
+                        <div class="tab-content" id="faq">
+                            <div class="faq-grid">
+                                <div class="faq-card">
+                                    <h3>How many practice tests should I take?</h3>
+                                    <p><strong>4-6 full tests</strong> is ideal. More isn't always better - quality
+                                        review
+                                        matters more than quantity. Each test takes 2+ hours, so budget 4+ hours
+                                        including
+                                        review.</p>
+                                </div>
+                                <div class="faq-card">
+                                    <h3>Are unofficial practice tests worth it?</h3>
+                                    <p><strong>Mostly no.</strong> Official College Board tests match the real exam.
+                                        Unofficial
+                                        tests often have different difficulty, timing, or question styles that can build
+                                        bad
+                                        habits.</p>
+                                </div>
+                                <div class="faq-card">
+                                    <h3>What's the difference between Bluebook and Khan?</h3>
+                                    <p><strong>Bluebook</strong> = Full practice tests (exam simulation). <strong>Khan
+                                            Academy</strong> = Individual skill practice (targeted learning). Use both:
+                                        Khan for
+                                        learning, Bluebook for testing.</p>
+                                </div>
+                                <div class="faq-card">
+                                    <h3>How does Digital SAT scoring work?</h3>
+                                    <p>The test is <strong>adaptive</strong>: Module 2 difficulty depends on Module 1
+                                        performance. You need harder Module 2 questions to reach 750+. Each section
+                                        (Reading/Math) is 200-800.</p>
+                                </div>
+                                <div class="faq-card">
+                                    <h3>Can I improve 100+ points?</h3>
+                                    <p><strong>Yes</strong>, with proper strategy. Most students score below their
+                                        potential due
+                                        to unfamiliarity, not ability. 8 weeks of focused prep typically yields 100-150
+                                        point
+                                        gains.</p>
+                                </div>
+                                <div class="faq-card">
+                                    <h3>When should I take the SAT?</h3>
+                                    <p><strong>Junior year spring</strong> (March/May) is ideal - gives time to retake
+                                        senior
+                                        fall if needed. Take it when you have 6-8 weeks of dedicated prep time
+                                        available.</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Score Predictor Section -->
+            <section class="predictor-section-wrapper" id="score-predictor">
+                <div class="predictor-container">
+                    <div class="predictor-header">
+                        <h2>SAT Score Predictor 🔮</h2>
+                        <p>The Digital SAT is adaptive. See how mistakes heavily impact your score.</p>
+                    </div>
+
+                    <div class="predictor-grid">
+                        <!-- Controls -->
+                        <div class="predictor-controls">
+                            <div class="control-group">
+                                <label>
+                                    <span>Module 1 Mistakes</span>
+                                    <span class="range-value" id="m1-value">0</span>
+                                </label>
+                                <input type="range" id="m1-mistakes" min="0" max="22" value="0">
+                                <span class="control-help">Out of 22 Questions</span>
+                            </div>
+
+                            <div class="control-group">
+                                <label>
+                                    <span>Module 2 Mistakes</span>
+                                    <span class="range-value" id="m2-value">0</span>
+                                </label>
+                                <input type="range" id="m2-mistakes" min="0" max="22" value="0">
+                                <span class="control-help">Out of 22 Questions</span>
+                            </div>
+                        </div>
+
+                        <!-- Result -->
+                        <div class="predictor-result">
+                            <div class="score-box">
+                                <span class="score-label">Estimated Score</span>
+                                <div class="score-number" id="predicted-score">800</div>
+                            </div>
+                            <p id="predictor-message" class="predictor-message safe">Select your mistakes to see the
+                                prediction.
+                            </p>
+
+                            <!-- Conversion CTA -->
+                            <div id="predictor-cta" class="predictor-cta"
+                                style="display: none; margin-top: 1.5rem; padding: 1rem; background: rgba(99, 102, 241, 0.1); border: 1px dashed var(--accent-primary); border-radius: 8px; text-align: center;">
+                                <h4 style="color: var(--accent-primary); margin-bottom: 0.5rem;">Want to fix these
+                                    errors?</h4>
+                                <p style="font-size: 0.9rem; margin-bottom: 1rem;">Get the exact Desmos hacks for Module
+                                    2 hard
+                                    questions.</p>
+                                <a href="#waitlist" class="btn-primary"
+                                    style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">Join
+                                    the Waitlist →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Formula Hub Interactive Access -->
+            <section class="lead-magnet-section"
+                style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%); padding: 5rem 5%; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5;">
+                <div
+                    style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                    <div class="lead-magnet-content">
+                        <span
+                            style="background: var(--accent-primary); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;">Authority
+                            Tool</span>
+                        <h2
+                            style="font-family: 'Space Grotesk', sans-serif; font-size: 2.8rem; margin: 1.5rem 0 1rem; line-height: 1.1;">
+                            Master the 35 Virtual Formulas</h2>
+                        <p style="font-size: 1.2rem; color: #4a4a68; margin-bottom: 2rem; line-height: 1.6;">
+                            The Digital SAT reference sheet is intentionally incomplete. Access our interactive Formula
+                            Hub to
+                            learn the "Practix Way"—the shortcuts that turn 5-minute calculations into 30-second reflex
+                            moves.
+                        </p>
+                        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 2rem;">
+                            <ul style="list-style: none; padding: 0; color: #4a4a68; font-size: 1rem; line-height: 2;">
+                                <li>🚀 35+ High-Impact SAT Math Shortcuts</li>
+                                <li>🎓 Theoretical Proofs for "Elite" Understanding</li>
+                                <li>✅ Interactive Mastery Tracking for Every Formula</li>
+                            </ul>
+                        </div>
+                        <a href="formulas/" class="btn-primary"
+                            style="padding: 1rem 2rem; font-size: 1.1rem; border-radius: 12px;">Enter the Formula Hub
+                            →</a>
+                    </div>
+                    <div class="lead-magnet-image" style="position: relative;">
+                        <div
+                            style="background: white; padding: 1.5rem; border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1); border: 1px solid #e5e5e5;">
+                            <div
+                                style="background: #f3f4f6; height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: #4a4a68; text-align: center; padding: 2rem;">
+                                <div>
+                                    <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
+                                    <strong>Interactive Formula Registry</strong><br>
+                                    Training in progress...
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Floating badge -->
+                        <div
+                            style="position: absolute; bottom: -20px; right: -20px; background: #6366f1; color: white; padding: 1rem; border-radius: 50%; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; flex-direction: column; font-weight: 700; transform: rotate(10deg); box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);">
+                            <span style="font-size: 0.7rem; opacity: 0.9;">EXPLORE</span>
+                            <span style="font-size: 1.2rem;">35+</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer managed by footer.js -->
+            <footer></footer>
+        </main>
+    </div>
+
+    <!-- Tally.so Script -->
+    <script src="https://tally.so/widgets/embed.js"></script>
+
+
+    <script src="assets/scripts/score_predictor.js"></script>
+    <script>
+        // Tab switching
+        // Tab switching
+        function switchTab(tabId) {
+            // Remove active from all tabs and content
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            // Add active to selected tab and content
+            // Find button by onclick attribute to simpler logic than adding IDs
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('onclick').includes(tabId)) {
+                    btn.classList.add('active');
+                }
+            });
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Waitlist popup using Tally
+        const TALLY_FORM_ID = '68KX6k';
+        document.querySelectorAll('a[href="#waitlist"]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // Track lead generation intent
+                if (window.practixLog) {
+                    window.practixLog('conversion_intent', {
+                        target: 'waitlist_popup',
+                        location: window.location.pathname
+                    });
+                }
+
+                Tally.openPopup(TALLY_FORM_ID, {
+                    width: 400,
+                    emoji: {
+                        text: '🚀',
+                        animation: 'wave'
+                    }
+                });
+            });
+        });
+    </script>
+    <style>
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loader {
+            width: 32px;
+            height: 32px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+    </style>
+</body>
+
+</html>

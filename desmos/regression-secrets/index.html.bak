@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>SAT Desmos Regression Secrets: Linear, Quadratic & Exponential | Practix</title>
+    <meta name="description"
+        content="Learn the 'magic codes' for Desmos Regression on the SAT. Instant solutions for linear, quadratic, and exponential problems without algebra.">
+
+    <link rel="stylesheet" href="../../assets/styles/styles.css?v=23">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../assets/scripts/practix-nav.js?v=23"></script>
+    <script src="../../assets/scripts/sidebar.js"></script>
+    <script src="../../assets/scripts/practix-footer.js?v=23"></script>
+    <script src="../../assets/scripts/analytics.js"></script>
+
+    <style>
+        .technique-section {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .magic-code {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            font-family: monospace;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-bg"></div>
+
+    <div class="page-container">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
+            <!-- JS will populate -->
+        </aside>
+
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search hacks... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
+
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Stop Studying. Start Training.
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Regression Secrets</h1>
+                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px;">
+                        The "magic codes" that make Desmos solve SAT algebra problems instantly.
+                    </p>
+                </header>
+
+                <section class="technique-section" id="linear">
+                    <h2 style="color: #065f46; margin-bottom: 1.5rem;">🪄 Linear Regression Code</h2>
+                    <p><strong>Problem:</strong> Line through $(2, 5)$ and $(6, 13)$. Find slope.</p>
+                    <div class="magic-code">y₁ ~ m·x₁ + b</div>
+                    <p>Add a table, enter points, type the code. Desmos gives you \(m\) (slope) and \(b\) (intercept)
+                        instantly.</p>
+                </section>
+
+                <section class="technique-section" id="quadratic"
+                    style="background: #fef2f2; border-left-color: #ef4444;">
+                    <h2 style="color: #991b1b; margin-bottom: 1.5rem;">📈 Quadratic Regression Code</h2>
+                    <p><strong>Problem:</strong> Parabola through $(0, 3)$, $(1, 6)$, and $(2, 11)$.</p>
+                    <div class="magic-code" style="border-color: #fecaca;">y₁ ~ a·x₁² + b·x₁ + c</div>
+                    <p>Desmos will calculate the coefficients \(a\), \(b\), and \(c\) for the standard form of the
+                        parabola.
+                    </p>
+                </section>
+
+                <section class="technique-section" id="exponential"
+                    style="background: #eff6ff; border-left-color: #3b82f6;">
+                    <h2 style="color: #1e40af; margin-bottom: 1.5rem;">📊 Exponential Regression</h2>
+                    <p><strong>Problem:</strong> Population doubles every year. Starts at 100.</p>
+                    <div class="magic-code" style="border-color: #bfdbfe;">y₁ ~ a·b^{x₁}</div>
+                    <p>Perfect for compound interest or biological growth problems.</p>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

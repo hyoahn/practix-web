@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Disable Browser Caching for Development -->
+
+    <title>SAT Circle Equation Shortcuts | Practix</title>
+    <meta name="description"
+        content="Master SAT circle equations. Learn to complete the square instantly and identify centers and radii from the general form in seconds.">
+
+    <!-- Programmatic SEO & Social -->
+    <meta property="og:title" content="Elite SAT Circle Hacks: The General Form Shortcut | Practix">
+    <meta property="og:description"
+        content="Find the center and radius of any circle in seconds. Free high-aesthetic wallpaper pack for masters.">
+    <meta property="og:image" content="../../../assets/images/wallpapers/wall_boss_mode.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="../../../assets/styles/styles.css?v=1770560949">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../assets/scripts/practix-nav.js?v=1770560949"></script>
+    <script src="../../../assets/scripts/sidebar.js?v=1770560949"></script>
+    <script src="../../../assets/scripts/practix-footer.js?v=1770560949"></script>
+    <script src="../../../assets/scripts/pulse-relay.js?v=1770560949"></script>
+    <script src="../../../assets/scripts/analytics.js?v=1770560949"></script>
+
+    <script
+        type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Circle Equation Shortcuts | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
+
+    <script
+        type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Circle Equation Shortcuts | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
+</head>
+
+<body>
+    <div class="page-bg"></div>
+
+    <div class="page-container">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
+            <!-- JS will populate -->
+        </aside>
+
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search formulas... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
+
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Stop Studying. Start Training.
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Circle Equations</h1>
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 800px;">
+                        Find center and radius instantly. Don't let factoring slow you down.
+                    </p>
+                </header>
+
+                <article class="formula-card" id="standard-circle">
+                    <div class="uvp-badge" style="background: #10b981; color: white;">Save 90s</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-standard-circle">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Standard Circle Form</h3>
+                    <div class="formula-display">\[ (x-h)^2 + (y-k)^2 = r^2 \]</div>
+                    <p class="formula-explanation">Center is \((h, k)\). Radius is \(r\). <br><strong>Trap:</strong>
+                        Remember to switch the signs!</p>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Basic Center</summary>
+                        <div class="solution-content">
+                            <p>Find center and radius of \((x+2)^2 + (y-5)^2 = 49\).</p>
+                            <p><strong>Result: Center (-2, 5), Radius 7</strong>.</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="formula-card" id="general-form-hack">
+                    <div class="uvp-badge" style="background: #ef4444; color: white;">Hardest Version</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-general-form">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>General Form Hack</h3>
+                    <div class="formula-display">\[ \text{Center} = (-D/2, -E/2) \]</div>
+                    <p class="formula-explanation">When given \(x^2 + y^2 + Dx + Ey + F = 0\), just halve the
+                        coefficients
+                        and flip the sign to find the center.</p>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Center from General Form</summary>
+                        <div class="solution-content">
+                            <p>\(x^2 + y^2 - 10x + 6y - 2 = 0\)</p>
+                            <p>Center x: \(-10 \div 2 = -5 \rightarrow +5\)</p>
+                            <p>Center y: \(6 \div 2 = 3 \rightarrow -3\)</p>
+                            <p><strong>Center is \((5, -3)\)</strong>.</p>
+                        </div>
+                    </details>
+                </article>
+                <article class="formula-card" id="arc-len-deg">
+                    <div class="uvp-badge" style="background: #10b981; color: white;">Geometry</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-arc-len-deg">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Arc Length (Degrees)</h3>
+                    <div class="formula-display">\[ L = 2\pi r (\frac{\theta}{360}) \]</div>
+                    <p class="formula-explanation">It's just the circumference times the fraction of the circle.</p>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Basic Arc</summary>
+                        <div class="solution-content">
+                            <p>Radius 6, Angle \(60^\circ\). Find arc length.</p>
+                            <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">\(L = 2\pi(6) \cdot
+                                \frac{60}{360} = 12\pi \cdot \frac{1}{6} = 2\pi\)</p>
+                            <p><strong>Result: 2π</strong>.</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="formula-card" id="sector-area-deg">
+                    <div class="uvp-badge" style="background: #10b981; color: white;">Geometry</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-sector-area-deg">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Sector Area (Degrees)</h3>
+                    <div class="formula-display">\[ A = \pi r^2 (\frac{\theta}{360}) \]</div>
+                    <p class="formula-explanation">It's just the total area times the fraction of the circle.</p>
+                </article>
+
+                <article class="formula-card" id="arc-len-rad">
+                    <div class="uvp-badge" style="background: #ef4444; color: white;">Shortcut</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-arc-len-rad">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Arc Length (Radians)</h3>
+                    <div class="formula-display">\[ s = r\theta \]</div>
+                    <p class="formula-explanation">The definition of a radian! \(\theta\) must be in radians.</p>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Radian Shortcut</summary>
+                        <div class="solution-content">
+                            <p>Radius 5, Angle \(2\pi/5\). Find arc length.</p>
+                            <p style="text-align: center; font-size: 1.2rem; margin: 1rem 0;">\(s = 5 \cdot
+                                \frac{2\pi}{5} = 2\pi\)</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="formula-card" id="sector-area-rad">
+                    <div class="uvp-badge" style="background: #ef4444; color: white;">Shortcut</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-sector-area-rad">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Sector Area (Radians)</h3>
+                    <div class="formula-display">\[ A = \frac{1}{2}r^2 \theta \]</div>
+                    <p class="formula-explanation">Much faster than converting to degrees.</p>
+                </article>
+
+                <article class="formula-card" id="inscribed-angle">
+                    <div class="uvp-badge" style="background: #8b5cf6; color: white;">Concept</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-inscribed-angle">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Inscribed Angle</h3>
+                    <div class="formula-display">\[ \text{Angle} = \frac{1}{2} \text{Arc} \]</div>
+                    <p class="formula-explanation">An angle on the edge is half the central angle (or half the arc).</p>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Edge Angle</summary>
+                        <div class="solution-content">
+                            <p>If an arc measure is \(100^\circ\), the inscribed angle is \(50^\circ\).</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="formula-card" id="central-angle">
+                    <div class="uvp-badge" style="background: #8b5cf6; color: white;">Concept</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-central-angle">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Central Angle</h3>
+                    <div class="formula-display">\[ \text{Angle} = \text{Arc} \]</div>
+                    <p class="formula-explanation">An angle at the center equals the arc measure.</p>
+                </article>
+
+                <article class="formula-card" id="tangent-rad">
+                    <div class="uvp-badge" style="background: #f59e0b; color: white;">Must Know</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-tangent-rad">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Tangent-Radius</h3>
+                    <div class="formula-display">\[ m\angle = 90^\circ \]</div>
+                    <p class="formula-explanation">A radius connected to a tangent line always forms a right angle.</p>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Right Triangle setup</summary>
+                        <div class="solution-content">
+                            <p>Used to solve for missing lengths using the Pythagorean Theorem (\(a^2 + b^2 = c^2\)).
+                            </p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="formula-card" id="diameter-endpoints">
+                    <div class="uvp-badge" style="background: #06b6d4; color: white;">Process</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-diameter-endpoints">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Diameter to Equation</h3>
+                    <div class="formula-display">\[ \text{Midpoint} = \text{Center} \]</div>
+                    <p class="formula-explanation">Given endpoints: 1. Find Midpoint (Center). 2. Find distance to
+                        center (Radius).</p>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Endpoints to Circle</summary>
+                        <div class="solution-content">
+                            <p>Endpoints of a diameter: \((0, 0)\) and \((6, 8)\).</p>
+                            <p>1. Midpoint = \((3, 4)\). This is the center.</p>
+                            <p>2. Radius = distance from \((0, 0)\) to \((3, 4) = \sqrt{3^2 + 4^2} = 5\).</p>
+                            <p><strong>Result: \((x-3)^2 + (y-4)^2 = 25\)</strong>.</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="formula-card" id="cyclic-quad">
+                    <div class="uvp-badge" style="background: #ef4444; color: white;">Rare</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-cyclic-quad">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Cyclic Quadrilateral</h3>
+                    <div class="formula-display">\[ \text{Opposite Angles Sum} = 180^\circ \]</div>
+                    <p class="formula-explanation">If a 4-sided shape is inside a circle, opposite angles add to 180.
+                    </p>
+                    <details class="practix-reveal">
+                        <summary>📝 Example: Sum check</summary>
+                        <div class="solution-content">
+                            <p>If \(\angle A = 70^\circ\), the opposite angle \(\angle C = 110^\circ\).</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="formula-card" id="annulus-area">
+                    <div class="uvp-badge" style="background: #f59e0b; color: white;">Visual</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-annulus-area">
+                    </div>
+                    <span class="category-badge cat-geo"
+                        style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
+                    <h3>Area of Ring (Annulus)</h3>
+                    <div class="formula-display">\[ A = \pi R^2 - \pi r^2 \]</div>
+                    <p class="formula-explanation">Big circle minus small circle.</p>
+                </article>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -334,13 +334,13 @@ function initMobileFlyout() {
             /* RED EDGES RESTORATION 🔴 (Youngja's Note: Very important for representative-nim!) */
             .flyout-topic { 
                 display: block !important; 
-                padding: 1rem !important; 
+                padding: 0.65rem 0.85rem !important; 
                 text-decoration: none !important; 
                 color: #1f2937 !important; 
                 font-size: 1rem !important; 
                 border-radius: 12px !important; 
                 transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important; 
-                margin-bottom: 0.75rem !important; 
+                margin-bottom: 0.5rem !important; 
                 font-weight: 600 !important; 
                 border: 1px solid #ef4444 !important; /* THE RED EDGE 🔴 */
                 background: white !important; 
@@ -389,56 +389,48 @@ function initMobileFlyout() {
 
     if (railContainer) {
         const railInteractionHandler = (e) => {
-            // Check for flyout button first
+            // Only intercept flyout buttons, let links work naturally
             const btn = e.target.closest('button[data-pillar]');
-            if (btn) {
-                e.preventDefault();
-                e.stopPropagation();
+            if (!btn) return; // Let browser handle link navigation naturally
 
-                const pillarId = btn.dataset.pillar;
-                const pillar = window.PRACTIX_PILLARS.find(p => p.id === pillarId);
-                if (!pillar) return;
+            e.preventDefault();
+            e.stopPropagation();
 
-                flyoutTitle.textContent = pillar.name;
-                let html = '';
-                if (pillar.id === 'formulas' || pillar.id === 'math') {
-                    const bPath = window.PRACTIX_BASE_PATH;
-                    let flashHref = window.PRACTIX_NORMALIZE_HREF(`${bPath}formulas/index.html#flash-card-container`);
-                    html += `
-                        <div class="flyout-section" style="margin-bottom: 0.75rem;">
-                            <a href="${flashHref}" class="flyout-topic" style="border: 2px solid #10b981 !important; background-color: #f0fdf4 !important; display: flex !important; align-items: center; gap: 0.75rem; border-radius: 16px !important;">
-                                <span style="font-size: 1.75rem;">⚡</span>
-                                <div><div style="font-weight: 800; color: #047857; line-height: 1.2; font-size: 1.1rem;">Flash Cards</div><div style="font-size: 0.8rem; color: #059669; font-weight: 600;">Swipe & Memorize</div></div>
-                            </a>
-                        </div>
-                    `;
-                }
-                pillar.categories.forEach(category => {
-                    html += `<div class="flyout-section"><div class="flyout-section-title">${category.name}</div>`;
-                    category.subsections.forEach(sub => {
-                        if (sub.topics && sub.topics.length > 0) {
-                            html += `<div class="flyout-subsection-title">${sub.name}</div>`;
-                            sub.topics.forEach(topic => {
-                                let topicHref = (window.PRACTIX_BASE_PATH + topic.path);
-                                topicHref = window.PRACTIX_NORMALIZE_HREF(topicHref);
-                                html += `<a href="${topicHref}" class="flyout-topic">${topic.name}</a>`;
-                            });
-                        }
-                    });
-                    html += `</div>`;
+            const pillarId = btn.dataset.pillar;
+            const pillar = window.PRACTIX_PILLARS.find(p => p.id === pillarId);
+            if (!pillar) return;
+
+            flyoutTitle.textContent = pillar.name;
+            let html = '';
+            if (pillar.id === 'formulas' || pillar.id === 'math') {
+                const bPath = window.PRACTIX_BASE_PATH;
+                let flashHref = window.PRACTIX_NORMALIZE_HREF(`${bPath}formulas/index.html#flash-card-container`);
+                html += `
+                    <div class="flyout-section" style="margin-bottom: 0.75rem;">
+                        <a href="${flashHref}" class="flyout-topic" style="border: 2px solid #10b981 !important; background-color: #f0fdf4 !important; display: flex !important; align-items: center; gap: 0.75rem; border-radius: 16px !important;">
+                            <span style="font-size: 1.75rem;">⚡</span>
+                            <div><div style="font-weight: 800; color: #047857; line-height: 1.2; font-size: 1.1rem;">Flash Cards</div><div style="font-size: 0.8rem; color: #059669; font-weight: 600;">Swipe & Memorize</div></div>
+                        </a>
+                    </div>
+                `;
+            }
+            pillar.categories.forEach(category => {
+                html += `<div class="flyout-section"><div class="flyout-section-title">${category.name}</div>`;
+                category.subsections.forEach(sub => {
+                    if (sub.topics && sub.topics.length > 0) {
+                        html += `<div class="flyout-subsection-title">${sub.name}</div>`;
+                        sub.topics.forEach(topic => {
+                            let topicHref = (window.PRACTIX_BASE_PATH + topic.path);
+                            topicHref = window.PRACTIX_NORMALIZE_HREF(topicHref);
+                            html += `<a href="${topicHref}" class="flyout-topic">${topic.name}</a>`;
+                        });
+                    }
                 });
-                flyoutContent.innerHTML = html;
-                flyout.classList.add('active');
-                if (flyoutOverlay) flyoutOverlay.classList.add('active');
-                return;
-            }
-
-            // Check for direct navigation link
-            const link = e.target.closest('a.rail-item');
-            if (link && link.href) {
-                window.PRACTIX_NAVIGATE(link, e);
-                return;
-            }
+                html += `</div>`;
+            });
+            flyoutContent.innerHTML = html;
+            flyout.classList.add('active');
+            if (flyoutOverlay) flyoutOverlay.classList.add('active');
         };
 
         railContainer.addEventListener('click', railInteractionHandler);

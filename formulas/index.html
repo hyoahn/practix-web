@@ -224,64 +224,46 @@
             <div style="max-width: 1000px; margin: 0 auto; padding: 0 5% 5rem;">
 
 
-                <!-- VIRAL DOWNLOAD -->
-                <section
-                    style="background: #0f172a; color: white; padding: 2.5rem; border-radius: 20px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; flex-wrap: wrap; gap: 2rem;">
-                    <div>
-                        <span
-                            style="color: var(--accent-primary); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">Free
-                            Download</span>
-                        <h3 style="margin: 0; font-size: 1.75rem; font-family: 'Space Grotesk', sans-serif;">Get the
-                            "Boss Mode" Wallpaper</h3>
-                        <p style="margin: 0.5rem 0 0; color: #94a3b8; font-size: 0.95rem;">The top 5 formulas you
-                            forget, right on your lock screen.</p>
-                    </div>
-                    <a href="../wallpapers/" class="btn-primary"
-                        style="padding: 1rem 2rem; background: var(--accent-primary); color: white; border-radius: 12px; text-decoration: none; font-weight: 700;">Get
-                        the Wallpaper →</a>
-                </section>
-
-                <div class="scan-table-container">
-                    <table class="scan-table">
-                        <thead>
-                            <tr>
-                                <th class="scan-num">#</th>
-                                <th>Concept</th>
-                                <th>Formula</th>
-                                <th>Mastery Bonus</th>
-                                <th>Done</th>
-                            </tr>
-                        </thead>
-                        <tbody id="scan-table-body">
-                            <!-- JS will populate -->
-                        </tbody>
-                    </table>
-                </div>
-
                 <!-- 1 -->
                 <article class="formula-card" id="f1">
-                    <span class="category-badge cat-geo">Geometry</span>
-                    <h3>1. Circle Equation</h3>
-                    <div class="formula-display">\[ (x-h)^2 + (y-k)^2 = r^2 \]</div>
-                    <p class="formula-explanation">Identify circle centers instantly.</p>
+                    <div class="uvp-badge">Practix Secret</div>
+                    <span class="category-badge cat-quad">Quadratics</span>
+                    <h3>1. The Vertex Shortcut</h3>
+                    <div class="formula-display">\[ x = -\frac{b}{2a} \]</div>
+                    <p class="formula-explanation">Instantly find the maximum or minimum of any parabola.</p>
                     <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed
                             Step-by-Step</span><span class="plus">+</span></button>
                     <div class="example-content">
-                        <p style="font-weight: 700;">"Find the center of \(x^2 + y^2 - 6x + 8y = 0\)."</p>
+                        <p style="font-weight: 700; margin-bottom: 1.5rem;">"Find the x-coordinate of the vertex for \(y
+                            = 3x^2 - 12x + 7\)."</p>
                         <div class="comparison-grid">
                             <div>
-                                <div style="color: #ef4444; font-weight: 800; margin-bottom: 1rem;">🚫 SCHOOL WAY</div>
+                                <div class="school-header"
+                                    style="color: #ef4444; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
+                                    🚫 The School Way (70+ Seconds)</div>
                                 <ul class="step-list">
-                                    <li>Complete the square for x and y.</li>
-                                    <li>(x-3)² + (y+4)² = 25.</li>
-                                    <li>Wait, what was the sign?</li>
+                                    <li>Step 1: Look at equation \(y = 3x^2 - 12x + 7\). Need to complete the square.
+                                    </li>
+                                    <li>Step 2: Factor out coefficient of \(x^2\): \(y = 3(x^2 - 4x) + 7\).</li>
+                                    <li>Step 3: Inside parentheses, identify b = -4.</li>
+                                    <li>Step 4: Take half of b: \(-4 \div 2 = -2\).</li>
+                                    <li>Step 5: Square that result: \((-2)^2 = 4\).</li>
+                                    <li>Step 6: Add AND subtract inside: \(3(x^2 - 4x + 4 - 4) + 7\).</li>
+                                    <li>Step 7: Separate the -4: \(3(x^2 - 4x + 4) + 3(-4) + 7\).</li>
+                                    <li>Step 8: Distribute the 3: \(3(x^2 - 4x + 4) - 12 + 7\).</li>
+                                    <li>Step 9: Factor perfect square: \(3(x - 2)^2 - 12 + 7\).</li>
+                                    <li>Step 10: Simplify constants: \(3(x - 2)^2 - 5\).</li>
+                                    <li>Step 11: Vertex form is \(a(x-h)^2 + k\), so h = 2.</li>
+                                    <li><em>One wrong sign ruins everything!</em></li>
                                 </ul>
                             </div>
                             <div>
-                                <div style="color: #10b981; font-weight: 800; margin-bottom: 1rem;">✅ PRACTIX WAY</div>
+                                <div class="practix-header"
+                                    style="color: #10b981; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
+                                    ✅ The Practix Way (2s)</div>
                                 <ul class="step-list">
-                                    <li>Flip sign, divide by 2.</li>
-                                    <li>Center is (3, -4). Done.</li>
+                                    <li>Step 1: \(x = -(-12) / (2 \times 3)\)</li>
+                                    <li>Step 2: \(x = 12 / 6 = 2\)</li>
                                 </ul>
                             </div>
                         </div>
@@ -291,9 +273,180 @@
                 <!-- 2 -->
                 <article class="formula-card" id="f2">
                     <span class="category-badge cat-quad">Quadratics</span>
-                    <h3>2. The Vertex Shortcut</h3>
-                    <div class="formula-display">\[ x = -\frac{b}{2a} \]</div>
-                    <p class="formula-explanation">Instantly find the maximum or minimum of any parabola.</p>
+                    <h3>2. Sum of Solutions</h3>
+                    <div class="formula-display">\[ \text{Sum} = -\frac{b}{a} \]</div>
+                    <p class="formula-explanation">Find the sum of all x-values without solving.</p>
+                    <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed
+                            Step-by-Step</span><span class="plus">+</span></button>
+                    <div class="example-content">
+                        <p style="font-weight: 700; margin-bottom: 1.5rem;">"Sum of solutions for \(2x^2 + 10x - 48 =
+                            0\)."</p>
+                        <div class="comparison-grid">
+                            <div>
+                                <div
+                                    style="color: #ef4444; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
+                                    🚫 The School Way (50+ Seconds)</div>
+                                <ul class="step-list">
+                                    <li>Step 1: Look at \(2x^2 + 10x - 48 = 0\). Too messy to factor directly.</li>
+                                    <li>Step 2: Divide everything by 2: \(x^2 + 5x - 24 = 0\).</li>
+                                    <li>Step 3: Find two numbers that multiply to -24 AND add to 5.</li>
+                                    <li>Step 4: Finally find (8,-3).</li>
+                                    <li>Step 5: Solve roots and add: \(-8 + 3 = -5\).</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div
+                                    style="color: #10b981; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
+                                    ✅ The Practix Way (1s)</div>
+                                <ul class="step-list">
+                                    <li>Step 1: \(-10 / 2 = -5\)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 3 -->
+                <article class="formula-card" id="f3">
+                    <span class="category-badge cat-quad">Quadratics</span>
+                    <h3>3. Product of Solutions</h3>
+                    <div class="formula-display">\[ \text{Product} = \frac{c}{a} \]</div>
+                    <p class="formula-explanation">Find the product of all x-values without solving.</p>
+                </article>
+
+                <!-- 4 -->
+                <article class="formula-card" id="f4">
+                    <span class="category-badge cat-quad">Quadratics</span>
+                    <h3>4. The Discriminant</h3>
+                    <div class="formula-display">\[ D = b^2 - 4ac \]</div>
+                    <p class="formula-explanation">Determine the number of solutions instantly.</p>
+                </article>
+
+                <!-- 5 -->
+                <article class="formula-card" id="f5">
+                    <span class="category-badge cat-alg">Algebra</span>
+                    <h3>5. Growth & Decay</h3>
+                    <div class="formula-display">\[ y = a(1 \pm r)^t \]</div>
+                    <p class="formula-explanation">Master percent word problems.</p>
+                </article>
+
+                <!-- 6 -->
+                <article class="formula-card" id="f6">
+                    <span class="category-badge cat-geo">Geometry</span>
+                    <h3>6. Circle Equation</h3>
+                    <div class="formula-display">\[ (x-h)^2 + (y-k)^2 = r^2 \]</div>
+                    <p class="formula-explanation">Identify circle centers instantly.</p>
+                </article>
+
+                <!-- 7 -->
+                <article class="formula-card" id="f7">
+                    <span class="category-badge cat-alg">Algebra</span>
+                    <h3>7. Complementary Trig</h3>
+                    <div class="formula-display">\[ \sin(x) = \cos(90 - x) \]</div>
+                    <p class="formula-explanation">Sine of one angle equals cosine of its complement.</p>
+                </article>
+
+                <!-- 8 -->
+                <article class="formula-card" id="f8">
+                    <span class="category-badge cat-alg">Algebra</span>
+                    <h3>8. Percent Change</h3>
+                    <div class="formula-display">\[ \frac{\text{New} - \text{Old}}{\text{Old}} \times 100 \]</div>
+                    <p class="formula-explanation">Calculate increase/decrease without confusion.</p>
+                </article>
+
+                <!-- 18 -->
+                <article class="formula-card" id="f18">
+                    <span class="category-badge cat-geo">Geometry</span>
+                    <h3>18. Slope Formula</h3>
+                    <div class="formula-display">\[ m = \frac{y_2 - y_1}{x_2 - x_1} \]</div>
+                </article>
+
+                <!-- 19 -->
+                <article class="formula-card" id="f19">
+                    <span class="category-badge cat-geo">Geometry</span>
+                    <h3>19. Parallel Lines</h3>
+                    <div class="formula-display">\[ m_1 = m_2 \]</div>
+                </article>
+
+                <!-- 20 -->
+                <article class="formula-card" id="f20">
+                    <span class="category-badge cat-geo">Geometry</span>
+                    <h3>20. Perpendicular Lines</h3>
+                    <div class="formula-display">\[ m_1 \cdot m_2 = -1 \]</div>
+                </article>
+
+                <!-- 21 -->
+                <article class="formula-card" id="f21">
+                    <span class="category-badge cat-alg">Statistics</span>
+                    <h3>21. Standard Deviation Logic</h3>
+                    <div class="formula-display">Spread = Gap</div>
+                    <p class="formula-explanation">More "spread out" data = Higher Standard Deviation.</p>
+                </article>
+
+                <!-- 22 -->
+                <article class="formula-card" id="f22">
+                    <span class="category-badge cat-alg">Statistics</span>
+                    <h3>22. Margin of Error</h3>
+                    <div class="formula-display">Sample Size ↑ = MoE ↓</div>
+                    <p class="formula-explanation">The more people you ask, the smaller the error.</p>
+                </article>
+
+                <!-- 23 -->
+                <article class="formula-card" id="f23">
+                    <span class="category-badge cat-alg">Algebra</span>
+                    <h3>23. Weighted Average</h3>
+                    <div class="formula-display">\[ \text{Avg} = \frac{\sum w \cdot x}{\sum w} \]</div>
+                </article>
+
+                <!-- 24 -->
+                <article class="formula-card" id="f24">
+                    <div class="uvp-badge">Exclusive Hack</div>
+                    <span class="category-badge cat-alg">Algebra</span>
+                    <h3>24. Harmonic Mean (Avg Speed)</h3>
+                    <div class="formula-display">\[ \text{Speed} = \frac{2ab}{a+b} \]</div>
+                </article>
+
+                <!-- 25 -->
+                <article class="formula-card" id="f25">
+                    <span class="category-badge cat-geo">Geometry</span>
+                    <h3>25. Sum of Interior Angles</h3>
+                    <div class="formula-display">\[ \text{Sum} = (n-2) \cdot 180^\circ \]</div>
+                </article>
+
+                <!-- 26 -->
+                <article class="formula-card" id="f26">
+                    <span class="category-badge cat-geo">Geometry</span>
+                    <h3>26. Exterior Angle Sum</h3>
+                    <div class="formula-display">Always \(360^\circ\)</div>
+                </article>
+
+                <!-- 27 -->
+                <article class="formula-card" id="f27">
+                    <span class="category-badge cat-geo">Geometry</span>
+                    <h3>27. Equation of Circle (General Form)</h3>
+                    <div class="formula-display">\( x^2 + y^2 + Dx + Ey + F = 0 \)</div>
+                </article>
+
+                <!-- 28 -->
+                <article class="formula-card" id="f28">
+                    <span class="category-badge cat-geo">Geometry</span>
+                    <h3>28. Arc/Sector Proportions</h3>
+                    <div class="formula-display">\[ \frac{\text{Arc}}{\text{Circum}} = \frac{\text{Sector}}{\text{Area}}
+                        = \frac{\theta}{360} \]</div>
+                </article>
+
+                <!-- 29 -->
+                <article class="formula-card" id="f29">
+                    <span class="category-badge cat-geo">Geometry</span>
+                    <h3>29. Distance from Origin</h3>
+                    <div class="formula-display">\[ d = \sqrt{x^2 + y^2} \]</div>
+                </article>
+
+                <!-- 30 -->
+                <article class="formula-card" id="f30">
+                    <span class="category-badge cat-geo">Geometry</span>
+                    <h3>30. Mastery: The 3-4-5 & 5-12-13 Triangles</h3>
+                    <div class="formula-display">3 : 4 : 5 Patterns</div>
                 </article>
 
                 <!-- ... other items removed for brevity in this example but would be kept in real file ... -->

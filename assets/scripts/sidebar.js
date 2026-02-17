@@ -3,6 +3,9 @@
  * Manages the multi-pillar navigation and instant search.
  */
 
+// 0. GLOBAL CONFIG & STATE (Youngja's Note: Globalizing path for mobile flyout reliability! 📱✨)
+window.PRACTIX_BASE_PATH = '';
+
 // FAST RAIL LOADER: Attempt to render rail immediately to avoid wait on heavy pages
 (function () {
     let railRendered = false;
@@ -1153,9 +1156,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // SPECIAL INJECTION: Flash Cards for key pillars
                 if (pillar.id === 'formulas' || pillar.id === 'math') {
+                    const bPath = window.PRACTIX_BASE_PATH || '';
                     html += `
                         <div class="flyout-section" style="margin-bottom: 0.5rem;">
-                            <a href="${basePath}formulas/#flash-card-container" class="flyout-topic" style="border: 2px solid #10b981 !important; background-color: #f0fdf4 !important; display: flex !important; align-items: center; gap: 0.75rem;">
+                            <a href="${bPath}formulas/#flash-card-container" class="flyout-topic" style="border: 2px solid #10b981 !important; background-color: #f0fdf4 !important; display: flex !important; align-items: center; gap: 0.75rem;">
                                 <span style="font-size: 1.5rem;">⚡</span>
                                 <div>
                                     <div style="font-weight: 800; color: #047857; line-height: 1.2;">Flash Cards</div>
@@ -1178,7 +1182,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                             // Topics are the actual clickable exercise links
                             sub.topics.forEach(topic => {
-                                const topicHref = topic.path.startsWith('http') ? topic.path : (basePath + topic.path);
+                                const bPath = window.PRACTIX_BASE_PATH || '';
+                                const topicHref = topic.path.startsWith('http') ? topic.path : (bPath + topic.path);
                                 const topicFolder = topic.path.split('/')[0];
                                 const topicHash = topic.path.includes('#') ? topic.path.split('#')[1] : null;
 

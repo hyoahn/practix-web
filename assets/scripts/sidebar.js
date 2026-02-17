@@ -1225,8 +1225,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Attach click handlers for links - navigate and cleanup Desmos
                 flyoutContent.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', (e) => {
-                        e.preventDefault(); // Prevent default to handle cleanup first
-                        const targetUrl = link.href;
+                        const targetUrl = new URL(link.href);
+                        const currentUrl = new URL(window.location.href);
+
+                        // If it's an anchor on the same page, we need to handle it better
+                        if (targetUrl.pathname === currentUrl.pathname && targetUrl.hash) {
+                            e.preventDefault();
+                            const anchorId = targetUrl.hash.substring(1);
+                            const anchorElement = document.getElementById(anchorId);
+
+                            // 1. Common UI Cleanup
+                            closeFlyout();
+                            railContainer.querySelectorAll('button[data-pillar]').forEach(b => {
+                                b.classList.remove('flyout-active');
+                            });
+
+                            if (anchorElement) {
+                                anchorElement.scrollIntoView({ behavior: 'smooth' });
+                                window.history.pushState(null, null, targetUrl.hash);
+                            } else {
+                                window.location.hash = targetUrl.hash;
+                            }
+                            return;
+                        }
+
+                        e.preventDefault(); // Prevent default for cross-page navigation to cleanup first
 
                         // 1. Cleanup Desmos Iframes to prevent "Leave Site?" alert
                         const floatingCalc = document.getElementById('calculatorFloat');
@@ -1243,7 +1266,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         // 3. Navigate manually
                         // Small timeout to ensure DOM removal propagates if needed (usually sync is fine)
-                        window.location.href = targetUrl;
+                        window.location.href = link.href;
                     });
                 });
 

@@ -433,8 +433,8 @@ function initMobileFlyout() {
             if (flyoutOverlay) flyoutOverlay.classList.add('active');
         };
 
+        // Only use click handler - works on both desktop and mobile
         railContainer.addEventListener('click', railInteractionHandler);
-        railContainer.addEventListener('touchend', railInteractionHandler);
     }
 }
 

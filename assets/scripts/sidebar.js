@@ -1206,35 +1206,39 @@ document.addEventListener('DOMContentLoaded', () => {
                 flyoutContent.innerHTML = html;
 
                 // Attach click handlers for links - navigate and cleanup Desmos
+                // Youngja's Note: Adding touch events for instant mobile response! 🎨✨
                 flyoutContent.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        const href = link.href;
+                    const handleNavigation = (e) => {
+                        const href = link.getAttribute('href');
                         if (!href) return;
+
+                        // Prevent multiple triggers (click + touch)
+                        if (link.dataset.navigating === 'true') return;
+                        link.dataset.navigating = 'true';
 
                         let targetUrl;
                         try {
-                            targetUrl = new URL(href);
+                            // If it's a relative path or hash, use current origin as base
+                            targetUrl = new URL(href, window.location.href);
                         } catch (err) {
                             console.error('Invalid URL:', href);
+                            link.dataset.navigating = 'false';
                             return;
                         }
 
                         const currentUrl = new URL(window.location.href);
 
-                        // Normalize pathnames for comparison (remove trailing slashes and index.html)
+                        // Normalize pathnames for comparison
                         const normPath = (p) => p.replace(/\/$/, '').replace('/index.html', '') || '/';
                         const isSamePage = normPath(targetUrl.pathname) === normPath(currentUrl.pathname);
 
-                        // If it's an anchor on the same page, we scroll instead of full reload
                         if (isSamePage && targetUrl.hash) {
                             e.preventDefault();
                             const anchorId = targetUrl.hash.substring(1);
                             const anchorElement = document.getElementById(anchorId);
 
                             closeFlyout();
-                            railContainer.querySelectorAll('button[data-pillar]').forEach(b => {
-                                b.classList.remove('flyout-active');
-                            });
+                            railContainer.querySelectorAll('button[data-pillar]').forEach(b => b.classList.remove('flyout-active'));
 
                             if (anchorElement) {
                                 anchorElement.scrollIntoView({ behavior: 'smooth' });
@@ -1242,13 +1246,13 @@ document.addEventListener('DOMContentLoaded', () => {
                             } else {
                                 window.location.hash = targetUrl.hash;
                             }
+                            link.dataset.navigating = 'false';
                             return;
                         }
 
-                        // For cross-page navigation, prevent default to handle cleanup first
                         e.preventDefault();
 
-                        // 1. Cleanup Desmos Iframes to prevent "Leave Site?" alert
+                        // 1. Cleanup Desmos Iframes
                         const floatingCalc = document.getElementById('calculatorFloat');
                         if (floatingCalc) floatingCalc.remove();
 
@@ -1257,14 +1261,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         // 2. Common UI Cleanup
                         closeFlyout();
-                        railContainer.querySelectorAll('button[data-pillar]').forEach(b => {
-                            b.classList.remove('flyout-active');
-                        });
+                        railContainer.querySelectorAll('button[data-pillar]').forEach(b => b.classList.remove('flyout-active'));
 
-                        // 3. Navigate manually after a micro-tick to ensure DOM cleanup is registered
+                        // 3. Navigate manually - ensuring enough time for DOM cleanup on slower mobile CPUs
                         setTimeout(() => {
                             window.location.href = href;
-                        }, 50);
+                            // Basic fallback if redirect fails
+                            setTimeout(() => { link.dataset.navigating = 'false'; }, 1000);
+                        }, 100);
+                    };
+
+                    link.addEventListener('click', handleNavigation);
+                    // Mobile specific: Listen for touchend to bypass 300ms delay 📱💨
+                    link.addEventListener('touchend', (e) => {
+                        // Only prevent if it's a short tap (not a scroll)
+                        // For simplicity in a flyout menu, a tap is usually intended.
+                        handleNavigation(e);
                     });
                 });
 

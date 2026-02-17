@@ -1151,8 +1151,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Structure: Category (header) > Subsection (sub-header, NOT clickable) > Topics (clickable links)
                 let html = '';
 
-                // SPECIAL INJECTION: Flash Cards for Formulas Pillar
-                if (pillar.id === 'formulas') {
+                // SPECIAL INJECTION: Flash Cards for key pillars
+                if (pillar.id === 'formulas' || pillar.id === 'math') {
                     html += `
                         <div class="flyout-section" style="margin-bottom: 0.5rem;">
                             <a href="${basePath}formulas/#flash-card-container" class="flyout-topic" style="border: 2px solid #10b981 !important; background-color: #f0fdf4 !important; display: flex !important; align-items: center; gap: 0.75rem;">
@@ -1178,40 +1178,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
                             // Topics are the actual clickable exercise links
                             sub.topics.forEach(topic => {
-                                if (topic.path) {
-                                    const topicHref = `${basePath}${topic.path}`;
-                                    // STRICT MATCHING LOGIC
-                                    // 1. Remove leading/trailing slashes for comparison
-                                    const cleanCurrentPath = currentPath.split('#')[0].replace(/^\/|\/$/g, '').replace('index.html', '');
-                                    const topicParts = topic.path.split('#');
-                                    const cleanTopicPath = topicParts[0].replace(/^\/|\/$/g, '').replace('index.html', '');
-                                    const topicHash = topicParts.length > 1 ? '#' + topicParts[1] : '';
+                                const topicHref = topic.path.startsWith('http') ? topic.path : (basePath + topic.path);
+                                const topicFolder = topic.path.split('/')[0];
+                                const topicHash = topic.path.includes('#') ? topic.path.split('#')[1] : null;
 
-                                    // 2. Exact match on the last segment (folder name)
-                                    const currentSegments = cleanCurrentPath.split('/').filter(Boolean);
-                                    const topicSegments = cleanTopicPath.split('/').filter(Boolean);
+                                const currentFolder = window.location.pathname.split('/').filter(p => p && p !== 'index.html').pop() || '';
+                                const currentHash = window.location.hash;
+                                let isActive = false;
 
-                                    const currentFolder = currentSegments.length > 0 ? currentSegments[currentSegments.length - 1] : '';
-                                    const topicFolder = topicSegments.length > 0 ? topicSegments[topicSegments.length - 1] : '';
-
-                                    // 3. Hash Awareness Logic
-                                    // - If topic has a hash, it needs folder match AND exact hash match.
-                                    // - If topic has NO hash, it needs folder match AND current hash must be empty (to distinguish from subsections).
-                                    const currentHash = window.location.hash;
-                                    let isActive = false;
-
-                                    if (currentFolder !== '' && topicFolder !== '' && currentFolder === topicFolder) {
-                                        if (topicHash) {
-                                            // Topic requests specific hash -> Must match current hash
-                                            isActive = (currentHash === topicHash);
-                                        } else {
-                                            // Topic is the root/basics (no hash) -> Active only if no hash is present in URL
-                                            isActive = (!currentHash || currentHash === '');
-                                        }
+                                if (currentFolder !== '' && topicFolder !== '' && currentFolder === topicFolder) {
+                                    if (topicHash) {
+                                        isActive = (currentHash === topicHash);
+                                    } else {
+                                        isActive = (!currentHash || currentHash === '');
                                     }
-
-                                    html += `<a href="${topicHref}" class="flyout-topic ${isActive ? 'active' : ''}" style="border: 2px solid #ff4d4f !important;">${topic.name}</a>`;
                                 }
+
+                                html += `<a href="${topicHref}" class="flyout-topic ${isActive ? 'active' : ''}" style="border: 2px solid #ff4d4f !important;">${topic.name}</a>`;
                             });
                         }
                     });
@@ -1225,16 +1208,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Attach click handlers for links - navigate and cleanup Desmos
                 flyoutContent.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', (e) => {
-                        const targetUrl = new URL(link.href);
+                        const href = link.href;
+                        if (!href) return;
+
+                        let targetUrl;
+                        try {
+                            targetUrl = new URL(href);
+                        } catch (err) {
+                            console.error('Invalid URL:', href);
+                            return;
+                        }
+
                         const currentUrl = new URL(window.location.href);
 
-                        // If it's an anchor on the same page, we need to handle it better
-                        if (targetUrl.pathname === currentUrl.pathname && targetUrl.hash) {
+                        // Normalize pathnames for comparison (remove trailing slashes and index.html)
+                        const normPath = (p) => p.replace(/\/$/, '').replace('/index.html', '') || '/';
+                        const isSamePage = normPath(targetUrl.pathname) === normPath(currentUrl.pathname);
+
+                        // If it's an anchor on the same page, we scroll instead of full reload
+                        if (isSamePage && targetUrl.hash) {
                             e.preventDefault();
                             const anchorId = targetUrl.hash.substring(1);
                             const anchorElement = document.getElementById(anchorId);
 
-                            // 1. Common UI Cleanup
                             closeFlyout();
                             railContainer.querySelectorAll('button[data-pillar]').forEach(b => {
                                 b.classList.remove('flyout-active');
@@ -1249,14 +1245,15 @@ document.addEventListener('DOMContentLoaded', () => {
                             return;
                         }
 
-                        e.preventDefault(); // Prevent default for cross-page navigation to cleanup first
+                        // For cross-page navigation, prevent default to handle cleanup first
+                        e.preventDefault();
 
                         // 1. Cleanup Desmos Iframes to prevent "Leave Site?" alert
                         const floatingCalc = document.getElementById('calculatorFloat');
-                        if (floatingCalc) floatingCalc.remove(); // Nuke it
+                        if (floatingCalc) floatingCalc.remove();
 
                         const mobilePanel = document.getElementById('mobile-desmos-panel');
-                        if (mobilePanel) mobilePanel.remove(); // Nuke it
+                        if (mobilePanel) mobilePanel.remove();
 
                         // 2. Common UI Cleanup
                         closeFlyout();
@@ -1264,9 +1261,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             b.classList.remove('flyout-active');
                         });
 
-                        // 3. Navigate manually
-                        // Small timeout to ensure DOM removal propagates if needed (usually sync is fine)
-                        window.location.href = link.href;
+                        // 3. Navigate manually after a micro-tick to ensure DOM cleanup is registered
+                        setTimeout(() => {
+                            window.location.href = href;
+                        }, 50);
                     });
                 });
 

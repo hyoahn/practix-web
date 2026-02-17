@@ -56,8 +56,8 @@ template = """<!DOCTYPE html>
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
         rel="stylesheet">
 
-    <script src="../assets/scripts/practix-nav.js?v=30"></script>
-    <script src="../assets/scripts/sidebar.js?v=30"></script>
+    <script src="../assets/scripts/practix-nav.js?v=1771354000"></script>
+    <script src="../assets/scripts/sidebar.js?v=1771354000"></script>
     <script src="../assets/scripts/practix-footer.js?v=30"></script>
     <script src="../assets/scripts/pulse-relay.js?v=26"></script>
     <script src="../assets/scripts/analytics.js"></script>

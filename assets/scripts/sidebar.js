@@ -391,6 +391,12 @@ function initMobileFlyout() {
         const triggerHandler = (e) => {
             const btn = e.target.closest('button[data-pillar]');
             if (!btn) return;
+
+            // Only preventDefault if we found a flyout button
+            if (e.type === 'touchend') {
+                e.preventDefault();
+            }
+
             const pillarId = btn.dataset.pillar;
             const pillar = window.PRACTIX_PILLARS.find(p => p.id === pillarId);
             if (!pillar) return;
@@ -428,7 +434,7 @@ function initMobileFlyout() {
             if (flyoutOverlay) flyoutOverlay.classList.add('active');
         };
         railContainer.addEventListener('click', triggerHandler);
-        railContainer.addEventListener('touchend', (e) => { e.preventDefault(); triggerHandler(e); });
+        railContainer.addEventListener('touchend', triggerHandler);
     }
 }
 

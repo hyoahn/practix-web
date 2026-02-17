@@ -126,7 +126,8 @@ body.mobile-active {
     color: var(--accent-primary);
 }
 
-.rail-item.active {
+.rail-item.active,
+button.rail-item.active {
     background: #f3f4f6;
     color: var(--text-primary);
     box-shadow: none;

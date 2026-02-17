@@ -1,5 +1,5 @@
 /**
- * Practix Command Rail & Spotlight Engine (v4)
+ * Practix Command Rail & Spotlight Engine (v5)
  * Manages the multi-pillar navigation and instant search.
  */
 
@@ -211,7 +211,7 @@ const PILLARS_CONFIG = [
     }
 ];
 
-// 2. GLOBAL PATH & NAVIGATION ENGINE (Youngja's Note: UN-SHADOWED & BULLETPROOF! 🛡️✨)
+// 2. GLOBAL PATH & NAVIGATION ENGINE (v5)
 window.PRACTIX_BASE_PATH = (function () {
     const currentPath = window.location.pathname;
     const pathSegments = currentPath.split('/').filter(s => s.length > 0);
@@ -244,24 +244,17 @@ window.PRACTIX_NORMALIZE_HREF = function (href) {
 window.PRACTIX_NAVIGATE = function (link, e) {
     const href = link.getAttribute('href');
     if (!href) return;
-
     if (link.dataset.navigating === 'true') {
         if (e) { e.preventDefault(); e.stopPropagation(); }
         return;
     }
-
     let targetUrl;
     try {
         targetUrl = new URL(href, window.location.href);
-    } catch (err) {
-        console.error('Practix: Invalid URL', href);
-        return;
-    }
-
+    } catch (err) { return; }
     const currentUrl = new URL(window.location.href);
     const normPath = (p) => p.replace(/\/$/, '').replace('/index.html', '') || '/';
     const isSamePage = normPath(targetUrl.pathname) === normPath(currentUrl.pathname);
-
     if (isSamePage && targetUrl.hash) {
         if (e) { e.preventDefault(); e.stopPropagation(); }
         const anchorId = targetUrl.hash.substring(1);
@@ -275,7 +268,6 @@ window.PRACTIX_NAVIGATE = function (link, e) {
         }
         return;
     }
-
     if (e) { e.preventDefault(); e.stopPropagation(); }
     link.dataset.navigating = 'true';
     if (window.PRACTIX_CLOSE_FLYOUT) window.PRACTIX_CLOSE_FLYOUT();
@@ -287,7 +279,6 @@ window.PRACTIX_NAVIGATE = function (link, e) {
 function globalRenderRail() {
     const railContainer = document.getElementById('narrow-rail');
     if (!railContainer) return;
-
     const currentPath = window.location.pathname;
     let activeId = 'home';
     if (currentPath.includes('app/')) activeId = 'app';
@@ -297,26 +288,20 @@ function globalRenderRail() {
     else if (currentPath.includes('desmos/')) activeId = 'desmos';
     else if (currentPath.includes('wallpapers/')) activeId = 'wallpapers';
     else if (currentPath.includes('contact/')) activeId = 'contact';
-
     const basePath = window.PRACTIX_BASE_PATH;
-    const isMobile = window.innerWidth <= 1280 ||
-        window.matchMedia('(max-width: 1280px)').matches ||
-        window.matchMedia('(pointer: coarse)').matches;
-
+    const isMobile = window.innerWidth <= 1280 || window.matchMedia('(max-width: 1280px)').matches || window.matchMedia('(pointer: coarse)').matches;
     railContainer.innerHTML = NAV_ITEMS_GLOBAL.map(item => {
         let href = item.path ? `${basePath}${item.path}index.html` : `${basePath}index.html`;
         href = window.PRACTIX_NORMALIZE_HREF(href);
-
         if (isMobile && item.hasFlyout) {
             return `<button class="rail-item ${item.id === activeId ? 'active' : ''}" title="${item.name}" data-pillar="${item.id}" data-path="${item.path}">${item.icon}</button>`;
         }
         return `<a href="${href}" class="rail-item ${item.id === activeId ? 'active' : ''}" title="${item.name}" data-pillar="${item.id}">${item.icon}</a>`;
     }).join('');
-
     railContainer.dataset.rendered = "true";
 }
 
-// 4. MOBILE FLYOUT
+// 4. MOBILE FLYOUT (v5 - Robust Styling & Red Borders! 🔴✨)
 function initMobileFlyout() {
     let flyout = document.getElementById('mobile-flyout');
     if (!flyout) {
@@ -329,52 +314,62 @@ function initMobileFlyout() {
         `;
         document.body.appendChild(flyout);
 
-        if (!document.getElementById('flyout-styles')) {
-            const style = document.createElement('style');
-            style.id = 'flyout-styles';
-            style.textContent = `
-                .mobile-flyout { position: fixed; top: 0; left: 60px; width: 280px; height: 100vh; background: white; border-right: 1px solid var(--border); z-index: 9999; transform: translateX(-340px); transition: transform 0.3s ease; display: flex; flex-direction: column; box-shadow: 4px 0 20px rgba(0,0,0,0.1); }
-                .mobile-flyout.active { transform: translateX(0); }
-                .flyout-header { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem; border-bottom: 1px solid var(--border); }
-                .flyout-title { font-weight: 800; font-size: 1.1rem; color: var(--text-primary); }
-                .flyout-close { background: none; border: none; font-size: 1.2rem; color: var(--text-secondary); cursor: pointer; padding: 0.5rem; }
-                .flyout-content { flex: 1; overflow-y: auto; padding: 1rem; -webkit-overflow-scrolling: touch; }
-                .flyout-section { margin-bottom: 1.5rem; }
-                .flyout-section-title { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 0.05em; margin-bottom: 0.75rem; padding-left: 0.5rem; }
-                .flyout-subsection-title { font-size: 0.85rem; font-weight: 700; color: var(--text-primary); margin: 0.75rem 0 0.5rem 0.5rem; border-left: 2px solid var(--accent-primary); padding-left: 0.75rem; }
-                
-                /* Restoration: Red Edges for Topics! (Youngja's Note: UI Excellence! 🎨✨) */
-                .flyout-topic { 
-                    display: block; padding: 0.75rem 1rem; text-decoration: none; 
-                    color: var(--text-primary) !important; font-size: 0.95rem; 
-                    border-radius: 8px; transition: all 0.2s; margin-bottom: 0.25rem; 
-                    font-weight: 500; border: 1px solid #ef4444 !important; /* THE RED EDGES 🔴 */
-                    background: white; position: relative; 
-                }
-                .flyout-topic:active { background-color: #fef2f2; transform: scale(0.98); }
-                .flyout-topic:hover { background: #fef2f2; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15); }
-                .flyout-topic.active { background: #ef4444; color: white !important; border-color: #ef4444; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4); }
-                
-                .flyout-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
-                .flyout-overlay.active { opacity: 1; pointer-events: auto; }
-            `;
-            document.head.appendChild(style);
-        }
+        // Youngja's Note: Always refresh styles to prevent stale cache!
+        const existingStyle = document.getElementById('flyout-styles');
+        if (existingStyle) existingStyle.remove();
 
-        if (!document.getElementById('flyout-overlay')) {
-            const overlay = document.createElement('div');
-            overlay.id = 'flyout-overlay';
-            overlay.className = 'flyout-overlay';
-            document.body.appendChild(overlay);
-        }
+        const style = document.createElement('style');
+        style.id = 'flyout-styles';
+        style.textContent = `
+            .mobile-flyout { position: fixed; top: 0; left: 60px; width: 280px; height: 100vh; background: white; border-right: 1px solid #e5e7eb; z-index: 9999; transform: translateX(-340px); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; box-shadow: 10px 0 30px rgba(0,0,0,0.15); }
+            .mobile-flyout.active { transform: translateX(0); }
+            .flyout-header { display: flex; align-items: center; justify-content: space-between; padding: 1.5rem; border-bottom: 1px solid #f3f4f6; }
+            .flyout-title { font-weight: 800; font-size: 1.25rem; color: #1f2937; }
+            .flyout-close { background: #f3f4f6; border: none; font-size: 1.2rem; color: #4b5563; cursor: pointer; padding: 0.5rem; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
+            .flyout-content { flex: 1; overflow-y: auto; padding: 1.25rem; -webkit-overflow-scrolling: touch; }
+            .flyout-section { margin-bottom: 2rem; }
+            .flyout-section-title { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: #9ca3af; letter-spacing: 0.1em; margin-bottom: 1rem; padding-left: 0.25rem; }
+            .flyout-subsection-title { font-size: 0.9rem; font-weight: 700; color: #374151; margin: 1rem 0 0.75rem 0; border-left: 3px solid #6366f1; padding-left: 1rem; line-height: 1.4; }
+            
+            /* RED EDGES RESTORATION 🔴 (Youngja's Note: Very important for representative-nim!) */
+            .flyout-topic { 
+                display: block !important; 
+                padding: 1rem !important; 
+                text-decoration: none !important; 
+                color: #1f2937 !important; 
+                font-size: 1rem !important; 
+                border-radius: 12px !important; 
+                transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important; 
+                margin-bottom: 0.75rem !important; 
+                font-weight: 600 !important; 
+                border: 1px solid #ef4444 !important; /* THE RED EDGE 🔴 */
+                background: white !important; 
+                box-shadow: 0 2px 4px rgba(239, 68, 68, 0.05) !important;
+                position: relative !important;
+            }
+            .flyout-topic:active { background-color: #fef2f2 !important; transform: scale(0.97) !important; }
+            .flyout-topic:hover { border-color: #dc2626 !important; background: #fff5f5 !important; transform: translateX(4px) !important; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1) !important; }
+            .flyout-topic.active { background: #ef4444 !important; color: white !important; border-color: #ef4444 !important; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3) !important; }
+            
+            .flyout-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(2px); }
+            .flyout-overlay.active { opacity: 1; pointer-events: auto; }
+        `;
+        document.head.appendChild(style);
+
+        const existingOverlay = document.getElementById('flyout-overlay');
+        if (existingOverlay) existingOverlay.remove();
+        const overlay = document.createElement('div');
+        overlay.id = 'flyout-overlay';
+        overlay.className = 'flyout-overlay';
+        document.body.appendChild(overlay);
 
         flyout.addEventListener('click', (e) => {
-            const link = e.target.closest('.flyout-topic, a');
+            const link = e.target.closest('.flyout-topic');
             if (link) window.PRACTIX_NAVIGATE(link, e);
         });
         flyout.addEventListener('touchend', (e) => {
-            const link = e.target.closest('.flyout-topic, a');
-            if (link) window.PRACTIX_NAVIGATE(link, e);
+            const link = e.target.closest('.flyout-topic');
+            if (link) { e.preventDefault(); window.PRACTIX_NAVIGATE(link, e); }
         });
     }
 
@@ -387,9 +382,6 @@ function initMobileFlyout() {
     window.PRACTIX_CLOSE_FLYOUT = () => {
         flyout.classList.remove('active');
         if (flyoutOverlay) flyoutOverlay.classList.remove('active');
-        if (railContainer) {
-            railContainer.querySelectorAll('.rail-item').forEach(b => b.classList.remove('flyout-active'));
-        }
     };
 
     flyoutClose.addEventListener('click', window.PRACTIX_CLOSE_FLYOUT);
@@ -401,42 +393,29 @@ function initMobileFlyout() {
             if (!btn) return;
             const pillarId = btn.dataset.pillar;
             const pillar = window.PRACTIX_PILLARS.find(p => p.id === pillarId);
+            if (!pillar) return;
 
-            if (!pillar) {
-                const bPath = window.PRACTIX_BASE_PATH;
-                const pathStr = btn.dataset.path || '';
-                let href = window.PRACTIX_NORMALIZE_HREF(`${bPath}${pathStr}index.html`);
-                window.location.href = href;
-                return;
-            }
-
-            railContainer.querySelectorAll('.rail-item').forEach(b => {
-                b.classList.remove('flyout-active'); b.classList.remove('active');
-            });
-            btn.classList.add('flyout-active');
             flyoutTitle.textContent = pillar.name;
-
             let html = '';
             if (pillar.id === 'formulas' || pillar.id === 'math') {
                 const bPath = window.PRACTIX_BASE_PATH;
                 let flashHref = window.PRACTIX_NORMALIZE_HREF(`${bPath}formulas/index.html#flash-card-container`);
                 html += `
-                    <div class="flyout-section" style="margin-bottom: 0.5rem;">
-                        <a href="${flashHref}" class="flyout-topic" style="border: 2px solid #10b981 !important; background-color: #f0fdf4 !important; display: flex !important; align-items: center; gap: 0.75rem;">
-                            <span style="font-size: 1.5rem;">⚡</span>
-                            <div><div style="font-weight: 800; color: #047857; line-height: 1.2;">Flash Cards</div><div style="font-size: 0.75rem; color: #059669; font-weight: 600;">Swipe & Memorize</div></div>
+                    <div class="flyout-section" style="margin-bottom: 0.75rem;">
+                        <a href="${flashHref}" class="flyout-topic" style="border: 2px solid #10b981 !important; background-color: #f0fdf4 !important; display: flex !important; align-items: center; gap: 0.75rem; border-radius: 16px !important;">
+                            <span style="font-size: 1.75rem;">⚡</span>
+                            <div><div style="font-weight: 800; color: #047857; line-height: 1.2; font-size: 1.1rem;">Flash Cards</div><div style="font-size: 0.8rem; color: #059669; font-weight: 600;">Swipe & Memorize</div></div>
                         </a>
                     </div>
                 `;
             }
-
             pillar.categories.forEach(category => {
                 html += `<div class="flyout-section"><div class="flyout-section-title">${category.name}</div>`;
                 category.subsections.forEach(sub => {
                     if (sub.topics && sub.topics.length > 0) {
                         html += `<div class="flyout-subsection-title">${sub.name}</div>`;
                         sub.topics.forEach(topic => {
-                            let topicHref = topic.path.startsWith('http') ? topic.path : (window.PRACTIX_BASE_PATH + topic.path);
+                            let topicHref = (window.PRACTIX_BASE_PATH + topic.path);
                             topicHref = window.PRACTIX_NORMALIZE_HREF(topicHref);
                             html += `<a href="${topicHref}" class="flyout-topic">${topic.name}</a>`;
                         });
@@ -444,18 +423,12 @@ function initMobileFlyout() {
                 });
                 html += `</div>`;
             });
-
             flyoutContent.innerHTML = html;
             flyout.classList.add('active');
             if (flyoutOverlay) flyoutOverlay.classList.add('active');
         };
-
-        railContainer.addEventListener('click', (e) => {
-            if (e.target.closest('button[data-pillar]')) triggerHandler(e);
-        });
-        railContainer.addEventListener('touchend', (e) => {
-            if (e.target.closest('button[data-pillar]')) { e.preventDefault(); triggerHandler(e); }
-        });
+        railContainer.addEventListener('click', triggerHandler);
+        railContainer.addEventListener('touchend', (e) => { e.preventDefault(); triggerHandler(e); });
     }
 }
 
@@ -470,32 +443,3 @@ const railPoll = setInterval(() => {
     }
 }, 10);
 setTimeout(() => clearInterval(railPoll), 3000);
-
-// 6. SIDEBAR TREE (Standard Desktop)
-document.addEventListener('DOMContentLoaded', () => {
-    const sidebarTree = document.getElementById('sidebar-tree');
-    if (!sidebarTree) return;
-    const currentPath = window.location.pathname;
-    const basePath = window.PRACTIX_BASE_PATH;
-    let activePillarId = window.PRACTIX_PILLARS.find(p => currentPath.includes(p.path))?.id || 'formulas';
-
-    function renderTree() {
-        const pillar = window.PRACTIX_PILLARS.find(p => p.id === activePillarId) || window.PRACTIX_PILLARS[0];
-        sidebarTree.innerHTML = pillar.categories.map(cat => `
-            <div class="side-tree-group active">
-                <h4>${cat.name}</h4>
-                ${cat.subsections.map(sub => `
-                    <div class="side-tree-subsection">
-                        <div class="side-tree-subsection-header">${sub.name}</div>
-                        <ul class="side-tree-topic">
-                            ${sub.topics.map(t => {
-            let tHref = window.PRACTIX_NORMALIZE_HREF(basePath + t.path);
-            const isActive = currentPath.includes(t.path.split('#')[0]);
-            return `<li><a href="${tHref}" class="side-link ${isActive ? 'active' : ''}">${t.name}</a></li>`;
-        }).join('')}
-                        </ul>
-                    </div>`).join('')}
-            </div>`).join('');
-    }
-    renderTree();
-});

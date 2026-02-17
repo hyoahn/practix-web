@@ -1,5 +1,5 @@
 /**
- * Practix Command Rail & Spotlight Engine (v3)
+ * Practix Command Rail & Spotlight Engine (v4)
  * Manages the multi-pillar navigation and instant search.
  */
 
@@ -232,7 +232,6 @@ window.PRACTIX_PILLARS = PILLARS_CONFIG;
 
 window.PRACTIX_NORMALIZE_HREF = function (href) {
     if (!href || href.startsWith('#')) return href;
-    const isLocal = window.location.protocol === 'file:';
     const [pathPart, extra] = href.split(/(?=[#?])/);
     let normalized = pathPart;
     if (normalized.endsWith('/') || !normalized.split('/').pop().includes('.')) {
@@ -242,9 +241,6 @@ window.PRACTIX_NORMALIZE_HREF = function (href) {
     return normalized + (extra || '');
 };
 
-/**
- * THE FINAL NAVIGATION ENGINE (Youngja's Note: Direct, zero-timeout, fully-locked! 🚀)
- */
 window.PRACTIX_NAVIGATE = function (link, e) {
     const href = link.getAttribute('href');
     if (!href) return;
@@ -280,15 +276,10 @@ window.PRACTIX_NAVIGATE = function (link, e) {
         return;
     }
 
-    // DIRECT NAVIGATION (No setTimeout to avoid browser blocks)
     if (e) { e.preventDefault(); e.stopPropagation(); }
     link.dataset.navigating = 'true';
     if (window.PRACTIX_CLOSE_FLYOUT) window.PRACTIX_CLOSE_FLYOUT();
-
-    // Immediate Redirect
     window.location.href = targetUrl.href;
-
-    // Safety reset
     setTimeout(() => { link.dataset.navigating = 'false'; }, 2000);
 };
 
@@ -351,10 +342,19 @@ function initMobileFlyout() {
                 .flyout-section { margin-bottom: 1.5rem; }
                 .flyout-section-title { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 0.05em; margin-bottom: 0.75rem; padding-left: 0.5rem; }
                 .flyout-subsection-title { font-size: 0.85rem; font-weight: 700; color: var(--text-primary); margin: 0.75rem 0 0.5rem 0.5rem; border-left: 2px solid var(--accent-primary); padding-left: 0.75rem; }
-                .flyout-topic { display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text-primary) !important; font-size: 0.95rem; border-radius: 8px; transition: all 0.2s; margin-bottom: 0.25rem; font-weight: 500; border: 1px solid transparent; position: relative; }
-                .flyout-topic:active { background-color: #f3f4f6; transform: scale(0.98); }
-                .flyout-topic:hover { background: var(--bg-hover); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15); }
-                .flyout-topic.active { background: var(--accent-primary); color: white !important; border-color: var(--accent-primary); box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4); }
+                
+                /* Restoration: Red Edges for Topics! (Youngja's Note: UI Excellence! 🎨✨) */
+                .flyout-topic { 
+                    display: block; padding: 0.75rem 1rem; text-decoration: none; 
+                    color: var(--text-primary) !important; font-size: 0.95rem; 
+                    border-radius: 8px; transition: all 0.2s; margin-bottom: 0.25rem; 
+                    font-weight: 500; border: 1px solid #ef4444 !important; /* THE RED EDGES 🔴 */
+                    background: white; position: relative; 
+                }
+                .flyout-topic:active { background-color: #fef2f2; transform: scale(0.98); }
+                .flyout-topic:hover { background: #fef2f2; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15); }
+                .flyout-topic.active { background: #ef4444; color: white !important; border-color: #ef4444; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4); }
+                
                 .flyout-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
                 .flyout-overlay.active { opacity: 1; pointer-events: auto; }
             `;
@@ -368,7 +368,6 @@ function initMobileFlyout() {
             document.body.appendChild(overlay);
         }
 
-        // EVENT DELEGATION (Youngja's Note: One listener to rule them all! 💍)
         flyout.addEventListener('click', (e) => {
             const link = e.target.closest('.flyout-topic, a');
             if (link) window.PRACTIX_NAVIGATE(link, e);
@@ -479,7 +478,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentPath = window.location.pathname;
     const basePath = window.PRACTIX_BASE_PATH;
     let activePillarId = window.PRACTIX_PILLARS.find(p => currentPath.includes(p.path))?.id || 'formulas';
-    let sidebarView = localStorage.getItem('practix_sidebar_view') || 'pillar';
 
     function renderTree() {
         const pillar = window.PRACTIX_PILLARS.find(p => p.id === activePillarId) || window.PRACTIX_PILLARS[0];

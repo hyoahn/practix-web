@@ -192,7 +192,7 @@
         /* Force single line to trigger scroll */
         max-width: 100%;
         line-height: normal !important;
-        padding: 1rem 0.5rem;
+        padding: 1rem 0 !important;
         /* Ensure MathJax scales down if still too wide */
         /* Remove flex here to allow block layout */
         display: block !important;
@@ -221,7 +221,7 @@
         justify-content: center !important;
         align-items: center !important;
         /* Add padding to prevent text touching edges */
-        padding: 0 1rem !important;
+        padding: 0 4px !important;
         overflow: hidden !important;
         /* Hide vertical overflow */
     }

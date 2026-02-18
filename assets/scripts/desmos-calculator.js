@@ -99,9 +99,9 @@
 
     function handleTouchMove(e) {
         if (!isResizing) return;
-        // Only prevent default if we are actually resizing to allow other gestures
-        if (e.cancelable) {
-            e.preventDefault();
+        // Only prevent default if we are specifically dragging via the handle
+        if (e.target === handle || handle.contains(e.target)) {
+            if (e.cancelable) e.preventDefault();
         }
         const delta = startY - e.touches[0].clientY;
         setHeight(startHeight + delta);

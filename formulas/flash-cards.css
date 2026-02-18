@@ -221,7 +221,7 @@
         justify-content: center !important;
         align-items: center !important;
         /* Add padding to prevent text touching edges */
-        padding: 0 4px !important;
+        padding: 0 !important;
         overflow: hidden !important;
         /* Hide vertical overflow */
     }

@@ -501,6 +501,26 @@
             }
         }
 
+        // FORCE MOBILE FIX FOR STATIC LIST
+        if (window.innerWidth <= 768) {
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @media (max-width: 768px) {
+                    .formula-card {
+                        padding: 0.5rem !important;
+                    }
+                    .formula-display {
+                        font-size: 1.2rem !important;
+                        overflow-x: auto !important;
+                        white-space: nowrap !important;
+                        width: 100% !important;
+                        display: block !important;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
         document.addEventListener('DOMContentLoaded', populateTable);
     </script>
 </body>

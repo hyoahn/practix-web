@@ -1,35 +1,44 @@
 /**
- * Practix Resizable Desmos Calculator (v1)
+ * Practix Resizable Desmos Calculator (v1.1)
  * Restores the bottom-half calculator with draggable height.
+ * Optimized for mobile-only visibility.
  */
 (function () {
-    // 1. Mobile Detection (Same logic as sidebar.js for consistency)
+    // 1. Mobile Detection (Stricter logic to avoid desktop false positives)
     function isMobile() {
-        return window.innerWidth <= 1280 ||
-            window.matchMedia('(max-width: 1280px)').matches ||
-            window.matchMedia('(pointer: coarse)').matches;
+        // Breakpoint matches the sidebar rail appearance
+        const isNarrow = window.innerWidth < 1280;
+        // Check for touch intent but only if narrow enough (to avoid touch laptops at 1440p)
+        const isTouch = window.matchMedia('(pointer: coarse)').matches && window.innerWidth < 1366;
+
+        return isNarrow || isTouch;
     }
 
-    if (!isMobile()) return;
+    if (!isMobile()) {
+        console.log("Practix: Window too wide for mobile calculator. Skipping.");
+        return;
+    }
 
     // 2. Inject Calculator HTML
+    const containerId = 'desmos-mobile-calc';
+    if (document.getElementById(containerId)) return;
+
     const containerHtml = `
-        <div id="desmos-mobile-calc" class="desmos-calculator-container">
+        <div id="${containerId}" class="desmos-calculator-container">
             <div id="desmos-drag-handle" class="desmos-drag-handle">
                 <div class="drag-pill"></div>
                 <span>DESMOS CALCULATOR (DRAG TO RESIZE)</span>
             </div>
             <div class="desmos-iframe-wrapper">
-                <iframe src="https://www.desmos.com/calculator" id="desmos-iframe"></iframe>
+                <iframe src="https://www.desmos.com/calculator" id="desmos-iframe" loading="lazy"></iframe>
             </div>
         </div>
     `;
 
     document.body.insertAdjacentHTML('beforeend', containerHtml);
 
-    const calc = document.getElementById('desmos-mobile-calc');
+    const calc = document.getElementById(containerId);
     const handle = document.getElementById('desmos-drag-handle');
-    const mainStage = document.querySelector('.main-stage') || document.body;
 
     // 3. Resizing Logic
     let isResizing = false;
@@ -47,7 +56,8 @@
         const finalH = Math.max(minHeight, Math.min(h, maxHeight));
 
         calc.style.height = `${finalH}px`;
-        // Push content up - find the stage-content-scroll if it exists
+
+        // Push content up
         const scrollContent = document.querySelector('.stage-content-scroll');
         if (scrollContent) {
             scrollContent.style.paddingBottom = `${finalH + 40}px`;
@@ -58,6 +68,7 @@
         localStorage.setItem('practix_desmos_height', finalH);
     }
 
+    // Initial set
     setHeight(defaultHeight);
 
     // Mouse Events
@@ -101,4 +112,14 @@
         document.removeEventListener('touchend', stopResizing);
         calc.classList.remove('resizing');
     }
+
+    // Auto-update on orientation change
+    window.addEventListener('resize', () => {
+        if (isMobile()) {
+            const currentH = calc.offsetHeight;
+            setHeight(currentH);
+        } else {
+            calc.style.display = 'none';
+        }
+    });
 })();

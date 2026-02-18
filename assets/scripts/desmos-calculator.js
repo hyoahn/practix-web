@@ -99,7 +99,10 @@
 
     function handleTouchMove(e) {
         if (!isResizing) return;
-        e.preventDefault(); // Prevent scrolling while resizing
+        // Only prevent default if we are actually resizing to allow other gestures
+        if (e.cancelable) {
+            e.preventDefault();
+        }
         const delta = startY - e.touches[0].clientY;
         setHeight(startHeight + delta);
     }

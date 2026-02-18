@@ -136,7 +136,9 @@ body.mobile-active {
         justify-content: center;
         border-bottom: 1px solid var(--border);
         touch-action: none;
+        /* Prevents browser scrolling on handle only */
         user-select: none;
+        -webkit-user-select: none;
     }
 
     .drag-pill {

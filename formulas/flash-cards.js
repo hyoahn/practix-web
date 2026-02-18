@@ -143,4 +143,22 @@ document.addEventListener('DOMContentLoaded', () => {
         touchEndX = e.changedTouches[0].screenX;
         handleSwipe();
     }, { passive: true });
+
+    // Force Mobile Styles (Zero Padding / No Margin)
+    if (window.innerWidth <= 768) {
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @media (max-width: 768px) {
+                .card-math { 
+                    padding: 1rem 0 !important; 
+                    margin: 0 !important; 
+                    width: 100% !important; 
+                }
+                .card-face { 
+                    padding: 0 !important; 
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
 });

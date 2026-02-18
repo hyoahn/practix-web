@@ -192,7 +192,7 @@
         /* Force single line to trigger scroll */
         max-width: 100%;
         line-height: normal !important;
-        padding: 1rem 0;
+        padding: 1rem 0.5rem;
         /* Ensure MathJax scales down if still too wide */
         /* Remove flex here to allow block layout */
         display: block !important;
@@ -203,9 +203,9 @@
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
         /* Remove math padding if strictly needed, but keep vertical spacing */
-        margin: 0 -1rem !important;
+        margin: 0 !important;
         /* Negative margin to pull to edges */
-        width: calc(100% + 2rem) !important;
+        width: 100% !important;
     }
 
     /* Flexbox centering for faces */
@@ -220,8 +220,8 @@
         flex-direction: column !important;
         justify-content: center !important;
         align-items: center !important;
-        /* ZERO PADDING as requested */
-        padding: 0 !important;
+        /* Add padding to prevent text touching edges */
+        padding: 0 1rem !important;
         overflow: hidden !important;
         /* Hide vertical overflow */
     }

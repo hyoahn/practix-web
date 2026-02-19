@@ -1,13 +1,11 @@
-/**
- * Practix Sidebar Loader (Separation Strategy)
- * Dispatches to sidebar-mobile.js (Frozen/Safe) or sidebar-desktop.js (Active Dev)
- */
-(function () {
-    // 1. Calculate Base Path (Shared Logic)
+const isLocal = window.location.protocol === 'file:';
+
+function getBasePath() {
     const currentPath = window.location.pathname;
     const pathSegments = currentPath.split('/').filter(s => s.length > 0);
     const rootIndex = pathSegments.indexOf('_Sever');
     let depth = 0;
+
     if (rootIndex !== -1) {
         const segmentsAfterRoot = pathSegments.slice(rootIndex + 1);
         const hasFile = segmentsAfterRoot.length > 0 && segmentsAfterRoot[segmentsAfterRoot.length - 1].includes('.');
@@ -16,18 +14,1055 @@
         const hasFile = pathSegments.length > 0 && pathSegments[pathSegments.length - 1].includes('.');
         depth = hasFile ? pathSegments.length - 1 : pathSegments.length;
     }
+    return depth === 0 ? '' : '../'.repeat(depth);
+}
+
+const basePath = getBasePath();
+
+const NAV_ITEMS = [
+    { id: 'home', name: 'Home', icon: '🏠', path: '' },
+    { id: 'app', name: 'App', icon: '🚀', path: 'app/' },
+    { id: 'math', name: 'Math', icon: '📐', path: 'math/' },
+    { id: 'formulas', name: 'Formulas', icon: 'Σ', path: 'formulas/' },
+    { id: 'hard-questions', name: 'Hardest Questions', icon: '☠️', path: 'hard-questions/' },
+    { id: 'desmos', name: 'Desmos', icon: 'y=', path: 'desmos/' },
+    { id: 'wallpapers', name: 'Wallpapers', icon: '📱', path: 'wallpapers/' },
+    { id: 'contact', name: 'About Us', icon: 'ℹ️', path: 'contact/' }
+];
+
+function globalRenderRail() {
+    const railContainer = document.getElementById('narrow-rail');
+    if (!railContainer) return;
+
+    const currentPath = window.location.pathname;
+    const activePillar = NAV_ITEMS.find(p => currentPath.includes(p.path))?.id || (currentPath.endsWith('index.html') && !currentPath.includes('_Sever/') ? 'home' : 'formulas');
+
+    railContainer.innerHTML = NAV_ITEMS.map(p => {
+        let href = p.path ? `${basePath}${p.path}` : `${basePath}index.html`;
+        if (isLocal && p.path && !href.includes('.html')) {
+            href = href.replace(/\/$/, '') + '/index.html';
+        }
+        return `
+            <a href="${href}" class="rail-item ${p.id === activePillar ? 'active' : ''}" title="${p.name}">
+                ${p.icon}
+            </a>
+        `;
+    }).join('') + `
+        <div style="flex-grow: 1;"></div>
+        <a href="${basePath}settings/index.html" class="rail-item" title="Settings">⚙️</a>
+    `;
+}
+
+// FAST RAIL LOADER
+(function () {
+    const poll = setInterval(() => {
+        if (document.getElementById('narrow-rail')) {
+            globalRenderRail();
+            clearInterval(poll);
+        }
+    }, 10);
+    setTimeout(() => clearInterval(poll), 3000);
+})();
+
+document.addEventListener('DOMContentLoaded', () => {
+    globalRenderRail(); // Backup call
+    // 1. Determine the path depth (Robust for file:// and hosted)
+    const currentPath = window.location.pathname;
+    const pathSegments = currentPath.split('/').filter(s => s.length > 0);
+
+    // Find the index of the root directory "_Sever"
+    const rootIndex = pathSegments.indexOf('_Sever');
+    let depth = 0;
+
+    if (rootIndex !== -1) {
+        // We are inside _Sever
+        const segmentsAfterRoot = pathSegments.slice(rootIndex + 1);
+        const hasFile = segmentsAfterRoot.length > 0 && segmentsAfterRoot[segmentsAfterRoot.length - 1].includes('.');
+        depth = hasFile ? segmentsAfterRoot.length - 1 : segmentsAfterRoot.length;
+    } else {
+        // Fallback for hosted environments where root is /
+        const hasFile = pathSegments.length > 0 && pathSegments[pathSegments.length - 1].includes('.');
+        depth = hasFile ? pathSegments.length - 1 : pathSegments.length;
+    }
+
     const basePath = depth === 0 ? '' : '../'.repeat(depth);
 
-    // 2. Detect Device Type (Matching original logic)
-    // REMOVED pointer: coarse to allow Touch Laptops/iPad Pros to see Desktop View
-    const isMobile = window.innerWidth <= 1024 || window.matchMedia('(max-width: 1024px)').matches;
+    // 2. Define the Full Site Tree (Categorized by Pillar)
+    const PILLARS = [
+        {
+            id: 'formulas',
+            name: 'SAT Math Formulas',
+            icon: 'Σ',
+            path: 'formulas/',
+            categories: [
+                {
+                    name: "Heart of Algebra",
+                    path: "formulas/heart-of-algebra/",
+                    subsections: [
+                        {
+                            name: "Linear Equations & Systems",
+                            topics: [
+                                { name: "Linear Equations", path: "formulas/heart-of-algebra/linear-equations/" },
+                                { name: "Slope from Standard Form", path: "formulas/heart-of-algebra/linear-equations/#standard-slope" },
+                                { name: "Point-Slope Form", path: "formulas/heart-of-algebra/linear-equations/#point-slope" },
+                                { name: "Midpoint Formula", path: "formulas/heart-of-algebra/linear-equations/#midpoint" },
+                                { name: "Distance Formula", path: "formulas/heart-of-algebra/linear-equations/#distance" },
+                                { name: "Parallel Lines", path: "formulas/heart-of-algebra/linear-equations/#parallel-slope" },
+                                { name: "Perpendicular Lines", path: "formulas/heart-of-algebra/linear-equations/#perp-slope" },
+                                { name: "Horizontal Line (HOY)", path: "formulas/heart-of-algebra/linear-equations/#horiz-slope" },
+                                { name: "Vertical Line (VUX)", path: "formulas/heart-of-algebra/linear-equations/#vert-slope" },
+                                { name: "X-Intercept Hack", path: "formulas/heart-of-algebra/linear-equations/#x-int-hack" },
+                                { name: "Intersection Meaning", path: "formulas/heart-of-algebra/linear-equations/#intersect-meaning" },
+                                { name: "Infinite Solutions", path: "formulas/heart-of-algebra/linear-equations/#infinite-sols" },
+                                { name: "No Solution", path: "formulas/heart-of-algebra/linear-equations/#no-sols" },
+                                { name: "Standard Form Intercepts", path: "formulas/heart-of-algebra/linear-equations/#standard-ints" }
+                            ]
+                        },
+                        {
+                            name: "Inequalities & Absolute Value",
+                            topics: [
+                                { name: "Inequality Shading", path: "formulas/heart-of-algebra/linear-equations/#ineq-shade" }
+                            ]
+                        },
+                        {
+                            name: "Functions & Graphing",
+                            topics: [
+                                { name: "Slope & Line Mastery", path: "formulas/heart-of-algebra/slope-and-lines/" }
+                            ]
+                        },
+                        {
+                            name: "Rate, Ratio, Proportion",
+                            topics: [
+                                { name: "Percent Change Hacks", path: "formulas/heart-of-algebra/percent-change-shortcuts/" }
+                            ]
+                        },
+                        {
+                            name: "Averages & Statistics Basics",
+                            topics: [
+                                { name: "Averages & Mixtures", path: "formulas/heart-of-algebra/averages-and-mixtures/" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Advanced Math",
+                    path: "formulas/passport-to-advanced-math/",
+                    subsections: [
+                        {
+                            name: "Quadratic Equations & Parabolas",
+                            topics: [
+                                { name: "Parabola Mastery", path: "formulas/passport-to-advanced-math/parabola-mastery/" },
+                                { name: "Quadratic Solutions", path: "formulas/passport-to-advanced-math/quadratic-solutions/" }
+                            ]
+                        },
+                        { name: "Polynomial Operations", topics: [] },
+                        {
+                            name: "Exponential Functions",
+                            topics: [
+                                { name: "Exponential Growth", path: "formulas/passport-to-advanced-math/exponential-growth/" }
+                            ]
+                        },
+                        { name: "Rational Expressions & Equations", topics: [] },
+                        { name: "Radicals & Complex Numbers", topics: [] },
+                        { name: "Functions (Advanced)", topics: [] },
+                        {
+                            name: "Factoring Techniques",
+                            topics: [
+                                { name: "Factoring Patterns", path: "formulas/passport-to-advanced-math/factoring-patterns/" }
+                            ]
+                        },
+                        { name: "Word Problems (Advanced)", topics: [] },
+                        { name: "Sequences & Series", topics: [] }
+                    ]
+                },
+                {
+                    name: "Problem-Solving & Data Analysis",
+                    path: "formulas/",
+                    subsections: [
+                        { name: "Percentages & Percent Change", topics: [] },
+                        { name: "Data Interpretation (Tables, Charts)", topics: [] },
+                        { name: "Statistical Measures (Mean, Median, Mode)", topics: [] },
+                        { name: "Probability & Counting", topics: [] },
+                        { name: "Scatterplots & Regression", topics: [] },
+                        { name: "Study Design & Sampling", topics: [] }
+                    ]
+                },
+                {
+                    name: "Geometry & Trigonometry",
+                    path: "formulas/geometry-trigonometry/",
+                    subsections: [
+                        {
+                            name: "Circles & Arc Measures",
+                            topics: [
+                                { name: "Circle Equations", path: "formulas/geometry-trigonometry/circle-equations/" },
+                                { name: "Arc Length (Degrees)", path: "formulas/geometry-trigonometry/circle-equations/#arc-len-deg" },
+                                { name: "Sector Area (Degrees)", path: "formulas/geometry-trigonometry/circle-equations/#sector-area-deg" },
+                                { name: "Arc Length (Radians)", path: "formulas/geometry-trigonometry/circle-equations/#arc-len-rad" },
+                                { name: "Sector Area (Radians)", path: "formulas/geometry-trigonometry/circle-equations/#sector-area-rad" },
+                                { name: "Inscribed Angle", path: "formulas/geometry-trigonometry/circle-equations/#inscribed-angle" },
+                                { name: "Central Angle", path: "formulas/geometry-trigonometry/circle-equations/#central-angle" },
+                                { name: "Tangent-Radius", path: "formulas/geometry-trigonometry/circle-equations/#tangent-rad" },
+                                { name: "Diameter to Equation", path: "formulas/geometry-trigonometry/circle-equations/#diameter-endpoints" },
+                                { name: "Cyclic Quadrilateral", path: "formulas/geometry-trigonometry/circle-equations/#cyclic-quad" },
+                                { name: "Annulus Area", path: "formulas/geometry-trigonometry/circle-equations/#annulus-area" },
+                                { name: "Arcs & Sectors", path: "formulas/geometry-trigonometry/arcs-and-sectors/" }
+                            ]
+                        },
+                        {
+                            name: "Triangles & Pythagorean Theorem",
+                            topics: [
+                                { name: "Pythagorean Triples", path: "formulas/heart-of-algebra/linear-equations/#pythag-triples" }
+                            ]
+                        },
+                        { name: "Coordinate Geometry", topics: [] },
+                        {
+                            name: "Angles & Polygons",
+                            topics: [
+                                { name: "Polygons & Ratios", path: "formulas/geometry-trigonometry/polygons-and-ratio/" }
+                            ]
+                        },
+                        {
+                            name: "Trigonometric Ratios",
+                            topics: [
+                                { name: "Trigonometry Hacks", path: "formulas/geometry-trigonometry/trigonometry-hacks/" }
+                            ]
+                        },
+                        { name: "Unit Circle & Radians", topics: [] }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'desmos',
+            name: 'Desmos SAT Calculator',
+            icon: 'y=',
+            path: 'desmos/',
+            categories: [
+                {
+                    name: "Heart of Algebra",
+                    path: "desmos/",
+                    subsections: [
+                        {
+                            name: "Linear Equations & Systems",
+                            topics: [
+                                { name: "System Solver", path: "desmos/system-solver/" }
+                            ]
+                        },
+                        {
+                            name: "Inequalities & Absolute Value",
+                            topics: [
+                                { name: "Absolute Value Solves", path: "desmos/absolute-value/" },
+                                { name: "Inequality Shading", path: "desmos/inequality-shading/" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Advanced Math",
+                    path: "desmos/",
+                    subsections: [
+                        {
+                            name: "Polynomial Operations",
+                            topics: [
+                                { name: "Polynomial Roots", path: "desmos/polynomial-roots/" },
+                                { name: "Poly-Solve Variables", path: "desmos/poly-solve/" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Problem-Solving & Data Analysis",
+                    path: "desmos/",
+                    subsections: [
+                        {
+                            name: "Scatterplots & Regression",
+                            topics: [
+                                { name: "Regression Secrets", path: "desmos/regression-secrets/" },
+                                { name: "Logarithmic Regression", path: "desmos/log-reg/" },
+                                { name: "Logistic Growth", path: "desmos/logistic-reg/" },
+                                { name: "Power Regression", path: "desmos/power-reg/" },
+                                { name: "R-squared Check", path: "desmos/r-squared/" },
+                                { name: "Residual Plot", path: "desmos/residual-plot/" },
+                                { name: "Prediction Value", path: "desmos/prediction-value/" }
+                            ]
+                        },
+                        {
+                            name: "Data Interpretation (Tables, Charts)",
+                            topics: [
+                                { name: "Lists & Tables", path: "desmos/lists-and-tables/" },
+                                { name: "Visualization Hacks", path: "desmos/visualization-hacks/" }
+                            ]
+                        },
+                        {
+                            name: "Statistical Measures (Mean, Median, Mode)",
+                            topics: [
+                                { name: "Mean vs Median", path: "desmos/mean-vs-median/" }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'hard-questions',
+            name: 'Hardest Questions',
+            icon: '☠️',
+            path: 'hard-questions/',
+            categories: [
+                {
+                    name: "Heart of Algebra",
+                    path: "hard-questions/",
+                    subsections: [
+                        {
+                            name: "Linear Equations & Systems",
+                            topics: [
+                                { name: "Algebra Traps", path: "hard-questions/algebra/" },
+                                { name: "Infinite Solutions Trap", path: "hard-questions/algebra/#q10" },
+                                { name: "No Solution Constants", path: "hard-questions/algebra/#q11" },
+                                { name: "Infinite Mystery", path: "hard-questions/algebra/#q17" },
+                                { name: "System Solutions", path: "hard-questions/system-solutions/" }
+                            ]
+                        },
+                        {
+                            name: "Functions & Graphing",
+                            topics: [
+                                { name: "Perpendicular Slopes", path: "hard-questions/algebra/#q12" },
+                                { name: "Slope Interpretation", path: "hard-questions/algebra/#q16" },
+                                { name: "Parallel Barrier", path: "hard-questions/algebra/#q18" }
+                            ]
+                        },
+                        {
+                            name: "Inequalities & Absolute Value",
+                            topics: [
+                                { name: "Inequality Zone", path: "hard-questions/algebra/#q19" },
+                                { name: "Absolute Range", path: "hard-questions/algebra/#q24" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Advanced Math",
+                    path: "hard-questions/",
+                    subsections: [
+                        {
+                            name: "Quadratic Equations & Parabolas",
+                            topics: [
+                                { name: "Advanced Math", path: "hard-questions/advanced-math/" },
+                                { name: "Quadratic Sum Hack", path: "hard-questions/algebra/#q13" },
+                                { name: "Vertex Speed Run", path: "hard-questions/advanced-math/#q9" },
+                                { name: "Two Root Test", path: "hard-questions/advanced-math/#q10" },
+                                { name: "Ghost Roots", path: "hard-questions/advanced-math/#q11" },
+                                { name: "Sum it Up", path: "hard-questions/advanced-math/#q12" },
+                                { name: "Product Power", path: "hard-questions/advanced-math/#q13" },
+                                { name: "Fake Roots", path: "hard-questions/advanced-math/#q17" },
+                                { name: "Discriminant Dangers", path: "hard-questions/discriminant-dangers/" }
+                            ]
+                        },
+                        {
+                            name: "Polynomial Operations",
+                            topics: [
+                                { name: "Manipulating Constants", path: "hard-questions/algebra/#q15" },
+                                { name: "Expression Match", path: "hard-questions/advanced-math/#q15" }
+                            ]
+                        },
+                        {
+                            name: "Rational Expressions & Equations",
+                            topics: [
+                                { name: "Extraneous Roots", path: "hard-questions/algebra/#q14" },
+                                { name: "Shifting Asymptote", path: "hard-questions/algebra/#q22" },
+                                { name: "Forbidden Values", path: "hard-questions/advanced-math/#q18" }
+                            ]
+                        },
+                        {
+                            name: "Functions (Advanced)",
+                            topics: [
+                                { name: "Composite Chaos", path: "hard-questions/algebra/#q20" },
+                                { name: "Inverse Trap", path: "hard-questions/algebra/#q21" }
+                            ]
+                        },
+                        {
+                            name: "Exponential Functions",
+                            topics: [
+                                { name: "Growth Identity", path: "hard-questions/algebra/#q23" },
+                                { name: "Decay Delay", path: "hard-questions/advanced-math/#q16" }
+                            ]
+                        },
+                        {
+                            name: "Factoring Techniques",
+                            topics: [
+                                { name: "Factor Logic", path: "hard-questions/advanced-math/#q14" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Problem-Solving & Data Analysis",
+                    path: "hard-questions/",
+                    subsections: [
+                        {
+                            name: "Rate, Ratio, Proportion",
+                            topics: [
+                                { name: "Problem Solving", path: "hard-questions/problem-solving/" },
+                                { name: "Unit Conversion", path: "hard-questions/unit-conversion/" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Geometry & Trigonometry",
+                    path: "hard-questions/",
+                    subsections: [
+                        {
+                            name: "Circles & Arc Measures",
+                            topics: [
+                                { name: "Geometry & Trig", path: "hard-questions/geometry/" }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'math',
+            name: 'SAT Math Knowledge',
+            icon: '📐',
+            path: 'math/',
+            categories: [
+                {
+                    name: "Heart of Algebra",
+                    path: "math/",
+                    subsections: [
+                        {
+                            name: "Linear Equations & Systems",
+                            topics: [
+                                { name: "Variables in Linear Equations", path: "math/#section-1" },
+                                { name: "Lines and Linear Functions", path: "math/#section-2" },
+                                { name: "Systems of Linear Equations", path: "math/#section-3" },
+                                { name: "Word Problems", path: "math/#section-5" }
+                            ]
+                        },
+                        {
+                            name: "Inequalities & Absolute Value",
+                            topics: [
+                                { name: "Linear Inequalities", path: "math/#section-4" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Advanced Math",
+                    path: "math/",
+                    subsections: [
+                        {
+                            name: "Polynomial Operations",
+                            topics: [
+                                { name: "Polynomial Functions", path: "math/#section-6" }
+                            ]
+                        },
+                        {
+                            name: "Quadratic Equations & Parabolas",
+                            topics: [
+                                { name: "Quadratic Equations", path: "math/#section-7" }
+                            ]
+                        },
+                        {
+                            name: "Rational Expressions & Equations",
+                            topics: [
+                                { name: "Solutions of Linear Expressions", path: "math/#section-8" }
+                            ]
+                        },
+                        {
+                            name: "Inequalities & Absolute Value",
+                            topics: [
+                                { name: "Absolute Value", path: "math/#section-9" }
+                            ]
+                        },
+                        {
+                            name: "Rate, Ratio, Proportion",
+                            topics: [
+                                { name: "Ratios, Fractions, Proportions", path: "math/#section-10" }
+                            ]
+                        },
+                        {
+                            name: "Percentages & Percent Change",
+                            topics: [
+                                { name: "Percentages", path: "math/#section-11" }
+                            ]
+                        },
+                        {
+                            name: "Exponential Functions",
+                            topics: [
+                                { name: "Exponents", path: "math/#section-12" },
+                                { name: "Exponential Growth & Decay", path: "math/#section-13" }
+                            ]
+                        },
+                        {
+                            name: "Polynomial Operations",
+                            topics: [
+                                { name: "Manipulating Expressions", path: "math/#section-14" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Problem-Solving & Data Analysis",
+                    path: "math/",
+                    subsections: [
+                        {
+                            name: "Probability & Counting",
+                            topics: [
+                                { name: "Probability", path: "math/#section-15" }
+                            ]
+                        },
+                        {
+                            name: "Data Interpretation (Tables, Charts)",
+                            topics: [
+                                { name: "Reading Graphs", path: "math/#section-16" },
+                                { name: "Histograms & Bar Graphs", path: "math/#section-17" },
+                                { name: "Studies & Data Interpretation", path: "math/#section-20" }
+                            ]
+                        },
+                        {
+                            name: "Statistical Measures (Mean, Median, Mode)",
+                            topics: [
+                                { name: "Mean, Median, Mode, Range", path: "math/#section-18" },
+                                { name: "Median in Box Plots", path: "math/#section-19" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Geometry & Trigonometry",
+                    path: "math/",
+                    subsections: [
+                        {
+                            name: "Circles & Arc Measures",
+                            topics: [
+                                { name: "Circles", path: "math/circles/" }
+                            ]
+                        },
+                        {
+                            name: "Angles & Polygons",
+                            topics: [
+                                { name: "Lines and Angles", path: "math/#section-22" },
+                                { name: "Quadrilaterals", path: "math/#section-24" }
+                            ]
+                        },
+                        {
+                            name: "Triangles & Pythagorean Theorem",
+                            topics: [
+                                { name: "Triangles", path: "math/#section-23" }
+                            ]
+                        },
+                        {
+                            name: "Coordinate Geometry",
+                            topics: [
+                                { name: "Three-Dimensional Figures", path: "math/#section-25" }
+                            ]
+                        },
+                        {
+                            name: "Trigonometric Ratios",
+                            topics: [
+                                { name: "Trigonometry", path: "math/#section-26" }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'wallpapers',
+            name: 'Viral Assets',
+            icon: '📱',
+            path: 'wallpapers/',
+            categories: [
+                {
+                    name: "Cheat Sheets",
+                    path: "wallpapers/",
+                    topics: [
+                        { name: "Lockscreen Walls", path: "wallpapers/" },
+                        { name: "Desmos Hacks", path: "wallpapers/" }
+                    ]
+                }
+            ]
+        }
+    ];
 
-    // 3. Load Appropriate Script
-    const script = document.createElement('script');
-    const version = new Date().getTime();
-    script.src = basePath + (isMobile ? 'assets/scripts/sidebar-mobile.js' : 'assets/scripts/sidebar-desktop.js') + '?v=' + version;
-    script.async = false; // Execute in order if possible (though sidebar is usually standalone)
-    document.head.appendChild(script);
+    // 3. UI Elements
+    const railContainer = document.getElementById('narrow-rail');
+    const sidebarTree = document.getElementById('sidebar-tree');
+    const searchInput = document.getElementById('sidebar-search');
 
-    console.log('[Sidebar Loader] Loaded:', isMobile ? 'Mobile (Safe)' : 'Desktop (Dev)');
-})();
+    if (!sidebarTree) return;
+
+    // 4. State Management
+    let activePillarId = PILLARS.find(p => currentPath.includes(p.path))?.id || 'formulas';
+    let sidebarView = localStorage.getItem('practix_sidebar_view') || 'pillar'; // 'pillar' or 'topic'
+
+    // Check for search query in URL params (from Homepage Search-First Hero)
+    const urlParams = new URLSearchParams(window.location.search);
+    let searchQuery = urlParams.get('q') || '';
+
+    // 4.1 Search Intent Logic for Phase 2
+    if (searchQuery) {
+        const query = searchQuery.toLowerCase();
+        const pillarKeywords = ['desmos', 'formula', 'trap', 'hard', 'hardest', 'cheat'];
+        const isPillarSearch = pillarKeywords.some(keyword => query.includes(keyword));
+
+        if (isPillarSearch) {
+            sidebarView = 'pillar';
+        } else {
+            sidebarView = 'topic';
+        }
+    }
+
+    // 5. Rendering Functions
+    function renderToggle() {
+        const sidebar = document.querySelector('.command-sidebar');
+        if (!sidebar) return;
+
+        // Check if toggle already exists
+        if (document.getElementById('sidebar-view-toggle')) return;
+
+        const toggleHTML = `
+            <div class="sidebar-view-toggle-container" id="sidebar-view-toggle">
+                <div class="view-toggle" id="view-toggle-btn">
+                    <div class="view-toggle-pill ${sidebarView === 'topic' ? 'right' : ''}"></div>
+                    <div class="view-toggle-option ${sidebarView === 'pillar' ? 'active' : ''}" data-view="pillar">
+                        <span>Pillars</span>
+                    </div>
+                    <div class="view-toggle-option ${sidebarView === 'topic' ? 'active' : ''}" data-view="topic">
+                        <span>Topics</span>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Insert after search container
+        const searchContainer = document.querySelector('.sidebar-search-container');
+        if (searchContainer) {
+            searchContainer.insertAdjacentHTML('afterend', toggleHTML);
+        } else {
+            sidebar.insertAdjacentHTML('afterbegin', toggleHTML);
+        }
+
+        // Add Event Listeners
+        document.getElementById('view-toggle-btn').addEventListener('click', (e) => {
+            const option = e.target.closest('.view-toggle-option');
+            if (!option) return;
+
+            const newView = option.dataset.view;
+            if (newView === sidebarView) return;
+
+            sidebarView = newView;
+            localStorage.setItem('practix_sidebar_view', sidebarView);
+
+            // UI Update
+            document.querySelectorAll('.view-toggle-option').forEach(opt => opt.classList.remove('active'));
+            option.classList.add('active');
+            document.querySelector('.view-toggle-pill').classList.toggle('right', sidebarView === 'topic');
+
+            renderTree();
+        });
+    }
+
+    function renderMobileToggle() {
+        // Mobile Toggle Logic (<= 1280px or pointer: coarse)
+        const isMobile = window.innerWidth <= 1280;
+
+        // --- NUCLEAR CSS: Ensure styles are injected ---
+        if (!document.getElementById('mobile-toggle-styles')) {
+            const style = document.createElement('style');
+            style.id = 'mobile-toggle-styles';
+            style.textContent = `
+                .mobile-tree-toggle {
+                    position: fixed !important;
+                    top: 10px !important;
+                    left: 10px !important;
+                    z-index: 2147483647 !important; /* Max Z-Index */
+                    background: var(--accent-primary, #6366f1) !important;
+                    color: white !important;
+                    border: none !important;
+                    border-radius: 8px !important;
+                    width: 44px !important;
+                    height: 44px !important;
+                    font-size: 1.5rem !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    cursor: pointer !important;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+                    transition: all 0.2s !important;
+                }
+                .mobile-tree-toggle:active {
+                    transform: scale(0.95) !important;
+                }
+                .command-sidebar.mobile-active {
+                    transform: translateX(0) !important;
+                    box-shadow: 0 0 50px rgba(0,0,0,0.5) !important;
+                }
+                /* Ensure body accounts for toggle */
+                @media (max-width: 1280px) {
+                    body.mobile-active { overflow: hidden !important; }
+                    .mobile-tree-toggle { display: flex !important; }
+                }
+                @media (min-width: 1281px) {
+                    .mobile-tree-toggle { display: none !important; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        let toggleBtn = document.getElementById('mobile-sidebar-toggle');
+
+        // Remove if desktop
+        if (!isMobile) {
+            if (toggleBtn) toggleBtn.style.display = 'none';
+            return;
+        }
+
+        // Create if missing
+        if (!toggleBtn) {
+            console.log('Creating mobile toggle button...');
+            toggleBtn = document.createElement('button');
+            toggleBtn.id = 'mobile-sidebar-toggle';
+            toggleBtn.className = 'mobile-tree-toggle';
+            toggleBtn.innerHTML = '☰';
+            toggleBtn.setAttribute('aria-label', 'Toggle Sidebar');
+            document.body.appendChild(toggleBtn);
+
+            toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const sidebar = document.querySelector('.command-sidebar');
+                if (sidebar) {
+                    sidebar.classList.toggle('mobile-active');
+                    document.body.classList.toggle('mobile-active');
+                    toggleBtn.innerHTML = sidebar.classList.contains('mobile-active') ? '✕' : '☰';
+                }
+            });
+
+            // Close on outside click
+            document.addEventListener('click', (e) => {
+                const sidebar = document.querySelector('.command-sidebar');
+                if (sidebar && sidebar.classList.contains('mobile-active') && !sidebar.contains(e.target) && e.target !== toggleBtn) {
+                    sidebar.classList.remove('mobile-active');
+                    document.body.classList.remove('mobile-active');
+                    toggleBtn.innerHTML = '☰';
+                }
+            });
+
+            // Close on link click
+            const sidebar = document.querySelector('.command-sidebar');
+            if (sidebar) {
+                sidebar.addEventListener('click', (e) => {
+                    if (e.target.closest('a')) {
+                        sidebar.classList.remove('mobile-active');
+                        document.body.classList.remove('mobile-active');
+                        toggleBtn.innerHTML = '☰';
+                    }
+                });
+            }
+        } else {
+            toggleBtn.style.display = 'flex';
+        }
+    }
+
+    function initResizableSidebar() {
+        const sidebar = document.querySelector('.command-sidebar');
+        if (!sidebar) return;
+
+        // Create resize handle
+        const handle = document.createElement('div');
+        handle.className = 'sidebar-resize-handle';
+        sidebar.appendChild(handle);
+
+        let isResizing = false;
+
+        // Restore saved width
+        const savedWidth = localStorage.getItem('practix_sidebar_width');
+        if (savedWidth) {
+            sidebar.style.width = savedWidth + 'px';
+        }
+
+        handle.addEventListener('mousedown', (e) => {
+            isResizing = true;
+            document.body.style.cursor = 'col-resize';
+            handle.classList.add('active');
+            e.preventDefault(); // Prevent text selection
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isResizing) return;
+
+            const sidebarRect = sidebar.getBoundingClientRect();
+            let newWidth = e.clientX - sidebarRect.left;
+
+            // Constrain
+            if (newWidth < 200) newWidth = 200;
+            if (newWidth > 600) newWidth = 600;
+
+            sidebar.style.width = newWidth + 'px';
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (isResizing) {
+                isResizing = false;
+                document.body.style.cursor = '';
+                handle.classList.remove('active');
+                localStorage.setItem('practix_sidebar_width', sidebar.style.width.replace('px', ''));
+            }
+        });
+    }
+
+    function renderRail() {
+        globalRenderRail();
+    }
+
+    function renderByTopic() {
+        let html = '';
+        const currentHash = window.location.hash;
+
+        // 1. Get the unified Domain/Subsection structure from the first pillar (canonical)
+        const domains = PILLARS[0].categories;
+
+        // Pillars to track for gaps (excluding Wallpapers)
+        const TARGET_PILLAR_IDS = ['math', 'formulas', 'desmos', 'hard-questions'];
+
+        html = domains.map(domain => {
+            if (!domain.subsections) return '';
+
+            // Check if domain has any matching content
+            const matchingSubsections = domain.subsections.map(sub => {
+                // 2. For each subsection, gather content from TARGET pillars
+                const pillarContent = PILLARS
+                    .filter(p => TARGET_PILLAR_IDS.includes(p.id))
+                    .map(p => {
+                        const pDomain = p.categories.find(d => d.name === domain.name);
+                        const pSub = pDomain?.subsections?.find(s => s.name === sub.name);
+
+                        const hasContent = pSub && pSub.topics.length > 0;
+
+                        // Tokenize search query for fuzzy matching (match all terms)
+                        const searchTerms = searchQuery.toLowerCase().split(/\s+/).filter(t => t.length > 0);
+                        const isMatch = (text) => {
+                            if (!searchQuery) return true;
+                            const lowerText = text.toLowerCase();
+                            return searchTerms.every(term => lowerText.includes(term));
+                        };
+
+                        // Check match (Subsection name or Topic name)
+                        const subNameMatch = isMatch(sub.name);
+
+                        let matchTopics = [];
+                        if (hasContent) {
+                            matchTopics = searchQuery
+                                ? pSub.topics.filter(t => subNameMatch || isMatch(t.name))
+                                : pSub.topics;
+                        }
+
+                        // Logic: Show placeholder if EMPTY, but only if:
+                        // 1. No search query (show all gaps)
+                        // 2. Search query matches Subsection Name (show gaps for this specific sub)
+
+                        const showPlaceholder = !hasContent && (!searchQuery || subNameMatch);
+                        const showContent = hasContent && matchTopics.length > 0;
+
+                        if (showPlaceholder) {
+                            return { pillar: p, isPlaceholder: true };
+                        } else if (showContent) {
+                            return { pillar: p, content: { name: pSub.name, topics: matchTopics } };
+                        }
+                        return null;
+                    }).filter(item => item !== null);
+
+                if (pillarContent.length === 0) return null;
+
+                return { subName: sub.name, content: pillarContent };
+            }).filter(sub => sub !== null);
+
+            if (matchingSubsections.length === 0) return '';
+
+            return `
+                <div class="side-tree-group active">
+                    <h4>${domain.name}</h4>
+                    ${matchingSubsections.map(subItem => `
+                        <div class="side-tree-subsection">
+                            <div class="side-tree-subsection-header">
+                                ${subItem.subName === 'Circles & Arc Measures'
+                    ? `<a href="${basePath}formulas/geometry-trigonometry/circle-equations/" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--accent-primary);"> ${subItem.subName} →</a>`
+                    : subItem.subName
+                }
+                            </div>
+                            <ul class="side-tree-topic">
+                                ${subItem.content.map(pc => {
+                    if (pc.isPlaceholder) {
+                        return `
+                                            <li>
+                                                <span class="side-link" style="opacity: 0.3; cursor: default;">
+                                                    <span style="font-size: 0.8em; margin-right: 0.4rem;">${pc.pillar.icon}</span>
+                                                    Also in ${pc.pillar.name}...
+                                                </span>
+                                            </li>
+                                        `;
+                    }
+                    return pc.content.topics.map(topic => {
+                        const isActive = isLinkActive(topic.path, window.location.pathname, currentHash);
+                        let href = basePath + topic.path;
+                        if (window.location.protocol === 'file:' && href.endsWith('/')) {
+                            href += 'index.html';
+                        }
+                        return `
+                                            <li>
+                                                <a href="${href}" class="side-link ${isActive ? 'active' : ''}">
+                                                    <span style="font-size: 0.8em; margin-right: 0.4rem;">${pc.pillar.icon}</span>
+                                                    ${topic.name}
+                                                </a>
+                                            </li>
+                                        `;
+                    }).join('');
+                }).join('')}
+                            </ul>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }).join('');
+
+        if (!html && searchQuery) {
+            html = `<div style="padding: 2rem; text-align: center; color: var(--text-secondary); font-size: 0.9rem;">No topics found for "${searchQuery}"</div>`;
+        }
+
+        sidebarTree.innerHTML = html;
+    }
+
+    function renderTree() {
+        if (searchQuery || sidebarView === 'topic') {
+            renderByTopic();
+            return;
+        }
+
+        const activePillar = PILLARS.find(p => p.id === activePillarId);
+        if (!activePillar) return;
+
+        let html = '';
+        const currentHash = window.location.hash;
+
+        // Render categories and subsections
+        if (activePillar.categories) {
+            html = activePillar.categories.map(category => `
+                <div class="side-tree-group active">
+                        <h4>${category.name}</h4>
+                        ${category.subsections ? category.subsections.map(sub => `
+                            <div class="side-tree-subsection">
+                                <div class="side-tree-subsection-header">${sub.name}</div>
+                                <ul class="side-tree-topic">
+                                    ${sub.topics.map(topic => {
+                const isActive = isLinkActive(topic.path, window.location.pathname, currentHash);
+                let href = basePath + topic.path;
+                if (window.location.protocol === 'file:' && href.endsWith('/')) {
+                    href += 'index.html';
+                }
+                return `
+                                        <li>
+                                            <a href="${href}" class="side-link ${isActive ? 'active' : ''}">
+                                                ${topic.name}
+                                            </a>
+                                        </li>
+                                    `;
+            }).join('')}
+                                </ul>
+                            </div>
+                        `).join('') : ''}
+                        ${category.topics ? `
+                            <ul class="side-tree-topic">
+                                ${category.topics.map(topic => {
+                const isActive = isLinkActive(topic.path, window.location.pathname, currentHash);
+                let href = basePath + topic.path;
+                if (window.location.protocol === 'file:' && href.endsWith('/')) {
+                    href += 'index.html';
+                }
+                return `
+                                    <li>
+                                        <a href="${href}" class="side-link ${isActive ? 'active' : ''}">
+                                            ${topic.name}
+                                        </a>
+                                    </li>
+                                `;
+            }).join('')}
+                            </ul>
+                        ` : ''}
+                </div>
+            `).join('');
+        }
+        sidebarTree.innerHTML = html;
+    }
+
+    // Helper function to determine if a link is active
+    function isLinkActive(topicPath, currentPath, currentHash) {
+        if (topicPath.includes('#')) {
+            const [topicBase, topicHash] = topicPath.split('#');
+            return currentPath.includes(topicBase) && currentHash === `#${topicHash}`;
+        }
+        return currentPath.includes(topicPath) && !currentHash;
+    }
+
+    // 6. Event Handlers
+    if (searchInput) {
+        if (searchQuery) searchInput.value = searchQuery;
+
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            renderTree();
+        });
+
+        searchInput.addEventListener('focus', () => {
+            if (sidebarView !== 'topic') {
+                sidebarView = 'topic';
+                document.querySelectorAll('.view-toggle-option').forEach(opt => opt.classList.remove('active'));
+                const topicOption = document.querySelector('[data-view="topic"]');
+                if (topicOption) topicOption.classList.add('active');
+                const togglePill = document.querySelector('.view-toggle-pill');
+                if (togglePill) togglePill.classList.add('right');
+                renderTree();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            const isTyping = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName) || document.activeElement.isContentEditable;
+            if (e.key === '/' && !isTyping) {
+                e.preventDefault();
+                searchInput.focus();
+            }
+        });
+    }
+
+    // 7. Initialize
+    renderRail();
+    renderTree();
+    renderToggle();
+    renderMobileToggle(); // Initial check
+
+    // Handle Resize
+    window.addEventListener('resize', () => {
+        renderMobileToggle();
+    });
+
+    initResizableSidebar();
+
+    // Listen for hash changes to update active highlighting
+    window.addEventListener('hashchange', () => {
+        renderTree();
+        const activeLink = sidebarTree.querySelector('.side-link.active');
+        if (activeLink) {
+            activeLink.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
+
+    // Auto-scroll to active link
+    const activeLink = sidebarTree.querySelector('.side-link.active');
+    if (activeLink) {
+        setTimeout(() => {
+            activeLink.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+    }
+});

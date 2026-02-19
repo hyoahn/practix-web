@@ -240,17 +240,19 @@ function ensureDesktopSidebar() {
         const style = document.createElement('style');
         style.textContent = `
             #practix-desktop-sidebar {
-                position: fixed;
+                position: fixed !important;
                 top: 0;
                 left: 60px;
                 bottom: 0;
                 width: 320px;
                 background: white;
                 border-right: 1px solid #e5e7eb;
-                z-index: 998; /* Below Rail (9999) */
-                display: flex;
+                z-index: 2147483647 !important; /* MAX INT to be sure */
+                display: flex !important;
                 flex-direction: column;
                 box-shadow: 4px 0 24px rgba(0,0,0,0.02);
+                opacity: 1 !important;
+                visibility: visible !important;
             }
             .sidebar-search-container {
                 padding: 1.5rem;
@@ -438,3 +440,13 @@ const initPoll = setInterval(() => {
     }
 }, 50);
 setTimeout(() => clearInterval(initPoll), 5000);
+
+// IMMEDIATE EXECUTION ATTEMPT (SAFEGUARDED)
+if (document.body) {
+    try {
+        ensureDesktopSidebar();
+        renderTree();
+    } catch (e) {
+        console.error('Sidebar Init Error:', e);
+    }
+}

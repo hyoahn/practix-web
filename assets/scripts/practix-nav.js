@@ -123,9 +123,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // We strictly prevent the Top Nav from entering the DOM on mobile to avoid "zombie nav" issues.
     // 4. Robust Mobile Detection
     // 4. Robust Mobile Detection (Expanded for iPad Pro / High-Res Tablets)
+    // 4. Robust Mobile Detection (Expanded for iPad Pro / High-Res Tablets)
     const isMobile = () => {
-        return window.innerWidth <= 1280 ||
-            window.matchMedia('(max-width: 1280px)').matches ||
+        return window.innerWidth <= 1024 ||
+            window.matchMedia('(max-width: 1024px)').matches ||
             window.matchMedia('(pointer: coarse)').matches;
     };
 

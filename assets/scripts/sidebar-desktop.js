@@ -1,9 +1,27 @@
 /**
- * Practix Command Rail & Spotlight Engine (v5)
- * Manages the multi-pillar navigation and instant search.
+ * Practix Desktop Sidebar (Separation Strategy)
+ * RESTORED LOGIC FOR TREE VIEW + RAIL
+ * Handles Rail Rendering AND Sidebar Panel Injection.
  */
 
-// 1. DATA STRUCTURES (Youngja's Note: Globalized for zero race conditions! 📱✨)
+// 1. GLOBAL PATH UTILS (Essential for Deep Links)
+window.PRACTIX_BASE_PATH = (function () {
+    const currentPath = window.location.pathname;
+    const pathSegments = currentPath.split('/').filter(s => s.length > 0);
+    const rootIndex = pathSegments.indexOf('_Sever');
+    let depth = 0;
+    if (rootIndex !== -1) {
+        const segmentsAfterRoot = pathSegments.slice(rootIndex + 1);
+        const hasFile = segmentsAfterRoot.length > 0 && segmentsAfterRoot[segmentsAfterRoot.length - 1].includes('.');
+        depth = hasFile ? segmentsAfterRoot.length - 1 : segmentsAfterRoot.length;
+    } else {
+        const hasFile = pathSegments.length > 0 && pathSegments[pathSegments.length - 1].includes('.');
+        depth = hasFile ? pathSegments.length - 1 : pathSegments.length;
+    }
+    return depth === 0 ? '' : '../'.repeat(depth);
+})();
+
+// 2. DATA STRUCTURES (Matches sidebar.js.bak)
 const NAV_ITEMS_GLOBAL = [
     { id: 'home', name: 'Home', icon: '🏠', path: '', hasFlyout: false },
     { id: 'app', name: 'App', icon: '🚀', path: 'app/', hasFlyout: false },
@@ -154,38 +172,7 @@ const PILLARS_CONFIG = [
                 path: "hard-questions/",
                 subsections: [
                     { name: "Polynomial Functions", topics: [] },
-                    { name: "Quadratic Equations and Parabola", topics: [{ name: "Discriminant Dangers", path: "hard-questions/discriminant-dangers/index.html" }] },
-                    { name: "Solutions of Linear Expressions", topics: [] },
-                    { name: "Absolute Value", topics: [] },
-                    { name: "Ratios, Proportions, and Rates", topics: [] },
-                    { name: "Percentages", topics: [] },
-                    { name: "Exponents", topics: [] },
-                    { name: "Exponential Growth and Decay", topics: [] },
-                    { name: "Manipulating Expressions", topics: [] }
-                ]
-            },
-            {
-                name: "Problem-Solving & Data Analysis",
-                path: "hard-questions/",
-                subsections: [
-                    { name: "Probability", topics: [] },
-                    { name: "Reading Graphs", topics: [] },
-                    { name: "Histograms and Bar Graphs", topics: [] },
-                    { name: "Statistics (Mean, Median, Mode)", topics: [] },
-                    { name: "Median and Range in Box Plots", topics: [] },
-                    { name: "Studies and Data Interpretation", topics: [] }
-                ]
-            },
-            {
-                name: "Geometry & Trigonometry",
-                path: "hard-questions/",
-                subsections: [
-                    { name: "Circles", topics: [{ name: "Geometry Traps", path: "hard-questions/geometry/index.html" }] },
-                    { name: "Lines and Angles", topics: [] },
-                    { name: "Triangles", topics: [] },
-                    { name: "Quadrilaterals", topics: [] },
-                    { name: "Three-Dimensional Figures", topics: [] },
-                    { name: "Trigonometry", topics: [] }
+                    { name: "Quadratic Equations and Parabola", topics: [{ name: "Discriminant Dangers", path: "hard-questions/discriminant-dangers/index.html" }] }
                 ]
             }
         ]
@@ -211,23 +198,7 @@ const PILLARS_CONFIG = [
     }
 ];
 
-// 2. GLOBAL PATH & NAVIGATION ENGINE (v5)
-window.PRACTIX_BASE_PATH = (function () {
-    const currentPath = window.location.pathname;
-    const pathSegments = currentPath.split('/').filter(s => s.length > 0);
-    const rootIndex = pathSegments.indexOf('_Sever');
-    let depth = 0;
-    if (rootIndex !== -1) {
-        const segmentsAfterRoot = pathSegments.slice(rootIndex + 1);
-        const hasFile = segmentsAfterRoot.length > 0 && segmentsAfterRoot[segmentsAfterRoot.length - 1].includes('.');
-        depth = hasFile ? segmentsAfterRoot.length - 1 : segmentsAfterRoot.length;
-    } else {
-        const hasFile = pathSegments.length > 0 && pathSegments[pathSegments.length - 1].includes('.');
-        depth = hasFile ? pathSegments.length - 1 : pathSegments.length;
-    }
-    return depth === 0 ? '' : '../'.repeat(depth);
-})();
-
+// 2. PATH UTILS
 window.PRACTIX_PILLARS = PILLARS_CONFIG;
 
 window.PRACTIX_NORMALIZE_HREF = function (href) {
@@ -241,41 +212,184 @@ window.PRACTIX_NORMALIZE_HREF = function (href) {
     return normalized + (extra || '');
 };
 
-window.PRACTIX_NAVIGATE = function (link, e) {
-    const href = link.getAttribute('href');
-    if (!href) return;
-    if (link.dataset.navigating === 'true') {
-        if (e) { e.preventDefault(); e.stopPropagation(); }
-        return;
-    }
-    let targetUrl;
-    try {
-        targetUrl = new URL(href, window.location.href);
-    } catch (err) { return; }
-    const currentUrl = new URL(window.location.href);
-    const normPath = (p) => p.replace(/\/$/, '').replace('/index.html', '') || '/';
-    const isSamePage = normPath(targetUrl.pathname) === normPath(currentUrl.pathname);
-    if (isSamePage && targetUrl.hash) {
-        if (e) { e.preventDefault(); e.stopPropagation(); }
-        const anchorId = targetUrl.hash.substring(1);
-        const anchorElement = document.getElementById(anchorId);
-        if (window.PRACTIX_CLOSE_FLYOUT) window.PRACTIX_CLOSE_FLYOUT();
-        if (anchorElement) {
-            anchorElement.scrollIntoView({ behavior: 'smooth' });
-            window.history.pushState(null, null, targetUrl.hash);
-        } else {
-            window.location.hash = targetUrl.hash;
-        }
-        return;
-    }
-    if (e) { e.preventDefault(); e.stopPropagation(); }
-    link.dataset.navigating = 'true';
-    if (window.PRACTIX_CLOSE_FLYOUT) window.PRACTIX_CLOSE_FLYOUT();
-    window.location.href = targetUrl.href;
-    setTimeout(() => { link.dataset.navigating = 'false'; }, 2000);
-};
+// 3. INJECTION LOGIC (Fix for Missing Container)
+function ensureDesktopSidebar() {
+    const rail = document.getElementById('narrow-rail');
+    if (!rail) return null;
 
-// 3. RAIL RENDERING
+    let sidebar = document.getElementById('practix-desktop-sidebar');
+    if (!sidebar) {
+        // Create Sidebar Container
+        sidebar = document.createElement('div');
+        sidebar.id = 'practix-desktop-sidebar';
+        sidebar.className = 'command-sidebar-injected'; // Custom class to avoid overrides
+
+        // Inject Search Bar + Tree Container
+        sidebar.innerHTML = `
+            <div class="sidebar-search-container">
+                <div class="sidebar-search-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="sidebar-search" placeholder="Search hacks..." autocomplete="off">
+                </div>
+            </div>
+            <div id="sidebar-tree" class="sidebar-tree"></div>
+            <div class="sidebar-resize-handle"></div>
+        `;
+
+        // Inject Styles Locally to ensure they work
+        const style = document.createElement('style');
+        style.textContent = `
+            #practix-desktop-sidebar {
+                position: fixed;
+                top: 0;
+                left: 60px;
+                bottom: 0;
+                width: 320px;
+                background: white;
+                border-right: 1px solid #e5e7eb;
+                z-index: 998; /* Below Rail (9999) */
+                display: flex;
+                flex-direction: column;
+                box-shadow: 4px 0 24px rgba(0,0,0,0.02);
+            }
+            .sidebar-search-container {
+                padding: 1.5rem;
+                border-bottom: 1px solid #f3f4f6;
+            }
+            .sidebar-search-wrapper {
+                position: relative;
+                width: 100%;
+            }
+            #sidebar-search {
+                width: 100%;
+                padding: 0.75rem 1rem 0.75rem 2.5rem;
+                border: 1px solid #e5e7eb;
+                border-radius: 8px;
+                font-size: 0.9rem;
+                background: #f9fafb;
+                transition: all 0.2s;
+            }
+            #sidebar-search:focus {
+                background: white;
+                border-color: #6366f1;
+                box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+                outline: none;
+            }
+            .search-icon {
+                position: absolute;
+                left: 0.75rem;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 1rem;
+                opacity: 0.5;
+            }
+            .sidebar-tree {
+                flex: 1;
+                overflow-y: auto;
+                padding: 1.5rem;
+            }
+            .side-tree-group h4 {
+                font-size: 0.75rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                color: #9ca3af;
+                letter-spacing: 0.05em;
+                margin-bottom: 1rem;
+                margin-top: 1.5rem;
+            }
+            .side-tree-group:first-child h4 { margin-top: 0; }
+            .side-tree-subsection {
+                margin-bottom: 0.5rem;
+                padding-left: 0.5rem;
+                border-left: 2px solid #e5e7eb;
+            }
+            .side-tree-subsection-header {
+                font-weight: 700;
+                font-size: 0.9rem;
+                color: #374151;
+                margin-bottom: 0.5rem;
+                padding-left: 0.5rem;
+            }
+            .side-link {
+                display: block;
+                padding: 0.5rem 0.75rem;
+                margin-bottom: 0.25rem;
+                color: #4b5563;
+                text-decoration: none;
+                font-size: 0.9rem;
+                border-radius: 6px;
+                transition: all 0.15s;
+                font-weight: 600;
+                border: 1px solid transparent;
+            }
+            .side-link:hover {
+                background: #f3f4f6;
+                color: #111827;
+            }
+            .side-link.active {
+                background: white;
+                color: #ef4444; /* THE RED TEXT 🔴 */
+                border-color: #ef4444; /* THE RED BORDER 🔴 */
+                box-shadow: 0 2px 4px rgba(239, 68, 68, 0.05);
+            }
+            
+            /* Body Padding Adjustment */
+            body { padding-left: 380px !important; }
+        `;
+        document.head.appendChild(style);
+        document.body.appendChild(sidebar);
+    }
+    return sidebar;
+}
+
+// 4. RENDERING LOGIC
+function renderTree() {
+    const sidebar = ensureDesktopSidebar();
+    if (!sidebar) return;
+
+    const treeContainer = document.getElementById('sidebar-tree');
+    const currentPath = window.location.pathname;
+
+    let activePillarId = PILLARS_CONFIG.find(p => currentPath.includes(p.path))?.id || 'formulas';
+    if (currentPath.includes('desmos')) activePillarId = 'desmos';
+
+    // Header Title
+    const activePillar = PILLARS_CONFIG.find(p => p.id === activePillarId);
+    let html = '';
+
+    if (activePillar) {
+        html += `<h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin-bottom: 1.5rem; color: #1f2937;">${activePillar.name}</h2>`;
+        html += activePillar.categories.map(cat => {
+            if (!cat.subsections) return '';
+            return `
+                <div class="side-tree-group">
+                    <h4>${cat.name}</h4>
+                    ${cat.subsections.map(sub => {
+                return `
+                            <div class="side-tree-subsection">
+                                <div class="side-tree-subsection-header">${sub.name}</div>
+                                ${sub.topics.map(topic => {
+                    // Normalize Path
+                    const topicPath = topic.path.startsWith('http') ? topic.path : (window.PRACTIX_BASE_PATH || '') + topic.path;
+                    // Check if active (simple string match)
+                    // But be careful with matching logic
+                    const isActive = currentPath.endsWith(topic.path) || currentPath.includes(topic.path.replace('index.html', ''));
+
+                    return `<a href="${topicPath}" class="side-link ${isActive ? 'active' : ''}">${topic.name}</a>`;
+                }).join('')}
+                            </div>
+                        `;
+            }).join('')}
+                </div>
+            `;
+        }).join('');
+    } else {
+        html = `<div style="padding: 1rem;">Select a pillar to view topics.</div>`;
+    }
+
+    treeContainer.innerHTML = html;
+}
+
 function globalRenderRail() {
     const railContainer = document.getElementById('narrow-rail');
     if (!railContainer) return;
@@ -287,27 +401,40 @@ function globalRenderRail() {
     else if (currentPath.includes('hard-questions/')) activeId = 'hard-questions';
     else if (currentPath.includes('desmos/')) activeId = 'desmos';
     else if (currentPath.includes('wallpapers/')) activeId = 'wallpapers';
-    else if (currentPath.includes('contact/')) activeId = 'contact';
-    const basePath = window.PRACTIX_BASE_PATH;
-    const isMobile = window.innerWidth <= 1280 || window.matchMedia('(max-width: 1280px)').matches || window.matchMedia('(pointer: coarse)').matches;
+
+    // Get correct base path
+    // We can recalculate it here to be safe (since this is standalone)
+    const pathSegments = currentPath.split('/').filter(s => s.length > 0);
+    const rootIndex = pathSegments.indexOf('_Sever');
+    let depth = 0;
+    if (rootIndex !== -1) {
+        const segmentsAfterRoot = pathSegments.slice(rootIndex + 1);
+        const hasFile = segmentsAfterRoot.length > 0 && segmentsAfterRoot[segmentsAfterRoot.length - 1].includes('.');
+        depth = hasFile ? segmentsAfterRoot.length - 1 : segmentsAfterRoot.length;
+    } else {
+        const hasFile = pathSegments.length > 0 && pathSegments[pathSegments.length - 1].includes('.');
+        depth = hasFile ? pathSegments.length - 1 : pathSegments.length;
+    }
+    const basePath = depth === 0 ? '' : '../'.repeat(depth);
+
+
     railContainer.innerHTML = NAV_ITEMS_GLOBAL.map(item => {
         let href = item.path ? `${basePath}${item.path}index.html` : `${basePath}index.html`;
-        href = window.PRACTIX_NORMALIZE_HREF(href);
-        if (isMobile && item.hasFlyout) {
-            return `<button class="rail-item ${item.id === activeId ? 'active' : ''}" title="${item.name}" data-pillar="${item.id}" data-path="${item.path}">${item.icon}</button>`;
-        }
+        // HACK: Fix homepage link
+        if (item.id === 'home') href = `${basePath}index.html`;
+
         return `<a href="${href}" class="rail-item ${item.id === activeId ? 'active' : ''}" title="${item.name}" data-pillar="${item.id}">${item.icon}</a>`;
     }).join('');
     railContainer.dataset.rendered = "true";
 }
 
-// 5. INITIALIZATION POLL (Desktop Version - No Flyout)
-const railPoll = setInterval(() => {
+// 5. INITIALIZATION
+const initPoll = setInterval(() => {
     const rail = document.getElementById('narrow-rail');
     if (rail) {
         globalRenderRail();
-        // Desktop does not need initMobileFlyout
-        clearInterval(railPoll);
+        renderTree();
+        clearInterval(initPoll);
     }
-}, 10);
-setTimeout(() => clearInterval(railPoll), 3000);
+}, 50);
+setTimeout(() => clearInterval(initPoll), 5000);

@@ -23,7 +23,8 @@
 
     // 3. Load Appropriate Script
     const script = document.createElement('script');
-    script.src = basePath + (isMobile ? 'assets/scripts/sidebar-mobile.js' : 'assets/scripts/sidebar-desktop.js');
+    const version = new Date().getTime();
+    script.src = basePath + (isMobile ? 'assets/scripts/sidebar-mobile.js' : 'assets/scripts/sidebar-desktop.js') + '?v=' + version;
     script.async = false; // Execute in order if possible (though sidebar is usually standalone)
     document.head.appendChild(script);
 

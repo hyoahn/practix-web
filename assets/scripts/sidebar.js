@@ -19,7 +19,8 @@
     const basePath = depth === 0 ? '' : '../'.repeat(depth);
 
     // 2. Detect Device Type (Matching original logic)
-    const isMobile = window.innerWidth <= 1024 || window.matchMedia('(max-width: 1024px)').matches || window.matchMedia('(pointer: coarse)').matches;
+    // REMOVED pointer: coarse to allow Touch Laptops/iPad Pros to see Desktop View
+    const isMobile = window.innerWidth <= 1024 || window.matchMedia('(max-width: 1024px)').matches;
 
     // 3. Load Appropriate Script
     const script = document.createElement('script');

@@ -124,10 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Robust Mobile Detection
     // 4. Robust Mobile Detection (Expanded for iPad Pro / High-Res Tablets)
     // 4. Robust Mobile Detection (Expanded for iPad Pro / High-Res Tablets)
+    // REMOVED pointer: coarse to allow Touch Laptops/iPad Pros to see Desktop View
     const isMobile = () => {
         return window.innerWidth <= 1024 ||
-            window.matchMedia('(max-width: 1024px)').matches ||
-            window.matchMedia('(pointer: coarse)').matches;
+            window.matchMedia('(max-width: 1024px)').matches;
     };
 
     // 5. APPLIKE MODE DETECTION: If deeper in the app (pillars), disable Top Nav entirely.

@@ -227,6 +227,17 @@
                     currentY = e.clientY - initialY;
                 }
 
+                // Soft constraints: Keep at least 50px of the calculator visible on screen
+                const calcWidth = calcFloat.offsetWidth || 400; // fallback width
+                const minX = -calcWidth + 50;
+                const maxX = window.innerWidth - 50;
+
+                const minY = 0; // Don't let the header drag up past the top of the browser window
+                const maxY = window.innerHeight - 50;
+
+                currentX = Math.max(minX, Math.min(currentX, maxX));
+                currentY = Math.max(minY, Math.min(currentY, maxY));
+
                 calcFloat.style.left = currentX + 'px';
                 calcFloat.style.top = currentY + 'px';
             }

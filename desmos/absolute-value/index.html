@@ -16,14 +16,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
         rel="stylesheet">
-    
+
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.min.js"></script>
     <script src="../../assets/scripts/practix-nav.js?v=1771354000"></script>
     <script src="../../assets/scripts/sidebar.js?v=1771528000"></script>
     <script src="../../assets/scripts/practix-footer.js?v=1770561723"></script>
     <script src="../../assets/scripts/analytics.js?v=1770561723"></script>
     <script src="../../assets/scripts/pulse-relay.js?v=1770561723"></script>
-    
+
 
     <style>
         .hack-section {
@@ -241,6 +241,27 @@
                                 <p>The sum is \(-1 + 6 = 5\).</p>
                             </div>
 
+                            <div class="solution-step"
+                                style="margin-top: 2.5rem; border-top: 2px dashed #bbf7d0; padding-top: 2rem;">
+                                <h4>💡 Alternative Approach: Graph y = |2x − 5| − 7</h4>
+                                <p>Instead of solving the equation algebraically, we can start by graphing:</p>
+                                <div
+                                    style="color: #10b981; font-family: monospace; font-weight: 700; font-size: 1.2rem; margin: 1rem 0; background: white; padding: 1rem; border-radius: 8px; text-align: center;">
+                                    y = |2x − 5| − 7
+                                </div>
+                                <p>The solution to <strong>|2x − 5| − 7 = 0</strong> is exactly where <strong>y =
+                                        0</strong> — the <em>x-intercepts</em> of the graph.</p>
+                                <img src="../../assets/images/desmos/absolute-value-desmos-y-graph.png"
+                                    alt="Desmos graph of y = |2x - 5| - 7 showing x-intercepts at x = -1 and x = 6"
+                                    style="width: 100%; max-width: 450px; display: block; margin: 1.5rem auto; border-radius: 12px; border: 1px solid #dcfce7;">
+                                <p>From the graph, the V-shape crosses the x-axis at:</p>
+                                <ul style="font-size: 1.1rem; margin: 1rem 0;">
+                                    <li>\(x = -1\)</li>
+                                    <li>\(x = 6\)</li>
+                                </ul>
+                                <p>So the sum of the solutions is \(-1 + 6 = \mathbf{5}\).</p>
+                            </div>
+
                             <div class="final-answer-box">
                                 <h4><span>✅</span> Final Answer:</h4>
                                 <p style="font-size: 1.2rem; font-weight: 700; margin: 0;">5 (Answer choice A)</p>
@@ -282,7 +303,7 @@
             }
         }
     </script>
-    
+
     <script src="../../assets/scripts/floating-calculator.js?v=1771528000"></script>
     <script src="../../assets/scripts/desmos-calculator.js?v=1.2"></script>
 </body>

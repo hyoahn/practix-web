@@ -1,0 +1,22 @@
+# Brainstorming Summary: 2026-02-20
+
+## Core Insights & Learnings
+
+1. **The 'Mobile-First' Fallacy vs. Reality**
+   - Relying on pure CSS fluid scaling (`max-width: 100%`) for complex UI elements like comparison tables or highly-styled buttons often fails on extreme edge cases like the 320px/375px widths.
+   - The most robust architecture is building completely distinct HTML structural blocks: `.mobile-only` and `.desktop-only`. This "dual-render" approach eliminates the friction of trying to make a single long string artificially responsive.
+
+2. **The "Black Box" of Mobile Caching**
+   - CDN Edge Nodes and Service Workers present enormous friction during rapid UI iteration.
+   - Simply refreshing the page in Safari/Chrome does not invalidate the HTML source file if it was served globally 10 minutes prior.
+   - Injecting an invisible HTML comment timestamp (`<!-- CACHE BUST -->`) permanently changes the file signature, while appending physical query string variables (`?v=clearX`) explicitly forces the CDN edge servers to retrieve the true master file from the origin server.
+
+3. **Global CSS Typos & The Principle of Local Overrides**
+   - Discovered a critical typography flaw in `styles.v4.css` where a stray comma effectively wiped out all span inheritance, plunging the entire site into forced dark-gray text formatting:
+     `span { color: var(--text-secondary) !important; }`
+   - Rather than surgically correcting this global typo and risking catastrophic site-wide side-effects (e.g., headers or lists relying on that broken rule), the optimal approach was applying an ultra-specific local constraint to the component in question (`.decision-btn span`). This isolates the fix.
+
+4. **Component Physicality**
+   - Inline tags (`<a>`, `<span>`) operate strictly under the browser's line-rendering algorithms. If margin pressure builds up, the engine will ruthlessly break words or punctuation (like the orphan `(Studying)` closing parenthesis).
+   - Establishing physical constraints on layout (`white-space: nowrap`, `display: inline-block`) re-establishes explicit DOM control, forbidding the engine from applying algorithmic breaks.
+   - Hardcoding internal paddings on buttons (`padding: 1.2rem 3rem`) acts as an immutable physical block. Responsive design dictates that these paddings must be dynamically slashed via `@media` queries on smaller screens to prevent content explosion.

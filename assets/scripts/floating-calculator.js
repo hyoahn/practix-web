@@ -19,36 +19,41 @@
         if (document.getElementById('calculatorFloat')) return;
 
         const calcHtml = `
-            <div id="calcToggle" class="calculator-toggle" title="Open Desmos Calculator">🧮</div>
-            <div id="calculatorFloat" class="calculator-floating" style="display: none;">
-                <div id="calcHeader" class="calculator-header">
+            <div id="calculatorFloat" class="calculator-float" style="display: none;">
+                <div id="calcHeader" class="calculator-float-header">
                     <div class="calculator-title">
                         <span class="calc-icon">📉</span>
                         <span>DESMOS CALCULATOR (DRAG TO RESIZE)</span>
                     </div>
                     <div class="calculator-controls">
+                        <button class="calculator-btn" id="helpBtn" title="Help">💡</button>
+                        <button class="calculator-btn" id="popoutBtn" title="Pop out">↗️</button>
+                        <button class="calculator-btn" id="closeBtn" title="Close">❌</button>
+                    </div>
+                </div>
+                <div class="calculator-float-body">
+                    <div id="helpOverlay" class="calculator-help-overlay">
+                        <div class="help-title">💡 How to use Desmos Hacks</div>
+                        <div class="help-step">
+                            <span class="help-step-num">1</span>
+                            <span class="help-step-text"><strong>Step 1:</strong> Always clear the calculator when starting a new problem.</span>
                         </div>
-                        
                         <div class="help-step">
                             <span class="help-step-num">2</span>
                             <span class="help-step-text"><strong>Step 2:</strong> Click the empty space <strong>Line 2</strong> BELOW the table.</span>
                         </div>
-                        
                         <div class="help-step">
                             <span class="help-step-num">3</span>
                             <span class="help-step-text"><strong>Step 3:</strong> Click <strong>Copy Code</strong> (e.g., Linear Regression) on the page and <strong>Paste</strong> it.</span>
                         </div>
-                        
                         <div class="help-step">
                             <span class="help-step-num">4</span>
                             <span class="help-step-text"><strong>Result:</strong> Look at <strong>m</strong> and <strong>b</strong> on the left. That's your answer!</span>
                         </div>
-
                         <div style="background: #fef2f2; border: 1px solid #fee2e2; padding: 0.75rem; border-radius: 8px; margin-bottom: 1rem;">
                             <div style="color: #991b1b; font-weight: 700; font-size: 0.8rem; margin-bottom: 0.25rem;">⚠️ Error Alert:</div>
                             <p style="color: #991b1b; font-size: 0.75rem; margin: 0; line-height: 1.4;">Don't paste <strong>inside</strong> the table. Always click the empty Line 2 first!</p>
                         </div>
-
                         <div class="help-footer">
                             <button class="btn-got-it" id="gotItBtn">Got it, let's start!</button>
                         </div>
@@ -68,7 +73,7 @@
     function hookButtons() {
         // A. Inject Try It buttons next to Copy buttons if on desktop
         const isMobile = window.innerWidth <= 1024 || window.matchMedia('(max-width: 1024px)').matches || window.matchMedia('(pointer: coarse)').matches;
-        
+
         // Match the stricter logic in desmos-calculator.js
         const strictIsMobile = (window.innerWidth < 1280) || (window.matchMedia('(pointer: coarse)').matches && window.innerWidth < 1366);
 
@@ -241,7 +246,7 @@
     window.toggleCalculator = function (forceOpen) {
         // MOBILE DISPATCH: If the split-screen mobil calc is loaded, use it instead.
         const strictIsMobile = (window.innerWidth < 1280) || (window.matchMedia('(pointer: coarse)').matches && window.innerWidth < 1366);
-        
+
         if (strictIsMobile && typeof window.toggleMobileDesmos === 'function') {
             window.toggleMobileDesmos(forceOpen);
             return;

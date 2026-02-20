@@ -188,9 +188,13 @@
             color: var(--accent-primary) !important;
         }
 
-        /* Mobile Only Utilities */
+        /* Mobile / Desktop Utilities */
         .mobile-only {
-            display: none;
+            display: none !important;
+        }
+
+        .desktop-only {
+            display: inline !important;
         }
 
         /* Mobile Table Optimization */
@@ -239,6 +243,10 @@
 
             .mobile-only {
                 display: inline !important;
+            }
+
+            .desktop-only {
+                display: none !important;
             }
         }
     </style>
@@ -300,7 +308,10 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Core<br class="mobile-only"> Method</td>
+                                <td>
+                                    <span class="desktop-only">Core Method</span>
+                                    <span class="mobile-only">Core<br>Method</span>
+                                </td>
                                 <td>Reading textbooks and watching videos</td>
                                 <td class="vs-column">High-stakes simulation & reflex training</td>
                             </tr>

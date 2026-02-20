@@ -198,6 +198,12 @@
             display: inline !important;
         }
 
+        .decision-btn {
+            padding: 1.2rem 3rem !important;
+            font-size: 1.2rem !important;
+            border-radius: 50px !important;
+        }
+
         /* Mobile Table Optimization */
         @media (max-width: 1024px) {
             .comparison-section {
@@ -250,6 +256,12 @@
 
             .desktop-only {
                 display: none !important;
+            }
+
+            /* Fix massive button on tiny screens */
+            .decision-btn {
+                padding: 1rem 1.5rem !important;
+                font-size: 0.95rem !important;
             }
         }
     </style>
@@ -404,8 +416,7 @@
                         <br><br>
                         Or you can start <strong>training</strong> for the score you deserve.
                     </p>
-                    <a href="#waitlist" class="btn-primary"
-                        style="padding: 1.2rem 3rem; font-size: 1.2rem; border-radius: 50px;">
+                    <a href="#waitlist" class="btn-primary decision-btn">
                         <span class="desktop-only">Join 1,200+ Students in Beta →</span>
                         <span class="mobile-only">Join 1,200+ Students →</span>
                     </a>

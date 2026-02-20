@@ -19,27 +19,14 @@
         if (document.getElementById('calculatorFloat')) return;
 
         const calcHtml = `
-            <div class="calculator-float" id="calculatorFloat">
-                <div class="calculator-float-header" id="calcHeader">
-                    <h3>🧮 Desmos Calculator</h3>
-                    <div class="calculator-controls">
-                        <button class="calculator-btn" id="helpBtn" title="Help / Instructions">?</button>
-                        <button class="calculator-btn" id="popoutBtn" title="Pop-out (Open in new window)">🗗</button>
-                        <button class="calculator-btn" id="closeBtn" title="Close">✕</button>
+            <div id="calcToggle" class="calculator-toggle" title="Open Desmos Calculator">🧮</div>
+            <div id="calculatorFloat" class="calculator-floating" style="display: none;">
+                <div id="calcHeader" class="calculator-header">
+                    <div class="calculator-title">
+                        <span class="calc-icon">📉</span>
+                        <span>DESMOS CALCULATOR (DRAG TO RESIZE)</span>
                     </div>
-                </div>
-                <div class="calculator-float-body">
-                    <div class="calculator-help-overlay" id="helpOverlay">
-                        <div class="help-title">🚀 How to Solve Any Problem</div>
-                        
-                        <div style="background: #f0fdf4; padding: 0.75rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #dcfce7;">
-                            <div style="font-weight: 700; color: #166534; font-size: 0.85rem; margin-bottom: 0.25rem;">📝 The Goal:</div>
-                            <p style="margin: 0; font-size: 0.8rem; color: #065f46;">Find the line through <strong>(4, 5)</strong> and <strong>(7, 9)</strong>.</p>
-                        </div>
-
-                        <div class="help-step">
-                            <span class="help-step-num">1</span>
-                            <span class="help-step-text"><strong>Step 1:</strong> Click <strong>+</strong> → <strong>Table</strong>. Type <strong>4</strong>, Tab, <strong>5</strong>. Move to row 2 and type <strong>7</strong>, Tab, <strong>9</strong>.</span>
+                    <div class="calculator-controls">
                         </div>
                         
                         <div class="help-step">
@@ -74,28 +61,69 @@
         document.body.insertAdjacentHTML('beforeend', calcHtml);
 
         setupCalculatorListeners();
-        addTryItButtons();
+        hookButtons();
     }
 
-    // 3. Add "Try It" buttons next to all "Copy Code" buttons
-    function addTryItButtons() {
-        document.querySelectorAll('.btn-copy').forEach(copyBtn => {
-            // Check if it's already a "Try It" button to avoid recursion
-            if (copyBtn.innerText.includes('Try It')) return;
-            // Check if a "Try It" button already exists next to it
-            if (copyBtn.previousElementSibling && copyBtn.previousElementSibling.innerText.includes('Try It')) return;
+    // 3. Add "Try It" buttons and Hook Existing Buttons
+    function hookButtons() {
+        // A. Inject Try It buttons next to Copy buttons if on desktop
+        const isMobile = window.innerWidth <= 1024 || window.matchMedia('(max-width: 1024px)').matches || window.matchMedia('(pointer: coarse)').matches;
+        
+        // Match the stricter logic in desmos-calculator.js
+        const strictIsMobile = (window.innerWidth < 1280) || (window.matchMedia('(pointer: coarse)').matches && window.innerWidth < 1366);
 
-            const tryItBtn = document.createElement('button');
-            tryItBtn.className = 'btn-copy try-it-btn';
-            tryItBtn.innerHTML = '🧮 Try It';
-            tryItBtn.style.background = 'var(--accent-primary)';
-            tryItBtn.style.color = 'white';
-            tryItBtn.style.borderColor = 'var(--accent-primary)';
-            tryItBtn.style.marginRight = '0.5rem';
-            tryItBtn.onclick = window.toggleCalculator;
+        if (!strictIsMobile) {
+            document.querySelectorAll('.btn-copy').forEach(copyBtn => {
+                if (copyBtn.innerText.includes('Try It')) return;
+                if (copyBtn.previousElementSibling && copyBtn.previousElementSibling.classList.contains('try-it-btn')) return;
 
-            copyBtn.parentNode.insertBefore(tryItBtn, copyBtn);
+                const tryItBtn = document.createElement('button');
+                tryItBtn.className = 'btn-copy try-it-btn';
+                tryItBtn.innerHTML = '🧮 Try It';
+                tryItBtn.style.background = 'var(--accent-primary)';
+                tryItBtn.style.color = 'white';
+                tryItBtn.style.borderColor = 'var(--accent-primary)';
+                tryItBtn.style.marginRight = '0.5rem';
+
+                copyBtn.parentNode.insertBefore(tryItBtn, copyBtn);
+            });
+        }
+    }
+
+    // 4. Aggressive Global Listener
+    function setupGlobalListeners() {
+        document.body.addEventListener('click', (e) => {
+            const target = e.target;
+
+            // 1. Hook into "Try It" buttons
+            if (target.classList.contains('try-it-btn')) {
+                e.preventDefault();
+                window.toggleCalculator(true);
+                return;
+            }
+
+            // 2. Hook into "Reveal Desmos Solve" (The red buttons)
+            // Use closest to catch summary or its ::after content
+            const revealSummary = target.closest('.practix-reveal summary');
+            if (revealSummary) {
+                // We don't preventDefault here because we want the details to open
+                // but we DO want to show the calculator
+                window.toggleCalculator(true);
+                return;
+            }
+
+            // 3. Hook into "Copy Code" buttons (optional, but requested by user)
+            if (target.classList.contains('btn-copy') && !target.classList.contains('try-it-btn')) {
+                // If user clicks Copy, they likely want to Paste in Desmos. Open it.
+                window.toggleCalculator(true);
+            }
+        }, true); // Use capture phase to be safe
+
+        // 5. Watch for dynamic content (e.g. reveal blocks opening)
+        const observer = new MutationObserver((mutations) => {
+            hookButtons();
         });
+        observer.observe(document.body, { childList: true, subtree: true });
     }
 
     function setupCalculatorListeners() {
@@ -108,28 +136,12 @@
         const helpOverlay = document.getElementById('helpOverlay');
         const gotItBtn = document.getElementById('gotItBtn');
 
-        // Toggle visibility
-        window.toggleCalculator = function () {
-            if (!calcFloat.classList.contains('active')) {
-                calcFloat.style.display = 'flex';
-                // Trigger reflow for animation if any
-                setTimeout(() => calcFloat.classList.add('active'), 10);
-                calcToggle.classList.add('hidden');
-
-                // Show help by default on first open of the session
-                if (!sessionStorage.getItem('desmos_help_shown')) {
-                    helpOverlay.classList.add('active');
-                }
-            } else {
-                calcFloat.classList.remove('active');
-                setTimeout(() => {
-                    if (!calcFloat.classList.contains('active')) {
-                        calcFloat.style.display = 'none';
-                    }
-                }, 300);
-                calcToggle.classList.remove('hidden');
+        if (calcToggle) {
+            const isMobile = window.innerWidth <= 1024 || window.matchMedia('(pointer: coarse)').matches;
+            if (isMobile) {
+                calcToggle.style.display = 'none';
             }
-        };
+        }
 
         // Help mechanics
         helpBtn.addEventListener('click', () => {
@@ -142,8 +154,17 @@
         });
 
         // Explicit close
-        closeBtn.addEventListener('click', toggleCalculator);
-        calcToggle.addEventListener('click', toggleCalculator);
+        closeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.toggleCalculator(false);
+        });
+
+        if (calcToggle) {
+            calcToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.toggleCalculator();
+            });
+        }
 
         // Pop-out functionality
         popoutBtn.addEventListener('click', function () {
@@ -216,11 +237,74 @@
         }
     }
 
+    // 6. Define Toggle Globally
+    window.toggleCalculator = function (forceOpen) {
+        // MOBILE DISPATCH: If the split-screen mobil calc is loaded, use it instead.
+        const strictIsMobile = (window.innerWidth < 1280) || (window.matchMedia('(pointer: coarse)').matches && window.innerWidth < 1366);
+        
+        if (strictIsMobile && typeof window.toggleMobileDesmos === 'function') {
+            window.toggleMobileDesmos(forceOpen);
+            return;
+        }
+
+        let calcFloat = document.getElementById('calculatorFloat');
+        const calcToggle = document.getElementById('calcToggle');
+
+        if (!calcFloat) {
+            injectCalculator();
+            calcFloat = document.getElementById('calculatorFloat');
+        }
+
+        if (!calcFloat) return;
+
+        const helpOverlay = document.getElementById('helpOverlay');
+        const isActive = calcFloat.classList.contains('active');
+        const shouldBeOpen = typeof forceOpen === 'boolean' ? forceOpen : !isActive;
+
+        if (shouldBeOpen) {
+            calcFloat.style.display = 'flex';
+            // Use requestAnimationFrame or double timeout to ensure transition works
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    calcFloat.classList.add('active');
+                });
+            });
+            if (calcToggle) calcToggle.classList.add('hidden');
+
+            if (!sessionStorage.getItem('desmos_help_shown') && helpOverlay) {
+                helpOverlay.classList.add('active');
+            }
+        } else {
+            calcFloat.classList.remove('active');
+            setTimeout(() => {
+                if (!calcFloat.classList.contains('active')) {
+                    calcFloat.style.display = 'none';
+                }
+            }, 300);
+            if (calcToggle) calcToggle.classList.remove('hidden');
+        }
+    };
+
     // Initialize
     injectStyles();
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', injectCalculator);
+        document.addEventListener('DOMContentLoaded', () => {
+            injectCalculator();
+            setupGlobalListeners();
+        });
     } else {
         injectCalculator();
+        setupGlobalListeners();
     }
+
+    // Dynamic resize handling
+    window.addEventListener('resize', () => {
+        hookButtons();
+        // Hide/Show calcToggle based on viewport
+        const calcToggle = document.getElementById('calcToggle');
+        if (calcToggle) {
+            const strictIsMobile = (window.innerWidth < 1280) || (window.matchMedia('(pointer: coarse)').matches && window.innerWidth < 1366);
+            calcToggle.style.display = strictIsMobile ? 'none' : 'flex';
+        }
+    });
 })();

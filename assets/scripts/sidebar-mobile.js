@@ -397,6 +397,18 @@ function initMobileFlyout() {
             e.stopPropagation();
 
             const pillarId = btn.dataset.pillar;
+
+            // Intercept Desmos click for mobile toggle
+            if (pillarId === 'desmos' && window.location.pathname.includes('/desmos/')) {
+                if (window.toggleMobileDesmos) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    window.toggleMobileDesmos();
+                    if (window.PRACTIX_CLOSE_FLYOUT) window.PRACTIX_CLOSE_FLYOUT();
+                    return;
+                }
+            }
+
             const pillar = window.PRACTIX_PILLARS.find(p => p.id === pillarId);
             if (!pillar) return;
 

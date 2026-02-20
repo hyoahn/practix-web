@@ -642,6 +642,21 @@
                 if (item.id === 'home') href = `${basePath}index.html`;
                 return `<a href="${href}" class="rail-item ${item.id === activeId ? 'active' : ''}" title="${item.name}" data-pillar="${item.id}">${item.icon}</a>`;
             }).join('');
+
+            // Intercept Desmos click for toggle (Desktop)
+            railContainer.addEventListener('click', (e) => {
+                const railItem = e.target.closest('.rail-item[data-pillar="desmos"]');
+                if (railItem) {
+                    const isDesmosPage = window.location.pathname.includes('/desmos/') ||
+                        window.location.pathname.includes('/topics/');
+
+                    if (isDesmosPage && window.toggleCalculator) {
+                        e.preventDefault();
+                        window.toggleCalculator();
+                    }
+                }
+            });
+
             railContainer.dataset.rendered = "true";
         }
 

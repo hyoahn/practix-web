@@ -40,7 +40,33 @@
     const calc = document.getElementById(containerId);
     const handle = document.getElementById('desmos-drag-handle');
 
-    // 3. Resizing Logic
+    // Default to hidden
+    calc.style.display = 'none';
+
+    // 3. Define Toggle Globally
+    window.toggleMobileDesmos = function (forceOpen) {
+        const isActive = calc.style.display !== 'none';
+        const shouldBeOpen = typeof forceOpen === 'boolean' ? forceOpen : !isActive;
+
+        if (shouldBeOpen) {
+            calc.style.display = 'flex';
+            // Ensure padding is applied
+            const savedHeight = localStorage.getItem('practix_desmos_height');
+            const currentHeight = savedHeight ? parseInt(savedHeight) : window.innerHeight * 0.5;
+            setHeight(currentHeight);
+        } else {
+            calc.style.display = 'none';
+            // Remove padding
+            const scrollContent = document.querySelector('.stage-content-scroll');
+            if (scrollContent) {
+                scrollContent.style.paddingBottom = '0px';
+            } else {
+                document.body.style.paddingBottom = '0px';
+            }
+        }
+    };
+
+    // 4. Resizing Logic
     let isResizing = false;
     let startY;
     let startHeight;
@@ -67,9 +93,6 @@
 
         localStorage.setItem('practix_desmos_height', finalH);
     }
-
-    // Initial set
-    setHeight(defaultHeight);
 
     // Mouse Events
     handle.addEventListener('mousedown', (e) => {

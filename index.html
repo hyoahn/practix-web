@@ -108,6 +108,63 @@
                 </div>
             </section>
 
+            <!-- Score Predictor Section - PROMOTED TO TOP -->
+            <section class="predictor-section-wrapper" id="score-predictor"
+                style="padding: 5rem 5%; background: var(--bg-secondary); border-bottom: 1px solid var(--border);">
+                <div class="predictor-container">
+                    <div class="predictor-header">
+                        <h2>SAT Score Predictor 🔮</h2>
+                        <p>The Digital SAT is adaptive. See how mistakes heavily impact your score.</p>
+                    </div>
+
+                    <div class="predictor-grid">
+                        <!-- Controls -->
+                        <div class="predictor-controls">
+                            <div class="control-group">
+                                <label>
+                                    <span>Module 1 Mistakes</span>
+                                    <span class="range-value" id="m1-value">0</span>
+                                </label>
+                                <input type="range" id="m1-mistakes" min="0" max="22" value="0">
+                                <span class="control-help">Out of 22 Questions</span>
+                            </div>
+
+                            <div class="control-group">
+                                <label>
+                                    <span>Module 2 Mistakes</span>
+                                    <span class="range-value" id="m2-value">0</span>
+                                </label>
+                                <input type="range" id="m2-mistakes" min="0" max="22" value="0">
+                                <span class="control-help">Out of 22 Questions</span>
+                            </div>
+                        </div>
+
+                        <!-- Result -->
+                        <div class="predictor-result">
+                            <div class="score-box">
+                                <span class="score-label">Estimated Score</span>
+                                <div class="score-number" id="predicted-score">800</div>
+                            </div>
+                            <p id="predictor-message" class="predictor-message safe">Select your mistakes to see the
+                                prediction.
+                            </p>
+
+                            <!-- Conversion CTA -->
+                            <div id="predictor-cta" class="predictor-cta"
+                                style="display: none; margin-top: 1.5rem; padding: 1rem; background: rgba(99, 102, 241, 0.1); border: 1px dashed var(--accent-primary); border-radius: 8px; text-align: center;">
+                                <h4 style="color: var(--accent-primary); margin-bottom: 0.5rem;">Want to fix these
+                                    errors?</h4>
+                                <p style="font-size: 0.9rem; margin-bottom: 1rem;">Get the exact Desmos hacks for Module
+                                    2 hard
+                                    questions.</p>
+                                <a href="#waitlist" class="btn-primary"
+                                    style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">Join
+                                    the Waitlist →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- HOMEPAGE TERMINAL ZONE (MOVED COMPONENTS) -->
             <section class="homepage-terminal-zone" style="border-bottom: 1px solid var(--border);">
@@ -198,7 +255,7 @@
     <!-- Tally.so Script -->
     <script src="https://tally.so/widgets/embed.js"></script>
 
-
+    <script src="assets/scripts/score_predictor.js?v=1770561723"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

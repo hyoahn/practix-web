@@ -307,15 +307,11 @@
 
         console.log("Practix: Floating Calculator checking auto-open for path:", path, "isMobile:", strictIsMobile);
         if (!strictIsMobile && path.includes('/desmos/') && !path.endsWith('/desmos/') && !path.endsWith('/desmos/index.html')) {
-            console.log("Practix: Triggering auto-open for Desmos subpage (Desktop Only).");
+            console.log("Practix: Triggering auto-open pop-out window for Desmos subpage (Desktop Only).");
             // Slight delay to ensure DOM and CSS are ready for transitions
             setTimeout(() => {
-                if (typeof window.toggleCalculator === 'function') {
-                    window.toggleCalculator(true);
-                    console.log("Practix: toggleCalculator(true) called successfully.");
-                } else {
-                    console.log("Practix: toggleCalculator(true) failed, function not defined.");
-                }
+                window.open('https://www.desmos.com/calculator', 'DesmosCalculator', 'width=800,height=600,menubar=no,toolbar=no,location=no,status=no');
+                console.log("Practix: Desmos native pop-out window launched successfully.");
             }, 500);
         } else {
             console.log("Practix: Skipping auto-open for this path or viewport.");

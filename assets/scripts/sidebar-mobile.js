@@ -414,7 +414,7 @@ function initMobileFlyout() {
 
             flyoutTitle.textContent = pillar.name;
             let html = '';
-            if (pillar.id === 'formulas' || pillar.id === 'math') {
+            if (pillar.id === 'formulas') {
                 const bPath = window.PRACTIX_BASE_PATH;
                 let flashHref = window.PRACTIX_NORMALIZE_HREF(`${bPath}formulas/index.html#flash-card-container`);
                 html += `

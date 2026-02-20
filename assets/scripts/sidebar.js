@@ -581,8 +581,8 @@
             if (activePillar) {
                 html += `<h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin-bottom: 1.5rem; color: #1f2937;">${activePillar.name}</h2>`;
 
-                // Flash Cards Button (All four pillars)
-                if (['formulas', 'math', 'desmos', 'hard-questions'].includes(activePillarId)) {
+                // Flash Cards Button (Formulas Pillar Only)
+                if (activePillarId === 'formulas') {
                     const flashHref = (window.PRACTIX_BASE_PATH || basePath) + 'formulas/index.html#flash-card-container';
                     html += `
                         <div style="margin-bottom: 1.25rem;">

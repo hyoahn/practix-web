@@ -2091,48 +2091,52 @@ input[type=range]::-webkit-slider-runnable-track {
 .command-sidebar .side-tree-subsection-header,
 .sidebar-nav .side-tree-subsection-header,
 .side-tree-subsection-header {
-    font-size: 1.2rem !important;
-    /* Clearly larger than topic */
-    color: var(--text-primary) !important;
-    text-transform: none !important;
+    font-size: 0.95rem !important;
+    color: #94a3b8 !important;
+    /* Lighter gray/blue */
+    text-transform: uppercase !important;
     letter-spacing: 0.05em;
     margin-bottom: 0.5rem;
-    margin-top: 1.25rem;
-    font-weight: 700 !important;
+    margin-top: 1.5rem;
+    font-weight: 800 !important;
     display: block;
     padding-right: 1.5rem;
 }
 
 .side-tree-topic {
     list-style: none;
-    padding-left: 0.5rem;
+    padding-left: 0.75rem;
     margin-left: 0.5rem;
-    border-left: 1px solid var(--border);
+    border-left: 2px solid var(--accent-primary, #6366f1);
 }
 
 .side-link {
-    color: var(--text-secondary);
+    color: var(--text-primary);
     text-decoration: none;
     font-size: 1.05rem !important;
-    /* Slightly smaller than subsection */
-    font-weight: 500;
+    font-weight: 700;
     display: block;
-    padding: 0.4rem 0.8rem;
-    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
     transition: all 0.2s;
-    margin: 2px 0;
-    padding-right: 1.5rem;
-}
-
-.side-link:hover {
-    background: rgba(99, 102, 241, 0.05);
-    color: var(--primary);
+    margin: 4px 0;
 }
 
 .side-link.active {
-    background: var(--primary) !important;
-    color: white !important;
-    font-weight: 600;
+    background: transparent !important;
+    color: #ef4444 !important;
+    /* Red text */
+    font-weight: 700;
+    border: 1.5px solid #ef4444;
+    /* Red pill outline */
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.1);
+}
+
+.side-link:hover:not(.active) {
+    background: rgba(99, 102, 241, 0.05);
+    color: var(--primary);
+    border-color: rgba(99, 102, 241, 0.2);
 }
 
 /* Level 3: Anchor/Nested links */

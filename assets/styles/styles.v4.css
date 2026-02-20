@@ -2067,76 +2067,77 @@ input[type=range]::-webkit-slider-runnable-track {
 /* Consistent Sidebar Header Styles for all Sidebar variants */
 .command-sidebar .side-tree-group h4,
 .sidebar-nav .side-tree-group h4 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.35rem !important;
-    /* Slightly smaller to fit in box comfortably */
+    font-size: 0.8rem !important;
     font-weight: 800 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.1em;
-    background: #0f172a !important;
-    /* Dark navy/black box */
-    color: #ffffff !important;
-    /* White text */
-    padding: 0.75rem 1rem !important;
-    border-radius: 8px !important;
-    margin-top: 2rem !important;
+    color: #9ca3af !important;
+    letter-spacing: 0.1em !important;
     margin-bottom: 1rem !important;
-    display: inline-block !important;
-    /* Box only covers text width + padding */
-    width: auto !important;
-    padding-right: 1.5rem !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding-left: 0.25rem !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    display: block !important;
+    margin-top: 1.5rem !important;
+    padding-right: 0 !important;
 }
 
 .command-sidebar .side-tree-subsection-header,
 .sidebar-nav .side-tree-subsection-header,
 .side-tree-subsection-header {
-    font-size: 0.95rem !important;
-    color: #94a3b8 !important;
-    /* Lighter gray/blue */
-    text-transform: uppercase !important;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.5rem;
-    margin-top: 1.5rem;
-    font-weight: 800 !important;
-    display: block;
-    padding-right: 1.5rem;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    color: #374151 !important;
+    margin: 1rem 0 0.75rem 0 !important;
+    border-left: 3px solid #6366f1 !important;
+    padding-left: 1rem !important;
+    line-height: 1.4 !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    display: block !important;
 }
 
 .side-tree-topic {
     list-style: none;
-    padding-left: 0.75rem;
-    margin-left: 0.5rem;
-    border-left: 2px solid var(--accent-primary, #6366f1);
+    padding-left: 0.25rem;
+    margin-left: 0;
 }
 
 .side-link {
-    color: var(--text-primary);
-    text-decoration: none;
-    font-size: 1.05rem !important;
-    font-weight: 700;
-    display: block;
-    padding: 0.5rem 1rem;
-    border-radius: 12px;
-    border: 1px solid transparent;
-    transition: all 0.2s;
-    margin: 4px 0;
+    display: block !important;
+    padding: 0.65rem 0.85rem !important;
+    text-decoration: none !important;
+    color: #1f2937 !important;
+    font-size: 1rem !important;
+    border-radius: 12px !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: 600 !important;
+    border: 1px solid #ef4444 !important;
+    /* THE RED EDGE 🔴 */
+    background: white !important;
+    box-shadow: 0 2px 4px rgba(239, 68, 68, 0.05) !important;
+    position: relative !important;
 }
 
-.side-link.active {
-    background: transparent !important;
-    color: #ef4444 !important;
-    /* Red text */
-    font-weight: 700;
-    border: 1.5px solid #ef4444;
-    /* Red pill outline */
-    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.1);
+.side-link:active {
+    background-color: #fef2f2 !important;
+    transform: scale(0.97) !important;
 }
 
 .side-link:hover:not(.active) {
-    background: rgba(99, 102, 241, 0.05);
-    color: var(--primary);
-    border-color: rgba(99, 102, 241, 0.2);
+    border-color: #dc2626 !important;
+    background: #fff5f5 !important;
+    transform: translateX(4px) !important;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1) !important;
+    color: #1f2937 !important;
+}
+
+.side-link.active {
+    background: #ef4444 !important;
+    color: white !important;
+    border-color: #ef4444 !important;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3) !important;
 }
 
 /* Level 3: Anchor/Nested links */

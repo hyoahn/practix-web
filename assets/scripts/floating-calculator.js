@@ -194,16 +194,24 @@
         function dragStart(e) {
             if (e.target.closest('.calculator-controls')) return;
 
+            const rect = calcFloat.getBoundingClientRect();
+
             if (e.type === 'touchstart') {
-                initialX = e.touches[0].clientX - (parseInt(calcFloat.style.left) || 0);
-                initialY = e.touches[0].clientY - (parseInt(calcFloat.style.top) || 0);
+                initialX = e.touches[0].clientX - rect.left;
+                initialY = e.touches[0].clientY - rect.top;
             } else {
-                initialX = e.clientX - (parseInt(calcFloat.style.left) || 0);
-                initialY = e.clientY - (parseInt(calcFloat.style.top) || 0);
+                initialX = e.clientX - rect.left;
+                initialY = e.clientY - rect.top;
             }
 
             if (e.target === calcHeader || e.target.parentElement === calcHeader || calcHeader.contains(e.target)) {
                 isDragging = true;
+
+                // Clear initial right/bottom positioning before drag to avoid conflicts
+                calcFloat.style.right = 'auto';
+                calcFloat.style.bottom = 'auto';
+                calcFloat.style.left = rect.left + 'px';
+                calcFloat.style.top = rect.top + 'px';
             }
         }
 
@@ -219,19 +227,6 @@
                     currentY = e.clientY - initialY;
                 }
 
-                // Get calculator dimensions
-                const calcWidth = calcFloat.offsetWidth;
-                const calcHeight = calcFloat.offsetHeight;
-
-                // Constrain within viewport
-                const maxX = window.innerWidth - calcWidth;
-                const maxY = window.innerHeight - calcHeight;
-
-                currentX = Math.max(0, Math.min(currentX, maxX));
-                currentY = Math.max(0, Math.min(currentY, maxY));
-
-                calcFloat.style.right = 'auto';
-                calcFloat.style.bottom = 'auto';
                 calcFloat.style.left = currentX + 'px';
                 calcFloat.style.top = currentY + 'px';
             }

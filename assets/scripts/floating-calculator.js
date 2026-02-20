@@ -291,15 +291,36 @@
     };
 
     // Initialize
-    injectStyles();
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-            injectCalculator();
-            setupGlobalListeners();
-        });
-    } else {
+    function init() {
         injectCalculator();
         setupGlobalListeners();
+
+        // Auto-open on Desmos topic pages (but not the main /desmos/ hub which has an iframe)
+        const path = window.location.pathname;
+        const strictIsMobile = (window.innerWidth < 1280) || (window.matchMedia('(pointer: coarse)').matches && window.innerWidth < 1366);
+
+        console.log("Practix: Floating Calculator checking auto-open for path:", path, "isMobile:", strictIsMobile);
+        if (!strictIsMobile && path.includes('/desmos/') && !path.endsWith('/desmos/') && !path.endsWith('/desmos/index.html')) {
+            console.log("Practix: Triggering auto-open for Desmos subpage (Desktop Only).");
+            // Slight delay to ensure DOM and CSS are ready for transitions
+            setTimeout(() => {
+                if (typeof window.toggleCalculator === 'function') {
+                    window.toggleCalculator(true);
+                    console.log("Practix: toggleCalculator(true) called successfully.");
+                } else {
+                    console.log("Practix: toggleCalculator(true) failed, function not defined.");
+                }
+            }, 500);
+        } else {
+            console.log("Practix: Skipping auto-open for this path or viewport.");
+        }
+    }
+
+    injectStyles();
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
     }
 
     // Dynamic resize handling

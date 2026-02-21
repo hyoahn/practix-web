@@ -153,6 +153,7 @@ body.flash-mode-active .flash-cards-section {
     /* Preserve exactly the left rail */
     right: 0 !important;
     width: calc(100vw - 60px) !important;
+    max-width: none !important;
     height: 100vh !important;
     z-index: 9999 !important;
     /* Cover everything else */
@@ -180,8 +181,13 @@ body.flash-mode-active .flash-cards-section {
 
 /* In flash mode, the wrapper needs to be contained so it doesn't grow infinitely */
 body.flash-mode-active .card-wrapper {
-    max-width: 800px;
-    width: 100%;
+    max-width: 1200px;
+    /* ENLARGED: Let the card be massive if space permits */
+    width: 95%;
+    /* Take up most of the container */
+    height: 60vh;
+    /* Make the card very tall */
+    min-height: 400px;
     margin: 0 auto;
     flex-shrink: 0;
 }
@@ -190,7 +196,7 @@ body.flash-mode-active .card-wrapper {
 .flash-header-actions {
     display: none;
     width: 100%;
-    max-width: 800px;
+    max-width: 1200px;
     justify-content: flex-end;
     margin-bottom: 2rem;
 }

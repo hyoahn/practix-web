@@ -32,7 +32,7 @@
     <script src="../../../assets/scripts/practix-footer.js?v=1771664400"></script>
     <script src="../../../assets/scripts/pulse-relay.js?v=1771664400"></script>
     <script src="../../../assets/scripts/analytics.js?v=1771664400"></script>
-    <script src="../../../assets/scripts/practix-generator.js?v=1771664400"></script>
+    <script src="../../../assets/scripts/practix-generator.js?v=20260221-2027"></script>
 
 
 
@@ -277,6 +277,110 @@
                                     <div
                                         style="text-align: center; margin: 1rem 0; font-size: 1.4rem; font-weight: bold; color: #166534;">
                                         \( -(x_1 + x_2) = \frac{b}{a} \implies x_1 + x_2 = -\frac{b}{a} \)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="formula-card" id="diff-solutions">
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-diff-solutions">
+                    </div>
+                    <span class="category-badge cat-quad"
+                        style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Advanced Math</span>
+                    <h3>Positive Difference of Solutions</h3>
+                    <div class="formula-display">\[ \text{Diff} = \frac{\sqrt{b^2 - 4ac}}{|a|} \]</div>
+                    <p class="formula-explanation">Find the positive difference between the two solutions without having
+                        to find each root individually first.</p>
+
+                    <div
+                        style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                Practice: "Positive difference of solutions to <span data-eqn-type="difference">\(x^2 -
+                                    4x - 5 = 0\)</span>?"
+                            </p>
+                            <button class="randomize-btn" data-type="difference"
+                                style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                🔄 New Problem
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 0.8rem; align-items: center;">
+                            <input type="text" id="difference-answer-input" placeholder="e.g. 6 or 12/2"
+                                style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                            <button class="check-answer-btn" data-type="difference"
+                                style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                Check Answer
+                            </button>
+                        </div>
+                        <div id="difference-feedback" style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;">
+                        </div>
+                    </div>
+
+                    <details class="practix-reveal">
+                        <summary>Show Solution & Analysis</summary>
+                        <div class="solution-content">
+                            <div class="comparison-grid"
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                <div>
+                                    <div class="school-header"
+                                        style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">🚫 School Way
+                                        (Rigorous)</div>
+                                    <p id="difference-school-steps" style="font-size: 0.9rem; line-height: 1.6;">
+                                        <strong>1. Setup Quadratic Formula:</strong><br>
+                                        Identify \(a=1, b=-4, c=-5\).<br>
+                                        \(x = \frac{4 \pm \sqrt{(-4)^2 - 4(1)(-5)}}{2(1)}\)<br>
+                                        <strong>2. Simplify Discriminant:</strong><br>
+                                        \(x = \frac{4 \pm \sqrt{16 + 20}}{2} = \frac{4 \pm \sqrt{36}}{2}\)<br>
+                                        <strong>3. Find Both Roots:</strong><br>
+                                        \(x_1 = \frac{4 + 6}{2} = 5, \quad x_2 = \frac{4 - 6}{2} = -1\)<br>
+                                        <strong>4. Subtract the Roots:</strong><br>
+                                        \( |5 - (-1)| = |5 + 1| = 6 \)<br>
+                                        <strong>Result: 6</strong>
+                                    </p>
+                                </div>
+                                <div>
+                                    <div class="practix-header"
+                                        style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅ Practix Way
+                                        (Optimal)</div>
+                                    <p id="difference-practix-steps" style="font-size: 0.95rem; line-height: 1.6;">
+                                        **Step 1:** Compute Discriminant \(D\).<br>
+                                        \(D = (-4)^2 - 4(1)(-5) = 36\).<br>
+                                        **Step 2:** Apply shortcut.<br>
+                                        Difference = \( \frac{\sqrt{D}}{|a|} = \frac{\sqrt{36}}{|1|} = 6\).<br>
+                                        **Result: 6**<br>
+                                        <span style="color: #10b981; font-weight: 600;">Done in seconds.</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Theoretical Solution Section -->
+                            <div class="theoretical-solution"
+                                style="margin-top: 2rem; padding-top: 2rem; border-top: 1px dashed #cbd5e1;">
+                                <h4 style="color: #166534; margin-bottom: 1rem;">🎓 Theoretical Solution: The Derivation
+                                </h4>
+                                <div
+                                    style="font-family: serif; font-size: 1rem; line-height: 1.8; color: #334155; background: white; padding: 1.5rem; border-radius: 6px; border: 1px solid #bbf7d0;">
+                                    <p>We want to find \(|x_1 - x_2|\). Notice that:</p>
+                                    <div style="text-align: center; margin: 1rem 0; font-size: 1.3rem;">\( (x_1 - x_2)^2
+                                        = (x_1 + x_2)^2 - 4x_1x_2 \)</div>
+                                    <p>We already know the shortcuts for Sum and Product:</p>
+                                    <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                                        <li>Sum: \( x_1 + x_2 = -\frac{b}{a} \)</li>
+                                        <li>Product: \( x_1x_2 = \frac{c}{a} \)</li>
+                                    </ul>
+                                    <p>Substitute these into our equation:</p>
+                                    <div style="text-align: center; margin: 1rem 0; font-size: 1.3rem;">\( (x_1 - x_2)^2
+                                        = \left(-\frac{b}{a}\right)^2 - 4\left(\frac{c}{a}\right) \)</div>
+                                    <div style="text-align: center; margin: 1rem 0; font-size: 1.3rem;">\( (x_1 - x_2)^2
+                                        = \frac{b^2}{a^2} - \frac{4ac}{a^2} = \frac{b^2 - 4ac}{a^2} \)</div>
+                                    <p>Finally, take the square root of both sides to get the absolute difference:</p>
+                                    <div
+                                        style="text-align: center; margin: 1rem 0; font-size: 1.4rem; font-weight: bold; color: #166534;">
+                                        \( |x_1 - x_2| = \frac{\sqrt{b^2 - 4ac}}{|a|} \)</div>
                                 </div>
                             </div>
                         </div>

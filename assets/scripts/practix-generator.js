@@ -52,7 +52,7 @@ class PractixGenerator {
         let data = {};
 
         // --- QUADRATIC/PARABOLA MODULE ---
-        if (['product', 'sum', 'discriminant', 'vertex-shortcut', 'vertex-line'].includes(type)) {
+        if (['product', 'sum', 'difference', 'discriminant', 'vertex-shortcut', 'vertex-line'].includes(type)) {
             data = this.genQuadraticCoeffs(type);
             this.updateQuadraticUI(type, data);
         }
@@ -86,6 +86,19 @@ class PractixGenerator {
         let c = Math.floor(Math.random() * 31) - 15;
         if (type === 'product' && c === 0) c = 12;
         if (type === 'sum' && b === 0) b = 8;
+        if (type === 'difference') {
+            // Force discriminant to be a perfect square: b^2 - 4ac = k^2
+            // Choose k, then choose a and c such that 4ac = b^2 - k^2
+            const k = (Math.floor(Math.random() * 8) + 1) * 2; // Even k
+            b = Math.floor(Math.random() * 21) - 10;
+            // Easiest way: just pick roots! r1, r2.
+            const r1 = Math.floor(Math.random() * 10) - 5;
+            const r2 = r1 + Math.floor(Math.random() * 5) + 1; // r2 > r1
+            a = Math.floor(Math.random() * 3) + 1; // 1, 2, or 3
+            // a(x - r1)(x - r2) = a(x^2 - (r1+r2)x + r1*r2)
+            b = -a * (r1 + r2);
+            c = a * (r1 * r2);
+        }
         if (type === 'discriminant' && Math.random() < 0.2) {
             let k = Math.floor(Math.random() * 5) + 1;
             a = 1; b = 2 * k; c = k * k;
@@ -191,14 +204,14 @@ class PractixGenerator {
                     `Identify \\( a=${a},\\; b=${b},\\; c=${c} \\).<br>` +
                     `\\( x = \\frac{ -(${b}) \\pm \\sqrt{ (${b})^2 - 4(${a})(${c}) } }{ 2(${a}) } \\)<br><br>` +
                     `<strong>2. Compute the Discriminant:</strong><br>` +
-                    `\\( D = (${b})^2 - 4(${a})(${c}) = ${b*b} - ${fourAC} = ${d} \\)<br><br>` +
+                    `\\( D = (${b})^2 - 4(${a})(${c}) = ${b * b} - ${fourAC} = ${d} \\)<br><br>` +
                     `<strong>3. Find Both Roots:</strong><br>` +
                     `\\( x_1 = \\frac{${-b} + \\sqrt{${d}}}{${twoA}}, \\quad x_2 = \\frac{${-b} - \\sqrt{${d}}}{${twoA}} \\)<br><br>` +
                     `<strong>4. Multiply the Two Roots:</strong><br>` +
                     `\\( x_1 \\cdot x_2 = \\frac{(${-b})^2 - (\\sqrt{${d}})^2}{(${twoA})^2} \\)<br>` +
-                    `\\( = \\frac{${b*b} - (${d})}{${twoA * twoA}} = \\frac{${b*b - d}}{${twoA * twoA}} \\)<br><br>` +
+                    `\\( = \\frac{${b * b} - (${d})}{${twoA * twoA}} = \\frac{${b * b - d}}{${twoA * twoA}} \\)<br><br>` +
                     `<strong>5. Simplify:</strong><br>` +
-                    `\\( = \\frac{${fourAC}}{${4*a*a}} = \\frac{${c}}{${a}} = ${this.currentAnswers[type]} \\)<br><br>` +
+                    `\\( = \\frac{${fourAC}}{${4 * a * a}} = \\frac{${c}}{${a}} = ${this.currentAnswers[type]} \\)<br><br>` +
                     `<em style="color: #ef4444; font-size: 0.85rem;">⏱ ~60-90 seconds of algebra</em>`;
             }
         }
@@ -211,13 +224,32 @@ class PractixGenerator {
                     `Identify \\( a=${a},\\; b=${b},\\; c=${c} \\).<br>` +
                     `\\( x = \\frac{ -(${b}) \\pm \\sqrt{ (${b})^2 - 4(${a})(${c}) } }{ 2(${a}) } \\)<br><br>` +
                     `<strong>2. Compute the Discriminant:</strong><br>` +
-                    `\\( D = (${b})^2 - 4(${a})(${c}) = ${b*b} - ${4*a*c} = ${d} \\)<br><br>` +
+                    `\\( D = (${b})^2 - 4(${a})(${c}) = ${b * b} - ${4 * a * c} = ${d} \\)<br><br>` +
                     `<strong>3. Find Both Roots:</strong><br>` +
                     `\\( x_1 = \\frac{${-b} + \\sqrt{${d}}}{${twoA}}, \\quad x_2 = \\frac{${-b} - \\sqrt{${d}}}{${twoA}} \\)<br><br>` +
                     `<strong>4. Add the Two Roots:</strong><br>` +
                     `\\( x_1 + x_2 = \\frac{(${-b} + \\sqrt{${d}}) + (${-b} - \\sqrt{${d}})}{${twoA}} \\)<br>` +
-                    `\\( = \\frac{${-b} + ${-b}}{${twoA}} = \\frac{${-2*b}}{${twoA}} = ${this.currentAnswers[type]} \\)<br><br>` +
+                    `\\( = \\frac{${-b} + ${-b}}{${twoA}} = \\frac{${-2 * b}}{${twoA}} = ${this.currentAnswers[type]} \\)<br><br>` +
                     `<em style="color: #ef4444; font-size: 0.85rem;">⏱ ~50-70 seconds of algebra</em>`;
+            }
+        }
+        else if (type === 'difference') {
+            const rootD = Math.sqrt(d);
+            this.currentAnswers[type] = this.simplifyFraction(rootD, Math.abs(a));
+            if (practixBox) practixBox.innerHTML = `**Step 1:** Compute Discriminant \\( D \\).<br>\\( D = (${b})^2 - 4(${a})(${c}) = ${d} \\).<br>**Step 2:** Apply shortcut.<br>Difference = \\( \\frac{\\sqrt{D}}{|a|} = \\frac{\\sqrt{${d}}}{|${a}|} \\).<br>**Result: ${this.currentAnswers[type]}**`;
+            if (schoolBox) {
+                const twoA = 2 * a;
+                schoolBox.innerHTML = `<strong>1. Setup Quadratic Formula:</strong><br>` +
+                    `Identify \\( a=${a},\\; b=${b},\\; c=${c} \\).<br>` +
+                    `\\( x = \\frac{ -(${b}) \\pm \\sqrt{ (${b})^2 - 4(${a})(${c}) } }{ 2(${a}) } \\)<br><br>` +
+                    `<strong>2. Compute the Discriminant:</strong><br>` +
+                    `\\( D = (${b})^2 - 4(${a})(${c}) = ${b * b} - ${4 * a * c} = ${d} \\)<br><br>` +
+                    `<strong>3. Find Both Roots:</strong><br>` +
+                    `\\( x_1 = \\frac{${-b} + ${rootD}}{${twoA}}, \\quad x_2 = \\frac{${-b} - ${rootD}}{${twoA}} \\)<br><br>` +
+                    `<strong>4. Subtract the Roots (Positive Difference):</strong><br>` +
+                    `\\( |x_1 - x_2| = |\\frac{(${-b} + ${rootD}) - (${-b} - ${rootD})}{${twoA}}| \\)<br>` +
+                    `\\( = |\\frac{2 \\cdot ${rootD}}{${twoA}}| = |\\frac{${rootD}}{${a}}| = ${this.currentAnswers[type]} \\)<br><br>` +
+                    `<em style="color: #ef4444; font-size: 0.85rem;">⏱ ~60-80 seconds of algebra</em>`;
             }
         }
         else if (type === 'discriminant') {
@@ -456,7 +488,7 @@ class PractixGenerator {
                 `Halve & flip: \\( h = -\\frac{${D}}{2} = ${h} \\), \\( k = -\\frac{${E}}{2} = ${k} \\)<br>` +
                 `<strong>Center: \\((${h}, ${k})\\)</strong><br><br>` +
                 `<strong>Step 2: Find Radius</strong><br>` +
-                `\\( r = \\sqrt{h^2 + k^2 - F} = \\sqrt{${h*h} + ${k*k} - (${F})} = \\sqrt{${r2}} = ${r} \\)<br>` +
+                `\\( r = \\sqrt{h^2 + k^2 - F} = \\sqrt{${h * h} + ${k * k} - (${F})} = \\sqrt{${r2}} = ${r} \\)<br>` +
                 `<strong>Result: Center \\((${h}, ${k})\\), Radius \\(${r}\\)</strong>`;
         }
 

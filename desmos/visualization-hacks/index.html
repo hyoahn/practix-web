@@ -19,13 +19,13 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
         rel="stylesheet">
 
-    
+
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../assets/scripts/practix-nav.js?v=1771354000"></script>
     <script src="../../assets/scripts/sidebar.js?v=1771528000"></script>
     <script src="../../assets/scripts/practix-footer.js?v=1770561723"></script>
     <script src="../../assets/scripts/pulse-relay.js?v=1770561723"></script>
-    
+
     <script src="../../assets/scripts/analytics.js?v=1770561723"></script>
 
     <style>
@@ -268,17 +268,31 @@
                     <summary></summary>
                     <div class="solution-content">
                         <div class="solution-step">
-                            <h4>Step 1: Graph & Solve Circle Tangency via Desmos Sliders</h4>
-                            <p>Graph the circle `(x-2)^2 + (y-1)^2 = 4` and the line `y = c`. Add a slider for `c`.</p>
-                            <img src="../../assets/images/desmos/circle-tangent-1.png" alt="Desmos Slider Interaction"
-                                style="width: 100%; max-width: 450px; display: block; margin: 1rem auto; border-radius: 8px; border: 1px solid #ddd6fe;">
+                            <h4>Step 1: Graph the Circle</h4>
+                            <p>Type <code>(x-2)^2 + (y-1)^2 = 4</code> into Desmos to graph the circle.</p>
+                            <div
+                                style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 1rem; margin: 1rem 0; font-size: 0.95rem;">
+                                ⚠️ <strong>Warning:</strong> Do NOT type <code>y = c</code> in Desmos — Desmos treats
+                                <code>c</code> as a reserved letter and will graph <code>y = x</code> instead of a
+                                horizontal line. It will NOT offer a slider!
+                            </div>
                         </div>
                         <div class="solution-step">
-                            <h4>Step 2: Find Tangency</h4>
-                            <p>Slide `c` until the line just touches the top of the circle.</p>
-                            <img src="../../assets/images/desmos/circle-tangent-2.png" alt="Desmos Tangent Solved"
+                            <h4>Step 2: Try Horizontal Lines</h4>
+                            <p>Instead, type actual values: <code>y = 1</code>, <code>y = 2</code>, <code>y = 3</code>,
+                                etc. Check which horizontal line just touches the top of the circle.</p>
+                            <img src="../../assets/images/desmos/circle-tangent-1.png" alt="Desmos trying y = 1"
                                 style="width: 100%; max-width: 450px; display: block; margin: 1rem auto; border-radius: 8px; border: 1px solid #ddd6fe;">
-                            <p>The line is tangent at <strong>y = 3</strong>.</p>
+                            <p><code>y = 1</code> cuts through the circle — too low.</p>
+                            <p><code>y = 2</code> still crosses the circle — not tangent yet.</p>
+                        </div>
+                        <div class="solution-step">
+                            <h4>Step 3: Find the Tangent Line</h4>
+                            <p>Try <code>y = 3</code>. The line just barely touches the top of the circle — tangent!</p>
+                            <img src="../../assets/images/desmos/circle-tangent-2.png"
+                                alt="Desmos y = 3 tangent to circle"
+                                style="width: 100%; max-width: 450px; display: block; margin: 1rem auto; border-radius: 8px; border: 1px solid #ddd6fe;">
+                            <p>The line <strong>y = 3</strong> is tangent to the circle, so <strong>c = 3</strong>.</p>
                         </div>
                         <div class="final-answer-box">
                             <h4><span>✅</span> Final Answer:</h4>
@@ -376,7 +390,7 @@
 
     <!-- Hidden Footer (Reflow system will grab it) -->
     <footer style="display: none;"></footer>
-    
+
     <script src="../../assets/scripts/floating-calculator.js?v=1771528000"></script>
     <script src="../../assets/scripts/desmos-calculator.js?v=1.2"></script>
 </body>

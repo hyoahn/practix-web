@@ -178,12 +178,41 @@ class PractixGenerator {
         if (type === 'product') {
             this.currentAnswers[type] = this.simplifyFraction(c, a);
             if (practixBox) practixBox.innerHTML = `**Step 1:** Identify coefficients.<br>\\( a=${a}, c=${c} \\).<br>**Step 2:** Apply shortcut.<br>Product = \\( c/a = ${c}/${a} \\).<br>**Result: ${this.currentAnswers[type]}**`;
-            if (schoolBox) schoolBox.innerHTML = `<strong>1. Setup Quadratic Formula:</strong><br>Identify \\( a=${a}, b=${b}, c=${c} \\).<br>\\( x = \\frac{ -(${b}) \\pm \\sqrt{ b^2-4ac } }{ 2a } \\)<br><strong>2. Simplify Root:</strong><br>\\( \\sqrt{ ${d} } \\)<br><strong>3. Result:</strong> \\( ${this.currentAnswers[type]} \\)`;
+            if (schoolBox) {
+                const twoA = 2 * a;
+                const fourAC = 4 * a * c;
+                schoolBox.innerHTML = `<strong>1. Setup Quadratic Formula:</strong><br>` +
+                    `Identify \\( a=${a},\\; b=${b},\\; c=${c} \\).<br>` +
+                    `\\( x = \\frac{ -(${b}) \\pm \\sqrt{ (${b})^2 - 4(${a})(${c}) } }{ 2(${a}) } \\)<br><br>` +
+                    `<strong>2. Compute the Discriminant:</strong><br>` +
+                    `\\( D = (${b})^2 - 4(${a})(${c}) = ${b*b} - ${fourAC} = ${d} \\)<br><br>` +
+                    `<strong>3. Find Both Roots:</strong><br>` +
+                    `\\( x_1 = \\frac{${-b} + \\sqrt{${d}}}{${twoA}}, \\quad x_2 = \\frac{${-b} - \\sqrt{${d}}}{${twoA}} \\)<br><br>` +
+                    `<strong>4. Multiply the Two Roots:</strong><br>` +
+                    `\\( x_1 \\cdot x_2 = \\frac{(${-b})^2 - (\\sqrt{${d}})^2}{(${twoA})^2} \\)<br>` +
+                    `\\( = \\frac{${b*b} - (${d})}{${twoA * twoA}} = \\frac{${b*b - d}}{${twoA * twoA}} \\)<br><br>` +
+                    `<strong>5. Simplify:</strong><br>` +
+                    `\\( = \\frac{${fourAC}}{${4*a*a}} = \\frac{${c}}{${a}} = ${this.currentAnswers[type]} \\)<br><br>` +
+                    `<em style="color: #ef4444; font-size: 0.85rem;">⏱ ~60-90 seconds of algebra</em>`;
+            }
         }
         else if (type === 'sum') {
             this.currentAnswers[type] = this.simplifyFraction(-b, a);
             if (practixBox) practixBox.innerHTML = `**Step 1:** Identify coefficients.<br>\\( a=${a}, b=${b} \\).<br>**Step 2:** Apply shortcut.<br>Sum = \\( -b/a = ${-b}/${a} \\).<br>**Result: ${this.currentAnswers[type]}**`;
-            if (schoolBox) schoolBox.innerHTML = `<strong>1. Setup Quadratic Formula:</strong><br>Identify \\( a=${a}, b=${b}, c=${c} \\).<br>\\( x = \\frac{ -b \\pm \\sqrt{ D } }{ 2a } \\)<br><strong>2. Sum Roots:</strong><br>\\( x_1 + x_2 = \\frac{-b+\\sqrt{D}}{2a} + \\frac{-b-\\sqrt{D}}{2a} = \\frac{-2b}{2a} \\)<br><strong>Result: ${this.currentAnswers[type]}</strong>`;
+            if (schoolBox) {
+                const twoA = 2 * a;
+                schoolBox.innerHTML = `<strong>1. Setup Quadratic Formula:</strong><br>` +
+                    `Identify \\( a=${a},\\; b=${b},\\; c=${c} \\).<br>` +
+                    `\\( x = \\frac{ -(${b}) \\pm \\sqrt{ (${b})^2 - 4(${a})(${c}) } }{ 2(${a}) } \\)<br><br>` +
+                    `<strong>2. Compute the Discriminant:</strong><br>` +
+                    `\\( D = (${b})^2 - 4(${a})(${c}) = ${b*b} - ${4*a*c} = ${d} \\)<br><br>` +
+                    `<strong>3. Find Both Roots:</strong><br>` +
+                    `\\( x_1 = \\frac{${-b} + \\sqrt{${d}}}{${twoA}}, \\quad x_2 = \\frac{${-b} - \\sqrt{${d}}}{${twoA}} \\)<br><br>` +
+                    `<strong>4. Add the Two Roots:</strong><br>` +
+                    `\\( x_1 + x_2 = \\frac{(${-b} + \\sqrt{${d}}) + (${-b} - \\sqrt{${d}})}{${twoA}} \\)<br>` +
+                    `\\( = \\frac{${-b} + ${-b}}{${twoA}} = \\frac{${-2*b}}{${twoA}} = ${this.currentAnswers[type]} \\)<br><br>` +
+                    `<em style="color: #ef4444; font-size: 0.85rem;">⏱ ~50-70 seconds of algebra</em>`;
+            }
         }
         else if (type === 'discriminant') {
             const outcome = d > 0 ? "2 Real Solutions" : (d === 0 ? "1 Real Solution" : "No Real Solutions");

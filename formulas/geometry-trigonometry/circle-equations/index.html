@@ -106,23 +106,43 @@
                         style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
                     <h3>General Form Hack</h3>
                     <div class="formula-display">
-                        \[ \text{Center } (h,k) = (-D/2, -E/2) \]
-                        \[ r = \sqrt{h^2 + k^2 - F} \]
+                        \[ \text{Given: } x^2 + y^2 + Dx + Ey + F = 0 \]
+                        \[ \text{Center: } (h,k) = (-D/2, -E/2) \]
+                        \[ \text{Radius: } r = \sqrt{h^2 + k^2 - F} \]
                     </div>
-                    <p class="formula-explanation">When given \(x^2 + y^2 + Dx + Ey + F = 0\), halve the
-                        coefficients and flip the sign to find the center \((h,k)\). Then, plug \(h, k\), and \(F\) into
-                        the radius formula.</p>
+                    <p class="formula-explanation">Halve the coefficients of \(x\) and \(y\), then flip their signs to
+                        find the center \((h,k)\). Then, plug \(h, k\), and \(F\) into the radius formula.</p>
                     <details class="practix-reveal">
-                        <summary>📝 Example: Center and Radius from General Form</summary>
+                        <summary>📝 Example Problem: \(x^2 + y^2 - 10x + 6y - 2 = 0\)</summary>
                         <div class="solution-content">
-                            <p>\(x^2 + y^2 - 10x + 6y - 2 = 0\)</p>
+                            <p><strong>Step 1: Find the Center</strong></p>
                             <p>Center x (\(h\)): \(-10 \div 2 = -5 \rightarrow +5\)</p>
                             <p>Center y (\(k\)): \(6 \div 2 = 3 \rightarrow -3\)</p>
                             <p><strong>Center is \((5, -3)\)</strong>.</p>
-                            <p style="margin-top: 0.5rem;">Now find the radius using \(F = -2\):</p>
+                            <p style="margin-top: 1rem;"><strong>Step 2: Find the Radius</strong></p>
+                            <p>Now find the radius using \(F = -2\):</p>
                             <p>\( r = \sqrt{5^2 + (-3)^2 - (-2)} \)</p>
                             <p>\( r = \sqrt{25 + 9 + 2} = \sqrt{36} = 6 \)</p>
                             <p><strong>Radius is \(6\)</strong>.</p>
+
+                            <details style="margin-top: 1.5rem; border-top: 1px solid #e5e7eb; padding-top: 1rem;">
+                                <summary
+                                    style="font-size: 0.9em; color: var(--accent-primary); cursor: pointer; font-weight: 500;">
+                                    Wait, what's the proof for this formula?</summary>
+                                <div style="font-size: 0.9em; margin-top: 0.75rem; line-height: 1.6;">
+                                    <p>It comes from <strong>completing the square</strong> on the General Form: \(x^2 +
+                                        y^2 + Dx + Ey + F = 0\).</p>
+                                    <ol style="margin-top: 0.5rem; padding-left: 1.5rem; list-style-type: decimal;">
+                                        <li>Move \(F\) to the right side: \(= -F\)</li>
+                                        <li>Complete the square for \(x\): add \((D/2)^2\), which is \(h^2\).</li>
+                                        <li>Complete the square for \(y\): add \((E/2)^2\), which is \(k^2\).</li>
+                                        <li>The right side becomes \(r^2 = h^2 + k^2 - F\).</li>
+                                        <li>Therefore, the radius is \( r = \sqrt{h^2 + k^2 - F} \).</li>
+                                    </ol>
+                                    <p style="margin-top: 0.5rem;">In our problem, the center \((h, k)\) is \((5, -3)\)
+                                        and \(F = -2\).</p>
+                                </div>
+                            </details>
                         </div>
                     </details>
                 </article>

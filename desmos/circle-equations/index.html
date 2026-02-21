@@ -258,8 +258,19 @@
                         <summary>Click to see the "Desmos Speed-Run"</summary>
                         <div class="solution-content">
                             <h4>Quick Strategy</h4>
-                            <p>On Desmos, type the equation exactly as shown. Locate the center \((-2, 3)\) and use the
-                                distance tool or simply count grid units to find the radius.</p>
+                            <p>1. Type the equation exactly into Desmos.</p>
+                            <p>2. Draw a horizontal line segment through the center to find the diameter. Since the
+                                center is at \((-2, 3)\), type <code>y = 3</code>.</p>
+                            <p>3. Restrict the domain to the edges of the circle: <code>{-6 &le; x &le; 2}</code>.</p>
+
+                            <div style="margin: 1.5rem 0; text-align: center;">
+                                <img src="../../assets/images/desmos-radius-hack.png" alt="Desmos Radius Trick"
+                                    style="max-width: 100%; border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);">
+                            </div>
+
+                            <p>4. The length of this segment is the diameter (\(-6\) to \(2\) is \(8\)).</p>
+                            <p>5. Since the diameter is \(8\), the <strong>radius is \(4\).</strong></p>
+
                             <div class="shortcut" style="margin-top: 1rem; border-color: #bbf7d0; background: #f0fdf4;">
                                 <strong>Formula Check:</strong><br>
                                 \( r = \sqrt{h^2 + k^2 - F} = \sqrt{(-2)^2 + 3^2 - (-3)} = \sqrt{4 + 9 + 3} = \sqrt{16}

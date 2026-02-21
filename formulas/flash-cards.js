@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <!-- Back -->
                     <div class="card-face card-back" style="padding-top: 3rem;">
                         <div class="card-label" style="position: absolute; top: 1.5rem; left: 1.5rem; font-size: 0.75rem; color: #94a3b8; font-weight: 600; text-transform: uppercase;">Formula</div>
+                        <div class="card-visual"></div>
                         <div class="card-math">\\[ ${formulas[currentIndex].math} \\]</div>
                         <div class="card-gift">💡 ${formulas[currentIndex].gift}</div>
                     </div>
@@ -78,17 +79,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const mathContainer = backFace.querySelector('.card-math');
         mathContainer.innerHTML = `\\[ ${formula.math} \\]`; // Reset to raw LaTeX
 
+        // Update Visual Plot
+        const visualContainer = backFace.querySelector('.card-visual');
+        if (formula.visual) {
+            visualContainer.innerHTML = formula.visual;
+            visualContainer.style.display = 'flex';
+        } else {
+            visualContainer.innerHTML = '';
+            visualContainer.style.display = 'none';
+        }
+
         backFace.querySelector('.card-gift').innerHTML = `💡 ${formula.gift}`;
 
         // 3. Re-render MathJax
         if (window.MathJax && window.MathJax.typesetPromise) {
-            MathJax.typesetPromise([mathContainer, categoryContainer]).then(() => {
+            MathJax.typesetPromise([mathContainer, categoryContainer, visualContainer]).then(() => {
                 // Formatting complete
             }).catch((err) => console.log('MathJax error:', err));
         } else if (window.MathJax && window.MathJax.Hub) {
             // Legacy MathJax support if needed
             window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub, mathContainer]);
             window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub, categoryContainer]);
+            window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub, visualContainer]);
         }
     };
 

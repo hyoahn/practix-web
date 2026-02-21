@@ -1,5 +1,5 @@
 const formulas = [
-    { id: 1, name: "Circle Equation", math: "(x-h)^2 + (y-k)^2 = r^2", gift: "Save 90s", link: "#f1" },
+    { id: 1, name: "Circle Equation (Standard)", math: "(x-h)^2 + (y-k)^2 = r^2", visual: "<div class='circle-plot'><div class='circle-plot-circle'></div><div class='circle-plot-center'></div><div class='circle-plot-radius'></div><div class='circle-plot-center-label'>\\( (h, k) \\)</div><div class='circle-plot-radius-label'>\\( r \\)</div></div>", gift: "Save 90s", link: "#f1" },
     { id: 2, name: "Vertex x-coord", math: "x = \\frac{-b}{2a}", gift: "Save 70s", link: "#f2", category: "QUADRATIC EQUATION: \\( ax^2+bx+c=0 \\)" },
     { id: 3, name: "Product of Solutions", math: "\\frac{c}{a}", gift: "Save 65s", link: "#f3", category: "QUADRATIC EQUATION: \\( ax^2+bx+c=0 \\)" },
     { id: 4, name: "Sum of Solutions", math: "\\frac{-b}{a}", gift: "Save 50s", link: "#f4", category: "QUADRATIC EQUATION: \\( ax^2+bx+c=0 \\)" },
@@ -20,5 +20,5 @@ const formulas = [
     { id: 18, name: "Standard Deviation Logic", math: "\\text{High Spread} = \\text{High } \\sigma", gift: "Stat Mastery", link: "#f18" },
     { id: 19, name: "Margin of Error", math: "n \\uparrow \\; \\Rightarrow \\; MoE \\downarrow", gift: "Stat Mastery", link: "#f19" },
     { id: 20, name: "Sum of Interior Angles", math: "(n-2) \\cdot 180^\\circ", gift: "Polygons", link: "#f20" },
-    { id: 21, name: "Equation of Circle (General)", math: "x^2 + y^2 + Dx + Ey + F = 0", gift: "Mental Math", link: "#f21" }
+    { id: 21, name: "Equation of Circle (General)", math: "x^2 + y^2 + Dx + Ey + F = 0", visual: "<div class='circle-plot'><div class='circle-plot-circle'></div><div class='circle-plot-center'></div><div class='circle-plot-radius'></div><div class='circle-plot-center-label'>\\( \\left(-\\frac{D}{2}, -\\frac{E}{2}\\right) \\)</div><div class='circle-plot-radius-label'>\\( \\sqrt{\\frac{D^2}{4}+\\frac{E^2}{4}-F} \\)</div></div>", gift: "Mental Math", link: "#f21" }
 ];

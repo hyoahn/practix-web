@@ -39,6 +39,8 @@
     left: 0;
     width: 100%;
     height: 100%;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
     backface-visibility: hidden;
     /* Hide back when flipped */
     border-radius: 20px;
@@ -58,6 +60,8 @@
 /* Front Face */
 .card-front {
     z-index: 2;
+    transform: rotateY(0deg);
+    /* Fix for Firefox backface-visibility bug */
 }
 
 /* Back Face */

@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <!-- Front -->
                     <div class="card-face card-front" style="position: relative; padding-top: 3rem;">
                         <div class="card-label" style="position: absolute; top: 1.5rem; left: 1.5rem; font-size: 0.75rem; color: #94a3b8; font-weight: 600; text-transform: uppercase;">Concept #${currentIndex + 1}</div>
-                        <div class="card-category" style="font-weight: 700; color: var(--accent-primary); font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.5rem;">${formulas[currentIndex].category || ''}</div>
+                        <div class="card-category" style="font-weight: 700; color: var(--accent-primary); font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 0.5rem;">${formulas[currentIndex].category || ''}</div>
                         <div class="card-title">${formulas[currentIndex].name}</div>
                         <div style="margin-top:1.5rem; font-size:0.8rem; color: #94a3b8;">Tap to flip</div>
                     </div>
@@ -69,8 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const backFace = card.querySelector('.card-back');
 
         // Update Text
+        const categoryContainer = frontFace.querySelector('.card-category');
         frontFace.querySelector('.card-label').textContent = `Concept #${index + 1}`;
-        frontFace.querySelector('.card-category').textContent = formula.category || '';
+        categoryContainer.innerHTML = formula.category || '';
         frontFace.querySelector('.card-title').textContent = formula.name;
 
         // Update Math (Use innerHTML to support MathJax elements if needed, but we rely on re-typesetting)
@@ -81,12 +82,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 3. Re-render MathJax
         if (window.MathJax && window.MathJax.typesetPromise) {
-            MathJax.typesetPromise([mathContainer]).then(() => {
+            MathJax.typesetPromise([mathContainer, categoryContainer]).then(() => {
                 // Formatting complete
             }).catch((err) => console.log('MathJax error:', err));
         } else if (window.MathJax && window.MathJax.Hub) {
             // Legacy MathJax support if needed
             window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub, mathContainer]);
+            window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub, categoryContainer]);
         }
     };
 

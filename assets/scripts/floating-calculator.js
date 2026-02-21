@@ -173,7 +173,8 @@
 
         // Pop-out functionality
         popoutBtn.addEventListener('click', function () {
-            window.open('https://www.desmos.com/calculator', 'DesmosCalculator', 'width=800,height=600,menubar=no,toolbar=no,location=no,status=no');
+            window.desmosNativePopout = window.open('https://www.desmos.com/calculator', 'DesmosCalculator', 'width=800,height=600,menubar=no,toolbar=no,location=no,status=no');
+            window.toggleCalculator(false); // Hide the in-page calculator since it's popped out
         });
 
         // Dragging functionality
@@ -273,6 +274,17 @@
         const shouldBeOpen = typeof forceOpen === 'boolean' ? forceOpen : !isActive;
 
         if (shouldBeOpen) {
+            // Prevent duplicate calculators if the native popout window is already active
+            if (window.desmosNativePopout && !window.desmosNativePopout.closed) {
+                console.log("Practix: Native Desmos external window is already open. Suppressing in-page calculator overlay.");
+                try {
+                    window.desmosNativePopout.focus();
+                } catch (e) {
+                    console.log("Practix: Could not focus native popout.", e);
+                }
+                return;
+            }
+
             calcFloat.style.display = 'flex';
             // Use requestAnimationFrame or double timeout to ensure transition works
             requestAnimationFrame(() => {
@@ -310,7 +322,7 @@
             console.log("Practix: Triggering auto-open pop-out window for Desmos subpage (Desktop Only).");
             // Slight delay to ensure DOM and CSS are ready for transitions
             setTimeout(() => {
-                window.open('https://www.desmos.com/calculator', 'DesmosCalculator', 'width=800,height=600,menubar=no,toolbar=no,location=no,status=no');
+                window.desmosNativePopout = window.open('https://www.desmos.com/calculator', 'DesmosCalculator', 'width=800,height=600,menubar=no,toolbar=no,location=no,status=no');
                 console.log("Practix: Desmos native pop-out window launched successfully.");
             }, 500);
         } else {

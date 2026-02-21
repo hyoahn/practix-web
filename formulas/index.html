@@ -23,6 +23,7 @@
     <script src="../assets/scripts/practix-footer.js?v=1770561726"></script>
     <script src="../assets/scripts/pulse-relay.js?v=1770561726"></script>
     <script src="../assets/scripts/analytics.js?v=1770561726"></script>
+    <script src="../assets/scripts/practix-generator.js?v=1770561726"></script>
 
     <style>
         :root {
@@ -291,9 +292,31 @@
                     <h3>2. Sum of Solutions</h3>
                     <div class="formula-display">\[ \text{Sum} = -\frac{b}{a} \]</div>
                     <p class="formula-explanation">Find the sum of all x-values without solving.</p>
-                    <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed
-                            Step-by-Step</span><span class="plus">+</span></button>
                     <div class="example-content">
+                        <div
+                            style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                                <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                    Practice: "Sum of solutions to <span data-eqn-type="sum">\(2x^2 + 8x - 5 =
+                                        0\)</span>?"
+                                </p>
+                                <button class="randomize-btn" data-type="sum"
+                                    style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                    🔄 New Problem
+                                </button>
+                            </div>
+                            <div style="display: flex; gap: 0.8rem; align-items: center;">
+                                <input type="text" id="sum-answer-input" placeholder="e.g. -4 or -8/2"
+                                    style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                                <button class="check-answer-btn" data-type="sum"
+                                    style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                    Check Answer
+                                </button>
+                            </div>
+                            <div id="sum-feedback" style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;">
+                            </div>
+                        </div>
                         <p style="font-weight: 700; margin-bottom: 1.5rem;">"Sum of solutions for \(2x^2 + 10x - 48 =
                             0\)."</p>
                         <div class="comparison-grid">
@@ -327,6 +350,59 @@
                     <h3>3. Product of Solutions</h3>
                     <div class="formula-display">\[ \text{Product} = \frac{c}{a} \]</div>
                     <p class="formula-explanation">Find the product of all x-values without solving.</p>
+                    <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Practice &
+                            Step-by-Step</span><span class="plus">+</span></button>
+                    <div class="example-content">
+                        <div
+                            style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                                <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                    Practice: "Product of solutions to <span data-eqn-type="product">\(3x^2 - 7x + 12 =
+                                        0\)</span>?"
+                                </p>
+                                <button class="randomize-btn" data-type="product"
+                                    style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                    🔄 New Problem
+                                </button>
+                            </div>
+                            <div style="display: flex; gap: 0.8rem; align-items: center;">
+                                <input type="text" id="product-answer-input" placeholder="e.g. 4 or 12/3"
+                                    style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                                <button class="check-answer-btn" data-type="product"
+                                    style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                    Check Answer
+                                </button>
+                            </div>
+                            <div id="product-feedback" style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;">
+                            </div>
+                        </div>
+                        <p style="font-weight: 700; margin-bottom: 1.5rem;">"Product of solutions for \(4x^2 - 19x - 12
+                            = 0\)."</p>
+                        <div class="comparison-grid">
+                            <div>
+                                <div
+                                    style="color: #ef4444; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
+                                    🚫 The School Way (65+ Seconds)</div>
+                                <ul class="step-list">
+                                    <li>Step 1: Attempt to factor \(4x^2 - 19x - 12 = 0\).</li>
+                                    <li>Step 2: Use quadratic formula \(x = \frac{19 \pm \sqrt{361 - 4(4)(-12)}}{8}\).
+                                    </li>
+                                    <li>Step 3: Simplify discriminant: \(361 + 192 = 553\).</li>
+                                    <li>Step 4: Realize roots are \(\frac{19 \pm \sqrt{553}}{8}\).</li>
+                                    <li>Step 5: Multiply them: \( \frac{19^2 - 553}{64} = \frac{-192}{64} = -3 \).</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div
+                                    style="color: #10b981; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
+                                    ✅ The Practix Way (2s)</div>
+                                <ul class="step-list">
+                                    <li>Step 1: \( \frac{c}{a} = \frac{-12}{4} = -3 \)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </article>
 
                 <!-- 4 -->

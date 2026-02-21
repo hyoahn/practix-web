@@ -20,8 +20,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
         rel="stylesheet">
 
-    <!-- Desmos API (Restored without apiKey to bypass 403) -->
-    <script src="https://www.desmos.com/api/v1.10/calculator.js"></script>
+    <!-- Desmos API script removed to bypass 403 blocks -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <!-- Practix Scripts -->
@@ -183,7 +182,43 @@
                         </div>
                     </div>
 
-                    <div id="calculator" class="calculator-container"></div>
+                    <div id="calculator" class="calculator-container" style="background: #fff; position: relative;">
+                        <!-- Native SVG Graphing Engine (Mimics Desmos) -->
+                        <svg id="graph-svg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet"
+                            style="width:100%; height:100%; display: block; border-radius: 12px;">
+                            <!-- Major/Minor Grid lines will be injected here -->
+                            <g id="grid-lines"></g>
+                            <g id="axes">
+                                <!-- Axes Labels -->
+                                <text x="385" y="195" font-size="12" fill="#94a3b8" font-weight="700">x</text>
+                                <text x="210" y="20" font-size="12" fill="#94a3b8" font-weight="700">y</text>
+
+                                <!-- Axis Lines -->
+                                <line x1="0" y1="200" x2="400" y2="200" stroke="#94a3b8" stroke-width="2" />
+                                <!-- x-axis -->
+                                <line x1="200" y1="0" x2="200" y2="400" stroke="#94a3b8" stroke-width="2" />
+                                <!-- y-axis -->
+                            </g>
+
+                            <!-- The Circle -->
+                            <circle id="plot-circle" cx="200" cy="200" r="80" stroke="#4f46e5" stroke-width="3"
+                                fill="rgba(79, 70, 229, 0.08)" />
+
+                            <!-- Radius Line -->
+                            <line id="plot-radius-line" x1="200" y1="200" x2="280" y2="200" stroke="#818cf8"
+                                stroke-width="3" stroke-dasharray="6,4" />
+
+                            <!-- Center point -->
+                            <circle id="plot-center" cx="200" cy="200" r="5" fill="#3730a3" />
+
+                            <!-- Radius Tag Label -->
+                            <g id="radius-tag">
+                                <rect id="tag-bg" x="0" y="0" width="40" height="20" rx="4" fill="#4f46e5" />
+                                <text id="tag-text" x="0" y="0" fill="white" font-size="10" font-weight="700"
+                                    text-anchor="middle" dominant-baseline="middle">r=4</text>
+                            </g>
+                        </svg>
+                    </div>
 
                     <div class="slider-controls">
                         <div class="slider-group">
@@ -261,24 +296,48 @@
 
     <!-- Interactivity Logic -->
     <script>
-        let calculator;
-        try {
-            const elt = document.getElementById('calculator');
-            calculator = Desmos.GraphingCalculator(elt, {
-                expressions: false,
-                settingsMenu: false,
-                lockViewport: true,
-                zoomButtons: false,
-                border: false
-            });
-        } catch (e) {
-            console.error("Practix: Desmos API failed to initialize.", e);
-            document.getElementById('calculator').innerHTML = `
-                <div style="padding: 2rem; text-align: center; color: #64748b; background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 12px; margin: 1rem 0;">
-                    <p style="font-weight: 700; margin-bottom: 0.5rem;">⚠️ Graph Preview Unavailable</p>
-                    <p style="font-size: 0.9rem;">The interactive graph couldn't load, but you can still use the sliders to see the math formulas update!</p>
-                </div>
-            `;
+        // SVG Graph Configuration
+        const svg = document.getElementById('graph-svg');
+        const gridGroup = document.getElementById('grid-lines');
+        const plotCircle = document.getElementById('plot-circle');
+        const plotCenter = document.getElementById('plot-center');
+        const radiusLine = document.getElementById('plot-radius-line');
+        const radiusTag = document.getElementById('radius-tag');
+        const tagText = document.getElementById('tag-text');
+        const tagBg = document.getElementById('tag-bg');
+
+        const VIEW_SIZE = 400; // viewBox size
+        const MATH_RANGE = 20; // total units visible (-10 to 10)
+        const PIXELS_PER_UNIT = VIEW_SIZE / MATH_RANGE; // 20px per unit
+
+        // Draw Desmos-style Grid
+        function drawGrid() {
+            let html = "";
+            // Minor grid lines (every 1 unit)
+            for (let i = -10; i <= 10; i++) {
+                const pos = 200 + (i * PIXELS_PER_UNIT);
+
+                // Vertical lines
+                html += `<line x1="${pos}" y1="0" x2="${pos}" y2="400" stroke="#f1f5f9" stroke-width="1" />`;
+                // Horizontal lines
+                html += `<line x1="0" y1="${pos}" x2="400" y2="${pos}" stroke="#f1f5f9" stroke-width="1" />`;
+            }
+
+            // Major grid lines (every 5 units)
+            for (let i = -10; i <= 10; i += 5) {
+                const pos = 200 + (i * PIXELS_PER_UNIT);
+                if (i === 0) continue; // skip axes
+
+                // Vertical
+                html += `<line x1="${pos}" y1="0" x2="${pos}" y2="400" stroke="#e2e8f0" stroke-width="1" />`;
+                // Horizontal
+                html += `<line x1="0" y1="${pos}" x2="400" y2="${pos}" stroke="#e2e8f0" stroke-width="1" />`;
+
+                // Numbers
+                html += `<text x="${pos}" y="215" font-size="10" fill="#94a3b8" text-anchor="middle">${i}</text>`;
+                html += `<text x="185" y="${400 - pos + 5}" font-size="10" fill="#94a3b8" text-anchor="end">${i}</text>`;
+            }
+            gridGroup.innerHTML = html;
         }
 
         // Sliders
@@ -297,7 +356,7 @@
             const r = parseFloat(rSlider.value);
             const r2 = r * r;
 
-            // Update UI
+            // Update UI Labels
             lblH.textContent = h;
             lblK.textContent = k;
             lblR.textContent = r;
@@ -309,7 +368,6 @@
             const kVal = Math.abs(k);
 
             // General Form Calculations
-            // x^2 + y^2 - 2hx - 2ky + (h^2 + k^2 - r^2) = 0
             const D = -2 * h;
             const E = -2 * k;
             const F = h * h + k * k - r2;
@@ -336,27 +394,44 @@
             document.getElementById('val-area').textContent = (Math.PI * r2).toFixed(1);
             document.getElementById('val-circ').textContent = (2 * Math.PI * r).toFixed(1);
 
-            // Update Desmos
-            if (calculator) {
-                calculator.setExpression({ id: 'circle', latex: `(x - ${h})^2 + (y - ${k})^2 = ${r2}`, color: '#4f46e5', lineWidth: 3 });
-                calculator.setExpression({ id: 'center', latex: `(${h}, ${k})`, color: '#3730a3', pointLabel: 'Center', showLabel: true });
+            // --- Update SVG Plot ---
+            const svgX = 200 + (h * PIXELS_PER_UNIT);
+            const svgY = 200 - (k * PIXELS_PER_UNIT); // SVG Y is inverted
+            const svgR = r * PIXELS_PER_UNIT;
 
-                // Visual Radius Line
-                calculator.setExpression({
-                    id: 'radius-line',
-                    latex: `y = ${k} \\{ ${h} \\le x \\le ${h + r} \\}`,
-                    color: '#818cf8',
-                    lineStyle: 'DASHED'
-                });
+            // Main Circle
+            if (plotCircle) {
+                plotCircle.setAttribute('cx', svgX);
+                plotCircle.setAttribute('cy', svgY);
+                plotCircle.setAttribute('r', svgR);
+            }
 
-                calculator.setExpression({
-                    id: 'radius-label',
-                    latex: `(${h + r / 2}, ${k + 0.3})`,
-                    color: '#4f46e5',
-                    label: `r = ${r}`,
-                    showLabel: true,
-                    hidden: true
-                });
+            // Center Point
+            if (plotCenter) {
+                plotCenter.setAttribute('cx', svgX);
+                plotCenter.setAttribute('cy', svgY);
+            }
+
+            // Radius Line (from center to right edge)
+            if (radiusLine) {
+                radiusLine.setAttribute('x1', svgX);
+                radiusLine.setAttribute('y1', svgY);
+                radiusLine.setAttribute('x2', svgX + svgR);
+                radiusLine.setAttribute('y2', svgY);
+            }
+
+            // Tag Label
+            if (radiusTag) {
+                const tagX = svgX + (svgR / 2);
+                const tagY = svgY - 12;
+                radiusTag.setAttribute('transform', `translate(${tagX}, ${tagY})`);
+                tagText.textContent = `r=${r}`;
+
+                // Adjust tag width based on text
+                const textWidth = r < 10 ? 30 : 40;
+                tagBg.setAttribute('width', textWidth);
+                tagBg.setAttribute('x', -textWidth / 2);
+                tagBg.setAttribute('y', -10);
             }
         }
 
@@ -365,9 +440,7 @@
         rSlider.addEventListener('input', updateCircle);
 
         // Initial setup
-        if (calculator) {
-            calculator.setMathBounds({ left: -15, right: 15, bottom: -15, top: 15 });
-        }
+        drawGrid();
         updateCircle();
 
         // Answer checking

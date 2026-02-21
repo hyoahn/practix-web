@@ -20,8 +20,8 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
         rel="stylesheet">
 
-    <!-- Desmos API (Updated to resolve 403) -->
-    <script src="https://www.desmos.com/api/v1.10/calculator.js?apiKey=dcb31709b452b0cf6bc269d3540f307c"></script>
+    <!-- Desmos API (Restored without apiKey to bypass 403) -->
+    <script src="https://www.desmos.com/api/v1.10/calculator.js"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <!-- Practix Scripts -->
@@ -261,14 +261,25 @@
 
     <!-- Interactivity Logic -->
     <script>
-        const elt = document.getElementById('calculator');
-        const calculator = Desmos.GraphingCalculator(elt, {
-            expressions: false,
-            settingsMenu: false,
-            lockViewport: true,
-            zoomButtons: false,
-            border: false
-        });
+        let calculator;
+        try {
+            const elt = document.getElementById('calculator');
+            calculator = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                lockViewport: true,
+                zoomButtons: false,
+                border: false
+            });
+        } catch (e) {
+            console.error("Practix: Desmos API failed to initialize.", e);
+            document.getElementById('calculator').innerHTML = `
+                <div style="padding: 2rem; text-align: center; color: #64748b; background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 12px; margin: 1rem 0;">
+                    <p style="font-weight: 700; margin-bottom: 0.5rem;">⚠️ Graph Preview Unavailable</p>
+                    <p style="font-size: 0.9rem;">The interactive graph couldn't load, but you can still use the sliders to see the math formulas update!</p>
+                </div>
+            `;
+        }
 
         // Sliders
         const hSlider = document.getElementById('slider-h');
@@ -326,25 +337,27 @@
             document.getElementById('val-circ').textContent = (2 * Math.PI * r).toFixed(1);
 
             // Update Desmos
-            calculator.setExpression({ id: 'circle', latex: `(x - ${h})^2 + (y - ${k})^2 = ${r2}`, color: '#4f46e5', lineWidth: 3 });
-            calculator.setExpression({ id: 'center', latex: `(${h}, ${k})`, color: '#3730a3', pointLabel: 'Center', showLabel: true });
+            if (calculator) {
+                calculator.setExpression({ id: 'circle', latex: `(x - ${h})^2 + (y - ${k})^2 = ${r2}`, color: '#4f46e5', lineWidth: 3 });
+                calculator.setExpression({ id: 'center', latex: `(${h}, ${k})`, color: '#3730a3', pointLabel: 'Center', showLabel: true });
 
-            // Visual Radius Line
-            calculator.setExpression({
-                id: 'radius-line',
-                latex: `y = ${k} \\{ ${h} \\le x \\le ${h + r} \\}`,
-                color: '#818cf8',
-                lineStyle: 'DASHED'
-            });
+                // Visual Radius Line
+                calculator.setExpression({
+                    id: 'radius-line',
+                    latex: `y = ${k} \\{ ${h} \\le x \\le ${h + r} \\}`,
+                    color: '#818cf8',
+                    lineStyle: 'DASHED'
+                });
 
-            calculator.setExpression({
-                id: 'radius-label',
-                latex: `(${h + r / 2}, ${k + 0.3})`,
-                color: '#4f46e5',
-                label: `r = ${r}`,
-                showLabel: true,
-                hidden: true
-            });
+                calculator.setExpression({
+                    id: 'radius-label',
+                    latex: `(${h + r / 2}, ${k + 0.3})`,
+                    color: '#4f46e5',
+                    label: `r = ${r}`,
+                    showLabel: true,
+                    hidden: true
+                });
+            }
         }
 
         hSlider.addEventListener('input', updateCircle);
@@ -352,7 +365,9 @@
         rSlider.addEventListener('input', updateCircle);
 
         // Initial setup
-        calculator.setMathBounds({ left: -15, right: 15, bottom: -15, top: 15 });
+        if (calculator) {
+            calculator.setMathBounds({ left: -15, right: 15, bottom: -15, top: 15 });
+        }
         updateCircle();
 
         // Answer checking

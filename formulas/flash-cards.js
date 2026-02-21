@@ -12,15 +12,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Create HTML Structure
     container.innerHTML = `
-        <div class="flash-cards-section">
+        <div class="flash-cards-section" style="position: relative;">
+            <div class="flash-header-actions">
+                <button class="flash-close-btn" id="flash-close-btn" aria-label="Close Flash Cards">✕</button>
+            </div>
             <h2 style="text-align: center; margin-bottom: 1.5rem; font-family: 'Space Grotesk', sans-serif;">
                 ⚡ Fast Review <span style="font-size:0.6em; color:var(--text-muted); font-weight:400; vertical-align:middle; margin-left:0.5rem">(Flash Cards)</span>
             </h2>
+
+            <!-- Mode Toggle Control -->
+            <div style="display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <button id="mode-seq-btn" style="padding: 0.4rem 1rem; border-radius: 20px; border: 1px solid var(--accent-primary); background: var(--accent-primary); color: white; font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: all 0.2s;">Sequential</button>
+                <button id="mode-rand-btn" style="padding: 0.4rem 1rem; border-radius: 20px; border: 1px solid var(--border-strong); background: white; color: var(--text-secondary); font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: all 0.2s;">Random</button>
+            </div>
             
             <div class="card-wrapper" id="card-wrapper">
                 <!-- Navigation Buttons (Desktop) -->
                 <button class="card-nav-btn nav-prev" id="prev-btn" aria-label="Previous Card">←</button>
                 <button class="card-nav-btn nav-next" id="next-btn" aria-label="Next Card">→</button>
+
 
                 <!-- The Card -->
                 <div class="flash-card" id="flash-card">
@@ -53,6 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const card = document.getElementById('flash-card');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
+    const modeSeqBtn = document.getElementById('mode-seq-btn');
+    const modeRandBtn = document.getElementById('mode-rand-btn');
+    const closeBtn = document.getElementById('flash-close-btn');
+
+    let isRandomMode = false;
 
     // 4. Render Function
     const renderCard = (index) => {
@@ -107,14 +122,55 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial Render
     renderCard(currentIndex);
 
+    // Mode Toggle Handlers
+    const setMode = (random) => {
+        isRandomMode = random;
+        if (random) {
+            modeRandBtn.style.background = 'var(--accent-primary)';
+            modeRandBtn.style.color = 'white';
+            modeRandBtn.style.borderColor = 'var(--accent-primary)';
+
+            modeSeqBtn.style.background = 'white';
+            modeSeqBtn.style.color = 'var(--text-secondary)';
+            modeSeqBtn.style.borderColor = 'var(--border-strong)';
+        } else {
+            modeSeqBtn.style.background = 'var(--accent-primary)';
+            modeSeqBtn.style.color = 'white';
+            modeSeqBtn.style.borderColor = 'var(--accent-primary)';
+
+            modeRandBtn.style.background = 'white';
+            modeRandBtn.style.color = 'var(--text-secondary)';
+            modeRandBtn.style.borderColor = 'var(--border-strong)';
+        }
+    };
+
+    modeSeqBtn.addEventListener('click', () => setMode(false));
+    modeRandBtn.addEventListener('click', () => setMode(true));
+
     // 5. Navigation Logic
     const nextCard = () => {
-        currentIndex = (currentIndex + 1) % formulas.length;
+        if (isRandomMode) {
+            let nextIdx = currentIndex;
+            while (nextIdx === currentIndex && formulas.length > 1) {
+                nextIdx = Math.floor(Math.random() * formulas.length);
+            }
+            currentIndex = nextIdx;
+        } else {
+            currentIndex = (currentIndex + 1) % formulas.length;
+        }
         renderCard(currentIndex);
     };
 
     const prevCard = () => {
-        currentIndex = (currentIndex - 1 + formulas.length) % formulas.length;
+        if (isRandomMode) {
+            let prevIdx = currentIndex;
+            while (prevIdx === currentIndex && formulas.length > 1) {
+                prevIdx = Math.floor(Math.random() * formulas.length);
+            }
+            currentIndex = prevIdx;
+        } else {
+            currentIndex = (currentIndex - 1 + formulas.length) % formulas.length;
+        }
         renderCard(currentIndex);
     };
 
@@ -159,6 +215,34 @@ document.addEventListener('DOMContentLoaded', () => {
         touchEndX = e.changedTouches[0].screenX;
         handleSwipe();
     }, { passive: true });
+
+    // 10. Hash Change Monitor for Full Screen Mode
+    const handleHashChange = () => {
+        const hash = window.location.hash;
+        if (hash === '#flash-card-container' || hash === '#flash') {
+            document.body.classList.add('flash-mode-active');
+            // Ensure we scroll back to top of the Flash Card container in full screen mode
+            const container = document.querySelector('.flash-cards-section');
+            if (container) container.scrollTop = 0;
+        } else {
+            document.body.classList.remove('flash-mode-active');
+        }
+    };
+
+    // Close Button Interaction
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            // Remove hash to exit mode using history API to prevent wild scrolling
+            history.pushState(null, null, ' ');
+            handleHashChange(); // Manually trigger exit
+        });
+    }
+
+    // Monitor for browser back/forward buttons navigating hashes
+    window.addEventListener('hashchange', handleHashChange);
+
+    // Initial Check
+    handleHashChange();
 
     // Force Mobile Styles (Zero Padding / No Margin)
     if (window.innerWidth <= 768) {

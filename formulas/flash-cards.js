@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     <!-- Back -->
                     <div class="card-face card-back" style="padding-top: 3rem;">
-                        <div class="card-label" style="position: absolute; top: 1.5rem; left: 1.5rem; font-size: 0.75rem; color: #94a3b8; font-weight: 600; text-transform: uppercase;">Formula</div>
                         <div class="card-visual"></div>
                         <div class="card-math">\\[ ${formulas[currentIndex].math} \\]</div>
                         <div class="card-gift">💡 ${formulas[currentIndex].gift}</div>

@@ -20,8 +20,8 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
         rel="stylesheet">
 
-    <!-- Desmos API -->
-    <script src="https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b0cf6bc269d3540f307c"></script>
+    <!-- Desmos API (Updated to resolve 403) -->
+    <script src="https://www.desmos.com/api/v1.10/calculator.js?apiKey=dcb31709b452b0cf6bc269d3540f307c"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <!-- Practix Scripts -->
@@ -82,13 +82,42 @@
 
         .math-box {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: #1e1b4b;
             text-align: center;
-            padding: 1rem;
+            padding: 1.5rem;
             background: #eef2ff;
-            border-radius: 8px;
+            border-radius: 12px;
             margin: 1rem 0;
+            border: 1px solid #dbeafe;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid #e0e7ff;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-weight: 700;
+            color: #4f46e5;
+            font-size: 1.1rem;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .magic-tag {
@@ -140,7 +169,18 @@
                     <p>Move the sliders to see how the center \((h, k)\) and radius \(r\) transform the circle.</p>
 
                     <div class="math-box" id="dynamic-equation">
-                        \[(x - 0)^2 + (y - 0)^2 = 16\]
+                        <!-- Standard and General sections will be injected here -->
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-label">Area (&pi;r&sup2;)</div>
+                            <div class="metric-value"><span id="val-area">50.3</span></div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">Circumference (2&pi;r)</div>
+                            <div class="metric-value"><span id="val-circ">25.1</span></div>
+                        </div>
                     </div>
 
                     <div id="calculator" class="calculator-container"></div>
@@ -156,7 +196,7 @@
                         </div>
                         <div class="slider-group">
                             <label>Radius (r): <span id="label-r" style="color:#4f46e5">4</span></label>
-                            <input type="range" id="slider-r" min="1" max="10" step="0.5" value="4">
+                            <input type="range" id="slider-r" min="0.5" max="10" step="0.5" value="4">
                         </div>
                     </div>
                 </div>
@@ -196,10 +236,9 @@
                         If a line has equation \(y = 3\), at what two x-coordinates does the line intersect the circle?
                     </p>
                     <div class="sat-option-grid">
-                        <div class="sat-option" onclick="checkAnswer(this, false)">(A) \(0\) and \(6\)</div>
-                        <div class="sat-option" onclick="checkAnswer(this, true)">(B) \(0\) and \(6\) (Correction:
-                            Intersection check needed)</div>
-                        <div class="sat-option" onclick="checkAnswer(this, false)">(C) \(-1\) and \(7\)</div>
+                        <div class="sat-option" onclick="checkAnswer(this, true)">(A) \(-1\) and \(7\)</div>
+                        <div class="sat-option" onclick="checkAnswer(this, false)">(B) \(0\) and \(6\)</div>
+                        <div class="sat-option" onclick="checkAnswer(this, false)">(C) \(1\) and \(5\)</div>
                         <div class="sat-option" onclick="checkAnswer(this, false)">(D) \(-2\) and \(8\)</div>
                     </div>
 
@@ -210,7 +249,7 @@
                             <p>1. Type <code>(x-3)^2 + (y+1)^2 = 25</code></p>
                             <p>2. Type <code>y = 3</code></p>
                             <p>3. Click the gray intersection dots!</p>
-                            <p><strong>Desmos shows (0, 3) and (6, 3) instantly.</strong> The answer is (A).</p>
+                            <p><strong>Desmos shows (-1, 3) and (7, 3) instantly.</strong> The answer is (A).</p>
                         </div>
                     </details>
                 </div>
@@ -240,30 +279,72 @@
         const lblH = document.getElementById('label-h');
         const lblK = document.getElementById('label-k');
         const lblR = document.getElementById('label-r');
-        const valH = document.getElementById('val-h');
-        const valK = document.getElementById('val-k');
-        const valR2 = document.getElementById('val-r2');
 
         function updateCircle() {
             const h = parseFloat(hSlider.value);
             const k = parseFloat(kSlider.value);
             const r = parseFloat(rSlider.value);
+            const r2 = r * r;
 
             // Update UI
             lblH.textContent = h;
             lblK.textContent = k;
             lblR.textContent = r;
 
+            // Standard Form Text
+            const hSign = h >= 0 ? '-' : '+';
+            const kSign = k >= 0 ? '-' : '+';
+            const hVal = Math.abs(h);
+            const kVal = Math.abs(k);
+
+            // General Form Calculations
+            // x^2 + y^2 - 2hx - 2ky + (h^2 + k^2 - r^2) = 0
+            const D = -2 * h;
+            const E = -2 * k;
+            const F = h * h + k * k - r2;
+
+            const Dstr = D === 0 ? "" : (D > 0 ? `+ ${D}x` : `${D}x`);
+            const Estr = E === 0 ? "" : (E > 0 ? `+ ${E}y` : `${E}y`);
+            const Fstr = F === 0 ? "" : (F > 0 ? `+ ${F.toFixed(1)}` : `- ${Math.abs(F).toFixed(1)}`);
+
             // Re-render MathJax Equation
             const eqBox = document.getElementById('dynamic-equation');
             if (eqBox && window.MathJax) {
-                eqBox.innerHTML = `\\[(x - ${h})^2 + (y - ${k})^2 = ${(r * r).toFixed(1)}\\]`;
+                eqBox.innerHTML = `
+                    <div style="font-size: 0.8rem; color: #4f46e5; text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem;">Standard Form</div>
+                    \\[(x ${hSign} ${hVal})^2 + (y ${kSign} ${kVal})^2 = ${r2.toFixed(1)}\\]
+                    <div style="margin-top: 1rem; border-top: 1px solid #dbeafe; padding-top: 1rem;">
+                        <div style="font-size: 0.8rem; color: #4f46e5; text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem;">General Form</div>
+                        \\[x^2 + y^2 ${Dstr} ${Estr} ${Fstr} = 0\\]
+                    </div>
+                `;
                 MathJax.typesetPromise([eqBox]);
             }
 
+            // Update Metrics
+            document.getElementById('val-area').textContent = (Math.PI * r2).toFixed(1);
+            document.getElementById('val-circ').textContent = (2 * Math.PI * r).toFixed(1);
+
             // Update Desmos
-            calculator.setExpression({ id: 'circle', latex: `(x - ${h})^2 + (y - ${k})^2 = ${r * r}`, color: '#4f46e5' });
+            calculator.setExpression({ id: 'circle', latex: `(x - ${h})^2 + (y - ${k})^2 = ${r2}`, color: '#4f46e5', lineWidth: 3 });
             calculator.setExpression({ id: 'center', latex: `(${h}, ${k})`, color: '#3730a3', pointLabel: 'Center', showLabel: true });
+
+            // Visual Radius Line
+            calculator.setExpression({
+                id: 'radius-line',
+                latex: `y = ${k} \\{ ${h} \\le x \\le ${h + r} \\}`,
+                color: '#818cf8',
+                lineStyle: 'DASHED'
+            });
+
+            calculator.setExpression({
+                id: 'radius-label',
+                latex: `(${h + r / 2}, ${k + 0.3})`,
+                color: '#4f46e5',
+                label: `r = ${r}`,
+                showLabel: true,
+                hidden: true
+            });
         }
 
         hSlider.addEventListener('input', updateCircle);
@@ -278,14 +359,16 @@
         function checkAnswer(el, isCorrect) {
             if (isCorrect) {
                 el.classList.add('correct');
+                el.style.backgroundColor = '#dcfce7';
                 el.style.borderColor = '#10b981';
             } else {
                 el.classList.add('incorrect');
+                el.style.backgroundColor = '#fee2e2';
                 el.style.borderColor = '#ef4444';
             }
         }
     </script>
-    
+
     <script src="../../assets/scripts/floating-calculator.js?v=1771528000"></script>
     <script src="../../assets/scripts/desmos-calculator.js?v=1.2"></script>
 </body>

@@ -105,10 +105,10 @@
                     <span class="category-badge cat-geo"
                         style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Geometry</span>
                     <h3>General Form Hack</h3>
-                    <div class="formula-display">
-                        \[ \text{Given: } x^2 + y^2 + Dx + Ey + F = 0 \]
-                        \[ \text{Center: } (h,k) = (-D/2, -E/2) \]
-                        \[ \text{Radius: } r = \sqrt{h^2 + k^2 - F} \]
+                    <div class="formula-display" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <div>\[ \text{Given: } x^2 + y^2 + Dx + Ey + F = 0 \]</div>
+                        <div>\[ \text{Center: } (h,k) = (-D/2, -E/2) \]</div>
+                        <div>\[ \text{Radius: } r = \sqrt{h^2 + k^2 - F} \]</div>
                     </div>
                     <p class="formula-explanation">Halve the coefficients of \(x\) and \(y\), then flip their signs to
                         find the center \((h,k)\). Then, plug \(h, k\), and \(F\) into the radius formula.</p>

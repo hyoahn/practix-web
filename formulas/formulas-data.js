@@ -3,7 +3,7 @@ const formulas = [
     { id: 2, name: "Vertex x-coord", math: "x = \\frac{-b}{2a}", gift: "Save 70s", link: "#f2", category: "QUADRATIC EQUATION: \\( ax^2+bx+c=0 \\)" },
     { id: 3, name: "Product of Solutions", math: "\\frac{c}{a}", gift: "Save 65s", link: "#f3", category: "QUADRATIC EQUATION: \\( ax^2+bx+c=0 \\)" },
     { id: 4, name: "Sum of Solutions", math: "\\frac{-b}{a}", gift: "Save 50s", link: "#f4", category: "QUADRATIC EQUATION: \\( ax^2+bx+c=0 \\)" },
-    { id: 5, name: "Positive Difference", math: "\\frac{\\sqrt{b^2 - 4ac}}{a}", gift: "Save 60s", link: "#diff-solutions", category: "QUADRATIC EQUATION: \\( ax^2+bx+c=0 \\)" },
+    { id: 5, name: "Difference of Solutions", math: "\\pm \\frac{\\sqrt{b^2 - 4ac}}{a}", gift: "Save 60s", link: "#diff-solutions", category: "QUADRATIC EQUATION: \\( ax^2+bx+c=0 \\)" },
     { id: 6, name: "Complementary Trig", math: "\\sin(x) = \\cos(90^\\circ - x)", gift: "Instant pts", link: "#f5" },
     { id: 7, name: "Exterior Angle Sum", math: "360^\\circ", gift: "Instant pts", link: "#f6" },
     { id: 8, name: "The Discriminant", math: "b^2 - 4ac", gift: "Fast logic", link: "#f7", category: "QUADRATIC EQUATION: \\( ax^2+bx+c=0 \\)" },

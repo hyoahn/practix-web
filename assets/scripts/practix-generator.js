@@ -235,8 +235,9 @@ class PractixGenerator {
         }
         else if (type === 'difference') {
             const rootD = Math.sqrt(d);
-            this.currentAnswers[type] = this.simplifyFraction(rootD, Math.abs(a));
-            if (practixBox) practixBox.innerHTML = `<strong>Step 1:</strong> Compute Discriminant \\( D \\).<br>\\( D = (${b})^2 - 4(${a})(${c}) = ${d} \\).<br><strong>Step 2:</strong> Apply shortcut.<br>Difference = \\( \\frac{\\sqrt{D}}{|a|} = \\frac{\\sqrt{${d}}}{|${a}|} \\).<br><strong>Result: ${this.currentAnswers[type]}</strong>`;
+            const ansNum = this.simplifyFraction(rootD, Math.abs(a));
+            this.currentAnswers[type] = `\\pm ${ansNum}`;
+            if (practixBox) practixBox.innerHTML = `<strong>Step 1:</strong> Compute Discriminant \\( D \\).<br>\\( D = (${b})^2 - 4(${a})(${c}) = ${d} \\).<br><strong>Step 2:</strong> Apply shortcut.<br>Difference = \\( \\pm \\frac{\\sqrt{D}}{a} = \\pm \\frac{\\sqrt{${d}}}{${a}} \\).<br><strong>Result: ${this.currentAnswers[type]}</strong>`;
             if (schoolBox) {
                 const twoA = 2 * a;
                 schoolBox.innerHTML = `<strong>1. Setup Quadratic Formula:</strong><br>` +
@@ -246,9 +247,9 @@ class PractixGenerator {
                     `\\( D = (${b})^2 - 4(${a})(${c}) = ${b * b} - ${4 * a * c} = ${d} \\)<br><br>` +
                     `<strong>3. Find Both Roots:</strong><br>` +
                     `\\( x_1 = \\frac{${-b} + ${rootD}}{${twoA}}, \\quad x_2 = \\frac{${-b} - ${rootD}}{${twoA}} \\)<br><br>` +
-                    `<strong>4. Subtract the Roots (Positive Difference):</strong><br>` +
-                    `\\( |x_1 - x_2| = |\\frac{(${-b} + ${rootD}) - (${-b} - ${rootD})}{${twoA}}| \\)<br>` +
-                    `\\( = |\\frac{2 \\cdot ${rootD}}{${twoA}}| = |\\frac{${rootD}}{${a}}| = ${this.currentAnswers[type]} \\)<br><br>` +
+                    `<strong>4. Subtract the Roots (Difference):</strong><br>` +
+                    `\\( x_1 - x_2 = \\frac{(${-b} + ${rootD}) - (${-b} - ${rootD})}{${twoA}} \\)<br>` +
+                    `\\( = \\pm \\frac{2 \\cdot ${rootD}}{${twoA}} = \\pm \\frac{${rootD}}{${a}} = ${this.currentAnswers[type]} \\)<br><br>` +
                     `<em style="color: #ef4444; font-size: 0.85rem;">⏱ ~60-80 seconds of algebra</em>`;
             }
         }
@@ -421,11 +422,11 @@ class PractixGenerator {
         const feedback = document.querySelector(`#${type}-feedback`);
         if (!input || !feedback) return;
 
-        // Strip whitespace and normalize (sloppy matching for coordinate commas)
-        const normalize = (val) => String(val).replace(/\s+/g, '').replace(/[()]/g, '').toLowerCase();
+        // Strip whitespace, parens, and literal \pm strings for robust checking
+        const normalize = (val) => String(val).replace(/\s+/g, '').replace(/[()\\pm+]/g, '').replace(/pm/g, '').toLowerCase();
 
-        const userAnswer = normalize(input.value);
-        const correctAnswer = normalize(this.currentAnswers[type]);
+        const userAnswer = normalize(input.value).replace(/^-/, ''); // Strip leading minus from input just in case
+        const correctAnswer = normalize(this.currentAnswers[type]).replace(/^-/, '');
 
         if (userAnswer === correctAnswer && userAnswer !== '') {
             feedback.innerHTML = "✅ Correct! Mastery Earned +1";

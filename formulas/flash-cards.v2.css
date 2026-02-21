@@ -5,6 +5,15 @@
     padding: 0 1rem;
     perspective: 1000px;
     /* Enable 3D space */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body:not(.flash-mode-active) .flash-cards-section {
+    cursor: pointer;
+}
+
+body:not(.flash-mode-active) .flash-cards-section:hover {
+    transform: scale(1.02);
 }
 
 /* Card Wrapper needed for positioning arrows relative to it */

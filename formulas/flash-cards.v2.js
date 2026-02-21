@@ -215,33 +215,28 @@ document.addEventListener('DOMContentLoaded', () => {
         handleSwipe();
     }, { passive: true });
 
-    // 10. Hash Change Monitor for Full Screen Mode
-    const handleHashChange = () => {
-        const hash = window.location.hash;
-        if (hash === '#flash-card-container' || hash === '#flash') {
-            document.body.classList.add('flash-mode-active');
-            // Ensure we scroll back to top of the Flash Card container in full screen mode
-            const container = document.querySelector('.flash-cards-section');
-            if (container) container.scrollTop = 0;
-        } else {
-            document.body.classList.remove('flash-mode-active');
-        }
-    };
+    // 10. Click-to-Expand Full Screen Mode
+    const sectionContainer = document.querySelector('.flash-cards-section');
 
-    // Close Button Interaction
-    if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            // Remove hash to exit mode using history API to prevent wild scrolling
-            history.pushState(null, null, ' ');
-            handleHashChange(); // Manually trigger exit
+    if (sectionContainer) {
+        // Expand on click if not already active
+        sectionContainer.addEventListener('click', (e) => {
+            // Don't trigger if clicked on the card itself (which has its own flip logic)
+            // or if it's already active
+            if (!document.body.classList.contains('flash-mode-active')) {
+                document.body.classList.add('flash-mode-active');
+                sectionContainer.scrollTop = 0;
+            }
         });
     }
 
-    // Monitor for browser back/forward buttons navigating hashes
-    window.addEventListener('hashchange', handleHashChange);
-
-    // Initial Check
-    handleHashChange();
+    // Close Button Interaction
+    if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent the section click listener from firing immediately
+            document.body.classList.remove('flash-mode-active');
+        });
+    }
 
     // Force Mobile Styles (Zero Padding / No Margin)
     if (window.innerWidth <= 768) {

@@ -284,8 +284,8 @@
 
                             <div class="shortcut" style="margin-top: 1rem; border-color: #bbf7d0; background: #f0fdf4;">
                                 <strong>Formula Check:</strong><br>
-                                \( r = \sqrt{h^2 + k^2 - F} = \sqrt{(-2)^2 + 3^2 - (-3)} = \sqrt{4 + 9 + 3} = \sqrt{16}
-                                = 4 \)
+                                \( r = \sqrt{\frac{D^2}{4} + \frac{E^2}{4} - F} = \sqrt{\frac{4^2}{4} + \frac{(-6)^2}{4}
+                                - (-3)} = \sqrt{\frac{16}{4} + \frac{36}{4} + 3} = \sqrt{4 + 9 + 3} = \sqrt{16} = 4 \)
 
                                 <details
                                     style="margin-top: 0.75rem; border-top: 1px solid #bbf7d0; padding-top: 0.5rem;">
@@ -294,17 +294,35 @@
                                         Wait, where does this formula come from?</summary>
                                     <div
                                         style="font-size: 0.85em; color: #15803d; margin-top: 0.5rem; line-height: 1.5;">
-                                        <p>It comes from <strong>completing the square</strong> on the General Form:
-                                            \(x^2 + y^2 + Dx + Ey + F = 0\).</p>
+                                        <p>It comes from matching coefficients between the <strong>Standard
+                                                Form</strong> and the <strong>General Form</strong>.</p>
                                         <ol style="margin-top: 0.5rem; padding-left: 1.5rem; list-style-type: decimal;">
-                                            <li>Move \(F\) to the right side: \(= -F\)</li>
-                                            <li>Complete the square for \(x\): add \((D/2)^2\), which is \(h^2\).</li>
-                                            <li>Complete the square for \(y\): add \((E/2)^2\), which is \(k^2\).</li>
-                                            <li>The right side becomes \(r^2 = h^2 + k^2 - F\).</li>
-                                            <li>Therefore, the radius is \( r = \sqrt{h^2 + k^2 - F} \).</li>
+                                            <li>Standard Form: \((x - h)^2 + (y - k)^2 = r^2\)</li>
+                                            <li>Expand it: \(x^2 - 2hx + h^2 + y^2 - 2ky + k^2 - r^2 = 0\)</li>
+                                            <li>Rearrange powers: \(x^2 + y^2 - 2hx - 2ky + (h^2 + k^2 - r^2) = 0\)</li>
+                                            <li>General Form is: \(x^2 + y^2 + Dx + Ey + F = 0\)</li>
+                                            <li>Match the pieces:
+                                                <ul
+                                                    style="margin-top: 0.25rem; padding-left: 1.5rem; list-style-type: disc;">
+                                                    <li>\(D = -2h \Rightarrow h = -\frac{D}{2}\)</li>
+                                                    <li>\(E = -2k \Rightarrow k = -\frac{E}{2}\)</li>
+                                                    <li>\(F = h^2 + k^2 - r^2\)</li>
+                                                </ul>
+                                            </li>
                                         </ol>
-                                        <p style="margin-top: 0.5rem;">In our problem, the center \((h, k)\) is \((-2,
-                                            3)\) and \(F = -3\).</p>
+                                        <p style="margin-top: 0.5rem;">If you isolate \(r^2\) from the \(F\) equation:
+                                        </p>
+                                        <p style="margin-left: 1.5rem; margin-top: 0.25rem;">\(r^2 = h^2 + k^2 - F\)</p>
+                                        <p style="margin-top: 0.5rem;">Substitute the \(h\) and \(k\) fractions:</p>
+                                        <p style="margin-left: 1.5rem; margin-top: 0.25rem;">\(r^2 =
+                                            \left(-\frac{D}{2}\right)^2 + \left(-\frac{E}{2}\right)^2 - F\)</p>
+                                        <p style="margin-left: 1.5rem; margin-top: 0.25rem;">\(r^2 = \frac{D^2}{4} +
+                                            \frac{E^2}{4} - F\)</p>
+                                        <p style="margin-top: 0.5rem;">Square root both sides:</p>
+                                        <p style="margin-left: 1.5rem; margin-top: 0.25rem; font-weight: bold;">\(r =
+                                            \sqrt{\frac{D^2}{4} + \frac{E^2}{4} - F}\)</p>
+                                        <p style="margin-top: 0.5rem;">In our problem, \(x^2 + y^2 + 4x - 6y - 3 = 0\),
+                                            so \(D=4\), \(E=-6\), and \(F=-3\).</p>
                                     </div>
                                 </details>
                             </div>

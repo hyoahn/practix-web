@@ -236,29 +236,37 @@
                     </div>
                 </div>
 
-                <!-- The Killer Trick Section -->
+                <!-- The Killer Trick Section transformed to SAT Challenge -->
                 <div class="sat-problem-card" style="margin-bottom: 3rem;">
                     <h3 class="sat-problem-header">
-                        <span>Desmos Skill</span> The "General Form" Hack
+                        <span>Practice Challenge</span> General Form of a Circle
                     </h3>
-                    <div class="solution-content">
-                        <p>Most SAT questions give you the "messy" form and ask for the radius:</p>
-                        <div class="formula-display">\[x^2 + y^2 + 4x - 6y - 3 = 0\]</div>
-
-                        <div class="common-mistake" style="margin: 1.5rem 0;">
-                            <strong>The Slow Way:</strong> Completing the square (2-3 minutes).
-                        </div>
-
-                        <div class="shortcut" style="background: #f0fdf4; border-color: #bbf7d0;">
-                            <strong>The 10-Second Hack:</strong>
-                            <ol>
-                                <li>Type the equation exactly into Desmos.</li>
-                                <li>Click the center point to find \((h, k)\).</li>
-                                <li>Click the edge to find a point on the circle.</li>
-                                <li>Or just look at the width of the circle!</li>
-                            </ol>
-                        </div>
+                    <p style="margin: 1.5rem 0;">
+                        Find the radius of the circle in the xy-plane with the following equation:
+                    </p>
+                    <div class="formula-display">
+                        \[x^2 + y^2 + 4x - 6y - 3 = 0\]
                     </div>
+                    <div class="sat-option-grid" style="margin-top: 2rem;">
+                        <div class="sat-option" onclick="checkAnswer(this, false)">(A) 2</div>
+                        <div class="sat-option" onclick="checkAnswer(this, false)">(B) 3</div>
+                        <div class="sat-option" onclick="checkAnswer(this, true)">(C) 4</div>
+                        <div class="sat-option" onclick="checkAnswer(this, false)">(D) 5</div>
+                    </div>
+
+                    <details class="practix-reveal" style="margin-top: 1.5rem;">
+                        <summary>Click to see the "Desmos Speed-Run"</summary>
+                        <div class="solution-content">
+                            <h4>Quick Strategy</h4>
+                            <p>On Desmos, type the equation exactly as shown. Locate the center \((-2, 3)\) and use the
+                                distance tool or simply count grid units to find the radius.</p>
+                            <div class="shortcut" style="margin-top: 1rem; border-color: #bbf7d0; background: #f0fdf4;">
+                                <strong>Formula Check:</strong><br>
+                                \( r = \sqrt{h^2 + k^2 - F} = \sqrt{(-2)^2 + 3^2 - (-3)} = \sqrt{4 + 9 + 3} = \sqrt{16}
+                                = 4 \)
+                            </div>
+                        </div>
+                    </details>
                 </div>
 
                 <!-- Practice Challenge -->

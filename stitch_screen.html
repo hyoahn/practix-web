@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Practice Challenge: General Form v2</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "success": "#22c55e",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header Navigation -->
+<header class="flex items-center justify-between px-6 pt-12 pb-4 bg-background-light dark:bg-background-dark">
+<button class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-200/50 dark:bg-slate-800/50">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">arrow_back_ios_new</span>
+</button>
+<div class="px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20">
+<span class="text-primary text-sm font-semibold uppercase tracking-wider">Math</span>
+</div>
+<button class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-200/50 dark:bg-slate-800/50">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">more_horiz</span>
+</button>
+</header>
+<main class="flex-1 px-6 pt-4 pb-24 max-w-lg mx-auto w-full">
+<!-- Title & Subtitle -->
+<div class="text-center mb-8">
+<h2 class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-2 uppercase tracking-tight">Practice Challenge</h2>
+<h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100">General Form of a Circle</h1>
+</div>
+<!-- Problem Card -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-sm border border-slate-200 dark:border-slate-800 mb-8">
+<div class="text-center">
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-6">Find the radius of the circle:</p>
+<div class="text-2xl md:text-3xl font-bold tracking-tight text-primary">
+                    x² + y² + 4x - 6y - 3 = 0
+                </div>
+</div>
+</div>
+<!-- Options Stack -->
+<div class="space-y-4">
+<!-- Option A -->
+<button class="w-full flex items-center justify-between p-5 rounded-xl border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-primary/50 transition-colors group">
+<span class="text-lg font-medium text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">(A) 2</span>
+<div class="w-6 h-6 rounded-full border-2 border-slate-200 dark:border-slate-700"></div>
+</button>
+<!-- Option B -->
+<button class="w-full flex items-center justify-between p-5 rounded-xl border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-primary/50 transition-colors group">
+<span class="text-lg font-medium text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">(B) 3</span>
+<div class="w-6 h-6 rounded-full border-2 border-slate-200 dark:border-slate-700"></div>
+</button>
+<!-- Option C (Selected/Success State) -->
+<button class="w-full flex items-center justify-between p-5 rounded-xl border-2 border-success bg-success/5 dark:bg-success/10 transition-colors">
+<span class="text-lg font-bold text-success">(C) 4</span>
+<div class="w-7 h-7 rounded-full bg-success flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg">check</span>
+</div>
+</button>
+<!-- Option D -->
+<button class="w-full flex items-center justify-between p-5 rounded-xl border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-primary/50 transition-colors group">
+<span class="text-lg font-medium text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">(D) 5</span>
+<div class="w-6 h-6 rounded-full border-2 border-slate-200 dark:border-slate-700"></div>
+</button>
+</div>
+<!-- Desmos Section -->
+<div class="mt-12 border-t border-slate-200 dark:border-slate-800 pt-6">
+<button class="flex items-center justify-center w-full gap-2 text-primary font-semibold py-2">
+<span class="material-symbols-outlined">bolt</span>
+<span>Reveal Desmos Speed-Run</span>
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+<div class="mt-4 p-5 rounded-xl bg-primary/5 border border-primary/10 dark:bg-primary/10">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-0.5">lightbulb</span>
+<div class="space-y-3">
+<p class="text-sm font-semibold text-slate-800 dark:text-slate-200 uppercase tracking-wide">Quick Strategy</p>
+<p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                            On Desmos, type the equation exactly as shown. Locate the center <span class="font-mono bg-slate-200 dark:bg-slate-800 px-1 rounded">(-2, 3)</span> and use the distance tool or simply count grid units to find the radius.
+                        </p>
+<div class="bg-white dark:bg-slate-800 p-3 rounded-lg border border-primary/20">
+<code class="text-xs text-primary font-mono block mb-1">Formula Check:</code>
+<code class="text-sm text-slate-700 dark:text-slate-300 font-mono">r = √(h² + k² - F) = √((-2)² + 3² - (-3)) = √(4 + 9 + 3) = √16 = 4</code>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar Component -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 px-4 pb-8 pt-3 flex items-center justify-around z-50">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">edit_square</span>
+<span class="text-[10px] font-bold">Practice</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-[10px] font-medium">Lessons</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">style</span>
+<span class="text-[10px] font-medium">Flashcards</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</nav>
+</body></html>

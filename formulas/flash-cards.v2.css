@@ -60,13 +60,13 @@
 /* Front Face */
 .card-front {
     z-index: 2;
-    transform: rotateY(0deg);
+    transform: rotateY(0deg) translateZ(1px);
     /* Fix for Firefox backface-visibility bug */
 }
 
 /* Back Face */
 .card-back {
-    transform: rotateY(180deg);
+    transform: rotateY(180deg) translateZ(1px);
     background: #f8fafc;
     /* Slightly different bg for back */
     display: flex;

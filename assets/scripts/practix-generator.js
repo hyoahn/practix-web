@@ -57,6 +57,12 @@ class PractixGenerator {
             this.updateQuadraticUI(type, data);
         }
 
+        // --- CIRCLE MODULE ---
+        if (['circle-general'].includes(type)) {
+            data = this.genCircleCoeffs();
+            this.updateCircleUI(type, data);
+        }
+
         // --- LINEAR MODULE ---
         if (['standard-slope', 'intercept-hack', 'slope-formula', 'constant-trick', 'linear-base', 'midpoint', 'distance', 'parallel-slope', 'perp-slope', 'horiz-slope', 'vert-slope', 'point-slope', 'standard-ints', 'x-int-hack'].includes(type)) {
             data = this.genLinearCoeffs(type);
@@ -413,6 +419,73 @@ class PractixGenerator {
         if (d === -1) return `${-n}`;
         if (d < 0) { n = -n; d = -d; }
         return `${n}/${d}`;
+    }
+
+    // --- CIRCLE MODULE ---
+    genCircleCoeffs() {
+        // Generate D, E as even numbers for clean center values
+        const evens = [-12, -10, -8, -6, -4, -2, 2, 4, 6, 8, 10, 12];
+        const D = evens[Math.floor(Math.random() * evens.length)];
+        const E = evens[Math.floor(Math.random() * evens.length)];
+        const h = -D / 2;
+        const k = -E / 2;
+        // Choose F so r^2 = h^2 + k^2 - F is a perfect square
+        const rSquaredOptions = [1, 4, 9, 16, 25, 36, 49];
+        const r2 = rSquaredOptions[Math.floor(Math.random() * rSquaredOptions.length)];
+        const F = h * h + k * k - r2;
+        return { D, E, F, h, k, r: Math.sqrt(r2), r2 };
+    }
+
+    updateCircleUI(type, { D, E, F, h, k, r, r2 }) {
+        const eqnEls = document.querySelectorAll(`[data-eqn-type="${type}"]`);
+        eqnEls.forEach(el => {
+            let termD = D === 0 ? '' : (D > 0 ? ` + ${D}x` : ` - ${Math.abs(D)}x`);
+            let termE = E === 0 ? '' : (E > 0 ? ` + ${E}y` : ` - ${Math.abs(E)}y`);
+            let termF = F === 0 ? '' : (F > 0 ? ` + ${F}` : ` - ${Math.abs(F)}`);
+            el.innerHTML = `\\( x^2 + y^2${termD}${termE}${termF} = 0 \\)`;
+        });
+
+        const schoolBox = document.querySelector(`#${type}-school-steps`);
+        const practixBox = document.querySelector(`#${type}-practix-steps`);
+
+        // Answer: "(h, k), r"
+        this.currentAnswers[type] = `(${h}, ${k}), ${r}`;
+
+        if (practixBox) {
+            practixBox.innerHTML = `<strong>Step 1: Find Center</strong><br>` +
+                `Halve & flip: \\( h = -\\frac{${D}}{2} = ${h} \\), \\( k = -\\frac{${E}}{2} = ${k} \\)<br>` +
+                `<strong>Center: \\((${h}, ${k})\\)</strong><br><br>` +
+                `<strong>Step 2: Find Radius</strong><br>` +
+                `\\( r = \\sqrt{h^2 + k^2 - F} = \\sqrt{${h*h} + ${k*k} - (${F})} = \\sqrt{${r2}} = ${r} \\)<br>` +
+                `<strong>Result: Center \\((${h}, ${k})\\), Radius \\(${r}\\)</strong>`;
+        }
+
+        if (schoolBox) {
+            const halfD = D / 2;
+            const halfE = E / 2;
+            const halfDsq = halfD * halfD;
+            const halfEsq = halfE * halfE;
+            const rhsSide = -F + halfDsq + halfEsq;
+            // Signs for the factored form: (x + D/2)^2
+            const factorX = halfD >= 0 ? `+ ${halfD}` : `- ${Math.abs(halfD)}`;
+            const factorY = halfE >= 0 ? `+ ${halfE}` : `- ${Math.abs(halfE)}`;
+            const termFdisplay = F >= 0 ? `- ${F}` : `+ ${Math.abs(F)}`;
+
+            schoolBox.innerHTML = `<strong>1. Move constant to the right:</strong><br>` +
+                `\\( x^2 + y^2${D >= 0 ? ` + ${D}x` : ` - ${Math.abs(D)}x`}${E >= 0 ? ` + ${E}y` : ` - ${Math.abs(E)}y`} = ${termFdisplay} \\)<br><br>` +
+                `<strong>2. Group x-terms and y-terms:</strong><br>` +
+                `\\( (x^2 ${D >= 0 ? `+ ${D}x` : `- ${Math.abs(D)}x`}) + (y^2 ${E >= 0 ? `+ ${E}y` : `- ${Math.abs(E)}y`}) = ${-F} \\)<br><br>` +
+                `<strong>3. Complete the square for x:</strong><br>` +
+                `Half of \\(${D}\\) is \\(${halfD}\\). Square it: \\(${halfD}^2 = ${halfDsq}\\). Add to both sides.<br><br>` +
+                `<strong>4. Complete the square for y:</strong><br>` +
+                `Half of \\(${E}\\) is \\(${halfE}\\). Square it: \\(${halfE}^2 = ${halfEsq}\\). Add to both sides.<br><br>` +
+                `<strong>5. Rewrite in standard form:</strong><br>` +
+                `\\( (x ${factorX})^2 + (y ${factorY})^2 = ${-F} + ${halfDsq} + ${halfEsq} = ${rhsSide} \\)<br><br>` +
+                `<strong>6. Read off center and radius:</strong><br>` +
+                `Center: \\((${-halfD}, ${-halfE}) = (${h}, ${k})\\)<br>` +
+                `Radius: \\(\\sqrt{${rhsSide}} = ${r}\\)<br><br>` +
+                `<em style="color: #ef4444; font-size: 0.85rem;">⏱ ~90-120 seconds of algebra</em>`;
+        }
     }
 
     gcd(a, b) { return b ? this.gcd(b, a % b) : a; }

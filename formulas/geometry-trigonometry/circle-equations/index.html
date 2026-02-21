@@ -32,6 +32,7 @@
     <script src="../../../assets/scripts/practix-footer.js?v=1770561723"></script>
     <script src="../../../assets/scripts/pulse-relay.js?v=1770561723"></script>
     <script src="../../../assets/scripts/analytics.js?v=1770561723"></script>
+    <script src="../../../assets/scripts/practix-generator.js?v=1771668000"></script>
 
     <script
         type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Circle Equation Shortcuts | Practix", "description": "SAT Math properties and Desmos shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
@@ -113,39 +114,80 @@
                     </div>
                     <p class="formula-explanation">Halve the coefficients of \(x\) and \(y\), then flip their signs to
                         find the center \((h,k)\). Then, plug \(h, k\), and \(F\) into the radius formula.</p>
-                    <details class="practix-reveal">
-                        <summary>📝 Example Problem: \(x^2 + y^2 - 10x + 6y - 2 = 0\)</summary>
-                        <div class="solution-content">
-                            <p><strong>Step 1: Find the Center</strong></p>
-                            <p>Center x (\(h\)): \(-10 \div 2 = -5 \rightarrow +5\)</p>
-                            <p>Center y (\(k\)): \(6 \div 2 = 3 \rightarrow -3\)</p>
-                            <p><strong>Center is \((5, -3)\)</strong>.</p>
-                            <p style="margin-top: 1rem;"><strong>Step 2: Find the Radius</strong></p>
-                            <p>Now find the radius using \(F = -2\):</p>
-                            <p>\( r = \sqrt{5^2 + (-3)^2 - (-2)} \)</p>
-                            <p>\( r = \sqrt{25 + 9 + 2} = \sqrt{36} = 6 \)</p>
-                            <p><strong>Radius is \(6\)</strong>.</p>
-
-                            <details style="margin-top: 1.5rem; border-top: 1px solid #e5e7eb; padding-top: 1rem;">
-                                <summary
-                                    style="font-size: 0.9em; color: var(--accent-primary); cursor: pointer; font-weight: 500;">
-                                    Wait, what's the proof for this formula?</summary>
-                                <div style="font-size: 0.9em; margin-top: 0.75rem; line-height: 1.6;">
-                                    <p>It comes from <strong>completing the square</strong> on the General Form: \(x^2 +
-                                        y^2 + Dx + Ey + F = 0\).</p>
-                                    <ol style="margin-top: 0.5rem; padding-left: 1.5rem; list-style-type: decimal;">
-                                        <li>Move \(F\) to the right side: \(= -F\)</li>
-                                        <li>Complete the square for \(x\): add \((D/2)^2\), which is \(h^2\).</li>
-                                        <li>Complete the square for \(y\): add \((E/2)^2\), which is \(k^2\).</li>
-                                        <li>The right side becomes \(r^2 = h^2 + k^2 - F\).</li>
-                                        <li>Therefore, the radius is \( r = \sqrt{h^2 + k^2 - F} \).</li>
-                                    </ol>
-                                    <p style="margin-top: 0.5rem;">In our problem, the center \((h, k)\) is \((5, -3)\)
-                                        and \(F = -2\).</p>
-                                </div>
-                            </details>
+                    <!-- Interactive Practice Widget -->
+                    <div
+                        style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.05rem;">
+                                Practice: "Find center and radius of <span data-eqn-type="circle-general">\(x^2 + y^2 -
+                                    10x + 6y - 2 = 0\)</span>"
+                            </p>
+                            <button class="randomize-btn" data-type="circle-general"
+                                style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                🔄 New Problem
+                            </button>
                         </div>
-                    </details>
+                        <div style="display: flex; gap: 0.8rem; align-items: center;">
+                            <input type="text" id="circle-general-answer-input" placeholder="e.g. (5, -3), 6"
+                                style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                            <button class="check-answer-btn" data-type="circle-general"
+                                style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                Check Answer
+                            </button>
+                        </div>
+                        <div id="circle-general-feedback"
+                            style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;"></div>
+
+                        <button
+                            onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'; this.textContent = this.nextElementSibling.style.display === 'block' ? 'Hide Solution 💡' : 'Show Solution 💡';"
+                            style="margin-top: 1.5rem; background: var(--bg-main); border: 1px solid var(--border); color: var(--text-primary); padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.9rem;">Show
+                            Solution 💡</button>
+
+                        <div
+                            style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                            <!-- School Way vs Practix Way Grid -->
+                            <div class="comparison-grid"
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                <div>
+                                    <div style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">🚫 School Way
+                                        (Rigorous)</div>
+                                    <p id="circle-general-school-steps" style="font-size: 0.9rem; line-height: 1.6;">
+                                    </p>
+                                </div>
+                                <div>
+                                    <div style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅ Practix Way
+                                        (Optimal)</div>
+                                    <p id="circle-general-practix-steps" style="font-size: 0.95rem; line-height: 1.6;">
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Theoretical Proof -->
+                            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px dashed #cbd5e1;">
+                                <h4 style="color: #166534; margin-bottom: 1rem;">🎓 Theoretical Proof: Why These
+                                    Formulas Work</h4>
+                                <div
+                                    style="font-family: serif; font-size: 1rem; line-height: 1.8; color: #334155; background: white; padding: 1.5rem; border-radius: 6px; border: 1px solid #bbf7d0;">
+                                    <p>Starting from <strong>General Form</strong>:</p>
+                                    <div style="text-align: center; margin: 1rem 0; font-size: 1.2rem;">\( x^2 + y^2 +
+                                        Dx + Ey + F = 0 \)</div>
+                                    <p><strong>Complete the square</strong> for both \(x\) and \(y\):</p>
+                                    <div style="text-align: center; margin: 1rem 0; font-size: 1.2rem;">\( (x^2 + Dx +
+                                        \tfrac{D^2}{4}) + (y^2 + Ey + \tfrac{E^2}{4}) = -F + \tfrac{D^2}{4} +
+                                        \tfrac{E^2}{4} \)</div>
+                                    <p>Which gives us the <strong>Standard Form</strong>:</p>
+                                    <div style="text-align: center; margin: 1rem 0; font-size: 1.2rem;">\( (x +
+                                        \tfrac{D}{2})^2 + (y + \tfrac{E}{2})^2 = \tfrac{D^2}{4} + \tfrac{E^2}{4} - F \)
+                                    </div>
+                                    <p>Comparing with \((x - h)^2 + (y - k)^2 = r^2\), we read off:</p>
+                                    <div
+                                        style="text-align: center; margin: 1rem 0; font-size: 1.3rem; font-weight: bold; color: #166534;">
+                                        \( h = -\tfrac{D}{2},\; k = -\tfrac{E}{2},\; r = \sqrt{h^2 + k^2 - F} \)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </article>
                 <article class="formula-card" id="arc-len-deg">
                     <div class="uvp-badge" style="background: #10b981; color: white;">Geometry</div>

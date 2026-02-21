@@ -236,7 +236,7 @@ class PractixGenerator {
         else if (type === 'difference') {
             const rootD = Math.sqrt(d);
             this.currentAnswers[type] = this.simplifyFraction(rootD, Math.abs(a));
-            if (practixBox) practixBox.innerHTML = `**Step 1:** Compute Discriminant \\( D \\).<br>\\( D = (${b})^2 - 4(${a})(${c}) = ${d} \\).<br>**Step 2:** Apply shortcut.<br>Difference = \\( \\frac{\\sqrt{D}}{|a|} = \\frac{\\sqrt{${d}}}{|${a}|} \\).<br>**Result: ${this.currentAnswers[type]}**`;
+            if (practixBox) practixBox.innerHTML = `<strong>Step 1:</strong> Compute Discriminant \\( D \\).<br>\\( D = (${b})^2 - 4(${a})(${c}) = ${d} \\).<br><strong>Step 2:</strong> Apply shortcut.<br>Difference = \\( \\frac{\\sqrt{D}}{|a|} = \\frac{\\sqrt{${d}}}{|${a}|} \\).<br><strong>Result: ${this.currentAnswers[type]}</strong>`;
             if (schoolBox) {
                 const twoA = 2 * a;
                 schoolBox.innerHTML = `<strong>1. Setup Quadratic Formula:</strong><br>` +

@@ -325,6 +325,41 @@ body.flash-mode-active .flash-header-actions {
     white-space: nowrap;
 }
 
+/* Specific Classes for Line Equation Layout */
+.card-visual-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+}
+
+.card-visual-svg-container {
+    flex-shrink: 0;
+    background-color: #fdfaf6;
+    border: 1px solid #eaddcf;
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    max-width: 310px;
+}
+
+.card-visual-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding-bottom: 1rem;
+    max-width: 400px;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .flash-cards-section {
@@ -342,15 +377,15 @@ body.flash-mode-active .flash-header-actions {
         /* Remove fixed aspect ratio to allow growth */
         aspect-ratio: auto !important;
         width: 100% !important;
-        min-height: 250px;
-        /* Ensure enough height for tall formulas */
+        min-height: 480px !important;
         height: auto !important;
+        max-height: 85vh !important;
     }
 
     .flash-card {
         height: 100% !important;
         /* Fill wrapper */
-        min-height: 250px;
+        min-height: 480px !important;
     }
 
     .card-title {
@@ -391,12 +426,32 @@ body.flash-mode-active .flash-header-actions {
         height: 100% !important;
         display: flex !important;
         flex-direction: column !important;
-        justify-content: center !important;
+        justify-content: flex-start !important;
         align-items: center !important;
         /* Add padding to prevent text touching edges */
-        padding: 0 !important;
-        overflow: hidden !important;
-        /* Hide vertical overflow */
+        padding: 1.5rem 1rem !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        /* Allow vertical scrolling if content is too tall */
+    }
+
+    .card-front {
+        justify-content: center !important;
+        /* Keep front content centered */
+    }
+
+    /* Target the visual output wrapping element specifically for mobile */
+    .card-visual>div {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+
+    .card-visual>div>div:first-child {
+        padding: 1rem !important;
+    }
+
+    .card-visual-text {
+        padding-bottom: 2.5rem !important;
     }
 
     .nav-prev,

@@ -458,10 +458,28 @@
 
                 <!-- 6 -->
                 <article class="formula-card" id="f6">
-                    <span class="category-badge cat-geo">Geometry</span>
+                    <span class="category-badge cat-geo">STANDARD FORM</span>
                     <h3>6. Circle Equation</h3>
                     <div class="formula-display">\[ (x-h)^2 + (y-k)^2 = r^2 \]</div>
                     <p class="formula-explanation">Identify circle centers instantly.</p>
+                    <div class="card-visual" style="margin-top: 2rem;">
+                        <div
+                            style='display: flex; align-items: center; justify-content: center; gap: 2rem; width: 100%;'>
+                            <div class='circle-plot'>
+                                <div class='circle-plot-circle'></div>
+                                <div class='circle-plot-center'></div>
+                                <div class='circle-plot-radius'><span
+                                        style='position: absolute; top: -16px; left: 50%; transform: translateX(-50%); font-size: 0.85rem; font-family: sans-serif; font-weight: 600; color: var(--text-primary); text-align: center; width: 100%; display: block;'>radius</span>
+                                </div>
+                                <div class='circle-plot-center-label'>center</div>
+                            </div>
+                            <div
+                                style='display: flex; flex-direction: column; gap: 0.8rem; text-align: left; font-size: 1.1rem; padding-bottom: 1rem;'>
+                                <div>radius = \( r \)</div>
+                                <div>center: \( (h, k) \)</div>
+                            </div>
+                        </div>
+                    </div>
                 </article>
 
                 <!-- 7 -->
@@ -548,9 +566,28 @@
 
                 <!-- 27 -->
                 <article class="formula-card" id="f27">
-                    <span class="category-badge cat-geo">Geometry</span>
+                    <span class="category-badge cat-alg">GENERAL FORM</span>
                     <h3>27. Equation of Circle (General Form)</h3>
-                    <div class="formula-display">\( x^2 + y^2 + Dx + Ey + F = 0 \)</div>
+                    <div class="formula-display">\[ x^2 + y^2 + Dx + Ey + F = 0 \]</div>
+                    <p class="formula-explanation">Find the center and radius without completing the square.</p>
+                    <div class="card-visual" style="margin-top: 2rem;">
+                        <div
+                            style='display: flex; align-items: center; justify-content: center; gap: 1.5rem; width: 100%;'>
+                            <div class='circle-plot'>
+                                <div class='circle-plot-circle'></div>
+                                <div class='circle-plot-center'></div>
+                                <div class='circle-plot-radius'><span
+                                        style='position: absolute; top: -16px; left: 50%; transform: translateX(-50%); font-size: 0.85rem; font-family: sans-serif; font-weight: 600; color: var(--text-primary); text-align: center; width: 100%; display: block;'>radius</span>
+                                </div>
+                                <div class='circle-plot-center-label'>center</div>
+                            </div>
+                            <div
+                                style='display: flex; flex-direction: column; gap: 0.8rem; text-align: left; font-size: 1rem; padding-bottom: 1rem;'>
+                                <div>radius = \( \sqrt{\frac{D^2}{4} + \frac{E^2}{4} - F} \)</div>
+                                <div>center: \( \left(-\frac{D}{2}, -\frac{E}{2}\right) \)</div>
+                            </div>
+                        </div>
+                    </div>
                 </article>
 
                 <!-- 28 -->

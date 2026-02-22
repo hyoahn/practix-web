@@ -434,6 +434,10 @@ body.flash-mode-active .flash-header-actions {
         /* Allow vertical scrolling if content is too tall */
     }
 
+    .card-face>div {
+        flex-shrink: 0 !important;
+    }
+
     .card-front {
         justify-content: center !important;
         /* Keep front content centered */

@@ -91,7 +91,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update Math (Use innerHTML to support MathJax elements if needed, but we rely on re-typesetting)
         const mathContainer = backFace.querySelector('.card-math');
-        mathContainer.innerHTML = `\\[ ${formula.math} \\]`; // Reset to raw LaTeX
+        if (formula.math && formula.math.trim() !== "") {
+            mathContainer.innerHTML = `\\[ ${formula.math} \\]`; // Reset to raw LaTeX
+            mathContainer.style.display = 'block';
+        } else {
+            mathContainer.innerHTML = '';
+            mathContainer.style.display = 'none';
+        }
 
         // Update Visual Plot
         const visualContainer = backFace.querySelector('.card-visual');

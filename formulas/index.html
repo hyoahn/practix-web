@@ -343,21 +343,24 @@
                     <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed
                             Step-by-Step</span><span class="plus">+</span></button>
                     <div class="example-content">
-                        <p style="font-weight: 700; margin-bottom: 1.5rem;">"A line has a slope of 3 and passes through
-                            the point (2, 5). Find the equation."</p>
+                        <p style="font-weight: 700; margin-bottom: 1.5rem;">"Find the equation of the line passing
+                            through (2, 5) and (5, 14)."</p>
                         <div class="comparison-grid">
                             <div>
                                 <div class="school-header"
                                     style="color: #ef4444; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
-                                    🚫 The School Way (30+ Seconds)</div>
+                                    🚫 The School Way (45+ Seconds)</div>
                                 <ul class="step-list">
-                                    <li>Step 1: Write Point-Slope form:<br> \((y - y_1) = m(x - x_1)\).</li>
-                                    <li>Step 2: Plug in \(m=3\) and \((2, 5)\): <div class="step-math">\(y - 5 = 3(x -
-                                            2)\)</div>
+                                    <li>Step 1: Write slope formula \(m = \frac{y_2 - y_1}{x_2 - x_1}\).</li>
+                                    <li>Step 2: Plug in points: \(m = \frac{14 - 5}{5 - 2}\).</li>
+                                    <li>Step 3: Calculate slope: \(m = \frac{9}{3} = 3\).</li>
+                                    <li>Step 4: Write Point-Slope form:<br> \((y - y_1) = m(x - x_1)\).</li>
+                                    <li>Step 5: Pick a point and plug in: <div class="step-math">\(y - 5 = 3(x - 2)\)
+                                        </div>
                                     </li>
-                                    <li>Step 3: Distribute the slope: <div class="step-math">\(y - 5 = 3x - 6\)</div>
+                                    <li>Step 6: Distribute the slope: <div class="step-math">\(y - 5 = 3x - 6\)</div>
                                     </li>
-                                    <li>Step 4: Add 5 to both sides: <div class="step-math">\(y = 3x - 1\)</div>
+                                    <li>Step 7: Add 5 to both sides: <div class="step-math">\(y = 3x - 1\)</div>
                                     </li>
                                     <li><em>Too many algebraic steps!</em></li>
                                 </ul>
@@ -365,420 +368,421 @@
                             <div>
                                 <div class="practix-header"
                                     style="color: #10b981; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
-                                    ✅ The Practix Way (10s)</div>
+                                    ✅ The Practix Way (15s)</div>
                                 <ul class="step-list">
-                                    <li>Step 1: Write Slope-Intercept form:<br> \(y = mx + b\).</li>
-                                    <li>Step 2: Plug in \(m=3\) and \((2, 5)\): <div class="step-math">\(5 = 3(2) + b\)
-                                        </div>
+                                    <li>Step 1: Find slope mentally: <div class="step-math">\(m = \frac{\Delta y}{\Delta
+                                            x} = \frac{9}{3} = 3\)</div>
                                     </li>
-                                    <li>Step 3: Solve for \(b\) instantly: <div class="step-math">\(b = 5 - 6 = -1\)
-                                        </div>
+                                    <li>Step 2: Plug into \(y = mx + b\) with point (2, 5).</li>
+                                    <li>Step 3: <div class="step-math">\(5 = 3(2) + b\)</div>
                                     </li>
-                                    <li>Step 4: Final Equation: <div class="step-math">\(y = 3x - 1\)</div>
+                                    <li>Step 4: <div class="step-math">\(b = 5 - 6 = -1\)</div>
                                     </li>
+                                    <li>Step 5: Final Equation: <div class="step-math">\(y = 3x - 1\)</div>
                                     </li>
-                                </ul>
                             </div>
+                            </li>
+                            </ul>
                         </div>
                     </div>
-                </article>
-
-                <!-- 1 -->
-                <article class="formula-card" id="f1">
-                    <div class="uvp-badge">Practix Secret</div>
-                    <span class="category-badge cat-quad">Quadratics</span>
-                    <h3>1. The Vertex Shortcut</h3>
-                    <div class="formula-display">\[ x = -\frac{b}{2a} \]</div>
-                    <p class="formula-explanation">Instantly find the maximum or minimum of any parabola.</p>
-                    <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed
-                            Step-by-Step</span><span class="plus">+</span></button>
-                    <div class="example-content">
-                        <p style="font-weight: 700; margin-bottom: 1.5rem;">"Find the x-coordinate of the vertex for \(y
-                            = 3x^2 - 12x + 7\)."</p>
-                        <div class="comparison-grid">
-                            <div>
-                                <div class="school-header"
-                                    style="color: #ef4444; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
-                                    🚫 The School Way (70+ Seconds)</div>
-                                <ul class="step-list">
-                                    <li>Step 1: Look at equation \(y = 3x^2 - 12x + 7\). Need to complete the square.
-                                    </li>
-                                    <li>Step 2: Factor out coefficient of \(x^2\): \(y = 3(x^2 - 4x) + 7\).</li>
-                                    <li>Step 3: Inside parentheses, identify b = -4.</li>
-                                    <li>Step 4: Take half of b: <div class="step-math">\(-4 \div 2 = -2\)</div>
-                                    </li>
-                                    <li>Step 5: Square that result: <div class="step-math">\((-2)^2 = 4\)</div>
-                                    </li>
-                                    <li>Step 6: Add AND subtract inside: <div class="step-math">\(3(x^2 - 4x + 4 - 4) +
-                                            7\)</div>
-                                    </li>
-                                    <li>Step 7: Separate the -4: <div class="step-math">\(3(x^2 - 4x + 4) + 3(-4) + 7\)
-                                        </div>
-                                    </li>
-                                    <li>Step 8: Distribute the 3: <div class="step-math">\(3(x^2 - 4x + 4) - 12 + 7\)
-                                        </div>
-                                    </li>
-                                    <li>Step 9: Factor perfect square: <div class="step-math">\(3(x - 2)^2 - 12 + 7\)
-                                        </div>
-                                    </li>
-                                    <li>Step 10: Simplify constants: <div class="step-math">\(3(x - 2)^2 - 5\)</div>
-                                    </li>
-                                    <li>Step 11: Vertex form is \(a(x-h)^2 + k\), so h = 2.</li>
-                                    <li><em>One wrong sign ruins everything!</em></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <div class="practix-header"
-                                    style="color: #10b981; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
-                                    ✅ The Practix Way (2s)</div>
-                                <ul class="step-list">
-                                    <li>Step 1: \(x = -(-12) / (2 \times 3)\)</li>
-                                    <li>Step 2: \(x = 12 / 6 = 2\)</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 2 -->
-                <article class="formula-card" id="f2">
-                    <span class="category-badge cat-quad">Quadratics</span>
-                    <h3>2. Sum of Solutions</h3>
-                    <div class="formula-display">\[ \text{Sum} = -\frac{b}{a} \]</div>
-                    <p class="formula-explanation">Find the sum of all x-values without solving.</p>
-                    <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Practice &
-                            Step-by-Step</span><span class="plus">+</span></button>
-                    <div class="example-content">
-                        <div
-                            style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
-                            <div
-                                style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-                                <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
-                                    Practice: "Sum of solutions to <span data-eqn-type="sum">\(2x^2 + 8x - 5 =
-                                        0\)</span>?"
-                                </p>
-                                <button class="randomize-btn" data-type="sum"
-                                    style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
-                                    🔄 New Problem
-                                </button>
-                            </div>
-                            <div style="display: flex; gap: 0.8rem; align-items: center;">
-                                <input type="text" id="sum-answer-input" placeholder="e.g. -4 or -8/2"
-                                    style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
-                                <button class="check-answer-btn" data-type="sum"
-                                    style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
-                                    Check Answer
-                                </button>
-                            </div>
-                            <div id="sum-feedback" style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;">
-                            </div>
-
-                            <button
-                                onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'; this.textContent = this.nextElementSibling.style.display === 'block' ? 'Hide Solution 💡' : 'Show Solution 💡';"
-                                style="margin-top: 1.5rem; background: var(--bg-main); border: 1px solid var(--border); color: var(--text-primary); padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.9rem;">Show
-                                Solution 💡</button>
-
-                            <div
-                                style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
-                                <p style="font-weight: 700; margin-bottom: 1.5rem;">"Sum of solutions for \(2x^2 + 10x -
-                                    48 =
-                                    0\)."</p>
-                                <div class="comparison-grid">
-                                    <div>
-                                        <div
-                                            style="color: #ef4444; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
-                                            🚫 The School Way (50+ Seconds)</div>
-                                        <ul class="step-list">
-                                            <li>Step 1: Look at \(2x^2 + 10x - 48 = 0\). Too messy to factor directly.
-                                            </li>
-                                            <li>Step 2: Divide everything by 2: \(x^2 + 5x - 24 = 0\).</li>
-                                            <li>Step 3: Find two numbers that multiply to -24 AND add to 5.</li>
-                                            <li>Step 4: Finally find (8,-3).</li>
-                                            <li>Step 5: Solve roots and add: \(-8 + 3 = -5\).</li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <div
-                                            style="color: #10b981; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
-                                            ✅ The Practix Way (1s)</div>
-                                        <ul class="step-list">
-                                            <li>Step 1: \(-10 / 2 = -5\)</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div style="margin-top: 1.5rem; text-align: right;">
-                                    <a href="passport-to-advanced-math/quadratic-solutions/index.html"
-                                        style="color: var(--accent-primary); font-weight: 600; text-decoration: none; font-size: 0.9rem;">Explore
-                                        Theory & Proofs →</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Difference of Solutions -->
-                <article class="formula-card" id="diff-solutions">
-                    <span class="category-badge cat-quad">Quadratics</span>
-                    <h3>Difference of Solutions</h3>
-                    <div class="formula-display">\[ \pm \frac{\sqrt{b^2 - 4ac}}{a} \]</div>
-                    <p class="formula-explanation">Find the difference between the two solutions without having to solve
-                        the equation.</p>
-                </article>
-
-                <!-- 3 -->
-                <article class="formula-card" id="f3">
-                    <span class="category-badge cat-quad">Quadratics</span>
-                    <h3>3. Product of Solutions</h3>
-                    <div class="formula-display">\[ \text{Product} = \frac{c}{a} \]</div>
-                    <p class="formula-explanation">Find the product of all x-values without solving.</p>
-                    <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Practice &
-                            Step-by-Step</span><span class="plus">+</span></button>
-                    <div class="example-content">
-                        <div
-                            style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
-                            <div
-                                style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-                                <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
-                                    Practice: "Product of solutions to <span data-eqn-type="product">\(3x^2 - 7x + 12 =
-                                        0\)</span>?"
-                                </p>
-                                <button class="randomize-btn" data-type="product"
-                                    style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
-                                    🔄 New Problem
-                                </button>
-                            </div>
-                            <div style="display: flex; gap: 0.8rem; align-items: center;">
-                                <input type="text" id="product-answer-input" placeholder="e.g. 4 or 12/3"
-                                    style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
-                                <button class="check-answer-btn" data-type="product"
-                                    style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
-                                    Check Answer
-                                </button>
-                            </div>
-                            <div id="product-feedback" style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;">
-                            </div>
-
-                            <button
-                                onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'; this.textContent = this.nextElementSibling.style.display === 'block' ? 'Hide Solution 💡' : 'Show Solution 💡';"
-                                style="margin-top: 1.5rem; background: var(--bg-main); border: 1px solid var(--border); color: var(--text-primary); padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.9rem;">Show
-                                Solution 💡</button>
-
-                            <div
-                                style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
-                                <p style="font-weight: 700; margin-bottom: 1.5rem;">"Product of solutions for \(4x^2 -
-                                    19x - 12
-                                    = 0\)."</p>
-                                <div class="comparison-grid">
-                                    <div>
-                                        <div
-                                            style="color: #ef4444; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
-                                            🚫 The School Way (65+ Seconds)</div>
-                                        <ul class="step-list">
-                                            <li>Step 1: Attempt to factor \(4x^2 - 19x - 12 = 0\).</li>
-                                            <li>Step 2: Use quadratic formula \(x = \frac{19 \pm \sqrt{361 -
-                                                4(4)(-12)}}{8}\).
-                                            </li>
-                                            <li>Step 3: Simplify discriminant: \(361 + 192 = 553\).</li>
-                                            <li>Step 4: Realize roots are \(\frac{19 \pm \sqrt{553}}{8}\).</li>
-                                            <li>Step 5: Multiply them: \( \frac{19^2 - 553}{64} = \frac{-192}{64} = -3
-                                                \).</li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <div
-                                            style="color: #10b981; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
-                                            ✅ The Practix Way (2s)</div>
-                                        <ul class="step-list">
-                                            <li>Step 1: \( \frac{c}{a} = \frac{-12}{4} = -3 \)</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div style="margin-top: 1.5rem; text-align: right;">
-                                    <a href="passport-to-advanced-math/quadratic-solutions/index.html"
-                                        style="color: var(--accent-primary); font-weight: 600; text-decoration: none; font-size: 0.9rem;">Explore
-                                        Theory & Proofs →</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 4 -->
-                <article class="formula-card" id="f4">
-                    <span class="category-badge cat-quad">Quadratics</span>
-                    <h3>4. The Discriminant</h3>
-                    <div class="formula-display">\[ D = b^2 - 4ac \]</div>
-                    <p class="formula-explanation">Determine the number of solutions instantly.</p>
-                </article>
-
-                <!-- 5 -->
-                <article class="formula-card" id="f5">
-                    <span class="category-badge cat-alg">Algebra</span>
-                    <h3>5. Growth & Decay</h3>
-                    <div class="formula-display">\[ y = a(1 \pm r)^t \]</div>
-                    <p class="formula-explanation">Master percent word problems.</p>
-                </article>
-
-                <!-- 6 -->
-                <article class="formula-card" id="f6">
-                    <span class="category-badge cat-geo">STANDARD FORM</span>
-                    <h3>6. Circle Equation</h3>
-                    <div class="formula-display">\[ (x-h)^2 + (y-k)^2 = r^2 \]</div>
-                    <p class="formula-explanation">Identify circle centers instantly.</p>
-                    <div class="card-visual" style="margin-top: 2rem;">
-                        <div
-                            style='display: flex; align-items: center; justify-content: center; gap: 2rem; width: 100%;'>
-                            <div class='circle-plot'>
-                                <div class='circle-plot-circle'></div>
-                                <div class='circle-plot-center'></div>
-                                <div class='circle-plot-radius'><span
-                                        style='position: absolute; top: -16px; left: 50%; transform: translateX(-50%); font-size: 0.85rem; font-family: sans-serif; font-weight: 600; color: var(--text-primary); text-align: center; width: 100%; display: block;'>radius</span>
-                                </div>
-                                <div class='circle-plot-center-label'>center</div>
-                            </div>
-                            <div
-                                style='display: flex; flex-direction: column; gap: 0.8rem; text-align: left; font-size: 1.1rem; padding-bottom: 1rem;'>
-                                <div>radius = \( r \)</div>
-                                <div>center: \( (h, k) \)</div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 27 -->
-                <article class="formula-card" id="f27">
-                    <span class="category-badge cat-alg">GENERAL FORM</span>
-                    <h3>27. Equation of Circle (General Form)</h3>
-                    <div class="formula-display">\[ x^2 + y^2 + Dx + Ey + F = 0 \]</div>
-                    <p class="formula-explanation">Find the center and radius without completing the square.</p>
-                    <div class="card-visual" style="margin-top: 2rem;">
-                        <div
-                            style='display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1.5rem; width: 100%;'>
-                            <div class='circle-plot' style='width: 100px; height: 100px; min-width: 100px;'>
-                                <div class='circle-plot-circle'></div>
-                                <div class='circle-plot-center'></div>
-                                <div class='circle-plot-radius'><span
-                                        style='position: absolute; top: -16px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; font-family: sans-serif; font-weight: 600; color: var(--text-primary); text-align: center; width: 100%; display: block;'>radius</span>
-                                </div>
-                                <div class='circle-plot-center-label' style='font-size: 0.8rem;'>center</div>
-                            </div>
-                            <div
-                                style='display: flex; flex-direction: column; gap: 0.8rem; text-align: left; font-size: 0.9rem; padding-bottom: 1rem;'>
-                                <div>radius = \( \sqrt{\frac{D^2}{4} + \frac{E^2}{4} - F} \)</div>
-                                <div>center: \( \left(-\frac{D}{2}, -\frac{E}{2}\right) \)</div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 7 -->
-                <article class="formula-card" id="f7">
-                    <span class="category-badge cat-alg">Algebra</span>
-                    <h3>7. Complementary Trig</h3>
-                    <div class="formula-display">\[ \sin(x) = \cos(90 - x) \]</div>
-                    <p class="formula-explanation">Sine of one angle equals cosine of its complement.</p>
-                </article>
-
-                <!-- 8 -->
-                <article class="formula-card" id="f8">
-                    <span class="category-badge cat-alg">Algebra</span>
-                    <h3>8. Percent Change</h3>
-                    <div class="formula-display">\[ \frac{\text{New} - \text{Old}}{\text{Old}} \times 100 \]</div>
-                    <p class="formula-explanation">Calculate increase/decrease without confusion.</p>
-                </article>
-
-                <!-- 18 -->
-                <article class="formula-card" id="f18">
-                    <span class="category-badge cat-geo">Geometry</span>
-                    <h3>18. Slope Formula</h3>
-                    <div class="formula-display">\[ m = \frac{y_2 - y_1}{x_2 - x_1} \]</div>
-                </article>
-
-                <!-- 19 -->
-                <article class="formula-card" id="f19">
-                    <span class="category-badge cat-geo">Geometry</span>
-                    <h3>19. Parallel Lines</h3>
-                    <div class="formula-display">\[ m_1 = m_2 \]</div>
-                </article>
-
-                <!-- 20 -->
-                <article class="formula-card" id="f20">
-                    <span class="category-badge cat-geo">Geometry</span>
-                    <h3>20. Perpendicular Lines</h3>
-                    <div class="formula-display">\[ m_1 \cdot m_2 = -1 \]</div>
-                </article>
-
-                <!-- 21 -->
-                <article class="formula-card" id="f21">
-                    <span class="category-badge cat-alg">Statistics</span>
-                    <h3>21. Standard Deviation Logic</h3>
-                    <div class="formula-display">Spread = Gap</div>
-                    <p class="formula-explanation">More "spread out" data = Higher Standard Deviation.</p>
-                </article>
-
-                <!-- 22 -->
-                <article class="formula-card" id="f22">
-                    <span class="category-badge cat-alg">Statistics</span>
-                    <h3>22. Margin of Error</h3>
-                    <div class="formula-display">Sample Size ↑ = MoE ↓</div>
-                    <p class="formula-explanation">The more people you ask, the smaller the error.</p>
-                </article>
-
-                <!-- 23 -->
-                <article class="formula-card" id="f23">
-                    <span class="category-badge cat-alg">Algebra</span>
-                    <h3>23. Weighted Average</h3>
-                    <div class="formula-display">\[ \text{Avg} = \frac{\sum w \cdot x}{\sum w} \]</div>
-                </article>
-
-                <!-- 24 -->
-                <article class="formula-card" id="f24">
-                    <div class="uvp-badge">Exclusive Hack</div>
-                    <span class="category-badge cat-alg">Algebra</span>
-                    <h3>24. Harmonic Mean (Avg Speed)</h3>
-                    <div class="formula-display">\[ \text{Speed} = \frac{2ab}{a+b} \]</div>
-                </article>
-
-                <!-- 25 -->
-                <article class="formula-card" id="f25">
-                    <span class="category-badge cat-geo">Geometry</span>
-                    <h3>25. Sum of Interior Angles</h3>
-                    <div class="formula-display">\[ \text{Sum} = (n-2) \cdot 180^\circ \]</div>
-                </article>
-
-                <!-- 26 -->
-                <article class="formula-card" id="f26">
-                    <span class="category-badge cat-geo">Geometry</span>
-                    <h3>26. Exterior Angle Sum</h3>
-                    <div class="formula-display">Always \(360^\circ\)</div>
-                </article>
-
-                <!-- 28 -->
-                <article class="formula-card" id="f28">
-                    <span class="category-badge cat-geo">Geometry</span>
-                    <h3>28. Arc/Sector Proportions</h3>
-                    <div class="formula-display">\[ \frac{\text{Arc}}{\text{Circum}} = \frac{\text{Sector}}{\text{Area}}
-                        = \frac{\theta}{360} \]</div>
-                </article>
-
-                <!-- 29 -->
-                <article class="formula-card" id="f29">
-                    <span class="category-badge cat-geo">Geometry</span>
-                    <h3>29. Distance from Origin</h3>
-                    <div class="formula-display">\[ d = \sqrt{x^2 + y^2} \]</div>
-                </article>
-
-                <!-- 30 -->
-                <article class="formula-card" id="f30">
-                    <span class="category-badge cat-geo">Geometry</span>
-                    <h3>30. Mastery: The 3-4-5 & 5-12-13 Triangles</h3>
-                    <div class="formula-display">3 : 4 : 5 Patterns</div>
-                </article>
-
-                <!-- ... other items removed for brevity in this example but would be kept in real file ... -->
-
             </div>
-        </main>
+            </article>
+
+            <!-- 1 -->
+            <article class="formula-card" id="f1">
+                <div class="uvp-badge">Practix Secret</div>
+                <span class="category-badge cat-quad">Quadratics</span>
+                <h3>1. The Vertex Shortcut</h3>
+                <div class="formula-display">\[ x = -\frac{b}{2a} \]</div>
+                <p class="formula-explanation">Instantly find the maximum or minimum of any parabola.</p>
+                <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed
+                        Step-by-Step</span><span class="plus">+</span></button>
+                <div class="example-content">
+                    <p style="font-weight: 700; margin-bottom: 1.5rem;">"Find the x-coordinate of the vertex for \(y
+                        = 3x^2 - 12x + 7\)."</p>
+                    <div class="comparison-grid">
+                        <div>
+                            <div class="school-header"
+                                style="color: #ef4444; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
+                                🚫 The School Way (70+ Seconds)</div>
+                            <ul class="step-list">
+                                <li>Step 1: Look at equation \(y = 3x^2 - 12x + 7\). Need to complete the square.
+                                </li>
+                                <li>Step 2: Factor out coefficient of \(x^2\): \(y = 3(x^2 - 4x) + 7\).</li>
+                                <li>Step 3: Inside parentheses, identify b = -4.</li>
+                                <li>Step 4: Take half of b: <div class="step-math">\(-4 \div 2 = -2\)</div>
+                                </li>
+                                <li>Step 5: Square that result: <div class="step-math">\((-2)^2 = 4\)</div>
+                                </li>
+                                <li>Step 6: Add AND subtract inside: <div class="step-math">\(3(x^2 - 4x + 4 - 4) +
+                                        7\)</div>
+                                </li>
+                                <li>Step 7: Separate the -4: <div class="step-math">\(3(x^2 - 4x + 4) + 3(-4) + 7\)
+                                    </div>
+                                </li>
+                                <li>Step 8: Distribute the 3: <div class="step-math">\(3(x^2 - 4x + 4) - 12 + 7\)
+                                    </div>
+                                </li>
+                                <li>Step 9: Factor perfect square: <div class="step-math">\(3(x - 2)^2 - 12 + 7\)
+                                    </div>
+                                </li>
+                                <li>Step 10: Simplify constants: <div class="step-math">\(3(x - 2)^2 - 5\)</div>
+                                </li>
+                                <li>Step 11: Vertex form is \(a(x-h)^2 + k\), so h = 2.</li>
+                                <li><em>One wrong sign ruins everything!</em></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="practix-header"
+                                style="color: #10b981; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
+                                ✅ The Practix Way (2s)</div>
+                            <ul class="step-list">
+                                <li>Step 1: \(x = -(-12) / (2 \times 3)\)</li>
+                                <li>Step 2: \(x = 12 / 6 = 2\)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 2 -->
+            <article class="formula-card" id="f2">
+                <span class="category-badge cat-quad">Quadratics</span>
+                <h3>2. Sum of Solutions</h3>
+                <div class="formula-display">\[ \text{Sum} = -\frac{b}{a} \]</div>
+                <p class="formula-explanation">Find the sum of all x-values without solving.</p>
+                <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Practice &
+                        Step-by-Step</span><span class="plus">+</span></button>
+                <div class="example-content">
+                    <div
+                        style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                Practice: "Sum of solutions to <span data-eqn-type="sum">\(2x^2 + 8x - 5 =
+                                    0\)</span>?"
+                            </p>
+                            <button class="randomize-btn" data-type="sum"
+                                style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                🔄 New Problem
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 0.8rem; align-items: center;">
+                            <input type="text" id="sum-answer-input" placeholder="e.g. -4 or -8/2"
+                                style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                            <button class="check-answer-btn" data-type="sum"
+                                style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                Check Answer
+                            </button>
+                        </div>
+                        <div id="sum-feedback" style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;">
+                        </div>
+
+                        <button
+                            onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'; this.textContent = this.nextElementSibling.style.display === 'block' ? 'Hide Solution 💡' : 'Show Solution 💡';"
+                            style="margin-top: 1.5rem; background: var(--bg-main); border: 1px solid var(--border); color: var(--text-primary); padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.9rem;">Show
+                            Solution 💡</button>
+
+                        <div
+                            style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                            <p style="font-weight: 700; margin-bottom: 1.5rem;">"Sum of solutions for \(2x^2 + 10x -
+                                48 =
+                                0\)."</p>
+                            <div class="comparison-grid">
+                                <div>
+                                    <div
+                                        style="color: #ef4444; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
+                                        🚫 The School Way (50+ Seconds)</div>
+                                    <ul class="step-list">
+                                        <li>Step 1: Look at \(2x^2 + 10x - 48 = 0\). Too messy to factor directly.
+                                        </li>
+                                        <li>Step 2: Divide everything by 2: \(x^2 + 5x - 24 = 0\).</li>
+                                        <li>Step 3: Find two numbers that multiply to -24 AND add to 5.</li>
+                                        <li>Step 4: Finally find (8,-3).</li>
+                                        <li>Step 5: Solve roots and add: \(-8 + 3 = -5\).</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <div
+                                        style="color: #10b981; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
+                                        ✅ The Practix Way (1s)</div>
+                                    <ul class="step-list">
+                                        <li>Step 1: \(-10 / 2 = -5\)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; text-align: right;">
+                                <a href="passport-to-advanced-math/quadratic-solutions/index.html"
+                                    style="color: var(--accent-primary); font-weight: 600; text-decoration: none; font-size: 0.9rem;">Explore
+                                    Theory & Proofs →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Difference of Solutions -->
+            <article class="formula-card" id="diff-solutions">
+                <span class="category-badge cat-quad">Quadratics</span>
+                <h3>Difference of Solutions</h3>
+                <div class="formula-display">\[ \pm \frac{\sqrt{b^2 - 4ac}}{a} \]</div>
+                <p class="formula-explanation">Find the difference between the two solutions without having to solve
+                    the equation.</p>
+            </article>
+
+            <!-- 3 -->
+            <article class="formula-card" id="f3">
+                <span class="category-badge cat-quad">Quadratics</span>
+                <h3>3. Product of Solutions</h3>
+                <div class="formula-display">\[ \text{Product} = \frac{c}{a} \]</div>
+                <p class="formula-explanation">Find the product of all x-values without solving.</p>
+                <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Practice &
+                        Step-by-Step</span><span class="plus">+</span></button>
+                <div class="example-content">
+                    <div
+                        style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                Practice: "Product of solutions to <span data-eqn-type="product">\(3x^2 - 7x + 12 =
+                                    0\)</span>?"
+                            </p>
+                            <button class="randomize-btn" data-type="product"
+                                style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                🔄 New Problem
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 0.8rem; align-items: center;">
+                            <input type="text" id="product-answer-input" placeholder="e.g. 4 or 12/3"
+                                style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                            <button class="check-answer-btn" data-type="product"
+                                style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                Check Answer
+                            </button>
+                        </div>
+                        <div id="product-feedback" style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;">
+                        </div>
+
+                        <button
+                            onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'; this.textContent = this.nextElementSibling.style.display === 'block' ? 'Hide Solution 💡' : 'Show Solution 💡';"
+                            style="margin-top: 1.5rem; background: var(--bg-main); border: 1px solid var(--border); color: var(--text-primary); padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.9rem;">Show
+                            Solution 💡</button>
+
+                        <div
+                            style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                            <p style="font-weight: 700; margin-bottom: 1.5rem;">"Product of solutions for \(4x^2 -
+                                19x - 12
+                                = 0\)."</p>
+                            <div class="comparison-grid">
+                                <div>
+                                    <div
+                                        style="color: #ef4444; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
+                                        🚫 The School Way (65+ Seconds)</div>
+                                    <ul class="step-list">
+                                        <li>Step 1: Attempt to factor \(4x^2 - 19x - 12 = 0\).</li>
+                                        <li>Step 2: Use quadratic formula \(x = \frac{19 \pm \sqrt{361 -
+                                            4(4)(-12)}}{8}\).
+                                        </li>
+                                        <li>Step 3: Simplify discriminant: \(361 + 192 = 553\).</li>
+                                        <li>Step 4: Realize roots are \(\frac{19 \pm \sqrt{553}}{8}\).</li>
+                                        <li>Step 5: Multiply them: \( \frac{19^2 - 553}{64} = \frac{-192}{64} = -3
+                                            \).</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <div
+                                        style="color: #10b981; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em;">
+                                        ✅ The Practix Way (2s)</div>
+                                    <ul class="step-list">
+                                        <li>Step 1: \( \frac{c}{a} = \frac{-12}{4} = -3 \)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; text-align: right;">
+                                <a href="passport-to-advanced-math/quadratic-solutions/index.html"
+                                    style="color: var(--accent-primary); font-weight: 600; text-decoration: none; font-size: 0.9rem;">Explore
+                                    Theory & Proofs →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 4 -->
+            <article class="formula-card" id="f4">
+                <span class="category-badge cat-quad">Quadratics</span>
+                <h3>4. The Discriminant</h3>
+                <div class="formula-display">\[ D = b^2 - 4ac \]</div>
+                <p class="formula-explanation">Determine the number of solutions instantly.</p>
+            </article>
+
+            <!-- 5 -->
+            <article class="formula-card" id="f5">
+                <span class="category-badge cat-alg">Algebra</span>
+                <h3>5. Growth & Decay</h3>
+                <div class="formula-display">\[ y = a(1 \pm r)^t \]</div>
+                <p class="formula-explanation">Master percent word problems.</p>
+            </article>
+
+            <!-- 6 -->
+            <article class="formula-card" id="f6">
+                <span class="category-badge cat-geo">STANDARD FORM</span>
+                <h3>6. Circle Equation</h3>
+                <div class="formula-display">\[ (x-h)^2 + (y-k)^2 = r^2 \]</div>
+                <p class="formula-explanation">Identify circle centers instantly.</p>
+                <div class="card-visual" style="margin-top: 2rem;">
+                    <div style='display: flex; align-items: center; justify-content: center; gap: 2rem; width: 100%;'>
+                        <div class='circle-plot'>
+                            <div class='circle-plot-circle'></div>
+                            <div class='circle-plot-center'></div>
+                            <div class='circle-plot-radius'><span
+                                    style='position: absolute; top: -16px; left: 50%; transform: translateX(-50%); font-size: 0.85rem; font-family: sans-serif; font-weight: 600; color: var(--text-primary); text-align: center; width: 100%; display: block;'>radius</span>
+                            </div>
+                            <div class='circle-plot-center-label'>center</div>
+                        </div>
+                        <div
+                            style='display: flex; flex-direction: column; gap: 0.8rem; text-align: left; font-size: 1.1rem; padding-bottom: 1rem;'>
+                            <div>radius = \( r \)</div>
+                            <div>center: \( (h, k) \)</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 27 -->
+            <article class="formula-card" id="f27">
+                <span class="category-badge cat-alg">GENERAL FORM</span>
+                <h3>27. Equation of Circle (General Form)</h3>
+                <div class="formula-display">\[ x^2 + y^2 + Dx + Ey + F = 0 \]</div>
+                <p class="formula-explanation">Find the center and radius without completing the square.</p>
+                <div class="card-visual" style="margin-top: 2rem;">
+                    <div
+                        style='display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1.5rem; width: 100%;'>
+                        <div class='circle-plot' style='width: 100px; height: 100px; min-width: 100px;'>
+                            <div class='circle-plot-circle'></div>
+                            <div class='circle-plot-center'></div>
+                            <div class='circle-plot-radius'><span
+                                    style='position: absolute; top: -16px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; font-family: sans-serif; font-weight: 600; color: var(--text-primary); text-align: center; width: 100%; display: block;'>radius</span>
+                            </div>
+                            <div class='circle-plot-center-label' style='font-size: 0.8rem;'>center</div>
+                        </div>
+                        <div
+                            style='display: flex; flex-direction: column; gap: 0.8rem; text-align: left; font-size: 0.9rem; padding-bottom: 1rem;'>
+                            <div>radius = \( \sqrt{\frac{D^2}{4} + \frac{E^2}{4} - F} \)</div>
+                            <div>center: \( \left(-\frac{D}{2}, -\frac{E}{2}\right) \)</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 7 -->
+            <article class="formula-card" id="f7">
+                <span class="category-badge cat-alg">Algebra</span>
+                <h3>7. Complementary Trig</h3>
+                <div class="formula-display">\[ \sin(x) = \cos(90 - x) \]</div>
+                <p class="formula-explanation">Sine of one angle equals cosine of its complement.</p>
+            </article>
+
+            <!-- 8 -->
+            <article class="formula-card" id="f8">
+                <span class="category-badge cat-alg">Algebra</span>
+                <h3>8. Percent Change</h3>
+                <div class="formula-display">\[ \frac{\text{New} - \text{Old}}{\text{Old}} \times 100 \]</div>
+                <p class="formula-explanation">Calculate increase/decrease without confusion.</p>
+            </article>
+
+            <!-- 18 -->
+            <article class="formula-card" id="f18">
+                <span class="category-badge cat-geo">Geometry</span>
+                <h3>18. Slope Formula</h3>
+                <div class="formula-display">\[ m = \frac{y_2 - y_1}{x_2 - x_1} \]</div>
+            </article>
+
+            <!-- 19 -->
+            <article class="formula-card" id="f19">
+                <span class="category-badge cat-geo">Geometry</span>
+                <h3>19. Parallel Lines</h3>
+                <div class="formula-display">\[ m_1 = m_2 \]</div>
+            </article>
+
+            <!-- 20 -->
+            <article class="formula-card" id="f20">
+                <span class="category-badge cat-geo">Geometry</span>
+                <h3>20. Perpendicular Lines</h3>
+                <div class="formula-display">\[ m_1 \cdot m_2 = -1 \]</div>
+            </article>
+
+            <!-- 21 -->
+            <article class="formula-card" id="f21">
+                <span class="category-badge cat-alg">Statistics</span>
+                <h3>21. Standard Deviation Logic</h3>
+                <div class="formula-display">Spread = Gap</div>
+                <p class="formula-explanation">More "spread out" data = Higher Standard Deviation.</p>
+            </article>
+
+            <!-- 22 -->
+            <article class="formula-card" id="f22">
+                <span class="category-badge cat-alg">Statistics</span>
+                <h3>22. Margin of Error</h3>
+                <div class="formula-display">Sample Size ↑ = MoE ↓</div>
+                <p class="formula-explanation">The more people you ask, the smaller the error.</p>
+            </article>
+
+            <!-- 23 -->
+            <article class="formula-card" id="f23">
+                <span class="category-badge cat-alg">Algebra</span>
+                <h3>23. Weighted Average</h3>
+                <div class="formula-display">\[ \text{Avg} = \frac{\sum w \cdot x}{\sum w} \]</div>
+            </article>
+
+            <!-- 24 -->
+            <article class="formula-card" id="f24">
+                <div class="uvp-badge">Exclusive Hack</div>
+                <span class="category-badge cat-alg">Algebra</span>
+                <h3>24. Harmonic Mean (Avg Speed)</h3>
+                <div class="formula-display">\[ \text{Speed} = \frac{2ab}{a+b} \]</div>
+            </article>
+
+            <!-- 25 -->
+            <article class="formula-card" id="f25">
+                <span class="category-badge cat-geo">Geometry</span>
+                <h3>25. Sum of Interior Angles</h3>
+                <div class="formula-display">\[ \text{Sum} = (n-2) \cdot 180^\circ \]</div>
+            </article>
+
+            <!-- 26 -->
+            <article class="formula-card" id="f26">
+                <span class="category-badge cat-geo">Geometry</span>
+                <h3>26. Exterior Angle Sum</h3>
+                <div class="formula-display">Always \(360^\circ\)</div>
+            </article>
+
+            <!-- 28 -->
+            <article class="formula-card" id="f28">
+                <span class="category-badge cat-geo">Geometry</span>
+                <h3>28. Arc/Sector Proportions</h3>
+                <div class="formula-display">\[ \frac{\text{Arc}}{\text{Circum}} = \frac{\text{Sector}}{\text{Area}}
+                    = \frac{\theta}{360} \]</div>
+            </article>
+
+            <!-- 29 -->
+            <article class="formula-card" id="f29">
+                <span class="category-badge cat-geo">Geometry</span>
+                <h3>29. Distance from Origin</h3>
+                <div class="formula-display">\[ d = \sqrt{x^2 + y^2} \]</div>
+            </article>
+
+            <!-- 30 -->
+            <article class="formula-card" id="f30">
+                <span class="category-badge cat-geo">Geometry</span>
+                <h3>30. Mastery: The 3-4-5 & 5-12-13 Triangles</h3>
+                <div class="formula-display">3 : 4 : 5 Patterns</div>
+            </article>
+
+            <!-- ... other items removed for brevity in this example but would be kept in real file ... -->
+
+    </div>
+    </main>
     </div>
 
     <!-- Hidden Footer -->

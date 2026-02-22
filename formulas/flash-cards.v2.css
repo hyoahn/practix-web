@@ -410,9 +410,8 @@ body.flash-mode-active .flash-header-actions {
         overflow-y: hidden !important;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
-        /* Remove math padding if strictly needed, but keep vertical spacing */
-        margin: 0 !important;
-        /* Negative margin to pull to edges */
+        /* Replace margin: 0 with vertical spacing to prevent overlap */
+        margin: 1.5rem 0 1rem !important;
         width: 100% !important;
     }
 

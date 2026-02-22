@@ -221,6 +221,21 @@
 
             .step-list li {
                 padding-left: 1.5rem;
+                padding-right: 0.5rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            /* Force MathJax to wrap if it's too long */
+            mjx-container {
+                max-width: 100% !important;
+                white-space: normal !important;
+                word-wrap: break-word !important;
+            }
+
+            /* Specifically shrink formulas in the step list on mobile */
+            .step-list mjx-container {
+                font-size: 0.95em !important;
             }
         }
     </style>
@@ -331,12 +346,12 @@
                                     <li>Step 2: Factor out coefficient of \(x^2\): \(y = 3(x^2 - 4x) + 7\).</li>
                                     <li>Step 3: Inside parentheses, identify b = -4.</li>
                                     <li>Step 4: Take half of b: \(-4 \div 2 = -2\).</li>
-                                    <li>Step 5: Square that result: \((-2)^2 = 4\).</li>
-                                    <li>Step 6: Add AND subtract inside: \(3(x^2 - 4x + 4 - 4) + 7\).</li>
-                                    <li>Step 7: Separate the -4: \(3(x^2 - 4x + 4) + 3(-4) + 7\).</li>
-                                    <li>Step 8: Distribute the 3: \(3(x^2 - 4x + 4) - 12 + 7\).</li>
-                                    <li>Step 9: Factor perfect square: \(3(x - 2)^2 - 12 + 7\).</li>
-                                    <li>Step 10: Simplify constants: \(3(x - 2)^2 - 5\).</li>
+                                    <li>Step 5: Square that result:<br> \((-2)^2 = 4\).</li>
+                                    <li>Step 6: Add AND subtract inside:<br> \(3(x^2 - 4x + 4 - 4) + 7\).</li>
+                                    <li>Step 7: Separate the -4:<br> \(3(x^2 - 4x + 4) + 3(-4) + 7\).</li>
+                                    <li>Step 8: Distribute the 3:<br> \(3(x^2 - 4x + 4) - 12 + 7\).</li>
+                                    <li>Step 9: Factor perfect square:<br> \(3(x - 2)^2 - 12 + 7\).</li>
+                                    <li>Step 10: Simplify constants:<br> \(3(x - 2)^2 - 5\).</li>
                                     <li>Step 11: Vertex form is \(a(x-h)^2 + k\), so h = 2.</li>
                                     <li><em>One wrong sign ruins everything!</em></li>
                                 </ul>

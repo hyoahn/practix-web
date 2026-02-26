@@ -22,8 +22,15 @@ function renderFormulaCards() {
             `;
         }
 
-        // TODO: Map step-by-step logic from data if it exists
-        // Currently relying on existing structure matching the spec
+        // Map step-by-step logic and practice exercises from data if it exists
+        if (formula.exampleContent) {
+            cardHtml += `
+                <button class="example-toggle" onclick="toggleExample(this)"><span>View Detailed Practice & Step-by-Step</span><span class="plus">+</span></button>
+                <div class="example-content">
+                    ${formula.exampleContent}
+                </div>
+            `;
+        }
 
         cardHtml += `</article>`;
         html += cardHtml;

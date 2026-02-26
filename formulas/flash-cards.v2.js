@@ -111,6 +111,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         backFace.querySelector('.card-gift').innerHTML = `💡 ${formula.gift}`;
 
+        // Add Example/Practice Button if it exists
+        let actionBtn = backFace.querySelector('.flash-action-btn');
+        if (!actionBtn) {
+            actionBtn = document.createElement('div');
+            actionBtn.className = 'flash-action-container';
+            actionBtn.style.marginTop = '1rem';
+            backFace.appendChild(actionBtn);
+        }
+
+        if (formula.exampleContent) {
+            actionBtn.innerHTML = `<button class="flash-practice-btn" onclick="document.body.classList.remove('flash-mode-active'); setTimeout(() => { const el = document.getElementById('${formula.link.replace('#', '')}'); if(el) { el.scrollIntoView({behavior: 'smooth', block: 'center'}); const btn = el.querySelector('.example-toggle'); if(btn && btn.nextElementSibling.style.display !== 'block') { btn.click(); } } }, 300)" style="background: white; border: 2px solid #ef4444; color: #ef4444; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 700; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin: 0 auto; transition: all 0.2s; box-shadow: 0 4px 6px rgba(239, 68, 68, 0.1);">❓ Practice Question</button>`;
+        } else {
+            actionBtn.innerHTML = '';
+        }
+
         // 3. Re-render MathJax
         if (window.MathJax && window.MathJax.typesetPromise) {
             MathJax.typesetPromise([mathContainer, categoryContainer, visualContainer]).then(() => {

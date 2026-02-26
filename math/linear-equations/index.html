@@ -83,13 +83,35 @@
             border-bottom: 1px solid var(--border);
         }
 
+        .table-responsive-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin: 2rem 0;
+            background: white;
+        }
+
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 2rem 0;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border);
+            min-width: 500px;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .comparison-table mjx-container {
+                font-size: 0.9em !important;
+            }
         }
 
         .comparison-table th {
@@ -283,32 +305,34 @@
                             and times you out. Here is the Practix method.
                         </p>
 
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Feature</th>
-                                    <th style="color: #ef4444;">School Way (Slow)</th>
-                                    <th style="color: #10b981;">Practix Way (Fast)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Find Slope (m)</strong></td>
-                                    <td>Subtract Ax, divide by B, simplify...</td>
-                                    <td>\[ m = -\frac{A}{B} \]</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Find y-intercept</strong></td>
-                                    <td>Set x=0, solve for y...</td>
-                                    <td>\[ y = \frac{C}{B} \]</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Find x-intercept</strong></td>
-                                    <td>Set y=0, solve for x...</td>
-                                    <td>\[ x = \frac{C}{A} \]</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive-wrapper">
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Feature</th>
+                                        <th style="color: #ef4444;">School Way (Slow)</th>
+                                        <th style="color: #10b981;">Practix Way (Fast)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Find Slope (m)</strong></td>
+                                        <td>Subtract Ax, divide by B, simplify...</td>
+                                        <td>\[ m = -\frac{A}{B} \]</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Find y-intercept</strong></td>
+                                        <td>Set x=0, solve for y...</td>
+                                        <td>\[ y = \frac{C}{B} \]</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Find x-intercept</strong></td>
+                                        <td>Set y=0, solve for x...</td>
+                                        <td>\[ x = \frac{C}{A} \]</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
                         <div
                             style="background: #f8fafc; padding: 1.5rem; border-left: 4px solid #3b82f6; border-radius: 0 8px 8px 0;">

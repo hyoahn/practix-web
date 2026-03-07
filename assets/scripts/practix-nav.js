@@ -8,25 +8,17 @@
 (function () {
     try {
         const href = window.location.href.toLowerCase();
-        // Check for App Pillars (loose match to catch redirects/rewrites)
-        const isApp = href.includes('hard-questions') ||
-            href.includes('formulas') ||
-            href.includes('desmos') ||
-            href.includes('math') ||
-            href.includes('cram') ||
-            href.includes('app') ||
-            href.includes('wallpapers') ||
-            href.includes('algebra') || // Topic specific backup
-            href.includes('geometry'); // Topic specific backup
+        const isMobileDevice = window.innerWidth <= 1280 || 
+                              (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
 
-        if (isApp) {
+        if (isApp && isMobileDevice) {
             const style = document.createElement('style');
             style.id = 'practix-app-nav-blocker';
             style.textContent = `
-                /* 1. NUCLEAR NAV REMOVAL */
+                /* 1. NUCLEAR NAV REMOVAL (Mobile Only) */
                 nav:not(.breadcrumb):not(.narrow-rail) { display: none !important; visibility: hidden !important; height: 0 !important; }
                 
-                /* 2. FORCE RAIL VISIBILITY (The user's lifeline) */
+                /* 2. FORCE RAIL VISIBILITY */
                 .narrow-rail { 
                     display: flex !important; 
                     width: 60px !important; 
@@ -37,19 +29,12 @@
                     border-right: 1px solid #e5e7eb;
                 }
 
-                /* 3. HIDE DESKTOP SIDEBAR (Prevent overlap/duplication) */
-                .command-sidebar { display: none !important; }
-
-                /* 4. ADJUST BODY PADDING (Higher specificity to beat styles.v4.css) */
+                /* 3. ADJUST BODY PADDING */
                 body.content-page, body { 
                     padding-top: 0 !important; 
-                    padding-left: 80px !important; /* Make room for rail + buffer */
-                }
-                .page-container {
-                    padding-left: 0 !important;
+                    padding-left: 60px !important; 
                 }
             `;
-            // Safe to append to head/documentElement even before body exists
             (document.head || document.documentElement).appendChild(style);
         }
     } catch (e) {
@@ -129,13 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
             window.matchMedia('(pointer: coarse)').matches;
     };
 
-    // 5. APPLIKE MODE DETECTION: If deeper in the app (pillars), disable Top Nav entirely.
-    // The user wants a clean "App" feel for these sections, relying 100% on the Sidebar/Rail.
-    // 5. APPLIKE MODE DETECTION: If deeper in the app (pillars), disable Top Nav entirely.
-    // We check for:
-    // A) URL path segments (hard-questions, formulas, desmos, math, cram)
-    // B) PRESENCE OF SIDEBAR (.command-sidebar) - This is the most robust check.
-    const currentPathLower = window.location.pathname.toLowerCase();
+    // 5. APPLIKE MODE DETECTION: If on mobile AND deeper in the app (pillars), disable Top Nav entirely.
+    // On Desktop, we allow the Top Nav to persist for easier global navigation.
     const isAppPage = currentPathLower.includes('/hard-questions/') ||
         currentPathLower.includes('/formulas/') ||
         currentPathLower.includes('/desmos/') ||
@@ -143,24 +123,20 @@ document.addEventListener('DOMContentLoaded', () => {
         currentPathLower.includes('/cram/') ||
         document.querySelector('.command-sidebar') !== null;
 
-    if (isAppPage) {
-        // FORCE NO TOP NAV
-        // 1. Ensure body has no top padding (in case specific styles add it)
+    if (isAppPage && isMobile()) {
+        // FORCE NO TOP NAV ON MOBILE
         document.body.style.paddingTop = '0px';
 
-        // 2. Remove any existing nav if present (e.g. from static HTML)
         const existingNav = document.body.querySelector('nav:not(.breadcrumb):not(.narrow-rail)');
         if (existingNav) existingNav.remove();
 
-        // 3. Inject a style to prevent future injection/layout issues
         const appStyle = document.createElement('style');
         appStyle.textContent = `
             nav:not(.breadcrumb):not(.narrow-rail) { display: none !important; }
             body { padding-top: 0 !important; }
         `;
         document.head.appendChild(appStyle);
-
-        return; // EXIT EARLY - DO NOT INJECT NAV
+        return;
     }
 
     // 5. Inject into the page (ONLY ON DESKTOP)
@@ -191,14 +167,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // 3. Watch for any attempts to inject it later
         const observer = new MutationObserver((mutations) => {
             if (isMobile()) {
-                const rogueNav = document.body.querySelector('nav:not(.breadcrumb)');
+                const rogueNav = document.body.querySelector('nav:not(.breadcrumb):not(.narrow-rail)');
                 if (rogueNav) {
                     console.log('Practix: Blocking rogue nav injection on mobile');
                     rogueNav.remove();
                 }
             }
         });
-        observer.observe(document.body, { childList: true, subtree: false });
+        observer.observe(document.body, { childList: true, subtree: true });
     }
 
     // 5. Layout Toggle Logic (Self-contained)

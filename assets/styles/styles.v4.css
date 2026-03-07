@@ -82,7 +82,7 @@ body.mobile-active {
 }
 
 /* FIX: Copy App Page setup for Homepage rail (Desktop Only) */
-@media (min-width: 1281px) {
+@media (min-width: 1025px) {
     .homepage .narrow-rail {
         position: fixed !important;
         top: 0 !important;
@@ -98,7 +98,7 @@ body.mobile-active {
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1024px) {
     .narrow-rail {
         /* display: none !important; -> ENABLED FOR MOBILE NAVIGATION */
         width: 60px;

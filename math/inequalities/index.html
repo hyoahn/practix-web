@@ -224,9 +224,37 @@
                         </div>
                     </div>
 
-                    <!-- CONCEPT: DASHED VS SOLID -->
-                    <div class="concept-section" style="border-bottom: none;">
-                        <h2 style="font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">The Boundary Line</h2>
+                    <!-- NEW SECTION: 2D LINEAR INEQUALITIES -->
+                    <div class="concept-section">
+                        <h2 style="font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">2D Linear Inequalities</h2>
+                        <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 2rem;">
+                            On the Cartesian plane, an inequality represents an entire region of solutions.
+                        </p>
+
+                        <div style="margin-bottom: 3rem; text-align: center;">
+                            <img src="../../assets/images/inequality_shading_2d_guide.png" alt="2D Inequality Shading Guide"
+                                style="max-width: 100%; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                            <div style="background: rgba(59, 130, 246, 0.03); padding: 2rem; border-radius: 16px; border: 1px solid rgba(59, 130, 246, 0.1);">
+                                <h3 style="color: #3b82f6; margin-bottom: 1rem;">Example: \(y > 3x + 2\)</h3>
+                                <ul style="list-style: none; padding: 0; line-height: 1.8;">
+                                    <li>📈 <strong>Line</strong>: \(y = 3x + 2\) (Dashed)</li>
+                                    <li>🎨 <strong>Shading</strong>: Above the line</li>
+                                    <li>💡 <strong>Logic</strong>: "Greater than" means we want the region with higher y-values.</li>
+                                </ul>
+                            </div>
+                            <div style="background: rgba(16, 185, 129, 0.03); padding: 2rem; border-radius: 16px; border: 1px solid rgba(16, 185, 129, 0.1);">
+                                <h3 style="color: #10b981; margin-bottom: 1rem;">Example: \(y \le -x + 4\)</h3>
+                                <ul style="list-style: none; padding: 0; line-height: 1.8;">
+                                    <li>📉 <strong>Line</strong>: \(y = -x + 4\) (Solid)</li>
+                                    <li>🎨 <strong>Shading</strong>: Below the line</li>
+                                    <li>💡 <strong>Logic</strong>: "Less than or equal to" includes the line and everything under it.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
                         <table class="comparison-table">
                             <thead>
@@ -238,13 +266,13 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td style="font-family: monospace; font-size: 1.2rem;">> or << /td>
-                                    <td><strong>--- Dashed ---</strong></td>
+                                    <td style="font-family: monospace; font-size: 1.2rem;">> or <</td>
+                                    <td><strong>Dashed</strong></td>
                                     <td>Points ON the line are <strong>NOT</strong> solutions.</td>
                                 </tr>
                                 <tr>
                                     <td style="font-family: monospace; font-size: 1.2rem;">≥ or ≤</td>
-                                    <td><strong>___ Solid ___</strong></td>
+                                    <td><strong>Solid</strong></td>
                                     <td>Points ON the line <strong>ARE</strong> solutions.</td>
                                 </tr>
                             </tbody>

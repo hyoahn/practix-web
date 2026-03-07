@@ -364,7 +364,7 @@ button.rail-item.active {
 }
 
 /* Navbar - Glassmorphism */
-nav {
+nav, .practix-fixed-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -379,7 +379,7 @@ nav {
     /* Grid Placement */
     grid-row: 1;
     position: relative;
-    /* In-flow */
+    /* In-flow by default, overridden by JS for App pages */
     width: 100%;
 }
 

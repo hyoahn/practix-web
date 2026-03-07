@@ -66,8 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Build relative basePath (e.g., "", "../", "../../")
     const basePath = depth === 0 ? '' : '../'.repeat(depth);
 
-    // 2. Create the nav element
+    // 4. Create the Navigation Element
     const nav = document.createElement('nav');
+    nav.className = 'practix-fixed-nav'; // NEW: Specific class for targeting
 
     // 3. Build the HTML structure
     nav.innerHTML = `
@@ -157,13 +158,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const navStyle = document.createElement('style');
             navStyle.id = 'practix-desktop-nav-fix';
             navStyle.textContent = `
-                nav:not(.breadcrumb):not(.narrow-rail) { 
+                .practix-fixed-nav { 
                     position: fixed !important;
                     top: 0 !important;
                     left: 64px !important; /* Start after the Narrow Rail */
                     width: calc(100% - 64px) !important;
                     z-index: 1000 !important;
                     margin: 0 !important;
+                    display: flex !important; /* Ensure it's visible */
                 }
                 body { 
                     padding-top: 80px !important; /* Make room for the fixed top nav */

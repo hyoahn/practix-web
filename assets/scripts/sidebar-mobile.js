@@ -200,8 +200,8 @@ const PILLARS_CONFIG = [
                 name: "Heart of Algebra",
                 path: "math/",
                 subsections: [
-                    { name: "Variables in Linear Equations", topics: [{ name: "Basics", path: "math/linear-equations/index.html" }] },
-                    { name: "Lines and Linear Functions", topics: [{ name: "Lines & Graphs", path: "math/linear-equations/index.html#interpreting" }] },
+                    { name: "Variables in Linear Equations", topics: [{ name: "Basics", path: "math/linear-equations/basics.html" }] },
+                    { name: "Lines and Linear Functions", topics: [{ name: "Lines & Graphs", path: "math/linear-equations/index.html" }] },
                     { name: "Systems of Linear Equations", topics: [{ name: "Systems", path: "math/systems/index.html" }] },
                     { name: "Linear Inequalities", topics: [{ name: "Inequalities", path: "math/inequalities/index.html" }] },
                     { name: "Word Problems on Linear Equations", topics: [] }

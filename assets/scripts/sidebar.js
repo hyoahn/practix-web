@@ -318,7 +318,7 @@
             #practix-desktop-sidebar {
                 position: fixed !important;
                 top: 0;
-                left: 60px;
+                left: 64px;
                 bottom: 0;
                 width: 320px;
                 background: white;
@@ -443,7 +443,7 @@
             .sidebar-resize-handle:hover, .sidebar-resize-handle.active {
                 background: rgba(99, 102, 241, 0.1);
             }
-            body { padding-left: 380px !important; }
+            body { padding-left: 384px !important; }
         `;
                 document.head.appendChild(style);
                 document.body.appendChild(sidebar);
@@ -513,7 +513,7 @@
 
             window.addEventListener('mousemove', (e) => {
                 if (!isResizing) return;
-                let newWidth = e.clientX - 60; // Subtract rail width
+                let newWidth = e.clientX - 64; // Subtract rail width
                 if (newWidth < 200) newWidth = 200;
                 if (newWidth > 600) newWidth = 600;
                 sidebar.style.width = newWidth + 'px';

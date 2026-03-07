@@ -149,6 +149,30 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             document.body.insertBefore(nav, document.body.firstChild);
         }
+
+        // --- NEW: DESKTOP APP POSITIONING FIX ---
+        // If we are on an App page with a rail/sidebar, we MUST fix the top nav 
+        // to prevent it from being pushed by body padding-left.
+        if (isAppPage) {
+            const navStyle = document.createElement('style');
+            navStyle.id = 'practix-desktop-nav-fix';
+            navStyle.textContent = `
+                nav:not(.breadcrumb):not(.narrow-rail) { 
+                    position: fixed !important;
+                    top: 0 !important;
+                    left: 64px !important; /* Start after the Narrow Rail */
+                    width: calc(100% - 64px) !important;
+                    z-index: 1000 !important;
+                    margin: 0 !important;
+                }
+                body { 
+                    padding-top: 80px !important; /* Make room for the fixed top nav */
+                }
+                /* Ensure Desmos container accounts for fixed top nav if needed */
+                .desmos-container { top: 80px !important; height: calc(100vh - 80px) !important; }
+            `;
+            document.head.appendChild(navStyle);
+        }
     } else {
         // NUCLEAR OPTION: If on mobile, ensure no rogue nav elements survive
         // 1. Inject a style tag to FORCE hide navs immediately

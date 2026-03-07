@@ -8,7 +8,19 @@
 (function () {
     try {
         const href = window.location.href.toLowerCase();
-        const isMobileDevice = window.innerWidth <= 1280 || 
+        // Check for App Pillars (loose match to catch redirects/rewrites)
+        const isApp = href.includes('hard-questions') ||
+            href.includes('formulas') ||
+            href.includes('desmos') ||
+            href.includes('math') ||
+            href.includes('cram') ||
+            href.includes('app') ||
+            href.includes('wallpapers') ||
+            href.includes('algebra') || 
+            href.includes('geometry');
+
+        // Sync with sidebar.js (1024px)
+        const isMobileDevice = window.innerWidth <= 1024 || 
                               (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
 
         if (isApp && isMobileDevice) {
@@ -18,21 +30,9 @@
                 /* 1. NUCLEAR NAV REMOVAL (Mobile Only) */
                 nav:not(.breadcrumb):not(.narrow-rail) { display: none !important; visibility: hidden !important; height: 0 !important; }
                 
-                /* 2. FORCE RAIL VISIBILITY */
-                .narrow-rail { 
-                    display: flex !important; 
-                    width: 60px !important; 
-                    z-index: 9999 !important;
-                    position: fixed !important;
-                    top: 0; left: 0; bottom: 0;
-                    background: white;
-                    border-right: 1px solid #e5e7eb;
-                }
-
-                /* 3. ADJUST BODY PADDING */
+                /* 2. ADJUST BODY PADDING (Mobile Pills only) */
                 body.content-page, body { 
                     padding-top: 0 !important; 
-                    padding-left: 60px !important; 
                 }
             `;
             (document.head || document.documentElement).appendChild(style);
@@ -108,14 +108,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // We strictly prevent the Top Nav from entering the DOM on mobile to avoid "zombie nav" issues.
     // 4. Robust Mobile Detection
     // 4. Robust Mobile Detection (Expanded for iPad Pro / High-Res Tablets)
+    // 4. Robust Mobile Detection (Synced with sidebar.js)
     const isMobile = () => {
-        return window.innerWidth <= 1280 ||
-            window.matchMedia('(max-width: 1280px)').matches ||
+        return window.innerWidth <= 1024 ||
+            window.matchMedia('(max-width: 1024px)').matches ||
             window.matchMedia('(pointer: coarse)').matches;
     };
 
     // 5. APPLIKE MODE DETECTION: If on mobile AND deeper in the app (pillars), disable Top Nav entirely.
     // On Desktop, we allow the Top Nav to persist for easier global navigation.
+    const currentPathLower = currentPath.toLowerCase();
     const isAppPage = currentPathLower.includes('/hard-questions/') ||
         currentPathLower.includes('/formulas/') ||
         currentPathLower.includes('/desmos/') ||
@@ -153,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const style = document.createElement('style');
         style.id = 'practix-mobile-nav-blocker';
         style.textContent = `
-            @media (max-width: 1280px), (pointer: coarse) {
+            @media (max-width: 1024px), (pointer: coarse) {
                 nav:not(.breadcrumb):not(.narrow-rail) { display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; }
                 body { padding-top: 0 !important; }
             }

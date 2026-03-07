@@ -119,12 +119,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. APPLIKE MODE DETECTION: If on mobile AND deeper in the app (pillars), disable Top Nav entirely.
     // On Desktop, we allow the Top Nav to persist for easier global navigation.
     const currentPathLower = currentPath.toLowerCase();
-    const isAppPage = currentPathLower.includes('/hard-questions/') ||
-        currentPathLower.includes('/formulas/') ||
-        currentPathLower.includes('/desmos/') ||
-        currentPathLower.includes('/math/') ||
-        currentPathLower.includes('/cram/') ||
-        document.querySelector('.command-sidebar') !== null;
+    
+    // Robust detection for any educational/app page
+    const appKeywords = ['/hard-questions', '/formulas', '/desmos', '/math', '/cram', '/algebra', '/geometry', '/trigonometry', '/statistics', '/probability'];
+    const isAppPath = appKeywords.some(keyword => currentPathLower.includes(keyword));
+    const hasSidebar = document.querySelector('.command-sidebar') !== null || 
+                      document.querySelector('.command-sidebar-injected') !== null || 
+                      document.getElementById('practix-desktop-sidebar') !== null;
+    const hasRail = document.getElementById('narrow-rail') !== null;
+    
+    // NEW: Use Rail as the primary source of truth for "App Level" layout
+    const isAppPage = isAppPath || hasSidebar || hasRail;
+
+    console.log('[Practix Nav] isAppPage:', isAppPage, '| Rail:', hasRail, '| Sidebar:', hasSidebar);
 
     if (isAppPage && isMobile()) {
         // FORCE NO TOP NAV ON MOBILE
@@ -134,8 +141,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (existingNav) existingNav.remove();
 
         const appStyle = document.createElement('style');
+        appStyle.id = 'practix-mobile-app-blocker';
         appStyle.textContent = `
-            nav:not(.breadcrumb):not(.narrow-rail) { display: none !important; }
+            nav:not(.breadcrumb):not(.narrow-rail) { display: none !important; visibility: hidden !important; height: 0 !important; }
             body { padding-top: 0 !important; }
         `;
         document.head.appendChild(appStyle);
@@ -151,30 +159,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.insertBefore(nav, document.body.firstChild);
         }
 
-        // --- NEW: DESKTOP APP POSITIONING FIX ---
-        // If we are on an App page with a rail/sidebar, we MUST fix the top nav 
-        // to prevent it from being pushed by body padding-left.
-        if (isAppPage) {
-            const navStyle = document.createElement('style');
-            navStyle.id = 'practix-desktop-nav-fix';
-            navStyle.textContent = `
-                .practix-fixed-nav { 
-                    position: fixed !important;
-                    top: 0 !important;
-                    left: 64px !important; /* Start after the Narrow Rail */
-                    width: calc(100% - 64px) !important;
-                    z-index: 1000 !important;
-                    margin: 0 !important;
-                    display: flex !important; /* Ensure it's visible */
-                }
-                body { 
-                    padding-top: 80px !important; /* Make room for the fixed top nav */
-                }
-                /* Ensure Desmos container accounts for fixed top nav if needed */
-                .desmos-container { top: 80px !important; height: calc(100vh - 80px) !important; }
-            `;
-            document.head.appendChild(navStyle);
-        }
+        // Positioning and layout is now handled by styles.v4.css (.practix-fixed-nav)
+        console.log('[Practix Nav] Desktop injection complete. Layout handled by CSS.');
     } else {
         // NUCLEAR OPTION: If on mobile, ensure no rogue nav elements survive
         // 1. Inject a style tag to FORCE hide navs immediately

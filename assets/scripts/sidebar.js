@@ -298,6 +298,12 @@
             const rail = document.getElementById('narrow-rail');
             if (!rail) return null;
 
+            // Remove any existing hardcoded sidebar to prevent duplicates and layout shifts
+            const hardcodedSidebar = document.querySelector('.command-sidebar:not(.command-sidebar-injected)');
+            if (hardcodedSidebar) {
+                hardcodedSidebar.remove();
+            }
+
             let sidebar = document.getElementById('practix-desktop-sidebar');
             if (!sidebar) {
                 sidebar = document.createElement('div');

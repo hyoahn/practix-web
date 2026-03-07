@@ -363,23 +363,51 @@ button.rail-item.active {
         radial-gradient(ellipse at 50% 50%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
 }
 
-/* Navbar - Glassmorphism */
-nav, .practix-fixed-nav {
+@media (min-width: 1025px) {
+    /* Navbar - Glassmorphism */
+    .practix-fixed-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 1.5rem; /* Standardized fixed padding */
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--glass-border);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* NEW: Soft shadow */
+        flex-shrink: 0;
+        z-index: 1000;
+
+        /* Desktop Layout - Fixed from the start to prevent jump */
+        position: fixed !important;
+        top: 0 !important;
+        left: 64px !important; /* Start after the Narrow Rail */
+        width: calc(100% - 64px) !important;
+    }
+
+    /* Alignment Sync: Ensure logo aligns well with sidebar tree */
+    .practix-fixed-nav .logo {
+        margin-left: 0 !important;
+    }
+
+    body {
+        padding-top: 80px !important; /* Make room for the fixed top nav */
+    }
+
+    /* Ensure specific App containers account for fixed top nav */
+    .desmos-container, .desmos-calculator-container { 
+        top: 80px !important; 
+        height: calc(100vh - 80px) !important; 
+    }
+}
+
+/* Fallback/Baseline for generic nav */
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.75rem 5%;
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--glass-border);
-    flex-shrink: 0;
-    z-index: 1000;
-
-    /* Grid Placement */
-    grid-row: 1;
+    padding: 0.75rem 1.5rem;
     position: relative;
-    /* In-flow by default, overridden by JS for App pages */
     width: 100%;
 }
 

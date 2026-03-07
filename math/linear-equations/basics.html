@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Disable Browser Caching for Development -->
+
+    <title>SAT Math Basics: The xy-Plane & Coordinates | Practix</title>
+    <meta name="description"
+        content="Master the foundations of SAT Math. Learn the xy-plane, quadrants, and how to plot coordinates (x, y) with our visual guide.">
+    <link rel="stylesheet" href="../../assets/styles/styles.v4.css?v=1771360000">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../assets/scripts/practix-nav.js?v=1771354000"></script>
+    <script src="../../assets/scripts/sidebar.js?v=1771528000"></script>
+    <script src="../../assets/scripts/practix-footer.js?v=1770561723"></script>
+    <script src="../../assets/scripts/pulse-relay.js?v=1770561723"></script>
+    <script src="../../assets/scripts/analytics.js?v=1770561723"></script>
+
+    <style>
+        .topic-header {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .concept-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quadrant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .quadrant-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .quad-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-primary);
+        }
+
+        .quad-signs {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-bg"></div>
+    <div class="page-container">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail"></aside>
+
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input" placeholder="Search topics...">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;"></div>
+        </aside>
+
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+
+                <header class="topic-header">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #6366f1; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Foundations
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1rem;">The xy-Plane & Coordinates</h1>
+                    <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto;">
+                        Every line, parabola, and circle on the SAT lives here. Master the navigation of the coordinate plane first.
+                    </p>
+                </header>
+
+                <div style="max-width: 1000px; margin: 0 auto; padding: 0 5%;">
+
+                    <!-- THE PLANE -->
+                    <div class="concept-section">
+                        <h2 style="font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">The Cartesian Coordinate System</h2>
+                        <div style="display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;">
+                            <img src="../../assets/images/xy_plane_basics.png" alt="xy-Plane Diagram"
+                                style="width: 400px; height: auto; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                            <div style="flex: 1; min-width: 300px;">
+                                <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                                    The <strong>xy-plane</strong> is formed by two perpendicular number lines:
+                                </p>
+                                <ul style="list-style: none; padding: 0; line-height: 2; color: var(--text-primary);">
+                                    <li>👉 <strong>x-axis</strong>: The horizontal number line.</li>
+                                    <li>👉 <strong>y-axis</strong>: The vertical number line.</li>
+                                    <li>👉 <strong>Origin (0,0)</strong>: Where the two axes intersect.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- QUADRANTS -->
+                    <div class="concept-section">
+                        <h2 style="font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">The Four Quadrants</h2>
+                        <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary);">
+                            The axes divide the plane into four regions called <strong>Quadrants</strong>. They are numbered counter-clockwise starting from the top-right.
+                        </p>
+                        
+                        <div class="quadrant-grid">
+                            <div class="quadrant-card">
+                                <div class="quad-title">Quadrant I</div>
+                                <div class="quad-signs">(+, +)</div>
+                                <p style="font-size: 0.9rem; color: var(--text-muted);">Right & Up</p>
+                            </div>
+                            <div class="quadrant-card">
+                                <div class="quad-title">Quadrant II</div>
+                                <div class="quad-signs">(-, +)</div>
+                                <p style="font-size: 0.9rem; color: var(--text-muted);">Left & Up</p>
+                            </div>
+                            <div class="quadrant-card">
+                                <div class="quad-title">Quadrant III</div>
+                                <div class="quad-signs">(-, -)</div>
+                                <p style="font-size: 0.9rem; color: var(--text-muted);">Left & Down</p>
+                            </div>
+                            <div class="quadrant-card">
+                                <div class="quad-title">Quadrant IV</div>
+                                <div class="quad-signs">(+, -)</div>
+                                <p style="font-size: 0.9rem; color: var(--text-muted);">Right & Down</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COORDINATES -->
+                    <div class="concept-section" style="border-bottom: none;">
+                        <h2 style="font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">Ordered Pairs: (x, y)</h2>
+                        <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                            To locate any point, we use an <strong>ordered pair</strong> of numbers called coordinates.
+                        </p>
+                        <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 16px; border: 1px solid var(--border);">
+                            <div style="font-size: 1.3rem; font-family: 'Space Grotesk'; margin-bottom: 1rem; color: var(--accent-primary);">
+                                Example: Point P(3, -2)
+                            </div>
+                            <ul style="list-style: none; padding: 0; line-height: 2;">
+                                <li>1. Start at the **Origin (0,0)**.</li>
+                                <li>2. Move **right 3 units** (x = 3).</li>
+                                <li>3. Move **down 2 units** (y = -2).</li>
+                            </ul>
+                            <p style="margin-top: 1rem; font-style: italic; color: var(--text-muted);">
+                                💡 Tip: X always comes before Y. Just like in the alphabet!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

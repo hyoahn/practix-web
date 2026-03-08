@@ -19,14 +19,14 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
         rel="stylesheet">
 
-    
+
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.min.js"></script>
     <script src="../../assets/scripts/practix-nav.js?v=1771354000"></script>
     <script src="../../assets/scripts/sidebar.js?v=1771528000"></script>
     <script src="../../assets/scripts/practix-footer.js?v=1770561723"></script>
     <script src="../../assets/scripts/pulse-relay.js?v=1770561723"></script>
     <script src="../../assets/scripts/analytics.js?v=1770561723"></script>
-    
+
 
     <style>
         .technique-section {
@@ -217,8 +217,7 @@
                             Code</button>
                     </h3>
                     <div style="text-align: center; margin: 2rem 0; font-size: 1.25rem;">
-                        \[ kx - 3y = 4 \]
-                        \[ 4x - 5y = 7 \]
+                        \[ kx - 3y = 4, \quad 4x - 5y = 7 \]
                     </div>
                     <p>For what value of \(k\) does the system of equations above have <strong>no
                             solution</strong>?</p>
@@ -234,18 +233,43 @@
                         <summary></summary>
                         <div class="solution-content">
                             <div class="solution-step">
-                                <h4>Step 1: Use the Slider Hack</h4>
-                                <p>Type the equations exactly as shown. Desmos will ask if you want to add a slider
-                                    for \(k\). Click <strong>"all"</strong>.</p>
-                            </div>
-                            <div class="solution-step">
-                                <h4>Step 2: Make Lines Parallel</h4>
-                                <p>Move the slider until the lines look <strong>perfectly parallel</strong> (never
-                                    crossing).</p>
-                                <img src="../../assets/images/desmos/no_solution_slider.png"
-                                    alt="Desmos slider hack showing parallel lines"
-                                    style="width: 100%; max-width: 450px; display: block; margin: 1.5rem auto; border-radius: 12px; border: 1px solid #dcfce7;">
-                                <p>At \(k = 2.4\), the lines are parallel. This is the "No Solution" state.</p>
+                                <h4>Step 1: Test Options</h4>
+                                <p>Substitute each option for \(k\) and look for perfectly parallel lines that never
+                                    cross.</p>
+
+                                <div class="comparison-grid"
+                                    style="margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                                    <div>
+                                        <div
+                                            style="text-align: center; font-weight: bold; margin-bottom: 0.5rem; color: var(--text-secondary);">
+                                            (A) \( k = 1.2 \)</div>
+                                        <img src="../../assets/images/desmos/no_solution_A.png" alt="k=1.2 graph"
+                                            style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
+                                    </div>
+                                    <div>
+                                        <div
+                                            style="text-align: center; font-weight: bold; margin-bottom: 0.5rem; color: #10b981;">
+                                            (B) \( k = 2.4 \) ✅</div>
+                                        <img src="../../assets/images/desmos/no_solution_B.png" alt="k=2.4 graph"
+                                            style="width: 100%; border-radius: 8px; border: 3px solid #10b981;">
+                                    </div>
+                                    <div>
+                                        <div
+                                            style="text-align: center; font-weight: bold; margin-bottom: 0.5rem; color: var(--text-secondary);">
+                                            (C) \( k = 3.6 \)</div>
+                                        <img src="../../assets/images/desmos/no_solution_C.png" alt="k=3.6 graph"
+                                            style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
+                                    </div>
+                                    <div>
+                                        <div
+                                            style="text-align: center; font-weight: bold; margin-bottom: 0.5rem; color: var(--text-secondary);">
+                                            (D) \( k = 4.8 \)</div>
+                                        <img src="../../assets/images/desmos/no_solution_D.png" alt="k=4.8 graph"
+                                            style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
+                                    </div>
+                                </div>
+                                <p style="margin-top: 1.5rem;">Only <strong>Option B</strong> produces parallel lines,
+                                    meaning there is "No Solution" state.</p>
                             </div>
                             <div class="final-answer-box">
                                 <h4><span>✅</span> Final Answer:</h4>
@@ -340,7 +364,7 @@
             }
         }
     </script>
-    
+
     <script src="../../assets/scripts/floating-calculator.js?v=202602212239"></script>
     <script src="../../assets/scripts/desmos-calculator.js?v=1.2"></script>
 </body>

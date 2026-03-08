@@ -3115,8 +3115,7 @@ mjx-container[scrollable="true"],
        Ensuring it doesn't cause overflow by keeping it fixed/overlay or thin. */
     .narrow-rail,
     #narrow-rail,
-    aside.narrow-rail,
-    .command-sidebar {
+    aside.narrow-rail {
         display: flex !important;
         /* Restore flex layout */
         position: fixed !important;

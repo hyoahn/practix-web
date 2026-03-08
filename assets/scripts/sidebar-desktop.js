@@ -8,7 +8,7 @@
 window.PRACTIX_BASE_PATH = (function () {
     const currentPath = window.location.pathname;
     const pathSegments = currentPath.split('/').filter(s => s.length > 0);
-    const rootIndex = pathSegments.indexOf('_Sever');
+    const rootIndex = pathSegments.indexOf('_Server');
     let depth = 0;
     if (rootIndex !== -1) {
         const segmentsAfterRoot = pathSegments.slice(rootIndex + 1);
@@ -407,7 +407,7 @@ function globalRenderRail() {
     // Get correct base path
     // We can recalculate it here to be safe (since this is standalone)
     const pathSegments = currentPath.split('/').filter(s => s.length > 0);
-    const rootIndex = pathSegments.indexOf('_Sever');
+    const rootIndex = pathSegments.indexOf('_Server');
     let depth = 0;
     if (rootIndex !== -1) {
         const segmentsAfterRoot = pathSegments.slice(rootIndex + 1);

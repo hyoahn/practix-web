@@ -16,12 +16,12 @@
             href.includes('cram') ||
             href.includes('app') ||
             href.includes('wallpapers') ||
-            href.includes('algebra') || 
+            href.includes('algebra') ||
             href.includes('geometry');
 
         // Sync with sidebar.js (1024px)
-        const isMobileDevice = window.innerWidth <= 1024 || 
-                              (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+        const isMobileDevice = window.innerWidth <= 1024 ||
+            (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
 
         if (isApp && isMobileDevice) {
             const style = document.createElement('style');
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Determine the path depth (Robust for file:// and hosted)
     // Find the index of the root directory "_Sever" in the path
-    const rootIndex = pathSegments.indexOf('_Sever');
+    const rootIndex = pathSegments.indexOf('_Server');
     let depth = 0;
 
     if (rootIndex !== -1) {
@@ -119,15 +119,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. APPLIKE MODE DETECTION: If on mobile AND deeper in the app (pillars), disable Top Nav entirely.
     // On Desktop, we allow the Top Nav to persist for easier global navigation.
     const currentPathLower = currentPath.toLowerCase();
-    
+
     // Robust detection for any educational/app page
     const appKeywords = ['/hard-questions', '/formulas', '/desmos', '/math', '/cram', '/algebra', '/geometry', '/trigonometry', '/statistics', '/probability'];
     const isAppPath = appKeywords.some(keyword => currentPathLower.includes(keyword));
-    const hasSidebar = document.querySelector('.command-sidebar') !== null || 
-                      document.querySelector('.command-sidebar-injected') !== null || 
-                      document.getElementById('practix-desktop-sidebar') !== null;
+    const hasSidebar = document.querySelector('.command-sidebar') !== null ||
+        document.querySelector('.command-sidebar-injected') !== null ||
+        document.getElementById('practix-desktop-sidebar') !== null;
     const hasRail = document.getElementById('narrow-rail') !== null;
-    
+
     // NEW: Use Rail as the primary source of truth for "App Level" layout
     const isAppPage = isAppPath || hasSidebar || hasRail;
 

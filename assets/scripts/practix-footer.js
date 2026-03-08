@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pathSegments = currentPath.split('/').filter(s => s.length > 0);
 
     // Find the index of the root directory "_Sever" in the path
-    const rootIndex = pathSegments.indexOf('_Sever');
+    const rootIndex = pathSegments.indexOf('_Server');
     let depth = 0;
 
     if (rootIndex !== -1) {

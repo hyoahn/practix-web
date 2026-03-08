@@ -649,14 +649,17 @@
                 return `<a href="${href}" class="rail-item ${item.id === activeId ? 'active' : ''}" title="${item.name}" data-pillar="${item.id}">${item.icon}</a>`;
             }).join('');
 
-            // Intercept Desmos click for toggle (Desktop)
+            // Intercept Desmos click for toggle (Desktop only)
             railContainer.addEventListener('click', (e) => {
+                // Do not intercept if on mobile - allow normal navigation to Desmos index
+                if (window.innerWidth <= 1024) return;
+
                 const railItem = e.target.closest('.rail-item[data-pillar="desmos"]');
                 if (railItem) {
                     const isDesmosPage = window.location.pathname.includes('/desmos/') ||
                         window.location.pathname.includes('/topics/');
 
-                    if (isDesmosPage && window.toggleCalculator) {
+                    if (isDesmosPage && typeof window.toggleCalculator === 'function') {
                         e.preventDefault();
                         window.toggleCalculator();
                     }

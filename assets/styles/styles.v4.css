@@ -3131,7 +3131,9 @@ mjx-container[scrollable="true"],
     }
 
     /* Push body content to not be covered by rail */
-    body {
+    body,
+    body.content-page,
+    .content-page body {
         padding-left: 60px !important;
         /* Match rail width */
         width: 100% !important;

@@ -1790,7 +1790,7 @@ input[type=range]::-webkit-slider-runnable-track {
     padding: 4rem calc(5% + 2.5rem) !important;
     background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
     border-bottom: 1px solid var(--border);
-    margin: -3rem -5% 3rem -5%;
+    margin: -2rem -5% 3rem -5%;
     /* Pull up to top of main-content */
 }
 

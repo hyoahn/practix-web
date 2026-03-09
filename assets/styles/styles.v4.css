@@ -364,24 +364,28 @@ button.rail-item.active {
 }
 
 @media (min-width: 1025px) {
+
     /* Navbar - Glassmorphism */
     .practix-fixed-nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0.75rem 1.5rem; /* Standardized fixed padding */
+        padding: 0.75rem 1.5rem;
+        /* Standardized fixed padding */
         background: rgba(255, 255, 255, 0.8);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-bottom: 1px solid var(--glass-border);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* NEW: Soft shadow */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        /* NEW: Soft shadow */
         flex-shrink: 0;
         z-index: 1000;
 
         /* Desktop Layout - Fixed from the start to prevent jump */
         position: fixed !important;
         top: 0 !important;
-        left: 64px !important; /* Start after the Narrow Rail */
+        left: 64px !important;
+        /* Start after the Narrow Rail */
         width: calc(100% - 64px) !important;
     }
 
@@ -391,13 +395,15 @@ button.rail-item.active {
     }
 
     body {
-        padding-top: 80px !important; /* Make room for the fixed top nav */
+        padding-top: 80px !important;
+        /* Make room for the fixed top nav */
     }
 
     /* Ensure specific App containers account for fixed top nav */
-    .desmos-container, .desmos-calculator-container { 
-        top: 80px !important; 
-        height: calc(100vh - 80px) !important; 
+    .desmos-container,
+    .desmos-calculator-container {
+        top: 80px !important;
+        height: calc(100vh - 80px) !important;
     }
 }
 
@@ -670,14 +676,17 @@ h3 {
 /* Left side: Text Content - Stacked in single column */
 .hero-text-container {
     flex: 0 0 auto;
-    width: 48%; /* Slightly increased to give text more breathing room */
+    width: 48%;
+    /* Slightly increased to give text more breathing room */
     min-width: 550px;
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
     justify-content: center !important;
-    padding: 2rem 0 2rem 8% !important; /* Adjusted left padding for balance */
-    margin-right: 0; /* Removed aggressive negative margin */
+    padding: 2rem 0 2rem 8% !important;
+    /* Adjusted left padding for balance */
+    margin-right: 0;
+    /* Removed aggressive negative margin */
     z-index: 20;
 }
 
@@ -698,7 +707,8 @@ h3 {
 /* ... */
 
 .hero-image-container img {
-    object-position: center top !important; /* Prioritize the head area */
+    object-position: center top !important;
+    /* Prioritize the head area */
     transform: none !important;
     width: 100%;
     height: 100%;
@@ -710,9 +720,12 @@ h3 {
 /* Ensure Desktop DOES NOT override this with problematic transforms */
 @media (min-width: 1024px) {
     .hero-image-container img {
-        object-position: 25% center !important; /* Focus on the subject's face */
-        transform: none !important; /* Removed translateX(-10%) which caused clipping */
-        width: 100% !important; /* Removed 110% width which caused overflow issues */
+        object-position: 25% center !important;
+        /* Focus on the subject's face */
+        transform: none !important;
+        /* Removed translateX(-10%) which caused clipping */
+        width: 100% !important;
+        /* Removed 110% width which caused overflow issues */
     }
 }
 
@@ -1774,7 +1787,7 @@ input[type=range]::-webkit-slider-runnable-track {
 
 /* Ensure heroes don't break the shell */
 .hero-section {
-    padding: 4rem 5%;
+    padding: 4rem calc(5% + 2.5rem) !important;
     background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
     border-bottom: 1px solid var(--border);
     margin: -3rem -5% 3rem -5%;
@@ -3186,6 +3199,11 @@ mjx-container[scrollable="true"],
         min-width: 0 !important;
         max-width: 100% !important;
         overflow-x: hidden !important;
+    }
+
+    .hero-section {
+        padding-left: calc(5% + 1rem) !important;
+        padding-right: calc(5% + 1rem) !important;
     }
 }
 

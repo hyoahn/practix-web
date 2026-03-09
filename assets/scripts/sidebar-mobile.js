@@ -96,7 +96,7 @@ const PILLARS_CONFIG = [
                 path: "desmos/",
                 subsections: [
                     { name: "Polynomial Functions", topics: [{ name: "Polynomial Roots", path: "desmos/poly-roots/index.html" }] },
-                    { name: "Quadratic Equations and Parabola", topics: [] },
+                    { name: "Quadratic Equations and Parabola", topics: [{ name: "Parabola Roots", path: "desmos/quadratic-equations/parabola-roots/index.html" }] },
                     { name: "Solutions of Linear Expressions", topics: [] },
                     { name: "Absolute Value", topics: [{ name: "Absolute Value Solve", path: "desmos/absolute-value/index.html" }] },
                     { name: "Ratios, Proportions, and Rates", topics: [] },

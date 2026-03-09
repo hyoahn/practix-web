@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Parabola Roots: Interactive Desmos SAT Hack | Practix</title>
+    <meta name="description"
+        content="Find the solutions to any quadratic equation instantly. Skip the quadratic formula and use Desmos instead.">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../../assets/styles/styles.v4.css?v=1771360000">
+    <link rel="stylesheet" href="../../topics.css?v=1770561723">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Practix Scripts -->
+    <script src="../../../assets/scripts/practix-nav.js?v=1771354000"></script>
+    <script src="../../../assets/scripts/sidebar.js?v=1771528000"></script>
+    <script src="../../../assets/scripts/practix-footer.js?v=1770561723"></script>
+    <script src="../../../assets/scripts/pulse-relay.js?v=1770561723"></script>
+
+</head>
+
+<body>
+    <div class="page-bg"></div>
+
+    <div class="page-container">
+        <!-- AI Navigation Rails -->
+        <aside class="narrow-rail" id="narrow-rail"></aside>
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search topics... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;"></div>
+        </aside>
+
+        <!-- Main Stage -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <nav class="breadcrumb">
+                    <a href="../../../index.html">Home</a> / <a href="../../index.html">Desmos Hacks</a> /
+                    <span>Parabola Roots</span>
+                </nav>
+
+                <section class="topic-hero">
+                    <div class="magic-tag">Quadratic Equations and Parabola v1</div>
+                    <h1>Parabola Roots</h1>
+                    <p class="hook">Forget the Quadratic Formula. Find the answers instantly with Desmos.</p>
+                </section>
+
+                <!-- Practice Challenge -->
+                <div class="sat-problem-card">
+                    <h3 class="sat-problem-header">
+                        <span>Practice Challenge</span> Finding Solutions
+                    </h3>
+                    <p style="margin: 1.5rem 0;">
+                        What are the solutions to the equation \(2x^2 - 8x - 10 = 0\)?
+                    </p>
+                    <div class="sat-option-grid">
+                        <div class="sat-option" onclick="checkAnswer(this, true)">(A) \(x = -1\) and \(x = 5\)</div>
+                        <div class="sat-option" onclick="checkAnswer(this, false)">(B) \(x = 1\) and \(x = -5\)</div>
+                        <div class="sat-option" onclick="checkAnswer(this, false)">(C) \(x = 2\) and \(x = -10\)</div>
+                        <div class="sat-option" onclick="checkAnswer(this, false)">(D) \(x = -2\) and \(x = 10\)</div>
+                    </div>
+
+                    <details class="practix-reveal" style="margin-top: 1.5rem;">
+                        <summary>Click to see the "Desmos Speed-Run"</summary>
+                        <div class="solution-content">
+                            <h4>Don't solve algebraically.</h4>
+                            <p>1. Type <code>y = 2x^2 - 8x - 10</code> into Desmos.</p>
+                            <p>2. Look at where the parabola crosses the x-axis (the x-intercepts).</p>
+                            <p>3. Click the gray intersection dots!</p>
+                            <p style="margin-top: 1rem;"><strong>Desmos shows (-1, 0) and (5, 0) instantly.</strong> The
+                                solutions are \(x = -1\) and \(x = 5\). The answer is (A).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <footer style="margin-top: 5rem;"></footer>
+            </div>
+        </main>
+    </div>
+
+    <!-- Interactivity Logic -->
+    <script>
+        // Answer checking
+        function checkAnswer(el, isCorrect) {
+            if (isCorrect) {
+                el.classList.add('correct');
+                el.style.backgroundColor = '#dcfce7';
+                el.style.borderColor = '#10b981';
+            } else {
+                el.classList.add('incorrect');
+                el.style.backgroundColor = '#fee2e2';
+                el.style.borderColor = '#ef4444';
+            }
+        }
+    </script>
+
+    <script src="../../../assets/scripts/floating-calculator.js?v=202602212239"></script>
+    <script src="../../../assets/scripts/desmos-calculator.js?v=1.2"></script>
+</body>
+
+</html>

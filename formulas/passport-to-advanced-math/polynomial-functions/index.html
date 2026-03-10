@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SAT Polynomial Functions & Operations | Practix</title>
+    <meta name="description"
+        content="Master SAT Polynomial Functions. Learn Standard Form, degree, and operations with elite shortcuts for the digital SAT math section.">
+
+    <!-- SEO & Social -->
+    <meta property="og:title" content="SAT Polynomial Functions Cheat Sheet | Practix">
+    <meta property="og:description"
+        content="Master Polynomial operations instantly. Standard form, degree, and leading coefficients explained for 800-level scorers.">
+    <meta property="og:image" content="../../../assets/images/wallpapers/wall_boss_mode.png">
+
+    <link rel="stylesheet" href="../../../assets/styles/styles.v4.css?v=1771360000">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../assets/scripts/practix-nav.js?v=1771354000"></script>
+    <script src="../../../assets/scripts/sidebar.js?v=1771528000"></script>
+    <script src="../../../assets/scripts/practix-footer.js?v=1770561723"></script>
+    <script src="../../../assets/scripts/pulse-relay.js?v=1770561723"></script>
+    <script src="../../../assets/scripts/analytics.js?v=1770561723"></script>
+    <script src="../../../assets/scripts/practix-generator.js?v=1770561723" defer></script>
+</head>
+
+<body>
+    <div class="page-bg"></div>
+
+    <div class="page-container">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
+            <!-- JS will populate -->
+        </aside>
+
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search formulas... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
+            </div>
+        </aside>
+
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Passport to Advanced Math
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Polynomial Functions</h1>
+                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px;">
+                        The building blocks of higher algebra. Master standard form, degrees, and rapid operations.
+                    </p>
+                </header>
+
+                <article class="formula-card" id="poly-standard">
+                    <div class="uvp-badge" style="background: #10b981; color: white;">Core Concept</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-poly-standard">
+                    </div>
+                    <span class="category-badge cat-alg">Advanced Math</span>
+                    <h3>Standard Form & Degree</h3>
+                    <div class="formula-display">\[ f(x) = a_n x^n + a_{n-1} x^{n-1} + \dots + a_0 \]</div>
+                    <p class="formula-explanation">Ordered from highest exponent to lowest. The <strong>Degree</strong>
+                        is the highest exponent (\(n\)). The <strong>Leading Coefficient</strong> is \(a_n\).</p>
+
+                    <div
+                        style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                Practice: "Degree of <span data-eqn-type="poly-degree">\(f(x) = 4x^3 - 7x^5 + 2x -
+                                    1\)</span>?"
+                            </p>
+                            <button class="randomize-btn" data-type="poly-degree"
+                                style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                🔄 New Problem
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 0.8rem; align-items: center;">
+                            <input type="text" id="poly-degree-answer-input" placeholder="e.g. 5"
+                                style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                            <button class="check-answer-btn" data-type="poly-degree"
+                                style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                Check Answer
+                            </button>
+                        </div>
+                        <div id="poly-degree-feedback" style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;">
+                        </div>
+                    </div>
+
+                    <details class="practix-reveal">
+                        <summary>Show Solution & Analysis</summary>
+                        <div class="solution-content">
+                            <p><strong>Step 1: Scrutinize the exponents.</strong><br>Exponents are 3, 5, 1, and 0.</p>
+                            <p><strong>Step 2: Identify the maximum.</strong><br>The highest power is 5.</p>
+                            <p><strong>Result: 5</strong> (This is a 5th-degree polynomial).</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="formula-card" id="poly-addition">
+                    <div class="uvp-badge" style="background: #3b82f6; color: white;">Precision</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-poly-addition">
+                    </div>
+                    <span class="category-badge cat-alg">Advanced Math</span>
+                    <h3>Adding & Subtracting</h3>
+                    <p class="formula-explanation">Combine <strong>Like Terms</strong> only. Watch the signs when
+                        subtracting—distribute the negative!</p>
+
+                    <div
+                        style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                Practice: "Simplify <span data-eqn-type="poly-sub">\((3x^2 + 5x) - (x^2 - 2x)\)</span>"
+                            </p>
+                            <button class="randomize-btn" data-type="poly-sub"
+                                style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                🔄 New Problem
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 0.8rem; align-items: center;">
+                            <input type="text" id="poly-sub-answer-input" placeholder="e.g. 2x^2 + 7x"
+                                style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                            <button class="check-answer-btn" data-type="poly-sub"
+                                style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                Check Answer
+                            </button>
+                        </div>
+                        <div id="poly-sub-feedback" style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;">
+                        </div>
+                    </div>
+
+                    <details class="practix-reveal">
+                        <summary>Show Solution & Analysis</summary>
+                        <div class="solution-content">
+                            <p><strong>1. Distribute negative:</strong><br>\(3x^2 + 5x - x^2 + 2x\)</p>
+                            <p><strong>2. Combine \(x^2\) terms:</strong><br>\(3x^2 - x^2 = 2x^2\)</p>
+                            <p><strong>3. Combine \(x\) terms:</strong><br>\(5x + 2x = 7x\)</p>
+                            <p><strong>Result: 2x² + 7x</strong></p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="formula-card" id="poly-multiplication">
+                    <div class="uvp-badge" style="background: #8b5cf6; color: white;">Speed Hack</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-poly-multiplication">
+                    </div>
+                    <span class="category-badge cat-alg">Advanced Math</span>
+                    <h3>Multiplication (FOIL & Beyond)</h3>
+                    <p class="formula-explanation">Distribute every term in the first polynomial to every term in the
+                        second.</p>
+                    <div class="formula-display">\[ (a+b)(c+d) = ac + ad + bc + bd \]</div>
+
+                    <div
+                        style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                Practice: "Expand <span data-eqn-type="poly-multiply">\((x + 3)(x - 4)\)</span>"
+                            </p>
+                            <button class="randomize-btn" data-type="poly-multiply"
+                                style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                🔄 New Problem
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 0.8rem; align-items: center;">
+                            <input type="text" id="poly-multiply-answer-input" placeholder="e.g. x^2 - x - 12"
+                                style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                            <button class="check-answer-btn" data-type="poly-multiply"
+                                style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                Check Answer
+                            </button>
+                        </div>
+                        <div id="poly-multiply-feedback"
+                            style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;"></div>
+                    </div>
+                </article>
+
+                <section class="topic-section"
+                    style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 12px; padding: 2.5rem; margin-top: 3rem;">
+                    <h2 style="color: #0369a1; margin-top: 0;">🎓 The Digital SAT Shortcut</h2>
+                    <p style="color: #0369a1; margin-bottom: 1rem;">Polynomial equivalence is easily tested in Desmos.
+                    </p>
+                    <div
+                        style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #7dd3fc; line-height: 1.8;">
+                        <p>1. Type the original expression as \(f(x)\).</p>
+                        <p>2. Type each answer choice as \(g(x)\), \(h(x)\), etc.</p>
+                        <p>3. If the graphs overlap <strong>exactly</strong>, they are equivalent. No messy algebra
+                            required for "Which of the following is equivalent to..." questions.</p>
+                    </div>
+                    </article>
+
+                    <footer></footer>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -146,7 +146,7 @@ const PILLARS_CONFIG = [
                     { name: "Lines and Linear Functions", topics: [{ name: "Algebra Traps", path: "hard-questions/algebra/index.html" }] },
                     { name: "Systems of Linear Equations", topics: [{ name: "System Solutions", path: "hard-questions/system-solutions/index.html" }] },
                     { name: "Linear Inequalities", topics: [] },
-                    { name: "Word Problems on Linear Equations", topics: [{ name: "Word Problems", path: "formulas/heart-of-algebra/linear-word-problems/index.html" }] }
+                    { name: "Word Problems on Linear Equations", topics: [{ name: "Word Problems", path: "hard-questions/word-problems/index.html" }] }
                 ]
             },
             {

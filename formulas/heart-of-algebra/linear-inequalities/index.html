@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Disable Browser Caching for Development -->
-
     <title>SAT Linear Inequalities & Shading | Practix</title>
     <meta name="description"
         content="Master SAT linear inequalities. Learn the sign flipping rule and shading shortcuts (Above/Below) for 800-level speed.">
@@ -37,7 +35,7 @@
         type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Linear Inequalities & Shading | Practix", "description": "SAT Math properties and shading shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
 </head>
 
-<body>
+<body class="content-page">
     <div class="page-bg"></div>
 
     <div class="page-container">
@@ -92,7 +90,7 @@
                             <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
                                 Practice: "Solve for \(x\): <span id="flip-problem-text">\( -3x + 4 \geq 19 \)</span>"
                             </p>
-                            <button class="randomize-btn-manual" onclick="generateFlip()"
+                            <button class="randomize-btn-manual" id="btn-flip-random"
                                 style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
                                 🔄 New Problem
                             </button>
@@ -100,7 +98,7 @@
                         <div style="display: flex; gap: 0.8rem; align-items: center;">
                             <input type="text" id="flip-answer-input" placeholder="e.g. x <= -5"
                                 style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
-                            <button class="check-answer-btn-manual" onclick="checkFlip()"
+                            <button class="check-answer-btn-manual" id="btn-flip-check"
                                 style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
                                 Check Answer
                             </button>
@@ -170,7 +168,7 @@
                                 <div style="display: flex; gap: 0.8rem; align-items: center;">
                                     <input type="text" id="shade-answer-input" placeholder="e.g. below solid"
                                         style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
-                                    <button class="check-answer-btn-manual" onclick="checkShade()"
+                                    <button class="check-answer-btn-manual" id="btn-shade-check"
                                         style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
                                         Check Answer
                                     </button>
@@ -188,47 +186,49 @@
         </main>
     </div>
 
-    <!-- Initialization Scripts -->
     <script>
+        // Initialization and Local Logic
         document.addEventListener('DOMContentLoaded', () => {
-            if (window.PractixNav) window.PractixNav.init();
-            if (window.Sidebar) window.Sidebar.init();
-            if (window.PractixFooter) window.PractixFooter.init();
+            // Local Problem Generator Logic
+            let currentProblem = { val: -5, sym: '<=' };
+
+            function generateFlip() {
+                const a = -Math.floor(Math.random() * 5 + 2);
+                const b = Math.floor(Math.random() * 10 + 1);
+                const c = Math.floor(Math.random() * 20 + 5);
+                const resultVal = (c - b) / a;
+                currentProblem = { val: resultVal, sym: '<=' };
+
+                document.getElementById('flip-problem-text').textContent = `\\( ${a}x + ${b} \\geq ${c} \\)`;
+                if (window.MathJax) MathJax.typesetPromise();
+                document.getElementById('flip-feedback').textContent = '';
+                document.getElementById('flip-answer-input').value = '';
+            }
+
+            function checkFlip() {
+                const input = document.getElementById('flip-answer-input').value.replace(/\s/g, '').toLowerCase();
+                const expected = `x<=${currentProblem.val}`;
+                if (input === expected || input === `x\\leq${currentProblem.val}`) {
+                    document.getElementById('flip-feedback').innerHTML = '<span style="color: #10b981;">✅ Correct! Mastery Earned.</span>';
+                } else {
+                    document.getElementById('flip-feedback').innerHTML = `<span style="color: #ef4444;">❌ Almost! It should be x ≤ ${currentProblem.val}</span>`;
+                }
+            }
+
+            function checkShade() {
+                const input = document.getElementById('shade-answer-input').value.toLowerCase();
+                if (input.includes('below') && input.includes('solid')) {
+                    document.getElementById('shade-feedback').innerHTML = '<span style="color: #10b981;">✅ Correct! Below and Solid.</span>';
+                } else {
+                    document.getElementById('shade-feedback').innerHTML = '<span style="color: #ef4444;">❌ Try again. Is it < or >? Solid or dashed?</span>';
+                }
+            }
+
+            // Hook up events
+            document.getElementById('btn-flip-random').onclick = generateFlip;
+            document.getElementById('btn-flip-check').onclick = checkFlip;
+            document.getElementById('btn-shade-check').onclick = checkShade;
         });
-
-        let currentProblem = { val: -5, sym: '<=' };
-
-        function generateFlip() {
-            const a = -Math.floor(Math.random() * 5 + 2);
-            const b = Math.floor(Math.random() * 10 + 1);
-            const c = Math.floor(Math.random() * 20 + 5);
-            const resultVal = (c - b) / a;
-            currentProblem = { val: resultVal, sym: '<=' };
-
-            document.getElementById('flip-problem-text').textContent = `\\( ${a}x + ${b} \\geq ${c} \\)`;
-            if (window.MathJax) MathJax.typesetPromise();
-            document.getElementById('flip-feedback').textContent = '';
-            document.getElementById('flip-answer-input').value = '';
-        }
-
-        function checkFlip() {
-            const input = document.getElementById('flip-answer-input').value.replace(/\s/g, '').toLowerCase();
-            const expected = `x<=${currentProblem.val}`;
-            if (input === expected || input === `x\\leq${currentProblem.val}`) {
-                document.getElementById('flip-feedback').innerHTML = '<span style="color: #10b981;">✅ Correct! Mastery Earned.</span>';
-            } else {
-                document.getElementById('flip-feedback').innerHTML = `<span style="color: #ef4444;">❌ Almost! It should be x ≤ ${currentProblem.val}</span>`;
-            }
-        }
-
-        function checkShade() {
-            const input = document.getElementById('shade-answer-input').value.toLowerCase();
-            if (input.includes('below') && input.includes('solid')) {
-                document.getElementById('shade-feedback').innerHTML = '<span style="color: #10b981;">✅ Correct! Below and Solid.</span>';
-            } else {
-                document.getElementById('shade-feedback').innerHTML = '<span style="color: #ef4444;">❌ Try again. Is it < or >? Solid or dashed?</span>';
-            }
-        }
     </script>
 </body>
 

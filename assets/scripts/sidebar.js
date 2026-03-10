@@ -6,15 +6,13 @@
     // 1. Calculate Base Path (Shared Logic)
     const currentPath = window.location.pathname;
     const pathSegments = currentPath.split('/').filter(s => s.length > 0);
-    const rootIndex = pathSegments.indexOf('_Sever');
+    const rootIndex = pathSegments.indexOf('_Server');
     let depth = 0;
     if (rootIndex !== -1) {
-        const segmentsAfterRoot = pathSegments.slice(rootIndex + 1);
-        const hasFile = segmentsAfterRoot.length > 0 && segmentsAfterRoot[segmentsAfterRoot.length - 1].includes('.');
-        depth = hasFile ? segmentsAfterRoot.length - 1 : segmentsAfterRoot.length;
+        depth = pathSegments.length - rootIndex - 1;
     } else {
-        const hasFile = pathSegments.length > 0 && pathSegments[pathSegments.length - 1].includes('.');
-        depth = hasFile ? pathSegments.length - 1 : pathSegments.length;
+        // Fallback or production logic
+        depth = pathSegments.length - 1;
     }
     const basePath = depth === 0 ? '' : '../'.repeat(depth);
 

@@ -48,7 +48,7 @@ const PILLARS_CONFIG = [
                     { name: "Lines and Linear Functions", topics: [{ name: "Slope & Lines", path: "formulas/heart-of-algebra/slope-and-lines/index.html" }] },
                     { name: "Systems of Linear Equations", topics: [{ name: "System Basics", path: "formulas/heart-of-algebra/linear-equations/index.html#intersect-meaning" }] },
                     { name: "Linear Inequalities", topics: [{ name: "Inequality Shading", path: "formulas/heart-of-algebra/linear-equations/index.html#ineq-shade" }] },
-                    { name: "Word Problems on Linear Equations", topics: [] }
+                    { name: "Word Problems on Linear Equations", topics: [{ name: "Word Problems", path: "math/linear-word-problems/index.html" }] }
                 ]
             },
             {
@@ -106,7 +106,7 @@ const PILLARS_CONFIG = [
                     { name: "Lines and Linear Functions", topics: [{ name: "Linear Equations", path: "desmos/linear-equations/index.html" }] },
                     { name: "Systems of Linear Equations", topics: [{ name: "System Solver", path: "desmos/system-solver/index.html" }] },
                     { name: "Linear Inequalities", topics: [{ name: "Inequality Shading", path: "desmos/inequality-shading/index.html" }] },
-                    { name: "Word Problems on Linear Equations", topics: [] }
+                    { name: "Word Problems on Linear Equations", topics: [{ name: "Word Problems", path: "math/linear-word-problems/index.html" }] }
                 ]
             },
             {
@@ -164,7 +164,7 @@ const PILLARS_CONFIG = [
                     { name: "Lines and Linear Functions", topics: [{ name: "Algebra Traps", path: "hard-questions/algebra/index.html" }] },
                     { name: "Systems of Linear Equations", topics: [{ name: "System Solutions", path: "hard-questions/system-solutions/index.html" }] },
                     { name: "Linear Inequalities", topics: [] },
-                    { name: "Word Problems on Linear Equations", topics: [] }
+                    { name: "Word Problems on Linear Equations", topics: [{ name: "Word Problems", path: "math/linear-word-problems/index.html" }] }
                 ]
             },
             {
@@ -191,7 +191,7 @@ const PILLARS_CONFIG = [
                     { name: "Lines and Linear Functions", topics: [{ name: "Lines & Graphs", path: "math/linear-equations/index.html#interpreting" }] },
                     { name: "Systems of Linear Equations", topics: [{ name: "Systems", path: "math/systems/index.html" }] },
                     { name: "Linear Inequalities", topics: [{ name: "Inequalities", path: "math/inequalities/index.html" }] },
-                    { name: "Word Problems on Linear Equations", topics: [] }
+                    { name: "Word Problems on Linear Equations", topics: [{ name: "Word Problems", path: "math/linear-word-problems/index.html" }] }
                 ]
             }
         ]

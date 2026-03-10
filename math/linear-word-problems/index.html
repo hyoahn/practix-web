@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Disable Browser Caching for Development -->
+
+    <title>SAT Word Problems on Linear Equations | Practix</title>
+    <meta name="description"
+        content="Master SAT Word Problems on Linear Equations. Learn how to translate English into math, interpret slopes as rates, and y-intercepts as starting values.">
+    <link rel="stylesheet" href="../../assets/styles/styles.v4.css?v=1771360000">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../assets/scripts/practix-nav.js?v=1771354000"></script>
+    <script src="../../assets/scripts/sidebar.js?v=1771528000"></script>
+    <script src="../../assets/scripts/practix-footer.js?v=1770561723"></script>
+    <script src="../../assets/scripts/pulse-relay.js?v=1770561723"></script>
+    <script src="../../assets/scripts/analytics.js?v=1770561723"></script>
+
+    <style>
+        .topic-header {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .perspective-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .perspective-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .perspective-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .p-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.03);
+            padding: 1rem;
+            border-radius: 12px;
+        }
+
+        .p-formula .p-icon {
+            color: #f59e0b;
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        .p-desmos .p-icon {
+            color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .p-trap .p-icon {
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .concept-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .highlight-box {
+            background: #fffbeb;
+            border: 2px solid #fde68a;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-title {
+            color: #b45309;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .translation-row {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #fef3c7;
+        }
+
+        .translation-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .english-phrase {
+            flex: 1;
+            font-size: 1.1rem;
+            color: #4b5563;
+        }
+
+        .math-translation {
+            flex: 1;
+            font-family: 'Space Grotesk', monospace;
+            font-size: 1.25rem;
+            color: #d97706;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .translation-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-bg"></div>
+    <div class="page-container">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail"></aside>
+
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input" placeholder="Search topics...">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;"></div>
+        </aside>
+
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+
+                <header class="topic-header">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #ea580c; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Heart of Algebra
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1rem;">Word Problems</h1>
+                    <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto;">
+                        Lost in translation? Learn how the SAT disguises simple algebra as complex English paragraphs.
+                    </p>
+                </header>
+
+                <div style="max-width: 1000px; margin: 0 auto; padding: 0 5%;">
+
+                    <!-- CONCEPT: The Code Words -->
+                    <div class="concept-section">
+                        <h2 style="font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">The Secret Language of the SAT
+                        </h2>
+                        <p
+                            style="font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 2rem;">
+                            Before you try to solve a word problem, you have to decode it. In standard form (\(y = mx +
+                            b\)), the SAT explicitly uses certain vocabulary to denote the slope \(m\) and the
+                            y-intercept \(b\).
+                        </p>
+
+                        <div style="display: flex; flex-direction: column; gap: 3rem;">
+
+                            <!-- Slope Translation -->
+                            <div
+                                style="background: #eff6ff; padding: 2rem; border-radius: 16px; border: 1px solid #dbeafe;">
+                                <h3 style="color: #1e40af; font-size: 1.3rem; margin-bottom: 1rem;">
+                                    Translating Slope (\(m\))</h3>
+                                <div
+                                    style="font-size: 1.1rem; color: #1e3a8a; line-height: 1.6; margin-bottom: 1.5rem;">
+                                    Slope represents a <strong>Rate of Change</strong>. It happens repeatedly. Look for
+                                    magic multiplier words.
+                                </div>
+                                <div class="translation-row" style="border-color: #bfdbfe;">
+                                    <div class="english-phrase">"He earns $15 <strong>per</strong> hour."</div>
+                                    <div class="math-translation" style="color: #2563eb;">Rate = 15</div>
+                                </div>
+                                <div class="translation-row" style="border-color: #bfdbfe;">
+                                    <div class="english-phrase">"The pool drains 5 gallons <strong>each</strong>
+                                        minute."</div>
+                                    <div class="math-translation" style="color: #2563eb;">Rate = -5</div>
+                                </div>
+                                <div class="translation-row" style="border-color: #bfdbfe;">
+                                    <div class="english-phrase">"The tree grows 2 inches <strong>every</strong> day."
+                                    </div>
+                                    <div class="math-translation" style="color: #2563eb;">Rate = +2</div>
+                                </div>
+                            </div>
+
+                            <!-- Y-Intercept Translation -->
+                            <div
+                                style="background: #fdf2f8; padding: 2rem; border-radius: 16px; border: 1px solid #fce7f3;">
+                                <h3 style="color: #86198f; font-size: 1.3rem; margin-bottom: 1rem;">
+                                    Translating Y-Intercept (\(b\))</h3>
+                                <div
+                                    style="font-size: 1.1rem; color: #701a75; line-height: 1.6; margin-bottom: 1.5rem;">
+                                    The y-intercept represents the <strong>Starting Amount</strong>. It happens exactly
+                                    once. Look for flat fees or starting values.
+                                </div>
+                                <div class="translation-row" style="border-color: #fbcfe8;">
+                                    <div class="english-phrase">"There is a $50 <strong>flat fee</strong>."</div>
+                                    <div class="math-translation" style="color: #c026d3;">Constant = 50</div>
+                                </div>
+                                <div class="translation-row" style="border-color: #fbcfe8;">
+                                    <div class="english-phrase">"She <strong>started with</strong> 40 apples."</div>
+                                    <div class="math-translation" style="color: #c026d3;">Constant = 40</div>
+                                </div>
+                                <div class="translation-row" style="border-color: #fbcfe8;">
+                                    <div class="english-phrase">"An <strong>initial</strong> deposit of $100."</div>
+                                    <div class="math-translation" style="color: #c026d3;">Constant = 100</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- CONCEPT: Putting it Together -->
+                    <div class="concept-section" style="border-bottom: none;">
+                        <h2 style="font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">Putting It Together
+                        </h2>
+
+                        <div class="highlight-box">
+                            <h3 class="highlight-title">The "Cell Phone Bill" Setup</h3>
+                            <p style="color: #92400e; font-size: 1.1rem; margin-bottom: 1rem; line-height: 1.6;">
+                                <em>"A phone company charges a <strong>$30 monthly fee</strong> plus <strong>$0.10 per
+                                        text message</strong> sent."</em>
+                            </p>
+                            <p style="color: #92400e; margin-bottom: 0.5rem;"><strong>Identify the parts:</strong></p>
+                            <ul style="color: #b45309; margin-bottom: 1.5rem; line-height: 1.8;">
+                                <li>The "monthly fee" happens once per month (regardless of usage). That's our starting
+                                    amount (\(b = 30\)).</li>
+                                <li>The word "per" tells us $0.10 is the rate attached to the changing variable (\(m =
+                                    0.1\)).</li>
+                            </ul>
+                            <div
+                                style="font-family: 'Space Grotesk'; font-size: 1.5rem; color: #d97706; background: white; padding: 1rem; border-radius: 8px; text-align: center; border: 1px solid #fcd34d;">
+                                Cost = 0.1x + 30
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

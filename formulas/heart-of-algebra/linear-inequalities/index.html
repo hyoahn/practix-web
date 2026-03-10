@@ -4,139 +4,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linear Inequalities - Practix SAT Formulas</title>
+
+    <!-- Disable Browser Caching for Development -->
+
+    <title>SAT Linear Inequalities & Shading | Practix</title>
     <meta name="description"
-        content="Master SAT linear inequalities: sign flipping rules, shading (above/below), and dashed vs solid lines with interactive practice.">
+        content="Master SAT linear inequalities. Learn the sign flipping rule and shading shortcuts (Above/Below) for 800-level speed.">
 
-    <!-- Core Styling -->
-    <link rel="stylesheet" href="../../../assets/css/index.css">
+    <!-- Programmatic SEO & Social -->
+    <meta property="og:title" content="Elite SAT Linear Inequalities Cheat Sheet | Practix">
+    <meta property="og:description"
+        content="Master inequality shading and sign flipping instantly. Free wallpaper pack included for 800-level scorers.">
+    <meta property="og:image" content="../../../assets/images/wallpapers/wall_boss_mode.png">
+    <meta name="twitter:card" content="summary_large_image">
 
-    <!-- External Dependencies -->
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="../../../assets/scripts/pulse-relay.js" defer></script>
-    <script src="../../../assets/scripts/analytics.js" defer></script>
+    <link rel="stylesheet" href="../../../assets/styles/styles.v4.css?v=1771360000">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../assets/scripts/practix-nav.js?v=1771354000"></script>
+    <script src="../../../assets/scripts/sidebar.js?v=1771528000"></script>
+    <script src="../../../assets/scripts/practix-footer.js?v=1770561723"></script>
+    <script src="../../../assets/scripts/pulse-relay.js?v=1770561723"></script>
+    <script src="../../../assets/scripts/analytics.js?v=1770561723"></script>
+    <script src="../../../assets/scripts/practix-generator.js?v=1770561723" defer></script>
+
+    <script
+        type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "SAT Linear Inequalities & Shading | Practix", "description": "SAT Math properties and shading shortcuts.", "proficiencyLevel": "Expert", "author": {"@type": "Organization", "name": "Practix SAT Prep"}}</script>
 </head>
 
-<body class="narrow-rail main-stage">
+<body>
+    <div class="page-bg"></div>
 
-    <!-- Navigation Header -->
-    <practix-nav data-pillar="Formulas"></practix-nav>
+    <div class="page-container">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail">
+            <!-- JS will populate -->
+        </aside>
 
-    <!-- Sidebar Navigation (Narrow Rail) -->
-    <aside class="sidebar-rail">
-        <practix-sidebar data-pillar="Formulas"></practix-sidebar>
-    </aside>
-
-    <!-- Main Content Area -->
-    <main class="content-stage">
-        <header class="content-header">
-            <h1 id="title">Linear Inequalities</h1>
-            <p class="topic-breadcrumb">Heart of Algebra &gt; Linear Inequalities</p>
-        </header>
-
-        <!-- Section 1: The Golden Rule (Sign Flipping) -->
-        <section class="formula-card highlight" id="sign-flip">
-            <div class="card-tag boss-mode">Boss Mode</div>
-            <h2>The Negative Flip</h2>
-            <p>When you multiply or divide both sides of an inequality by a <strong>negative number</strong>, you MUST
-                flip the inequality symbol.</p>
-
-            <div class="formula-box">
-                \[ -2x < 10 \implies x> -5 \]
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search formulas... (Press '/')">
             </div>
-
-            <div class="practice-box">
-                <p><strong>Practice:</strong> Solve for \(x\): \( -3x + 4 \geq 19 \)</p>
-                <div class="interactive-input">
-                    <input type="text" id="flip-input" placeholder="e.g. x <= -5">
-                    <button class="check-btn" onclick="checkFlip()">Check Answer</button>
-                    <button class="new-btn" onclick="generateFlip()">New Problem</button>
-                </div>
-                <div id="flip-feedback" class="feedback"></div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;">
+                <!-- JS will populate -->
             </div>
+        </aside>
 
-            <div class="practix-strategy">
-                <h3>Practix Way</h3>
-                <p>Instead of dividing by a negative and risking a flip error, <strong>add the variable term</strong> to
-                    the other side to make it positive. Zero risk, same result.</p>
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Heart of Algebra
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Linear Inequalities</h1>
+                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px;">
+                        Flip the sign, find the shade. Master the visual logic of SAT inequalities.
+                    </p>
+                </header>
+
+                <!-- Section 1: The Golden Rule (Sign Flipping) -->
+                <article class="formula-card" id="sign-flip">
+                    <div class="uvp-badge" style="background: #ef4444; color: white;">Boss Mode</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-sign-flip">
+                    </div>
+                    <span class="category-badge cat-alg">Heart of Algebra</span>
+                    <h3>The Negative Flip</h3>
+                    <div class="formula-display">\[ -2x < 10 \implies x> -5 \]</div>
+                    <p class="formula-explanation">Multiplying or dividing by a <strong>negative</strong> flips the
+                        symbol.</p>
+
+                    <div
+                        style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <p style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                Practice: "Solve for \(x\): <span id="flip-problem-text">\( -3x + 4 \geq 19 \)</span>"
+                            </p>
+                            <button class="randomize-btn-manual" onclick="generateFlip()"
+                                style="background: none; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.3rem 0.6rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.75rem;">
+                                🔄 New Problem
+                            </button>
+                        </div>
+                        <div style="display: flex; gap: 0.8rem; align-items: center;">
+                            <input type="text" id="flip-answer-input" placeholder="e.g. x <= -5"
+                                style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                            <button class="check-answer-btn-manual" onclick="checkFlip()"
+                                style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                Check Answer
+                            </button>
+                        </div>
+                        <div id="flip-feedback" style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;">
+                        </div>
+                    </div>
+
+                    <details class="practix-reveal">
+                        <summary>Show Solution & Analysis</summary>
+                        <div class="solution-content">
+                            <div class="comparison-grid"
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                <div>
+                                    <div class="school-header"
+                                        style="font-weight: 700; color: #ef4444; margin-bottom: 1rem;">🚫 School Way
+                                        (Rigorous)</div>
+                                    <p style="font-size: 0.9rem; line-height: 1.6;">
+                                        <strong>1. Subtract 4:</strong><br>
+                                        \( -3x \geq 15 \)<br>
+                                        <strong>2. Divide by -3:</strong><br>
+                                        Flip symbol: \( x \leq -5 \)<br>
+                                        <strong>Result: \( x \leq -5 \)</strong>
+                                    </p>
+                                </div>
+                                <div>
+                                    <div class="practix-header"
+                                        style="font-weight: 700; color: #10b981; margin-bottom: 1rem;">✅ Practix Way
+                                        (Optimal)</div>
+                                    <p style="font-size: 0.95rem; line-height: 1.6;">
+                                        **Step 1:** Add \( 3x \) to the other side to make it positive.<br>
+                                        \( 4 \geq 3x + 19 \implies -15 \geq 3x \).<br>
+                                        **Step 2:** Divide by positive 3.<br>
+                                        \( -5 \geq x \).<br>
+                                        **Result: \( x \leq -5 \)**<br>
+                                        <span style="color: #10b981; font-weight: 600;">Moving the variable prevents
+                                            "forgetting the flip".</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                </article>
+
+                <!-- Section 2: Shading Rules -->
+                <article class="formula-card" id="ineq-shade">
+                    <div class="uvp-badge" style="background: #f59e0b; color: white;">Visual</div>
+                    <div class="mastery-check-wrapper">
+                        <span class="mastery-label">Mastery</span>
+                        <input type="checkbox" class="mastery-check" id="check-ineq-shade">
+                    </div>
+                    <span class="category-badge cat-alg">Heart of Algebra</span>
+                    <h3>Inequality Shading</h3>
+                    <div class="formula-display">\[ y > \text{ Above}, \quad y < \text{ Below} \]</div>
+                            <p class="formula-explanation">Isolate \(y\) first. Use solid lines for \(\leq, \geq\) and
+                                dashed for \(<,>\).</p>
+
+                            <div
+                                style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0;">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                                    <p
+                                        style="font-weight: 700; color: var(--text-primary); margin: 0; font-size: 1.1rem;">
+                                        Practice: "For \( y \leq -2x + 4 \), where is the shade?"
+                                    </p>
+                                </div>
+                                <div style="display: flex; gap: 0.8rem; align-items: center;">
+                                    <input type="text" id="shade-answer-input" placeholder="e.g. below solid"
+                                        style="flex: 1; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); font-size: 1rem;">
+                                    <button class="check-answer-btn-manual" onclick="checkShade()"
+                                        style="background: var(--accent-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                                        Check Answer
+                                    </button>
+                                </div>
+                                <div id="shade-feedback"
+                                    style="margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem;">
+                                </div>
+                            </div>
+                </article>
+
+                <footer class="practix-footer" id="practix-footer">
+                    <!-- JS will populate -->
+                </footer>
             </div>
-        </section>
+        </main>
+    </div>
 
-        <!-- Section 2: Shading Rules -->
-        <section class="formula-card" id="shading">
-            <div class="card-tag speed-hack">Speed Hack</div>
-            <h2>Shading & Boundaries</h2>
-            <p>Don't pick test points. Use the visual shortcut for isolated \(y\) forms:</p>
-
-            <ul class="rule-list">
-                <li><strong>\(y > mx + b\)</strong>: Shade <strong>ABOVE</strong> the line.</li>
-                <li><strong>\(y < mx + b\)</strong>: Shade <strong>BELOW</strong> the line.</li>
-                <li><strong>\(\geq, \leq\)</strong>: Use a <strong>SOLID</strong> line (boundary included).</li>
-                <li><strong>\(>, <\)< /strong>: Use a <strong>DASHED</strong> line (boundary excluded).</li>
-            </ul>
-
-            <div class="practice-box">
-                <p><strong>Practice:</strong> For \( y \leq -2x + 4 \), should the shading be above or below, and is the
-                    line solid or dashed?</p>
-                <div class="interactive-input">
-                    <input type="text" id="shade-input" placeholder="e.g. below solid">
-                    <button class="check-btn" onclick="checkShade()">Check Answer</button>
-                </div>
-                <div id="shade-feedback" class="feedback"></div>
-            </div>
-        </section>
-
-        <!-- Section 3: Desmos Visualization -->
-        <section class="formula-card visual" id="visual-check">
-            <div class="card-tag visual">Visual</div>
-            <h2>Inequality Systems</h2>
-            <p>The solution to a system of inequalities is the <strong>overlapping region</strong> of shaded areas.</p>
-            <p>In Desmos, just type the inequalities exactly as written to see the intersection immediately.</p>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <practix-footer></practix-footer>
-
-    <!-- Page Scripts -->
-    <script src="../../../assets/scripts/sidebar.js"></script>
-    <script src="../../../assets/scripts/practix-nav.js"></script>
-    <script src="../../../assets/scripts/practix-footer.js"></script>
-    <script src="../../../assets/scripts/practix-generator.js"></script>
-
+    <!-- Initialization Scripts -->
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.PractixNav) window.PractixNav.init();
+            if (window.Sidebar) window.Sidebar.init();
+            if (window.PractixFooter) window.PractixFooter.init();
+        });
+
         let currentProblem = { val: -5, sym: '<=' };
 
         function generateFlip() {
             const a = -Math.floor(Math.random() * 5 + 2);
             const b = Math.floor(Math.random() * 10 + 1);
             const c = Math.floor(Math.random() * 20 + 5);
-            // ax + b >= c  => ax >= c-b => x <= (c-b)/a
             const resultVal = (c - b) / a;
             currentProblem = { val: resultVal, sym: '<=' };
 
-            document.querySelector('#sign-flip p Strong').nextSibling.textContent = ` Solve for x: ${a}x + ${b} \\geq ${c}`;
-            MathJax.typeset();
+            document.getElementById('flip-problem-text').textContent = `\\( ${a}x + ${b} \\geq ${c} \\)`;
+            if (window.MathJax) MathJax.typesetPromise();
             document.getElementById('flip-feedback').textContent = '';
-            document.getElementById('flip-input').value = '';
+            document.getElementById('flip-answer-input').value = '';
         }
 
         function checkFlip() {
-            const input = document.getElementById('flip-input').value.replace(/\s/g, '');
+            const input = document.getElementById('flip-answer-input').value.replace(/\s/g, '').toLowerCase();
             const expected = `x<=${currentProblem.val}`;
-            if (input === expected) {
-                document.getElementById('flip-feedback').innerHTML = '<span class="correct">Correct! You remembered the flip.</span>';
+            if (input === expected || input === `x\\leq${currentProblem.val}`) {
+                document.getElementById('flip-feedback').innerHTML = '<span style="color: #10b981;">✅ Correct! Mastery Earned.</span>';
             } else {
-                document.getElementById('flip-feedback').innerHTML = `<span class="incorrect">Not quite. Remember: ${expected}</span>`;
+                document.getElementById('flip-feedback').innerHTML = `<span style="color: #ef4444;">❌ Almost! It should be x ≤ ${currentProblem.val}</span>`;
             }
         }
 
         function checkShade() {
-            const input = document.getElementById('shade-input').value.toLowerCase();
+            const input = document.getElementById('shade-answer-input').value.toLowerCase();
             if (input.includes('below') && input.includes('solid')) {
-                document.getElementById('shade-feedback').innerHTML = '<span class="correct">Perfect! Below for "less than" and Solid for "equal to".</span>';
+                document.getElementById('shade-feedback').innerHTML = '<span style="color: #10b981;">✅ Correct! Below and Solid.</span>';
             } else {
-                document.getElementById('shade-feedback').innerHTML = '<span class="incorrect">Try again. Check the < and the = symbol.</span>';
+                document.getElementById('shade-feedback').innerHTML = '<span style="color: #ef4444;">❌ Try again. Is it < or >? Solid or dashed?</span>';
             }
         }
     </script>

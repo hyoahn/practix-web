@@ -103,7 +103,7 @@
                         name: "Advanced Math",
                         path: "formulas/passport-to-advanced-math/",
                         subsections: [
-                            { name: "Polynomial Functions", topics: [{ name: "Polynomial Basics", path: "formulas/index.html" }] },
+                            { name: "Polynomial Functions", topics: [{ name: "Polynomial Basics", path: "polynomial-functions/index.html" }] },
                             { name: "Quadratic Equations and Parabola", topics: [{ name: "Parabola Mastery", path: "formulas/passport-to-advanced-math/parabola-mastery/index.html" }, { name: "Quadratic Solutions", path: "formulas/passport-to-advanced-math/quadratic-solutions/index.html" }] },
                             { name: "Solutions of Linear Expressions", topics: [] },
                             { name: "Absolute Value", topics: [] },

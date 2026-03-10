@@ -193,6 +193,21 @@ const PILLARS_CONFIG = [
                     { name: "Linear Inequalities", topics: [{ name: "Inequalities", path: "math/inequalities/index.html" }] },
                     { name: "Word Problems on Linear Equations", topics: [{ name: "Word Problems", path: "math/linear-word-problems/index.html" }] }
                 ]
+            },
+            {
+                name: "Advanced Math",
+                path: "math/",
+                subsections: [
+                    { name: "Polynomial Functions", topics: [] },
+                    { name: "Quadratic Equations and Parabola", topics: [{ name: "Factored Form Expansion", path: "math/factored-form/index.html" }] },
+                    { name: "Solutions of Linear Expressions", topics: [] },
+                    { name: "Absolute Value", topics: [] },
+                    { name: "Ratios, Proportions, and Rates", topics: [] },
+                    { name: "Percentages", topics: [] },
+                    { name: "Exponents", topics: [] },
+                    { name: "Exponential Growth and Decay", topics: [] },
+                    { name: "Manipulating Expressions", topics: [] }
+                ]
             }
         ]
     }

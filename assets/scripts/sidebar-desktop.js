@@ -47,7 +47,7 @@ const PILLARS_CONFIG = [
                     { name: "Variables in Linear Equations", topics: [{ name: "Basics", path: "formulas/heart-of-algebra/linear-equations/index.html" }] },
                     { name: "Lines and Linear Functions", topics: [{ name: "Slope & Lines", path: "formulas/heart-of-algebra/slope-and-lines/index.html" }] },
                     { name: "Systems of Linear Equations", topics: [{ name: "System Basics", path: "formulas/heart-of-algebra/linear-equations/index.html#intersect-meaning" }] },
-                    { name: "Linear Inequalities", topics: [{ name: "Inequality Shading", path: "formulas/heart-of-algebra/linear-equations/index.html#ineq-shade" }] },
+                    { name: "Linear Inequalities", topics: [{ name: "Inequality Shading", path: "formulas/heart-of-algebra/linear-inequalities/index.html" }] },
                     { name: "Word Problems on Linear Equations", topics: [{ name: "Word Problems", path: "formulas/heart-of-algebra/linear-word-problems/index.html" }] }
                 ]
             },

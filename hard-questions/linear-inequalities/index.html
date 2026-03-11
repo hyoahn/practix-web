@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Hardest SAT Inequality Traps | Practix Digital SAT</title>
+    <meta name="description"
+        content="Master the hardest SAT Linear Inequalities. Learn to navigate system boundaries and integer constraints with Practix shortcuts.">
+
+    <link rel="stylesheet" href="../../assets/styles/styles.v4.css?v=1771360000">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../assets/scripts/practix-nav.js?v=1771354000"></script>
+    <script src="../../assets/scripts/sidebar.js?v=1771528000"></script>
+    <script src="../../assets/scripts/practix-footer.js?v=1770920000"></script>
+    <script src="../../assets/scripts/pulse-relay.js?v=1770561723"></script>
+    <script src="../../assets/scripts/analytics.js?v=1770561723"></script>
+</head>
+
+<body class="content-page">
+    <div class="page-bg"></div>
+
+    <div class="page-container">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail"></aside>
+
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search traps... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;"></div>
+        </aside>
+
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Hardest Questions • Linear Inequalities
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Inequality Traps</h1>
+                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px;">
+                        System boundaries and constraint-based logic. Master the rarest inequality edge cases.
+                    </p>
+                </header>
+
+                <!-- Question 1: Integer Constraint Trap -->
+                <article class="question-card" id="trap1">
+                    <div class="difficulty-rating">Difficulty: ★★★★★</div>
+                    <h2>The Integer Boundary Trap</h2>
+                    <div class="problem-box">
+                        <p>A set of points \((x, y)\) in the \(xy\)-plane satisfies the following system of
+                            inequalities:</p>
+                        <div style="font-size: 1.2rem; margin: 1.5rem 0; text-align: center;">
+                            \(y > 2x + 10\) <br>
+                            \(y < -3x + 40\) </div>
+                                <p>If \(x\) and \(y\) are <strong>positive integers</strong>, what is the maximum
+                                    possible value of \(x\)?</p>
+                        </div>
+                        <div class="trap-box">
+                            <h4>🚩 The Trap</h4>
+                            <p>Finding the intersection point \((x = 6, y = 22)\) and assuming \(x=6\) is a valid
+                                solution. But the inequalities are <strong>strict</strong> (\(<\) and \(>\)), and \(y\)
+                                    must be an integer!</p>
+                        </div>
+                        <details class="practix-reveal">
+                            <summary>✅ The Practix Shortcut</summary>
+                            <div class="solution-content">
+                                <ol>
+                                    <li><strong>Find the Intersection:</strong> Set them equal: \(2x + 10 = -3x + 40
+                                        \Rightarrow 5x = 30 \Rightarrow x = 6\).</li>
+                                    <li><strong>Check the Condition:</strong> At \(x = 6\), both inequalities become \(y
+                                        > 22\) and \(y < 22\). There is <strong>no</strong> \(y\) that satisfies both!
+                                    </li>
+                                    <li><strong>Test Downward:</strong> Try \(x = 5\). <br>
+                                        \(y > 2(5) + 10 = 20\) <br>
+                                        \(y < -3(5) + 40=25\) <br>
+                                            Valid integers for \(y\) are \(\{21, 22, 23, 24\}\). Since valid integers
+                                            exist, <strong>\(x = 5\)</strong> is our maximum.
+                                    </li>
+                                </ol>
+                                <p><strong>Answer: 5</strong>.</p>
+                            </div>
+                        </details>
+                </article>
+
+                <div style="text-align: center; padding: 3rem; border-top: 1px solid var(--border); margin-top: 2rem;">
+                    <p style="color: var(--text-secondary);">More high-difficulty inequality problems coming soon...</p>
+                </div>
+
+                <div id="practix-footer-container"></div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

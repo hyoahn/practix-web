@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SAT Solutions of Linear Expressions | Practix</title>
+    <meta name="description"
+        content="Learn how to quickly identify if a linear equation has one, zero, or infinitely many solutions—a frequent SAT math topic.">
+    <link rel="stylesheet" href="../../assets/styles/styles.v4.css?v=1771360000">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../assets/scripts/practix-nav.js?v=1771354000"></script>
+    <script src="../../assets/scripts/sidebar.js?v=1771528000"></script>
+    <script src="../../assets/scripts/practix-footer.js?v=1770561723"></script>
+    <script src="../../assets/scripts/pulse-relay.js?v=1770561723"></script>
+    <script src="../../assets/scripts/analytics.js?v=1770561723"></script>
+
+    <style>
+        .topic-header {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.1) 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .solution-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.2s;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .concept-section {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .equation-box {
+            font-family: 'Space Grotesk', monospace;
+            background: #f1f5f9;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 1.5rem 0;
+            border: 1px solid #e2e8f0;
+            font-size: 1.2rem;
+            color: #1e40af;
+        }
+
+        .trap-box {
+            background: #fffbeb;
+            border: 2px solid #fde68a;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .trap-title {
+            color: #92400e;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+
+<body class="content-page">
+    <div class="page-bg"></div>
+    <div class="page-container">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail"></aside>
+
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input" placeholder="Search topics...">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;"></div>
+        </aside>
+
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+
+                <header class="topic-header">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #2563eb; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Advanced Math • Solutions of Linear Expressions
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1rem;">Linear Equation Solutions</h1>
+                    <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto;">
+                        One, none, or infinitely many? Master the shortcut for identifying the number of solutions
+                        without solving the whole equation.
+                    </p>
+                </header>
+
+                <div style="max-width: 1000px; margin: 0 auto; padding: 0 5%;">
+
+                    <!-- CONCEPT: The Standard Form -->
+                    <div class="concept-section">
+                        <h2 style="font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">The Comparison Shortcut</h2>
+                        <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary);">
+                            To find the number of solutions, simplify both sides of the equation to the form:
+                        </p>
+                        <div class="equation-box">
+                            \(ax + b = cx + d\)
+                        </div>
+
+                        <div class="solution-grid">
+                            <div class="solution-card">
+                                <h3 style="color: #2563eb; margin-bottom: 0.8rem;">One Solution</h3>
+                                <p style="color: #475569; font-size: 0.95rem;">\(a \neq c\)</p>
+                                <p style="color: #64748b; margin-top: 0.5rem; font-size: 0.9rem;">The slopes are
+                                    different. The lines will intersect at exactly one point.</p>
+                            </div>
+                            <div class="solution-card">
+                                <h3 style="color: #2563eb; margin-bottom: 0.8rem;">No Solution</h3>
+                                <p style="color: #475569; font-size: 0.95rem;">\(a = c\) AND \(b \neq d\)</p>
+                                <p style="color: #64748b; margin-top: 0.5rem; font-size: 0.9rem;">Parallel lines. Same
+                                    slope, different y-intercept. They never touch.</p>
+                            </div>
+                            <div class="solution-card" style="background: #eff6ff; border-color: #bfdbfe;">
+                                <h3 style="color: #1e40af; margin-bottom: 0.8rem;">Infinite Solutions</h3>
+                                <p style="color: #1e40af; font-size: 0.95rem;">\(a = c\) AND \(b = d\)</p>
+                                <p style="color: #1e40af; margin-top: 0.5rem; font-size: 0.9rem;">The lines are
+                                    identical. Every point on one line is on the other.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CONCEPT: Geometric Interpretation -->
+                    <div class="concept-section">
+                        <h2 style="font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">Geometric View</h2>
+                        <p
+                            style="font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 2rem;">
+                            On the SAT, "number of solutions" is code for "number of intersection points."
+                        </p>
+
+                        <div
+                            style="background: white; border: 1px solid var(--border); border-radius: 16px; padding: 2rem;">
+                            <ul style="list-style: none; padding: 0; color: #334155; line-height: 2;">
+                                <li><strong>• Intersecting Lines:</strong> Different slopes \(\rightarrow\) 1 solution.
+                                </li>
+                                <li><strong>• Parallel Lines:</strong> Same slope, different intercepts \(\rightarrow\)
+                                    0 solutions.</li>
+                                <li><strong>• Coincident Lines:</strong> Same slope, same intercepts \(\rightarrow\)
+                                    Infinite solutions.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- TRAP: Zero vs Infinite -->
+                    <div class="concept-section" style="border-bottom: none;">
+                        <div class="trap-box">
+                            <h3 class="trap-title">
+                                <span>⚠️</span>
+                                The "Zero" Confusion
+                            </h3>
+                            <p style="color: #92400e; font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.6;">
+                                Don't confuse <strong>zero solutions</strong> with a solution of <strong>\(x =
+                                    0\)</strong>.
+                            </p>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div
+                                    style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #fde68a;">
+                                    <p style="font-weight: 700; color: #b45309;">Solution is Zero</p>
+                                    <p style="font-size: 0.9rem;">\(5x + 3 = 2x + 3\)</p>
+                                    <p style="font-size: 0.9rem;">\(3x = 0 \Rightarrow x = 0\)</p>
+                                </div>
+                                <div
+                                    style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #fde68a;">
+                                    <p style="font-weight: 700; color: #b45309;">No Solution</p>
+                                    <p style="font-size: 0.9rem;">\(5x + 3 = 5x + 7\)</p>
+                                    <p style="font-size: 0.9rem;">\(3 = 7\) (False Statement)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="practix-footer-container"></div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -103,7 +103,7 @@
                         subsections: [
                             { name: "Polynomial Functions", topics: [{ name: "Polynomial Basics", path: "formulas/passport-to-advanced-math/polynomial-functions/index.html" }] },
                             { name: "Quadratic Equations and Parabola", topics: [{ name: "Parabola Mastery", path: "formulas/passport-to-advanced-math/parabola-mastery/index.html" }, { name: "Quadratic Solutions", path: "formulas/passport-to-advanced-math/quadratic-solutions/index.html" }] },
-                            { name: "Solutions of Linear Expressions", topics: [] },
+                            { name: "Solutions of Linear Expressions", topics: [{ name: "Linear solution types", path: "math/solutions-linear-expressions/index.html" }] },
                             { name: "Absolute Value", topics: [] },
                             { name: "Ratios, Proportions, and Rates", topics: [] },
                             { name: "Percentages", topics: [{ name: "Percent Change", path: "formulas/heart-of-algebra/percent-change-shortcuts/index.html" }] },
@@ -161,7 +161,7 @@
                         subsections: [
                             { name: "Polynomial Functions", topics: [{ name: "Polynomial Roots", path: "desmos/poly-roots/index.html" }] },
                             { name: "Quadratic Equations and Parabola", topics: [{ name: "Parabola Roots", path: "desmos/quadratic-equations/parabola-roots/index.html" }] },
-                            { name: "Solutions of Linear Expressions", topics: [] },
+                            { name: "Solutions of Linear Expressions", topics: [{ name: "Linear solution types", path: "math/solutions-linear-expressions/index.html" }] },
                             { name: "Absolute Value", topics: [{ name: "Absolute Value Solve", path: "desmos/absolute-value/index.html" }] },
                             { name: "Ratios, Proportions, and Rates", topics: [] },
                             { name: "Percentages", topics: [] },
@@ -246,7 +246,7 @@
                         subsections: [
                             { name: "Polynomial Functions", topics: [{ name: "Polynomial Functions", path: "math/polynomial-functions/index.html" }] },
                             { name: "Quadratic Equations and Parabola", topics: [{ name: "Factored Form Expansion", path: "math/factored-form/index.html" }] },
-                            { name: "Solutions of Linear Expressions", topics: [] },
+                            { name: "Solutions of Linear Expressions", topics: [{ name: "Linear solution types", path: "math/solutions-linear-expressions/index.html" }] },
                             { name: "Absolute Value", topics: [] },
                             { name: "Ratios, Proportions, and Rates", topics: [] },
                             { name: "Percentages", topics: [] },

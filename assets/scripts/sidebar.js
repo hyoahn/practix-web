@@ -244,7 +244,7 @@
                         name: "Advanced Math",
                         path: "math/",
                         subsections: [
-                            { name: "Polynomial Functions", topics: [] },
+                            { name: "Polynomial Functions", topics: [{ name: "Polynomial Functions", path: "math/polynomial-functions/index.html" }] },
                             { name: "Quadratic Equations and Parabola", topics: [{ name: "Factored Form Expansion", path: "math/factored-form/index.html" }] },
                             { name: "Solutions of Linear Expressions", topics: [] },
                             { name: "Absolute Value", topics: [] },

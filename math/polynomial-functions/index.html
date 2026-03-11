@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SAT Polynomial Functions | Practix</title>
+    <meta name="description"
+        content="Master the Remainder Theorem, Factor Theorem, and graph characteristics of polynomial functions to excel in the SAT Math section.">
+    <link rel="stylesheet" href="../../assets/styles/styles.v4.css?v=1771360000">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../assets/scripts/practix-nav.js?v=1771354000"></script>
+    <script src="../../assets/scripts/sidebar.js?v=1771528000"></script>
+    <script src="../../assets/scripts/practix-footer.js?v=1770561723"></script>
+    <script src="../../assets/scripts/pulse-relay.js?v=1770561723"></script>
+    <script src="../../assets/scripts/analytics.js?v=1770561723"></script>
+
+    <style>
+        .topic-header {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .perspective-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .perspective-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .perspective-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .concept-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .math-block {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 1.5rem;
+            color: #4f46e5;
+            background: #e0e7ff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 1.5rem 0;
+            border: 1px solid #c7d2fe;
+            font-weight: 700;
+        }
+
+        .trap-box {
+            background: #fef2f2;
+            border: 2px solid #fecaca;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .trap-title {
+            color: #b91c1c;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+
+<body class="content-page">
+    <div class="page-bg"></div>
+    <div class="page-container">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail"></aside>
+
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input" placeholder="Search topics...">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;"></div>
+        </aside>
+
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+
+                <header class="topic-header">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #6366f1; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Advanced Math • Polynomial Functions
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1rem;">Polynomial Functions</h1>
+                    <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto;">
+                        Unlock the secrets of higher-degree equations. Master the Remainder Theorem and graph behaviors
+                        to solve complex SAT problems in seconds.
+                    </p>
+                </header>
+
+                <div style="max-width: 1000px; margin: 0 auto; padding: 0 5%;">
+
+                    <!-- CONCEPT: Remainder Theorem -->
+                    <div class="concept-section">
+                        <h2 style="font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">The Remainder Theorem</h2>
+                        <p
+                            style="font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 2rem;">
+                            The SAT often asks for the remainder when a polynomial \(p(x)\) is divided by a linear
+                            factor \((x - c)\). You don't need long division! Just plug in the value:
+                        </p>
+
+                        <div class="math-block">
+                            Remainder of \(\frac{p(x)}{x - c}\) is simply \(p(c)\)
+                        </div>
+
+                        <div class="perspective-grid">
+                            <div class="perspective-card">
+                                <h3 style="color: #4338ca; margin-bottom: 1rem;">Fast Hack</h3>
+                                <p style="color: #4b5563; line-height: 1.6;"> If the question says "\(p(x)\) is divided
+                                    by \((x + 2)\)", calculate <strong>\(p(-2)\)</strong>.</p>
+                            </div>
+                            <div class="perspective-card">
+                                <h3 style="color: #4338ca; margin-bottom: 1rem;">Factor Connection</h3>
+                                <p style="color: #4b5563; line-height: 1.6;">If \(p(c) = 0\), then \((x - c)\) is a
+                                    <strong>factor</strong> of the polynomial.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CONCEPT: Graph Characteristics -->
+                    <div class="concept-section">
+                        <h2 style="font-family: 'Space Grotesk'; margin-bottom: 1.5rem;">Graph Characteristics</h2>
+                        <p
+                            style="font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 2rem;">
+                            Recognizing polynomial graphs based on their degree and leading coefficient is a high-value
+                            SAT skill.
+                        </p>
+
+                        <div style="display: flex; flex-direction: column; gap: 2rem;">
+                            <div
+                                style="background: #f8fafc; padding: 2rem; border-radius: 16px; border: 1px solid #e2e8f0;">
+                                <h3 style="color: #0f172a; font-size: 1.3rem; margin-bottom: 1rem;">Zeros and
+                                    Multiplicity</h3>
+                                <ul style="list-style: none; padding: 0; color: #334155; line-height: 1.8;">
+                                    <li>• <strong>Standard Root:</strong> Graph crosses the x-axis.</li>
+                                    <li>• <strong>Double Root (Squared):</strong> Graph "bounces" off the x-axis.</li>
+                                    <li>• <strong>Triple Root (Cubed):</strong> Graph "flattens" as it crosses.</li>
+                                </ul>
+                            </div>
+
+                            <div
+                                style="background: #f1f5f9; padding: 2rem; border-radius: 16px; border: 1px solid #cbd5e1;">
+                                <h3 style="color: #0f172a; font-size: 1.3rem; margin-bottom: 1rem;">Turning Points</h3>
+                                <p style="color: #334155; line-height: 1.6;">
+                                    A polynomial of degree \(n\) can have at most <strong>\(n - 1\)</strong> turning
+                                    points (peaks and valleys).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TRAP: Synthetic vs Long Division -->
+                    <div class="concept-section" style="border-bottom: none;">
+                        <div class="trap-box">
+                            <h3 class="trap-title">
+                                <span>⚠️</span>
+                                The Long Division Trap
+                            </h3>
+                            <p style="color: #991b1b; font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.6;">
+                                Don't waste time on full polynomial long division unless the answer choices are in
+                                quotient form. For "finding the remainder" or "checking factors," the **Remainder
+                                Theorem** is always 10x faster.
+                            </p>
+
+                            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                                <div
+                                    style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #fca5a5; display: flex; align-items: center; justify-content: space-between;">
+                                    <span style="font-size: 1rem; color: #ef4444; font-weight: bold;">AVOID:</span>
+                                    <span style="font-size: 0.9rem; font-style: italic;">Doing 5 rows of division
+                                        work</span>
+                                </div>
+                                <div
+                                    style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #bbf7d0; display: flex; align-items: center; justify-content: space-between;">
+                                    <span style="font-size: 1rem; color: #10b981; font-weight: bold;">MASTER:</span>
+                                    <span style="font-size: 1rem;">Just plug in \(x=c\) and solve!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="practix-footer-container"></div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

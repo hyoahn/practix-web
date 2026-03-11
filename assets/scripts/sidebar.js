@@ -218,7 +218,8 @@
                         path: "hard-questions/",
                         subsections: [
                             { name: "Polynomial Functions", topics: [] },
-                            { name: "Quadratic Equations and Parabola", topics: [{ name: "Discriminant Dangers", path: "hard-questions/discriminant-dangers/index.html" }] }
+                            { name: "Quadratic Equations and Parabola", topics: [{ name: "Discriminant Dangers", path: "hard-questions/discriminant-dangers/index.html" }] },
+                            { name: "Circles", topics: [{ name: "Circle Traps", path: "hard-questions/circle-equations/index.html" }] }
                         ]
                     }
                 ]

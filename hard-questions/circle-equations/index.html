@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Hardest SAT Circle Equation Traps | Practix Digital SAT</title>
+    <meta name="description"
+        content="Master the hardest SAT Circle Equation questions. Learn to spot non-unit coefficient traps and handle general-to-standard form conversion with Practix shortcuts.">
+
+    <link rel="stylesheet" href="../../assets/styles/styles.v4.css?v=1771360000">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../assets/scripts/practix-nav.js?v=1771354000"></script>
+    <script src="../../assets/scripts/sidebar.js?v=1771528000"></script>
+    <script src="../../assets/scripts/practix-footer.js?v=1770920000"></script>
+    <script src="../../assets/scripts/pulse-relay.js?v=1770561723"></script>
+    <script src="../../assets/scripts/analytics.js?v=1770561723"></script>
+</head>
+
+<body class="content-page">
+    <div class="page-bg"></div>
+
+    <div class="page-container">
+        <!-- 1. NARROW RAIL -->
+        <aside class="narrow-rail" id="narrow-rail"></aside>
+
+        <!-- 2. COMMAND SIDEBAR -->
+        <aside class="command-sidebar">
+            <div class="sidebar-search-container">
+                <span class="search-icon-fixed">🔍</span>
+                <input type="text" id="sidebar-search" class="sidebar-search-input"
+                    placeholder="Search traps... (Press '/')">
+            </div>
+            <div id="sidebar-tree" style="flex: 1; overflow-y: auto;"></div>
+        </aside>
+
+        <!-- 3. MAIN STAGE -->
+        <main class="main-stage">
+            <div class="stage-content-scroll">
+                <header class="hero-section">
+                    <div
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Hardest Questions • Circle Equations
+                    </div>
+                    <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Circle Equation Traps</h1>
+                    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px;">
+                        The standard form \((x-h)^2 + (y-k)^2 = r^2\) hides subtle traps. Master the non-unit
+                        coefficient and scale-factor dangers.
+                    </p>
+                </header>
+
+                <!-- Question 1: Coefficient Trap -->
+                <article class="question-card" id="trap1">
+                    <div class="difficulty-rating">Difficulty: ★★★★★</div>
+                    <h2>The Coefficient Scale Trap</h2>
+                    <div class="problem-box">
+                        <p>The equation of a circle in the \(xy\)-plane is given by:</p>
+                        <div style="font-size: 1.2rem; margin: 1.5rem 0; text-align: center;">
+                            \(2x^2 + 2y^2 - 12x + 16y = 10\)
+                        </div>
+                        <p>What is the area of the circle?</p>
+                    </div>
+                    <div class="trap-box">
+                        <h4>🚩 The Trap</h4>
+                        <p>Plunging directly into "completing the square" while the coefficients of \(x^2\) and \(y^2\)
+                            are still \(2\). If you don't divide by \(2\) first, your radius calculation will be off by
+                            a factor of \(\sqrt{2}\), making your area off by double!</p>
+                    </div>
+                    <details class="practix-reveal">
+                        <summary>✅ The Practix Shortcut</summary>
+                        <div class="solution-content">
+                            <ol>
+                                <li><strong>The Mandatory Step:</strong> Standard form <em>requires</em> the
+                                    coefficients of \(x^2\) and \(y^2\) to be \(1\). Divide the entire equation by
+                                    \(2\):
+                                    \[x^2 + y^2 - 6x + 8y = 5\]
+                                </li>
+                                <li><strong>The Center Shortcut:</strong> Half the coefficients of \(x\) and \(y\), then
+                                    flip the signs:
+                                    \[h = -(-6)/2 = 3, \quad k = -(8)/2 = -4\]
+                                </li>
+                                <li><strong>The Radius Formula:</strong> \(r^2 = h^2 + k^2 + \text{constant term from
+                                    RHS}\):
+                                    \[r^2 = 3^2 + (-4)^2 + 5 = 9 + 16 + 5 = 30\]
+                                </li>
+                                <li><strong>Calculate Area:</strong> Area \(= \pi r^2 = 30\pi\).</li>
+                            </ol>
+                            <p><strong>Answer: \(30\pi\)</strong>.</p>
+                        </div>
+                    </details>
+                </article>
+
+                <div style="text-align: center; padding: 3rem; border-top: 1px solid var(--border); margin-top: 2rem;">
+                    <p style="color: var(--text-secondary);">More high-difficulty circle problems coming soon...</p>
+                </div>
+
+                <div id="practix-footer-container"></div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -155,6 +155,7 @@ const PILLARS_CONFIG = [
                 subsections: [
                     { name: "Polynomial Functions", topics: [] },
                     { name: "Quadratic Equations and Parabola", topics: [{ name: "Discriminant Dangers", path: "hard-questions/discriminant-dangers/index.html" }] },
+                    { name: "Circles", topics: [{ name: "Circle Traps", path: "hard-questions/circle-equations/index.html" }] },
                     { name: "Solutions of Linear Expressions", topics: [{ name: "Linear solution types", path: "math/solutions-linear-expressions/index.html" }] },
                     { name: "Absolute Value", topics: [] },
                     { name: "Ratios, Proportions, and Rates", topics: [] },
